@@ -54,6 +54,10 @@ def cut(slot, spec):
     parts, labels = [], []
     for i, (a, b, sp, crop) in enumerate(segs):
         cr = f"crop={crop}," if crop else ""
+        if crop:  # a crop that runs past the bottom/right edge sees dark padding, so a panel can sit above the caption band
+            w, h, x, y = (int(v) for v in crop.split(":"))
+            if x + w > 1920 or y + h > 1080:
+                cr = f"pad={max(1920, x + w)}:{max(1080, y + h)}:0:0:color=0x0c0c0b," + cr
         parts.append(f"[0:v]trim=start={a:.3f}:end={b:.3f},setpts=(PTS-STARTPTS)/{sp},fps={FPS},{cr}scale=1920:1080:flags=lanczos,setsar=1[s{i}]")
         labels.append(f"[s{i}]")
     kept = sum((b - a) / sp for a, b, sp, _ in segs)

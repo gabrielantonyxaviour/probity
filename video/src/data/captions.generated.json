@@ -1,376 +1,397 @@
 {
- "a01": [
+ "a21": [
   {
-   "text": "An accounts-payable controls lead at a federal contractor",
+   "text": "Every week, accounts payable sends money out to hundreds",
    "start": 0.0,
-   "end": 2.923
+   "end": 3.154
   },
   {
-   "text": "gets an email: new bank details,",
-   "start": 3.0,
-   "end": 5.538
+   "text": "of vendors, and almost all of it lands exactly where it",
+   "start": 3.231,
+   "end": 6.538
   },
   {
-   "text": "eight days before $1.28 million in payments.",
-   "start": 5.615,
-   "end": 9.308
-  },
-  {
-   "text": "Policy says call back on a number that did not come from",
-   "start": 9.615,
-   "end": 12.538
-  },
-  {
-   "text": "the letter. In practice that number takes four systems to",
-   "start": 12.577,
-   "end": 16.077
-  },
-  {
-   "text": "find, so people call the one on the letter.",
-   "start": 16.231,
-   "end": 18.846
-  },
-  {
-   "text": "Probity reads the letter with NVIDIA Nemotron,",
-   "start": 18.923,
-   "end": 21.769
-  },
-  {
-   "text": "then discovers the vendor's real corporate family across",
-   "start": 21.846,
-   "end": 24.692
-  },
-  {
-   "text": "USAspending, SEC EDGAR and our own vendor master through",
-   "start": 24.769,
-   "end": 28.692
-  },
-  {
-   "text": "Zetaris, which joins them in one semantic layer.",
-   "start": 28.769,
-   "end": 32.154
-  },
-  {
-   "text": "The new address is real, but it belongs to a different",
-   "start": 32.192,
-   "end": 34.923
-  },
-  {
-   "text": "Booz Allen company that has never billed us.",
-   "start": 35.0,
-   "end": 37.346
-  },
-  {
-   "text": "Decision: hold, with a call-back number from SEC records.",
-   "start": 37.615,
-   "end": 41.577
-  },
-  {
-   "text": "Then, unasked, it checks the rest of Friday's run.",
-   "start": 41.846,
-   "end": 45.077
-  },
-  {
-   "text": "Every registry fact is live public data.",
-   "start": 45.385,
-   "end": 48.308
-  }
- ],
- "a02": [
-  {
-   "text": "Four agents, each with its own authority.",
-   "start": 0.0,
-   "end": 3.231
-  },
-  {
-   "text": "The Letter Reader reads the letter twice,",
-   "start": 3.269,
-   "end": 5.538
-  },
-  {
-   "text": "in two independent Nemotron Ultra calls;",
-   "start": 5.654,
-   "end": 8.462
-  },
-  {
-   "text": "the readings must agree field by field.",
-   "start": 8.538,
-   "end": 11.538
-  },
-  {
-   "text": "The Registry Scout runs a floor of Zetaris checks,",
-   "start": 11.577,
-   "end": 14.615
-  },
-  {
-   "text": "and Nemotron Lightning adds what it misses.",
-   "start": 14.692,
-   "end": 17.308
-  },
-  {
-   "text": "The Examiner re-runs each new link's Zetaris query and",
-   "start": 17.346,
-   "end": 20.769
-  },
-  {
-   "text": "checks the rows. Code decides the verdict.",
-   "start": 20.885,
-   "end": 23.769
-  }
- ],
- "a03": [
-  {
-   "text": "This letter told the AI to approve it,",
-   "start": 0.0,
-   "end": 2.385
-  },
-  {
-   "text": "in hidden lines. Probity quotes them as evidence,",
-   "start": 2.462,
-   "end": 5.692
-  },
-  {
-   "text": "never obeys, and holds the payment.",
-   "start": 5.846,
-   "end": 8.192
-  },
-  {
-   "text": "A call-back cannot clear it.",
-   "start": 8.385,
-   "end": 10.385
-  }
- ],
- "a04": [
-  {
-   "text": "Here is the real run. The reader quotes the letter,",
-   "start": 0.0,
-   "end": 3.231
-  },
-  {
-   "text": "including the line asking us not to use the old number.",
-   "start": 3.462,
-   "end": 6.231
-  },
-  {
-   "text": "The Scout checks the vendor master and the registries",
+   "text": "should.",
    "start": 6.615,
-   "end": 9.154
-  },
-  {
-   "text": "through Zetaris. The address matches nothing we know,",
-   "start": 9.231,
-   "end": 12.692
-  },
-  {
-   "text": "so the Examiner sends the Scout back.",
-   "start": 12.769,
-   "end": 14.808
-  },
-  {
-   "text": "A coverage rule walks Booz Allen's family,",
-   "start": 15.0,
-   "end": 17.462
-  },
-  {
-   "text": "forty-one entities, and keeps the one in New Jersey.",
-   "start": 17.538,
-   "end": 20.538
-  },
-  {
-   "text": "A naive check would pass this:",
-   "start": 20.923,
-   "end": 22.923
-  },
-  {
-   "text": "it is a real Booz Allen address.",
-   "start": 23.0,
-   "end": 25.0
-  },
-  {
-   "text": "It belongs to a different Booz Allen company that has",
-   "start": 25.308,
-   "end": 27.769
-  },
-  {
-   "text": "never billed us. The Examiner re-runs that query before it",
-   "start": 27.923,
-   "end": 31.308
-  },
-  {
-   "text": "counts. Decision: hold. The call-back number comes from",
-   "start": 31.385,
-   "end": 35.385
-  },
-  {
-   "text": "SEC filings; the letter's number and the master number",
-   "start": 35.538,
-   "end": 38.769
-  },
-  {
-   "text": "changed by email three days earlier are on the do-not-use",
-   "start": 38.846,
-   "end": 42.154
-  },
-  {
-   "text": "list.",
-   "start": 42.231,
-   "end": 42.769
+   "end": 7.154
   }
  ],
- "a05": [
+ "a22": [
   {
-   "text": "Same name, two companies. It refuses to guess,",
+   "text": "Then an email like this shows up.",
    "start": 0.0,
-   "end": 3.615
+   "end": 2.346
   },
   {
-   "text": "and writes a call-back script for each.",
-   "start": 3.692,
-   "end": 5.846
+   "text": "Booz Allen, apparently, with new bank details,",
+   "start": 2.615,
+   "end": 6.0
+  },
+  {
+   "text": "eight days before we owe them 1.28 million dollars.",
+   "start": 6.115,
+   "end": 9.923
   }
  ],
- "a06": [
+ "a23": [
   {
-   "text": "Memory across sessions. An impersonation confirmed in one",
-   "start": 0.0,
-   "end": 4.0
-  },
-  {
-   "text": "session is remembered by the World Model;",
-   "start": 4.077,
-   "end": 6.615
-  },
-  {
-   "text": "a later L3Harris request reuses that bank account,",
-   "start": 6.654,
-   "end": 10.077
-  },
-  {
-   "text": "and it is held.",
-   "start": 10.115,
-   "end": 11.077
-  }
- ],
- "a07": [
-  {
-   "text": "If Zetaris is down, it says so and never approves.",
-   "start": 0.0,
-   "end": 3.923
-  }
- ],
- "a08": [
-  {
-   "text": "Every registry and ledger fact in this decision came from",
+   "text": "This really happens. In 2018,",
    "start": 0.0,
    "end": 3.0
   },
   {
-   "text": "Zetaris, which joins our vendor master,",
-   "start": 3.077,
-   "end": 5.769
+   "text": "twenty-three and a half million dollars was diverted from",
+   "start": 3.115,
+   "end": 6.077
   },
   {
-   "text": "USAspending and SEC EDGAR in one semantic layer.",
-   "start": 5.846,
-   "end": 9.615
+   "text": "a government payment system this way.",
+   "start": 6.115,
+   "end": 7.962
   },
   {
-   "text": "Each one traces back to its rows:",
-   "start": 10.154,
-   "end": 12.308
+   "text": "Last year the FBI counted three billion lost to email",
+   "start": 8.231,
+   "end": 11.692
   },
   {
-   "text": "source system, table, query id and row hash,",
-   "start": 12.385,
-   "end": 15.846
+   "text": "fraud. And the fix everyone agrees on is simple:",
+   "start": 11.769,
+   "end": 15.308
   },
   {
-   "text": "and you can re-run it. The sweep runs Zetaris data-quality",
-   "start": 15.923,
-   "end": 19.385
-  },
-  {
-   "text": "rules. Every agent call goes through Meterless Nightshift",
-   "start": 19.462,
-   "end": 22.846
-  },
-  {
-   "text": "to a pinned Nemotron model, and the ledger shows which.",
-   "start": 22.923,
-   "end": 26.308
+   "text": "call back on a number you already trust.",
+   "start": 15.423,
+   "end": 17.769
   }
  ],
- "a09": [
+ "a24": [
   {
-   "text": "For a company we have never paid,",
+   "text": "The hard part is finding that number.",
    "start": 0.0,
    "end": 2.231
   },
   {
-   "text": "Ultra approves the SEC link from cited rows,",
-   "start": 2.308,
-   "end": 5.462
+   "text": "It's spread across four systems.",
+   "start": 2.615,
+   "end": 4.692
   },
   {
-   "text": "unlocking a number to call.",
-   "start": 5.654,
-   "end": 7.231
+   "text": "So Probity uses Zetaris to join our vendor master with",
+   "start": 4.769,
+   "end": 8.077
+  },
+  {
+   "text": "live USAspending and SEC EDGAR records,",
+   "start": 8.154,
+   "end": 11.615
+  },
+  {
+   "text": "in one semantic layer.",
+   "start": 11.692,
+   "end": 13.308
   }
  ],
- "a10": [
+ "a25": [
   {
-   "text": "Not asked, but checked: five Zetaris rules sweep Friday's",
+   "text": "For this letter, the answer is clear:",
    "start": 0.0,
-   "end": 4.308
+   "end": 2.769
   },
   {
-   "text": "run, down to two vendors sharing one bank account.",
-   "start": 4.385,
-   "end": 7.769
-  },
-  {
-   "text": "In all, three other payments fail controls;",
-   "start": 8.0,
-   "end": 11.0
-  },
-  {
-   "text": "the controller gets a hold list in dollars.",
-   "start": 11.038,
-   "end": 13.5
-  },
-  {
-   "text": "Median time per check: 235 seconds.",
-   "start": 13.769,
-   "end": 17.077
+   "text": "stop the payment before the money moves.",
+   "start": 2.846,
+   "end": 5.462
   }
  ],
- "a11": [
+ "a26": [
   {
-   "text": "What was known when: scrub the graph back to before the",
+   "text": "It holds the payment, hands us a safe number to call,",
+   "start": 0.0,
+   "end": 3.231
+  },
+  {
+   "text": "and checks the rest of Friday's run while it's at it.",
+   "start": 3.346,
+   "end": 6.077
+  }
+ ],
+ "a27": [
+  {
+   "text": "Under the hood, there are four agents.",
+   "start": 0.0,
+   "end": 2.385
+  },
+  {
+   "text": "The Letter Reader uses Nemotron Ultra to read the letter",
+   "start": 2.615,
+   "end": 5.615
+  },
+  {
+   "text": "twice, and both readings have to agree.",
+   "start": 5.692,
+   "end": 8.423
+  },
+  {
+   "text": "The Registry Scout runs the Zetaris checks.",
+   "start": 8.692,
+   "end": 11.231
+  },
+  {
+   "text": "The Identity Examiner double-checks the evidence.",
+   "start": 11.615,
+   "end": 14.231
+  },
+  {
+   "text": "And the Gate Officer, which is plain code,",
+   "start": 14.615,
+   "end": 17.0
+  },
+  {
+   "text": "makes the call.",
+   "start": 17.115,
+   "end": 18.0
+  }
+ ],
+ "a28": [
+  {
+   "text": "You can watch them hand the case to each other,",
+   "start": 0.0,
+   "end": 2.308
+  },
+  {
+   "text": "step by step, right here in the trace.",
+   "start": 2.385,
+   "end": 5.077
+  }
+ ],
+ "a29": [
+  {
+   "text": "Now here's a sneaky one. This letter hides a message",
    "start": 0.0,
    "end": 3.385
   },
   {
-   "text": "run, and the New Jersey company is not in it yet.",
+   "text": "telling the AI to approve it.",
    "start": 3.462,
-   "end": 6.923
-  }
- ],
- "a12": [
-  {
-   "text": "It never moves money. Built Grok-first:",
-   "start": 0.0,
-   "end": 3.769
+   "end": 5.231
   },
   {
-   "text": "Grok built the Zetaris data layer and the end-to-end",
-   "start": 3.846,
-   "end": 6.692
+   "text": "Probity doesn't obey. It quotes the hidden text as",
+   "start": 5.462,
+   "end": 8.385
+  },
+  {
+   "text": "evidence, and holds the payment.",
+   "start": 8.538,
+   "end": 10.462
+  }
+ ],
+ "a30": [
+  {
+   "text": "So let's run the Booz Allen request for real.",
+   "start": 0.0,
+   "end": 2.615
+  },
+  {
+   "text": "The Reader pulls out every claim,",
+   "start": 2.654,
+   "end": 4.538
+  },
+  {
+   "text": "including a line asking us not to use the old phone",
+   "start": 4.769,
+   "end": 7.462
+  },
+  {
+   "text": "number. The Scout checks our vendor master and the public",
+   "start": 7.615,
+   "end": 10.692
+  },
+  {
+   "text": "registries through Zetaris. The new address doesn't match",
+   "start": 10.769,
+   "end": 14.231
+  },
+  {
+   "text": "anything we know, so the Examiner sends the Scout back to",
+   "start": 14.423,
+   "end": 17.462
+  },
+  {
+   "text": "dig. It walks Booz Allen's corporate family,",
+   "start": 17.615,
+   "end": 20.462
+  },
+  {
+   "text": "forty-one companies, and finds it.",
+   "start": 20.615,
+   "end": 23.308
+  },
+  {
+   "text": "The address is real, but it belongs to a different Booz",
+   "start": 23.346,
+   "end": 26.231
+  },
+  {
+   "text": "Allen company that has never billed us.",
+   "start": 26.346,
+   "end": 28.462
+  },
+  {
+   "text": "Decision: hold. The number to call comes from SEC filings,",
+   "start": 28.692,
+   "end": 33.0
+  },
+  {
+   "text": "and the one in the letter goes on the do-not-use list.",
+   "start": 33.077,
+   "end": 35.923
+  }
+ ],
+ "a31": [
+  {
+   "text": "Here, two companies share the same name.",
+   "start": 0.0,
+   "end": 2.692
+  },
+  {
+   "text": "Probity won't guess which one sent it.",
+   "start": 2.923,
+   "end": 5.231
+  },
+  {
+   "text": "It writes a call-back script for each.",
+   "start": 5.308,
+   "end": 7.538
+  }
+ ],
+ "a32": [
+  {
+   "text": "It remembers, too. A bank account caught in an earlier",
+   "start": 0.0,
+   "end": 3.308
+  },
+  {
+   "text": "scam turns up on a new L3Harris request,",
+   "start": 3.385,
+   "end": 6.385
+  },
+  {
+   "text": "so that one's held as well.",
+   "start": 6.462,
+   "end": 8.231
+  }
+ ],
+ "a33": [
+  {
+   "text": "And you can rewind. This is what Probity knew when the",
+   "start": 0.0,
+   "end": 3.346
+  },
+  {
+   "text": "letter arrived: the New Jersey company wasn't in the",
+   "start": 3.385,
+   "end": 6.538
+  },
+  {
+   "text": "picture yet.",
+   "start": 6.615,
+   "end": 7.462
+  }
+ ],
+ "a34": [
+  {
+   "text": "Every fact in that decision came from Zetaris,",
+   "start": 0.0,
+   "end": 3.077
+  },
+  {
+   "text": "and each one traces back to the exact rows behind it.",
+   "start": 3.192,
+   "end": 6.615
+  }
+ ],
+ "a35": [
+  {
+   "text": "Click any fact to see its source,",
+   "start": 0.0,
+   "end": 2.0
+  },
+  {
+   "text": "its table and its query. Hit re-run,",
+   "start": 2.077,
+   "end": 5.0
+  },
+  {
+   "text": "and Zetaris confirms the rows still match.",
+   "start": 5.077,
+   "end": 7.769
+  }
+ ],
+ "a36": [
+  {
+   "text": "And the payment-run sweep is a real Zetaris data-quality",
+   "start": 0.0,
+   "end": 3.308
+  },
+  {
+   "text": "rule, running right inside Zetaris.",
+   "start": 3.385,
+   "end": 6.0
+  }
+ ],
+ "a37": [
+  {
+   "text": "Every model call goes through Meterless Nightshift to a",
+   "start": 0.0,
+   "end": 3.0
+  },
+  {
+   "text": "pinned Nemotron model.",
+   "start": 3.077,
+   "end": 4.769
+  }
+ ],
+ "a38": [
+  {
+   "text": "Nobody asked, but it checked anyway,",
+   "start": 0.0,
+   "end": 2.692
+  },
+  {
+   "text": "and found two vendors sharing one bank account.",
+   "start": 2.769,
+   "end": 5.692
+  }
+ ],
+ "a39": [
+  {
+   "text": "That's three more payments flagged,",
+   "start": 0.0,
+   "end": 2.077
+  },
+  {
+   "text": "and the controller gets a hold list in dollars.",
+   "start": 2.115,
+   "end": 4.692
+  }
+ ],
+ "a40": [
+  {
+   "text": "Probity never moves money. It just makes sure it goes to",
+   "start": 0.0,
+   "end": 3.077
+  },
+  {
+   "text": "the right place. Grok built the Zetaris data layer and the",
+   "start": 3.115,
+   "end": 6.654
   },
   {
    "text": "tests; Claude Code built the agents and the interface.",
-   "start": 6.769,
-   "end": 10.385
+   "start": 6.692,
+   "end": 10.231
   }
  ]
 }

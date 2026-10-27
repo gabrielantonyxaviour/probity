@@ -8,6 +8,8 @@ import { anchor } from "../system/anchor";
 import { branchWorld } from "../river/layout-river";
 import { tField } from "../river/world";
 import { ease, bez, clamp01 } from "../system/motion";
+import { beat } from "../data/beats";
+import { seg } from "../timeline/timeline";
 
 const B: React.CSSProperties = { fontWeight: 400, color: C.fg };
 interface Card { id: string; from: number; to: number; eyebrow: string; text: React.ReactNode; source: string; note?: string }
@@ -15,17 +17,17 @@ interface Card { id: string; from: number; to: number; eyebrow: string; text: Re
 // Every figure carries its source line in frame for its whole hold (>= 1.5 s). Never "SAM.gov".
 const CARDS: Card[] = [
   {
-    id: "doj", from: 14, to: 130, eyebrow: "A real case · 2018",
+    id: "doj", from: beat("M02", "doj"), to: beat("M02", "ic3"), eyebrow: "A real case · 2018",
     text: (<><b style={B}>$23.5 million</b> diverted after stolen contractor logins changed banking details on a government vendor payment system (2018).</>),
     source: "USAO-NJ release 22-160 (29 Apr 2022); GAO-26-108174",
   },
   {
-    id: "ic3", from: 130, to: 218, eyebrow: "Business email compromise",
+    id: "ic3", from: beat("M02", "ic3"), to: beat("M02", "afp"), eyebrow: "Business email compromise",
     text: (<><b style={B}>$3,046,598,558</b> lost to business email compromise in 2025.</>),
     source: "FBI IC3 2025 Internet Crime Report",
   },
   {
-    id: "afp", from: 218, to: 360, eyebrow: "The control already exists",
+    id: "afp", from: beat("M02", "afp"), to: seg("M02").len + 20, eyebrow: "The control already exists",
     text: (<><b style={B}>91%</b> of organisations call back on a system-of-record number, not one in the email.</>),
     source: "AFP 2025 Payments Fraud and Control Survey (2024 data)",
   },
@@ -39,7 +41,7 @@ export const M02: React.FC = () => {
   return (
     <AbsoluteFill>
       {CARDS.map((c) => {
-        const inP = e(clamp01((f - c.from) / 15));
+        const inP = e(clamp01((f - c.from + 4) / 12)); // on screen as its sentence starts
         const outP = e(clamp01((f - (c.to - 10)) / 8));
         const o = Math.min(inP, 1 - outP) * (c.id === "afp" ? alpha : 1);
         if (o <= 0.001) return null;

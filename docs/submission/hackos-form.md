@@ -2,7 +2,7 @@
 
 Product: Probity · team Zen · last updated 2026-10-27 about 21:25Z (wave-3 finalizer: numbers from the frozen-build live runs `r-20261027T194659Z-c63a`, `r-20261027T195257Z-61bc`, `r-20261027T195617Z-d013` and `output_examples/MANIFEST.json`) from `README.md`, `STATUS.md`, `docs/eval.md`, `docs/evidence/nemotron-eval.md` and the Zetaris captures in `zetaris/results/`.
 Hard close 2026-10-27 23:45 UTC. Gabriel approved a first early submission (decision 14); updates are allowed until the close. Every value is pasted from this file; nothing is retyped. The submit check is `grep -rn '[{][{]' README.md docs/ --exclude-dir=video --exclude-dir=deck`, which must print nothing for the files this lane owns.
-The final film (`docs/video/probity-film.mp4`, 3:43) is at <https://youtu.be/hf_mfPZ2D1g> (unlisted). The deck is linked as the repo PDF (`docs/deck/probity-deck.pdf`, 10 pages; `docs/deck/probity-deck.pptx` with clips stays out of git). The pasted HackOS texts for the final update are `_docs/hackos-submitted/v2-desc.txt` and `v2-sponsor.txt` (outside the repo, beside the first submission's `hk-desc.txt` and `hk-sponsor.txt`).
+The final film (`docs/video/probity-film-v2.mp4`, 3:32) is at <https://youtu.be/V6pycZpYor0> (unlisted). The deck is linked as the repo PDF (`docs/deck/probity-deck.pdf`, 10 pages; `docs/deck/probity-deck.pptx` with clips stays out of git). The pasted HackOS texts for the final update are `_docs/hackos-submitted/v2-desc.txt` and `v2-sponsor.txt` (outside the repo, beside the first submission's `hk-desc.txt` and `hk-sponsor.txt`).
 
 ## 1. Field to value
 
@@ -16,7 +16,7 @@ The final film (`docs/video/probity-film.mp4`, 3:43) is at <https://youtu.be/hf_
 | Short description | Section 2.1 (the 280-character variant) |
 | Long description | Section 2.2 |
 | Repo (public) | https://github.com/gabrielantonyxaviour/probity (public since 2026-10-27 14:44Z) |
-| Demo video | <https://youtu.be/hf_mfPZ2D1g> (unlisted YouTube; file `docs/video/probity-film.mp4`, 3:43). The first submission's walkthrough is <https://youtu.be/2_jLXg70EEI> |
+| Demo video | <https://youtu.be/V6pycZpYor0> (unlisted YouTube; file `docs/video/probity-film-v2.mp4`, 3:32). The first submission's walkthrough is <https://youtu.be/2_jLXg70EEI> |
 | Deck | Link to `docs/deck/probity-deck.pdf` on GitHub (10 pages); the PowerPoint `docs/deck/probity-deck.pptx` plays one clip per slide and is not committed |
 | Live demo | None: runs locally in Docker. "Run `SAMPLE_MODE=true docker compose --profile sample up --build`, then open http://localhost:3100" |
 | Colab | None |
@@ -70,7 +70,7 @@ The T01 challenge page and the live submission form were not read by this lane. 
 
 | Requirement | Value source | Status |
 |---|---|---|
-| Demo video, 1 to 4 minutes, one real request through Nightshift shown, keys hidden | `docs/video/probity-film.mp4` (3:43, 1920x1080) | <https://youtu.be/hf_mfPZ2D1g> |
+| Demo video, 1 to 4 minutes, one real request through Nightshift shown, keys hidden | `docs/video/probity-film-v2.mp4` (3:32, 1920x1080) | <https://youtu.be/V6pycZpYor0> |
 | Slide deck | `docs/deck/probity-deck.pdf` | Ready (10 pages; upload the file) |
 | Public GitHub repo with README (setup, usage, dependencies) | Repo URL above | Ready (public) |
 | Sponsor-tech explanation | `docs/SPONSOR_TECH.md` | Drafted by this lane earlier; its own fills are owned elsewhere |

@@ -1,0 +1,119 @@
+{
+ "id": "a35",
+ "text_original": "Click any fact to see its source, its table and its query. Hit re-run, and Zetaris confirms the rows still match.",
+ "text_spoken": "Click any fact to see its source, its table and its query. Hit re-run, and Zeh-tarris confirms the rows still match.",
+ "words": [
+  {
+   "word": "Click",
+   "start": 0.0,
+   "end": 0.231
+  },
+  {
+   "word": "any",
+   "start": 0.385,
+   "end": 0.538
+  },
+  {
+   "word": "fact",
+   "start": 0.615,
+   "end": 0.923
+  },
+  {
+   "word": "to",
+   "start": 0.962,
+   "end": 1.0
+  },
+  {
+   "word": "see",
+   "start": 1.077,
+   "end": 1.154
+  },
+  {
+   "word": "its",
+   "start": 1.231,
+   "end": 1.385
+  },
+  {
+   "word": "source,",
+   "start": 1.462,
+   "end": 2.0
+  },
+  {
+   "word": "its",
+   "start": 2.077,
+   "end": 2.154
+  },
+  {
+   "word": "table",
+   "start": 2.231,
+   "end": 2.615
+  },
+  {
+   "word": "and",
+   "start": 2.769,
+   "end": 2.923
+  },
+  {
+   "word": "its",
+   "start": 3.0,
+   "end": 3.077
+  },
+  {
+   "word": "query.",
+   "start": 3.154,
+   "end": 3.769
+  },
+  {
+   "word": "Hit",
+   "start": 4.0,
+   "end": 4.154
+  },
+  {
+   "word": "re-run,",
+   "start": 4.308,
+   "end": 5.0
+  },
+  {
+   "word": "and",
+   "start": 5.077,
+   "end": 5.154
+  },
+  {
+   "word": "Zeh-tarris",
+   "start": 5.192,
+   "end": 5.692
+  },
+  {
+   "word": "confirms",
+   "start": 5.846,
+   "end": 6.308
+  },
+  {
+   "word": "the",
+   "start": 6.346,
+   "end": 6.385
+  },
+  {
+   "word": "rows",
+   "start": 6.462,
+   "end": 6.769
+  },
+  {
+   "word": "still",
+   "start": 6.846,
+   "end": 7.077
+  },
+  {
+   "word": "match.",
+   "start": 7.154,
+   "end": 7.769
+  }
+ ],
+ "seconds": 7.77,
+ "window_seconds": 10,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

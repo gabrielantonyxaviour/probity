@@ -1,0 +1,109 @@
+{
+ "id": "a34",
+ "text_original": "Every fact in that decision came from Zetaris, and each one traces back to the exact rows behind it.",
+ "text_spoken": "Every fact in that decision came from Zeh-tarris, and each one traces back to the exact rows behind it.",
+ "words": [
+  {
+   "word": "Every",
+   "start": 0.0,
+   "end": 0.308
+  },
+  {
+   "word": "fact",
+   "start": 0.462,
+   "end": 0.769
+  },
+  {
+   "word": "in",
+   "start": 0.808,
+   "end": 0.846
+  },
+  {
+   "word": "that",
+   "start": 0.923,
+   "end": 1.0
+  },
+  {
+   "word": "decision",
+   "start": 1.077,
+   "end": 1.538
+  },
+  {
+   "word": "came",
+   "start": 1.615,
+   "end": 1.769
+  },
+  {
+   "word": "from",
+   "start": 1.846,
+   "end": 2.0
+  },
+  {
+   "word": "Zeh-tarris,",
+   "start": 2.077,
+   "end": 3.077
+  },
+  {
+   "word": "and",
+   "start": 3.192,
+   "end": 3.308
+  },
+  {
+   "word": "each",
+   "start": 3.385,
+   "end": 3.615
+  },
+  {
+   "word": "one",
+   "start": 3.692,
+   "end": 3.846
+  },
+  {
+   "word": "traces",
+   "start": 3.923,
+   "end": 4.308
+  },
+  {
+   "word": "back",
+   "start": 4.385,
+   "end": 4.538
+  },
+  {
+   "word": "to",
+   "start": 4.615,
+   "end": 4.692
+  },
+  {
+   "word": "the",
+   "start": 4.731,
+   "end": 4.769
+  },
+  {
+   "word": "exact",
+   "start": 4.923,
+   "end": 5.385
+  },
+  {
+   "word": "rows",
+   "start": 5.538,
+   "end": 5.769
+  },
+  {
+   "word": "behind",
+   "start": 5.846,
+   "end": 6.154
+  },
+  {
+   "word": "it.",
+   "start": 6.231,
+   "end": 6.615
+  }
+ ],
+ "seconds": 6.62,
+ "window_seconds": 8,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

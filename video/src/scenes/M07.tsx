@@ -19,25 +19,25 @@ export const M07: React.FC = () => {
         ...(r.hmem_injected === 0 && r.all_calls_hmem_zero !== false ? ([["H-MEM", "hmem injected 0"]] as [string, string][]) : []),
       ] satisfies [string, string][])
     : [];
-  const w = 820;
+  const w = 1240;
   return (
     <AbsoluteFill style={{ opacity: alpha }}>
-      <div style={{ position: "absolute", left: (VIDEO.width - w) / 2, top: 250, width: w }}>
-        <Panel style={{ padding: "34px 44px 36px" }}>
-          <Eyebrow frame={f} at={6} style={{ marginBottom: 18 }}>Meterless Nightshift · receipt</Eyebrow>
-          <Serif frame={f} at={9} size={46}>What Nemotron did</Serif>
-          <div style={{ margin: "22px 0 8px" }}><Rule frame={f} at={14} width={w - 88} /></div>
+      <div style={{ position: "absolute", left: (VIDEO.width - w) / 2, top: 170, width: w }}>
+        <Panel style={{ padding: "44px 60px 46px" }}>
+          <Eyebrow frame={f} at={6} size={20} style={{ marginBottom: 22 }}>Meterless Nightshift · receipt</Eyebrow>
+          <Serif frame={f} at={9} size={72}>What Nemotron did</Serif>
+          <div style={{ margin: "22px 0 8px" }}><Rule frame={f} at={14} width={w - 120} /></div>
           {r === null ? (
             <div style={{ padding: "18px 0 6px" }}><Awaiting /></div>
           ) : (
             rows.map(([k, v], i) => (
-              <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "14px 0", borderBottom: `1px solid ${C.rule}`, opacity: e(clamp01((f - 22 - i * 4) / 12)) }}>
-                <div style={{ ...monoStyle, fontSize: 13, color: C.muted }}>{k}</div>
-                <div style={{ fontFamily: FONT.mono, fontSize: 18, color: C.fg, fontFeatureSettings: '"zero" 1' }}>{v}</div>
+              <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "20px 0", borderBottom: `1px solid ${C.rule}`, opacity: e(clamp01((f - 22 - i * 4) / 12)) }}>
+                <div style={{ ...monoStyle, fontSize: 22, color: C.muted }}>{k}</div>
+                <div style={{ fontFamily: FONT.mono, fontSize: 32, color: C.fg, fontFeatureSettings: '"zero" 1' }}>{v}</div>
               </div>
             ))
           )}
-          <div style={{ ...monoStyle, fontSize: 12, color: C.subtle, marginTop: 18, opacity: e(clamp01((f - 40) / 12)) }}>
+          <div style={{ ...monoStyle, fontSize: 18, color: C.subtle, marginTop: 22, opacity: e(clamp01((f - 40) / 12)) }}>
             {facts.pending ? "run pending" : `run ${facts.run_id} · ${facts.sha256.slice(0, 10)}`}
           </div>
         </Panel>

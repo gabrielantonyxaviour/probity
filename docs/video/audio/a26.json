@@ -1,0 +1,124 @@
+{
+ "id": "a26",
+ "text_original": "It holds the payment, hands us a safe number to call, and checks the rest of Friday's run while it's at it.",
+ "text_spoken": "It holds the payment, hands us a safe number to call, and checks the rest of Friday's run while it's at it.",
+ "words": [
+  {
+   "word": "It",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "holds",
+   "start": 0.308,
+   "end": 0.462
+  },
+  {
+   "word": "the",
+   "start": 0.538,
+   "end": 0.615
+  },
+  {
+   "word": "payment,",
+   "start": 0.846,
+   "end": 1.308
+  },
+  {
+   "word": "hands",
+   "start": 1.462,
+   "end": 1.615
+  },
+  {
+   "word": "us",
+   "start": 1.692,
+   "end": 1.769
+  },
+  {
+   "word": "a",
+   "start": 1.846,
+   "end": 1.923
+  },
+  {
+   "word": "safe",
+   "start": 2.038,
+   "end": 2.154
+  },
+  {
+   "word": "number",
+   "start": 2.231,
+   "end": 2.462
+  },
+  {
+   "word": "to",
+   "start": 2.538,
+   "end": 2.615
+  },
+  {
+   "word": "call,",
+   "start": 2.769,
+   "end": 3.231
+  },
+  {
+   "word": "and",
+   "start": 3.346,
+   "end": 3.462
+  },
+  {
+   "word": "checks",
+   "start": 3.577,
+   "end": 3.692
+  },
+  {
+   "word": "the",
+   "start": 3.769,
+   "end": 3.923
+  },
+  {
+   "word": "rest",
+   "start": 4.038,
+   "end": 4.154
+  },
+  {
+   "word": "of",
+   "start": 4.231,
+   "end": 4.308
+  },
+  {
+   "word": "Friday's",
+   "start": 4.462,
+   "end": 4.769
+  },
+  {
+   "word": "run",
+   "start": 4.923,
+   "end": 5.077
+  },
+  {
+   "word": "while",
+   "start": 5.154,
+   "end": 5.231
+  },
+  {
+   "word": "it's",
+   "start": 5.308,
+   "end": 5.462
+  },
+  {
+   "word": "at",
+   "start": 5.538,
+   "end": 5.615
+  },
+  {
+   "word": "it.",
+   "start": 5.731,
+   "end": 6.077
+  }
+ ],
+ "seconds": 6.08,
+ "window_seconds": 6,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

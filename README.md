@@ -14,7 +14,7 @@ Default mode is live (Zetaris + Nightshift). To run it in one command, no keys, 
     SAMPLE_MODE=true docker compose --profile sample up --build
     # UI  http://localhost:3100    API  http://localhost:8787    (SAMPLE MODE banner shown)
 
-Video: <https://youtu.be/hf_mfPZ2D1g> (3:43; an earlier walkthrough of the live product is at <https://youtu.be/2_jLXg70EEI>) · Deck: [`docs/deck/probity-deck.pdf`](docs/deck/probity-deck.pdf) (10 slides; the PowerPoint `docs/deck/probity-deck.pptx` with clips is built by `python3 video/scripts/build_pptx.py` and kept out of git) · Sponsor tech: `docs/SPONSOR_TECH.md`
+Video: <https://youtu.be/V6pycZpYor0> (3:32; an earlier walkthrough of the live product is at <https://youtu.be/2_jLXg70EEI>) · Deck: [`docs/deck/probity-deck.pdf`](docs/deck/probity-deck.pdf) (10 slides; the PowerPoint `docs/deck/probity-deck.pptx` with clips is built by `python3 video/scripts/build_pptx.py` and kept out of git) · Sponsor tech: `docs/SPONSOR_TECH.md`
 
 An accounts-payable controls lead at a federal contractor gets an email: new bank details, eight days before $1.28 million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. The letters and internal records are synthetic; every registry fact is real.
 

@@ -35,7 +35,7 @@ NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "
 # Respellings so the clone says the names the way people do. Applied to the spoken text only; the sidecar keeps the original.
 PRONOUNCE = [
     (r"\bNemotron\b", "Nemmo-tron"),
-    (r"\bZetaris\b", "Zuh-tarris"),
+    (r"\bZetaris\b", "Zeh-tarris"),
     (r"\bEDGAR\b", "Edgar"),
     (r"\bUEIs?\b", lambda m: "U-E-I" + ("s" if m.group(0).endswith("s") else "")),
     (r"\bUSAspending\b", "U.S.A. spending"),

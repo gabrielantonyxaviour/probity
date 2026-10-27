@@ -1,0 +1,119 @@
+{
+ "id": "a21",
+ "text_original": "Every week, accounts payable sends money out to hundreds of vendors, and almost all of it lands exactly where it should.",
+ "text_spoken": "Every week, accounts payable sends money out to hundreds of vendors, and almost all of it lands exactly where it should.",
+ "words": [
+  {
+   "word": "Every",
+   "start": 0.0,
+   "end": 0.308
+  },
+  {
+   "word": "week,",
+   "start": 0.385,
+   "end": 0.846
+  },
+  {
+   "word": "accounts",
+   "start": 0.923,
+   "end": 1.308
+  },
+  {
+   "word": "payable",
+   "start": 1.385,
+   "end": 1.692
+  },
+  {
+   "word": "sends",
+   "start": 1.769,
+   "end": 2.0
+  },
+  {
+   "word": "money",
+   "start": 2.077,
+   "end": 2.308
+  },
+  {
+   "word": "out",
+   "start": 2.385,
+   "end": 2.538
+  },
+  {
+   "word": "to",
+   "start": 2.654,
+   "end": 2.769
+  },
+  {
+   "word": "hundreds",
+   "start": 2.808,
+   "end": 3.154
+  },
+  {
+   "word": "of",
+   "start": 3.231,
+   "end": 3.308
+  },
+  {
+   "word": "vendors,",
+   "start": 3.385,
+   "end": 4.154
+  },
+  {
+   "word": "and",
+   "start": 4.231,
+   "end": 4.308
+  },
+  {
+   "word": "almost",
+   "start": 4.5,
+   "end": 4.692
+  },
+  {
+   "word": "all",
+   "start": 4.846,
+   "end": 4.923
+  },
+  {
+   "word": "of",
+   "start": 5.0,
+   "end": 5.077
+  },
+  {
+   "word": "it",
+   "start": 5.154,
+   "end": 5.231
+  },
+  {
+   "word": "lands",
+   "start": 5.308,
+   "end": 5.538
+  },
+  {
+   "word": "exactly",
+   "start": 5.615,
+   "end": 6.231
+  },
+  {
+   "word": "where",
+   "start": 6.308,
+   "end": 6.385
+  },
+  {
+   "word": "it",
+   "start": 6.462,
+   "end": 6.538
+  },
+  {
+   "word": "should.",
+   "start": 6.615,
+   "end": 7.154
+  }
+ ],
+ "seconds": 7.15,
+ "window_seconds": 9,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

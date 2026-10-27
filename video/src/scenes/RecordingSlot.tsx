@@ -8,9 +8,10 @@ import { clipFor } from "../data/clips";
 import type { Seg } from "../timeline/timeline";
 
 const WIPE = msToFrames(600); // 600 ms left to right, both into and out of a recording
-const COL_W = VIDEO.columnWidth;
-const COL_H = Math.round((COL_W * 9) / 16);
-const COL_TOP = 118;
+// Film v2: each recording shows the entire screen, as large as fits above the caption band (no crop, no zoom).
+const COL_H = VIDEO.height - 104; // whole screen, uncropped, sitting above the 104 px caption band
+const COL_W = Math.round((COL_H * 16) / 9);
+const COL_TOP = 0;
 
 /** Plays docs/video/raw/<file> at its slot length; a marked placeholder when the file is absent. Never imitates product UI. */
 export const RecordingSlot: React.FC<{ seg: Seg; showPlaceholder?: boolean }> = ({ seg, showPlaceholder = true }) => {
@@ -35,7 +36,6 @@ export const RecordingSlot: React.FC<{ seg: Seg; showPlaceholder?: boolean }> = 
       <div
         style={{
           position: "absolute", left, top: COL_TOP, width: COL_W, height: COL_H, background: C.ground,
-          outline: `1px solid ${C.rule}`, boxShadow: `0 0 0 1px ${C.rule}`,
         }}
       >
         {present ? (
@@ -44,16 +44,11 @@ export const RecordingSlot: React.FC<{ seg: Seg; showPlaceholder?: boolean }> = 
           showPlaceholder && <Placeholder id={slot.id} title={slot.title} seconds={slot.seconds} kind={slot.kind} />
         )}
         {caption ? (
-          <div style={{ ...monoStyle, position: "absolute", right: 24, bottom: 20, fontSize: 15, color: C.fg, background: "rgba(12,12,11,0.72)", padding: "6px 10px", border: `1px solid ${C.rule}` }}>
+          <div style={{ ...monoStyle, position: "absolute", right: 32, top: 28, fontSize: 18, color: C.fg, background: "rgba(12,12,11,0.72)", padding: "6px 10px", border: `1px solid ${C.rule}` }}>
             {caption}
           </div>
         ) : null}
       </div>
-      {slot.lower_third ? (
-        <div style={{ position: "absolute", left, top: COL_TOP + COL_H + 26, width: COL_W, borderTop: `1px solid ${C.rule}`, paddingTop: 16 }}>
-          <div style={{ ...monoStyle, fontSize: 15, color: C.fg2 }}>{slot.lower_third}</div>
-        </div>
-      ) : null}
     </AbsoluteFill>
   );
 };

@@ -29,8 +29,8 @@ export const Captions: React.FC = () => {
   const cue = timed.find((c) => f >= c.from && f < c.to);
   if (!cue) return null;
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, bottom: 34, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
-      <div style={{ fontFamily: FONT.sans, fontWeight: 400, fontSize: 30, lineHeight: 1.25, color: C.fg, background: "rgba(12,12,11,0.82)", padding: "8px 18px", borderRadius: 4, maxWidth: 1500, textAlign: "center" }}>
+    <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 104, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", background: "rgba(12,12,11,0.9)", borderTop: `1px solid ${C.rule}` }}>
+      <div style={{ fontFamily: FONT.sans, fontWeight: 400, fontSize: 38, lineHeight: 1.2, color: C.fg, maxWidth: 1700, textAlign: "center" }}>
         {cue.text}
       </div>
     </div>

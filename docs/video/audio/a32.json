@@ -1,0 +1,139 @@
+{
+ "id": "a32",
+ "text_original": "It remembers, too. A bank account caught in an earlier scam turns up on a new L3Harris request, so that one's held as well.",
+ "text_spoken": "It remembers, too. A bank account caught in an earlier scam turns up on a new L-three Harris request, so that one's held as well.",
+ "words": [
+  {
+   "word": "It",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "remembers,",
+   "start": 0.269,
+   "end": 0.846
+  },
+  {
+   "word": "too.",
+   "start": 1.0,
+   "end": 1.385
+  },
+  {
+   "word": "A",
+   "start": 1.615,
+   "end": 1.692
+  },
+  {
+   "word": "bank",
+   "start": 1.769,
+   "end": 1.923
+  },
+  {
+   "word": "account",
+   "start": 2.0,
+   "end": 2.308
+  },
+  {
+   "word": "caught",
+   "start": 2.385,
+   "end": 2.615
+  },
+  {
+   "word": "in",
+   "start": 2.654,
+   "end": 2.692
+  },
+  {
+   "word": "an",
+   "start": 2.769,
+   "end": 2.923
+  },
+  {
+   "word": "earlier",
+   "start": 3.0,
+   "end": 3.308
+  },
+  {
+   "word": "scam",
+   "start": 3.385,
+   "end": 3.769
+  },
+  {
+   "word": "turns",
+   "start": 3.846,
+   "end": 4.115
+  },
+  {
+   "word": "up",
+   "start": 4.154,
+   "end": 4.308
+  },
+  {
+   "word": "on",
+   "start": 4.346,
+   "end": 4.385
+  },
+  {
+   "word": "a",
+   "start": 4.462,
+   "end": 4.538
+  },
+  {
+   "word": "new",
+   "start": 4.615,
+   "end": 4.846
+  },
+  {
+   "word": "L-three",
+   "start": 4.923,
+   "end": 5.231
+  },
+  {
+   "word": "Harris",
+   "start": 5.269,
+   "end": 5.538
+  },
+  {
+   "word": "request,",
+   "start": 5.615,
+   "end": 6.385
+  },
+  {
+   "word": "so",
+   "start": 6.462,
+   "end": 6.692
+  },
+  {
+   "word": "that",
+   "start": 6.923,
+   "end": 7.077
+  },
+  {
+   "word": "one's",
+   "start": 7.154,
+   "end": 7.308
+  },
+  {
+   "word": "held",
+   "start": 7.423,
+   "end": 7.538
+  },
+  {
+   "word": "as",
+   "start": 7.615,
+   "end": 7.692
+  },
+  {
+   "word": "well.",
+   "start": 7.846,
+   "end": 8.231
+  }
+ ],
+ "seconds": 8.23,
+ "window_seconds": 12,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

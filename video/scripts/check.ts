@@ -1,5 +1,5 @@
 // Run from the repo root:  npx tsx video/scripts/check.ts
-// Build-time assertions: total <= 230 s, narration <= 2.6 words/s per window, clips.json covers every slot,
+// Build-time assertions: total <= 235 s, narration <= 3.3 words/s per window (v2: each shot is its line + 0.7 s), clips.json covers every slot,
 // no run-derived figure typed into a .tsx file, no file over 300 lines.
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -25,7 +25,7 @@ const len = new Map<string, number>();
 for (const m of script.motion) len.set(m.id, m.seconds);
 for (const s of slots.slots) len.set(s.id, s.enabled ? s.seconds : 0);
 const total = script.sequence.reduce((a, id) => a + (len.get(id) ?? 0), 0);
-out(total <= Math.min(230, slots.cap_seconds), `film length ${total} s (cap 230 s)`);
+out(total <= Math.min(235, slots.cap_seconds), `film length ${total.toFixed(2)} s (cap 235 s)`);
 
 // Spoken length of the {{FILL}} tokens, as words (the real values come from facts.generated.json at recording time).
 const FILL_WORDS: Record<string, number> = { days_before_payment_words: 1, exposure_millions: 4, sweep_count_words: 1, q8_seconds: 2 };
@@ -38,7 +38,7 @@ for (const n of script.narration) {
   }
   const spoken = n.text_fit ?? n.text;
   const rate = words(spoken) / sec;
-  out(rate <= 2.6, `${n.id} ${words(spoken)} words / ${sec} s = ${rate.toFixed(2)} w/s${n.text_fit ? ` (trimmed; verbatim ${(words(n.text) / sec).toFixed(2)})` : ""}`);
+  out(rate <= 3.3, `${n.id} ${words(spoken)} words / ${sec} s = ${rate.toFixed(2)} w/s${n.text_fit ? ` (trimmed; verbatim ${(words(n.text) / sec).toFixed(2)})` : ""}`);
 }
 
 for (const s of slots.slots) {

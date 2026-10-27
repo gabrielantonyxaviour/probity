@@ -1,0 +1,129 @@
+{
+ "id": "a22",
+ "text_original": "Then an email like this shows up. Booz Allen, apparently, with new bank details, eight days before we owe them 1.28 million dollars.",
+ "text_spoken": "Then an email like this shows up. Booz Allen, apparently, with new bank details, eight days before we owe them 1.28 million dollars.",
+ "words": [
+  {
+   "word": "Then",
+   "start": 0.0,
+   "end": 0.385
+  },
+  {
+   "word": "an",
+   "start": 0.462,
+   "end": 0.692
+  },
+  {
+   "word": "email",
+   "start": 0.846,
+   "end": 1.0
+  },
+  {
+   "word": "like",
+   "start": 1.077,
+   "end": 1.308
+  },
+  {
+   "word": "this",
+   "start": 1.423,
+   "end": 1.538
+  },
+  {
+   "word": "shows",
+   "start": 1.692,
+   "end": 1.846
+  },
+  {
+   "word": "up.",
+   "start": 1.923,
+   "end": 2.346
+  },
+  {
+   "word": "Booz",
+   "start": 2.615,
+   "end": 2.846
+  },
+  {
+   "word": "Allen,",
+   "start": 2.923,
+   "end": 3.462
+  },
+  {
+   "word": "apparently,",
+   "start": 3.538,
+   "end": 4.308
+  },
+  {
+   "word": "with",
+   "start": 4.423,
+   "end": 4.538
+  },
+  {
+   "word": "new",
+   "start": 4.615,
+   "end": 4.846
+  },
+  {
+   "word": "bank",
+   "start": 4.962,
+   "end": 5.077
+  },
+  {
+   "word": "details,",
+   "start": 5.346,
+   "end": 6.0
+  },
+  {
+   "word": "eight",
+   "start": 6.115,
+   "end": 6.231
+  },
+  {
+   "word": "days",
+   "start": 6.308,
+   "end": 6.615
+  },
+  {
+   "word": "before",
+   "start": 6.769,
+   "end": 6.923
+  },
+  {
+   "word": "we",
+   "start": 7.0,
+   "end": 7.077
+  },
+  {
+   "word": "owe",
+   "start": 7.154,
+   "end": 7.231
+  },
+  {
+   "word": "them",
+   "start": 7.308,
+   "end": 7.538
+  },
+  {
+   "word": "1.28",
+   "start": 7.615,
+   "end": 8.538
+  },
+  {
+   "word": "million",
+   "start": 8.769,
+   "end": 9.154
+  },
+  {
+   "word": "dollars.",
+   "start": 9.231,
+   "end": 9.923
+  }
+ ],
+ "seconds": 9.92,
+ "window_seconds": 8,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

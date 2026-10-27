@@ -1,0 +1,104 @@
+{
+ "id": "a28",
+ "text_original": "You can watch them hand the case to each other, step by step, right here in the trace.",
+ "text_spoken": "You can watch them hand the case to each other, step by step, right here in the trace.",
+ "words": [
+  {
+   "word": "You",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "can",
+   "start": 0.231,
+   "end": 0.308
+  },
+  {
+   "word": "watch",
+   "start": 0.385,
+   "end": 0.538
+  },
+  {
+   "word": "them",
+   "start": 0.615,
+   "end": 0.769
+  },
+  {
+   "word": "hand",
+   "start": 0.846,
+   "end": 1.077
+  },
+  {
+   "word": "the",
+   "start": 1.154,
+   "end": 1.231
+  },
+  {
+   "word": "case",
+   "start": 1.346,
+   "end": 1.462
+  },
+  {
+   "word": "to",
+   "start": 1.538,
+   "end": 1.615
+  },
+  {
+   "word": "each",
+   "start": 1.692,
+   "end": 1.769
+  },
+  {
+   "word": "other,",
+   "start": 1.846,
+   "end": 2.308
+  },
+  {
+   "word": "step",
+   "start": 2.385,
+   "end": 2.692
+  },
+  {
+   "word": "by",
+   "start": 2.769,
+   "end": 2.923
+  },
+  {
+   "word": "step,",
+   "start": 3.0,
+   "end": 3.615
+  },
+  {
+   "word": "right",
+   "start": 3.692,
+   "end": 3.923
+  },
+  {
+   "word": "here",
+   "start": 4.038,
+   "end": 4.154
+  },
+  {
+   "word": "in",
+   "start": 4.231,
+   "end": 4.308
+  },
+  {
+   "word": "the",
+   "start": 4.346,
+   "end": 4.385
+  },
+  {
+   "word": "trace.",
+   "start": 4.462,
+   "end": 5.077
+  }
+ ],
+ "seconds": 5.08,
+ "window_seconds": 10,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

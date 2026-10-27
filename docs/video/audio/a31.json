@@ -1,0 +1,119 @@
+{
+ "id": "a31",
+ "text_original": "Here, two companies share the same name. Probity won't guess which one sent it. It writes a call-back script for each.",
+ "text_spoken": "Here, two companies share the same name. Probity won't guess which one sent it. It writes a call-back script for each.",
+ "words": [
+  {
+   "word": "Here,",
+   "start": 0.0,
+   "end": 0.615
+  },
+  {
+   "word": "two",
+   "start": 0.692,
+   "end": 0.769
+  },
+  {
+   "word": "companies",
+   "start": 0.923,
+   "end": 1.385
+  },
+  {
+   "word": "share",
+   "start": 1.5,
+   "end": 1.615
+  },
+  {
+   "word": "the",
+   "start": 1.692,
+   "end": 1.769
+  },
+  {
+   "word": "same",
+   "start": 1.846,
+   "end": 2.077
+  },
+  {
+   "word": "name.",
+   "start": 2.154,
+   "end": 2.692
+  },
+  {
+   "word": "Probity",
+   "start": 2.923,
+   "end": 3.308
+  },
+  {
+   "word": "won't",
+   "start": 3.385,
+   "end": 3.615
+  },
+  {
+   "word": "guess",
+   "start": 3.692,
+   "end": 3.923
+  },
+  {
+   "word": "which",
+   "start": 4.0,
+   "end": 4.154
+  },
+  {
+   "word": "one",
+   "start": 4.231,
+   "end": 4.308
+  },
+  {
+   "word": "sent",
+   "start": 4.462,
+   "end": 4.692
+  },
+  {
+   "word": "it.",
+   "start": 4.769,
+   "end": 5.231
+  },
+  {
+   "word": "It",
+   "start": 5.308,
+   "end": 5.385
+  },
+  {
+   "word": "writes",
+   "start": 5.5,
+   "end": 5.615
+  },
+  {
+   "word": "a",
+   "start": 5.692,
+   "end": 5.769
+  },
+  {
+   "word": "call-back",
+   "start": 5.846,
+   "end": 6.231
+  },
+  {
+   "word": "script",
+   "start": 6.308,
+   "end": 6.615
+  },
+  {
+   "word": "for",
+   "start": 6.731,
+   "end": 6.846
+  },
+  {
+   "word": "each.",
+   "start": 6.923,
+   "end": 7.538
+  }
+ ],
+ "seconds": 7.54,
+ "window_seconds": 8,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

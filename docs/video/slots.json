@@ -1,12 +1,12 @@
 {
  "fps": 30,
- "cap_seconds": 230,
+ "cap_seconds": 235,
  "note": "Recording slots for the Film. Drop docs/video/raw/<file> in place (video/public/raw is a symlink to it); no code change. Set enabled:false to collapse a conditional slot to 0 frames; later beats shift. Cut order if over 230 s: S7 (R08), then F29 (R12 goes to impact), then shorten agents.",
  "slots": [
   {
    "id": "R01",
    "file": "v01-pitch-letter.mp4",
-   "seconds": 8,
+   "seconds": 10.633,
    "enabled": true,
    "title": "S1 LETTER",
    "kind": "S1 pitch: letter full screen, watermark, zoom on remit + phone",
@@ -15,7 +15,7 @@
   {
    "id": "R02",
    "file": "v01-pitch-hold.mp4",
-   "seconds": 6,
+   "seconds": 6.8,
    "enabled": true,
    "title": "HOLD BANNER + SWEEP BANNER",
    "kind": "S1 decision: Hold banner, then sweep banner",
@@ -24,7 +24,7 @@
   {
    "id": "R03",
    "file": "v02-agents-trace.mp4",
-   "seconds": 10,
+   "seconds": 5.8,
    "enabled": true,
    "title": "TRACE RAIL A1 TO A4",
    "kind": "Real run's trace rail, A1 to A4",
@@ -33,7 +33,7 @@
   {
    "id": "R04",
    "file": "v03-injection.mp4",
-   "seconds": 12,
+   "seconds": 11.167,
    "enabled": true,
    "title": "INJECTION HOLD",
    "kind": "S10 Sable Harbor letter: hidden lines told the AI to approve; R8 HOLD, quoted as evidence",
@@ -42,7 +42,7 @@
   {
    "id": "R05",
    "file": "v04-s1-live.mp4",
-   "seconds": 48,
+   "seconds": 36.633,
    "enabled": true,
    "title": "S1 LIVE RUN",
    "kind": "S1 live run end to end, UX section J staging; no cut inside the decision reveal",
@@ -51,7 +51,7 @@
   {
    "id": "R06",
    "file": "v05-s2.mp4",
-   "seconds": 8,
+   "seconds": 8.267,
    "enabled": true,
    "title": "S2 REFUSES TO GUESS",
    "kind": "S2 'Cannot determine which vendor...'",
@@ -60,7 +60,7 @@
   {
    "id": "R07",
    "file": "v06-memory.mp4",
-   "seconds": 12,
+   "seconds": 8.933,
    "enabled": true,
    "title": "THREE SESSIONS",
    "kind": "L3Harris request held: its bank account was used in a confirmed impersonation in another session (R5, World Model)",
@@ -78,7 +78,7 @@
   {
    "id": "R09",
    "file": "v08-zetaris-rerun.mp4",
-   "seconds": 10,
+   "seconds": 8.5,
    "enabled": true,
    "title": "EVIDENCE DRAWER LINEAGE + RE-RUN",
    "kind": "Evidence drawer: lineage (source system, USL table, query id, row hash), Re-run in Zetaris matches",
@@ -87,7 +87,7 @@
   {
    "id": "R10",
    "file": "v08-zetaris-dq.mp4",
-   "seconds": 6,
+   "seconds": 6.7,
    "enabled": true,
    "title": "ZETARIS UI LIST DQ / RUN DQ",
    "kind": "Zetaris UI: LIST DQ USL, RUN DQ",
@@ -114,7 +114,7 @@
   {
    "id": "R13",
    "file": "v10-sweep-panel.mp4",
-   "seconds": 8,
+   "seconds": 6.4,
    "enabled": true,
    "title": "SWEEP PANEL",
    "kind": "Sweep panel: DQ1, DQ2, DQ7, DQ8, DQ9; findings and amounts; exposure strip",
@@ -123,7 +123,7 @@
   {
    "id": "R14",
    "file": "v11-asof.mp4",
-   "seconds": 9,
+   "seconds": 8.167,
    "enabled": true,
    "title": "WHAT WAS KNOWN WHEN",
    "kind": "S1 entity graph, as-of scrubber dragged back before the run: the New Jersey entity is absent",

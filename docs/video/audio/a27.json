@@ -1,0 +1,254 @@
+{
+ "id": "a27",
+ "text_original": "Under the hood, there are four agents. The Letter Reader uses Nemotron Ultra to read the letter twice, and both readings have to agree. The Registry Scout runs the Zetaris checks. The Identity Examiner double-checks the evidence. And the Gate Officer, which is plain code, makes the call.",
+ "text_spoken": "Under the hood, there are four agents. The Letter Reader uses Nemmo-tron Ultra to read the letter twice, and both readings have to agree. The Registry Scout runs the Zeh-tarris checks. The Identity Examiner double-checks the evidence. And the Gate Officer, which is plain code, makes the call.",
+ "words": [
+  {
+   "word": "Under",
+   "start": 0.0,
+   "end": 0.231
+  },
+  {
+   "word": "the",
+   "start": 0.308,
+   "end": 0.385
+  },
+  {
+   "word": "hood,",
+   "start": 0.462,
+   "end": 0.923
+  },
+  {
+   "word": "there",
+   "start": 1.0,
+   "end": 1.077
+  },
+  {
+   "word": "are",
+   "start": 1.154,
+   "end": 1.231
+  },
+  {
+   "word": "four",
+   "start": 1.308,
+   "end": 1.538
+  },
+  {
+   "word": "agents.",
+   "start": 1.615,
+   "end": 2.385
+  },
+  {
+   "word": "The",
+   "start": 2.615,
+   "end": 2.692
+  },
+  {
+   "word": "Letter",
+   "start": 2.769,
+   "end": 3.0
+  },
+  {
+   "word": "Reader",
+   "start": 3.077,
+   "end": 3.385
+  },
+  {
+   "word": "uses",
+   "start": 3.462,
+   "end": 3.769
+  },
+  {
+   "word": "Nemmo-tron",
+   "start": 3.846,
+   "end": 4.385
+  },
+  {
+   "word": "Ultra",
+   "start": 4.462,
+   "end": 4.846
+  },
+  {
+   "word": "to",
+   "start": 4.923,
+   "end": 5.0
+  },
+  {
+   "word": "read",
+   "start": 5.077,
+   "end": 5.231
+  },
+  {
+   "word": "the",
+   "start": 5.308,
+   "end": 5.346
+  },
+  {
+   "word": "letter",
+   "start": 5.385,
+   "end": 5.615
+  },
+  {
+   "word": "twice,",
+   "start": 5.692,
+   "end": 6.462
+  },
+  {
+   "word": "and",
+   "start": 6.538,
+   "end": 6.615
+  },
+  {
+   "word": "both",
+   "start": 6.769,
+   "end": 7.0
+  },
+  {
+   "word": "readings",
+   "start": 7.115,
+   "end": 7.385
+  },
+  {
+   "word": "have",
+   "start": 7.462,
+   "end": 7.615
+  },
+  {
+   "word": "to",
+   "start": 7.654,
+   "end": 7.692
+  },
+  {
+   "word": "agree.",
+   "start": 7.769,
+   "end": 8.423
+  },
+  {
+   "word": "The",
+   "start": 8.692,
+   "end": 8.769
+  },
+  {
+   "word": "Registry",
+   "start": 9.0,
+   "end": 9.231
+  },
+  {
+   "word": "Scout",
+   "start": 9.308,
+   "end": 9.692
+  },
+  {
+   "word": "runs",
+   "start": 9.769,
+   "end": 10.0
+  },
+  {
+   "word": "the",
+   "start": 10.038,
+   "end": 10.077
+  },
+  {
+   "word": "Zeh-tarris",
+   "start": 10.154,
+   "end": 10.692
+  },
+  {
+   "word": "checks.",
+   "start": 10.769,
+   "end": 11.231
+  },
+  {
+   "word": "The",
+   "start": 11.615,
+   "end": 11.692
+  },
+  {
+   "word": "Identity",
+   "start": 11.769,
+   "end": 12.231
+  },
+  {
+   "word": "Examiner",
+   "start": 12.308,
+   "end": 12.846
+  },
+  {
+   "word": "double-checks",
+   "start": 12.923,
+   "end": 13.538
+  },
+  {
+   "word": "the",
+   "start": 13.577,
+   "end": 13.615
+  },
+  {
+   "word": "evidence.",
+   "start": 13.692,
+   "end": 14.231
+  },
+  {
+   "word": "And",
+   "start": 14.615,
+   "end": 14.692
+  },
+  {
+   "word": "the",
+   "start": 14.731,
+   "end": 14.769
+  },
+  {
+   "word": "Gate",
+   "start": 14.846,
+   "end": 15.077
+  },
+  {
+   "word": "Officer,",
+   "start": 15.154,
+   "end": 15.692
+  },
+  {
+   "word": "which",
+   "start": 15.769,
+   "end": 15.846
+  },
+  {
+   "word": "is",
+   "start": 15.885,
+   "end": 15.923
+  },
+  {
+   "word": "plain",
+   "start": 16.077,
+   "end": 16.308
+  },
+  {
+   "word": "code,",
+   "start": 16.385,
+   "end": 17.0
+  },
+  {
+   "word": "makes",
+   "start": 17.115,
+   "end": 17.231
+  },
+  {
+   "word": "the",
+   "start": 17.308,
+   "end": 17.346
+  },
+  {
+   "word": "call.",
+   "start": 17.385,
+   "end": 18.0
+  }
+ ],
+ "seconds": 18.0,
+ "window_seconds": 14,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

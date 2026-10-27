@@ -1,0 +1,74 @@
+{
+ "id": "a37",
+ "text_original": "Every model call goes through Meterless Nightshift to a pinned Nemotron model.",
+ "text_spoken": "Every model call goes through Meterless Nightshift to a pinned Nemmo-tron model.",
+ "words": [
+  {
+   "word": "Every",
+   "start": 0.0,
+   "end": 0.308
+  },
+  {
+   "word": "model",
+   "start": 0.385,
+   "end": 0.615
+  },
+  {
+   "word": "call",
+   "start": 0.692,
+   "end": 1.0
+  },
+  {
+   "word": "goes",
+   "start": 1.077,
+   "end": 1.231
+  },
+  {
+   "word": "through",
+   "start": 1.308,
+   "end": 1.462
+  },
+  {
+   "word": "Meterless",
+   "start": 1.538,
+   "end": 2.0
+  },
+  {
+   "word": "Nightshift",
+   "start": 2.077,
+   "end": 2.692
+  },
+  {
+   "word": "to",
+   "start": 2.769,
+   "end": 2.846
+  },
+  {
+   "word": "a",
+   "start": 2.923,
+   "end": 3.0
+  },
+  {
+   "word": "pinned",
+   "start": 3.077,
+   "end": 3.385
+  },
+  {
+   "word": "Nemmo-tron",
+   "start": 3.538,
+   "end": 4.077
+  },
+  {
+   "word": "model.",
+   "start": 4.154,
+   "end": 4.769
+  }
+ ],
+ "seconds": 4.77,
+ "window_seconds": 4,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

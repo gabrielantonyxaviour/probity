@@ -1,0 +1,84 @@
+{
+ "id": "a38",
+ "text_original": "Nobody asked, but it checked anyway, and found two vendors sharing one bank account.",
+ "text_spoken": "Nobody asked, but it checked anyway, and found two vendors sharing one bank account.",
+ "words": [
+  {
+   "word": "Nobody",
+   "start": 0.0,
+   "end": 0.385
+  },
+  {
+   "word": "asked,",
+   "start": 0.462,
+   "end": 1.154
+  },
+  {
+   "word": "but",
+   "start": 1.231,
+   "end": 1.462
+  },
+  {
+   "word": "it",
+   "start": 1.538,
+   "end": 1.692
+  },
+  {
+   "word": "checked",
+   "start": 1.846,
+   "end": 2.0
+  },
+  {
+   "word": "anyway,",
+   "start": 2.115,
+   "end": 2.692
+  },
+  {
+   "word": "and",
+   "start": 2.769,
+   "end": 2.846
+  },
+  {
+   "word": "found",
+   "start": 2.923,
+   "end": 3.231
+  },
+  {
+   "word": "two",
+   "start": 3.308,
+   "end": 3.385
+  },
+  {
+   "word": "vendors",
+   "start": 3.538,
+   "end": 4.0
+  },
+  {
+   "word": "sharing",
+   "start": 4.231,
+   "end": 4.462
+  },
+  {
+   "word": "one",
+   "start": 4.538,
+   "end": 4.692
+  },
+  {
+   "word": "bank",
+   "start": 4.769,
+   "end": 5.0
+  },
+  {
+   "word": "account.",
+   "start": 5.077,
+   "end": 5.692
+  }
+ ],
+ "seconds": 5.69,
+ "window_seconds": 8,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

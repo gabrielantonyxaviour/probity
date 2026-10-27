@@ -1,198 +1,253 @@
 {
-  "motion": [
-    {
-      "id": "M01",
-      "name": "river-open",
-      "seconds": 9
-    },
-    {
-      "id": "M02",
-      "name": "problem",
-      "seconds": 12
-    },
-    {
-      "id": "M03",
-      "name": "semantic layer",
-      "seconds": 10
-    },
-    {
-      "id": "M04",
-      "name": "catch",
-      "seconds": 8
-    },
-    {
-      "id": "M05",
-      "name": "agents",
-      "seconds": 14
-    },
-    {
-      "id": "M06",
-      "name": "zetaris",
-      "seconds": 8
-    },
-    {
-      "id": "M07",
-      "name": "receipts",
-      "seconds": 4
-    },
-    {
-      "id": "M08",
-      "name": "impact",
-      "seconds": 10
-    },
-    {
-      "id": "M09",
-      "name": "outro",
-      "seconds": 11
-    }
-  ],
-  "sequence": [
-    "M01",
-    "R01",
-    "M02",
-    "M03",
-    "M04",
-    "R02",
-    "M05",
-    "R03",
-    "R04",
-    "R05",
-    "R06",
-    "R07",
-    "R14",
-    "R08",
-    "M06",
-    "R09",
-    "R10",
-    "M07",
-    "R11",
-    "R12",
-    "R13",
-    "M08",
+ "motion": [
+  {
+   "id": "M01",
+   "name": "river-open",
+   "seconds": 7.867
+  },
+  {
+   "id": "M02",
+   "name": "problem",
+   "seconds": 18.5
+  },
+  {
+   "id": "M03",
+   "name": "semantic layer",
+   "seconds": 14.033
+  },
+  {
+   "id": "M04",
+   "name": "catch",
+   "seconds": 6.167
+  },
+  {
+   "id": "M05",
+   "name": "agents",
+   "seconds": 18.7
+  },
+  {
+   "id": "M06",
+   "name": "zetaris",
+   "seconds": 7.333
+  },
+  {
+   "id": "M07",
+   "name": "receipts",
+   "seconds": 5.5
+  },
+  {
+   "id": "M08",
+   "name": "impact",
+   "seconds": 5.4
+  },
+  {
+   "id": "M09",
+   "name": "outro",
+   "seconds": 10.933
+  }
+ ],
+ "sequence": [
+  "M01",
+  "R01",
+  "M02",
+  "M03",
+  "M04",
+  "R02",
+  "M05",
+  "R03",
+  "R04",
+  "R05",
+  "R06",
+  "R07",
+  "R14",
+  "M06",
+  "R09",
+  "R10",
+  "M07",
+  "R13",
+  "M08",
+  "M09"
+ ],
+ "narration": [
+  {
+   "id": "V01",
+   "audio": "a21.m4a",
+   "label": "M01: \"Accounts payable \u00b7 a payment run\" river",
+   "covers": [
+    "M01"
+   ],
+   "text": "Every week, accounts payable sends money out to hundreds of vendors, and almost all of it lands exactly where it should."
+  },
+  {
+   "id": "V02",
+   "audio": "a22.m4a",
+   "label": "R01: The Booz Allen letter",
+   "covers": [
+    "R01"
+   ],
+   "text": "Then an email like this shows up. Booz Allen, apparently, with new bank details, {{days_before_payment_words}} days before we owe them {{exposure_millions}} million dollars."
+  },
+  {
+   "id": "V03",
+   "audio": "a23.m4a",
+   "label": "M02: Three stat cards; each card must appear as its sentence starts (use word timings)",
+   "covers": [
+    "M02"
+   ],
+   "text": "This really happens. In 2018, twenty-three and a half million dollars was diverted from a government payment system this way. Last year the FBI counted three billion lost to email fraud. And the fix everyone agrees on is simple: call back on a number you already trust."
+  },
+  {
+   "id": "V04",
+   "audio": "a24.m4a",
+   "label": "M03: Sources merging into vendor360",
+   "covers": [
+    "M03"
+   ],
+   "text": "The hard part is finding that number. It's spread across four systems. So Probity uses Zetaris to join our vendor master with live USAspending and SEC EDGAR records, in one semantic layer."
+  },
+  {
+   "id": "V05",
+   "audio": "a25.m4a",
+   "label": "M04: \"Stopped before the money moves.\"",
+   "covers": [
+    "M04"
+   ],
+   "text": "For this letter, the answer is clear: stop the payment before the money moves."
+  },
+  {
+   "id": "V06",
+   "audio": "a26.m4a",
+   "label": "R02: Hold banner, then the sweep banner",
+   "covers": [
+    "R02"
+   ],
+   "text": "It holds the payment, hands us a safe number to call, and checks the rest of Friday's run while it's at it."
+  },
+  {
+   "id": "V07",
+   "audio": "a27.m4a",
+   "label": "M05: The four agent cards (each card highlights as it is named)",
+   "covers": [
+    "M05"
+   ],
+   "text": "Under the hood, there are four agents. The Letter Reader uses Nemotron Ultra to read the letter twice, and both readings have to agree. The Registry Scout runs the Zetaris checks. The Identity Examiner double-checks the evidence. And the Gate Officer, which is plain code, makes the call."
+  },
+  {
+   "id": "V08",
+   "audio": "a28.m4a",
+   "label": "R03: Trace rail, agents handing off",
+   "covers": [
+    "R03"
+   ],
+   "text": "You can watch them hand the case to each other, step by step, right here in the trace."
+  },
+  {
+   "id": "V09",
+   "audio": "a29.m4a",
+   "label": "R04: S10 injection: hidden-instruction card, page bands, HOLD",
+   "covers": [
+    "R04"
+   ],
+   "text": "Now here's a sneaky one. This letter hides a message telling the AI to approve it. Probity doesn't obey. It quotes the hidden text as evidence, and holds the payment."
+  },
+  {
+   "id": "V10",
+   "audio": "a30.m4a",
+   "label": "R05: The live S1 run (sped-up wait, then the decision). \"Decision: hold\" must be spoken exactly as the HOLD reveal appears",
+   "covers": [
+    "R05"
+   ],
+   "text": "So let's run the Booz Allen request for real. The Reader pulls out every claim, including a line asking us not to use the old phone number. The Scout checks our vendor master and the public registries through Zetaris. The new address doesn't match anything we know, so the Examiner sends the Scout back to dig. It walks Booz Allen's corporate family, forty-one companies, and finds it. The address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold. The number to call comes from SEC filings, and the one in the letter goes on the do-not-use list."
+  },
+  {
+   "id": "V11",
+   "audio": "a31.m4a",
+   "label": "R06: S2 two same-name companies, two scripts",
+   "covers": [
+    "R06"
+   ],
+   "text": "Here, two companies share the same name. Probity won't guess which one sent it. It writes a call-back script for each."
+  },
+  {
+   "id": "V12",
+   "audio": "a32.m4a",
+   "label": "R07: Memory hold (L3Harris, R5 chip)",
+   "covers": [
+    "R07"
+   ],
+   "text": "It remembers, too. A bank account caught in an earlier scam turns up on a new L3Harris request, so that one's held as well."
+  },
+  {
+   "id": "V13",
+   "audio": "a33.m4a",
+   "label": "R14: As-of scrubber back to \"Request received\"",
+   "covers": [
+    "R14"
+   ],
+   "text": "And you can rewind. This is what Probity knew when the letter arrived: the New Jersey company wasn't in the picture yet."
+  },
+  {
+   "id": "V14",
+   "audio": "a34.m4a",
+   "label": "M06: Lineage chain",
+   "covers": [
+    "M06"
+   ],
+   "text": "Every fact in that decision came from Zetaris, and each one traces back to the exact rows behind it."
+  },
+  {
+   "id": "V15",
+   "audio": "a35.m4a",
+   "label": "R09: Evidence drawer lineage, then Re-run in Zetaris",
+   "covers": [
+    "R09"
+   ],
+   "text": "Click any fact to see its source, its table and its query. Hit re-run, and Zetaris confirms the rows still match."
+  },
+  {
+   "id": "V16",
+   "audio": "a36.m4a",
+   "label": "R10: Zetaris console: RUN DQ result",
+   "covers": [
+    "R10"
+   ],
+   "text": "And the payment-run sweep is a real Zetaris data-quality rule, running right inside Zetaris."
+  },
+  {
+   "id": "V17",
+   "audio": "a37.m4a",
+   "label": "M07: Nightshift receipt",
+   "covers": [
+    "M07"
+   ],
+   "text": "Every model call goes through Meterless Nightshift to a pinned Nemotron model."
+  },
+  {
+   "id": "V18",
+   "audio": "a38.m4a",
+   "label": "R13: Sweep panel, DQ7 hit",
+   "covers": [
+    "R13"
+   ],
+   "text": "Nobody asked, but it checked anyway, and found two vendors sharing one bank account."
+  },
+  {
+   "id": "V19",
+   "audio": "a39.m4a",
+   "label": "M08: Hold list in dollars, median per check",
+   "covers": [
+    "M08"
+   ],
+   "text": "That's {{sweep_count_words}} more payments flagged, and the controller gets a hold list in dollars."
+  },
+  {
+   "id": "V20",
+   "audio": "a40.m4a",
+   "label": "M09: End card with build credit",
+   "covers": [
     "M09"
-  ],
-  "narration": [
-    {
-      "id": "N01",
-      "audio": "a01.m4a",
-      "label": "Problem + solution (pitch)",
-      "covers": [
-        "M01",
-        "R01",
-        "M02",
-        "M03",
-        "M04",
-        "R02"
-      ],
-      "text": "An accounts-payable controls lead at a federal contractor gets an email: new bank details, {{days_before_payment_words}} days before ${{exposure_millions}} million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. Every registry fact is live public data."
-    },
-    {
-      "id": "N02",
-      "audio": "a02.m4a",
-      "label": "Agents",
-      "covers": [
-        "M05",
-        "R03"
-      ],
-      "text": "Four agents, each with its own authority. The Letter Reader reads the letter twice, in two independent Nemotron Ultra calls; the readings must agree field by field. The Registry Scout runs a floor of Zetaris checks, and Nemotron Lightning adds what it misses. The Examiner re-runs each new link's Zetaris query and checks the rows. Code decides the verdict."
-    },
-    {
-      "id": "N03",
-      "audio": "a03.m4a",
-      "label": "Injection hold (S10)",
-      "covers": [
-        "R04"
-      ],
-      "text": "This letter told the AI to approve it, in hidden lines. Probity quotes them as evidence, never obeys, and holds the payment. A call-back cannot clear it."
-    },
-    {
-      "id": "N04",
-      "audio": "a04.m4a",
-      "label": "Live run: S1",
-      "covers": [
-        "R05"
-      ],
-      "text": "Here is the real run. The reader quotes the letter, including the line asking us not to use the old number. The Scout checks the vendor master and the registries through Zetaris. The address matches nothing we know, so the Examiner sends the Scout back. A coverage rule walks Booz Allen's family, forty-one entities, and keeps the one in New Jersey. A naive check would pass this: it is a real Booz Allen address. It belongs to a different Booz Allen company that has never billed us. The Examiner re-runs that query before it counts. Decision: hold. The call-back number comes from SEC filings; the letter's number and the master number changed by email three days earlier are on the do-not-use list."
-    },
-    {
-      "id": "N05",
-      "audio": "a05.m4a",
-      "label": "S2",
-      "covers": [
-        "R06"
-      ],
-      "text": "Same name, two companies. When it cannot tell which vendor a request is for, it refuses to guess and writes a script for each.",
-      "text_fit": "Same name, two companies. It refuses to guess, and writes a call-back script for each."
-    },
-    {
-      "id": "N06",
-      "audio": "a06.m4a",
-      "label": "Memory (World Model, R5)",
-      "covers": [
-        "R07"
-      ],
-      "text": "Memory across sessions. An impersonation confirmed in one session is remembered by the World Model; a later L3Harris request reuses that bank account, and it is held."
-    },
-    {
-      "id": "N07",
-      "audio": "a07.m4a",
-      "label": "S7 (only if a real outage clip or the hook exists)",
-      "covers": [
-        "R08"
-      ],
-      "text": "If the data layer is down, it uses labelled offline captures and will not approve.",
-      "text_fit": "If Zetaris is down, it says so and never approves."
-    },
-    {
-      "id": "N08",
-      "audio": "a08.m4a",
-      "label": "Sponsor tech and lineage",
-      "covers": [
-        "M06",
-        "R09",
-        "R10",
-        "M07",
-        "R11"
-      ],
-      "text": "Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer. Each one traces back to its rows: source system, table, query id and row hash, and you can re-run it. The sweep runs Zetaris data-quality rules. Every agent call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which."
-    },
-    {
-      "id": "N09",
-      "audio": "a09.m4a",
-      "label": "F29 (only if SW-F29 passed)",
-      "covers": [
-        "R12"
-      ],
-      "text": "For a company we have never paid, Nemotron Ultra approves the SEC link from cited rows, and only then is there an SEC number to call.",
-      "text_fit": "For a company we have never paid, Ultra approves the SEC link from cited rows, unlocking a number to call."
-    },
-    {
-      "id": "N10",
-      "audio": "a10.m4a",
-      "label": "Sweep and impact",
-      "covers": [
-        "R13",
-        "M08"
-      ],
-      "text": "Not asked, but checked: five Zetaris rules sweep Friday's run, down to two vendors sharing one bank account. In all, {{sweep_count_words}} other payments fail controls; the controller gets a hold list in dollars. Median time per check: {{q8_seconds}} seconds."
-    },
-    {
-      "id": "N11",
-      "audio": "a11.m4a",
-      "label": "Time travel",
-      "covers": [
-        "R14"
-      ],
-      "text": "What was known when: scrub the graph back to before the run, and the New Jersey company is not in it yet."
-    },
-    {
-      "id": "N12",
-      "audio": "a12.m4a",
-      "label": "Close and build credit",
-      "covers": [
-        "M09"
-      ],
-      "text": "It never moves money. Built Grok-first: Grok built the Zetaris data layer and the end-to-end tests; Claude Code built the agents and the interface."
-    }
-  ]
+   ],
+   "text": "Probity never moves money. It just makes sure it goes to the right place. Grok built the Zetaris data layer and the tests; Claude Code built the agents and the interface."
+  }
+ ]
 }

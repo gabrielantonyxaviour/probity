@@ -1,0 +1,124 @@
+{
+ "id": "a33",
+ "text_original": "And you can rewind. This is what Probity knew when the letter arrived: the New Jersey company wasn't in the picture yet.",
+ "text_spoken": "And you can rewind. This is what Probity knew when the letter arrived: the New Jersey company wasn't in the picture yet.",
+ "words": [
+  {
+   "word": "And",
+   "start": 0.0,
+   "end": 0.231
+  },
+  {
+   "word": "you",
+   "start": 0.308,
+   "end": 0.385
+  },
+  {
+   "word": "can",
+   "start": 0.462,
+   "end": 0.538
+  },
+  {
+   "word": "rewind.",
+   "start": 0.615,
+   "end": 1.462
+  },
+  {
+   "word": "This",
+   "start": 1.769,
+   "end": 1.923
+  },
+  {
+   "word": "is",
+   "start": 2.0,
+   "end": 2.077
+  },
+  {
+   "word": "what",
+   "start": 2.154,
+   "end": 2.231
+  },
+  {
+   "word": "Probity",
+   "start": 2.308,
+   "end": 2.769
+  },
+  {
+   "word": "knew",
+   "start": 2.846,
+   "end": 3.077
+  },
+  {
+   "word": "when",
+   "start": 3.154,
+   "end": 3.231
+  },
+  {
+   "word": "the",
+   "start": 3.308,
+   "end": 3.346
+  },
+  {
+   "word": "letter",
+   "start": 3.385,
+   "end": 3.615
+  },
+  {
+   "word": "arrived:",
+   "start": 3.692,
+   "end": 4.615
+  },
+  {
+   "word": "the",
+   "start": 4.654,
+   "end": 4.692
+  },
+  {
+   "word": "New",
+   "start": 4.769,
+   "end": 4.923
+  },
+  {
+   "word": "Jersey",
+   "start": 5.0,
+   "end": 5.231
+  },
+  {
+   "word": "company",
+   "start": 5.308,
+   "end": 5.769
+  },
+  {
+   "word": "wasn't",
+   "start": 6.0,
+   "end": 6.308
+  },
+  {
+   "word": "in",
+   "start": 6.385,
+   "end": 6.462
+  },
+  {
+   "word": "the",
+   "start": 6.5,
+   "end": 6.538
+  },
+  {
+   "word": "picture",
+   "start": 6.615,
+   "end": 6.923
+  },
+  {
+   "word": "yet.",
+   "start": 7.077,
+   "end": 7.462
+  }
+ ],
+ "seconds": 7.46,
+ "window_seconds": 9,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

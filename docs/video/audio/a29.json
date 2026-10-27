@@ -1,0 +1,164 @@
+{
+ "id": "a29",
+ "text_original": "Now here's a sneaky one. This letter hides a message telling the AI to approve it. Probity doesn't obey. It quotes the hidden text as evidence, and holds the payment.",
+ "text_spoken": "Now here's a sneaky one. This letter hides a message telling the AI to approve it. Probity doesn't obey. It quotes the hidden text as evidence, and holds the payment.",
+ "words": [
+  {
+   "word": "Now",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "here's",
+   "start": 0.231,
+   "end": 0.462
+  },
+  {
+   "word": "a",
+   "start": 0.538,
+   "end": 0.615
+  },
+  {
+   "word": "sneaky",
+   "start": 0.692,
+   "end": 1.077
+  },
+  {
+   "word": "one.",
+   "start": 1.154,
+   "end": 1.615
+  },
+  {
+   "word": "This",
+   "start": 1.846,
+   "end": 2.077
+  },
+  {
+   "word": "letter",
+   "start": 2.154,
+   "end": 2.385
+  },
+  {
+   "word": "hides",
+   "start": 2.462,
+   "end": 2.769
+  },
+  {
+   "word": "a",
+   "start": 2.808,
+   "end": 2.846
+  },
+  {
+   "word": "message",
+   "start": 2.923,
+   "end": 3.385
+  },
+  {
+   "word": "telling",
+   "start": 3.462,
+   "end": 3.692
+  },
+  {
+   "word": "the",
+   "start": 3.769,
+   "end": 3.846
+  },
+  {
+   "word": "AI",
+   "start": 3.923,
+   "end": 4.231
+  },
+  {
+   "word": "to",
+   "start": 4.269,
+   "end": 4.308
+  },
+  {
+   "word": "approve",
+   "start": 4.385,
+   "end": 4.769
+  },
+  {
+   "word": "it.",
+   "start": 4.846,
+   "end": 5.231
+  },
+  {
+   "word": "Probity",
+   "start": 5.462,
+   "end": 5.923
+  },
+  {
+   "word": "doesn't",
+   "start": 6.0,
+   "end": 6.308
+  },
+  {
+   "word": "obey.",
+   "start": 6.385,
+   "end": 6.885
+  },
+  {
+   "word": "It",
+   "start": 7.077,
+   "end": 7.231
+  },
+  {
+   "word": "quotes",
+   "start": 7.308,
+   "end": 7.615
+  },
+  {
+   "word": "the",
+   "start": 7.654,
+   "end": 7.692
+  },
+  {
+   "word": "hidden",
+   "start": 7.846,
+   "end": 8.0
+  },
+  {
+   "word": "text",
+   "start": 8.154,
+   "end": 8.308
+  },
+  {
+   "word": "as",
+   "start": 8.346,
+   "end": 8.385
+  },
+  {
+   "word": "evidence,",
+   "start": 8.538,
+   "end": 9.154
+  },
+  {
+   "word": "and",
+   "start": 9.231,
+   "end": 9.308
+  },
+  {
+   "word": "holds",
+   "start": 9.385,
+   "end": 9.692
+  },
+  {
+   "word": "the",
+   "start": 9.731,
+   "end": 9.769
+  },
+  {
+   "word": "payment.",
+   "start": 9.846,
+   "end": 10.462
+  }
+ ],
+ "seconds": 10.46,
+ "window_seconds": 12,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

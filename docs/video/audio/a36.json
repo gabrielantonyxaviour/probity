@@ -1,0 +1,84 @@
+{
+ "id": "a36",
+ "text_original": "And the payment-run sweep is a real Zetaris data-quality rule, running right inside Zetaris.",
+ "text_spoken": "And the payment-run sweep is a real Zeh-tarris data-quality rule, running right inside Zeh-tarris.",
+ "words": [
+  {
+   "word": "And",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "the",
+   "start": 0.192,
+   "end": 0.231
+  },
+  {
+   "word": "payment-run",
+   "start": 0.308,
+   "end": 0.846
+  },
+  {
+   "word": "sweep",
+   "start": 0.923,
+   "end": 1.308
+  },
+  {
+   "word": "is",
+   "start": 1.385,
+   "end": 1.462
+  },
+  {
+   "word": "a",
+   "start": 1.538,
+   "end": 1.692
+  },
+  {
+   "word": "real",
+   "start": 1.769,
+   "end": 2.077
+  },
+  {
+   "word": "Zeh-tarris",
+   "start": 2.154,
+   "end": 2.615
+  },
+  {
+   "word": "data-quality",
+   "start": 2.692,
+   "end": 3.308
+  },
+  {
+   "word": "rule,",
+   "start": 3.385,
+   "end": 4.0
+  },
+  {
+   "word": "running",
+   "start": 4.077,
+   "end": 4.462
+  },
+  {
+   "word": "right",
+   "start": 4.538,
+   "end": 4.692
+  },
+  {
+   "word": "inside",
+   "start": 4.769,
+   "end": 5.077
+  },
+  {
+   "word": "Zeh-tarris.",
+   "start": 5.154,
+   "end": 6.0
+  }
+ ],
+ "seconds": 6.0,
+ "window_seconds": 6,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

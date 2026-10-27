@@ -1,0 +1,169 @@
+{
+ "id": "a40",
+ "text_original": "Probity never moves money. It just makes sure it goes to the right place. Grok built the Zetaris data layer and the tests; Claude Code built the agents and the interface.",
+ "text_spoken": "Probity never moves money. It just makes sure it goes to the right place. Grok built the Zeh-tarris data layer and the tests; Claude Code built the agents and the interface.",
+ "words": [
+  {
+   "word": "Probity",
+   "start": 0.0,
+   "end": 0.462
+  },
+  {
+   "word": "never",
+   "start": 0.615,
+   "end": 0.846
+  },
+  {
+   "word": "moves",
+   "start": 0.923,
+   "end": 1.154
+  },
+  {
+   "word": "money.",
+   "start": 1.231,
+   "end": 1.846
+  },
+  {
+   "word": "It",
+   "start": 1.923,
+   "end": 2.0
+  },
+  {
+   "word": "just",
+   "start": 2.077,
+   "end": 2.154
+  },
+  {
+   "word": "makes",
+   "start": 2.231,
+   "end": 2.385
+  },
+  {
+   "word": "sure",
+   "start": 2.462,
+   "end": 2.615
+  },
+  {
+   "word": "it",
+   "start": 2.692,
+   "end": 2.769
+  },
+  {
+   "word": "goes",
+   "start": 2.808,
+   "end": 3.0
+  },
+  {
+   "word": "to",
+   "start": 3.038,
+   "end": 3.077
+  },
+  {
+   "word": "the",
+   "start": 3.115,
+   "end": 3.154
+  },
+  {
+   "word": "right",
+   "start": 3.231,
+   "end": 3.462
+  },
+  {
+   "word": "place.",
+   "start": 3.692,
+   "end": 4.462
+  },
+  {
+   "word": "Grok",
+   "start": 4.538,
+   "end": 4.846
+  },
+  {
+   "word": "built",
+   "start": 4.923,
+   "end": 5.077
+  },
+  {
+   "word": "the",
+   "start": 5.115,
+   "end": 5.154
+  },
+  {
+   "word": "Zeh-tarris",
+   "start": 5.231,
+   "end": 5.692
+  },
+  {
+   "word": "data",
+   "start": 5.769,
+   "end": 6.0
+  },
+  {
+   "word": "layer",
+   "start": 6.077,
+   "end": 6.385
+  },
+  {
+   "word": "and",
+   "start": 6.462,
+   "end": 6.538
+  },
+  {
+   "word": "the",
+   "start": 6.615,
+   "end": 6.654
+  },
+  {
+   "word": "tests;",
+   "start": 6.692,
+   "end": 7.538
+  },
+  {
+   "word": "Claude",
+   "start": 7.615,
+   "end": 7.846
+  },
+  {
+   "word": "Code",
+   "start": 7.923,
+   "end": 8.154
+  },
+  {
+   "word": "built",
+   "start": 8.231,
+   "end": 8.385
+  },
+  {
+   "word": "the",
+   "start": 8.462,
+   "end": 8.538
+  },
+  {
+   "word": "agents",
+   "start": 8.808,
+   "end": 9.077
+  },
+  {
+   "word": "and",
+   "start": 9.154,
+   "end": 9.231
+  },
+  {
+   "word": "the",
+   "start": 9.269,
+   "end": 9.308
+  },
+  {
+   "word": "interface.",
+   "start": 9.385,
+   "end": 10.231
+  }
+ ],
+ "seconds": 10.23,
+ "window_seconds": 11,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

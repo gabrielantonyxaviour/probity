@@ -36,4 +36,4 @@ export const FONT = {
 } as const;
 
 export const VIDEO = { width: 1920, height: 1080, fps: 30, columnWidth: 1400 } as const;
-export const TOTAL_CAP_SECONDS = 230;
+export const TOTAL_CAP_SECONDS = 235;

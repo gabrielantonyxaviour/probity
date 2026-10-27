@@ -6,6 +6,7 @@ import { TL, at, endOf, FPS, seg } from "../timeline/timeline";
 import { prog, ease } from "../system/motion";
 import { T_STATIC_SECONDS, SPEED } from "../system/matrix-field";
 import { facts } from "../data/facts";
+import { beat } from "../data/beats";
 import type { HoldTarget } from "./layout-hold";
 
 const BACK = -1.0; // morph back starts 1.0 s before the scene ends (the seam is part of the world)
@@ -41,7 +42,8 @@ export function planesParams(frame: number): { act: number; mix: number } {
   const end = seg("M05").len / FPS;
   const mix = prog(s, 1.6, 0.6) * (1 - prog(s, end - 3.0, 0.7));
   const step = (a: number) => prog(s, a, 0.5);
-  return { act: s < 1.5 ? -1 : step(5.5) + step(8.2) + step(10.4), mix };
+  const b = (k: string) => beat("M05", k) / FPS; // each plane lights as its agent is named
+  return { act: s < b("A1") ? -1 : step(b("A2")) + step(b("A3")) + step(b("A4")), mix };
 }
 
 export function holdParams(frame: number): { active: boolean; peels: number[]; target: HoldTarget } {

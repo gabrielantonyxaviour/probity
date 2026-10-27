@@ -25,7 +25,7 @@ export const M09: React.FC = () => {
       <div style={{ position: "absolute", left: 120, top: 150 }}>
         <Eyebrow frame={f} at={96} style={{ marginBottom: 22 }}>Open Agent Hackathon 2026 · Track T01</Eyebrow>
         <Serif frame={f} at={100} size={112}>Probity</Serif>
-        <Serif frame={f} at={110} size={44} color={C.fg2} style={{ marginTop: 22 }}>Before the money moves, prove who is asking.</Serif>
+        <Serif frame={f} at={110} size={44} color={C.fg2} style={{ marginTop: 22 }}>Verify the payee, not the paperwork.</Serif>
         <div style={{ marginTop: 34, display: "flex", flexDirection: "column", gap: 14, opacity: e(clamp01((f - 126) / 15)) }}>
           <div style={{ fontFamily: FONT.mono, fontSize: 20, color: C.fg, fontFeatureSettings: '"zero" 1' }}>{REPO}</div>
           <div style={{ ...monoStyle, fontSize: 14, color: C.muted }}>SAMPLE_MODE: one command, no keys</div>
