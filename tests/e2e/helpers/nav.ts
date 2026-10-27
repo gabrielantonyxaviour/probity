@@ -21,3 +21,16 @@ export async function openRequest(page: Page, requestId: string): Promise<void> 
   await expect(page).toHaveURL(new RegExp(`/app/review/`));
   await expect(page.getByTestId("decision-card")).toBeVisible();
 }
+
+/** Letter body: a tab below 768, an open column from 768 to 1439, a collapsed rail at 1440 once decided. */
+export async function openLetter(page: Page): Promise<void> {
+  const vp = page.viewportSize()?.width ?? 1440;
+  const width = vp >= 1440 ? "wide" : vp >= 768 ? "medium" : "narrow";
+  await expect(page.getByTestId("review-page")).toHaveAttribute("data-width", width);
+  if (width === "narrow") await page.getByRole("tab", { name: "Letter", exact: true }).click();
+  if (width === "wide") {
+    const show = page.getByTestId("show-letter");
+    if (await show.isVisible()) await show.click();
+  }
+  await expect(page.getByTestId("letter-pane")).toBeVisible();
+}

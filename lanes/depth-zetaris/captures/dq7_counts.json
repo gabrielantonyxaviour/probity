@@ -1,0 +1,19 @@
+{
+  "id": "dq7_counts",
+  "captured_at": "2026-10-27T15:48:25.003Z",
+  "sql": "SELECT COUNT(*) AS total_rows, SUM(CASE WHEN s.account_hash IS NOT NULL THEN 1 ELSE 0 END) AS invalid_rows FROM lightning.metastore.probity.vendor360.vendor_bank_account b LEFT JOIN (SELECT account_hash FROM lightning.metastore.probity.vendor360.vendor_bank_account GROUP BY account_hash HAVING COUNT(DISTINCT vendor_id) > 1) s ON s.account_hash = b.account_hash LIMIT 1",
+  "queryId": "4fec9465-ba29-443c-845e-408a62923d99",
+  "latency_ms": 29532,
+  "http_status": 200,
+  "columns": [
+    "total_rows",
+    "invalid_rows"
+  ],
+  "rows": [
+    [
+      "52",
+      "2"
+    ]
+  ],
+  "row_hash": "f3c89a00cc4604f3"
+}

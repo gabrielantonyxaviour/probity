@@ -1,5 +1,5 @@
 // Fictional filler vendors (02 section 4.7). Names, cities and states are fixed; streets are invented per vendor by the seeded rng.
-// Every name is stored with " (fictional)" (REV-65). No filler has a UEI or CIK.
+// Names are stored plain; the explicit is_fictional flag marks them (REV-65, amended: no suffix). No filler has a UEI or CIK.
 import type { VendorSpec } from "./types";
 
 type Cat = VendorSpec["category"];
@@ -58,4 +58,4 @@ export const STREET_WORDS = [
   "Ferncliff", "Larchmont", "Quarry Hill", "Pellam", "Orchard Gate", "Redfield", "Thistle", "Gannet", "Winslow", "Tamarack", "Birchmere", "Ironwood",
 ];
 export const STREET_SUFFIX = ["Rd", "Dr", "Blvd", "Way", "Pkwy", "Ln", "St", "Ct", "Pl", "Trl"];
-export const STAFF = ["J. Whitfield (fictional)", "M. Okonkwo (fictional)", "T. Okafor (fictional)", "S. Brandvold (fictional)"];
+export const STAFF = ["J. Whitfield", "M. Okonkwo", "T. Okafor", "S. Brandvold"];

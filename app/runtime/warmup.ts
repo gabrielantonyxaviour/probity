@@ -35,7 +35,7 @@ const PROBE_SCHEMA = {
   required: ["vendor", "amount_usd"],
   additionalProperties: false,
 };
-const PROBE_TEXT = "Extract: Northgate Fabrication LLC (fictional) asks to be paid 1204.50 USD for invoice INV-NGF-00417.";
+const PROBE_TEXT = "Extract: Northgate Fabrication LLC asks to be paid 1204.50 USD for invoice INV-NGF-00417.";
 
 export async function runWarmup(
   cfg: Config,

@@ -24,8 +24,17 @@ export function persistedFrom(s: PolicyState): PersistedRunState {
     extraction_path: s.claims?.extraction_path ?? "typed",
     extraction_model: s.extras.extraction_model,
     candidate_vendor_ids: s.candidates.map((c) => c.vendor_id),
-  };
+    // D1/D6 (additive): a re-evaluation keeps R8 and C7, which come from the letter, not from the call-back.
+    ...(s.extras.letter_reading ? { letter_reading: s.extras.letter_reading } : {}),
+    ...(s.extras.injection ? { injection: s.extras.injection } : {}),
+  } as PersistedRunState;
 }
+
+/** The additive D1/D6 fields of a stored state (absent in runs stored before them). */
+export const letterChecksOf = (p: PersistedRunState): Pick<PolicyState["extras"], "letter_reading" | "injection"> => {
+  const x = p as PersistedRunState & Partial<Pick<PolicyState["extras"], "letter_reading" | "injection">>;
+  return { letter_reading: x.letter_reading ?? null, injection: x.injection ?? null };
+};
 
 export function saveState(logsDir: string, run_id: string, p: PersistedRunState): void {
   mkdirSync(logsDir, { recursive: true });

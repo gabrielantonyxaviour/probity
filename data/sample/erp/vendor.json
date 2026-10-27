@@ -55,7 +55,7 @@
   },
   {
     "vendor_id": "V-10154",
-    "legal_name": "Bluefen Geospatial Imaging LLC (fictional)",
+    "legal_name": "Bluefen Geospatial Imaging LLC",
     "legal_name_norm": "BLUEFEN GEOSPATIAL IMAGING LLC",
     "is_fictional": true,
     "uei": null,
@@ -73,7 +73,7 @@
   },
   {
     "vendor_id": "V-10167",
-    "legal_name": "Calloway Freight Brokers Inc (fictional)",
+    "legal_name": "Calloway Freight Brokers Inc",
     "legal_name_norm": "CALLOWAY FREIGHT BROKERS INC",
     "is_fictional": true,
     "uei": null,
@@ -91,7 +91,7 @@
   },
   {
     "vendor_id": "V-10179",
-    "legal_name": "Elkhorn Radio Repair Co (fictional)",
+    "legal_name": "Elkhorn Radio Repair Co",
     "legal_name_norm": "ELKHORN RADIO REPAIR CO",
     "is_fictional": true,
     "uei": null,
@@ -109,7 +109,7 @@
   },
   {
     "vendor_id": "V-10186",
-    "legal_name": "Larkspur Mobile Notary LLC (fictional)",
+    "legal_name": "Larkspur Mobile Notary LLC",
     "legal_name_norm": "LARKSPUR MOBILE NOTARY LLC",
     "is_fictional": true,
     "uei": null,
@@ -145,7 +145,7 @@
   },
   {
     "vendor_id": "V-10233",
-    "legal_name": "Northgate Office Interiors LLC (fictional)",
+    "legal_name": "Northgate Office Interiors LLC",
     "legal_name_norm": "NORTHGATE OFFICE INTERIORS LLC",
     "is_fictional": true,
     "uei": null,
@@ -163,7 +163,7 @@
   },
   {
     "vendor_id": "V-10234",
-    "legal_name": "NORTHGATE OFFICE INTERIORS (fictional)",
+    "legal_name": "NORTHGATE OFFICE INTERIORS",
     "legal_name_norm": "NORTHGATE OFFICE INTERIORS",
     "is_fictional": true,
     "uei": null,
@@ -181,7 +181,7 @@
   },
   {
     "vendor_id": "V-10261",
-    "legal_name": "Brackwater Survey Instrumnets LLC (fictional)",
+    "legal_name": "Brackwater Survey Instrumnets LLC",
     "legal_name_norm": "BRACKWATER SURVEY INSTRUMNETS LLC",
     "is_fictional": true,
     "uei": null,
@@ -217,7 +217,7 @@
   },
   {
     "vendor_id": "V-10349",
-    "legal_name": "Chesterfield Ridge Staffing Group Inc (fictional)",
+    "legal_name": "Chesterfield Ridge Staffing Group Inc",
     "legal_name_norm": "CHESTERFIELD RIDGE STAFFING GROUP INC",
     "is_fictional": true,
     "uei": null,
@@ -235,7 +235,7 @@
   },
   {
     "vendor_id": "V-10357",
-    "legal_name": "Kettle Point Data Cabling LLC (fictional)",
+    "legal_name": "Kettle Point Data Cabling LLC",
     "legal_name_norm": "KETTLE POINT DATA CABLING LLC",
     "is_fictional": true,
     "uei": null,
@@ -253,7 +253,7 @@
   },
   {
     "vendor_id": "V-10388",
-    "legal_name": "Larkfield Translation Services LLC (fictional)",
+    "legal_name": "Larkfield Translation Services LLC",
     "legal_name_norm": "LARKFIELD TRANSLATION SERVICES LLC",
     "is_fictional": true,
     "uei": null,
@@ -271,7 +271,7 @@
   },
   {
     "vendor_id": "V-10402",
-    "legal_name": "Pembrook Secure Shredding Co (fictional)",
+    "legal_name": "Pembrook Secure Shredding Co",
     "legal_name_norm": "PEMBROOK SECURE SHREDDING CO",
     "is_fictional": true,
     "uei": null,
@@ -307,7 +307,7 @@
   },
   {
     "vendor_id": "V-10471",
-    "legal_name": "Ostrander Test & Calibration Inc (fictional)",
+    "legal_name": "Ostrander Test & Calibration Inc",
     "legal_name_norm": "OSTRANDER TEST & CALIBRATION INC",
     "is_fictional": true,
     "uei": null,
@@ -325,7 +325,7 @@
   },
   {
     "vendor_id": "V-10483",
-    "legal_name": "Fallow Creek Catering LLC (fictional)",
+    "legal_name": "Fallow Creek Catering LLC",
     "legal_name_norm": "FALLOW CREEK CATERING LLC",
     "is_fictional": true,
     "uei": null,
@@ -343,7 +343,7 @@
   },
   {
     "vendor_id": "V-10509",
-    "legal_name": "Wexley Badge & Credential Supply Inc (fictional)",
+    "legal_name": "Wexley Badge & Credential Supply Inc",
     "legal_name_norm": "WEXLEY BADGE & CREDENTIAL SUPPLY INC",
     "is_fictional": true,
     "uei": null,
@@ -361,7 +361,7 @@
   },
   {
     "vendor_id": "V-10528",
-    "legal_name": "Corbin Hollow HVAC Services LLC (fictional)",
+    "legal_name": "Corbin Hollow HVAC Services LLC",
     "legal_name_norm": "CORBIN HOLLOW HVAC SERVICES LLC",
     "is_fictional": true,
     "uei": null,
@@ -379,7 +379,7 @@
   },
   {
     "vendor_id": "V-10544",
-    "legal_name": "Juniper Lane Travel Management LLC (fictional)",
+    "legal_name": "Juniper Lane Travel Management LLC",
     "legal_name_norm": "JUNIPER LANE TRAVEL MANAGEMENT LLC",
     "is_fictional": true,
     "uei": null,
@@ -397,7 +397,7 @@
   },
   {
     "vendor_id": "V-10561",
-    "legal_name": "Sable Harbor Marine Logistics LLC (fictional)",
+    "legal_name": "Sable Harbor Marine Logistics LLC",
     "legal_name_norm": "SABLE HARBOR MARINE LOGISTICS LLC",
     "is_fictional": true,
     "uei": null,
@@ -433,7 +433,7 @@
   },
   {
     "vendor_id": "V-10592",
-    "legal_name": "Thornfield Environmental Labs Inc (fictional)",
+    "legal_name": "Thornfield Environmental Labs Inc",
     "legal_name_norm": "THORNFIELD ENVIRONMENTAL LABS INC",
     "is_fictional": true,
     "uei": null,
@@ -451,7 +451,7 @@
   },
   {
     "vendor_id": "V-10604",
-    "legal_name": "Ridgeback Network Supply Co (fictional)",
+    "legal_name": "Ridgeback Network Supply Co",
     "legal_name_norm": "RIDGEBACK NETWORK SUPPLY CO",
     "is_fictional": true,
     "uei": null,
@@ -469,7 +469,7 @@
   },
   {
     "vendor_id": "V-10617",
-    "legal_name": "Ashgrove Records Management LLC (fictional)",
+    "legal_name": "Ashgrove Records Management LLC",
     "legal_name_norm": "ASHGROVE RECORDS MANAGEMENT LLC",
     "is_fictional": true,
     "uei": null,
@@ -487,7 +487,7 @@
   },
   {
     "vendor_id": "V-10630",
-    "legal_name": "Merriwether Cloud Reseller LLC (fictional)",
+    "legal_name": "Merriwether Cloud Reseller LLC",
     "legal_name_norm": "MERRIWETHER CLOUD RESELLER LLC",
     "is_fictional": true,
     "uei": null,
@@ -505,7 +505,7 @@
   },
   {
     "vendor_id": "V-10645",
-    "legal_name": "Sterling Fox Cyber Training LLC (fictional)",
+    "legal_name": "Sterling Fox Cyber Training LLC",
     "legal_name_norm": "STERLING FOX CYBER TRAINING LLC",
     "is_fictional": true,
     "uei": null,
@@ -523,7 +523,7 @@
   },
   {
     "vendor_id": "V-10655",
-    "legal_name": "Marrowstone Facility Partners LLC (fictional)",
+    "legal_name": "Marrowstone Facility Partners LLC",
     "legal_name_norm": "MARROWSTONE FACILITY PARTNERS LLC",
     "is_fictional": true,
     "uei": null,
@@ -541,7 +541,7 @@
   },
   {
     "vendor_id": "V-10671",
-    "legal_name": "Copperline Fiber Splicing LLC (fictional)",
+    "legal_name": "Copperline Fiber Splicing LLC",
     "legal_name_norm": "COPPERLINE FIBER SPLICING LLC",
     "is_fictional": true,
     "uei": null,
@@ -559,7 +559,7 @@
   },
   {
     "vendor_id": "V-10688",
-    "legal_name": "Granite Shoals Engineering PLLC (fictional)",
+    "legal_name": "Granite Shoals Engineering PLLC",
     "legal_name_norm": "GRANITE SHOALS ENGINEERING PLLC",
     "is_fictional": true,
     "uei": null,
@@ -577,7 +577,7 @@
   },
   {
     "vendor_id": "V-10702",
-    "legal_name": "Dovecote Furniture Installers LLC (fictional)",
+    "legal_name": "Dovecote Furniture Installers LLC",
     "legal_name_norm": "DOVECOTE FURNITURE INSTALLERS LLC",
     "is_fictional": true,
     "uei": null,
@@ -595,7 +595,7 @@
   },
   {
     "vendor_id": "V-10718",
-    "legal_name": "Bellhaven Print & Mail Inc (fictional)",
+    "legal_name": "Bellhaven Print & Mail Inc",
     "legal_name_norm": "BELLHAVEN PRINT & MAIL INC",
     "is_fictional": true,
     "uei": null,
@@ -613,7 +613,7 @@
   },
   {
     "vendor_id": "V-10731",
-    "legal_name": "Windrow Grounds Maintenance LLC (fictional)",
+    "legal_name": "Windrow Grounds Maintenance LLC",
     "legal_name_norm": "WINDROW GROUNDS MAINTENANCE LLC",
     "is_fictional": true,
     "uei": null,
@@ -631,7 +631,7 @@
   },
   {
     "vendor_id": "V-10749",
-    "legal_name": "Pinecrest Medical Courier LLC (fictional)",
+    "legal_name": "Pinecrest Medical Courier LLC",
     "legal_name_norm": "PINECREST MEDICAL COURIER LLC",
     "is_fictional": true,
     "uei": null,
@@ -649,7 +649,7 @@
   },
   {
     "vendor_id": "V-10763",
-    "legal_name": "Tidewater Cable & Conduit LLC (fictional)",
+    "legal_name": "Tidewater Cable & Conduit LLC",
     "legal_name_norm": "TIDEWATER CABLE & CONDUIT LLC",
     "is_fictional": true,
     "uei": null,
@@ -667,7 +667,7 @@
   },
   {
     "vendor_id": "V-10776",
-    "legal_name": "Harrow & Vale Legal Support LLC (fictional)",
+    "legal_name": "Harrow & Vale Legal Support LLC",
     "legal_name_norm": "HARROW & VALE LEGAL SUPPORT LLC",
     "is_fictional": true,
     "uei": null,
@@ -685,7 +685,7 @@
   },
   {
     "vendor_id": "V-10790",
-    "legal_name": "Quarrytown Facilities Group LLC (fictional)",
+    "legal_name": "Quarrytown Facilities Group LLC",
     "legal_name_norm": "QUARRYTOWN FACILITIES GROUP LLC",
     "is_fictional": true,
     "uei": null,
@@ -703,7 +703,7 @@
   },
   {
     "vendor_id": "V-10812",
-    "legal_name": "Quillan Ridge Fleet Services LLC (fictional)",
+    "legal_name": "Quillan Ridge Fleet Services LLC",
     "legal_name_norm": "QUILLAN RIDGE FLEET SERVICES LLC",
     "is_fictional": true,
     "uei": null,

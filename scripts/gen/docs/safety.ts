@@ -1,6 +1,22 @@
 // Safety checks that fail the build (02 section 6.2): watermark and footer on every page, 555-01xx phones only, test-range accounts
-// printed beside their TEST labels, .example domains only, "(fictional)" signers, no real mail domains.
+// printed beside their TEST labels, .example domains only, no real mail domains. A letter may omit the watermark only when its company is a
+// fictional vendor row of the committed seed (is_fictional = true); real company names always carry it (decision 8). An unmarked letter must
+// not contain any synthetic wording at all.
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { REPO } from "../env-files";
 import { NOTICE_FOOTER, watermarkText, type Laid, type Letter } from "./model";
+
+let fictionalNames: Set<string> | null = null;
+/** Legal names of the seed's fictional vendors (db/seed/vendor.json, written by gen:seed). */
+export function fictionalVendorNames(): Set<string> {
+  if (!fictionalNames) {
+    const rows = JSON.parse(readFileSync(path.join(REPO, "db/seed/vendor.json"), "utf8")) as { legal_name: string; is_fictional: boolean }[];
+    fictionalNames = new Set(rows.filter((r) => r.is_fictional).map((r) => r.legal_name));
+  }
+  return fictionalNames;
+}
+const SYNTHETIC_WORDING = /synthetic|fictional/i;
 
 const PHONE = /(?<!\d)(?:\(\d{3}\)\s?|\d{3}[-.\s])\d{3}[-.\s]\d{4}(?!\d)|(?<!\d)\d{10}(?!\d)/g;
 const NUMBER_RUN = /\d[\d\s.-]{7,}\d/g;
@@ -31,10 +47,10 @@ export function checkLetter(L: Letter, laid: Laid, label = L.id): string[] {
       for (const m of t.matchAll(EMAIL)) if (!(m[1] as string).endsWith(".example")) errs.push(`${label}: email domain ${m[1]} is not .example`);
       if (REAL_MAIL.test(t)) errs.push(`${label}: real mail domain in "${t}"`);
       if (FRAUD.test(t)) errs.push(`${label}: forbidden word in "${t}"`);
+      if (L.unmarked && SYNTHETIC_WORDING.test(t)) errs.push(`${label}: synthetic wording in an unmarked letter: "${t}"`);
     }
   });
-  if (L.unmarked && !L.company.endsWith("(fictional)")) errs.push(`${label}: only a fictional vendor's letter may omit the watermark`);
-  if (!L.signer.endsWith("(fictional)") && L.signer !== "Accounts Department") errs.push(`${label}: signer "${L.signer}" must end with (fictional)`);
+  if (L.unmarked && !fictionalVendorNames().has(L.company)) errs.push(`${label}: only a fictional vendor's letter may omit the watermark`);
   return errs;
 }
 
@@ -43,7 +59,8 @@ export function checkEml(text: string, company: string, label: string, unmarked 
   if (!text.includes("\r\n") || /(^|[^\r])\n/.test(text)) errs.push(`${label}: .eml must use CRLF line ends`);
   const body = text.split("\r\n\r\n").slice(1).join("\r\n\r\n");
   if (unmarked) {
-    if (!company.endsWith("(fictional)")) errs.push(`${label}: only a fictional vendor's email may omit the synthetic marker`);
+    if (!fictionalVendorNames().has(company)) errs.push(`${label}: only a fictional vendor's email may omit the synthetic marker`);
+    if (SYNTHETIC_WORDING.test(text)) errs.push(`${label}: synthetic wording in an unmarked email`);
   } else {
     if (!text.includes(`X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by ${company}`)) errs.push(`${label}: X-Synthetic-Notice missing`);
     if (!body.startsWith("[SYNTHETIC SAMPLE - not a real email]")) errs.push(`${label}: first body line must be the synthetic marker`);

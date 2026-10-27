@@ -1,0 +1,13 @@
+{
+  "id": "dq8_split",
+  "captured_at": "2026-10-27T15:34:59.870Z",
+  "sql": "SELECT COUNT(*) AS total, SUM(CASE WHEN amount_usd > 100000 THEN 1 ELSE 0 END) AS large_payments, SUM(CASE WHEN bank_changed_at IS NOT NULL AND scheduled_date IS NOT NULL AND datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) BETWEEN 0 AND 14 THEN 1 ELSE 0 END) AS change_in_window, SUM(CASE WHEN amount_usd > 100000 AND bank_changed_at IS NOT NULL AND scheduled_date IS NOT NULL AND datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) BETWEEN 0 AND 14 THEN 1 ELSE 0 END) AS both_gates, SUM(CASE WHEN COALESCE((amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))), false) THEN 1 ELSE 0 END) AS valid, SUM(CASE WHEN NOT COALESCE((amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))), false) THEN 1 ELSE 0 END) AS invalid FROM lightning.metastore.probity.vendor360.payment_run_item LIMIT 1",
+  "queryId": "1d9af60c-a933-4ee0-a837-7606bc8ceec2",
+  "latency_ms": 1,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

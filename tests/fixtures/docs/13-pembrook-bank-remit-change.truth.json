@@ -17,7 +17,7 @@
       "zip": "20108"
     },
     "bank": {
-      "bank_name": "Calderwick Test Bank (fictional)",
+      "bank_name": "Calderwick Savings Bank",
       "routing": "110000000",
       "account_number": "000999000901"
     },
@@ -25,25 +25,12 @@
       "(703) 555-0195"
     ],
     "effective_date": "2026-11-01",
-    "signer_name": "M. Prakash (fictional)",
+    "signer_name": "M. Prakash",
     "signer_title": "Billing Manager",
     "sender_email": "ar@pembrookshredding.example",
     "reply_to": "ar.desk@payablehub.example"
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Pembrook Secure Shredding Co (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 561,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Pembrook Secure Shredding Co",
@@ -111,7 +98,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -176,13 +163,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Calderwick Test Bank (fictional)",
+      "text": "Calderwick Savings Bank",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 812,
-          "w": 316,
+          "w": 248,
           "h": 28
         }
       ]
@@ -228,13 +215,13 @@
     },
     {
       "field": "signer_name",
-      "text": "M. Prakash (fictional)",
+      "text": "M. Prakash",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 1068,
-          "w": 229,
+          "w": 120,
           "h": 30
         }
       ]
@@ -252,5 +239,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

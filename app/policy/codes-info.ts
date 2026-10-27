@@ -3,7 +3,7 @@ import type { ReasonCode } from "../schemas/decision";
 import type { PolicyState } from "../orchestration/state";
 import { listCapped } from "./address";
 import { mk } from "./code-util";
-import { addrKey, nameNorm } from "./normalise";
+import { addrKey, nameNorm, normText } from "./normalise";
 import { evidenceIds, queriesOf, rowsOf, str, vendorRow, type Row } from "./rows";
 
 const dash = (v: unknown): string => str(v)?.slice(0, 10) ?? "open";
@@ -114,7 +114,10 @@ export function i5(s: PolicyState): ReasonCode | null {
   return mk("I5", detail, ev);
 }
 
+/** I6: pressure language. Text addressed to an automated reviewer is R8, not I6, whatever kind a reading gave it. */
 export function i6(s: PolicyState): ReasonCode | null {
-  const p = s.claims?.pressure_phrases ?? [];
+  const spans = (s.extras.injection?.spans ?? []).filter((x) => x.counted).map((x) => normText(x.text));
+  const injected = (q: string): boolean => spans.some((t) => t.includes(normText(q)) || normText(q).includes(t));
+  const p = (s.claims?.pressure_phrases ?? []).filter((x) => x.kind !== "embedded_instruction" && !injected(x.quote));
   return p.length ? mk("I6", `The request says: "${p[0]!.quote}"`) : null;
 }

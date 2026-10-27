@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { systemView } from "@/lib/system-status";
 import { SHELL } from "@/lib/copy";
 import { Chip } from "@/components/ui/chip";
@@ -48,6 +49,7 @@ export function SystemChip() {
         {v.mode !== "sample" ? <p className="t-ui-xs text-fg-muted">{SHELL.visionUnavailable}</p> : null}
         {v.entities != null ? <p className="t-ui-xs text-fg-muted">World Model: {v.entities} entities</p> : null}
         {error ? <p className="t-ui-xs text-conflict-text">{error.message}</p> : null}
+        <Link href="/app/system" className="t-mono-label p-link text-fg-2" data-testid="system-page-link">{SHELL.systemPage}</Link>
       </div>
     </Popover>
   );

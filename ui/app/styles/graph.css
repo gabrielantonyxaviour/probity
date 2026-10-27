@@ -12,7 +12,7 @@
 .rows-wrap th { position: sticky; top: 0; background: var(--bg-canvas); text-align: left; padding: 6px 10px; font-family: var(--font-mono); font-size: var(--text-mono-label); font-weight: 500; text-transform: uppercase; letter-spacing: var(--tracking-mono); color: var(--fg-muted); border-bottom: var(--line); white-space: nowrap; }
 .rows-wrap td { padding: 6px 10px; border-top: 1px dashed var(--rule); font-family: var(--font-mono); font-size: 12px; line-height: 16px; white-space: nowrap; }
 
-.gr { position: relative; border: var(--line); border-radius: var(--radius-box); background: var(--bg-canvas); }
+.gr { position: relative; min-width: 0; max-width: 100%; border: var(--line); border-radius: var(--radius-box); background: var(--bg-canvas); }
 .gr__bar { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; min-height: var(--strip-h); padding: 6px 12px; border-bottom: var(--line); background: var(--bg-canvas); }
 .gr__canvas { position: relative; height: 560px; background: var(--dot-grid); }
 .gr[data-full="true"] .gr__canvas { height: calc(100dvh - var(--sticky-top) - 120px); }

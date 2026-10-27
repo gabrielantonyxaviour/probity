@@ -1,0 +1,13 @@
+{
+  "id": "describe_vendor",
+  "captured_at": "2026-10-27T15:34:59.841Z",
+  "sql": "DESCRIBE DATASOURCE TABLE payee_erp.vendor",
+  "queryId": "e50e9542-3f57-4ecc-b862-75ac10a71c38",
+  "latency_ms": 0,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

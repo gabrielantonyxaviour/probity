@@ -1,0 +1,13 @@
+{
+  "id": "show_dq2",
+  "captured_at": "2026-10-27T15:34:59.904Z",
+  "sql": "SHOW DQ INVALID RECORD account_single_vendor TABLE lightning.metastore.probity.vendor360.payment_run_item",
+  "queryId": "1764f5a4-111e-4fa7-995f-05131c04b35e",
+  "latency_ms": 0,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

@@ -15,7 +15,7 @@ export function assertInvariants(b: Built, phoneOpen: (id: string) => string): v
   t("vendor count 40", vendors.length === 40);
   t("7 real-named and 33 fictional", vendors.filter((v) => !v.fictional).length === 7 && vendors.filter((v) => v.fictional).length === 33);
   for (const v of vendors) {
-    t(`${v.id}: is_fictional matches suffix`, v.fictional === v.name.endsWith(" (fictional)"));
+    t(`${v.id}: name carries no synthetic marker`, !/fictional|synthetic/i.test(v.name));
     t(`${v.id}: fictional vendor has no UEI or CIK`, !v.fictional || (v.uei === null && v.cik === null));
     t(`${v.id}: domains end .example`, v.domains.every((d) => d.domain.endsWith(".example")));
     if (v.id === "V-07734") continue;

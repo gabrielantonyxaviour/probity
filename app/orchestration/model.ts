@@ -44,6 +44,12 @@ export async function callModel(ctx: RunContext, spec: CallSpec): Promise<ChatRe
   }
 }
 
+/** The Meterless compute receipt id (rcpt_...) of a call, when the receipt carries one. */
+export const receiptIdOf = (r: ChatResult): string | null => {
+  const id = (r.receipt?.receipt as { receipt_id?: unknown } | null | undefined)?.receipt_id;
+  return typeof id === "string" ? id : null;
+};
+
 /** Model fields for a trace event, copied from the ChatResult (never from the request). */
 export function modelFields(r: ChatResult) {
   return {
@@ -105,10 +111,21 @@ export async function callJson<N extends LlmSchemaName>(
   name: N,
   spec: Omit<CallSpec, "expect" | "response_schema" | "tool_choice">,
 ): Promise<JsonCall<z.infer<(typeof LLM_SCHEMAS)[N]["schema"]>>> {
-  const schema = LLM_SCHEMAS[name].schema as z.ZodType;
+  return callJsonWith(ctx, name, LLM_SCHEMAS[name].schema as z.ZodType, spec) as never;
+}
+
+/** callJson for a schema owned by one agent (D6 injection review): same repair turn, same ledger. */
+export async function callJsonWith<S extends z.ZodType>(
+  ctx: RunContext,
+  name: string,
+  schema: S,
+  spec: Omit<CallSpec, "expect" | "response_schema" | "tool_choice">,
+): Promise<JsonCall<z.infer<S>>> {
+  const js = z.toJSONSchema(schema) as Record<string, unknown>;
+  delete js.$schema;
   let messages: ChatMessage[] = spec.messages;
   for (let attempt = 0; attempt < 2; attempt++) {
-    const result = await callModel(ctx, { ...spec, messages, expect: "json", response_schema: { name, schema: jsonSchemaOf(name) } });
+    const result = await callModel(ctx, { ...spec, messages, expect: "json", response_schema: { name, schema: js } });
     const raw: unknown = result.content ? lastJsonObject(result.content) : (result.tool_calls[0]?.arguments ?? null);
     const parsed = schema.safeParse(raw ?? result.tool_calls[0]?.arguments);
     if (parsed.success) return { data: parsed.data as never, result, repaired: attempt > 0 };

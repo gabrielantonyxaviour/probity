@@ -21,25 +21,12 @@
       "(202) 555-0168"
     ],
     "effective_date": "2026-11-01",
-    "signer_name": "E. Nakagawa-Stein (fictional)",
+    "signer_name": "E. Nakagawa-Stein",
     "signer_title": "Office Administrator",
     "sender_email": null,
     "reply_to": null
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Harrow & Vale Legal Support LLC (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 570,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Harrow & Vale Legal Support LLC",
@@ -107,7 +94,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -172,13 +159,13 @@
     },
     {
       "field": "signer_name",
-      "text": "E. Nakagawa-Stein (fictional)",
+      "text": "E. Nakagawa-Stein",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 814,
-          "w": 329,
+          "w": 213,
           "h": 30
         }
       ]
@@ -196,5 +183,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

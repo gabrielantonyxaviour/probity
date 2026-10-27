@@ -50,3 +50,21 @@ describe("layoutGraph", () => {
     expect(layoutGraph(payload, { showHistory: true }).edges.some((e) => e.id === "e7")).toBe(true);
   });
 });
+
+describe("routeAround (edge behind a card)", () => {
+  const card = (id: string, col: "request" | "erp" | "usaspending" | "edgar", x: number, y: number, h = 56) => ({ id, node: null, group: null, col, x, y, w: 200, h, pill: false, claimed: false });
+  it("routes a request-to-USAspending edge through the gap in Our records", async () => {
+    const { routeAround } = await import("./layout");
+    const a = card("addr", "request", 0, 300);
+    const b = card("khk6", "usaspending", 600, 320);
+    const erp = [card("v1", "erp", 300, 200, 80), card("phone", "erp", 300, 308, 100)];
+    const via = routeAround(a, b, [a, b, ...erp]);
+    expect(via).toBeDefined();
+    expect(via!.y).toBeGreaterThan(280);
+    expect(via!.y).toBeLessThan(308);
+  });
+  it("leaves neighbour-column edges alone", async () => {
+    const { routeAround } = await import("./layout");
+    expect(routeAround(card("a", "request", 0, 0), card("b", "erp", 300, 0), [])).toBeUndefined();
+  });
+});

@@ -75,6 +75,12 @@
 .sw-row:first-child { border-top: 0; }
 .sw-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .sw-foot { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 8px; }
+.sw-hit { display: grid; gap: 6px; min-width: 0; }
+.sw-hit + .sw-hit { padding-top: 6px; }
+.sw-rules { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule); display: grid; gap: 8px; min-width: 0; }
+.sw-rules ul { display: grid; gap: 6px; min-width: 0; }
+.sw-rule { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto auto; gap: 4px 12px; align-items: baseline; min-width: 0; }
+@media (max-width: 720px) { .sw-rule { grid-template-columns: 40px minmax(0, 1fr); } .sw-rule > :nth-child(n + 3) { grid-column: 2; } }
 .nj { display: grid; gap: 0; }
 .nj__row { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px dashed var(--rule); text-align: left; width: 100%; }
 .nj__row:first-child { border-top: 0; }

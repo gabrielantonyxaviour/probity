@@ -11,7 +11,7 @@
     "letterhead_name": "Sable Harbor Marine Logistics LLC",
     "remit_address": null,
     "bank": {
-      "bank_name": "Harborline Test Savings (fictional)",
+      "bank_name": "Harborline Savings",
       "routing": "110000000",
       "account_number": "000999000731"
     },
@@ -19,7 +19,7 @@
       "(757) 555-0125"
     ],
     "effective_date": "2026-11-03",
-    "signer_name": "T. Valdivia (fictional)",
+    "signer_name": "T. Valdivia",
     "signer_title": "Treasury Analyst",
     "sender_email": "finance@sableharbor.example",
     "reply_to": null
@@ -106,7 +106,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -171,13 +171,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Harborline Test Savings (fictional)",
+      "text": "Harborline Savings",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 769,
-          "w": 337,
+          "w": 187,
           "h": 28
         }
       ]
@@ -237,13 +237,13 @@
     },
     {
       "field": "signer_name",
-      "text": "T. Valdivia (fictional)",
+      "text": "T. Valdivia",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 1026,
-          "w": 223,
+          "w": 114,
           "h": 30
         }
       ]

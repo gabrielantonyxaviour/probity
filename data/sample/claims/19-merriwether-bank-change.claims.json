@@ -2,16 +2,16 @@
   "example_id": "19-merriwether-bank-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "f4d6a7b30034b6f3e09b67eebbb0549436e7a53b910424c0ee7df1de97068846",
-    "cc638fdd358d18221d1d07985d0c65fc14db833c1821438c419a004f1964b6fd",
-    "8ef0973d45c515e0229939663788304a03c28da676f730444f717512bc70a037"
+    "367f8dd4ed145b4fbec3f09b448ddf21ee593a44cef782e6b9eb800c026a3f80",
+    "791e17bb8d120bc0c1356de526b05cbe96e88d5b9888830685f8b3298b2611d7",
+    "8389f0c41d4a7f28ed4948c67acb469c9145c059abfc9f4a4c4a3df900faa8cf"
   ],
   "account_number": "000999000906",
   "claimed_name": "Merriwether Cloud Reseller LLC",
   "letterhead_name": "Merriwether Cloud Reseller LLC",
   "remit_address": null,
   "bank": {
-    "bank_name": "Calderwick Test Bank (fictional)",
+    "bank_name": "Calderwick Savings Bank",
     "routing": "110000000",
     "account_last4": "0906"
   },
@@ -29,23 +29,10 @@
   "invoice_refs": [
     "INV-MCR-50154"
   ],
-  "signer_name": "P. Oyelaran (fictional)",
+  "signer_name": "P. Oyelaran",
   "pressure_phrases": [],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Merriwether Cloud Reseller LLC (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Merriwether Cloud Reseller LLC (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        570,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -140,12 +127,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "P. Oyelaran (fictional)",
+      "quote": "P. Oyelaran",
       "page": 1,
       "bbox_hint": [
         117,
         598,
-        306,
+        218,
         617
       ],
       "highlight_source": "text_layer"

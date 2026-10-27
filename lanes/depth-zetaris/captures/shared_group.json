@@ -1,0 +1,23 @@
+{
+  "id": "shared_group",
+  "captured_at": "2026-10-27T15:42:18.178Z",
+  "sql": "SELECT account_hash, COUNT(DISTINCT vendor_id) AS vendor_count, concat_ws(',', sort_array(collect_set(vendor_id))) AS vendor_ids, concat_ws(',', sort_array(collect_set(CAST(status AS STRING)))) AS statuses FROM lightning.metastore.probity.vendor360.vendor_bank_account GROUP BY account_hash HAVING COUNT(DISTINCT vendor_id) > 1 LIMIT 50",
+  "queryId": "062128ec-56b1-4601-b2d9-f5841ee90b8b",
+  "latency_ms": 13264,
+  "http_status": 200,
+  "columns": [
+    "account_hash",
+    "vendor_count",
+    "vendor_ids",
+    "statuses"
+  ],
+  "rows": [
+    [
+      "35b3f6fe36f7fbd4de8d547f66f5712c070586a5175353215a1cf5f83b7cf1f5",
+      "2",
+      "V-10233,V-10234",
+      "active"
+    ]
+  ],
+  "row_hash": "42a71b0b9f32db41"
+}

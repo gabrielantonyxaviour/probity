@@ -2,8 +2,8 @@
   "example_id": "11-kettle-point-remit-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "e70acc9205035b8a85a0b446a82749217bb5e0e2c7d731105b95e1344afe80b8",
-    "dfb4b6b6bcd832b44426087df7501b0a0ef6acc4994dd1962dd933c8ae01226e"
+    "e1a257aa1c55768c56353604fca2acd872b69148b2f182bf38b5cc165b12f94d",
+    "7e1388cebf226544abc6ff49c1596c33e7719280e2f28b97b9eb118577a99bbc"
   ],
   "account_number": null,
   "claimed_name": "Kettle Point Data Cabling LLC",
@@ -28,23 +28,10 @@
   ],
   "effective_date": "2026-11-02",
   "invoice_refs": [],
-  "signer_name": "C. Brandvold (fictional)",
+  "signer_name": "C. Brandvold",
   "pressure_phrases": [],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Kettle Point Data Cabling LLC (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Kettle Point Data Cabling LLC (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        557,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -113,12 +100,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "C. Brandvold (fictional)",
+      "quote": "C. Brandvold",
       "page": 1,
       "bbox_hint": [
         117,
         576,
-        329,
+        235,
         594
       ],
       "highlight_source": "text_layer"

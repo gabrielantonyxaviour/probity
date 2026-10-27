@@ -1,6 +1,7 @@
 "use client";
 import { BaseEdge, EdgeLabelRenderer, getBezierPath, getSmoothStepPath, type Edge, type EdgeProps } from "@xyflow/react";
 import { dayDate } from "@/lib/format";
+import type { Via } from "./layout";
 
 export type GEdgeData = {
   label: string;
@@ -11,7 +12,16 @@ export type GEdgeData = {
   same: boolean;
   testState: string;
   title: string;
+  via?: Via | null;
 };
+
+const seg = (xa: number, ya: number, xb: number, yb: number) => `C ${(xa + xb) / 2} ${ya}, ${(xa + xb) / 2} ${yb}, ${xb} ${yb}`;
+
+/** Source to the gap, straight through it, then on to the target: the edge never passes behind a card. */
+export function viaPath(sx: number, sy: number, tx: number, ty: number, v: Via): [string, number, number] {
+  const [ax, bx] = sx <= tx ? [v.x1, v.x2] : [v.x2, v.x1];
+  return [`M ${sx} ${sy} ${seg(sx, sy, ax, v.y)} L ${bx} ${v.y} ${seg(bx, v.y, tx, ty)}`, (ax + bx) / 2, v.y];
+}
 export type GEdge = Edge<GEdgeData, "probity">;
 
 export function edgeVisual(state: GEdgeData["state"], conflict: boolean) {
@@ -28,7 +38,7 @@ export function ProbityEdge(p: EdgeProps<GEdge>) {
   const d = p.data!;
   const v = edgeVisual(d.state, d.conflict);
   const args = { sourceX: p.sourceX, sourceY: p.sourceY, targetX: p.targetX, targetY: p.targetY, sourcePosition: p.sourcePosition, targetPosition: p.targetPosition };
-  const [path, lx, ly] = d.same ? getSmoothStepPath({ ...args, borderRadius: 12 }) : getBezierPath(args);
+  const [path, lx, ly] = d.via ? viaPath(p.sourceX, p.sourceY, p.targetX, p.targetY, d.via) : d.same ? getSmoothStepPath({ ...args, borderRadius: 12 }) : getBezierPath(args);
   const label = d.state === "superseded" && d.validTo ? `until ${dayDate(d.validTo)}` : d.state === "pending" ? "not yet examined" : d.label;
   const solid = !v.dash;
   // Same-column edges run down the request column past other cards: their label would sit on top of a card, and the

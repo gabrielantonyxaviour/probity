@@ -32,7 +32,7 @@ export interface Letter {
   closing: string;
   signer: string;
   signerTitle: string;
-  /** Fictional vendor: no diagonal watermark, no synthetic footer line (decision 8). Only allowed when `company` ends with "(fictional)". */
+  /** Fictional vendor: no diagonal watermark, no synthetic footer line (decision 8). Only allowed when `company` is a fictional vendor row of the seed (safety.ts checks db/seed/vendor.json). */
   unmarked?: boolean;
   hidden?: HiddenSpan[];
 }

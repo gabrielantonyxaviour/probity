@@ -6,7 +6,7 @@ const real = (id: string, name: string, uei: string, cik: string, remit: VendorS
   id, name, fictional: false, uei, cik, remit, status: "active", mergedInto: null, legacy, created, domains, category: "subcontract", prefix,
 });
 const fict = (id: string, name: string, remit: VendorSpec["remit"], domain: string, added: string, created: string, legacy: string | null, prefix: string, category: VendorSpec["category"]): VendorSpec => ({
-  id, name: `${name} (fictional)`, fictional: true, uei: null, cik: null, remit, status: "active", mergedInto: null, legacy, created,
+  id, name: `${name}`, fictional: true, uei: null, cik: null, remit, status: "active", mergedInto: null, legacy, created,
   domains: [{ domain, added }], category, prefix,
 });
 
@@ -104,11 +104,11 @@ export const RUN_1103_ITEMS: ItemSpec[] = [
 export function scenarioCallLogs(drop: Drop): CallLogSpec[] {
   const L = (id: string, vendor: string, request: string, phone: string, source: CallLogSpec["source"], outcome: CallLogSpec["outcome"], at: string, by: string): CallLogSpec => ({ id, vendor, request, purpose: "bank_change_callback", phone, source, outcome, at, by });
   const out = [
-    L("CL-20389", "V-10763", "BCR-2026-0389", "+17575550119", "request_letter", "confirmed", drop.has("PT3") ? "2026-08-24T13:40:00Z" : "2026-10-16T13:40:00Z", "J. Whitfield (fictional)"),
-    L("CL-20371", "V-10604", "BCR-2026-0371", "+15715550138", "vendor_master_pre_window", "confirmed", "2026-10-06T14:10:00Z", "J. Whitfield (fictional)"),
-    L("CL-20398", "V-10198", "BCR-2026-0398", "+13217279100", "edgar_registrant", "confirmed", "2026-10-21T14:30:00Z", "M. Okonkwo (fictional)"),
-    L("CL-20427", "V-10112", "BCR-2026-0427", "+17038417800", "edgar_registrant", "confirmed", "2026-10-26T15:05:00Z", "T. Okafor (fictional)"),
-    L("CL-20233", "V-10592", "BCR-2026-0233", "+12405550152", "vendor_master_pre_window", "denied", "2026-06-11T16:00:00Z", "M. Okonkwo (fictional)"),
+    L("CL-20389", "V-10763", "BCR-2026-0389", "+17575550119", "request_letter", "confirmed", drop.has("PT3") ? "2026-08-24T13:40:00Z" : "2026-10-16T13:40:00Z", "J. Whitfield"),
+    L("CL-20371", "V-10604", "BCR-2026-0371", "+15715550138", "vendor_master_pre_window", "confirmed", "2026-10-06T14:10:00Z", "J. Whitfield"),
+    L("CL-20398", "V-10198", "BCR-2026-0398", "+13217279100", "edgar_registrant", "confirmed", "2026-10-21T14:30:00Z", "M. Okonkwo"),
+    L("CL-20427", "V-10112", "BCR-2026-0427", "+17038417800", "edgar_registrant", "confirmed", "2026-10-26T15:05:00Z", "T. Okafor"),
+    L("CL-20233", "V-10592", "BCR-2026-0233", "+12405550152", "vendor_master_pre_window", "denied", "2026-06-11T16:00:00Z", "M. Okonkwo"),
   ];
   const skip = new Set<string>();
   if (drop.has("PT4")) skip.add("CL-20398");

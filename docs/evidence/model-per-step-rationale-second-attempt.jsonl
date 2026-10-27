@@ -1,0 +1,23 @@
+{"id":"04-v2x-remit-change#6","lane":"fast","rep":2,"ok":true,"passed":true,"failures":[],"latency_ms":2121,"egress":"nvidia"}
+{"id":"06b-caci-lookalike#8","lane":"fast","rep":1,"ok":true,"passed":false,"failures":["unknown token 000","unknown token 000","unknown token 0000"],"latency_ms":3125,"egress":"nvidia"}
+{"id":"06b-caci-lookalike#8","lane":"deep","rep":1,"ok":true,"passed":false,"failures":["sentence count 2"],"latency_ms":2105,"egress":"nvidia"}
+{"id":"06b-caci-lookalike#8","lane":"fast","rep":2,"ok":true,"passed":false,"failures":["unknown token 000","unknown token 000","unknown token 0000"],"latency_ms":2370,"egress":"nvidia"}
+{"id":"06b-caci-lookalike#9","lane":"fast","rep":1,"ok":true,"passed":false,"failures":["unknown token 123456","sweep sentence but the sweep found nothing"],"latency_ms":2105,"egress":"nvidia"}
+{"id":"06b-caci-lookalike#8","lane":"deep","rep":2,"ok":true,"passed":false,"failures":["sentence count 2"],"latency_ms":1448,"egress":"nvidia"}
+{"id":"06b-caci-lookalike#9","lane":"fast","rep":2,"ok":true,"passed":false,"failures":["unknown token 123456","sweep sentence but the sweep found nothing"],"latency_ms":1563,"egress":"nvidia"}
+{"id":"10-sable-harbor-injection#8","lane":"fast","rep":2,"ok":true,"passed":false,"failures":["a call-back number is also called do-not-use (+17575550125)"],"latency_ms":6243,"egress":"nvidia"}
+{"id":"BCR-2026-0401#8","lane":"fast","rep":1,"ok":true,"passed":true,"failures":[],"latency_ms":2325,"egress":"nvidia"}
+{"id":"BCR-2026-0401#8","lane":"fast","rep":2,"ok":true,"passed":true,"failures":[],"latency_ms":2339,"egress":"nvidia"}
+{"id":"BCR-2026-0405#8","lane":"fast","rep":1,"ok":true,"passed":true,"failures":[],"latency_ms":5139,"egress":"nvidia"}
+{"id":"BCR-2026-0409#7","lane":"fast","rep":1,"ok":true,"passed":true,"failures":[],"latency_ms":2535,"egress":"nvidia"}
+{"id":"BCR-2026-0409#7","lane":"fast","rep":2,"ok":true,"passed":true,"failures":[],"latency_ms":3249,"egress":"nvidia"}
+{"id":"BCR-2026-0420#8","lane":"fast","rep":1,"ok":true,"passed":false,"failures":["reason left out: \"The attribution link for V-10528 was not examined, so it sta\""],"latency_ms":2979,"egress":"nvidia"}
+{"id":"BCR-2026-0420#8","lane":"fast","rep":2,"ok":true,"passed":false,"failures":["call-back sentence missing: say \"Call (703) 555-0123\""],"latency_ms":2830,"egress":"nvidia"}
+{"id":"BCR-2026-0420#9","lane":"fast","rep":2,"ok":true,"passed":true,"failures":[],"latency_ms":3034,"egress":"nvidia"}
+{"id":"BCR-2026-0429#8","lane":"fast","rep":1,"ok":true,"passed":true,"failures":[],"latency_ms":4067,"egress":"nvidia"}
+{"id":"BCR-2026-0434#8","lane":"fast","rep":1,"ok":true,"passed":true,"failures":[],"latency_ms":2585,"egress":"nvidia"}
+{"id":"BCR-2026-0434#8","lane":"fast","rep":2,"ok":true,"passed":false,"failures":["call-back sentence missing: say \"Call (703) 555-0153\""],"latency_ms":2043,"egress":"nvidia"}
+{"id":"BCR-2026-0434#9","lane":"fast","rep":1,"ok":true,"passed":false,"failures":["a call-back number is also called do-not-use (+17035550153)"],"latency_ms":8769,"egress":"nvidia"}
+{"id":"BCR-2026-0434#9","lane":"fast","rep":2,"ok":true,"passed":false,"failures":["a call-back number is also called do-not-use (+17035550153)"],"latency_ms":3559,"egress":"nvidia"}
+{"id":"BCR-2026-0443#5","lane":"fast","rep":1,"ok":true,"passed":true,"failures":[],"latency_ms":3655,"egress":"nvidia"}
+{"id":"BCR-2026-0443#5","lane":"fast","rep":2,"ok":true,"passed":true,"failures":[],"latency_ms":2830,"egress":"nvidia"}

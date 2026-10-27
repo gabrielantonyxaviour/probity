@@ -1,0 +1,13 @@
+{
+  "id": "vendors_named",
+  "captured_at": "2026-10-27T15:38:40.188Z",
+  "sql": "SELECT vendor_id, legal_name, name_norm, uei, registrant_cik FROM lightning.metastore.probity.vendor360.vendor WHERE vendor_id IN ('V-10027', 'V-10349') OR upper(legal_name) LIKE '%L3HARRIS%' OR upper(legal_name) LIKE '%BOOZ ALLEN%' LIMIT 20",
+  "queryId": "2214093d-43a9-4342-9792-c630661ac2eb",
+  "latency_ms": 45076,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "The operation was aborted due to timeout",
+  "code": "zetaris_timeout"
+}

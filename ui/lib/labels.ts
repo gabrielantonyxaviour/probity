@@ -1,6 +1,6 @@
 // Single source of display labels for facts, decisions, reasons and statuses (01 sections 11.2 to 11.5, 17.2, 17.3).
 // Grok's copy tests import these constants. Trace, template and graph labels live in labels-trace.ts and labels-graph.ts.
-import type { Decision, FactField, ReasonCodeId } from "@schemas/decision";
+import { REASON_SLUGS, type Decision, type FactField, type ReasonCodeId } from "@schemas/decision";
 
 export type ReasonClass = "red" | "cap" | "info";
 
@@ -73,8 +73,8 @@ export const DECISION_UI = {
 export const DECISION_SUBLABEL = "decision on the bank-detail change";
 
 /** Display order inside the Why groups (UI ordering only; the API order stays in the JSON). */
-export const REASON_ORDER: Record<ReasonClass, readonly ReasonCodeId[]> = {
-  red: ["R5", "R3", "R6", "R4", "R1", "R2", "R7"],
+export const REASON_ORDER: Record<ReasonClass, readonly string[]> = {
+  red: ["R8", "R5", "R3", "R6", "R4", "R1", "R2", "R7"],
   cap: ["C1", "C5", "C2", "C3", "C4", "C6"],
   info: ["I1", "I2", "I3", "I4", "I5", "I6"],
 };
@@ -96,7 +96,7 @@ export const SAMPLE_R4_LINE =
   "Sample mode does not run the Examiner's model step, so soft links stay held. Live mode examines them with Nemotron 3 Ultra.";
 export const SAMPLE_C2_LINE = "Sample mode never approves: captured data is not live evidence (C2).";
 
-const REASON_TITLES: Record<ReasonCodeId, string> = {
+const REASON_TITLES: Record<string, string> = {
   R1: "Sent from a domain we don't have on file",
   R2: "New remit-to address matches none of this company's known addresses",
   R3: "New address belongs to a different company, not our vendor",
@@ -118,17 +118,41 @@ const REASON_TITLES: Record<ReasonCodeId, string> = {
   I6: "Request uses pressure language",
 };
 
+/** Codes added after v1 (D1 dual reading, D6 injection), keyed by slug so a renumbered code still reads right. */
+const SLUG_TITLES: Record<string, string> = {
+  reviewer_instruction: "The document contains instructions aimed at an automated reviewer",
+  embedded_instruction: "The document contains instructions aimed at an automated reviewer",
+  prompt_injection: "The document contains instructions aimed at an automated reviewer",
+  injection_detected: "The document contains instructions aimed at an automated reviewer",
+  readings_disagree: "Two independent readings of the letter disagree",
+  reading_disagreement: "Two independent readings of the letter disagree",
+  dual_read_disagreement: "Two independent readings of the letter disagree",
+  extraction_disagreement: "Two independent readings of the letter disagree",
+};
+const VARIANT_TAIL: Record<string, string> = { hidden: " (hidden on the page)", visible: "" };
+
+function slugTitle(code: string): string | null {
+  const slug = (REASON_SLUGS as Record<string, string | undefined>)[code];
+  if (!slug) return null;
+  if (SLUG_TITLES[slug]) return SLUG_TITLES[slug];
+  if (/inject|instruction/.test(slug)) return SLUG_TITLES.reviewer_instruction;
+  if (/read/.test(slug) && /disagree|mismatch/.test(slug)) return SLUG_TITLES.readings_disagree;
+  const words = slug.replace(/_/g, " ");
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
 export function reasonTitle(
-  code: ReasonCodeId,
-  o: { variant?: keyof typeof R4_TITLES; lookalike?: boolean; sessionId?: string | null } = {},
+  code: ReasonCodeId | string,
+  o: { variant?: string; lookalike?: boolean; sessionId?: string | null } = {},
 ): string {
-  if (code === "R4") return R4_TITLES[o.variant ?? "multi_candidate"];
+  if (code === "R4") return R4_TITLES[(o.variant && o.variant in R4_TITLES ? o.variant : "multi_candidate") as keyof typeof R4_TITLES];
   if (code === "R1") return o.lookalike ? `${REASON_TITLES.R1} · lookalike` : REASON_TITLES.R1;
   if (code === "R5") {
     const where = o.sessionId ? `session ${o.sessionId}` : "earlier in this session";
     return `${REASON_TITLES.R5} (${where}).`;
   }
-  return REASON_TITLES[code];
+  const base = REASON_TITLES[code] ?? slugTitle(code) ?? `Reason ${code}`;
+  return o.variant && !REASON_TITLES[code] && VARIANT_TAIL[o.variant] != null ? base + VARIANT_TAIL[o.variant] : base;
 }
 
 /** Status chips for the queue and the review head (01 section 11.5). */

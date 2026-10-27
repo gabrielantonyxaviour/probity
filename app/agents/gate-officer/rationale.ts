@@ -39,9 +39,10 @@ export function rationaleInput(d: GateDecision): Record<string, unknown> & { dec
     exposure: { vendor_item_count: d.exposure.vendor_item_count, vendor_amount_display: money(d.exposure.vendor_amount_usd) },
     codes: d.reason_codes.filter((c) => c.class !== "info").map((c) => ({ class: c.class, detail: c.detail })),
     // multi-candidate: the numbers live in callback_per_candidate only, so neither is mistaken for a do-not-use number
-    callback: script && !multi ? { number_display: script.number_display, number_source_label: plainLabel(script.source_label) } : null,
+    // APPROVE: the call-back already happened, so the note names no number to call and no do-not-use list.
+    callback: script && !multi && d.decision !== "APPROVE" ? { number_display: script.number_display, number_source_label: plainLabel(script.source_label) } : null,
     callback_confirmed: confirmed ? { number_display: confirmed.phone_display, called_on: isoDate(confirmed.called_at), log_id: confirmed.log_id } : null,
-    do_not_use: d.callback_scripts.flatMap((x) => x.do_not_use.map((u) => u.number_display)).filter((n) => n !== script?.number_display),
+    do_not_use: d.decision === "APPROVE" ? [] : d.callback_scripts.flatMap((x) => x.do_not_use.map((u) => u.number_display)).filter((n) => n !== script?.number_display),
     // null when the sweep found nothing: given a zero, the model still wrote "0 other items ..." (live, S4)
     sweep: sweepK(d) > 0 ? { k: sweepK(d), amount_display: money(d.sweep.amount_usd) } : null,
   };

@@ -10,6 +10,7 @@ import { RUN_ID, QUERY_ID } from "../../schemas/patterns";
 import { toDetail } from "../../runtime/run-record";
 import { fail, parse } from "../error-handler";
 import { masker } from "../../trace/mask";
+import { lineageFor } from "../lineage";
 
 const Id = z.object({ id: z.string().regex(RUN_ID) });
 const IdQuery = z.object({ id: z.string().regex(RUN_ID), qid: z.string().regex(QUERY_ID) });
@@ -91,7 +92,8 @@ export function registerRuns(app: FastifyInstance): void {
         key: rec.key ?? "query",
         source_label: rec.source_label ?? sourceLabel(String(rec.mode)),
       });
-      return masker.deep({ ...d, rows: d.rows.slice(0, 200) });
+      const lineage = lineageFor(d.sql, d.rows);
+      return masker.deep({ ...d, rows: d.rows.slice(0, 200), ...(lineage ? { lineage } : {}) });
     }
     throw fail("not_found", "Query not found.");
   });

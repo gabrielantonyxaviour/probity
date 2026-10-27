@@ -4,6 +4,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import type { Config } from "../config/env";
+import { logger } from "../trace/logger";
 import type { RunRecord } from "../runtime/run-record";
 import type { InboxItem } from "../schemas/api-routes";
 import { loadErp, selectPaymentRun, type BcrRow, type ErpSnapshot } from "./erp-read";
@@ -65,7 +66,12 @@ export async function buildInbox(cfg: Config, latest: Map<string, RunRecord>): P
   };
   const out = new Map<string, InboxItem>();
   for (const r of snap.requests) {
-    const vendors = [r.vendor_id, ...r.candidate_vendor_ids.split(",")].filter((v): v is string => !!v && v.length > 0);
+    // One unreadable ERP row must not take the inbox down: leave it out and log its id only.
+    if (typeof r.request_id !== "string" || typeof r.received_at !== "string") {
+      logger.warn({ code: "inbox_row_unreadable" }, "inbox row left out");
+      continue;
+    }
+    const vendors = [r.vendor_id, ...(r.candidate_vendor_ids ?? "").split(",")].filter((v): v is string => !!v && v.length > 0);
     out.set(r.request_id, {
       request_id: r.request_id,
       example_id: null,

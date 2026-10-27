@@ -2,9 +2,9 @@
   "example_id": "13-pembrook-bank-remit-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "383510c035da1e94155db07a5b3145383bfb81f63ef00a7f92e6b51efd2c4921",
-    "a68d6b7a2014cc9946e82857f80e46af7be9ce8e1e6e74e32e8fe2b363409b2b",
-    "1891e08617f9e01adaa01aaf2ff30ae7bea074686d5ed5c081807f8ff3464622"
+    "898e3ad3c9b56a16097a8d3121cd8af6c7f961b5cb76aed1c53104456b1afc1b",
+    "eba052f93fa9e7cd01527b2427b1cb31a8f6b4e0e0d199c5f9329c8e058bce0f",
+    "0bf1a91a1c7c0ccc3080b5547eb6fe4f5c1fda05bf3388961dd63fc965389123"
   ],
   "account_number": "000999000901",
   "claimed_name": "Pembrook Secure Shredding Co",
@@ -17,7 +17,7 @@
     "zip": "20108"
   },
   "bank": {
-    "bank_name": "Calderwick Test Bank (fictional)",
+    "bank_name": "Calderwick Savings Bank",
     "routing": "110000000",
     "account_last4": "0901"
   },
@@ -33,23 +33,10 @@
   ],
   "effective_date": "2026-11-01",
   "invoice_refs": [],
-  "signer_name": "M. Prakash (fictional)",
+  "signer_name": "M. Prakash",
   "pressure_phrases": [],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Pembrook Secure Shredding Co (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Pembrook Secure Shredding Co (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        571,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -144,12 +131,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "M. Prakash (fictional)",
+      "quote": "M. Prakash",
       "page": 1,
       "bbox_hint": [
         117,
         668,
-        303,
+        214,
         686
       ],
       "highlight_source": "text_layer"

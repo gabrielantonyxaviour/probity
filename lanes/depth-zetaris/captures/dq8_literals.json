@@ -1,0 +1,25 @@
+{
+  "id": "dq8_literals",
+  "kind": "expression_logic_literals",
+  "note": "Expression-logic check on literal rows, not an ERP finding. rule_passes is the DQ8 boolean. The violating row is a 150000 payment 10 days after a bank change with no callback. The clean row is amount 50000.",
+  "captured_at": "2026-10-27T15:58:37.471Z",
+  "sql": "SELECT label, (amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))) AS rule_passes FROM (SELECT 'violate_large_recent_change' AS label, CAST(150000.00 AS DECIMAL(14,2)) AS amount_usd, CAST('2026-10-20 00:00:00' AS TIMESTAMP) AS bank_changed_at, CAST('2026-10-30' AS DATE) AS scheduled_date, CAST(NULL AS TIMESTAMP) AS callback_confirmed_at, CAST(NULL AS STRING) AS callback_phone_source UNION ALL SELECT 'clean_amount_at_or_under_threshold', CAST(50000.00 AS DECIMAL(14,2)), CAST('2026-10-20 00:00:00' AS TIMESTAMP), CAST('2026-10-30' AS DATE), CAST(NULL AS TIMESTAMP), CAST(NULL AS STRING)) s LIMIT 5",
+  "queryId": "47ae2073-f112-4041-968b-2b0ac731dd1d",
+  "latency_ms": 1503,
+  "http_status": 200,
+  "columns": [
+    "label",
+    "rule_passes"
+  ],
+  "rows": [
+    [
+      "violate_large_recent_change",
+      "false"
+    ],
+    [
+      "clean_amount_at_or_under_threshold",
+      "true"
+    ]
+  ],
+  "row_hash": "4fbfde46b690238c"
+}

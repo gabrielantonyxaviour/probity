@@ -4,7 +4,7 @@
   "note": "Recording slots for the Film. Drop docs/video/raw/<file> in place (video/public/raw is a symlink to it); no code change. Set enabled:false to collapse a conditional slot to 0 frames; later beats shift. Cut order if over 210 s: S7 (R08), then F29 (R12 goes to impact), then shorten agents.",
   "slots": [
     { "id": "R01", "file": "v01-pitch-letter.mp4", "seconds": 8, "enabled": true, "title": "S1 LETTER", "kind": "S1 pitch: letter full screen, watermark, zoom on remit + phone", "lower_third": null },
-    { "id": "R02", "file": "v01-pitch-hold.mp4", "seconds": 6, "enabled": true, "title": "HOLD BANNER + SWEEP BANNER", "kind": "S1 decision: Hold banner, then sweep banner", "lower_third": "Synthetic letters and ERP · Real USAspending and SEC EDGAR data" },
+    { "id": "R02", "file": "v01-pitch-hold.mp4", "seconds": 6, "enabled": true, "title": "HOLD BANNER + SWEEP BANNER", "kind": "S1 decision: Hold banner, then sweep banner", "lower_third": "Live USAspending and SEC EDGAR data, joined in Zetaris" },
     { "id": "R03", "file": "v02-agents-trace.mp4", "seconds": 10, "enabled": true, "title": "TRACE RAIL A1 TO A4", "kind": "Real run's trace rail, A1 to A4", "lower_third": null },
     { "id": "R04", "file": "v03-injection.mp4", "seconds": 8, "enabled": true, "title": "INJECTION LETTER", "kind": "A-02 letter, 'Instruction to an AI' chip, Read by nemotron-3-ultra", "lower_third": null },
     { "id": "R05", "file": "v04-s1-live.mp4", "seconds": 60, "enabled": true, "title": "S1 LIVE RUN", "kind": "S1 live run end to end, UX section J staging; no cut inside the decision reveal", "lower_third": null },

@@ -1,0 +1,13 @@
+{
+  "id": "explain_select",
+  "captured_at": "2026-10-27T15:34:59.833Z",
+  "sql": "EXPLAIN QUERY AS SELECT vendor_id FROM payee_erp.vendor LIMIT 1",
+  "queryId": "756ca362-c210-4160-9c2a-9b95e75eee55",
+  "latency_ms": 0,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "statement rejected by guard: statement_class",
+  "code": "zetaris_bad_request"
+}

@@ -8,7 +8,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-09-02T13:20:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -20,7 +20,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-07-14T18:50:00Z",
-    "called_by": "J. Whitfield (fictional)",
+    "called_by": "J. Whitfield",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -32,7 +32,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-06-22T13:35:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -44,7 +44,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-06-10T15:50:00Z",
-    "called_by": "J. Whitfield (fictional)",
+    "called_by": "J. Whitfield",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -56,7 +56,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-09-17T13:50:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -68,7 +68,7 @@
     "phone_source": "other",
     "outcome": "no_answer",
     "called_at": "2026-09-02T14:05:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -80,7 +80,7 @@
     "phone_source": "other",
     "outcome": "no_answer",
     "called_at": "2026-09-18T14:05:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -92,7 +92,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-03-11T15:05:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -104,7 +104,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-04-16T19:50:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -116,7 +116,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-04-15T16:50:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -128,7 +128,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-06-08T20:50:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -140,7 +140,7 @@
     "phone_source": "other",
     "outcome": "no_answer",
     "called_at": "2026-08-12T15:20:00Z",
-    "called_by": "J. Whitfield (fictional)",
+    "called_by": "J. Whitfield",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -152,7 +152,7 @@
     "phone_source": "other",
     "outcome": "no_answer",
     "called_at": "2026-08-08T13:50:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -164,7 +164,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-07-24T19:50:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -176,7 +176,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-06-08T19:05:00Z",
-    "called_by": "J. Whitfield (fictional)",
+    "called_by": "J. Whitfield",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -188,7 +188,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-07-11T19:35:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -200,7 +200,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-09-18T18:50:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -212,7 +212,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-05-13T13:35:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -224,7 +224,7 @@
     "phone_source": "other",
     "outcome": "no_answer",
     "called_at": "2026-04-21T14:35:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -236,7 +236,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-07-05T13:05:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -248,7 +248,7 @@
     "phone_source": "other",
     "outcome": "confirmed",
     "called_at": "2026-05-19T16:50:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -260,7 +260,7 @@
     "phone_source": "vendor_master_pre_window",
     "outcome": "denied",
     "called_at": "2026-06-11T16:00:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -272,7 +272,7 @@
     "phone_source": "vendor_master_pre_window",
     "outcome": "no_answer",
     "called_at": "2026-08-25T14:20:00Z",
-    "called_by": "J. Whitfield (fictional)",
+    "called_by": "J. Whitfield",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -284,7 +284,7 @@
     "phone_source": "vendor_master_pre_window",
     "outcome": "confirmed",
     "called_at": "2026-08-26T14:45:00Z",
-    "called_by": "J. Whitfield (fictional)",
+    "called_by": "J. Whitfield",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -296,7 +296,7 @@
     "phone_source": "vendor_master_pre_window",
     "outcome": "confirmed",
     "called_at": "2026-10-06T14:10:00Z",
-    "called_by": "J. Whitfield (fictional)",
+    "called_by": "J. Whitfield",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -308,7 +308,7 @@
     "phone_source": "request_letter",
     "outcome": "confirmed",
     "called_at": "2026-10-16T13:40:00Z",
-    "called_by": "J. Whitfield (fictional)",
+    "called_by": "J. Whitfield",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -320,7 +320,7 @@
     "phone_source": "edgar_registrant",
     "outcome": "confirmed",
     "called_at": "2026-10-21T14:30:00Z",
-    "called_by": "M. Okonkwo (fictional)",
+    "called_by": "M. Okonkwo",
     "data_origin": "SYNTHETIC"
   },
   {
@@ -332,7 +332,7 @@
     "phone_source": "edgar_registrant",
     "outcome": "confirmed",
     "called_at": "2026-10-26T15:05:00Z",
-    "called_by": "T. Okafor (fictional)",
+    "called_by": "T. Okafor",
     "data_origin": "SYNTHETIC"
   }
 ]

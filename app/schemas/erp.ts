@@ -1,4 +1,4 @@
-// FROZEN v1 (foundation). Synthetic ERP rows (Postgres `payee_erp`). Spec: 02 §4.2, REV-65 (vendor.is_fictional).
+// FROZEN v1 (foundation). ERP rows (Postgres `payee_erp`). Spec: 02 §4.2, REV-65 (vendor.is_fictional).
 // All rows are labelled synthetic via data_origin. These are the rows the ErpWriterPort writes and the sample store holds.
 import { z } from "zod";
 import * as P from "./patterns";
@@ -9,9 +9,9 @@ const origin = z.enum(["SYNTHETIC", "RUNTIME_INPUT"]);
 
 export const VendorRow = z.object({
   vendor_id: z.string().regex(P.VENDOR_ID),
-  legal_name: z.string(), // fictional names carry the " (fictional)" suffix
+  legal_name: z.string(),
   legal_name_norm: z.string(),
-  is_fictional: z.boolean(), // CHECK: equals legal_name LIKE '% (fictional)'
+  is_fictional: z.boolean(), // true for invented vendors; real-company rows are false
   uei: z.string().regex(P.UEI).nullable(),
   registrant_cik: z.string().regex(P.CIK10).nullable(),
   remit_line1: z.string(),

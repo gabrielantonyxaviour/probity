@@ -1,6 +1,6 @@
 // Sweep templates T20 and T21 (03 §6.1).
 import { z } from "zod";
-import { DQ_RULES, type DqRule } from "./dq-rules.ts";
+import { DQ8_RULE, DQ_RULES, type DqRule } from "./dq-rules.ts";
 import type { Template } from "./types.ts";
 
 const RULE_ID: Record<string, DqRule> = {
@@ -10,9 +10,10 @@ const RULE_ID: Record<string, DqRule> = {
   DQ4: DQ_RULES[3]!,
   DQ5: DQ_RULES[4]!,
   DQ6: DQ_RULES[5]!,
+  DQ8: DQ8_RULE,
 };
 
-const PRI_COLUMNS = ["item_id", "payment_run_id", "scheduled_date", "cutoff_local", "vendor_id", "vendor_name", "invoice_no", "bank_account_id", "amount_usd", "account_hash", "account_last4", "bank_changed_at", "callback_confirmed_at", "callback_phone_source", "account_vendor_count", "data_origin"];
+export const PRI_COLUMNS = ["item_id", "payment_run_id", "scheduled_date", "cutoff_local", "vendor_id", "vendor_name", "invoice_no", "bank_account_id", "amount_usd", "account_hash", "account_last4", "bank_changed_at", "callback_confirmed_at", "callback_phone_source", "account_vendor_count", "data_origin"];
 
 function ruleOf(id: string): DqRule {
   const rule = RULE_ID[id];

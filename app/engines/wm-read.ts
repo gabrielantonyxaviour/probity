@@ -158,8 +158,29 @@ const unlabel = (g: GraphPayload): GraphPayload => ({
   nodes: g.nodes.map((n) => (n.sublabel && /demo scenario/i.test(n.sublabel) ? { ...n, sublabel: null } : n)),
 });
 
+/** Additive `known_at` on every edge (knownAt of its relationship) and node (its earliest edge; the request: received_at). */
+function stampKnownAt(w: Writer, g: GraphPayload): GraphPayload {
+  if (!g.nodes.length) return g;
+  const rels = new Map(allRelationships(w).map((r) => [r.id, r]));
+  const edges = g.edges.map((e) => {
+    const r = rels.get(e.id);
+    return r ? { ...e, known_at: knownAt(r) } : e;
+  });
+  const first = new Map<string, string>();
+  for (const e of edges)
+    if (e.known_at)
+      for (const id of [e.from, e.to]) if (!first.has(id) || e.known_at < first.get(id)!) first.set(id, e.known_at);
+  const root = g.nodes[0]!;
+  const received = toIso(String(w.world.view("graph").entity(root.id)?.attrs.received_at ?? ""));
+  const nodes = g.nodes.map((n) => ({
+    ...n,
+    known_at: (n === root ? received : null) ?? first.get(n.id) ?? n.provenance.at,
+  }));
+  return { ...g, nodes, edges };
+}
+
 export function graphFor(w: Writer, requestId: string, opts: GraphOpts = {}): GraphPayload {
-  return unlabel(graphAsOf(w, requestId, opts));
+  return stampKnownAt(w, unlabel(graphAsOf(w, requestId, opts)));
 }
 
 function graphAsOf(w: Writer, requestId: string, opts: GraphOpts): GraphPayload {

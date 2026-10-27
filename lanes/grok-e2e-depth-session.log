@@ -1,0 +1,81 @@
+=== slice 1 16:29Z ===
+I'll start the depth suite immediately: check the clock, read the existing Playwright style, and write the first spec so it can run within the first few minutes.The clock is 16:29Z. The suite lives in the Probity repo, so I’ll read the existing helpers and one UI spec, then write the lineage spec.The lineage drawer is on the live review page. I’ll add `lineage.spec.ts` against those test ids and run it.Lineage passed on narrow, medium, and wide. Next I’ll read the as-of scrubber and write that spec against the live graph.=== slice 2 16:39Z ===
+The suite was mid-flight: lineage is green, and the as-of spec failed on narrow because the page scrolls sideways. I’ll check the clock and what has landed, then finish the remaining specs.The as-of beat passes on medium and wide. Narrow scrolls sideways on the graph table, and the two-reading, injection, and DQ7–DQ9 fields are not on any live run yet. I’ll finish those specs against the shipped shapes and keep the honest failures.Auto-compacting conversation (82% full)...
+Conversation compacted.
+I'll continue the e2e-depth contract from the unfinished specs and report each acceptance check from the run results. First I'm checking the clock and whether the readings, injection, and sweep UI has landed.The clock is 16:46Z, before the 18:40Z stop. Readings and injection cards now exist in source. I'll read those components and the existing specs, then write the remaining tests against the live API.=== slice 3 16:48Z ===
+Readings and injection cards are in the UI source. I'll add the remaining specs against those test ids, then run the non-live suite before any live check.The expected not-landed failures are in place. Narrow as-of still reports the horizontal scroll; I'll check whether the rest of that beat ran after the soft assertion.=== slice 4 16:58Z ===
+The suite was still running when the session stopped. I'll check those results, fix the lint error, and finish the acceptance report.The full suite was cut off, and lint still flags an unused assignment in the S10 test. I'll fix that, then rerun the checks.The non-live suite is in: 86 passed, 10 failed, and the original 72 are green. Another lane holds the Zetaris lock, so I'll record that and start the live checks once it is free.=== slice 5 17:08Z ===
+The failed S10 run is the first thing to account for. I'll read the restart request, identify who started `r-20261027T170703Z-e769` and why, then re-probe D1, D6, and DQ7–DQ9 before any live check.Auto-compacting conversation (80% full)...
+Conversation compacted.
+The Stop live test is the remaining acceptance item. I'll re-check the clock, the Zetaris lock, and whether D1/D6/DQ7–9 have landed before starting it.Request lookups used the wrong path. I'll read the real list shape and the rule ids before starting Stop.D1, D6, and DQ7–9 are still absent on the newest 20 decided runs, and the lock is free. Starting the Stop live test, which takes the lock itself.Stop reached a run and released its lock, but the run ended `FAILED` instead of `CANCELLED`. I'll read that run and check whether the lock directory is still ours.=== slice 6 17:18Z ===
+The two live runs died in about a second on a cached template failure, so I will not start another one. I'll update the Stop and `@live` guards so a self-failure reports the trace text, then finish the non-live checks.The restart table still has only the 16:31Z process, so these runs died inside that process. I'll add the fast-death guard and the Stop distinction, and I will not start another live run.The restart table now shows PID 7269 at 17:24Z. `readyz` is up, and the Zetaris lock is still held, so I will not start a live run. Next is a read-only check that a run has progressed past 5 seconds, then the non-live suite.=== slice 7 17:28Z ===
+The API restart is in place. I'll check the new process, the UI build, and whether the old fast-failure runs would block a fresh S10 and Stop before taking the lock.D1 and DQ7–DQ9 are on a fresh decided run, and a BCR-2026-0407 check is already in progress. The `:3100` build has no `readings-card` or `injection-card`. I'll follow that run instead of starting a second one, and keep the UI assertions as failures.=== slice 8 17:38Z ===
+The 0407 check may already have finished. I'll identify who started it, follow that run, and keep the D1/D6 UI checks pointed at `readings-card` and `injection-card`.Auto-compacting conversation (82% full)...
+Conversation compacted.
+The BCR-2026-0407 run is already terminal. I'll confirm who started it from the access log and agents-depth scratch, then fix the D1/D6 build-state messages and the Stop marker before running Stop if the lock is free.The lock is free and both servers are up. I'll pin who started `r-20261027T172843Z-5ed6`, then update the build-state messages and the Stop marker.=== slice 9 17:47Z ===
+The Stop run is already cancelled, so this pass will attach to it and record the real start time. I'll take the Zetaris lock around that test, then rewrite `PROGRESS.md` from the result.The Stop marker now uses the run's own start time. I'll typecheck, then run the Stop test while holding the Zetaris lock.=== slice 10 17:58Z ===
+I will not touch the Zetaris lock or start a live run. I'll record the existing Stop and S10 runs in `PROGRESS.md`, then check types, lint, and line counts.Types and lint are clean, and the lock is not ours. I'll write the Stop and S10 results into `PROGRESS.md` from the stored runs.The Stop result is the cancelled run `r-20261027T173430Z-d6cc`. S10 is the agents-depth run `r-20261027T172843Z-5ed6`. Both are in `tests/e2e/PROGRESS.md`. `tsc` and `eslint tests/e2e` are clean, and every file under `tests/e2e` is under 300 lines. The Zetaris lock was not removed, and no live run was started after 17:34Z.
+
+## 1. Files
+
+Created: `tests/e2e/helpers/lock.ts`, `trace.ts`, `served.ts`, `ui/asof.spec.ts`, `dialogs.spec.ts`, `injection.spec.ts`, `lineage.spec.ts`, `readings.spec.ts`, `stop.spec.ts`, `sweep-dq.spec.ts`, `live-s10-result.json`, `live-stop-result.json`.
+
+Changed: `tests/e2e/helpers/api.ts`, `nav.ts`, `runs.ts`, `ui/live-verify.spec.ts`, `README.md`, `PROGRESS.md`.
+
+`live-stop-result.json` now uses the API start `2026-10-27T17:34:30.759Z` and `durationMs` 1690. The 17:34 writer had stored the discarded BCR-2026-0405 start. Product code was not edited. Nothing was committed.
+
+## 2. How to run
+
+From the repo root, against UI `:3100` and API `:8787`:
+
+```bash
+npx playwright test --grep-invert @live --workers=3
+npx playwright test --grep @live --workers=1
+```
+
+`@live` needs the Zetaris lock and `--workers=1`. Do not remove a lock this lane does not hold.
+
+## 3. Pass/fail
+
+Non-live suite at 17:35Z: 96 tests, 82 passed, 14 failed, 2.1m. The pre-existing 72 were green at 17:00Z. Four narrow failures in the 17:35Z run (system chip, Zetaris chip, readyz `deep` `untested`, mobile `decision-card`) coincided with the API restart to PID 36087. Medium and wide of the system tests passed. At 17:48Z `/readyz` shows `fast` and `deep` `confirmed_nemotron`.
+
+| Test | narrow | medium | wide | live |
+|---|---|---|---|---|
+| S1 evidence lineage | pass | pass | pass | — |
+| S1 as-of scrubber | fail, soft scroll | pass | pass | — |
+| as-of scrubber absent when undecided | pass | pass | pass | — |
+| two letter readings | fail | fail | fail | — |
+| S10 hidden spans | fail | fail | fail | fail on `S10-H1` after following `5ed6` |
+| DQ7, DQ8, DQ9 | fail | fail | fail | — |
+| call-back and outcome dialogs | pass | pass | pass | — |
+| invalid callback and outcome posts | pass | pass | pass | — |
+| Stop | — | — | — | pass at 17:34:35Z on `d6cc` (1 passed, 6.5s) |
+
+`live verify Kettle Point remit change` was not started. A Stop replay at 17:49Z hit `ERR_CONNECTION_REFUSED` while `:3100` was down. The next attempt waited on the other lane's lock and was not started.
+
+## 4. Defects
+
+1. Narrow as-of scroll. `ui/components/graph/GraphTable.tsx` `minWidth: 720` inside `.gr-table-wrap`. `graph-table` at 390: `scrollWidth` 747, `innerWidth` 390, offenders `[]`. Expected: no page scroll. Medium. Assertion stays soft.
+
+2. S10 span ids. `decision.injection.spans` on `r-20261027T172843Z-5ed6`. Observed `inj-1`–`inj-3` (`pdf_hidden_text`, hidden) and `inj-4` (`email_body`). Expected `S10-H1`, `S10-H2`, `S10-H3`, `S10-E1`. HOLD, R8, C1, and `injection.detected` are true. High. Assertion unchanged.
+
+3. Served `:3100` build. At 18:00Z `ui/.next` contains neither `readings-card` nor `injection-card`. The 17:35Z readings failure stopped earlier on `decision-card` not visible. Expected: both cards visible once ui-wire's bundle is what `:3100` serves. The failure message names the missing testid. High.
+
+4. DQ7 vendor ids. Sweep on that run: DQ7 invalid 2 of 52, `findings` `[]`, JSON has no `V-10233` or `V-10234`. Trace seq 47 names both vendors. Expected: those ids in the sweep JSON. High. Assertion unchanged.
+
+5. S10 `partial_success`. T23 failed `zetaris_server` (trace seq 45). Decision remains HOLD. Low for the decision.
+
+## 5. Live runs
+
+| Run | Request | Who | Result | Lock | ERP |
+|---|---|---|---|---|---|
+| `r-20261027T170703Z-e769` | BCR-2026-0407 | this lane, 17:07:03Z | template crash, 0.493s, `Query templates are not available.` | 4766 ms | ABSENT, 0 docs, 0 logs |
+| `r-20261027T171544Z-db2a` | BCR-2026-0405 | this lane, 17:15:44Z | same crash, 1.048s | 2244 ms | ABSENT, 0 docs, 0 logs |
+| `r-20261027T172843Z-5ed6` | BCR-2026-0407 | agents-depth, API PID 7269, 17:28:43Z | HOLD, 250.6s, R8 C1 C3, readings agree | this lane 0 ms | `held`, 2 docs, 0 logs |
+| `r-20261027T173430Z-d6cc` | BCR-2026-0409 | this lane, 17:34:30Z | stage `CANCELLED`, code `cancelled`, status `error`, 1.69s | 1931 ms | ABSENT, 0 docs, 0 logs |
+
+`5ed6` was already finished when this lane read it. `lanes/agents-depth.md` records it as the API S10 run. The access log has no `POST /run` at 17:28:43Z or at 17:32:54Z. `scratchpad/agd/s10-api.out` is the other run `r-20261027T172534Z-f038` on BCR-2026-0699. `live-s10-result.json` still names `e769`.
+
+## 6. Open
+
+The Zetaris lock is held again (absent at 17:58Z, present at 18:01Z). It was not removed. BCR-2026-0405 and BCR-2026-0409 are both used, so a new Stop needs another request. `readings-card` and `injection-card` pass when `:3100` serves the rebuilt bundle. This lane did not rebuild the UI or restart the API.

@@ -13,6 +13,7 @@ import { DOSSIER, ERRORS, TOASTS } from "@/lib/copy";
 import { downloadText, prettyJson } from "@/lib/download";
 import { stamp } from "@/lib/format";
 import { useRequests } from "@/lib/requests-store";
+import { LetterChecksSection } from "./DepthSections";
 import { ConflictsSection, DecisionSection, EditsSection, EvidenceSection, MoneySection, NoticeAlert, ReasonsSection, RememberedSection, ScriptSection, SweepSection, TailSections } from "./DossierSections";
 
 function Body() {
@@ -49,6 +50,7 @@ function Body() {
             <DecisionSection d={d} />
             <MoneySection d={d} />
             <ReasonsSection d={d} />
+            <LetterChecksSection d={d} />
             <ScriptSection d={d} />
             <SweepSection d={d} />
             <ConflictsSection d={d} />

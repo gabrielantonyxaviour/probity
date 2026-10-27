@@ -39,8 +39,12 @@ export function summaryBlock(env: RunEnvelope, d: GateDecision, reviewBase: stri
     `Limits:   ${codeLine(d, "cap")}`,
     `Noted:    ${codeLine(d, "info")}`,
     `Exposure: ${ex.payment_run_id} · ${ex.vendor_item_count} items · ${usd(ex.vendor_amount_usd)} (cut-off ${ex.cutoff_local})`,
-    `Call back: ${script ? `${script.number_display} · ${script.source_label} · ${d.labels.callback_notice}` : "none (no independent number was found)"}`,
+    `Call back: ${script ? `${script.number_display} · ${script.source_label}` : "none (no independent number was found)"}`,
   ];
+  const lr = d.letter_reading;
+  if (lr) lines.push(`Readings: ${lr.status}${lr.agreement !== null ? ` · ${lr.agreed}/${lr.compared} fields agree` : ""}${lr.material_disagreements.length ? ` · disagree on ${lr.material_disagreements.join(", ")}` : ""} · ${lr.readings.map((r) => `${r.reading} ${r.input} ${r.status}`).join(", ")}`);
+  const inj = d.injection;
+  if (inj?.detected) lines.push(`Injection: ${inj.spans.filter((x) => x.counted).length} span(s) addressed to an automated reviewer (${inj.variant}) · review ${inj.review.status}`);
   if (script?.do_not_use.length) lines.push(`Do not use: ${script.do_not_use.map((x) => `${x.number_display} (${x.reason})`).join("; ")}`);
   lines.push(
     `Sweep:    ${d.sweep.findings.length ? `${d.sweep.findings.length} other item(s) in ${d.sweep.payment_run_id} fail payment controls: ${sweep}` : `no other items in ${d.sweep.payment_run_id} fail payment controls`}`,
@@ -56,7 +60,7 @@ export function renderResult(env: RunEnvelope | RunErrorEnvelope, reviewBase: st
   if (env.status === "error") return [`[ERROR] run=${env.run_id} ${env.code}: ${env.error}${env.recoverable ? " (recoverable: try again)" : ""}`];
   const d = decisionOf(env);
   if (!d) return [`[WARN] run=${env.run_id} ${env.output.summary}`, ...(env.output.needs_human ? [`needs_human: ${env.output.needs_human}`] : [])];
-  return [...infoLines(env, d), "", d.labels.synthetic_notice, ...summaryBlock(env, d, reviewBase)];
+  return [...infoLines(env, d), "", ...summaryBlock(env, d, reviewBase)];
 }
 
 export const exitCodeFor = (env: RunEnvelope | RunErrorEnvelope): 0 | 1 | 3 => (env.status === "error" ? 1 : env.status === "partial_success" ? 3 : 0);

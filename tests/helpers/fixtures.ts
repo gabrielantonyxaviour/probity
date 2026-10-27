@@ -1,4 +1,4 @@
-// Test fixtures for the platform lane: a schema-valid GateDecision / RunEnvelope. Synthetic and labelled; test-only.
+// Test fixtures for the platform lane: a schema-valid GateDecision / RunEnvelope. Test-only.
 import { GateDecisionSchema, type GateDecision } from "../../app/schemas/decision";
 import { RunEnvelope } from "../../app/schemas/api";
 
@@ -33,7 +33,7 @@ export function decisionFixture(over: Partial<GateDecision> = {}): GateDecision 
     rounds: 1,
     mode: "sample",
     limitations: [],
-    labels: { synthetic_notice: "Synthetic demo data. Fictional vendors are labelled.", mode_banner: null, callback_notice: "Demo scenario: do not call." },
+    labels: { mode_banner: null },
     ...over,
   });
 }

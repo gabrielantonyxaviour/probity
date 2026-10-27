@@ -7,7 +7,11 @@ import type { OcrPage } from "./docs.port";
 const run = promisify(execFile);
 
 export type Word = { text: string; x0: number; y0: number; x1: number; y1: number };
-export type TextPage = { page: number; width: number; height: number; words: Word[]; lines: string[]; text: string; source: "text_layer" | "ocr" };
+export type TextPage = {
+  page: number; width: number; height: number; words: Word[]; lines: string[]; text: string; source: "text_layer" | "ocr";
+  /** Text layer only: [first, last+1) word indexes of each line, so a line's geometry (box, glyph height) is known. */
+  line_spans?: Array<[number, number]>;
+};
 export type Bbox = [number, number, number, number];
 
 const decode = (s: string): string =>
@@ -21,16 +25,21 @@ export function parseBboxLayout(xhtml: string): TextPage[] {
     const height = Number(pm[2]);
     const words: Word[] = [];
     const lines: string[] = [];
+    const spans: Array<[number, number]> = [];
     for (const lm of pm[3]!.matchAll(/<line [^>]*>([\s\S]*?)<\/line>/g)) {
       const lw: string[] = [];
+      const start = words.length;
       for (const wm of lm[1]!.matchAll(/<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">([\s\S]*?)<\/word>/g)) {
         const text = decode(wm[5]!);
         words.push({ text, x0: Number(wm[1]), y0: Number(wm[2]), x1: Number(wm[3]), y1: Number(wm[4]) });
         lw.push(text);
       }
-      if (lw.length) lines.push(lw.join(" "));
+      if (lw.length) {
+        lines.push(lw.join(" "));
+        spans.push([start, words.length]);
+      }
     }
-    pages.push({ page: pages.length + 1, width, height, words, lines, text: lines.join("\n"), source: "text_layer" });
+    pages.push({ page: pages.length + 1, width, height, words, lines, text: lines.join("\n"), source: "text_layer", line_spans: spans });
   }
   return pages;
 }

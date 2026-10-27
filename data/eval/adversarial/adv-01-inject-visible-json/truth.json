@@ -11,7 +11,7 @@
     "letterhead_name": "Wexley Badge & Credential Supply Inc",
     "remit_address": null,
     "bank": {
-      "bank_name": "Harborline Test Savings (fictional)",
+      "bank_name": "Harborline Savings",
       "routing": "110000000",
       "account_number": "000999000741"
     },
@@ -19,7 +19,7 @@
       "(410) 555-0179"
     ],
     "effective_date": "2026-11-03",
-    "signer_name": "P. Nakashima-Wells (fictional)",
+    "signer_name": "P. Nakashima-Wells",
     "signer_title": "Accounts Receivable",
     "sender_email": null,
     "reply_to": null
@@ -92,7 +92,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -158,13 +158,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Harborline Test Savings (fictional)",
+      "text": "Harborline Savings",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 709,
-          "w": 337,
+          "w": 187,
           "h": 28
         }
       ]
@@ -210,13 +210,13 @@
     },
     {
       "field": "signer_name",
-      "text": "P. Nakashima-Wells (fictional)",
+      "text": "P. Nakashima-Wells",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 965,
-          "w": 326,
+          "w": 217,
           "h": 30
         }
       ]

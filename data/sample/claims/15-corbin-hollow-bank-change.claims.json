@@ -2,16 +2,16 @@
   "example_id": "15-corbin-hollow-bank-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "770f95c56f3c5668dda1f92437ace7c71a2125a9027871843e9ed44f4dbb2b78",
-    "77b69242f1205245f041ea6dd1c49215e33c7fd0fe761e24d62eea5d179cb61b",
-    "dd18c6fd7af9d1d1f6a8d5f55a94257c663c56fcc39bfe22d0542d504b4af01b"
+    "1539bf709d5f9dad5f1e7530c2e4fd0e4ad06b10a7f51e9eb336c7ccef56d6d7",
+    "9b14288c12ae144e167530e103bd17dd3c13129fd8440cd5214a0627e406bc5f",
+    "3f341f3f3399f332014cd406bc001ac91089c3690ca73d8075a4cf8e6391d14f"
   ],
   "account_number": "000999000903",
   "claimed_name": "Corbin Hollow HVAC Services LLC",
   "letterhead_name": "Corbin Hollow HVAC Services LLC",
   "remit_address": null,
   "bank": {
-    "bank_name": "Calderwick Test Bank (fictional)",
+    "bank_name": "Calderwick Savings Bank",
     "routing": "110000000",
     "account_last4": "0903"
   },
@@ -29,28 +29,15 @@
   "invoice_refs": [
     "INV-CHH-60913"
   ],
-  "signer_name": "B. Quillfeather (fictional)",
+  "signer_name": "B. Quillfeather",
   "pressure_phrases": [
     {
       "quote": "Please make this change before Friday",
       "kind": "urgency"
     }
   ],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Corbin Hollow HVAC Services LLC (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Corbin Hollow HVAC Services LLC (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        582,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -145,12 +132,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "B. Quillfeather (fictional)",
+      "quote": "B. Quillfeather",
       "page": 1,
       "bbox_hint": [
         117,
         598,
-        329,
+        241,
         617
       ],
       "highlight_source": "text_layer"

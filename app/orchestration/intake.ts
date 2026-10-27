@@ -8,7 +8,7 @@ import { readLetter } from "../agents/letter-reader";
 import type { ResolvedInput } from "../agents/letter-reader/docs.port";
 import { buildExposureStep } from "../agents/gate-officer/exposure-step";
 import { emit, publish, type RunContext } from "./ctx";
-import { loadState } from "./persist";
+import { letterChecksOf, loadState } from "./persist";
 import { addLimitation } from "./state";
 import type { Step } from "../components/evidence-runner";
 import { attribute } from "../policy/identity";
@@ -113,6 +113,8 @@ export async function intake(ctx: RunContext): Promise<IntakeResult> {
     s.extras.has_eml = p.channel === "email" || !!(p.eml.from_domain || p.eml.reply_to_domain);
     s.extras.extraction_model = p.extraction_model;
     s.extras.reevaluated_from = fromRun;
+    Object.assign(s.extras, letterChecksOf(p));
+    for (const l of [s.extras.injection?.limitation].filter((x): x is string => !!x)) addLimitation(s, l);
     s.eml = p.eml;
     s.request_id = p.request_id;
     s.received_at = p.received_at;

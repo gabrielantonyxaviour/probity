@@ -21,7 +21,7 @@
       "(571) 555-0121"
     ],
     "effective_date": "2026-11-01",
-    "signer_name": "L. Haverford (fictional)",
+    "signer_name": "L. Haverford",
     "signer_title": "Accounts Receivable",
     "sender_email": "ar@v2x.example",
     "reply_to": null
@@ -94,7 +94,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -159,13 +159,13 @@
     },
     {
       "field": "signer_name",
-      "text": "L. Haverford (fictional)",
+      "text": "L. Haverford",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 805,
-          "w": 241,
+          "w": 132,
           "h": 30
         }
       ]

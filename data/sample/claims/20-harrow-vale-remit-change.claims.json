@@ -2,8 +2,8 @@
   "example_id": "20-harrow-vale-remit-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "c8f6738cd2e35387c3f52bd1572b7bc8a5b70fe2ae4c6ae9e93ac3b666947201",
-    "f586f965c724739a77e1c6abd72c56afe513bb5dfcd88abaff5658e76f293834"
+    "d4d74e6ac6f4fe3ab746a9290be1c0f116fc6b312c3400e82ba3758d7c5535e8",
+    "a12a9376ad3151e9658bd2d17d869f75aca68df5d388a9d6c173519396fae316"
   ],
   "account_number": null,
   "claimed_name": "Harrow & Vale Legal Support LLC",
@@ -28,23 +28,10 @@
   ],
   "effective_date": "2026-11-01",
   "invoice_refs": [],
-  "signer_name": "E. Nakagawa-Stein (fictional)",
+  "signer_name": "E. Nakagawa-Stein",
   "pressure_phrases": [],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Harrow & Vale Legal Support LLC (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Harrow & Vale Legal Support LLC (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        578,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -113,12 +100,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "E. Nakagawa-Stein (fictional)",
+      "quote": "E. Nakagawa-Stein",
       "page": 1,
       "bbox_hint": [
         117,
         509,
-        383,
+        290,
         528
       ],
       "highlight_source": "text_layer"

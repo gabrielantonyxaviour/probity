@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { EVIDENCE } from "@/lib/copy";
 import { LINEAGE } from "@/lib/copy-depth";
 import { FACT_LABELS, SOURCE_LABELS } from "@/lib/labels";
-import { ACTION_LABELS, AGENT_DISPLAY, templateLabel } from "@/lib/labels-trace";
+import { actionLabel, agentDisplay, templateLabel } from "@/lib/labels-trace";
 import { maskAccounts } from "@/lib/mask";
 import { factValue } from "@/lib/fact-value";
 import { QueryDetailUI } from "@/lib/lineage";
@@ -51,7 +51,7 @@ export function EvidenceDrawer() {
   const cited = useMemo(() => {
     if (!queryId) return { reasons: [] as string[], events: [] as string[] };
     const reasons = (r.decision?.reason_codes ?? []).filter((c) => (evId ? c.evidence_ids.includes(evId) : c.evidence_ids.some((e) => e.startsWith(`ev-${queryId.slice(0, 8)}`)))).map((c) => c.code);
-    const events = r.state.trace.filter((e) => e.zetaris_query_ids.includes(queryId)).map((e) => EVIDENCE.citedByEvent(AGENT_DISPLAY[e.agent_name].name, ACTION_LABELS[e.action], e.round));
+    const events = r.state.trace.filter((e) => e.zetaris_query_ids.includes(queryId)).map((e) => EVIDENCE.citedByEvent(agentDisplay(e.agent_name).name, actionLabel(e.action), e.round));
     return { reasons, events };
   }, [queryId, evId, r.decision, r.state.trace]);
   const close = () => r.setParams({ evidence: null, query: null });

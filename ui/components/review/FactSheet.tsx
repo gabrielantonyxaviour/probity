@@ -8,13 +8,16 @@ import { MODE_LABELS } from "@/lib/labels-trace";
 import { factValue } from "@/lib/fact-value";
 import { buildFactRows, SOURCE_COLS, type FactRow, type SourceCell, type SourceCol } from "@/lib/model/facts";
 import { useBreakpoint } from "@/lib/hooks/use-breakpoint";
+import { READINGS } from "@/lib/copy-depth";
+import { disagreedFacts, readingOf } from "@/lib/model/depth";
 import { useReview } from "./review-context";
 
 function Claimed({ row }: { row: FactRow }) {
-  const { claims, hl, setHl } = useReview();
+  const { claims, hl, setHl, decision } = useReview();
   const value = row.claimed;
+  const differ = disagreedFacts(readingOf(decision)).has(row.field);
   return (
-    <span className="fs-cell fs-cell--static" data-testid={`fact-cell-${row.field}-request`}>
+    <span className="fs-cell fs-cell--static" data-testid={`fact-cell-${row.field}-request`} data-differ={differ || undefined}>
       {value ? (
         <span className="t-ui-sm text-fg t-clamp-2 t-wrap-any" title={value}>
           {value}
@@ -27,6 +30,7 @@ function Claimed({ row }: { row: FactRow }) {
       ) : (
         <span className="t-ui-sm text-fg-muted">{claims ? "—" : <span className="p-skel" style={{ width: "60%", height: 12 }} aria-hidden />}</span>
       )}
+      {differ ? <span className="fs-differ block"><Chip tone="conflict" glyph="✕" testId="readings-differ">{READINGS.chip}</Chip></span> : null}
     </span>
   );
 }

@@ -1,0 +1,41 @@
+{
+  "id": "window_select",
+  "captured_at": "2026-10-27T15:39:25.317Z",
+  "sql": "SELECT account_hash, vendor_id, COUNT(*) OVER (PARTITION BY account_hash) AS owners FROM lightning.metastore.probity.vendor360.vendor_bank_account LIMIT 5",
+  "queryId": "0b3b742a-91bb-434b-867e-994f17aae032",
+  "latency_ms": 30653,
+  "http_status": 200,
+  "columns": [
+    "account_hash",
+    "vendor_id",
+    "owners"
+  ],
+  "rows": [
+    [
+      "0307e6ccccb9fe5a2ba9a4b7cb373dca2b4cec01ab33b5160d47f39b0832a7a5",
+      "V-10671",
+      "1"
+    ],
+    [
+      "058115e6a4e1a0e8d8cc4e2df57ce11dc01bc96a8049d2594fe81817f611686a",
+      "V-10311",
+      "1"
+    ],
+    [
+      "0b1cc5ea4ee2decd607b4bf3657a103d01659ee42f342b25b07a0862571cb8af",
+      "V-10186",
+      "1"
+    ],
+    [
+      "175c758f314b03dffc34bfb975589f50dad9aeb90049ff335d26dd6eaf0f7744",
+      "V-10402",
+      "1"
+    ],
+    [
+      "175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6",
+      "V-10812",
+      "1"
+    ]
+  ],
+  "row_hash": "e9a02f50f41d9f7d"
+}

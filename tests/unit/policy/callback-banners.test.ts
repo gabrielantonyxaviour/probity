@@ -106,8 +106,8 @@ describe("banners, summary and recommendations", () => {
     expect(summaryText({ ...base, decision: "CALLBACK_VERIFY" })).toBe("Call back first: Booz Allen Hamilton Inc (V-10027). Proof is incomplete until an independent call-back confirms the change.");
     expect(summaryText({ ...base, decision: "APPROVE" })).toBe("Approve: Booz Allen Hamilton Inc (V-10027). Every checked fact agrees and an independent call-back confirmed the change.");
   });
-  it("recommendations carry the do-not-call suffix on every phone", () => {
+  it("recommendations name each call-back number with its source and no scenario label (decision 8)", () => {
     const r = recommendations({ decision: "HOLD", vendor_id: "V-10027", callbacks: [{ number_display: "(703) 902-5000", number_source: "edgar_registrant" }], callback_date: null, no_number: false, findings: [{ item_id: "PRI-1030-0009", vendor_name: "Quillan Ridge Fleet Services LLC (fictional)", amount_usd: 87400 }] });
-    expect(r).toEqual(["Do not change bank details for V-10027.", "Call (703) 902-5000 (SEC EDGAR) (demo scenario: do not call)", "Review PRI-1030-0009 (Quillan Ridge Fleet Services LLC (fictional), $87,400.00) before release."]);
+    expect(r).toEqual(["Do not change bank details for V-10027.", "Call (703) 902-5000 (SEC EDGAR)", "Review PRI-1030-0009 (Quillan Ridge Fleet Services LLC (fictional), $87,400.00) before release."]);
   });
 });

@@ -1,61 +1,71 @@
 # E2E lane progress
 
-Updated 2026-10-27 15:45Z. Product code was not edited. `npx tsc --noEmit` and `npx eslint tests/e2e playwright.config.ts` are clean.
+Superseded for status by `lanes/e2e-depth.md` (coordinator run at 18:19Z: non-live 93 passed, 3 failed, all DQ7 vendor ids; live project 3 replays passed). The tables below are Grok's 18:00Z snapshot.
 
-`npx playwright test --grep-invert @live --workers=3`: 72 tests, 45 passed, 24 failed, 3 skipped (1.8m). `@live` was not run.
+Updated 2026-10-27 18:00Z. Product code was not edited. No commit. `npx tsc --noEmit` is clean. `npx eslint tests/e2e` is clean. Every file under `tests/e2e` is under 300 lines.
 
-GET `/requests` is 200 (36 items). Zetaris query is `offline`. The evidence re-run skips on every project.
+Non-live suite at 17:35Z (`npx playwright test --grep-invert @live --workers=3`): 96 tests, 82 passed, 14 failed, 2.1m. This lane held the Zetaris lock for that suite, including the evidence re-run, and released it. The pre-existing 72 were green at 17:00Z (86 passed, 10 failed, all 10 in the new specs).
 
-## Classification of the extra narrow/medium failures
+Four narrow failures in the 17:35Z suite happened while the API restarted (PID 7269 to 36087): system chip, Zetaris chip, and readyz (`deep` was `untested`) returned `ECONNREFUSED` or the warm-up state, and `mobile.spec.ts` did not find `decision-card` within 15s. The same system tests passed on medium and wide. At 17:48Z `GET /readyz` on PID 36087 has `fast` and `deep` at `confirmed_nemotron`. Those four are not standing defects.
 
-- Landing hero CTA: test assumption. `.l-hero-pills a[href='/app']` is visible at 390 and 834 (180×32). The failure was `header a[href='/app']` first match, the centre-nav pill, which is `display: none` below 1120. Below 640 the header-right pill is also hidden (`.l-hide-sm`). The test now opens the menu sheet under 640 and checks `.l-header-right a[href='/app']` from 640 up. Passed on all three projects.
-- Graph: test assumption. Below wide, `ReviewLayout` does not mount `GraphPanel` until the Graph tab, so `scrollIntoViewIfNeeded` waited the 60s test timeout. Narrow then defaults to the table, which has no `graph-edge`. The test opens the tab, clicks Diagram when no edge is attached, and caps each step at 15s. Passed on all three projects.
-- A11y review (narrow and medium), a11y inbox (medium), system popover ids, APPROVE chip: genuine product bugs. Tests left failing. See the bug list. Inbox a11y also fails on wide. Review a11y also fails on wide.
+## New tests
 
-## Pass/fail
+| Test | narrow | medium | wide | live |
+|---|---|---|---|---|
+| S1 evidence lineage shows source, USL table, query and the matching row | pass | pass | pass | — |
+| S1 as-of scrubber changes the graph from request time to now | fail (soft scroll) | pass | pass | — |
+| as-of scrubber is absent when the run has no decision | pass | pass | pass | — |
+| two letter readings are shown and compared | fail | fail | fail | — |
+| S10 injection is HOLD and the hidden spans are flagged | fail | fail | fail | — |
+| one live S10 check for BCR-2026-0407 | — | — | — | fail on `S10-H1` (followed `5ed6`, no second Verify) |
+| DQ7, DQ8 and DQ9 are evaluated on a decided sweep | fail | fail | fail | — |
+| call-back and outcome dialogs validate and would post the right body | pass | pass | pass | — |
+| POST /callbacks and /outcomes reject invalid bodies | pass | pass | pass | — |
+| stop a check before it decides | — | — | — | pass on `r-20261027T173430Z-d6cc` at 17:34:35Z |
 
-| Test | narrow | medium | wide |
-|---|---|---|---|
-| contract: GET /requests shape | pass | pass | pass |
-| contract: unknown run `{error, code}` | pass | pass | pass |
-| api-down: banner and Try again | pass | pass | pass |
-| decision: S1 HOLD matches API | pass | pass | pass |
-| decision: S3 APPROVE CL-20398 | fail | fail | fail |
-| dossier: sections, decision, JSON | pass | pass | pass |
-| graph: decision path and `?graph=full` | pass | pass | pass |
-| evidence: drawer | pass | pass | pass |
-| evidence: re-run | skip | skip | skip |
-| inbox: mixed states | pass | pass | pass |
-| inbox: APPROVE chip | fail | fail | fail |
-| labels: inbox / review / landing | fail | fail | fail |
-| a11y: /app | pass | fail | fail |
-| a11y: review | fail | fail | fail |
-| landing: hero into the queue | pass | pass | pass |
-| landing: hero CTAs and `new-form` | pass | pass | pass |
-| system: chip matches /readyz | pass | pass | pass |
-| system: popover full `nvidia/` ids | fail | fail | fail |
-| system: Zetaris reachability | pass | pass | pass |
-| system: /readyz both lanes | pass | pass | fail once |
-| mobile: 390×844 and project viewport | pass | pass | pass |
+`live verify Kettle Point remit change` was not started.
 
-Wide `/readyz` lanes: one response in the full run had `nightshift.lanes` missing. An immediate rerun of that test passed, and a direct GET shows `fast` and `deep`.
+The Stop replay at 17:49Z did not attach: `:3100` refused the connection while ui-wire replaced the server (PID 48512 was gone; `next start -p 3100` was listening again by 17:49:54Z). A later replay waited on another lane's lock from 17:50Z and was not started. The pass above is the 17:34Z run. `tests/e2e/live-stop-result.json` now uses the API `started_at` (`2026-10-27T17:34:30.759Z`) and `execution_time_seconds` 1.69 (`durationMs` 1690). The 17:34 writer had copied `startedAt` from the discarded BCR-2026-0405 marker.
 
-## Live verify (not re-run)
+## What each spec asserts
 
-- Run `r-20261027T150100Z-bf7a`, started 15:01:00Z, decided 15:08:26Z, `execution_time_seconds` 483.2, status `partial_success`, decision HOLD, codes R4, C1, C3.
-- Fast and deep rows are the pinned Nemotron ids with `nemotron: true`.
-- ERP BCR-2026-0401: absent before, `held` after. Documents 0 → 1. Contact logs stayed 0. Marker duration 540138 ms. Verify was clicked once.
+- `lineage.spec.ts` (D4). On the latest S1 HOLD, USAspending, ERP, and SEC EDGAR open a fact cell whose lineage shows source, a USL table, query id, SQL hash, and row hash, matching `GET /runs/:id/queries/:qid`. Escape closes the drawer.
+- `asof.spec.ts` (D5). Scrubber Home, End, Earlier, and Later move the graph and match `GET /runs/:id/graph?at=`. The scrubber is absent on an undecided run. Narrow page scroll is `expect.soft`.
+- `readings.spec.ts` (D1). Newest decided run with `letter_reading`: A is `text_layer` / `transcribe`, B is `ocr` / `visual`, both Ultra when status is ok. The letter pane must show `readings-card`. If that id is absent from the JS the page loaded, the failure says `readings-card is missing from the served :3100 build`.
+- `injection.spec.ts` (D6). Decided BCR-2026-0407 must be HOLD, include R8 and C1, `injection.detected`, and hidden spans `S10-H1` `S10-H2` `S10-H3`. The letter pane must show `injection-card`. The same build-state message names `injection-card` when the served JS lacks it. The `@live` test follows a decided run and does not click Verify again.
+- `sweep-dq.spec.ts`. A decided sweep whose `rules_run` includes DQ7, DQ8, and DQ9. When DQ7 invalid is above zero, the sweep JSON must contain `V-10233` and `V-10234`, then `sweep-banner` / `sweep-rule`.
+- `dialogs.spec.ts`. Callback and outcome dialogs. Save is aborted in the UI. Direct posts use invalid bodies only and expect `{ error, code }`.
+- `stop.spec.ts`. One Verify on BCR-2026-0405 or BCR-2026-0409. A real stop is stage `CANCELLED` and envelope code `cancelled`. Detail status stays `error`. A run that dies in under 5s without that code fails with the first trace `output_summary`. Panel `stopped`, inbox chip `data-status="error"` and the word Stopped. ERP status, documents, and contact logs stay as they were before Verify.
 
-## Product bugs
+## Product defects
 
-1. S3 and the APPROVE chip. Latest run for BCR-2026-0398 is `r-20261027T152222Z-7cdc`, decision `CALLBACK_VERIFY`. Selector `[data-testid="status-chip"][data-status="APPROVE"]` is absent on All (`ui/components/inbox/StatusChip.tsx`). Expected APPROVE and `[data-testid="callback-evidence"]` text `Call-back CL-20398 on (321) 727-9100`. High for the demo.
+1. Narrow as-of table scrolls the page. `ui/components/graph/GraphTable.tsx` `minWidth: 720` inside `ui/app/styles/graph.css` `.gr-table-wrap`. Test id `graph-table`. At 390, `scrollWidth` 747 and `innerWidth` 390. Offenders `[]`. Medium and wide pass. Severity: medium for a phone graph. The assertion stays soft.
 
-2. System popover drops the `nvidia/` prefix at every width. `ui/lib/labels-trace.ts` `modelShort`, shown in `ui/components/shell/SystemChip.tsx` `.p-popover`. Observed `nemotron-3.5-lightning-30b-a3b` and `nemotron-3-ultra-550b-a55b`. Expected the full pinned ids. Low.
+2. S10 span ids are not the truth-file ids. Run `r-20261027T172843Z-5ed6`, field `decision.injection.spans[].span_id`. Observed `inj-1`, `inj-2`, `inj-3` (`pdf_hidden_text`, hidden) and `inj-4` (`email_body`, not hidden). Expected `S10-H1`, `S10-H2`, `S10-H3` hidden and `S10-E1` on `email_body` (`data/truth/10-sable-harbor-injection.truth.json`). HOLD, R8, C1, and `injection.detected` true are present. The non-live test and the `@live` follow both fail at `injection.spec.ts` `expect(span, "S10-H1")` with `undefined`. They never reach `injection-card`. Severity: high for the injection demo. The assertion is unchanged.
 
-3. Synthetic and demo copy, every width. `[data-testid="synthetic-notice"]` in `ui/components/shell/Footer.tsx`. `[data-testid="page-synthetic-notice"]` in `ui/components/inbox/QueuePage.tsx`. “Demo scenario: do not call.” inside `[data-testid="callback-script"]` (`ui/components/review/CallbackCard.tsx`) and `[data-testid="fact-sheet-region"]` (`ui/components/review/FactSheet.tsx`). Landing: `ui/components/landing/Hero.tsx`, `SourcesGrid.tsx`, and the landing footer. Expected none of that copy. High.
+3. The served `:3100` build does not contain the D1/D6 cards. `ui/.next` at 18:00Z has zero files containing `readings-card` or `injection-card`. Source `ReadingsCard.tsx` and `InjectionCard.tsx` are newer than the previous server start. At 17:35Z, readings on medium and wide failed earlier, on `decision-card` not visible within 15s (`readings.spec.ts` line 86), which matches a production bundle that still rejects decisions after `labels.callback_notice` was removed. Narrow readings failed first with `ECONNRESET` on `GET /runs/r-20261027T172843Z-5ed6` during the API restart. Selector when the card assert is reached: `readings-card`, `injection-card`. Expected: both visible after the ui-wire rebuild. Severity: high until `:3100` serves the new bundle. The expects stay, and the failure names the missing testid.
 
-4. Serious color-contrast. Inbox, medium and wide: `ui/components/ui/tabs.tsx` `.p-tab__n` (`.p-tab[role="tab"]:nth-child(2) > .p-tab__n.tabular`, color `--fg-muted` in `ui/app/styles/overlays.css`). Wide also: Zetaris-down alert context `.p-alert__body > span > .text-fg-muted` in `ui/components/inbox/QueuePage.tsx`. Narrow inbox passed this run. Review, all widths: muted decision lede and reason detail. Narrow and wide: `.t-lede > .text-fg-muted`, `.why-group .t-eyebrow`, `li[data-code="R3"] .t-clamp-2` in `ui/components/review/WhyList.tsx` and the decision banner. Medium: `.dec-word > span:nth-child(2)`, `.t-lede > .text-fg`, `.t-lede > .text-fg-muted`. Expected no serious or critical axe violations. Medium.
+4. DQ7 ran and dropped the vendor ids. On `r-20261027T172843Z-5ed6`, `decision.sweep` for `PR-2026-11-03` has DQ7 `invalid` 2 of `total` 52, `query_id` `48f44c2b-ab78-43b3-a91d-5c90e19044bf`, `findings` `[]`. The serialized sweep does not contain `V-10233` or `V-10234`. Trace seq 47 of that run names both vendors; seq 48 says DQ7 in `PR-2026-11-03` is 0. `app/components/sweep-runner.ts` `RULES` is still `["DQ1", "DQ2"]`. The UI `sweep-banner` was not reached. Severity: high for the sweep demo. The assertion is unchanged.
 
-## GET /requests 400
+5. S10 status is `partial_success`. Same run, envelope `execution_time_seconds` 250.6, stage `DONE`. Trace seq 45: T23 failed `zetaris_server`. Decision is still HOLD. Severity: low for the decision, medium for a clean `success` status.
 
-The rows were the Zetaris lane’s k3d fixtures, not inbox seed data. `scripts/zetaris/k3d.ts` inserts `BCR-9026-0001` and `BCR-9026-0002` because the ERP check is `^BCR-[0-9]{4}-[0-9]{4}$`, then deletes them. Those ids fail the inbox schema `app/schemas/patterns.ts` `REQUEST_ID = /^BCR-2026-\d{4}$/`. `app/api/routes/requests.ts` runs `InboxResponse.parse` on the whole list, so one bad row returns 400 `{error, code: "invalid_input"}` and the queue shows `[data-testid="error-banner"]`. That validation behaviour is a product bug. The rows are gone now (no non-matching ids in `bank_change_request`), and GET `/requests` is 200.
+## Live runs
+
+| Run | Request | Who | Result | Lock | ERP |
+|---|---|---|---|---|---|
+| `r-20261027T170703Z-e769` | BCR-2026-0407 | this lane, 17:07:03Z | `error` / `FAILED` / `internal_error` in 0.493s. Trace: `Query templates are not available.` | 4766 ms, released | ABSENT, 0 documents, 0 contact logs, unchanged |
+| `r-20261027T171544Z-db2a` | BCR-2026-0405 | this lane, 17:15:44Z | same template crash in 1.048s. Not a Stop. | 2244 ms, released | still ABSENT, 0 documents, 0 contact logs |
+| `r-20261027T172843Z-5ed6` | BCR-2026-0407 | agents-depth, through API PID 7269, 17:28:43Z | `partial_success` / `DONE` / HOLD in 250.6s. Codes R8, C1, C3. `letter_reading` agree, agreement 1. | this lane held 0 ms. Their note says the run was under the lock. | now `held`, 2 documents, 0 contact logs |
+| `r-20261027T173430Z-d6cc` | BCR-2026-0409 | this lane, 17:34:30Z | `error` / `CANCELLED` / envelope `cancelled` in 1.69s. Decision null. UI Stopped. Playwright 1 passed (6.5s). | 1931 ms, released | ABSENT, 0 documents, 0 contact logs, unchanged |
+
+`5ed6` was already terminal when this lane read it. This lane did not click Verify for it. `lanes/agents-depth.md` records it as API `:8787` (PID 7269), BCR-2026-0407, 251s. The trace session is that process (`s-a40b0929`). `run_start` input is `10-sable-harbor-injection`, then intake inserts BCR-2026-0407. Fastify `onResponse` logged no `POST /run` at 17:28:43Z or at the 17:32:54Z completion. `scratchpad/agd/api-s10.json` was created empty at that same second. `scratchpad/agd/s10-api.out` is a different run, `r-20261027T172534Z-f038` on BCR-2026-0699.
+
+`tests/e2e/live-s10-result.json` still names `e769`. The decided S10 run is `5ed6`.
+
+## Open
+
+Another lane held the Zetaris lock from 17:50Z for a live S1 run. This lane did not remove it and did not start a live run after the 17:34Z Stop. The directory was absent at 17:58Z and present again at 18:01Z.
+
+No unchecked Stop candidate remains in BCR-2026-0405 (fast death) or BCR-2026-0409 (cancelled). A new Stop needs a different request.
+
+`readings-card` and `injection-card` are still missing from the served `:3100` build at 18:00Z. ui-wire's rebuild is what makes those two expects pass. This lane did not rebuild `:3100` and did not restart `:8787`.

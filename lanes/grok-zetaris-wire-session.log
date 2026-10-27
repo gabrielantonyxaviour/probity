@@ -1,0 +1,53 @@
+=== slice 1 2026-10-27T16:28:46Z ===
+Couldn't create session: Invalid params: "additionalDirectories is not supported: a session works only in its cwd"
+=== slice 1 2026-10-27T16:29:17Z ===
+I'll implement the D3 Zetaris wiring from the contract. First I'll read the spec, current templates, and sweep code so the changes stay additive and match the live query path.The contract is specific: DQ8 gets registered, DQ7 and DQ9 stay select-only, and T23 is a DDL-kind profile. I'll read the existing template, sweep, and guard code next so the new rules plug in without changing DQ1–DQ6.Another lane already mentions DQ7 in the UI sweep copy. I'll re-read those files before editing so I don't overwrite their work.=== slice 2 2026-10-27T16:38:54Z ===
+The D3 wiring is still open. I'll check the tree and the clock, then implement the remaining templates, sweep, and live checks.The schema and sweep still stop at DQ1 and DQ2. I'll add DQ7, DQ8, DQ9, and T23 on that path, then verify with tests and a short live window.Auto-compacting conversation (80% full)...
+Conversation compacted.
+I'll continue the D3 wiring from the last checkpoint: templates and schema first, then sweep, sample, and the live checks. Checking the clock and the files those edits have to match.=== slice 3 2026-10-27T16:48:33Z ===
+The schema and DQ8 registration source are in. Next I’ll add the DQ7, DQ9, and T23 templates and wire them through the sweep without changing the DQ1 and DQ2 path.=== slice 4 2026-10-27T16:58:20Z ===
+I'll check what landed on disk and finish the remaining contract checks from there.Auto-compacting conversation (80% full)...
+Conversation compacted.
+Live checks are the remaining acceptance work. I will confirm the clock and the register allow-list, then run one locked Zetaris window.The Zetaris lock is held. I will check how long it has been held and confirm the register allow-list before waiting for it.The lock is held by another live run that started this minute. I will check that the DQ8 register text matches the allow-list, then wait and run.The allow-list match is good. I will save each live result as it returns, then take the lock for one short window.=== slice 5 2026-10-27T17:07:57Z ===
+The live window was interrupted before it finished. I will check the lock, the clock, and whether any capture was written, then continue the acceptance checks.Registration, RUN DQ, SHOW DQ, DQ7, T23, and the DQ9 count all returned. Bare `LIST DQ` was rejected, so I am checking the engine's list syntax and the captured rows.Bare `LIST DQ` is rejected by this engine. The working statement is `LIST DQ USL`. I will run that once under the lock and record whether DQ8 is listed.=== slice 6 2026-10-27T17:17:40Z ===
+The live captures are in. I will check who holds the Zetaris lock, finish the moments log, and report against the acceptance checks.Live checks passed. The Zetaris lock is held by the agd lane (pid 83574); I left it in place.
+
+ACCEPTANCE CHECKS COMPLETE
+
+## Acceptance
+
+| Check | Result |
+|---|---|
+| 1. DQ8 registered | `REGISTER DQ` query `e983bb58-086d-4fde-afa6-a9abbb478857`, 5752 ms. `RUN DQ` `3a97bcd5-032b-4e5a-abf1-96e2025ac77e`, 5477 ms, 153/153/0. `SHOW DQ INVALID RECORD` `e2140bf4-b4d3-4cb2-90c8-67c2289ceb4a`, 4565 ms, 0 rows. |
+| 1. List | Bare `LIST DQ` is HTTP 400, `missing 'USL' at '<EOF>'`. `LIST DQ USL lightning.metastore.probity.vendor360` query `44e213ef-f9bc-4776-84a4-5a984150cf63`, 273 ms, 27 rows, includes `bank_change_before_large_payment` on `payment_run_item`. |
+| 7a DQ7 | Query `287c99a9-9898-4b41-b8c8-ea0e8f4128bf`, 1325 ms, 1 row, vendors `V-10233,V-10234`, hash `42a71b0b9f32db41`. |
+| 7c T23 `V-10027` | Query `69140160-985b-481e-992e-b820e7549924`, 24120 ms, 1 row, 14 columns, 8 payment items, exposure 2578271.76, hash `0f35932553f8614e`. |
+| DQ9 count | Query `645a966b-3f3a-4c11-9945-2bd59f094a8a`, 5742 ms, 153/153/0, hash `751872ebf9996c81`. |
+
+Capture: `zetaris/results/d3-wire-live.json`. Template ids are `DQ7`, `DQ7c` (count), `DQ9`, `DQ9c` (count), and `T23`. DQ8 stays a `RULE_ID` on T20/T21, with `selectFallback` if `RUN DQ` fails. T23 lineage says one Zetaris query across ERP, USAspending, and SEC EDGAR tables registered in Zetaris. ERP legs are JDBC at query time. USAspending and EDGAR are USL tables. Pushdown was not shown.
+
+## Files
+
+Owned additions: `app/templates/d3.ts` (128), `app/templates/d3.test.ts` (55), `app/components/sweep-extra.ts` (163), `app/components/federated-profile.ts` (31), `app/adapters/sample/sample-queries-d3.ts` (141), `app/adapters/zetaris/timeout.test.ts` (24), `scripts/zetaris/d3-wire-live.ts` (113), `tests/unit/policy/d3-sweep.test.ts` (57), `tests/unit/components/d3-sweep.test.ts` (85), `tests/unit/adapters/d3-sample.test.ts` (56), `zetaris/results/d3-wire-live.json`.
+
+Owned edits: `app/templates/dq.ts`, `dq-rules.ts`, `index.ts`; `app/adapters/zetaris/client.ts` (160), `guard.ts` (`LIST DQ` allowed by the guard); sample query dispatch; `app/components/sweep-runner.ts` (63); `scripts/zetaris/sql/dq.ts`; `zetaris/dq_rules.sql` and `zetaris/register/70_dq.sql` (DQ8 appended); `zetaris/README.md`; `zetaris/results/README.md`.
+
+Cross-boundary:
+
+- `app/schemas/templates.ts` (155). `TemplateId`, `TemplateParams`, `SAMPLE_TEMPLATE_IDS`, and `DqRule` includes `DQ8`.
+- `app/schemas/decision.ts` lines 183 and 194. Sweep rule enums are `DQ1,DQ2,DQ7,DQ8,DQ9`. Other fields in that dirty file are another lane's.
+- `app/policy/sweep.ts` (173). Shared-account and payee findings, and count parsing for the new rules.
+- `app/components/evidence-runner.ts` (293). T23 abort is 300s and the trace summary is `t23Trace`. `run.ts` stayed at 298 lines; the call sits in `sweep-runner.ts`.
+- `tests/unit/_support/harness.ts`. T20/T21 return no rows for rules other than DQ1 and DQ2, so the hero `rules_run` length stays 2.
+
+Also appended: `lanes/RESTART-REQUESTS.md` at 17:16Z, and three rows in `_docs/zetaris-moments.md`. No commit.
+
+## Tests
+
+`npx tsc --noEmit -p .` exit 0. Earlier this lane: 6 unit files / 51 tests, zetaris vitest config 5 files / 26 tests, sample parity 2 files / 16 tests. This slice: `tests/unit/cli/cli.e2e.test.ts` sweep assertion passed (`sweep=0` unchanged). `npx vitest run app/templates app/adapters app/policy app/components` still finds nothing because the root include is `tests/**/*.test.ts`. Colocated tests run under `scripts/zetaris/vitest.config.ts`.
+
+## Still for other lanes
+
+api-depth needs to restart :8787. The row is in `lanes/RESTART-REQUESTS.md`. I did not restart it.
+
+Report only, not edited: `video/src/data/facts.ts` line 5 still allows only DQ1 and DQ2. `app/api/lineage.ts` `lineageFor` keeps `vendor360.*` and `session.*` and drops bare `payee_erp.*` legs. `README.md` line 310 and `docs/usl-reflection/` still say six DQ rules. `list_dq_usl.json` is the older 26-row capture.

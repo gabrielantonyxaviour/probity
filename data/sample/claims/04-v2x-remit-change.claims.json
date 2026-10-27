@@ -2,9 +2,9 @@
   "example_id": "04-v2x-remit-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "819885dbb0a63ceecacbd760dc84563c1a80b8c6ef7ce412384c9c48640ac542",
-    "e320ab8829fe93132e4995c98bad8b97fd986ae18e21318b8e363372116f3f4e",
-    "627772a50d9686d513d7f3946f922b41fc5a7b043050bb8b970f1753173d5d4e"
+    "822a4e2087abfa3ebe9eef3d8fc2219bff2f22299650604c74b9b96ecf1d2183",
+    "3e55835f3ed1f4eb87e1fda242eebd80fa8e8ddaf937f04fdad67782ac7df8be",
+    "88e007d92b4fcb5d4119fdaf43de6de23680dd478e877cada44785210a6de916"
   ],
   "account_number": null,
   "claimed_name": "V2X, Inc.",
@@ -29,7 +29,7 @@
   ],
   "effective_date": "2026-11-01",
   "invoice_refs": [],
-  "signer_name": "L. Haverford (fictional)",
+  "signer_name": "L. Haverford",
   "pressure_phrases": [],
   "watermark_text": "SYNTHETIC SAMPLE: not issued by V2X, Inc. (formerly Vectrus, Inc.)",
   "fields": [
@@ -114,12 +114,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "L. Haverford (fictional)",
+      "quote": "L. Haverford",
       "page": 1,
       "bbox_hint": [
         117,
         503,
-        312,
+        224,
         522
       ],
       "highlight_source": "text_layer"

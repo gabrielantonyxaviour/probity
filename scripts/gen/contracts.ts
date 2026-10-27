@@ -7,7 +7,7 @@ export const PAYEE_SEED = 20261027;
 export const WORLD_NOW = "2026-10-27T07:00:00Z";
 export const ROUTING = "110000000";
 export const COMPANY = {
-  name: "Halvorsen Mission Systems (fictional)",
+  name: "Halvorsen Mission Systems",
   ap_mailbox: "ap@halvorsen-ms.example",
   address: ["1200 Linden Cross Way", "Herndon, VA 20170"],
 } as const;

@@ -12,7 +12,7 @@ export const D01: React.FC = () => {
       </Body>
       <div style={{ position: "absolute", left: 120, top: 440 }}>
         <Media slot="R01" at={2.5} label="S1 LETTER" w={800} h={450} f={f} show={30} />
-        <Cap f={f} at={44}>The request: a synthetic letter, watermark visible</Cap>
+        <Cap f={f} at={44}>The request: the vendor letter, as received</Cap>
       </div>
       <div style={{ position: "absolute", left: 1000, top: 440 }}>
         <Media slot="R02" at={1.8} label="HOLD BANNER" w={800} h={450} f={f} show={40} />
@@ -82,7 +82,7 @@ const ROWS: { case: string; cells: Cell[] }[] = [
     { t: "Call (703) 555-0147" },
     { t: "Master number changed by email 3 days earlier", k: "red" },
     { t: "Not carried by USAspending", k: "amber" },
-    { t: "SEC number 703-902-5000. Demo scenario: do not call.", k: "ok" } ] },
+    { t: "SEC number 703-902-5000. Never a number from the letter.", k: "ok" } ] },
   { case: "S2 · SAIC or Leidos", cells: [
     { t: "Science Applications International Corporation" },
     { t: "Two vendors fit: V-10442, V-10587", k: "red" },

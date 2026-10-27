@@ -2,8 +2,8 @@ import type { FactField, ReasonCode, ReasonCodeId } from "../schemas/decision";
 import { tidy } from "./normalise";
 
 export const CODE_CLASS: Record<ReasonCodeId, ReasonCode["class"]> = {
-  R1: "red", R2: "red", R3: "red", R4: "red", R5: "red", R6: "red", R7: "red",
-  C1: "cap", C2: "cap", C3: "cap", C4: "cap", C5: "cap", C6: "cap",
+  R1: "red", R2: "red", R3: "red", R4: "red", R5: "red", R6: "red", R7: "red", R8: "red",
+  C1: "cap", C2: "cap", C3: "cap", C4: "cap", C5: "cap", C6: "cap", C7: "cap",
   I1: "info", I2: "info", I3: "info", I4: "info", I5: "info", I6: "info",
 };
 

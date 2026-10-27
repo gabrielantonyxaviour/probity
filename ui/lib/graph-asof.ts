@@ -8,10 +8,6 @@ import { GraphPayload } from "./contracts";
 
 type Payload = z.infer<typeof GraphPayload>;
 
-/** Decision 8: no scenario labels in the product UI. Older API builds still send one as a phone sublabel. */
-export function cleanGraph(p: Payload): Payload {
-  return { ...p, nodes: p.nodes.map((n) => (n.sublabel && /demo scenario/i.test(n.sublabel) ? { ...n, sublabel: null } : n)) };
-}
 export type Tick = { at: string; kind: "received" | "learned" | "decided" | "now"; added: number };
 
 // End of the second, so everything learned within that second counts as known.
@@ -59,7 +55,7 @@ export function useAsOfGraph(runId: string, at: string | null, prefetch: string[
     setSt((s) => ({ ...s, loading: true, error: null }));
     apiGet(`/runs/${encodeURIComponent(runId)}/graph?at=${encodeURIComponent(at)}`, GraphPayload, { signal: ctrl.signal })
       .then((raw) => {
-        const p = cleanGraph(raw);
+        const p = raw;
         cache.current.set(at, p);
         setSt({ payload: p, loading: false, error: null });
       })
@@ -77,7 +73,7 @@ export function useAsOfGraph(runId: string, at: string | null, prefetch: string[
       for (const t of key.split("|")) {
         if (ctrl.signal.aborted || cache.current.has(t)) continue;
         try {
-          cache.current.set(t, cleanGraph(await apiGet(`/runs/${encodeURIComponent(runId)}/graph?at=${encodeURIComponent(t)}`, GraphPayload, { signal: ctrl.signal })));
+          cache.current.set(t, await apiGet(`/runs/${encodeURIComponent(runId)}/graph?at=${encodeURIComponent(t)}`, GraphPayload, { signal: ctrl.signal }));
         } catch {
           return;
         }

@@ -6,7 +6,7 @@ import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import type { BrowserContext, CDPSession, Page } from "@playwright/test";
 
-export type Capture = { stop(outFile: string): Promise<{ frames: number; seconds: number }> };
+export type Capture = { stop(outFile: string): Promise<{ frames: number; seconds: number; startEpoch: number }> };
 
 export async function startCapture(ctx: BrowserContext, page: Page, o: { workDir: string; scale: number; quality?: number; keepFrames?: boolean }): Promise<Capture> {
   rmSync(o.workDir, { recursive: true, force: true });
@@ -41,7 +41,7 @@ export async function startCapture(ctx: BrowserContext, page: Page, o: { workDir
       execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", listFile, "-vf", "fps=30,scale=1920:1080:flags=lanczos,format=yuv420p", "-c:v", "libx264", "-crf", "14", "-preset", "medium", "-movflags", "+faststart", "-an", outFile]);
       const seconds = frames[frames.length - 1]!.t - frames[0]!.t;
       if (!o.keepFrames) rmSync(o.workDir, { recursive: true, force: true });
-      return { frames: frames.length, seconds };
+      return { frames: frames.length, seconds, startEpoch: frames[0]!.t };
     },
   };
 }

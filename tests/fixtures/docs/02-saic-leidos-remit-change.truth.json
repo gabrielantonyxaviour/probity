@@ -17,13 +17,13 @@
       "zip": "20190"
     },
     "bank": {
-      "bank_name": "Harborline Test Savings (fictional)",
+      "bank_name": "Harborline Savings",
       "routing": "110000000",
       "account_number": "000999000163"
     },
     "phones": [],
     "effective_date": "2026-11-01",
-    "signer_name": "D. Marchetti (fictional)",
+    "signer_name": "D. Marchetti",
     "signer_title": "Accounts Receivable",
     "sender_email": "ap@saic.example",
     "reply_to": null
@@ -83,7 +83,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -148,13 +148,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Harborline Test Savings (fictional)",
+      "text": "Harborline Savings",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 719,
-          "w": 337,
+          "w": 187,
           "h": 28
         }
       ]
@@ -200,13 +200,13 @@
     },
     {
       "field": "signer_name",
-      "text": "D. Marchetti (fictional)",
+      "text": "D. Marchetti",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 975,
-          "w": 239,
+          "w": 130,
           "h": 30
         }
       ]

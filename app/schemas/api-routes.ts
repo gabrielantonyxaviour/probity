@@ -168,6 +168,18 @@ export const RerunResponse = z.object({
 
 // ---- Run detail helpers ----
 export const GraphQuery = z.object({ at: z.iso.datetime({ offset: true }).optional() });
+/** Additive (api-depth): where a query's data came from. One entry per table the SQL reads. */
+export const QueryLineage = z.object({
+  sources: z.array(
+    z.object({
+      usl_table: z.string(), // "lightning.metastore.probity.vendor360.vendor" | "session.pp_usa_r_<uei>"
+      source_system: z.enum(["usaspending", "sec_edgar", "erp_postgres", "letter"]),
+      source_object: z.string().nullable(), // the registered object behind it, e.g. "payee_erp.public.vendor"
+      via_view: z.string().nullable().optional(), // the Zetaris flatten view the USL table is activated from
+    }),
+  ),
+});
+export type QueryLineage = z.infer<typeof QueryLineage>;
 export const QueryDetail = z.object({
   query_id: z.string(),
   template_id: z.string(),
@@ -183,6 +195,7 @@ export const QueryDetail = z.object({
   fetched_at: z.string(),
   latency_ms: z.number(),
   source_label: z.string(),
+  lineage: QueryLineage.optional(),
 });
 export type QueryDetail = z.infer<typeof QueryDetail>;
 

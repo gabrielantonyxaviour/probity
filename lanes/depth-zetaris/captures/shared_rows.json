@@ -1,0 +1,13 @@
+{
+  "id": "shared_rows",
+  "captured_at": "2026-10-27T15:34:59.868Z",
+  "sql": "SELECT b.account_hash, b.vendor_id, b.bank_account_id, b.status, v.legal_name FROM lightning.metastore.probity.vendor360.vendor_bank_account b JOIN lightning.metastore.probity.vendor360.vendor v ON v.vendor_id = b.vendor_id WHERE b.account_hash IN (SELECT account_hash FROM lightning.metastore.probity.vendor360.vendor_bank_account GROUP BY account_hash HAVING COUNT(DISTINCT vendor_id) > 1) LIMIT 50",
+  "queryId": "c041520c-8886-43fb-bf9e-87be0baf5b6d",
+  "latency_ms": 1,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

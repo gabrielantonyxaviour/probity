@@ -86,7 +86,7 @@ export function describeNode(ctx: GraphCtx, e: Entity): NodeBody {
     case "address":
       return body(str(a.display) ?? name, null, { addr_key: e.id.replace(/^address:addr:/, "") });
     case "phone":
-      return body(str(a.display) ?? name, a.is_test_range ? null : "Demo scenario: do not call.", { e164: a.e164 });
+      return body(str(a.display) ?? name, null, { e164: a.e164 });
     case "domain":
       return body(str(a.domain) ?? name, null, { domain: a.domain });
     case "request":

@@ -5,8 +5,8 @@ import { isoDate, money, tidy } from "./normalise";
 
 export type BannerVariant = GateDecision["banner_variant"];
 
-/** HOLD primary phrase = the first fired red code in the order R5, R3, R6, R4, R1, R2, R7. */
-const HOLD_ORDER = ["R5", "R3", "R6", "R4", "R1", "R2", "R7"] as const;
+/** HOLD primary phrase = the first fired red code in the order R5, R3, R6, R4, R1, R2, R7, R8. */
+const HOLD_ORDER = ["R5", "R3", "R6", "R4", "R1", "R2", "R7", "R8"] as const;
 
 export function holdPhrase(codes: ReasonCode[]): string {
   const first = HOLD_ORDER.map((c) => codes.find((x) => x.code === c)).find((c) => !!c);
@@ -21,6 +21,10 @@ export function holdPhrase(codes: ReasonCode[]): string {
     case "R1": return "it was sent from a domain we don't have on file";
     case "R2": return "the new address matches none of this company's known addresses";
     case "R7": return "the routing number fails the bank checksum";
+    case "R8":
+      return first.variant === "hidden"
+        ? "the document contains hidden instructions aimed at an automated reviewer"
+        : "the document contains instructions aimed at an automated reviewer";
     default: return "a control failed";
   }
 }
@@ -97,8 +101,6 @@ export function summaryText(i: BannerInput): string {
 
 export const NEEDS_HUMAN_SUMMARY = "The letter could not be read. A person must review it.";
 export const NEEDS_HUMAN_RECOMMENDATION = "Have a person read the letter and enter the claims.";
-export const SYNTHETIC_NOTICE =
-  "Internal records and letters are synthetic, made for this demo. Registry facts are real public data from USAspending and SEC EDGAR.";
 export const SAMPLE_BANNER =
   "SAMPLE MODE: offline data captured 2026-10-27; no live Zetaris or Nemotron calls. Decisions are computed by the same policy code.";
 export const mirrorLabel = (captured_at: string): string => `Registry mirror, captured ${captured_at}. Live source unavailable.`;
@@ -115,10 +117,10 @@ export type RecInput = {
 };
 const srcShort = (s: "edgar_registrant" | "vendor_master_pre_window") => (s === "edgar_registrant" ? "SEC EDGAR" : "vendor master");
 
-/** recommendations[]: plain actions; phones end " (demo scenario: do not call)" (REV-41). */
+/** recommendations[]: plain actions (decision 8: no scenario labels on phones). */
 export function recommendations(r: RecInput): string[] {
   const out: string[] = [];
-  const call = (c: RecInput["callbacks"][number]) => `Call ${c.number_display} (${srcShort(c.number_source)}) (demo scenario: do not call)`;
+  const call = (c: RecInput["callbacks"][number]) => `Call ${c.number_display} (${srcShort(c.number_source)})`;
   if (r.decision === "APPROVE") out.push(`Apply the bank change for ${r.vendor_id} in the ERP (call-back confirmed ${r.callback_date ?? "on record"}).`);
   else if (r.decision === "CALLBACK_VERIFY") {
     for (const c of r.callbacks) out.push(`${call(c)} before changing anything.`);

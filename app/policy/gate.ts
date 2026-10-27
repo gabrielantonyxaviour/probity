@@ -4,7 +4,7 @@ import type { ReasonCode } from "../schemas/decision";
 import type { PhonesAt } from "../schemas/tools";
 import { AppError } from "../schemas/errors";
 import type { PolicyState } from "../orchestration/state";
-import { c1, c3, c4, c5, c6, c2 } from "./codes-cap";
+import { c1, c3, c4, c5, c6, c7, c2 } from "./codes-cap";
 import { sortCodes } from "./code-util";
 import { decisiveFields, evidenceCoverage, type Coverage } from "./coverage";
 import { i1, i2, i3, i4, i5, i6 } from "./codes-info";
@@ -24,7 +24,7 @@ export function computeCodesFull(s: PolicyState, o: CodeOpts): CodeResult {
   const nowMs = o.nowMs ?? Date.now();
   const nonC2: Array<ReasonCode | null> = [
     ...computeRed(s, { atDecide, sampleMode: s.mode === "sample" }),
-    c1(s), c3(s), c4(s), c5(s, o.phonesAt), c6(s),
+    c1(s), c3(s), c4(s), c5(s, o.phonesAt), c6(s), c7(s),
     i1(s), i2(s), i3(s), i4(s), i5(s), i6(s),
   ];
   const pass1 = nonC2.filter((c): c is ReasonCode => c !== null);

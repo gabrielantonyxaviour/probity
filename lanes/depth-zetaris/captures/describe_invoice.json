@@ -1,0 +1,13 @@
+{
+  "id": "describe_invoice",
+  "captured_at": "2026-10-27T15:34:59.842Z",
+  "sql": "DESCRIBE DATASOURCE TABLE payee_erp.ap_invoice",
+  "queryId": "27034614-a210-441e-9360-5627c7672e53",
+  "latency_ms": 2,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

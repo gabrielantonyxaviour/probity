@@ -40,12 +40,23 @@ export const EXPO = {
   noVendor: ["This vendor:", "not one of our vendors"],
   wholeRun: ["Whole run:", (n: string, amount: string) => `${n} · ${amount}`],
   hold: ["On hold for review:", (n: string) => n],
-  sweep: ["Also flagged by the sweep:", (n: string, amount: string) => `${n} item(s) · ${amount}`],
+  sweep: ["Also flagged by the sweep:", (n: string, amount: string) => `${n} · ${amount}`],
 } as const;
 
 export const BANNERS = {
   zetarisDegraded: (capturedAt: string) => `Zetaris unreachable: evidence from offline captures dated ${capturedAt}.`,
-  rationaleRejected: "Nemotron answered, but its wording did not pass Probity's check against the decision, so the summary is written from the decision itself.",
+  rationaleRejected: (cause: string | null) =>
+    `Nemotron wrote a summary, but its wording did not pass Probity's check against the decision${cause ? ` (${cause})` : ""}. The summary below is written from the decision itself; the decision and its reasons are unchanged.`,
+  rejectionCauses: [
+    [/reasons? left out|state the reasons/, "it left out a reason the decision depends on"],
+    [/unknown token/, "it used a number that is not in the evidence"],
+    [/internal labels/, "it used internal labels instead of plain words"],
+    [/claim not in the decision|states a problem/, "it said something the evidence does not show"],
+    [/call-back|do-not-use|do_not_use/, "it did not state the call-back number correctly"],
+    [/sweep|payment (count|amount)/, "it got a payment count or amount wrong"],
+    [/decision word/, "it used the wrong decision word"],
+    [/sentence count/, "it was too long or too short"],
+  ] as ReadonlyArray<readonly [RegExp, string]>,
   nightshiftFallback: (lane: string, fallback: string) =>
     `Nightshift did not answer on the ${lane} lane. Probity used its fallback: ${fallback}.`,
   nonNemotron: (model: string) =>
@@ -53,7 +64,7 @@ export const BANNERS = {
   timeLimit: "Probity stopped gathering evidence so it can decide within the 8:00 time limit. Links not yet examined stay held.",
   sourceMissing: (source: string) =>
     `${source} could not be reached and no captured copy exists for this company. Facts from ${source} are missing.`,
-  tags: { mirror: "Mirror", outage: "Outage", zetaris: "Zetaris", model: "Model", time: "Time limit", partial: "Partial" },
+  tags: { mirror: "Mirror", outage: "Outage", zetaris: "Zetaris", model: "Model", wording: "Summary", time: "Time limit", partial: "Partial" },
 } as const;
 
 export const PANELS = {
@@ -119,15 +130,33 @@ export const SCRIPT = {
 } as const;
 
 export const SWEEP = {
-  none: (run: string, n: number) =>
-    `Not asked, but checked: no other item in ${run} fails payment controls (${n} items checked by DQ1 and DQ2).`,
+  none: (run: string, n: number, rules = "DQ1 and DQ2") =>
+    `Not asked, but checked: no other item in ${run} fails payment controls (${n} items checked by ${rules}).`,
   failed: (reason: string, run: string) =>
     `The run sweep could not run (${reason}). This decision is unaffected; check ${run} manually.`,
   running: (run: string) => `Checking the rest of ${run}…`,
+  rulesHead: "Zetaris data-quality rules run for this sweep, table-wide",
   footer: (rule: string, invalid: number, total: number) =>
     `Found by Zetaris data-quality rules on vendor360.payment_run_item: ${rule} ${invalid} of ${total} rows invalid across all payment runs`,
-  rules: { DQ1: "Recent bank change, no independent call-back", DQ2: "Account shared with another vendor" },
+  ruleLine: (invalid: number, total: number) => `${invalid} of ${total} rows invalid (all runs)`,
+  ruleClean: (total: number) => `all ${total} rows valid`,
+  sharedBy: (vendors: string[], hash8: string) => `One bank account (hash ${hash8}) on file for ${[vendors].flat().join(", ")}`,
+  rules: {
+    DQ1: "Recent bank change, no independent call-back",
+    DQ2: "Account shared with another vendor",
+    DQ7: "Bank account on file for more than one vendor",
+    DQ8: "Over $100,000 within 14 days of a bank change, no verified call-back",
+    DQ9: "Payee name does not match the vendor's legal name",
+  },
+  tables: {
+    DQ1: "vendor360.payment_run_item",
+    DQ2: "vendor360.payment_run_item",
+    DQ7: "vendor360.vendor_bank_account",
+    DQ8: "vendor360.payment_run_item",
+    DQ9: "vendor360.payment_run_item + vendor",
+  },
   recs: { hold_item: "Hold this item", callback_before_release: "Call back before release" },
+  query: (id8: string) => `query ${id8}`,
 } as const;
 
 export const LETTER = {

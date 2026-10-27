@@ -17,7 +17,7 @@
       "zip": "21701"
     },
     "bank": {
-      "bank_name": "Old Quarry Test Bank (fictional)",
+      "bank_name": "Old Quarry National Bank",
       "routing": "110000000",
       "account_number": "000999000771"
     },
@@ -25,7 +25,7 @@
       "(240) 555-0152"
     ],
     "effective_date": "2026-11-01",
-    "signer_name": "E. Thackeray (fictional)",
+    "signer_name": "E. Thackeray",
     "signer_title": "Accounts Receivable",
     "sender_email": null,
     "reply_to": null
@@ -98,7 +98,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -163,13 +163,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Old Quarry Test Bank (fictional)",
+      "text": "Old Quarry National Bank",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 820,
-          "w": 313,
+          "w": 253,
           "h": 28
         }
       ]
@@ -215,13 +215,13 @@
     },
     {
       "field": "signer_name",
-      "text": "E. Thackeray (fictional)",
+      "text": "E. Thackeray",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 1076,
-          "w": 248,
+          "w": 139,
           "h": 30
         }
       ]

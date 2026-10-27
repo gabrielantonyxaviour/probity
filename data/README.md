@@ -42,16 +42,18 @@ Counts below are read from `data/generated-manifest.json`, never typed.
 
 | Dataset | Where | Rows | What it is |
 |---|---|---|---|
-| Vendor master | `db/seed/vendor*.json` into Postgres `payee_erp` | 40 vendors, 46 domains, 100 contacts, 46 remit-history rows, 52 bank accounts | 6 real companies as *our* vendors (their identifiers are real; everything we "know" about them internally is invented) plus one merged legacy record with a real company name (V-07734); 7 real-named, 33 fictional (stored as "... (fictional)", `is_fictional`) |
+| Vendor master | `db/seed/vendor*.json` into Postgres `payee_erp` | 40 vendors, 46 domains, 100 contacts, 46 remit-history rows, 52 bank accounts | 6 real companies as *our* vendors (their identifiers are real; everything we "know" about them internally is invented) plus one merged legacy record with a real company name (V-07734); 7 real-named, 33 fictional (names are stored plain, as an ERP would hold them; the explicit `is_fictional` flag marks them) |
 | AP | `ap_invoice`, `payment_run`, `payment_run_item` | 171 invoices, 11 runs, 153 items | Twice-weekly ACH runs from 29 Sep to 3 Nov 2026; nine released, one scheduled (30 Oct, 14 items), one draft (3 Nov) |
 | Change-request history and call-back log | `bank_change_request`, `vendor_contact_log` | 10, 28 | Seven applied, two rejected and one withdrawn request; none open |
 | Inbox and documents | `data/inbox/manifest.json`, `input_examples/`, `data/inbox/items/` | 15 requests, plus typed examples 05, 05b, 06d | Letters and email headers |
 
 Fictional company, Halvorsen Mission Systems, is the payer. Fictional vendors have **no** UEI or CIK, `*.example` email domains (RFC 2606) and
 `555-01xx` phone numbers. Every bank detail is a test value: routing `110000000` printed as "TEST ROUTING", accounts `000999000###` printed as
-"TEST ACCOUNT". The ERP stores only a SHA-256 hash and the last four digits of any account. Every document page carries a diagonal "SYNTHETIC
-SAMPLE: not issued by <company>" watermark and the footer "Synthetic document generated for the Open Agent Hackathon 2026 by team Zen. Not a
-real request." People are initials plus a surname marked "(fictional)".
+"TEST ACCOUNT". The ERP stores only a SHA-256 hash and the last four digits of any account. Letters that use a real company's name (S1 Booz
+Allen, S2 Leidos/SAIC, S3 L3Harris, S4 V2X, S6b CACI) carry a diagonal "SYNTHETIC SAMPLE: not issued by <company>" watermark, the footer
+"Synthetic document generated for the Open Agent Hackathon 2026 by team Zen. Not a real request." and, for emails, an `X-Synthetic-Notice`
+header. The ten everyday requests, S10 and the six adversarial letters are from fictional vendors and are unmarked (`safety.ts` refuses an
+unmarked letter for any name that is not an `is_fictional` seed row). People, vendors and banks are named plainly, with no suffix.
 
 Routing `110000000` passes the ABA checksum. Confirming that it is absent from the Federal Reserve E-Payments routing directory, and the name
 check of every fictional vendor, bank and the payer, are the K9 checks owned by Grok; their citations go here when done.

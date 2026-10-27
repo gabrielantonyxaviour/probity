@@ -21,25 +21,12 @@
       "(210) 555-0197"
     ],
     "effective_date": "2026-11-01",
-    "signer_name": "J. Okeke-Ruiz (fictional)",
+    "signer_name": "J. Okeke-Ruiz",
     "signer_title": "Office Manager",
     "sender_email": "ap@graniteshoals.example",
     "reply_to": null
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Granite Shoals Engineering PLLC (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 567,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Granite Shoals Engineering PLLC",
@@ -107,7 +94,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -172,13 +159,13 @@
     },
     {
       "field": "signer_name",
-      "text": "J. Okeke-Ruiz (fictional)",
+      "text": "J. Okeke-Ruiz",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 814,
-          "w": 270,
+          "w": 154,
           "h": 30
         }
       ]
@@ -196,5 +183,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

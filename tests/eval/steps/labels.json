@@ -1,0 +1,8 @@
+{
+  "01-booz-allen-remit-change|attribution|vendor:V-10027": { "accept": ["approve"], "why": "Three invoice numbers in the request map to V-10027 and two vendor-master rows carry the same legal name; nothing contradicts." },
+  "BCR-2026-0420|attribution|vendor:V-10528": { "accept": ["approve"], "why": "The invoice number maps to V-10528 and two rows carry the claimed legal name; nothing contradicts." },
+  "02-saic-leidos-remit-change|attribution|vendor:V-10442": { "accept": ["need_more", "reject"], "why": "The invoice numbers map to V-10442 (Leidos) but the request names Science Applications International Corporation and the vendor record says Leidos, Inc.: mixed keys. Approving would be wrong; either block is acceptable." },
+  "control-s1-name-contradicted|attribution|vendor:V-10027": { "accept": ["reject"], "why": "Control: the supporting rows were removed and the vendor record's legal name was replaced by a different company's name; a row contradicts the link and no key agrees." },
+  "control-s1-silent|attribution|vendor:V-10027": { "accept": ["need_more"], "why": "Control: every supporting and contradicting row was removed; the rows are silent, so the prompt says choose need_more." },
+  "control-s2-no-shared-key|attribution|vendor:V-10442": { "accept": ["reject", "need_more"], "why": "Control: the invoice-number rows were removed from the S2 request; only the contradicting legal name remains, with no shared key." }
+}

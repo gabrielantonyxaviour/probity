@@ -29,6 +29,11 @@ export const TEMPLATE_IDS = [
   "T21",
   "T22",
   "T30",
+  "DQ7",
+  "DQ7c",
+  "DQ9",
+  "DQ9c",
+  "T23",
 ] as const;
 export const TemplateId = z.enum(TEMPLATE_IDS);
 export type TemplateId = z.infer<typeof TemplateId>;
@@ -53,6 +58,11 @@ export const SAMPLE_TEMPLATE_IDS: readonly TemplateId[] = [
   "T11",
   "T20",
   "T21",
+  "DQ7",
+  "DQ7c",
+  "DQ9",
+  "DQ9c",
+  "T23",
 ];
 /** Templates run under the admin (registrar) key. Everything else uses the query key. */
 export const ADMIN_TEMPLATE_IDS: readonly TemplateId[] = ["T12", "T13", "T14", "T22"];
@@ -78,7 +88,7 @@ const nameNorm = z.string().regex(/^[A-Z0-9& ]{2,120}$/);
 const strict = <T extends z.ZodRawShape>(shape: T) => z.object(shape).strict();
 
 export const AddrKey = z.string().regex(/^[A-Z0-9 ]{3,80}\|[A-Z ]{2,40}\|[A-Z]{2}$/);
-export const DqRule = z.enum(["DQ1", "DQ2", "DQ3", "DQ4", "DQ5", "DQ6"]);
+export const DqRule = z.enum(["DQ1", "DQ2", "DQ3", "DQ4", "DQ5", "DQ6", "DQ8"]);
 
 /** A missing or extra key is `param_invalid` (04 §5.2). */
 export const TemplateParams = z.discriminatedUnion("template_id", [
@@ -136,5 +146,10 @@ export const TemplateParams = z.discriminatedUnion("template_id", [
     table: z.enum(["bank_change_request", "vendor_contact_log", "payment_run_item"]),
   }),
   strict({ template_id: z.literal("T30"), query_id: z.string().regex(P.QUERY_ID) }),
+  strict({ template_id: z.literal("DQ7") }),
+  strict({ template_id: z.literal("DQ7c") }),
+  strict({ template_id: z.literal("DQ9") }),
+  strict({ template_id: z.literal("DQ9c") }),
+  strict({ template_id: z.literal("T23"), vendor_id: vendorId }),
 ]);
 export type TemplateParams = z.infer<typeof TemplateParams>;

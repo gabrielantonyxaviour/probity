@@ -2,13 +2,13 @@
 import type { TraceEvent } from "@/lib/contracts";
 import { Chip } from "@/components/ui/chip";
 import { TRACE } from "@/lib/copy";
-import { AGENT_DISPLAY } from "@/lib/labels-trace";
+import { agentDisplay } from "@/lib/labels-trace";
 import { modelChip, recheckChip, zetarisChip } from "@/lib/model/trace";
 import type { AgentName } from "@schemas/trace";
 import { useReview } from "@/components/review/review-context";
 
 export function Monogram({ agent, onClick, active }: { agent: AgentName; onClick?: () => void; active?: boolean }) {
-  const d = AGENT_DISPLAY[agent];
+  const d = agentDisplay(agent);
   const cls = `mono-box ${d.agent ? "" : "mono-box--code"}`;
   return onClick ? (
     <button type="button" className={cls} onClick={onClick} aria-label={`${d.name}: filter the trace`} aria-pressed={active} data-agent={agent} data-testid="handoff-step" style={active ? { background: "var(--bg-active)" } : undefined}>{d.mono}</button>

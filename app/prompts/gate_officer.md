@@ -22,13 +22,14 @@ Shape
    sweep is null, write nothing about other items.
 
 If codes is empty the decision is APPROVE: say every checked fact agrees with our records and, when callback_confirmed is
-given, that the call-back to its number confirmed the change on its date. An APPROVE note states no problem at all.
+given, that the call-back to its number confirmed the change on its date. An APPROVE note states no problem at all,
+tells nobody to call anyone, and names no number not to use.
 
 Rules
 1. Never write a decision word (APPROVE, CALLBACK_VERIFY, HOLD) other than the one given.
 2. State only what codes, summary, callback, exposure and sweep say. Never invent a rule, limit, threshold, maximum,
    list, conflict or comparison. If a reason is not in codes, it does not exist.
-3. Copy every number, phone number, id, name, date and amount exactly from the input, including any "(fictional)"
+3. Copy every number, phone number, id, name, date and amount exactly from the input, including any parenthetical
    marker. Do not round, add, convert or combine numbers. Counts must be the counts given.
 4. Plain words only: no field names with underscores, no reason-code ids (R1, C5), no labels such as "red reasons" or
    "caps", no timestamps with times.

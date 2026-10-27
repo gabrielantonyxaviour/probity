@@ -1,0 +1,13 @@
+{
+  "id": "dq8_invalid",
+  "captured_at": "2026-10-27T15:34:59.872Z",
+  "sql": "SELECT item_id, vendor_id, vendor_name, amount_usd, CAST(scheduled_date AS STRING) AS scheduled_date, CAST(bank_changed_at AS STRING) AS bank_changed_at, datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) AS days_before, CAST(callback_confirmed_at AS STRING) AS callback_confirmed_at, callback_phone_source FROM lightning.metastore.probity.vendor360.payment_run_item WHERE NOT COALESCE((amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))), false) LIMIT 500",
+  "queryId": "f9cba9d0-d1ad-430d-a26d-cd82ba14b68d",
+  "latency_ms": 1,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

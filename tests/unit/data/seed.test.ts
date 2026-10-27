@@ -62,13 +62,18 @@ describe("seed generator", () => {
     expect(JSON.stringify(T)).not.toMatch(/exposure|total_usd/);
   });
 
-  it("marks every fictional vendor, and only those, with the suffix and no registry identifiers", () => {
+  it("stores every vendor name plain (no suffix, no synthetic wording); fictional vendors have no registry identifiers", () => {
     for (const v of T.vendor) {
-      expect(v.is_fictional).toBe(str(v.legal_name).endsWith(" (fictional)"));
+      expect(str(v.legal_name)).not.toMatch(/fictional|synthetic/i);
       if (v.is_fictional) expect([v.uei, v.registrant_cik]).toEqual([null, null]);
       expect(v.legal_name_norm).toBe(appNameNorm(str(v.legal_name)));
     }
     expect(T.vendor.find((v) => v.vendor_id === "V-07734")).toMatchObject({ legal_name: "LEIDOS INC", is_fictional: false, status: "merged", merged_into: "V-10442" });
+  });
+
+  it("has no synthetic wording in any seeded value (vendors, banks, contacts, staff, call logs)", () => {
+    expect(JSON.stringify(T).replaceAll("is_fictional", "")).not.toMatch(/fictional/i);
+    for (const a of T.vendor_bank_account) expect(str(a.bank_name)).not.toMatch(/\btest\b/i);
   });
 
   it("uses only test banking data and synthetic contact data", () => {
@@ -81,7 +86,7 @@ describe("seed generator", () => {
     expect(T.vendor_bank_account.find((a) => a.bank_account_id === "BA-40812")?.account_hash).toBe(S1_HASH);
     expect(T.vendor_contact.filter((c) => c.vendor_id === "V-10027" && c.kind === "phone").map((c) => [c.value, c.valid_to])).toEqual([["(703) 902-5000", "2026-10-19T16:20:00Z"], ["(703) 555-0182", null]]);
     const logs = Object.fromEntries(T.vendor_contact_log.map((l) => [str(l.log_id), l]));
-    expect(logs["CL-20398"]).toMatchObject({ phone_e164: "+13217279100", phone_source: "edgar_registrant", outcome: "confirmed", called_by: "M. Okonkwo (fictional)" });
+    expect(logs["CL-20398"]).toMatchObject({ phone_e164: "+13217279100", phone_source: "edgar_registrant", outcome: "confirmed", called_by: "M. Okonkwo" });
     expect(logs["CL-20427"]).toMatchObject({ phone_e164: "+17038417800", phone_source: "edgar_registrant" });
     expect(logs["CL-20389"]?.phone_source).toBe("request_letter");
     expect(T.vendor_domain.filter((d) => d.domain === "northgateinteriors.example")).toHaveLength(2);

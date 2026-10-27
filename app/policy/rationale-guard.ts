@@ -104,12 +104,19 @@ export function groundRationale(text: string, input: GuardInput): string[] {
   if (cb && input.decision !== "APPROVE" && !extractTokens(text).phone.includes(cb)) failures.push(`call-back sentence missing: say "Call ${input.callback!.number_display}"`);
   for (const c of input.callback_per_candidate ?? [])
     if (!extractTokens(text).phone.includes(toE164(c.number_display) ?? "")) failures.push(`call-back sentence missing: say "Call ${c.number_display}"`);
-  const allowedCalls = new Set([cb, ...(input.callback_per_candidate ?? []).map((x) => toE164(x.number_display))].filter(Boolean));
+  // The confirmed call-back's number may be named (an APPROVE says the call-back to it confirmed the change).
+  const confirmed = (input as { callback_confirmed?: { number_display?: string } | null }).callback_confirmed?.number_display;
+  const allowedCalls = new Set([cb, confirmed ? toE164(confirmed) : null, ...(input.callback_per_candidate ?? []).map((x) => toE164(x.number_display))].filter(Boolean));
   for (const m of text.matchAll(/\bcall(?: back)?(?: on| to)? (\(\d{3}\) \d{3}-\d{4}|\+?1?[\d -]{10,14})/gi)) {
     const e = toE164(m[1]!);
     if (e && !allowedCalls.has(e)) failures.push(`call-back number ${m[1]} is not the selected number`);
   }
 
+  // An APPROVE note tells nobody to call anyone and lists no do-not-use number (the change is already confirmed).
+  if (input.decision === "APPROVE") {
+    if (/\bdo not (?:use|call)\b/i.test(text)) failures.push("APPROVE text lists a do-not-use number");
+    if (/(?:^|[.;:]\s+)(?:please\s+)?call\b(?![- ]back (?:to|on) [^.]*\bconfirmed\b)|\b(?:must|should|need to|please)\s+call\b/i.test(text)) failures.push("APPROVE text tells the reader to call");
+  }
   for (const m of text.matchAll(/\bdo not use\b([^.;]*)/gi))
     if (!extractTokens(m[1] ?? "").phone.length && !/\bnumbers?\b/i.test(m[1] ?? "")) failures.push("a do-not-use clause names no number");
   for (const m of text.matchAll(/\b(?:do not|don't|never) (?:call|use)\b([^.]*)/gi))
@@ -117,7 +124,7 @@ export function groundRationale(text: string, input: GuardInput): string[] {
 
   // Plain words: no field names, reason-code ids or machine timestamps.
   if (/\b[a-z]+_[a-z_]+\b/.test(text)) failures.push("field name in the text");
-  if (/\b[RCI][1-7]\b/.test(text)) failures.push("reason-code id in the text");
+  if (/\b[RCI][1-8]\b/.test(text)) failures.push("reason-code id in the text");
   if (/\b(?:red|cap)s? reasons?\b|\bcaps?\b/i.test(text)) failures.push('internal labels in the text ("red reasons", "caps"); state the reasons themselves');
   if (/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(text)) failures.push("machine timestamp in the text");
   return failures;

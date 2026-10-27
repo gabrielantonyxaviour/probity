@@ -17,7 +17,7 @@
       "zip": "20166"
     },
     "bank": {
-      "bank_name": "Harborline Test Savings (fictional)",
+      "bank_name": "Harborline Savings",
       "routing": "110000000",
       "account_number": "000999000905"
     },
@@ -25,25 +25,12 @@
       "(703) 555-0153"
     ],
     "effective_date": "2026-11-02",
-    "signer_name": "A. Lindqvist (fictional)",
+    "signer_name": "A. Lindqvist",
     "signer_title": "Business Manager",
     "sender_email": null,
     "reply_to": null
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Bellhaven Print & Mail Inc (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 519,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Bellhaven Print & Mail Inc",
@@ -98,7 +85,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -176,13 +163,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Harborline Test Savings (fictional)",
+      "text": "Harborline Savings",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 751,
-          "w": 337,
+          "w": 187,
           "h": 28
         }
       ]
@@ -228,13 +215,13 @@
     },
     {
       "field": "signer_name",
-      "text": "A. Lindqvist (fictional)",
+      "text": "A. Lindqvist",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 1007,
-          "w": 234,
+          "w": 125,
           "h": 30
         }
       ]
@@ -252,5 +239,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

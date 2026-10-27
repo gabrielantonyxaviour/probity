@@ -19,7 +19,9 @@ export type LNode = {
   claimed: boolean;
 };
 export type Handle = "l" | "r" | "t" | "b";
-export type LEdge = { id: string; edge: PEdge | null; from: string; to: string; sh: Handle; th: Handle; claimed: boolean };
+/** A horizontal run through the gap between two cards of a column the edge would otherwise cross (flow coordinates). */
+export type Via = { x1: number; x2: number; y: number };
+export type LEdge = { id: string; edge: PEdge | null; from: string; to: string; sh: Handle; th: Handle; claimed: boolean; via?: Via };
 export type Layout = { nodes: LNode[]; edges: LEdge[]; docCount: number };
 export type LayoutOptions = { visible?: Set<string> | null; showHistory?: boolean; family?: { parentUei: string | null; size: number | null } | null };
 
@@ -76,6 +78,38 @@ function rank(n: PNode, parents: Set<string>): number {
   if (n.type === "vendor_record") return n.flags.includes("resolved") ? 0 : 1;
   if (n.type === "sec_registrant") return 0;
   return 5;
+}
+
+const COL_ORDER: ColumnId[] = ["request", "erp", "usaspending", "edgar"];
+const handleY = (n: LNode) => n.y + n.h / 2;
+
+/**
+ * An edge between columns that are not neighbours runs across the middle column. When its straight line would pass
+ * behind a card there, route it through the nearest free gap between that column's cards instead.
+ */
+export function routeAround(a: LNode, b: LNode, placed: LNode[]): Via | undefined {
+  const ia = COL_ORDER.indexOf(a.col);
+  const ib = COL_ORDER.indexOf(b.col);
+  if (Math.abs(ia - ib) < 2) return undefined;
+  const [l, r] = ia < ib ? [a, b] : [b, a];
+  const x0 = l.x + l.w;
+  const y0 = handleY(l);
+  const x1 = r.x;
+  const y1 = handleY(r);
+  const mid = COL_ORDER[Math.min(ia, ib) + 1]!;
+  const cards = placed.filter((p) => p.col === mid).sort((p, q) => p.y - q.y);
+  if (cards.length === 0) return undefined;
+  const cx0 = cards[0]!.x;
+  const cx1 = cx0 + cards[0]!.w;
+  const yAt = (x: number) => y0 + ((y1 - y0) * (x - x0)) / (x1 - x0);
+  const lo = Math.min(yAt(cx0), yAt(cx1));
+  const hi = Math.max(yAt(cx0), yAt(cx1));
+  const hit = cards.some((c) => hi >= c.y - 6 && lo <= c.y + c.h + 6);
+  if (!hit) return undefined;
+  const gaps = [cards[0]!.y - GAP / 2, ...cards.map((c, i) => (cards[i + 1] ? (c.y + c.h + cards[i + 1]!.y) / 2 : c.y + c.h + GAP))];
+  const want = (y0 + y1) / 2;
+  const y = gaps.reduce((best, g) => (Math.abs(g - want) < Math.abs(best - want) ? g : best), gaps[0]!);
+  return { x1: cx0 - 16, x2: cx1 + 16, y };
 }
 
 function handles(a: LNode, b: LNode): [Handle, Handle] {
@@ -138,7 +172,7 @@ export function layoutGraph(payload: GraphPayload, o: LayoutOptions = {}): Layou
     const b = index.get(e.to);
     if (!a || !b) continue;
     const [sh, th] = handles(a, b);
-    edges.push({ id: e.id, edge: e, from: e.from, to: e.to, sh, th, claimed: requestIds.has(e.from) });
+    edges.push({ id: e.id, edge: e, from: e.from, to: e.to, sh, th, claimed: requestIds.has(e.from), via: routeAround(a, b, placed) });
   }
   const group = placed.find((p) => p.group);
   if (group && group.group) {

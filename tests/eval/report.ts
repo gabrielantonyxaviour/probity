@@ -46,7 +46,8 @@ if (ev) {
   out.push(`| Letters answered | ${d?.answered_field_match.letters}/${d?.calls} | ${f?.answered_field_match.letters}/${f?.calls} |`,
     `| Decisive-field exact match (unanswered letters count as misses) | ${d?.field_exact_match.matched}/${d?.field_exact_match.total} (${pc(d?.field_exact_match.rate ?? null)}) | ${f?.field_exact_match.matched}/${f?.field_exact_match.total} (${pc(f?.field_exact_match.rate ?? null)}) |`,
     `| Latency p50 / p95 | ${s1((d?.latency_ms.p50 ?? 0) / 1000)} s / ${s1((d?.latency_ms.p95 ?? 0) / 1000)} s | ${s1((f?.latency_ms.p50 ?? 0) / 1000)} s / ${s1((f?.latency_ms.p95 ?? 0) / 1000)} s |`,
-    `| Receipts with egress \`nvidia\` | ${d?.receipts.egress_nvidia}/${d?.receipts.with_receipt} | ${f?.receipts.egress_nvidia}/${f?.receipts.with_receipt} |`, "");
+    `| Receipts with egress \`nvidia\` | ${d?.receipts.egress_nvidia}/${d?.receipts.with_receipt} | ${f?.receipts.egress_nvidia}/${f?.receipts.with_receipt} |`, "",
+    "This is the first run (one pass, the letters as generated at 14:41Z). The letters were regenerated afterwards and the reader changed; the repeated run with its own numbers is in the D2 section below and in `docs/evidence/model-per-step.md`. Quote both with their dates.", "");
 }
 // Scout: who chose each Zetaris query, from the recorded traces of the same live runs (no model call).
 const planned: Record<string, number> = {};
@@ -70,6 +71,36 @@ if (steps) out.push("## Registry Scout: who chose each query", "", `Source: \`ru
 
 const b = read<{ timing_ms: { direct: { first: number | null; repeat: number | null }; zetaris_in_recorded_runs: { median_ms: number | null } }; lines_of_code: { direct_path: { lines: number }; usl_path: { total: number } }; correctness: { same_row_hash_as_recorded_zetaris_runs: boolean | null } }>("bench/results.json");
 if (b) out.push("## Hand-coded fetch against the Zetaris USL (T05, one vendor)", "", `Source: \`bench/results.json\`. Direct path ${b.lines_of_code.direct_path.lines} lines, first ${b.timing_ms.direct.first} ms and repeat ${b.timing_ms.direct.repeat} ms. USL artefacts ${b.lines_of_code.usl_path.total} lines (all templates and rules). Zetaris T05 in recorded runs: median ${b.timing_ms.zetaris_in_recorded_runs.median_ms} ms. Same row_hash as the recorded Zetaris runs: ${b.correctness.same_row_hash_as_recorded_zetaris_runs}.`, "");
-out.push("## Not measured", "", "- The M, F and X case matrix of spec 07 section 3.6 is an optional backlog (REV-08) and was not run.", "- The Examiner part of the Nemotron eval (six labelled soft-link cases, labels written by Claude Opus) was not run: `tests/eval/nemotron/links.json` does not exist yet.", "");
+type Lane = { calls: number; answered: number; latency_ms: { p50: number | null; p95: number | null }; quality: Record<string, number | string | null> };
+const mps = read<{ generated_at: string; probity_uses: Record<string, string>; steps: Record<string, { fast: Lane; deep: Lane }> }>("docs/evidence/model-per-step.json");
+if (mps) {
+  const sec = (ms: number | null) => (ms === null ? "n/a" : `${(ms / 1000).toFixed(1)} s`);
+  const lane = (l: Lane) => `p50 ${sec(l.latency_ms.p50)} / p95 ${sec(l.latency_ms.p95)}`;
+  const key: Record<string, [string, (l: Lane) => string]> = {
+    letter: ["Letter reading (A1)", (l) => `${l.quality.decisive_fields_correct}/${l.quality.decisive_fields_scored} fields right on ${l.answered}/${l.calls} answered`],
+    scout: ["Scout tool turns (A2)", (l) => `${l.quality.valid_tool_call_pct}% of tool calls pass the guards`],
+    examiner: ["Examiner critique (A3)", (l) => `${l.quality.recorded_cases_correct}/${l.quality.recorded_cases_scored} recorded, ${l.quality.controls_correct}/${l.quality.controls_scored} controls`],
+    conflicts: ["Describe conflicts (A3)", (l) => `${l.quality.conflict_ids_match_pct}% ids match`],
+    rationale: ["Rationale (A4)", (l) => `${l.quality.passes_number_check_and_grounding_pct}% pass the checks first time`],
+    review: ["Injection review (D6)", (l) => `${l.quality.injected_spans_missed} injected spans missed`],
+  };
+  out.push("## The right model for each step (D2)", "", `Source: \`docs/evidence/model-per-step.json\` (generated ${mps.generated_at}). Method, controls, receipts and limits: \`docs/evidence/model-per-step.md\`.`, "", "| Step | Probity uses | Lightning | Ultra |", "|---|---|---|---|");
+  for (const [k, [title, f]] of Object.entries(key)) {
+    const st = mps.steps[k];
+    if (st) out.push(`| ${title} | ${mps.probity_uses[k] === "deep" ? "Ultra" : "Lightning"} | ${f(st.fast)}; ${lane(st.fast)} | ${f(st.deep)}; ${lane(st.deep)} |`);
+  }
+  out.push("");
+}
+type Adv = { generated_at: string; letters: { total: number; attack_with_spans: number }; detection: { all_spans: { spans: number; old_keyword_filter: number; code_detector: number; counted_final: number }; hidden_spans: { spans: number; old_keyword_filter: number; counted_final: number }; letters_with_spans_detected: number }; false_positives: { clean_and_legit_letters: number; flagged: number }; dual_read: { letters_with_a_result: number; status_all: Record<string, number>; mean_agreement_pct_all: number | null }; checks: Array<{ pass: boolean }> };
+const adv = read<Adv>("docs/evidence/adversarial-eval.json");
+if (adv) {
+  const d = adv.detection;
+  out.push("## Adversarial letters (D1, D6)", "", `Source: \`docs/evidence/adversarial-eval.json\` (generated ${adv.generated_at}), ${adv.letters.total} letters through the real A1 on live Nemotron. Detail: \`docs/evidence/adversarial-eval.md\`.`, "",
+    `- Injected text caught: ${d.all_spans.counted_final} of ${d.all_spans.spans} spans (the pre-D6 keyword filter: ${d.all_spans.old_keyword_filter} of ${d.all_spans.spans}); hidden 1 pt spans ${d.hidden_spans.counted_final} of ${d.hidden_spans.spans} (before: ${d.hidden_spans.old_keyword_filter}); letters flagged ${d.letters_with_spans_detected} of ${adv.letters.attack_with_spans}.`,
+    `- False positives: ${adv.false_positives.flagged} of ${adv.false_positives.clean_and_legit_letters} clean or legitimate letters flagged.`,
+    `- Dual read: ${adv.dual_read.letters_with_a_result} letters with a result; agree ${adv.dual_read.status_all.agree ?? 0}, disagree ${adv.dual_read.status_all.disagree ?? 0}, single ${adv.dual_read.status_all.single ?? 0}; mean field agreement ${adv.dual_read.mean_agreement_pct_all ?? "n/a"}%.`,
+    `- Per-letter checks passed: ${adv.checks.filter((c) => c.pass).length} of ${adv.checks.length}.`, "");
+}
+out.push("## Not measured", "", "- The M, F and X case matrix of spec 07 section 3.6 is an optional backlog (REV-08) and was not run.", "- The Examiner was measured on three recorded soft links and three controls built from real requests (see the D2 section), not on the six hand-labelled cases of spec 07; `tests/eval/nemotron/links.json` does not exist.", "");
 writeFileSync(path.join(ROOT, "docs/eval.md"), out.join("\n"));
 process.stdout.write(`wrote docs/eval.md (${runs.length} live runs, ${byRequest.size} requests)\n`);

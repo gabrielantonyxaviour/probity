@@ -9,6 +9,8 @@ import { apiText, fileUrl } from "@/lib/api";
 import { LETTER } from "@/lib/copy";
 import { PRESSURE_KINDS } from "@/lib/labels";
 import { maskAccounts } from "@/lib/mask";
+import { injectionOf, pageSpans } from "@/lib/model/depth";
+import { InjectionBoxes } from "./InjectionCard";
 import { useReview } from "./review-context";
 
 type Field = ClaimSet["fields"][number];
@@ -21,7 +23,8 @@ const BOX_SKIP = new Set(["watermark"]);
 
 /** One letter page with numbered highlight boxes (bbox_hint / 1000) and cross-highlighting (01 section 7.1.4). */
 export function PageImage({ page, claims, zoom }: { page: DocPage; claims: ClaimSet; zoom: number }) {
-  const { hl, setHl } = useReview();
+  const { hl, setHl, decision } = useReview();
+  const spans = pageSpans(injectionOf(decision), page.page);
   const [failed, setFailed] = useState(0);
   const [src, setSrc] = useState(fileUrl(page.url));
   useEffect(() => setSrc(fileUrl(page.url)), [page.url]);
@@ -37,6 +40,7 @@ export function PageImage({ page, claims, zoom }: { page: DocPage; claims: Claim
     <div className="lt-frame">
       <div className="lt-page" style={{ width: `${zoom}%`, aspectRatio: `${page.width} / ${page.height}` }} data-testid="letter-page">
         <img src={src} alt={`Letter page ${page.page}`} width={page.width} height={page.height} onError={() => setFailed(1)} draggable={false} />
+        <InjectionBoxes spans={spans} />
         {boxes.map(({ f, i }) => {
           const [x0, y0, x1, y1] = f.bbox_hint!;
           const active = hl.claim === i || (hl.field != null && hl.field === f.fact_field);

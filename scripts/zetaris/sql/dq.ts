@@ -1,9 +1,9 @@
 // P7 REGISTER DQ from the template source (03 §6).
-import { DQ_RULES, registerDqSql } from "../../../app/templates/dq-rules.ts";
+import { DQ8_RULE, DQ_RULES, registerDqSql } from "../../../app/templates/dq-rules.ts";
 import type { Job } from "./types.ts";
 
 export function dqJobs(): Job[] {
-  return DQ_RULES.map((rule) => ({
+  return [...DQ_RULES, DQ8_RULE].map((rule) => ({
     phase: "P7" as const,
     label: `dq-${rule.name}`,
     file: "70_dq.sql",

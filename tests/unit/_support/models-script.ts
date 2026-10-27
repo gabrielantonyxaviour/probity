@@ -40,6 +40,10 @@ export type ScriptOpts = {
   scoutExtra?: boolean;
   critique?: (input: Record<string, unknown>) => Record<string, unknown>;
   rationale?: (input: RationaleInput) => string;
+  /** D6 injection review: given the candidate span ids, return the model JSON. Default: every candidate confirmed. */
+  review?: (spanIds: string[]) => Record<string, unknown>;
+  /** Letter Reader answers in order (then `claims`): e.g. an "unreadable" answer first, to exercise the one retry. */
+  claimsSeq?: Array<Record<string, unknown>>;
 };
 
 export const sentence = (t: string): string => (/[.!?]$/.test(t) ? t : `${t}.`);
@@ -57,7 +61,13 @@ export function defaultRationale(i: RationaleInput): string {
 
 export function scriptFor(o: ScriptOpts = {}): ModelScript {
   return (req): Partial<ChatResult> | null => {
-    if (req.agent === "letter_reader") return { content: JSON.stringify(o.claims ?? S1_CLAIMS_MODEL) };
+    if (req.agent === "letter_reader" && req.response_schema?.name === "injection_review") {
+      const first = req.messages.at(-1)!.content;
+      const text = Array.isArray(first) ? first.map((p) => ("text" in p ? p.text : "")).join("\n") : String(first);
+      const ids = [...text.matchAll(/^(inj-\d+) \(/gm)].map((m) => m[1]!);
+      return { content: JSON.stringify(o.review ? o.review(ids) : { verdicts: ids.map((span_id) => ({ span_id, addressed_to_reviewer: true, asks: "approve" })), additional: [] }) };
+    }
+    if (req.agent === "letter_reader") return { content: JSON.stringify(o.claimsSeq?.shift() ?? o.claims ?? S1_CLAIMS_MODEL) };
     if (req.agent === "registry_scout") {
       const lastRole = req.messages.at(-1)!.role;
       if (lastRole === "tool" || !o.scoutExtra)

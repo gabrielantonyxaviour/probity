@@ -65,11 +65,20 @@ export async function runZetaris(sql: string, opts: ZetarisRunOptions): Promise<
   return withSlot(cfg.maxConcurrency, () => callOnce(cfg, text, hashed, opts));
 }
 
+/** Long D3 statements use the DDL ceiling. The federated profile uses at least 300s. */
+export function statementTimeoutMs(sql: string, kind: "sql" | "ddl", cfg: Pick<ZetarisConfig, "ddlTimeoutMs" | "sqlTimeoutMs">): number {
+  const federated = /payee_erp\.vendor/i.test(sql) && /sec_registrant/i.test(sql);
+  if (federated) return Math.min(600_000, Math.max(cfg.ddlTimeoutMs, 300_000));
+  if (kind === "ddl" || /^(RUN DQ|SHOW DQ)\b/i.test(sql)) return cfg.ddlTimeoutMs;
+  if (/vendor_bank_account/i.test(sql) && /\b(GROUP BY|HAVING)\b/i.test(sql)) return cfg.ddlTimeoutMs;
+  if (/datediff\(/i.test(sql) && /bank_changed_at/i.test(sql)) return cfg.ddlTimeoutMs;
+  if (/payment_run_item/i.test(sql) && /name_norm/i.test(sql)) return cfg.ddlTimeoutMs;
+  return cfg.sqlTimeoutMs;
+}
+
 async function callOnce(cfg: ZetarisConfig, sql: string, hashed: string, opts: ZetarisRunOptions): Promise<ZetarisResult> {
   const { url, proxy } = endpoint(cfg);
-  // Live RUN DQ / SHOW DQ exceeded the 45s SQL cap (toy rule, 2026-10-27). SELECT stays on sqlTimeoutMs.
-  const dq = /^(RUN DQ|SHOW DQ)\b/i.test(sql);
-  const timeoutMs = opts.kind === "ddl" || dq ? cfg.ddlTimeoutMs : cfg.sqlTimeoutMs;
+  const timeoutMs = statementTimeoutMs(sql, opts.kind, cfg);
   const timeout = AbortSignal.timeout(timeoutMs);
   const signal = opts.signal ? AbortSignal.any([opts.signal, timeout]) : timeout;
   const requestId = randomUUID();

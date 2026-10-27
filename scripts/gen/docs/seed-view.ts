@@ -31,7 +31,7 @@ export class SeedView {
     const phone = open("phone");
     const digits = phone.replace(/\D/g, "").slice(-10);
     return {
-      id, name: String(v.legal_name), plainName: String(v.legal_name).replace(/ \(fictional\)$/, ""), label: String(doms[doms.length - 1]?.domain ?? "").replace(/\.example$/, ""),
+      id, name: String(v.legal_name), plainName: String(v.legal_name), label: String(doms[doms.length - 1]?.domain ?? "").replace(/\.example$/, ""),
       domain: String(doms[doms.length - 1]?.domain ?? ""), email: open("email"), phone: `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`, phoneE164: `+1${digits}`,
       remit: { line1: String(v.remit_line1), unit: v.remit_unit === null ? null : String(v.remit_unit), city: String(v.remit_city), state: String(v.remit_state), zip: String(v.remit_zip) },
     };

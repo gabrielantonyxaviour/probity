@@ -1,7 +1,7 @@
 # input_examples
 
 Synthetic requests for `POST /run` (each folder's `request.json` is a complete body) and for the CLI. Written by `npm run gen:docs`; do not
-edit by hand. Every letter page carries the "SYNTHETIC SAMPLE" watermark and footer, every bank detail is a test value, every email domain ends
+edit by hand. Letters that use a real company's name carry the "SYNTHETIC SAMPLE" watermark and footer (letters from fictional vendors are unmarked), every bank detail is a test value, every email domain ends
 `.example`. See `data/README.md`.
 
 | Example | Request | What it exercises |

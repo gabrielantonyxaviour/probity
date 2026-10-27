@@ -38,6 +38,7 @@ export const SHELL = {
   checking: "Checking services",
   visionUnavailable: "Vision lane unavailable: letters read from the text layer",
   popoverTitle: "Services",
+  systemPage: "Models per step →",
   lane: { fast: "Lightning", deep: "Ultra" },
   laneHeads: ["Lane", "Requested", "Answered", "Nemotron"],
 } as const;

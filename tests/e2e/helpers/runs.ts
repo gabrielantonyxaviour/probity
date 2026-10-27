@@ -78,3 +78,10 @@ export async function listRequests(request: APIRequestContext): Promise<InboxIte
   expect(Array.isArray(body), "requests is an array").toBe(true);
   return body as InboxItem[];
 }
+
+/** Full `GET /runs/:id` object. Run ids come from the list, never from a constant. */
+export async function runRecord(request: APIRequestContext, runId: string): Promise<Record<string, unknown>> {
+  const { status, body } = await getJson(request, `/runs/${encodeURIComponent(runId)}`);
+  expect(status, `GET /runs/${runId}`).toBe(200);
+  return asRecord(body, "run");
+}

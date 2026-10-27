@@ -21,6 +21,17 @@ function allObservations(decision: GateDecision | null, live: LiveObservation[])
   return out;
 }
 
+/** Why the model's summary was rejected, in reader words, from the number check's own failure list. */
+export function rejectionCause(trace: TraceEvent[]): string | null {
+  const text = trace
+    .filter((e) => e.agent_name === "gate_officer" && e.action === "number_check" && e.status !== "success")
+    .map((e) => e.output_summary)
+    .join("; ");
+  if (!text) return null;
+  for (const [re, why] of BANNERS.rejectionCauses) if (re.test(text)) return why;
+  return null;
+}
+
 export function buildBanners(a: { trace: TraceEvent[]; decision: GateDecision | null; live: LiveObservation[] }): Banner[] {
   const out: Banner[] = [];
   const obs = allObservations(a.decision, a.live);
@@ -46,7 +57,7 @@ export function buildBanners(a: { trace: TraceEvent[]; decision: GateDecision | 
       seenAgents.add(e.agent_name);
       // The gate officer falls back both when the model did not answer and when its text failed the number check.
       const answered = e.agent_name === "gate_officer" && a.trace.some((x) => x.agent_name === "gate_officer" && x.action === "write_rationale" && x.model != null);
-      out.push({ key: `model-${e.agent_name}`, tag: BANNERS.tags.model, text: answered ? BANNERS.rationaleRejected : BANNERS.nightshiftFallback(fb.lane, fb.text) });
+      out.push({ key: `model-${e.agent_name}`, tag: answered ? BANNERS.tags.wording : BANNERS.tags.model, text: answered ? BANNERS.rationaleRejected(rejectionCause(a.trace)) : BANNERS.nightshiftFallback(fb.lane, fb.text) });
     }
   }
   const nonNem = a.trace.find((e) => e.lane != null && e.model != null && !(e.nemotron ?? isNemotron(e.model)));

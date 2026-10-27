@@ -34,8 +34,8 @@ export function claimedValue(field: FactField, c: ClaimSet | null): string | nul
     case "bank_account": {
       if (!c.bank) return null;
       const parts: string[] = [];
-      if (c.bank.routing) parts.push(`Routing ${c.bank.routing}${c.bank.routing === "110000000" ? " (TEST ROUTING)" : ""}`);
-      if (c.bank.account_last4) parts.push(`•••• ${c.bank.account_last4}${c.bank.routing === "110000000" ? " (TEST ACCOUNT)" : ""}`);
+      if (c.bank.routing) parts.push(`Routing ${c.bank.routing}`);
+      if (c.bank.account_last4) parts.push(`•••• ${c.bank.account_last4}`);
       return parts.join(" · ") || null;
     }
     case "sender_domain":

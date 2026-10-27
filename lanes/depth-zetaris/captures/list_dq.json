@@ -1,0 +1,13 @@
+{
+  "id": "list_dq",
+  "captured_at": "2026-10-27T15:34:59.834Z",
+  "sql": "LIST DQ USL lightning.metastore.probity.vendor360",
+  "queryId": "4b0c2102-7e6f-406a-af51-12a73dbfd578",
+  "latency_ms": 2,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

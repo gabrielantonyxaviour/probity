@@ -24,7 +24,10 @@ async function loadKit(): Promise<TemplateKit | null> {
     }
     return null;
   })();
-  return kitCache;
+  const kit = await kitCache;
+  // A failed import is not cached: the next run tries again instead of every run failing until a restart.
+  if (!kit) kitCache = null;
+  return kit;
 }
 
 let ocrCache: ReturnType<typeof createOcr> | null = null;

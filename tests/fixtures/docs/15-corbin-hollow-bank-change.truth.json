@@ -11,7 +11,7 @@
     "letterhead_name": "Corbin Hollow HVAC Services LLC",
     "remit_address": null,
     "bank": {
-      "bank_name": "Calderwick Test Bank (fictional)",
+      "bank_name": "Calderwick Savings Bank",
       "routing": "110000000",
       "account_number": "000999000903"
     },
@@ -19,25 +19,12 @@
       "(703) 555-0123"
     ],
     "effective_date": "2026-10-30",
-    "signer_name": "B. Quillfeather (fictional)",
+    "signer_name": "B. Quillfeather",
     "signer_title": "Accounts Receivable",
     "sender_email": "ar@corbinhollow-payments.example",
     "reply_to": null
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Corbin Hollow HVAC Services LLC (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 574,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Corbin Hollow HVAC Services LLC",
@@ -105,7 +92,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -171,13 +158,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Calderwick Test Bank (fictional)",
+      "text": "Calderwick Savings Bank",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 700,
-          "w": 316,
+          "w": 248,
           "h": 28
         }
       ]
@@ -223,13 +210,13 @@
     },
     {
       "field": "signer_name",
-      "text": "B. Quillfeather (fictional)",
+      "text": "B. Quillfeather",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 957,
-          "w": 262,
+          "w": 153,
           "h": 30
         }
       ]
@@ -247,5 +234,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

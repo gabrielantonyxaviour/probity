@@ -2,16 +2,16 @@
   "example_id": "17-ostrander-bank-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "3f0ea6beb73380fd97cad48033005415bdb68fe63024adbf1f5d8dfa8f06e57e",
-    "cd8c92e097d5dcaf6e7aa0baf27fe0d492a1bb971ebe4efa459908455cd7cef9",
-    "0b5280196c42d34984dc418c53b6a0569eec357a642c4836254bad37bf2749eb"
+    "5576a31a1c2cb2ccc509311b4f7fc0ace4395bd05c05e32835b1bfa7b4fb6a51",
+    "4f84ba4ab4b08ac1aa440e6ad9103dddd80fb84e3e91fec10fc720c09bfc4c21",
+    "871f0051edaca81102199e2e1d9c4a1c004b5e9bacae379a1b77108bcf8cc681"
   ],
   "account_number": "000999000904",
   "claimed_name": "Ostrander Test & Calibration Inc",
   "letterhead_name": "Ostrander Test & Calibration Inc",
   "remit_address": null,
   "bank": {
-    "bank_name": "Old Quarry Test Bank (fictional)",
+    "bank_name": "Old Quarry National Bank",
     "routing": "110000000",
     "account_last4": "0904"
   },
@@ -29,23 +29,10 @@
   "invoice_refs": [
     "INV-OTC-30455"
   ],
-  "signer_name": "D. Whitcombe (fictional)",
+  "signer_name": "D. Whitcombe",
   "pressure_phrases": [],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Ostrander Test & Calibration Inc (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Ostrander Test & Calibration Inc (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        575,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -127,12 +114,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "D. Whitcombe (fictional)",
+      "quote": "D. Whitcombe",
       "page": 1,
       "bbox_hint": [
         117,
         598,
-        326,
+        238,
         617
       ],
       "highlight_source": "text_layer"

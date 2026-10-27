@@ -1,0 +1,13 @@
+{
+  "id": "in_select",
+  "captured_at": "2026-10-27T15:40:48.114Z",
+  "sql": "SELECT COUNT(*) AS n FROM lightning.metastore.probity.vendor360.ap_invoice WHERE vendor_id IN (SELECT vendor_id FROM lightning.metastore.probity.vendor360.vendor WHERE status = 'active') LIMIT 1",
+  "queryId": "0ead90e7-f6ec-461e-970d-5aa685e9b57b",
+  "latency_ms": 45010,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "The operation was aborted due to timeout",
+  "code": "zetaris_timeout"
+}

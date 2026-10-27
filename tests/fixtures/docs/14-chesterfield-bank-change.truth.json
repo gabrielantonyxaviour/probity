@@ -11,7 +11,7 @@
     "letterhead_name": "Chesterfield Ridge Staffing Group Inc",
     "remit_address": null,
     "bank": {
-      "bank_name": "Old Quarry Test Bank (fictional)",
+      "bank_name": "Old Quarry National Bank",
       "routing": "110000000",
       "account_number": "000999000902"
     },
@@ -19,25 +19,12 @@
       "(804) 555-0160"
     ],
     "effective_date": "2026-10-30",
-    "signer_name": "H. Ostergaard (fictional)",
+    "signer_name": "H. Ostergaard",
     "signer_title": "Director of Finance",
     "sender_email": "accounts@chesterfieldridge.example",
     "reply_to": null
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Chesterfield Ridge Staffing Group Inc (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 601,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Chesterfield Ridge Staffing Group Inc",
@@ -105,7 +92,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -157,13 +144,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Old Quarry Test Bank (fictional)",
+      "text": "Old Quarry National Bank",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 731,
-          "w": 313,
+          "w": 253,
           "h": 28
         }
       ]
@@ -209,13 +196,13 @@
     },
     {
       "field": "signer_name",
-      "text": "H. Ostergaard (fictional)",
+      "text": "H. Ostergaard",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 987,
-          "w": 258,
+          "w": 149,
           "h": 30
         }
       ]
@@ -233,5 +220,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

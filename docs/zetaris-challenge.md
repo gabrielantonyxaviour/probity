@@ -1,6 +1,6 @@
 # Zetaris Demo Challenge: entry text
 
-Team Zen · product Probity · written 2026-10-27. Rules: <https://www.zetaris.com/zetaris-demo-challenge-official-rules>. Deadline Thursday 29 October 2026, 23:45 UTC.
+Team Zen · product Probity · written 2026-10-27. Rules: <https://www.zetaris.com/zetaris-demo-challenge-official-rules>. The entry period opens 29 October 2026 and closes 2 November 2026, 23:45 UTC; one entry per team, MP4 or MOV, through the challenge's "Submit your video" link.
 
 Entry needs four things:
 
@@ -19,9 +19,9 @@ Every claim below is traced to a row of `_docs/zetaris-moments.md` (timestamps U
 |---|---|---|---|
 | 1 | We registered SEC EDGAR's live API as a Zetaris SQL table in one statement, and a real filing came back as a row in about five seconds, with no connector code. | `zetaris-moments.md`, 12:13 UTC: table created in 4.2 s, first `SELECT` 5.1 s, repeat 1.8 s (also `VERIFIED_FACTS.md`, K1c) | Yes |
 | 2 | Zetaris booted on a laptop and answered a query through its UI, API, driver and Spark on the first try, without editing a configuration file. | `zetaris-moments.md`, 11:15 UTC: `verify.sh` 9 of 9 | Yes |
-| 3 | `RUN DQ` turned a data-quality rule into the payment-run sweep: {{TBD-from-run:zetaris/results/run_dq_account_single_vendor.json}}. | The Booz Allen run's sweep and `zetaris/results/run_dq_*.json` | After a live run shows it |
-| 4 | Every fact in Probity's decision is a Zetaris query with an id, and "Re-run in Zetaris" returned the same row hash: {{TBD-from-run:output_examples/01-booz-allen-remit-change/trace-*.jsonl}}. | `requery` and `/zetaris/rerun` results in a recorded trace | After a live run shows it |
-| 5 | One semantic layer let an agent ask "is this account already on another vendor?" across Postgres, USAspending and SEC EDGAR in a single statement. | `zetaris/results/usl_query_{1,2,3}.json` | After the USL queries are captured |
+| 3 | `RUN DQ` turned a data-quality rule into the payment-run sweep: one statement checked all 153 payment-run items and found 3 paid into an account another vendor also holds, in about six seconds, and the agent runs the same rule after every decision. | `zetaris/results/run_dq_account_single_vendor.json` (query `ddab9580`, 153 total, 150 valid, 3 invalid, 5.9 s) and the sweep of every live run | Yes |
+| 4 | Every fact in Probity's decision is a Zetaris query with an id, and re-running it gave the same rows: in the live L3Harris check the Examiner re-ran its two decisive queries in Zetaris before approving, and both row hashes matched. | Run `r-20261027T184603Z-01ee`, trace `requery` events for T05 (`4a20c439…`) and T08 (`a009016e…`), `GET /runs/<run_id>` | Yes |
+| 5 | One semantic layer let an agent read our ERP vendor record, its USAspending entity and its SEC EDGAR registrant in a single Zetaris statement, and a federated vendor profile adds the payment exposure in the same query. | `zetaris/results/usl_{1,2,3}.json`; T23 in `zetaris/results/d3-wire-live.json` (one row, 14 columns, 24.1 s) | Yes |
 
 Recommended entry sentence: candidate 1 now, replaced by candidate 3 or 4 once a live run has produced the evidence, because those two show the platform doing the product's actual job.
 
@@ -33,7 +33,7 @@ Moments are real; the last paragraph waits for a run.
 >
 > **What surprised us.** Not everything was that easy. USAspending's API returned perfectly valid JSON, and Zetaris read it as a single corrupt record. We lost time there, and we built around it.
 >
-> **What it let us do.** {{TBD-from-run:zetaris/results/run_dq_account_single_vendor.json}} Because the rule lives in Zetaris, the same check an analyst can run by hand is the one the agent runs on every payment run.
+> **What it let us do.** One `RUN DQ` statement checked every item in our payment runs and found three paid into an account that another vendor also holds. Because the rule lives in Zetaris, the same check an analyst can run by hand is the one the agent runs on every payment run.
 
 Word count of the spoken text, once the placeholder is filled with one or two sentences, stays near 130, which is about 55 seconds at a normal pace.
 
@@ -49,4 +49,4 @@ Text to use in the entry (default):
 
 > A Grok coding agent built the Zetaris layer under a written contract: it read Zetaris's own agent rules, registered the sources, defined the semantic layer and its data-quality rules, and verified each step against the live local Zetaris API. Its working log is `zetaris/grok-session.log`.
 
-Add, only after those files show them: the kill tests Grok ran and their verdicts ({{TBD-from-run:zetaris/kill_verdicts.json}}), and the Zetaris behaviours it recorded in `_docs/zetaris-moments.md`. Cursor was not used, and the entry never says otherwise.
+Add, only after those files show them: the kill tests Grok ran and their verdicts (`zetaris/results/kill_verdicts.json`: 19 checks against the live local Zetaris, 17 passed, 0 failed, 2 not run: K1h, `sec_ticker_v` not registered at the time, and K7, the query/admin key split), and the Zetaris behaviours it recorded in `_docs/zetaris-moments.md`. Cursor was not used, and the entry never says otherwise.

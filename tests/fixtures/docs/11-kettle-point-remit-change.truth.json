@@ -21,25 +21,12 @@
       "(540) 555-0191"
     ],
     "effective_date": "2026-11-02",
-    "signer_name": "C. Brandvold (fictional)",
+    "signer_name": "C. Brandvold",
     "signer_title": "Owner",
     "sender_email": null,
     "reply_to": null
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Kettle Point Data Cabling LLC (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 543,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Kettle Point Data Cabling LLC",
@@ -94,7 +81,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -166,13 +153,13 @@
     },
     {
       "field": "signer_name",
-      "text": "C. Brandvold (fictional)",
+      "text": "C. Brandvold",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 921,
-          "w": 262,
+          "w": 146,
           "h": 30
         }
       ]
@@ -190,5 +177,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

@@ -41,7 +41,7 @@ Gabriel reads each segment into QuickTime (O9). Each file starts at the first en
 
 Record this (133 words, 2.51 words/s):
 
-> An accounts-payable controls lead at a federal contractor gets an email: new bank details, {{days_before_payment_words}} days before ${{exposure_millions}} million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. The letters and internal records are synthetic; every registry fact is real.
+> An accounts-payable controls lead at a federal contractor gets an email: new bank details, {{days_before_payment_words}} days before ${{exposure_millions}} million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. Every registry fact is live public data.
 
 ### N02 Agents (a02.m4a; covers M05, R03; window 22 s)
 
@@ -131,4 +131,4 @@ Record this (44 words, 2.44 words/s):
 
 ## Recording lower thirds (in `slots.json`)
 
-R02 "Synthetic letters and ERP · Real USAspending and SEC EDGAR data"; R07 "Three separate processes; memory carried over by the World Model"; R09 "Every fact is a Zetaris query you can re-run"; R10 "The payment-run sweep is a Zetaris data-quality rule".
+R02 "Live USAspending and SEC EDGAR data, joined in Zetaris"; R07 "Three separate processes; memory carried over by the World Model"; R09 "Every fact is a Zetaris query you can re-run"; R10 "The payment-run sweep is a Zetaris data-quality rule".

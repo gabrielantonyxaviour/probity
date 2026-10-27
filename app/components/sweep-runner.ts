@@ -4,6 +4,8 @@ import type { GateDecision } from "../schemas/decision";
 import { emit, type RunContext } from "../orchestration/ctx";
 import { addLimitation, addPartial } from "../orchestration/state";
 import { findingsFor, parseDqCounts, summariseSweep, sweepHeader, type Finding } from "../policy/sweep";
+import { attachFederatedProfile } from "./federated-profile";
+import { runExtraSweep } from "./sweep-extra";
 import type { Step } from "./evidence-runner";
 
 type Sweep = GateDecision["sweep"];
@@ -46,10 +48,13 @@ export async function runSweep(ctx: RunContext, underReview: string[]): Promise<
       output_summary: `${rule} table-wide total=${counts.total} valid=${counts.valid} invalid=${counts.invalid}; in ${pr}: ${mine.length}`,
     });
   });
+  // T23 after DQ1/DQ2 so a later budget miss cannot drop the payment-run rules.
+  await Promise.all([attachFederatedProfile(ctx), runExtraSweep(ctx, underReview, findings, rules_run, t21ids)]);
   const { k, amount_usd, sorted } = summariseSweep(findings);
   const header = k > 0 ? sweepHeader(k, pr, amount_usd) : null;
+  const coreOk = RULES.every((rule) => rules_run.some((row) => row.rule === rule));
   emit(ctx, {
-    agent_name: "sweep_runner", action: "unsolicited_sweep", status: rules_run.length === RULES.length ? "success" : "partial_success",
+    agent_name: "sweep_runner", action: "unsolicited_sweep", status: coreOk ? "success" : "partial_success",
     zetaris_query_ids: t21ids, rows: k, input_summary: `payment run ${pr}, vendor(s) under review excluded`,
     output_summary: header ?? `No other items in ${pr} fail payment controls.`,
   });

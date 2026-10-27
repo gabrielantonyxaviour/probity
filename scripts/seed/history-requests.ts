@@ -20,7 +20,7 @@ export function buildRequests(vw: VendorWorld): Row[] {
     const routing = p.request === "BCR-2026-0344" ? "11000000" : "110000000";
     const number = acct?.account ?? vw.attempts[p.request];
     const letterPhone = p.request === "BCR-2026-0389" ? "+17575550119" : p.request === "BCR-2026-0233" ? "+14105550166" : toE164(openPhone(vw, p.vendor));
-    const name = v.name.replace(/ \(fictional\)$/, "");
+    const name = v.name;
     const status = p.status;
     return {
       request_id: p.request, vendor_id: p.vendor, candidate_vendor_ids: "", claimed_name: name, letterhead_name: name,
@@ -49,8 +49,8 @@ export function buildCallLogs(vw: VendorWorld, drop: Drop): CallLogSpec[] {
   }
   const phone = toE164(openPhone(vw, "V-10749"));
   logs.push(
-    { id: "CL-20318", vendor: "V-10749", request: "BCR-2026-0318", purpose: "bank_change_callback", phone, source: "vendor_master_pre_window", outcome: "no_answer", at: "2026-08-25T14:20:00Z", by: "J. Whitfield (fictional)" },
-    { id: "CL-20319", vendor: "V-10749", request: "BCR-2026-0318", purpose: "bank_change_callback", phone, source: "vendor_master_pre_window", outcome: "confirmed", at: "2026-08-26T14:45:00Z", by: "J. Whitfield (fictional)" },
+    { id: "CL-20318", vendor: "V-10749", request: "BCR-2026-0318", purpose: "bank_change_callback", phone, source: "vendor_master_pre_window", outcome: "no_answer", at: "2026-08-25T14:20:00Z", by: "J. Whitfield" },
+    { id: "CL-20319", vendor: "V-10749", request: "BCR-2026-0318", purpose: "bank_change_callback", phone, source: "vendor_master_pre_window", outcome: "confirmed", at: "2026-08-26T14:45:00Z", by: "J. Whitfield" },
   );
   return logs.sort((a, b) => a.id.localeCompare(b.id));
 }

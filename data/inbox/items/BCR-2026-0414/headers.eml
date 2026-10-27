@@ -5,7 +5,7 @@ Authentication-Results: mx1.halvorsen-ms.example;
 	spf=pass smtp.mailfrom=chesterfieldridge.example;
 	dkim=pass header.d=chesterfieldridge.example;
 	dmarc=pass header.from=chesterfieldridge.example
-From: "H. Ostergaard (fictional)" <accounts@chesterfieldridge.example>
+From: "H. Ostergaard" <accounts@chesterfieldridge.example>
 To: ap@halvorsen-ms.example
 Subject: Change of bank account
 Date: Thu, 22 Oct 2026 15:30:00 -0400
@@ -13,10 +13,8 @@ Message-ID: <2bfc49faba8da2.4B8A83@mail.chesterfieldridge.example>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 7bit
-X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by Chesterfield Ridge Staffing Group Inc (fictional)
 
-[SYNTHETIC SAMPLE - not a real email]
 Hello,
 Our updated bank details are in the attached letter.
 Regards,
-H. Ostergaard (fictional)
+H. Ostergaard

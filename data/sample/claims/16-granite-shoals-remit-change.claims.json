@@ -2,9 +2,9 @@
   "example_id": "16-granite-shoals-remit-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "a478150938ad1507e6cf1dfa25c26cf4c40769451ed622349657441279d7b6d8",
-    "ee0d2b89cbdb4f20d5697310c1c563f2d63933ac96a18301067746a02a44541a",
-    "9a190619c466a0b6b2c2b07356336b5ec3dd96fecc19c479eac26fc755b519aa"
+    "28e7a4edd141ce8f063e7a07f36aaa50d3d6e2bcea5e016752f81f2d2bf1c8a7",
+    "1ddeda2150a02241e94e341a1ef5a20ff2e616aa08300c0c9ebaf2f54b6b868f",
+    "c38405418e97d04f052a121ed9002f9c39c0b77aa224eb757b8184ea64ea05ef"
   ],
   "account_number": null,
   "claimed_name": "Granite Shoals Engineering PLLC",
@@ -29,23 +29,10 @@
   ],
   "effective_date": "2026-11-01",
   "invoice_refs": [],
-  "signer_name": "J. Okeke-Ruiz (fictional)",
+  "signer_name": "J. Okeke-Ruiz",
   "pressure_phrases": [],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Granite Shoals Engineering PLLC (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Granite Shoals Engineering PLLC (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        576,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -114,12 +101,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "J. Okeke-Ruiz (fictional)",
+      "quote": "J. Okeke-Ruiz",
       "page": 1,
       "bbox_hint": [
         117,
         509,
-        336,
+        242,
         528
       ],
       "highlight_source": "text_layer"

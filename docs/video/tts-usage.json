@@ -1,5 +1,5 @@
 {
-  "characters": 5886,
+  "characters": 8279,
   "calls": [
     {
       "ids": [
@@ -114,6 +114,84 @@
         "z07"
       ],
       "characters": 98
+    },
+    {
+      "ids": [
+        "i01"
+      ],
+      "characters": 269
+    },
+    {
+      "ids": [
+        "i02"
+      ],
+      "characters": 137
+    },
+    {
+      "ids": [
+        "i03"
+      ],
+      "characters": 115
+    },
+    {
+      "ids": [
+        "i04"
+      ],
+      "characters": 261
+    },
+    {
+      "ids": [
+        "i05"
+      ],
+      "characters": 201
+    },
+    {
+      "ids": [
+        "i06"
+      ],
+      "characters": 41
+    },
+    {
+      "ids": [
+        "i07"
+      ],
+      "characters": 216
+    },
+    {
+      "ids": [
+        "i08"
+      ],
+      "characters": 219
+    },
+    {
+      "ids": [
+        "i09"
+      ],
+      "characters": 209
+    },
+    {
+      "ids": [
+        "i10"
+      ],
+      "characters": 123
+    },
+    {
+      "ids": [
+        "i11"
+      ],
+      "characters": 300
+    },
+    {
+      "ids": [
+        "i12"
+      ],
+      "characters": 130
+    },
+    {
+      "ids": [
+        "i13"
+      ],
+      "characters": 172
     }
   ]
 }

@@ -11,7 +11,7 @@
     "letterhead_name": "Merriwether Cloud Reseller LLC",
     "remit_address": null,
     "bank": {
-      "bank_name": "Calderwick Test Bank (fictional)",
+      "bank_name": "Calderwick Savings Bank",
       "routing": "110000000",
       "account_number": "000999000906"
     },
@@ -19,25 +19,12 @@
       "(703) 555-0176"
     ],
     "effective_date": "2026-11-03",
-    "signer_name": "P. Oyelaran (fictional)",
+    "signer_name": "P. Oyelaran",
     "signer_title": "Accounts Receivable",
     "sender_email": "billing@merriwethercloud.example",
     "reply_to": null
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Merriwether Cloud Reseller LLC (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 560,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Merriwether Cloud Reseller LLC",
@@ -105,7 +92,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -170,13 +157,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Calderwick Test Bank (fictional)",
+      "text": "Calderwick Savings Bank",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 700,
-          "w": 316,
+          "w": 248,
           "h": 28
         }
       ]
@@ -222,13 +209,13 @@
     },
     {
       "field": "signer_name",
-      "text": "P. Oyelaran (fictional)",
+      "text": "P. Oyelaran",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 957,
-          "w": 233,
+          "w": 124,
           "h": 30
         }
       ]
@@ -246,5 +233,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

@@ -211,6 +211,7 @@ export const DOSSIER = {
   conflictCols: ["Conflict", "Status", "Resolved by"],
   evidenceCols: ["Fact", "Value", "Source", "Mode", "Fetched (UTC)", "Zetaris query"],
   sweepCols: ["Item", "Vendor", "Amount", "Rule", "Finding", "Recommendation", "Zetaris query"],
+  sweepRuleCols: ["Rule", "Checks", "Zetaris table", "Invalid / total rows", "Zetaris query id"],
   outcomeBlock: "Outcome: ☐ Confirmed ☐ Denied ☐ No answer · Called by ________ · Date/time (UTC) ________",
   fixedLimit: "Probity does not write to the ERP or place calls. A person applies any change.",
   signReviewed: "Reviewed by (AP Controls) ________ Date ________",

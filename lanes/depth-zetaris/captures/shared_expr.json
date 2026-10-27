@@ -1,0 +1,13 @@
+{
+  "id": "shared_expr",
+  "captured_at": "2026-10-27T15:34:59.869Z",
+  "sql": "SELECT COUNT(*) AS total, SUM(CASE WHEN COALESCE(((SELECT COUNT(DISTINCT b2.vendor_id) FROM lightning.metastore.probity.vendor360.vendor_bank_account b2 WHERE b2.account_hash = b.account_hash) <= 1, false) THEN 1 ELSE 0 END) AS valid FROM lightning.metastore.probity.vendor360.vendor_bank_account b LIMIT 1",
+  "queryId": "7e7baa6f-99dc-43f9-b3e5-9d0844446ca8",
+  "latency_ms": 1,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

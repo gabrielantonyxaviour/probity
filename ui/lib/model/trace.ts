@@ -2,7 +2,7 @@
 // (01 sections 8, 17.6). Every row is a real trace event; this file adds grouping and labels, never content.
 import type { TraceEvent } from "../contracts";
 import { hash8, latency, tokens } from "../format";
-import { AGENT_DISPLAY, CHALLENGE_ACTIONS, DDL_TEMPLATES, LANE_LABELS, MODE_LABELS, isNemotron, modelShort, templateLabel, type TraceFilter } from "../labels-trace";
+import { agentDisplay, CHALLENGE_ACTIONS, DDL_TEMPLATES, LANE_LABELS, MODE_LABELS, isNemotron, modelShort, templateLabel, type TraceFilter } from "../labels-trace";
 import { TRACE } from "../copy";
 import type { AgentName } from "@schemas/trace";
 
@@ -12,7 +12,7 @@ export type TraceItem =
   | { kind: "event"; key: string; ev: TraceEvent; challenge: ChallengeInfo | null }
   | { kind: "group"; key: string; evs: TraceEvent[]; round: number; rows: number; labels: string[] };
 
-export const isAgent = (n: AgentName) => AGENT_DISPLAY[n].agent;
+export const isAgent = (n: AgentName) => agentDisplay(n).agent;
 const isMemory = (e: TraceEvent) => e.engine != null || e.agent_name === "memory_gate" || e.action === "memory_recall" || e.action === "memory_write" || e.action === "outcome_recorded";
 const isZetaris = (e: TraceEvent) => e.template_id != null || e.zetaris_query_ids.length > 0;
 export const isModelCall = (e: TraceEvent) => e.lane != null && e.model != null && e.action !== "model_check";

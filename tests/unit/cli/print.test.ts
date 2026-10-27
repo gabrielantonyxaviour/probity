@@ -21,7 +21,7 @@ describe("CLI output formats", () => {
     expect(b[2]).toBe("Blocks:   R3 remit_entity_not_vendor_of_record");
     expect(b[3]).toBe("Limits:   none");
     expect(b.at(-1)).toBe("Review:   http://localhost:3100/review/r-20261027T140211Z-9f2c");
-    expect(b.find((l) => l.startsWith("Call back:"))).toBe("Call back: (703) 902-5000 · SEC EDGAR registrant · Demo scenario: do not call.");
+    expect(b.find((l) => l.startsWith("Call back:"))).toBe("Call back: (703) 902-5000 · SEC EDGAR registrant");
     expect(b.find((l) => l.startsWith("Do not use:"))).toBe("Do not use: (703) 555-0147 (number on the request)");
   });
   it("an error envelope prints one fixed line; a needs-human run says so", () => {

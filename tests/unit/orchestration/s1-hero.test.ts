@@ -81,7 +81,7 @@ describe("S1 hero run", () => {
     expect(e.log_file).toBe(`logs/trace-${e.run_id}.jsonl`);
     expect(e.output.artifacts.map((a) => a.type)).toEqual(["gate_decision", "trace"]);
     expect(e.output.summary).toBe("Hold: Booz Allen Hamilton Inc (V-10027). The new address belongs to a different company, not our vendor.");
-    expect(e.output.recommendations).toEqual(["Do not change bank details for V-10027.", "Call (703) 902-5000 (SEC EDGAR) (demo scenario: do not call)", expect.stringMatching(/^Review PRI-1030-00(09|10) \(.+, \$[\d,]+\.00\) before release\.$/), expect.stringMatching(/^Review PRI-1030-00(09|10) /)]);
+    expect(e.output.recommendations).toEqual(["Do not change bank details for V-10027.", "Call (703) 902-5000 (SEC EDGAR)", expect.stringMatching(/^Review PRI-1030-00(09|10) \(.+, \$[\d,]+\.00\) before release\.$/), expect.stringMatching(/^Review PRI-1030-00(09|10) /)]);
     expect(e.agents).toHaveLength(4);
     expect(e.execution_time_seconds).toBeGreaterThanOrEqual(0);
   });

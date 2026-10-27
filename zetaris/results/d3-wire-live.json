@@ -1,0 +1,386 @@
+{
+  "captured_at": "2026-10-27T17:15:16.123Z",
+  "t23_columns": [
+    "vendor_id",
+    "vendor_name",
+    "uei",
+    "usa_legal_name",
+    "usa_address_line1",
+    "usa_city",
+    "usa_state",
+    "usa_zip",
+    "cik",
+    "edgar_legal_name",
+    "edgar_phone",
+    "edgar_ein",
+    "payment_item_count",
+    "total_exposure"
+  ],
+  "checks": {
+    "registered": {
+      "name": "dq8-register",
+      "captured_at": "2026-10-27T17:13:08.696Z",
+      "query_id": "e983bb58-086d-4fde-afa6-a9abbb478857",
+      "latency_ms": 5752,
+      "http_status": 200,
+      "row_hash": "7b39131a3e22a5de",
+      "columns": [
+        "json"
+      ],
+      "row_count": 1,
+      "rows": [
+        [
+          "{\"namespace\":[\"metastore\",\"probity\"],\"name\":\"vendor360\",\"tables\":[{\"name\":\"registry_entity\",\"columnSpecs\":[{\"name\":\"entity_key\",\"dataType\":\"\\\"varchar(16)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"uei\",\"dataType\":\"\\\"varchar(12)\\\"\",\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"recipient_level\",\"dataType\":\"\\\"varchar(1)\\\"\",\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"recipient_id\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"legal_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"name_norm\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"parent_uei\",\"dataType\":\"\\\"varchar(12)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"parent_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"address_line1\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"address_line2\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"city_name\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"state_code\",\"dataType\":\"\\\"varchar(2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"zip\",\"dataType\":\"\\\"varchar(10)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"country_code\",\"dataType\":\"\\\"varchar(3)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"total_transaction_amount\",\"dataType\":\"\\\"decimal(18,2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"source_table\",\"dataType\":\"\\\"varchar(64)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[{\"name\":\"registry_has_address\",\"expression\":\"address_line1 IS NOT NULL AND address_line1 <> ''\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT COALESCE(concat(uei, '-', recipient_level), '') AS entity_key, COALESCE(uei, '') AS uei,\\n       COALESCE(recipient_level, '') AS recipient_level, recipient_id, legal_name, trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(legal_name)), ' (FICTIONAL)', ''), '[.,''\\\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) AS name_norm,\\n       parent_uei, parent_name, address_line1, address_line2, city_name, state_code, zip, country_code,\\n       total_transaction_amount, source_table\\nFROM probity.usa_entity_v\",\"description\":\"'USAspending recipient records, one per UEI and level. Real public data, cached at setup'\"},{\"name\":\"registry_child\",\"columnSpecs\":[{\"name\":\"child_key\",\"dataType\":\"\\\"varchar(60)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"parent_uei\",\"dataType\":\"\\\"varchar(12)\\\"\",\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"child_uei\",\"dataType\":\"\\\"varchar(12)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"child_recipient_id\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"child_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"state_province\",\"dataType\":\"\\\"varchar(4)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"amount\",\"dataType\":\"\\\"decimal(18,2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"list_size\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"source_table\",\"dataType\":\"\\\"varchar(64)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT COALESCE(concat(parent_uei, '|', COALESCE(child_uei, child_recipient_id)), '') AS child_key,\\n       COALESCE(parent_uei, '') AS parent_uei, child_uei, child_recipient_id, child_name, state_province, amount,\\n       list_size, source_table\\nFROM probity.usa_child_v\"},{\"name\":\"registry_parent\",\"columnSpecs\":[{\"name\":\"parent_link_key\",\"dataType\":\"\\\"varchar(32)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"entity_key\",\"dataType\":\"\\\"varchar(16)\\\"\",\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"uei\",\"dataType\":\"\\\"varchar(12)\\\"\",\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"parent_uei\",\"dataType\":\"\\\"varchar(12)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"parent_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"source_table\",\"dataType\":\"\\\"varchar(64)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT COALESCE(concat(entity_key, '|', parent_uei), '') AS parent_link_key, COALESCE(entity_key, '') AS entity_key,\\n       COALESCE(uei, '') AS uei, parent_uei, parent_name, source_table\\nFROM probity.usa_parent_v\\nWHERE parent_uei IS NOT NULL\"},{\"name\":\"registry_alias\",\"columnSpecs\":[{\"name\":\"alias_key\",\"dataType\":\"\\\"varchar(300)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"entity_or_cik\",\"dataType\":\"\\\"varchar(16)\\\"\",\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"alias_source\",\"dataType\":\"\\\"varchar(16)\\\"\",\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"alias_name\",\"dataType\":\"\\\"varchar(250)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"alias_name_norm\",\"dataType\":\"\\\"varchar(250)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"valid_from\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"valid_to\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT COALESCE(alias_key, '') AS alias_key, COALESCE(MIN(entity_or_cik), '') AS entity_or_cik,\\n       COALESCE(MIN(alias_source), '') AS alias_source, MIN(alias_name) AS alias_name,\\n       MIN(alias_name_norm) AS alias_name_norm, MIN(valid_from) AS valid_from, MAX(valid_to) AS valid_to\\nFROM (\\n  SELECT concat(entity_key, '|usaspending_alt|', upper(alias_name)) AS alias_key, entity_key AS entity_or_cik,\\n         'usaspending_alt' AS alias_source, alias_name, trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(alias_name)), ' (FICTIONAL)', ''), '[.,''\\\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) AS alias_name_norm,\\n         CAST(NULL AS DATE) AS valid_from, CAST(NULL AS DATE) AS valid_to\\n  FROM probity.usa_alias_v\\n  UNION ALL\\n  SELECT concat(cik, '|edgar_former|', upper(former_name)), cik, 'edgar_former', former_name,\\n         trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(former_name)), ' (FICTIONAL)', ''), '[.,''\\\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')), valid_from, valid_to\\n  FROM probity.sec_former_v\\n) a\\nGROUP BY alias_key\"},{\"name\":\"sec_registrant\",\"columnSpecs\":[{\"name\":\"cik\",\"dataType\":\"\\\"varchar(10)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"legal_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"name_norm\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"ein\",\"dataType\":\"\\\"varchar(9)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"state_of_inc\",\"dataType\":\"\\\"varchar(8)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"phone\",\"dataType\":\"\\\"varchar(32)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"sic\",\"dataType\":\"\\\"varchar(4)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"sic_description\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"biz_street1\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"biz_street2\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"biz_city\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"biz_state\",\"dataType\":\"\\\"varchar(4)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"biz_zip\",\"dataType\":\"\\\"varchar(10)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"mail_street1\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"mail_street2\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"mail_city\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"mail_state\",\"dataType\":\"\\\"varchar(4)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"mail_zip\",\"dataType\":\"\\\"varchar(10)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"ticker\",\"dataType\":\"\\\"varchar(12)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"source_table\",\"dataType\":\"\\\"varchar(64)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[{\"name\":\"sec_ein_present\",\"expression\":\"ein IS NOT NULL AND ein <> '000000000'\",\"cte\":{}},{\"name\":\"sec_state_of_inc_present\",\"expression\":\"state_of_inc IS NOT NULL AND state_of_inc <> ''\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT COALESCE(cik, '') AS cik, legal_name, trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(legal_name)), ' (FICTIONAL)', ''), '[.,''\\\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) AS name_norm,\\n       CASE WHEN ein IS NULL OR ein = '' THEN NULL ELSE ein END AS ein, state_of_inc, phone, sic, sic_description,\\n       biz_street1, biz_street2, biz_city, biz_state, biz_zip, mail_street1, mail_street2, mail_city, mail_state,\\n       mail_zip, ticker, source_table\\nFROM probity.sec_registrant_v\"},{\"name\":\"vendor_contact\",\"columnSpecs\":[{\"name\":\"contact_id\",\"dataType\":\"\\\"varchar(32)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"vendor_id\",\"dataType\":\"\\\"varchar(7)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.probity.vendor360.vendor\"],\"refColumns\":[\"vendor_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"kind\",\"dataType\":\"\\\"varchar(8)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"value\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"valid_from\",\"dataType\":\"\\\"timestamp\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"valid_to\",\"dataType\":\"\\\"timestamp\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"changed_via\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"data_origin\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT\\n  COALESCE(CAST(contact_id AS STRING), '') AS contact_id,\\n  CAST(vendor_id AS STRING) AS vendor_id,\\n  CAST(kind AS STRING) AS kind,\\n  CAST(value AS STRING) AS value,\\n  CAST(valid_from AS TIMESTAMP) AS valid_from,\\n  CAST(valid_to AS TIMESTAMP) AS valid_to,\\n  CAST(changed_via AS STRING) AS changed_via,\\n  CAST(data_origin AS STRING) AS data_origin\\nFROM payee_erp.vendor_contact\"},{\"name\":\"vendor_bank_account\",\"columnSpecs\":[{\"name\":\"bank_account_id\",\"dataType\":\"\\\"varchar(32)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"vendor_id\",\"dataType\":\"\\\"varchar(7)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.probity.vendor360.vendor\"],\"refColumns\":[\"vendor_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"bank_name\",\"dataType\":\"\\\"varchar(80)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"routing\",\"dataType\":\"\\\"varchar(9)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"account_last4\",\"dataType\":\"\\\"varchar(4)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"account_hash\",\"dataType\":\"\\\"varchar(64)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"status\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"changed_at\",\"dataType\":\"\\\"timestamp\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"source_request_id\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"data_origin\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT\\n  COALESCE(CAST(bank_account_id AS STRING), '') AS bank_account_id,\\n  CAST(vendor_id AS STRING) AS vendor_id,\\n  CAST(bank_name AS STRING) AS bank_name,\\n  CAST(routing AS STRING) AS routing,\\n  CAST(account_last4 AS STRING) AS account_last4,\\n  CAST(account_hash AS STRING) AS account_hash,\\n  CAST(status AS STRING) AS status,\\n  CAST(changed_at AS TIMESTAMP) AS changed_at,\\n  CAST(source_request_id AS STRING) AS source_request_id,\\n  CAST(data_origin AS STRING) AS data_origin\\nFROM payee_erp.vendor_bank_account\"},{\"name\":\"vendor_contact_log\",\"columnSpecs\":[{\"name\":\"log_id\",\"dataType\":\"\\\"varchar(32)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"vendor_id\",\"dataType\":\"\\\"varchar(7)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.probity.vendor360.vendor\"],\"refColumns\":[\"vendor_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"request_id\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"purpose\",\"dataType\":\"\\\"varchar(32)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"phone_e164\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"phone_source\",\"dataType\":\"\\\"varchar(32)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"outcome\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"called_at\",\"dataType\":\"\\\"timestamp\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"called_by\",\"dataType\":\"\\\"varchar(80)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"data_origin\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT\\n  COALESCE(CAST(log_id AS STRING), '') AS log_id,\\n  CAST(vendor_id AS STRING) AS vendor_id,\\n  CAST(request_id AS STRING) AS request_id,\\n  CAST(purpose AS STRING) AS purpose,\\n  CAST(phone_e164 AS STRING) AS phone_e164,\\n  CAST(phone_source AS STRING) AS phone_source,\\n  CAST(outcome AS STRING) AS outcome,\\n  CAST(called_at AS TIMESTAMP) AS called_at,\\n  CAST(called_by AS STRING) AS called_by,\\n  CAST(data_origin AS STRING) AS data_origin\\nFROM payee_erp.vendor_contact_log\"},{\"name\":\"ap_invoice\",\"columnSpecs\":[{\"name\":\"invoice_no\",\"dataType\":\"\\\"varchar(16)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"vendor_id\",\"dataType\":\"\\\"varchar(7)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.probity.vendor360.vendor\"],\"refColumns\":[\"vendor_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"amount_usd\",\"dataType\":\"\\\"decimal(14,2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"invoice_date\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"status\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"data_origin\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT\\n  COALESCE(CAST(invoice_no AS STRING), '') AS invoice_no,\\n  CAST(vendor_id AS STRING) AS vendor_id,\\n  CAST(amount_usd AS DECIMAL(14,2)) AS amount_usd,\\n  CAST(invoice_date AS DATE) AS invoice_date,\\n  CAST(status AS STRING) AS status,\\n  CAST(data_origin AS STRING) AS data_origin\\nFROM payee_erp.ap_invoice\"},{\"name\":\"vendor\",\"columnSpecs\":[{\"name\":\"vendor_id\",\"dataType\":\"\\\"varchar(7)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"legal_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"name_norm\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"uei\",\"dataType\":\"\\\"varchar(12)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"registrant_cik\",\"dataType\":\"\\\"varchar(10)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.probity.vendor360.sec_registrant\"],\"refColumns\":[\"cik\"]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"remit_line1\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"remit_unit\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"remit_city\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"remit_state\",\"dataType\":\"\\\"varchar(2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"remit_zip\",\"dataType\":\"\\\"varchar(10)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"status\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"created_at\",\"dataType\":\"\\\"timestamp\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"email_domains_on_file\",\"dataType\":\"\\\"varchar(1000)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"data_origin\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT COALESCE(CAST(v.vendor_id AS STRING), '') AS vendor_id, CAST(v.legal_name AS STRING) AS legal_name,\\n       trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(CAST(v.legal_name AS STRING))), ' (FICTIONAL)', ''), '[.,''\\\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) AS name_norm, CAST(v.uei AS STRING) AS uei,\\n       CAST(v.registrant_cik AS STRING) AS registrant_cik, CAST(v.remit_line1 AS STRING) AS remit_line1,\\n       CAST(v.remit_unit AS STRING) AS remit_unit, CAST(v.remit_city AS STRING) AS remit_city,\\n       CAST(v.remit_state AS STRING) AS remit_state, CAST(v.remit_zip AS STRING) AS remit_zip,\\n       CAST(v.status AS STRING) AS status, CAST(v.created_at AS TIMESTAMP) AS created_at,\\n       d.email_domains_on_file AS email_domains_on_file, CAST(v.data_origin AS STRING) AS data_origin\\nFROM payee_erp.vendor v\\nLEFT JOIN (\\n  SELECT CAST(vendor_id AS STRING) AS vendor_id, concat_ws(',', sort_array(collect_set(lower(CAST(domain AS STRING))))) AS email_domains_on_file\\n  FROM payee_erp.vendor_domain GROUP BY CAST(vendor_id AS STRING)\\n) d ON d.vendor_id = CAST(v.vendor_id AS STRING)\"},{\"name\":\"bank_change_request\",\"columnSpecs\":[{\"name\":\"request_id\",\"dataType\":\"\\\"varchar(16)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"vendor_id\",\"dataType\":\"\\\"varchar(7)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"candidate_vendor_ids\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"claimed_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"claimed_name_norm\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"letterhead_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"claimed_remit_line1\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"claimed_remit_unit\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"claimed_remit_city\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"claimed_remit_state\",\"dataType\":\"\\\"varchar(2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"claimed_remit_zip\",\"dataType\":\"\\\"varchar(10)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"new_routing\",\"dataType\":\"\\\"varchar(12)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"new_account_last4\",\"dataType\":\"\\\"varchar(4)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"new_account_hash\",\"dataType\":\"\\\"varchar(64)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"sender_domain\",\"dataType\":\"\\\"varchar(253)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"reply_to_domain\",\"dataType\":\"\\\"varchar(253)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"letter_phones\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"invoice_refs\",\"dataType\":\"\\\"varchar(400)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"received_at\",\"dataType\":\"\\\"timestamp\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"requested_effective\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"channel\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"extraction_path\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"extraction_model\",\"dataType\":\"\\\"varchar(120)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"status\",\"dataType\":\"\\\"varchar(24)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"data_origin\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[{\"name\":\"request_routing_valid\",\"expression\":\"new_routing IS NULL OR (new_routing RLIKE '^[0-9]{9}$' AND pmod(3 * ((ascii(substr(new_routing, 1, 1)) - 48) + (ascii(substr(new_routing, 4, 1)) - 48) + (ascii(substr(new_routing, 7, 1)) - 48)) + 7 * ((ascii(substr(new_routing, 2, 1)) - 48) + (ascii(substr(new_routing, 5, 1)) - 48) + (ascii(substr(new_routing, 8, 1)) - 48)) + ((ascii(substr(new_routing, 3, 1)) - 48) + (ascii(substr(new_routing, 6, 1)) - 48) + (ascii(substr(new_routing, 9, 1)) - 48)), 10) = 0)\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT\\n  COALESCE(CAST(request_id AS STRING), '') AS request_id,\\n  CAST(vendor_id AS STRING) AS vendor_id,\\n  CAST(candidate_vendor_ids AS STRING) AS candidate_vendor_ids,\\n  CAST(claimed_name AS STRING) AS claimed_name,\\n  trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(CAST(claimed_name AS STRING))), ' (FICTIONAL)', ''), '[.,''\\\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) AS claimed_name_norm,\\n  CAST(letterhead_name AS STRING) AS letterhead_name,\\n  CAST(claimed_remit_line1 AS STRING) AS claimed_remit_line1,\\n  CAST(claimed_remit_unit AS STRING) AS claimed_remit_unit,\\n  CAST(claimed_remit_city AS STRING) AS claimed_remit_city,\\n  CAST(claimed_remit_state AS STRING) AS claimed_remit_state,\\n  CAST(claimed_remit_zip AS STRING) AS claimed_remit_zip,\\n  CAST(new_routing AS STRING) AS new_routing,\\n  CAST(new_account_last4 AS STRING) AS new_account_last4,\\n  CAST(new_account_hash AS STRING) AS new_account_hash,\\n  CAST(sender_domain AS STRING) AS sender_domain,\\n  CAST(reply_to_domain AS STRING) AS reply_to_domain,\\n  CAST(letter_phones AS STRING) AS letter_phones,\\n  CAST(invoice_refs AS STRING) AS invoice_refs,\\n  CAST(received_at AS TIMESTAMP) AS received_at,\\n  CAST(requested_effective AS DATE) AS requested_effective,\\n  CAST(channel AS STRING) AS channel,\\n  CAST(extraction_path AS STRING) AS extraction_path,\\n  CAST(extraction_model AS STRING) AS extraction_model,\\n  CAST(status AS STRING) AS status,\\n  CAST(data_origin AS STRING) AS data_origin\\nFROM payee_erp.bank_change_request\"},{\"name\":\"payment_run_item\",\"columnSpecs\":[{\"name\":\"item_id\",\"dataType\":\"\\\"varchar(16)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"payment_run_id\",\"dataType\":\"\\\"varchar(16)\\\"\",\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"scheduled_date\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"cutoff_local\",\"dataType\":\"\\\"varchar(24)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"vendor_id\",\"dataType\":\"\\\"varchar(7)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.probity.vendor360.vendor\"],\"refColumns\":[\"vendor_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"vendor_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"invoice_no\",\"dataType\":\"\\\"varchar(16)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.probity.vendor360.ap_invoice\"],\"refColumns\":[\"invoice_no\"]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"bank_account_id\",\"dataType\":\"\\\"varchar(32)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.probity.vendor360.vendor_bank_account\"],\"refColumns\":[\"bank_account_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"amount_usd\",\"dataType\":\"\\\"decimal(14,2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"account_hash\",\"dataType\":\"\\\"varchar(64)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"account_last4\",\"dataType\":\"\\\"varchar(4)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"bank_changed_at\",\"dataType\":\"\\\"timestamp\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"callback_confirmed_at\",\"dataType\":\"\\\"timestamp\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"callback_phone_source\",\"dataType\":\"\\\"varchar(32)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"account_vendor_count\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]},{\"name\":\"data_origin\",\"dataType\":\"\\\"varchar(16)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[]}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"probity\",\"vendor360\"],\"dqAnnotations\":[{\"name\":\"unverified_recent_bank_change\",\"expression\":\"bank_changed_at IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) >= 30 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))\",\"cte\":{}},{\"name\":\"account_single_vendor\",\"expression\":\"account_vendor_count <= 1\",\"cte\":{}},{\"name\":\"bank_change_before_large_payment\",\"expression\":\"amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT\\n  COALESCE(CAST(i.item_id AS STRING), '') AS item_id,\\n  COALESCE(CAST(i.payment_run_id AS STRING), '') AS payment_run_id,\\n  CAST(r.scheduled_date AS DATE) AS scheduled_date,\\n  CAST(r.cutoff_local AS STRING) AS cutoff_local,\\n  CAST(i.vendor_id AS STRING) AS vendor_id,\\n  CAST(v.legal_name AS STRING) AS vendor_name,\\n  CAST(i.invoice_no AS STRING) AS invoice_no,\\n  CAST(i.bank_account_id AS STRING) AS bank_account_id,\\n  CAST(i.amount_usd AS DECIMAL(14,2)) AS amount_usd,\\n  CAST(b.account_hash AS STRING) AS account_hash,\\n  CAST(b.account_last4 AS STRING) AS account_last4,\\n  CAST(b.changed_at AS TIMESTAMP) AS bank_changed_at,\\n  CAST(cb.called_at AS TIMESTAMP) AS callback_confirmed_at,\\n  CAST(cb.phone_source AS STRING) AS callback_phone_source,\\n  CAST(COALESCE(ac.owner_count, 1) AS INT) AS account_vendor_count,\\n  CAST(i.data_origin AS STRING) AS data_origin\\nFROM payee_erp.payment_run_item i\\nJOIN payee_erp.payment_run r ON r.payment_run_id = i.payment_run_id\\nJOIN payee_erp.vendor v ON v.vendor_id = i.vendor_id\\nLEFT JOIN payee_erp.vendor_bank_account b ON b.bank_account_id = i.bank_account_id\\nLEFT JOIN (\\n  SELECT request_id, called_at, phone_source FROM (\\n    SELECT CAST(l.request_id AS STRING) AS request_id, l.called_at AS called_at, CAST(l.phone_source AS STRING) AS phone_source,\\n           ROW_NUMBER() OVER (PARTITION BY CAST(l.request_id AS STRING)\\n             ORDER BY CASE WHEN l.phone_source IN ('edgar_registrant', 'vendor_master_pre_window') THEN 0 ELSE 1 END,\\n                      l.called_at DESC) AS rn\\n    FROM payee_erp.vendor_contact_log l\\n    WHERE l.purpose = 'bank_change_callback' AND l.outcome = 'confirmed' AND l.request_id IS NOT NULL\\n  ) ranked WHERE rn = 1\\n) cb ON cb.request_id = CAST(b.source_request_id AS STRING)\\nLEFT JOIN (\\n  SELECT account_hash, COUNT(DISTINCT owner) AS owner_count FROM (\\n    SELECT CAST(account_hash AS STRING) AS account_hash, CAST(vendor_id AS STRING) AS owner\\n    FROM payee_erp.vendor_bank_account WHERE account_hash IS NOT NULL\\n    UNION ALL\\n    SELECT CAST(new_account_hash AS STRING), COALESCE(CAST(vendor_id AS STRING), CAST(request_id AS STRING))\\n    FROM payee_erp.bank_change_request WHERE new_account_hash IS NOT NULL\\n  ) o GROUP BY account_hash\\n) ac ON ac.account_hash = b.account_hash\",\"description\":\"'One row per payment-run line, denormalised with bank-change age, the best confirmed call-back and account reuse count so every DQ rule is same-row'\"}],\"description\":\"'Probity vendor360 - ddl_sha=b17bcbb58c222376'\"}"
+        ]
+      ],
+      "error": null,
+      "code": null
+    },
+    "listed": {
+      "name": "dq8-list",
+      "captured_at": "2026-10-27T17:15:15.848Z",
+      "query_id": "44e213ef-f9bc-4776-84a4-5a984150cf63",
+      "latency_ms": 273,
+      "http_status": 200,
+      "row_hash": "19cb031b9d86f07b",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "expression"
+      ],
+      "row_count": 27,
+      "rows": [
+        [
+          "entity_key",
+          "registry_entity",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "registry_has_address",
+          "registry_entity",
+          "Custom Data Quality",
+          "address_line1 IS NOT NULL AND address_line1 <> ''"
+        ],
+        [
+          "child_key",
+          "registry_child",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "parent_link_key",
+          "registry_parent",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "alias_key",
+          "registry_alias",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "cik",
+          "sec_registrant",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "sec_ein_present",
+          "sec_registrant",
+          "Custom Data Quality",
+          "ein IS NOT NULL AND ein <> '000000000'"
+        ],
+        [
+          "sec_state_of_inc_present",
+          "sec_registrant",
+          "Custom Data Quality",
+          "state_of_inc IS NOT NULL AND state_of_inc <> ''"
+        ],
+        [
+          "contact_id",
+          "vendor_contact",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "vendor_id",
+          "vendor_contact",
+          "Foreign key constraints",
+          ""
+        ],
+        [
+          "bank_account_id",
+          "vendor_bank_account",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "vendor_id",
+          "vendor_bank_account",
+          "Foreign key constraints",
+          ""
+        ],
+        [
+          "log_id",
+          "vendor_contact_log",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "vendor_id",
+          "vendor_contact_log",
+          "Foreign key constraints",
+          ""
+        ],
+        [
+          "invoice_no",
+          "ap_invoice",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "vendor_id",
+          "ap_invoice",
+          "Foreign key constraints",
+          ""
+        ],
+        [
+          "item_id",
+          "payment_run_item",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "vendor_id",
+          "payment_run_item",
+          "Foreign key constraints",
+          ""
+        ],
+        [
+          "invoice_no",
+          "payment_run_item",
+          "Foreign key constraints",
+          ""
+        ],
+        [
+          "bank_account_id",
+          "payment_run_item",
+          "Foreign key constraints",
+          ""
+        ],
+        [
+          "unverified_recent_bank_change",
+          "payment_run_item",
+          "Custom Data Quality",
+          "bank_changed_at IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) >= 30 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))"
+        ],
+        [
+          "account_single_vendor",
+          "payment_run_item",
+          "Custom Data Quality",
+          "account_vendor_count <= 1"
+        ],
+        [
+          "bank_change_before_large_payment",
+          "payment_run_item",
+          "Custom Data Quality",
+          "amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))"
+        ],
+        [
+          "vendor_id",
+          "vendor",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "registrant_cik",
+          "vendor",
+          "Foreign key constraints",
+          ""
+        ],
+        [
+          "request_id",
+          "bank_change_request",
+          "Primary key constraints",
+          ""
+        ],
+        [
+          "request_routing_valid",
+          "bank_change_request",
+          "Custom Data Quality",
+          "new_routing IS NULL OR (new_routing RLIKE '^[0-9]{9}$' AND pmod(3 * ((ascii(substr(new_routing, 1, 1)) - 48) + (ascii(substr(new_routing, 4, 1)) - 48) + (ascii(substr(new_routing, 7, 1)) - 48)) + 7 * ((ascii(substr(new_routing, 2, 1)) - 48) + (ascii(substr(new_routing, 5, 1)) - 48) + (ascii(substr(new_routing, 8, 1)) - 48)) + ((ascii(substr(new_routing, 3, 1)) - 48) + (ascii(substr(new_routing, 6, 1)) - 48) + (ascii(substr(new_routing, 9, 1)) - 48)), 10) = 0)"
+        ]
+      ],
+      "error": null,
+      "code": null
+    },
+    "ran": {
+      "name": "dq8-run",
+      "captured_at": "2026-10-27T17:13:14.559Z",
+      "query_id": "3a97bcd5-032b-4e5a-abf1-96e2025ac77e",
+      "latency_ms": 5477,
+      "http_status": 200,
+      "row_hash": "4b0b7f4d115b3a96",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "total_record",
+        "valid_record",
+        "invalid_record"
+      ],
+      "row_count": 1,
+      "rows": [
+        [
+          "bank_change_before_large_payment",
+          "payment_run_item",
+          "Custom Data Quality",
+          "153",
+          "153",
+          "0"
+        ]
+      ],
+      "error": null,
+      "code": null
+    },
+    "shown": {
+      "name": "dq8-show",
+      "captured_at": "2026-10-27T17:13:20.037Z",
+      "query_id": "e2140bf4-b4d3-4cb2-90c8-67c2289ceb4a",
+      "latency_ms": 4565,
+      "http_status": 200,
+      "row_hash": "4f53cda18c2baa0c",
+      "columns": [
+        "item_id",
+        "payment_run_id",
+        "scheduled_date",
+        "cutoff_local",
+        "vendor_id",
+        "vendor_name",
+        "invoice_no",
+        "bank_account_id",
+        "amount_usd",
+        "account_hash",
+        "account_last4",
+        "bank_changed_at",
+        "callback_confirmed_at",
+        "callback_phone_source",
+        "account_vendor_count",
+        "data_origin"
+      ],
+      "row_count": 0,
+      "rows": [],
+      "error": null,
+      "code": null
+    },
+    "dq7": {
+      "name": "dq7-group",
+      "captured_at": "2026-10-27T17:13:24.602Z",
+      "query_id": "287c99a9-9898-4b41-b8c8-ea0e8f4128bf",
+      "latency_ms": 1325,
+      "http_status": 200,
+      "row_hash": "42a71b0b9f32db41",
+      "columns": [
+        "account_hash",
+        "vendor_count",
+        "vendor_ids",
+        "statuses"
+      ],
+      "row_count": 1,
+      "rows": [
+        [
+          "35b3f6fe36f7fbd4de8d547f66f5712c070586a5175353215a1cf5f83b7cf1f5",
+          "2",
+          "V-10233,V-10234",
+          "active"
+        ]
+      ],
+      "error": null,
+      "code": null
+    },
+    "t23": {
+      "name": "t23-v10027",
+      "captured_at": "2026-10-27T17:13:25.929Z",
+      "query_id": "69140160-985b-481e-992e-b820e7549924",
+      "latency_ms": 24120,
+      "http_status": 200,
+      "row_hash": "0f35932553f8614e",
+      "columns": [
+        "vendor_id",
+        "vendor_name",
+        "uei",
+        "usa_legal_name",
+        "usa_address_line1",
+        "usa_city",
+        "usa_state",
+        "usa_zip",
+        "cik",
+        "edgar_legal_name",
+        "edgar_phone",
+        "edgar_ein",
+        "payment_item_count",
+        "total_exposure"
+      ],
+      "row_count": 1,
+      "rows": [
+        [
+          "V-10027",
+          "Booz Allen Hamilton Inc",
+          "JCBMLGPE6Z71",
+          "BOOZ ALLEN HAMILTON INC",
+          "8283 GREENSBORO DR",
+          "MCLEAN",
+          "VA",
+          "22102",
+          "0001443646",
+          "Booz Allen Hamilton Holding Corp",
+          "703-902-5000",
+          "000000000",
+          "8",
+          "2578271.76"
+        ]
+      ],
+      "error": null,
+      "code": null
+    },
+    "dq9": {
+      "name": "dq9-count",
+      "captured_at": "2026-10-27T17:13:50.051Z",
+      "query_id": "645a966b-3f3a-4c11-9945-2bd59f094a8a",
+      "latency_ms": 5742,
+      "http_status": 200,
+      "row_hash": "751872ebf9996c81",
+      "columns": [
+        "total",
+        "valid",
+        "invalid"
+      ],
+      "row_count": 1,
+      "rows": [
+        [
+          "153",
+          "153",
+          "0"
+        ]
+      ],
+      "error": null,
+      "code": null
+    },
+    "listed_bare": {
+      "name": "dq8-list",
+      "captured_at": "2026-10-27T17:13:14.453Z",
+      "query_id": null,
+      "latency_ms": null,
+      "http_status": 400,
+      "row_hash": null,
+      "columns": null,
+      "row_count": null,
+      "rows": null,
+      "error": "org.apache.hive.service.cli.HiveSQLException: Error running query: com.zetaris.lightning.sql.lightningcatalog.parser.LightningCatalogParserException: missing 'USL' at '<EOF>' == SQL == LIST DQ at org.apache.spark.sql.hive.thriftserver.HiveThriftServerErrors$.runningQueryError(HiveThriftServerErro...",
+      "code": "zetaris_forbidden"
+    }
+  }
+}

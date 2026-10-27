@@ -14,6 +14,24 @@ export async function getJson(request: APIRequestContext, path: string): Promise
   return { status: res.status(), body };
 }
 
+export async function postJson(request: APIRequestContext, path: string, data: unknown): Promise<{ status: number; body: unknown }> {
+  const res = await request.post(`${apiBase()}${path}`, { data });
+  const body: unknown = await res.json().catch(() => null);
+  return { status: res.status(), body };
+}
+
+/** `{ error, code }` and nothing else: no stack, no driver or database text. */
+export function assertClientError(status: number, body: unknown, code?: string): void {
+  expect(status, "status").toBeGreaterThanOrEqual(400);
+  expect(status, "status").toBeLessThan(500);
+  const err = asRecord(body, "error body");
+  expect(typeof err.error).toBe("string");
+  expect(typeof err.code).toBe("string");
+  if (code) expect(err.code).toBe(code);
+  expect(JSON.stringify(err)).not.toMatch(/stack|postgres|SQLSTATE|syntax error|node_modules/i);
+  expect(Object.keys(err).sort()).toEqual(["code", "error"]);
+}
+
 export function asRecord(value: unknown, label: string): Record<string, unknown> {
   expect(value, label).toBeTruthy();
   expect(typeof value, label).toBe("object");

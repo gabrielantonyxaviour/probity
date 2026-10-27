@@ -1,6 +1,7 @@
 // Public template allow-list (03 §7.2).
 import type { TemplateId } from "../schemas/templates.ts";
 import { t12, t13, t14, t15, t22, t30 } from "./ddl.ts";
+import { dq7, dq7c, dq9, dq9c, t23 } from "./d3.ts";
 import { t20, t21 } from "./dq.ts";
 import { t01, t02, t03, t04, t04b, t07, t08, t08b, t09 } from "./erp.ts";
 import { t05, t05b, t06a, t06b, t06c, t10, t11, t16 } from "./registry.ts";
@@ -40,4 +41,9 @@ export const templates: Record<TemplateId, Template<never>> = {
   T21: t21 as unknown as Template<never>,
   T22: t22 as unknown as Template<never>,
   T30: t30 as unknown as Template<never>,
+  DQ7: dq7 as unknown as Template<never>,
+  DQ7c: dq7c as unknown as Template<never>,
+  DQ9: dq9 as unknown as Template<never>,
+  DQ9c: dq9c as unknown as Template<never>,
+  T23: t23 as unknown as Template<never>,
 };

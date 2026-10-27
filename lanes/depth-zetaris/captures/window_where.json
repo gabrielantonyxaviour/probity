@@ -1,0 +1,13 @@
+{
+  "id": "window_where",
+  "captured_at": "2026-10-27T15:39:55.993Z",
+  "sql": "SELECT vendor_id, account_hash FROM lightning.metastore.probity.vendor360.vendor_bank_account WHERE COUNT(*) OVER (PARTITION BY account_hash) > 1 LIMIT 5",
+  "queryId": "617d8c80-7b66-4a52-93ed-d3a3f6743f40",
+  "latency_ms": 7082,
+  "http_status": 400,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "It is not allowed to use window functions inside WHERE clause.",
+  "code": "zetaris_bad_request"
+}

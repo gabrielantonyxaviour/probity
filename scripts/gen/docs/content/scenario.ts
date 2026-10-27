@@ -29,7 +29,7 @@ export const letter01 = (): Letter => ({
   ],
   remit: { label: "New remit-to address", address: "1 Commvault Way, Suite 205, Tinton Falls, NJ 07724" },
   bank: { bank_name: BANKS.calderwick, routing: ROUTING, account: "000999000141", account_name: "Booz Allen Hamilton Inc." },
-  closing: "Sincerely,", signer: "R. Castellane (fictional)", signerTitle: "Treasury Operations",
+  closing: "Sincerely,", signer: "R. Castellane", signerTitle: "Treasury Operations",
 });
 
 export const letter02 = (): Letter => ({
@@ -49,7 +49,7 @@ export const letter02 = (): Letter => ({
   ],
   remit: { label: "New remit-to address", address: "12010 Sunset Hills Rd, Reston, VA 20190" },
   bank: { bank_name: BANKS.harborline, routing: ROUTING, account: "000999000163", account_name: "Science Applications International Corporation" },
-  closing: "Sincerely,", signer: "D. Marchetti (fictional)", signerTitle: "Accounts Receivable",
+  closing: "Sincerely,", signer: "D. Marchetti", signerTitle: "Accounts Receivable",
 });
 
 export const letter03 = (): Letter => ({
@@ -71,7 +71,7 @@ export const letter03 = (): Letter => ({
     },
   ],
   bank: { bank_name: BANKS.oldQuarry, routing: ROUTING, account: "000999000198", account_name: "L3Harris Technologies, Inc." },
-  closing: "Sincerely,", signer: "K. Albrecht (fictional)", signerTitle: "Treasury Services",
+  closing: "Sincerely,", signer: "K. Albrecht", signerTitle: "Treasury Services",
 });
 
 export const letter04 = (): Letter => ({
@@ -93,7 +93,7 @@ export const letter04 = (): Letter => ({
     },
   ],
   remit: { label: "New remit-to address", address: "2100 Reston Parkway, Suite 300, Reston, VA 20191" },
-  closing: "Regards,", signer: "L. Haverford (fictional)", signerTitle: "Accounts Receivable",
+  closing: "Regards,", signer: "L. Haverford", signerTitle: "Accounts Receivable",
 });
 
 export const letter06b = (): Letter => ({

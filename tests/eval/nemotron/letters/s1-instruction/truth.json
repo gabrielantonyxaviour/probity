@@ -17,7 +17,7 @@
       "zip": "07724"
     },
     "bank": {
-      "bank_name": "Calderwick Test Bank (fictional)",
+      "bank_name": "Calderwick Savings Bank",
       "routing": "110000000",
       "account_number": "000999000141"
     },
@@ -25,7 +25,7 @@
       "(703) 555-0147"
     ],
     "effective_date": "2026-10-30",
-    "signer_name": "R. Castellane (fictional)",
+    "signer_name": "R. Castellane",
     "signer_title": "Treasury Operations",
     "sender_email": null,
     "reply_to": null
@@ -111,7 +111,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -217,13 +217,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Calderwick Test Bank (fictional)",
+      "text": "Calderwick Savings Bank",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 943,
-          "w": 316,
+          "w": 248,
           "h": 28
         }
       ]
@@ -269,13 +269,13 @@
     },
     {
       "field": "signer_name",
-      "text": "R. Castellane (fictional)",
+      "text": "R. Castellane",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 1199,
-          "w": 250,
+          "w": 141,
           "h": 30
         }
       ]

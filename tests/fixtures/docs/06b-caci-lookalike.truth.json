@@ -11,7 +11,7 @@
     "letterhead_name": "CACI Internationl Inc",
     "remit_address": null,
     "bank": {
-      "bank_name": "Calderwick Test Bank (fictional)",
+      "bank_name": "Calderwick Savings Bank",
       "routing": "110000000",
       "account_number": "000999000420"
     },
@@ -92,7 +92,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -160,13 +160,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Calderwick Test Bank (fictional)",
+      "text": "Calderwick Savings Bank",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 739,
-          "w": 316,
+          "w": 248,
           "h": 28
         }
       ]

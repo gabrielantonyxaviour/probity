@@ -1,0 +1,13 @@
+{
+  "id": "name_invalid",
+  "captured_at": "2026-10-27T15:34:59.878Z",
+  "sql": "SELECT p.item_id, p.vendor_id, p.vendor_name, v.legal_name, v.name_norm AS legal_name_norm, trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(p.vendor_name)), ' (FICTIONAL)', ''), '[.,''\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) AS payee_norm FROM lightning.metastore.probity.vendor360.payment_run_item p JOIN lightning.metastore.probity.vendor360.vendor v ON v.vendor_id = p.vendor_id WHERE NOT (trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(p.vendor_name)), ' (FICTIONAL)', ''), '[.,''\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) <=> v.name_norm) LIMIT 500",
+  "queryId": "34ed7988-00a7-4f53-8b7f-c99859c3d445",
+  "latency_ms": 2,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

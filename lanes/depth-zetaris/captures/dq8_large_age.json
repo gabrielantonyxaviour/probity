@@ -1,0 +1,13 @@
+{
+  "id": "dq8_large_age",
+  "captured_at": "2026-10-27T15:34:59.874Z",
+  "sql": "SELECT MIN(datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE))) AS min_days, MAX(datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE))) AS max_days, COUNT(*) AS n FROM lightning.metastore.probity.vendor360.payment_run_item WHERE amount_usd > 100000 AND bank_changed_at IS NOT NULL AND scheduled_date IS NOT NULL LIMIT 1",
+  "queryId": "b773bdc2-e258-4110-946c-ac587d53ac57",
+  "latency_ms": 1,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

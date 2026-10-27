@@ -143,10 +143,28 @@ export function r7(s: PolicyState): ReasonCode | null {
   return mk("R7", `Routing number ${routing ?? str(t08b?.new_routing) ?? "unknown"} is not a valid ABA routing number (DQ3 request_routing_valid).`, q ? evidenceIds(s, q) : []);
 }
 
+/** R8 (D6): the request contains text addressed to an automated reviewer. The detail never repeats that text: it goes to the
+ *  rationale writer, and the spans themselves are in decision.injection for the UI. */
+export function r8(s: PolicyState): ReasonCode | null {
+  const counted = s.extras.injection?.spans.filter((x) => x.counted) ?? [];
+  const legacy = counted.length === 0 && !s.extras.injection ? (s.claims?.pressure_phrases ?? []).filter((p) => p.kind === "embedded_instruction").length : 0;
+  if (counted.length === 0 && legacy === 0) return null;
+  const hidden = counted.filter((x) => x.hidden).length;
+  const page = counted.filter((x) => !x.hidden && x.channel !== "email_body").length;
+  const email = counted.filter((x) => x.channel === "email_body").length;
+  const parts = [
+    hidden ? `${hidden} hidden line${hidden === 1 ? "" : "s"} in the PDF text layer (white, 1 pt, not visible on the page)` : null,
+    page ? `${page} line${page === 1 ? "" : "s"} on the page` : null,
+    email ? `${email} paragraph${email === 1 ? "" : "s"} in the email body` : null,
+    legacy ? `${legacy} quoted passage${legacy === 1 ? "" : "s"}` : null,
+  ].filter(Boolean);
+  return mk("R8", `The request contains text addressed to an automated reviewer: ${parts.join(", ")}. It was quoted and ignored.`, [], { variant: hidden ? "hidden" : "visible" });
+}
+
 /** name_multi_family helper used by the G2 floor: groups exact-name registry candidates by family key. */
 export const familyKey = (parent: string | null, uei: string): string => parent ?? uei;
 export const sameName = (a: string | null | undefined, b: string | null | undefined): boolean => !!a && !!b && nameNorm(a) === nameNorm(b);
 
 export function computeRed(s: PolicyState, o: RedOpts): ReasonCode[] {
-  return [r1(s), r2(s), r3(s)?.code ?? null, r4(s, o), r5(s), r6(s), r7(s)].filter((c): c is ReasonCode => c !== null);
+  return [r1(s), r2(s), r3(s)?.code ?? null, r4(s, o), r5(s), r6(s), r7(s), r8(s)].filter((c): c is ReasonCode => c !== null);
 }

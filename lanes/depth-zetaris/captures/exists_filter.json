@@ -1,0 +1,13 @@
+{
+  "id": "exists_filter",
+  "captured_at": "2026-10-27T15:40:03.085Z",
+  "sql": "SELECT COUNT(*) AS n FROM lightning.metastore.probity.vendor360.vendor v WHERE EXISTS (SELECT 1 FROM lightning.metastore.probity.vendor360.vendor_bank_account b WHERE b.vendor_id = v.vendor_id) LIMIT 1",
+  "queryId": "4b6e2cd3-7dfd-4071-86c1-3b01c47417ac",
+  "latency_ms": 45024,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "The operation was aborted due to timeout",
+  "code": "zetaris_timeout"
+}

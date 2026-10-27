@@ -1,0 +1,10 @@
+Title: Probity: agents that verify a vendor's bank-change request before the money moves
+
+Description:
+Probity reads a vendor's bank-change letter with NVIDIA Nemotron, checks every claim against live USAspending and SEC EDGAR records joined through Zetaris, and returns a Hold, Call back or Approve decision with an independent call-back number and every query behind it.
+It also sweeps the rest of the payment run unasked: the walkthrough shows a Booz Allen Hamilton request held with three reasons, a call-back from SEC EDGAR filings, two more payments flagged, and a clean L3Harris approval.
+Models run through Nightshift with a receipt for every call; the World Model carries memory between sessions. Grok (xAI) built the Zetaris data layer and the independent end-to-end test suite; Claude Code built the agents and the interface.
+
+Code: https://github.com/gabrielantonyxaviour/probity
+
+Data note: the requests and ERP records shown are synthetic; the registry data is live public USAspending and SEC EDGAR.

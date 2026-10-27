@@ -3,7 +3,7 @@ import { POLICY_VERSION } from "../../schemas/patterns";
 import type { Exposure, GateDecision, ReasonCode } from "../../schemas/decision";
 import type { PhonesAt } from "../../schemas/tools";
 import type { Candidate, PolicyState } from "../../orchestration/state";
-import { bannerText, mirrorLabel, SAMPLE_BANNER, simulatedOutageLabel, SYNTHETIC_NOTICE, zetarisDownLabel } from "../../policy/banners";
+import { bannerText, mirrorLabel, SAMPLE_BANNER, simulatedOutageLabel, zetarisDownLabel } from "../../policy/banners";
 import { callbackEvidence, selectCallback, type CallbackScript, type EdgarRegistrant } from "../../policy/callback";
 import { decide } from "../../policy/gate";
 import type { Coverage } from "../../policy/coverage";
@@ -104,7 +104,9 @@ export function buildDecision(s: PolicyState, a: BuildArgs): { decision: GateDec
     cost: costOf(s),
     rationale: { text: "", source: "template", number_check: "fallback" },
     rounds: s.round, mode: s.mode, limitations: [...s.limitations, ...cbLimits.filter((l) => !s.limitations.includes(l))],
-    labels: { synthetic_notice: SYNTHETIC_NOTICE, mode_banner: modeBanner(s), callback_notice: "Demo scenario: do not call." },
+    labels: { mode_banner: modeBanner(s) },
+    ...(s.extras.letter_reading ? { letter_reading: s.extras.letter_reading } : {}),
+    ...(s.extras.injection ? { injection: s.extras.injection } : {}),
   };
   return { decision: d, scripts };
 }

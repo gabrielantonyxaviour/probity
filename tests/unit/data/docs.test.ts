@@ -13,7 +13,7 @@ import { checkEml, checkLetter } from "../../../scripts/gen/docs/safety";
 
 const ROOT = path.resolve(import.meta.dirname, "../../..");
 const manifest = JSON.parse(readFileSync(path.join(ROOT, "data/inbox/manifest.json"), "utf8")) as { items: Item[] };
-interface Item { request_id: string; example_id: string; dir: string; scenario: string | null; channel: string; received_at: string; claimed_name: string; payment_run_id: string; change_kinds: string[]; attachments: { file: string; sha256: string; media_type: string }[] }
+interface Item { from: string; request_id: string; example_id: string; dir: string; scenario: string | null; channel: string; received_at: string; claimed_name: string; payment_run_id: string; change_kinds: string[]; attachments: { file: string; sha256: string; media_type: string }[] }
 const text = (rel: string): string => execFileSync("pdftotext", [path.join(ROOT, rel), "-"], { encoding: "utf8" });
 const sha = (rel: string): string => createHash("sha256").update(readFileSync(path.join(ROOT, rel))).digest("hex");
 const sha256Of = (b: Buffer): string => createHash("sha256").update(b).digest("hex");
@@ -54,7 +54,31 @@ describe("inbox manifest", () => {
 });
 
 describe("letters", () => {
-  const letters = manifest.items.filter((i) => i.scenario !== "S4" && i.scenario !== "S10"); // S10 is a fictional vendor: no watermark (injection.test.ts)
+  // Letters on real company names keep the watermark and footer (decision 8). The ten everyday requests and S10 are fictional vendors: unmarked.
+  const letters = manifest.items.filter((i) => i.scenario !== null && i.scenario !== "S4" && i.scenario !== "S10");
+  const everyday = manifest.items.filter((i) => i.scenario === null);
+  it("the ten everyday letters and emails carry no watermark, footer or synthetic wording, but keep the test banking data", () => {
+    expect(everyday).toHaveLength(10);
+    for (const i of everyday) {
+      const t = text(path.join(i.dir, "letter.pdf"));
+      expect(t, i.request_id).not.toMatch(/synthetic|fictional|hackathon|not a real request/i);
+      const info = execFileSync("pdfinfo", [path.join(ROOT, i.dir, "letter.pdf")], { encoding: "utf8" });
+      expect(info, i.request_id).not.toMatch(/synthetic|hackathon/i);
+      expect(i.claimed_name, i.request_id).not.toMatch(/fictional|synthetic/i);
+      expect(i.from, i.request_id).not.toMatch(/fictional|synthetic/i);
+      if (i.change_kinds.includes("bank")) { expect(t).toContain("TEST ROUTING"); expect(t).toContain("TEST ACCOUNT"); }
+      if (i.attachments.some((a) => a.file === "headers.eml")) {
+        const eml = readFileSync(path.join(ROOT, i.dir, "headers.eml"), "utf8");
+        expect(eml, i.request_id).not.toMatch(/synthetic|fictional/i);
+        expect(checkEml(eml, JSON.parse(readFileSync(path.join(ROOT, "db/seed/vendor.json"), "utf8")).find((v: { legal_name: string }) => v.legal_name === i.claimed_name)?.legal_name ?? "x", i.request_id, true)).toEqual([]);
+      }
+    }
+  });
+  it("sidecars and truth files name no person or bank as fictional", () => {
+    for (const dir of ["data/sample/claims", "tests/fixtures/docs"]) {
+      for (const f of readdirSync(path.join(ROOT, dir)).filter((n) => n.endsWith(".json"))) expect(readFileSync(path.join(ROOT, dir, f), "utf8"), f).not.toMatch(/\(fictional\)/);
+    }
+  });
   it("carry the watermark, the footer and the test banking data in the PDF text layer", () => {
     for (const i of letters) {
       const t = text(path.join(i.dir, "letter.pdf"));
@@ -87,7 +111,7 @@ describe("letters", () => {
   });
 
   it("headers.eml is CRLF, labelled and on .example domains", () => {
-    for (const i of manifest.items.filter((m) => m.scenario !== "S10" && m.attachments.some((a) => a.file === "headers.eml"))) {
+    for (const i of manifest.items.filter((m) => m.scenario !== null && m.scenario !== "S10" && m.attachments.some((a) => a.file === "headers.eml"))) {
       const eml = readFileSync(path.join(ROOT, i.dir, "headers.eml"), "utf8");
       expect(checkEml(eml, "x", i.request_id).filter((e) => !e.includes("X-Synthetic-Notice"))).toEqual([]);
       expect(eml).toContain("X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by ");
@@ -136,11 +160,11 @@ describe("safety checks fail the build", () => {
   it("passes the shipped letters", () => {
     for (const e of scenarioExamples()) expect(checkLetter(e.letter, layoutLetter(e.letter)), e.exampleId).toEqual([]);
   });
-  it("rejects a real-looking phone, a stray account, a real mail domain and an unmarked signer", () => {
+  it("rejects a real-looking phone, a stray account, a real mail domain and synthetic wording in an unmarked letter", () => {
     expect(laid((l) => { l.head.contact = { text: "Treasury (703) 902-5000", phone: "(703) 902-5000" }; }).join()).toContain("not 555-01xx");
     expect(laid((l) => { l.bank!.account = "123456789012"; }).join()).toContain("outside the test range");
     expect(laid((l) => { l.head.contact = { text: "ap@gmail.com", email: "ap@gmail.com" }; }).join()).toMatch(/\.example|real mail/);
-    expect(laid((l) => { l.signer = "R. Castellane"; }).join()).toContain("(fictional)");
+    expect(laid((l) => { l.signer = "R. Castellane (fictional)"; l.unmarked = true; }).join()).toMatch(/only a fictional vendor|synthetic wording/);
   });
   it("rejects a page without the watermark", () => {
     const l = letter01();

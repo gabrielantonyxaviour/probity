@@ -16,7 +16,15 @@ for _ in $(seq 1 30); do
   sleep 1
 done
 
+# A volume created before the plain-name seed carries CHECK (is_fictional = (legal_name LIKE '% (fictional)')). Drop it (idempotent).
 psql_in <<'SQL'
+DO $$
+DECLARE c record;
+BEGIN
+  FOR c IN SELECT conname FROM pg_constraint WHERE conrelid = 'vendor'::regclass AND contype = 'c' AND pg_get_constraintdef(oid) LIKE '%(fictional)%' LOOP
+    EXECUTE format('ALTER TABLE vendor DROP CONSTRAINT %I', c.conname);
+  END LOOP;
+END $$;
 TRUNCATE bank_change_document, bank_change_request, vendor_contact_log, payment_run_item, ap_invoice, payment_run,
          vendor_bank_account, vendor_remit_history, vendor_contact, vendor_domain, vendor RESTART IDENTITY CASCADE;
 ALTER SEQUENCE bcr_seq RESTART WITH 500;

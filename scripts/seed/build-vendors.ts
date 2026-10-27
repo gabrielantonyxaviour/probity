@@ -76,7 +76,7 @@ export function buildVendorWorld(drop: Drop): VendorWorld {
     const domains = f.legacyDomain
       ? [{ domain: f.legacyDomain, added: from }, { domain: current.domain, added: plusDays(from, 400 + rng.int(0, 200)) }]
       : [current];
-    vendors.push({ id: f.id, name: `${f.name} (fictional)`, fictional: true, uei: null, cik: null, remit: { line1, unit, city: f.city, state: f.state, zip }, status: f.inactive ? "inactive" : "active", mergedInto: null, legacy, created, domains, category: f.category, prefix: f.prefix ?? "" });
+    vendors.push({ id: f.id, name: `${f.name}`, fictional: true, uei: null, cik: null, remit: { line1, unit, city: f.city, state: f.state, zip }, status: f.inactive ? "inactive" : "active", mergedInto: null, legacy, created, domains, category: f.category, prefix: f.prefix ?? "" });
 
     const fmt = idx % 4;
     const render = (npa: string, n: number): string => { const s = String(n).padStart(2, "0"); return [`(${npa}) 555-01${s}`, `${npa}-555-01${s}`, `${npa}.555.01${s}`, `${npa}55501${s}`][fmt] as string; };

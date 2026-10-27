@@ -5,6 +5,7 @@ import type { GateDecision, Exposure, Observation } from "../schemas/decision";
 import type { Channel } from "../schemas/erp";
 import type { RunState, SourceHealth, SourceId } from "../schemas/run-state";
 import type { DocPage } from "../schemas/api";
+import type { DualReading, InjectionReport } from "../schemas/letter-checks";
 
 export type {
   RunState,
@@ -47,6 +48,8 @@ export type Extras = {
   j5_families: Array<{ key: string; label: string; uei: string | null }>; // exact-name registry candidates grouped by family (G2)
   j5_soft_candidate: boolean;
   j5_registrant: { cik: string; name: string | null; phone_e164: string | null; fetched_at: string } | null; // EDGAR registrant found in discovery
+  letter_reading: DualReading | null; // D1: both Ultra readings and their agreement
+  injection: InjectionReport | null; // D6: text addressed to an automated reviewer
 };
 
 export type PolicyState = RunState & { extras: Extras };
@@ -134,6 +137,8 @@ export function newRunState(a: {
       j5_families: [],
       j5_soft_candidate: false,
       j5_registrant: null,
+      letter_reading: null,
+      injection: null,
     },
   };
 }

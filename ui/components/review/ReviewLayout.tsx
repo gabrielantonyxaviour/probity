@@ -11,6 +11,7 @@ import { Banners } from "./Banners";
 import { DecisionSlot } from "./DecisionSlot";
 import { ExposureStrip } from "./ExposureStrip";
 import { FactSheet } from "./FactSheet";
+import { FederatedProfile } from "./FederatedProfile";
 import { LetterBody, LetterPane } from "./LetterPane";
 import { ModelsFooter } from "./ModelsFooter";
 import { MoreSections } from "./MoreSections";
@@ -36,6 +37,7 @@ function FactsPanel() {
   return (
     <>
       <div className="rv-panel"><FactSheet /></div>
+      <FederatedProfile />
       <div className="rv-panel"><MoreSections /></div>
     </>
   );
@@ -61,6 +63,7 @@ function Wide({ traceFull }: { traceFull: boolean }) {
         <DecisionSlot />
         <SweepAlert />
         <section><FactSheet /></section>
+        <FederatedProfile />
         <section><GraphPanel /></section>
         <MoreSections />
       </div>

@@ -1,0 +1,21 @@
+{
+  "id": "dq9_counts",
+  "captured_at": "2026-10-27T15:48:54.539Z",
+  "sql": "SELECT COUNT(*) AS total, SUM(CASE WHEN trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(p.vendor_name)), ' (FICTIONAL)', ''), '[.,''\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) <=> v.name_norm THEN 1 ELSE 0 END) AS valid, SUM(CASE WHEN NOT (trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(p.vendor_name)), ' (FICTIONAL)', ''), '[.,''\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) <=> v.name_norm) THEN 1 ELSE 0 END) AS invalid FROM lightning.metastore.probity.vendor360.payment_run_item p JOIN lightning.metastore.probity.vendor360.vendor v ON v.vendor_id = p.vendor_id LIMIT 1",
+  "queryId": "ada09142-1772-499d-9d7a-fd31d32ccfd7",
+  "latency_ms": 32882,
+  "http_status": 200,
+  "columns": [
+    "total",
+    "valid",
+    "invalid"
+  ],
+  "rows": [
+    [
+      "153",
+      "153",
+      "0"
+    ]
+  ],
+  "row_hash": "751872ebf9996c81"
+}

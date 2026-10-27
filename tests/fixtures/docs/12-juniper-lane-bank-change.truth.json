@@ -11,7 +11,7 @@
     "letterhead_name": "Juniper Lane Travel Management LLC",
     "remit_address": null,
     "bank": {
-      "bank_name": "Harborline Test Savings (fictional)",
+      "bank_name": "Harborline Savings",
       "routing": "110000000",
       "account_number": "000999000900"
     },
@@ -19,25 +19,12 @@
       "(703) 555-0111"
     ],
     "effective_date": "2026-11-01",
-    "signer_name": "T. Ellsworth (fictional)",
+    "signer_name": "T. Ellsworth",
     "signer_title": "Controller",
     "sender_email": null,
     "reply_to": null
   },
   "fields": [
-    {
-      "field": "watermark",
-      "text": "SYNTHETIC SAMPLE: not issued by Juniper Lane Travel Management LLC (fictional)",
-      "boxes": [
-        {
-          "page": 1,
-          "x": 145,
-          "y": 44,
-          "w": 603,
-          "h": 20
-        }
-      ]
-    },
     {
       "field": "letterhead_name",
       "text": "Juniper Lane Travel Management LLC",
@@ -105,7 +92,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -157,13 +144,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Harborline Test Savings (fictional)",
+      "text": "Harborline Savings",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 731,
-          "w": 337,
+          "w": 187,
           "h": 28
         }
       ]
@@ -209,13 +196,13 @@
     },
     {
       "field": "signer_name",
-      "text": "T. Ellsworth (fictional)",
+      "text": "T. Ellsworth",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 987,
-          "w": 234,
+          "w": 125,
           "h": 30
         }
       ]
@@ -233,5 +220,6 @@
         }
       ]
     }
-  ]
+  ],
+  "unmarked": true
 }

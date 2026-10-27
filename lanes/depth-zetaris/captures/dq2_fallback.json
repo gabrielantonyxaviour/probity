@@ -1,0 +1,13 @@
+{
+  "id": "dq2_fallback",
+  "captured_at": "2026-10-27T15:34:59.905Z",
+  "sql": "SELECT COUNT(*) AS total, SUM(CASE WHEN COALESCE((account_vendor_count <= 1), false) THEN 1 ELSE 0 END) AS valid FROM lightning.metastore.probity.vendor360.payment_run_item LIMIT 1",
+  "queryId": "37d55441-cb7f-46a2-932d-8b6a8dc0d5e6",
+  "latency_ms": 1,
+  "http_status": null,
+  "columns": null,
+  "rows": null,
+  "row_hash": null,
+  "error": "query failed",
+  "code": "zetaris_sql_error"
+}

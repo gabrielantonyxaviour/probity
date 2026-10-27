@@ -14,7 +14,7 @@
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-20T14:05:00Z",
       "channel": "email",
-      "from": "K. Albrecht (fictional) <treasury@l3harris.example>",
+      "from": "K. Albrecht <treasury@l3harris.example>",
       "subject": "Change of bank account",
       "scenario": "S3",
       "dir": "input_examples/03-l3harris-bank-change",
@@ -23,19 +23,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "310fb2aa6b24bcd1e7bb732e4338882003e3ddf7e9ec38c3f40bd8d001db5edd"
+          "sha256": "944f668facec365628ece9dcbad1c43f8c2176fd7b24c552524f05d578bdbfe7"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "b5fcea2a2d566657ec8bcca6ac592ff7f24ceb14e58f1a9dcf1ca312507a1cb8"
+          "sha256": "2ae2014c0298797f0b852b0d03c8b11d5333ab8814601f931f440d8b3e9e8928"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "93445ac00c1a0b957007fba4f3acf036307a67aa6972501a4fa3fcecdaa791d5"
+          "sha256": "76e25a2325cb11ad1c0affd3a1704ef821fec79e5a5bf1e4091a477cc6be5487"
         }
       ]
     },
@@ -43,14 +43,14 @@
       "inbox_id": "IN-0401",
       "request_id": "BCR-2026-0401",
       "example_id": "11-kettle-point-remit-change",
-      "claimed_name": "Kettle Point Data Cabling LLC (fictional)",
+      "claimed_name": "Kettle Point Data Cabling LLC",
       "change_kinds": [
         "remit"
       ],
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-21T14:20:00Z",
       "channel": "mail",
-      "from": "Mail scan · Kettle Point Data Cabling LLC (fictional) (postal)",
+      "from": "Mail scan · Kettle Point Data Cabling LLC (postal)",
       "subject": "Scanned letter: We have moved our office",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0401",
@@ -59,13 +59,13 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "e70acc9205035b8a85a0b446a82749217bb5e0e2c7d731105b95e1344afe80b8"
+          "sha256": "e1a257aa1c55768c56353604fca2acd872b69148b2f182bf38b5cc165b12f94d"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "dfb4b6b6bcd832b44426087df7501b0a0ef6acc4994dd1962dd933c8ae01226e"
+          "sha256": "7e1388cebf226544abc6ff49c1596c33e7719280e2f28b97b9eb118577a99bbc"
         }
       ]
     },
@@ -73,14 +73,14 @@
       "inbox_id": "IN-0405",
       "request_id": "BCR-2026-0405",
       "example_id": "12-juniper-lane-bank-change",
-      "claimed_name": "Juniper Lane Travel Management LLC (fictional)",
+      "claimed_name": "Juniper Lane Travel Management LLC",
       "change_kinds": [
         "bank"
       ],
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-21T18:44:00Z",
       "channel": "vendor_portal",
-      "from": "Vendor portal · Juniper Lane Travel Management LLC (fictional)",
+      "from": "Vendor portal · Juniper Lane Travel Management LLC",
       "subject": "Vendor portal request: ACH details for Juniper Lane Travel Management",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0405",
@@ -89,13 +89,13 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "6f919576f90bc2364eb668daeae9868874ec5d316a0622fb1fa74eeae1591603"
+          "sha256": "4d57202e90c6d99392a40761e86db070c90e3ba1fda761612e269af82115507d"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "874c80ad25fc2081a23afb79152d67a5bfbce0a6248d4c1f79f6d004f63d4f8d"
+          "sha256": "55b7f28971cbf2878ed2cded3cb879b704790f6c5c9a7c5da1338daa0daecddd"
         }
       ]
     },
@@ -103,14 +103,14 @@
       "inbox_id": "IN-0407",
       "request_id": "BCR-2026-0407",
       "example_id": "10-sable-harbor-injection",
-      "claimed_name": "Sable Harbor Marine Logistics LLC (fictional)",
+      "claimed_name": "Sable Harbor Marine Logistics LLC",
       "change_kinds": [
         "bank"
       ],
       "payment_run_id": "PR-2026-11-03",
       "received_at": "2026-10-22T09:41:00Z",
       "channel": "email",
-      "from": "\"T. Valdivia (fictional)\" <finance@sableharbor.example>",
+      "from": "\"T. Valdivia\" <finance@sableharbor.example>",
       "subject": "Updated ACH banking details - effective 3 November",
       "scenario": "S10",
       "dir": "input_examples/10-sable-harbor-injection",
@@ -119,19 +119,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "2b8d5f83f6ae86a5ebae3f8ada0b1a810c9cfbcf46cc92b15b457136e362e534"
+          "sha256": "a0772f8b84ae9815ba3e0de2d8d3e1a582e4c4e943262095a36364d06abe05b9"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "65c802d1869dc3d51b7b607bbec7ef1a779f2204e07f9d4b0fe8aced010cecb3"
+          "sha256": "be8f37bdec44951d6828d2361d11d91373f503cc63ec804e66148a3a515ace5a"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "07ece15bfeb7b0d6e60e00adecb56780b20c31a46d26c90a9b3bac9f0c78acf6"
+          "sha256": "0496e68cc98727731e10199d521352e36260fbf00f7e70bbf269b92979d371a7"
         }
       ]
     },
@@ -139,7 +139,7 @@
       "inbox_id": "IN-0409",
       "request_id": "BCR-2026-0409",
       "example_id": "13-pembrook-bank-remit-change",
-      "claimed_name": "Pembrook Secure Shredding Co (fictional)",
+      "claimed_name": "Pembrook Secure Shredding Co",
       "change_kinds": [
         "bank",
         "remit"
@@ -147,7 +147,7 @@
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-22T13:05:00Z",
       "channel": "email",
-      "from": "\"M. Prakash (fictional)\" <ar@pembrookshredding.example>",
+      "from": "\"M. Prakash\" <ar@pembrookshredding.example>",
       "subject": "Billing consolidation: new remit-to and bank account",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0409",
@@ -156,19 +156,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "383510c035da1e94155db07a5b3145383bfb81f63ef00a7f92e6b51efd2c4921"
+          "sha256": "898e3ad3c9b56a16097a8d3121cd8af6c7f961b5cb76aed1c53104456b1afc1b"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "a68d6b7a2014cc9946e82857f80e46af7be9ce8e1e6e74e32e8fe2b363409b2b"
+          "sha256": "eba052f93fa9e7cd01527b2427b1cb31a8f6b4e0e0d199c5f9329c8e058bce0f"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "1891e08617f9e01adaa01aaf2ff30ae7bea074686d5ed5c081807f8ff3464622"
+          "sha256": "0bf1a91a1c7c0ccc3080b5547eb6fe4f5c1fda05bf3388961dd63fc965389123"
         }
       ]
     },
@@ -184,7 +184,7 @@
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-22T15:12:00Z",
       "channel": "email",
-      "from": "R. Castellane (fictional) <ap-remittance@boozallen-payments.example>",
+      "from": "R. Castellane <ap-remittance@boozallen-payments.example>",
       "subject": "Updated remittance and banking instructions - effective before 30 October",
       "scenario": "S1",
       "dir": "input_examples/01-booz-allen-remit-change",
@@ -193,19 +193,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "dbbf38195127dbb630c91428253d4f9128cf6a7f65d469dba32cbad7e02cdac3"
+          "sha256": "d95325a6c67b835bc40472e4f8e85762433dd45e5a14730d476e466ba10a66db"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "37ba4b75564e0b7d54fe7db79591b55c361f9be460e1e5a757a47a6b3cbef709"
+          "sha256": "39fff479de6a4f4cf04fa174d41a441690a66e7b7b8f20727f0db06d3463187e"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "348eac79e1dfa33c951cc76c2a233a95d2d6baa45dda73b04b9d67d855e9b073"
+          "sha256": "2f3c42e967f0306d9e83d864356cc610b4a9965a10ea1b1aab9a27ea63fdd02f"
         }
       ]
     },
@@ -213,14 +213,14 @@
       "inbox_id": "IN-0414",
       "request_id": "BCR-2026-0414",
       "example_id": "14-chesterfield-bank-change",
-      "claimed_name": "Chesterfield Ridge Staffing Group Inc (fictional)",
+      "claimed_name": "Chesterfield Ridge Staffing Group Inc",
       "change_kinds": [
         "bank"
       ],
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-22T19:30:00Z",
       "channel": "email",
-      "from": "\"H. Ostergaard (fictional)\" <accounts@chesterfieldridge.example>",
+      "from": "\"H. Ostergaard\" <accounts@chesterfieldridge.example>",
       "subject": "Change of bank account",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0414",
@@ -229,19 +229,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "40865ea0064773f3b68404a09be5b8f98fec40fa54f2342ac425046a6e35c54e"
+          "sha256": "bedb01b57ccdc7d13012b0150af1869e503223a44365af44a731d25954925163"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "8dc2573c5b1bc9bf6dfcaf80f72becc7131ca6bea8f26edb2db84cef609800a1"
+          "sha256": "9488f7ff5756ae0d586fdbda66b843752bc5390a3efa3bf2c653a46cd89dfce1"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "85e0d416994e9917e8857ed1ce1d2df588507d9585e89dccdb243e04ce23858d"
+          "sha256": "6a919b2e6aa192874c54de8cd4b4648ec67f5f821369909d215a873395382002"
         }
       ]
     },
@@ -257,7 +257,7 @@
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-23T13:47:00Z",
       "channel": "email",
-      "from": "D. Marchetti (fictional) <ap@saic.example>",
+      "from": "D. Marchetti <ap@saic.example>",
       "subject": "Remit-to address update",
       "scenario": "S2",
       "dir": "input_examples/02-saic-leidos-remit-change",
@@ -266,19 +266,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "0372c79043c5cd0e677be4a8f64e09c239beeb5b0181ec4b60773deef77bc6eb"
+          "sha256": "a812e85681838f9ad4dd0f3341eee71b1536d708aa921ac79ca73a0d4b96ca71"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "f4638361971af5594b8a483424f81a5f0e762a3963ab9f1ba30c6a51b99f85e6"
+          "sha256": "e17f4b06af498981b9afd389d7e27565eb81256ff117347f09aea854fd4b2864"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "2dd3791eca61051adde79bd6e872cafe37e9fdafa5c43ec1a5074ffeef163791"
+          "sha256": "e757fb81515918a664224310b5721a476ce375e17fc6c3c4da482d420759cf65"
         }
       ]
     },
@@ -293,7 +293,7 @@
       "payment_run_id": "PR-2026-11-03",
       "received_at": "2026-10-23T16:30:00Z",
       "channel": "email",
-      "from": "L. Haverford (fictional) <ar@v2x.example>",
+      "from": "L. Haverford <ar@v2x.example>",
       "subject": "Change of remittance address",
       "scenario": "S4",
       "dir": "input_examples/04-v2x-remit-change",
@@ -302,19 +302,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "819885dbb0a63ceecacbd760dc84563c1a80b8c6ef7ce412384c9c48640ac542"
+          "sha256": "822a4e2087abfa3ebe9eef3d8fc2219bff2f22299650604c74b9b96ecf1d2183"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "e320ab8829fe93132e4995c98bad8b97fd986ae18e21318b8e363372116f3f4e"
+          "sha256": "3e55835f3ed1f4eb87e1fda242eebd80fa8e8ddaf937f04fdad67782ac7df8be"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "627772a50d9686d513d7f3946f922b41fc5a7b043050bb8b970f1753173d5d4e"
+          "sha256": "88e007d92b4fcb5d4119fdaf43de6de23680dd478e877cada44785210a6de916"
         }
       ]
     },
@@ -322,14 +322,14 @@
       "inbox_id": "IN-0420",
       "request_id": "BCR-2026-0420",
       "example_id": "15-corbin-hollow-bank-change",
-      "claimed_name": "Corbin Hollow HVAC Services LLC (fictional)",
+      "claimed_name": "Corbin Hollow HVAC Services LLC",
       "change_kinds": [
         "bank"
       ],
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-24T15:15:00Z",
       "channel": "email",
-      "from": "\"B. Quillfeather (fictional)\" <ar@corbinhollow-payments.example>",
+      "from": "\"B. Quillfeather\" <ar@corbinhollow-payments.example>",
       "subject": "Bank account change, please action before Friday",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0420",
@@ -338,19 +338,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "770f95c56f3c5668dda1f92437ace7c71a2125a9027871843e9ed44f4dbb2b78"
+          "sha256": "1539bf709d5f9dad5f1e7530c2e4fd0e4ad06b10a7f51e9eb336c7ccef56d6d7"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "77b69242f1205245f041ea6dd1c49215e33c7fd0fe761e24d62eea5d179cb61b"
+          "sha256": "9b14288c12ae144e167530e103bd17dd3c13129fd8440cd5214a0627e406bc5f"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "dd18c6fd7af9d1d1f6a8d5f55a94257c663c56fcc39bfe22d0542d504b4af01b"
+          "sha256": "3f341f3f3399f332014cd406bc001ac91089c3690ca73d8075a4cf8e6391d14f"
         }
       ]
     },
@@ -358,14 +358,14 @@
       "inbox_id": "IN-0425",
       "request_id": "BCR-2026-0425",
       "example_id": "16-granite-shoals-remit-change",
-      "claimed_name": "Granite Shoals Engineering PLLC (fictional)",
+      "claimed_name": "Granite Shoals Engineering PLLC",
       "change_kinds": [
         "remit"
       ],
       "payment_run_id": "PR-2026-11-03",
       "received_at": "2026-10-25T14:02:00Z",
       "channel": "email",
-      "from": "\"J. Okeke-Ruiz (fictional)\" <ap@graniteshoals.example>",
+      "from": "\"J. Okeke-Ruiz\" <ap@graniteshoals.example>",
       "subject": "New suite number for remittances",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0425",
@@ -374,19 +374,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "a478150938ad1507e6cf1dfa25c26cf4c40769451ed622349657441279d7b6d8"
+          "sha256": "28e7a4edd141ce8f063e7a07f36aaa50d3d6e2bcea5e016752f81f2d2bf1c8a7"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "ee0d2b89cbdb4f20d5697310c1c563f2d63933ac96a18301067746a02a44541a"
+          "sha256": "1ddeda2150a02241e94e341a1ef5a20ff2e616aa08300c0c9ebaf2f54b6b868f"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "9a190619c466a0b6b2c2b07356336b5ec3dd96fecc19c479eac26fc755b519aa"
+          "sha256": "c38405418e97d04f052a121ed9002f9c39c0b77aa224eb757b8184ea64ea05ef"
         }
       ]
     },
@@ -410,13 +410,13 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "603dea7f8023e61af5629ae34460b17d6f82de4d257814ec2ec325da2c2b223a"
+          "sha256": "316a5ee64932fd5fdeea3f87bb6971b71fb549eaf1701a780df32c09d32a2b2d"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "2304c38bdbe70a12dcb68f4ffd42c9f4d6cf9cccc82de809357fb96b772d2915"
+          "sha256": "23aa1c2fc8ba470199c4eb661055d6a116c76eb23094c0b20f97595e3130538a"
         },
         {
           "kind": "eml_headers",
@@ -430,14 +430,14 @@
       "inbox_id": "IN-0429",
       "request_id": "BCR-2026-0429",
       "example_id": "17-ostrander-bank-change",
-      "claimed_name": "Ostrander Test & Calibration Inc (fictional)",
+      "claimed_name": "Ostrander Test & Calibration Inc",
       "change_kinds": [
         "bank"
       ],
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-26T13:20:00Z",
       "channel": "email",
-      "from": "\"D. Whitcombe (fictional)\" <ar@ostranderlab.example>",
+      "from": "\"D. Whitcombe\" <ar@ostranderlab.example>",
       "subject": "Updated ACH instructions",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0429",
@@ -446,19 +446,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "3f0ea6beb73380fd97cad48033005415bdb68fe63024adbf1f5d8dfa8f06e57e"
+          "sha256": "5576a31a1c2cb2ccc509311b4f7fc0ace4395bd05c05e32835b1bfa7b4fb6a51"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "cd8c92e097d5dcaf6e7aa0baf27fe0d492a1bb971ebe4efa459908455cd7cef9"
+          "sha256": "4f84ba4ab4b08ac1aa440e6ad9103dddd80fb84e3e91fec10fc720c09bfc4c21"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "0b5280196c42d34984dc418c53b6a0569eec357a642c4836254bad37bf2749eb"
+          "sha256": "871f0051edaca81102199e2e1d9c4a1c004b5e9bacae379a1b77108bcf8cc681"
         }
       ]
     },
@@ -466,7 +466,7 @@
       "inbox_id": "IN-0434",
       "request_id": "BCR-2026-0434",
       "example_id": "18-bellhaven-bank-remit-change",
-      "claimed_name": "Bellhaven Print & Mail Inc (fictional)",
+      "claimed_name": "Bellhaven Print & Mail Inc",
       "change_kinds": [
         "bank",
         "remit"
@@ -474,7 +474,7 @@
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-26T20:41:00Z",
       "channel": "mail",
-      "from": "Mail scan · Bellhaven Print & Mail Inc (fictional) (postal)",
+      "from": "Mail scan · Bellhaven Print & Mail Inc (postal)",
       "subject": "Scanned letter: New bank and mailing address for payments",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0434",
@@ -483,13 +483,13 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "0771d88e6da78504ced8d1a4d4b0c20ccc6ea254d7a1a767634ecf560f9bd1aa"
+          "sha256": "658db3df205ca37e94277e1bbf297cebbd3ddd1e03050e2a1105c3c27868324e"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "557489e4799bd92d9d99fe0a55da055786224ccdca3e88b1265ec5035a80fa2f"
+          "sha256": "178dcfd107955c34a3247febcf47c95f79b2432abbe9a0ad77e48de9c6002203"
         }
       ]
     },
@@ -497,14 +497,14 @@
       "inbox_id": "IN-0439",
       "request_id": "BCR-2026-0439",
       "example_id": "19-merriwether-bank-change",
-      "claimed_name": "Merriwether Cloud Reseller LLC (fictional)",
+      "claimed_name": "Merriwether Cloud Reseller LLC",
       "change_kinds": [
         "bank"
       ],
       "payment_run_id": "PR-2026-11-03",
       "received_at": "2026-10-27T06:12:00Z",
       "channel": "email",
-      "from": "\"Dana Whitcombe (fictional)\" <billing@merriwethercloud.example>",
+      "from": "\"Dana Whitcombe\" <billing@merriwethercloud.example>",
       "subject": "Bank account update for our subscriptions",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0439",
@@ -513,19 +513,19 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "f4d6a7b30034b6f3e09b67eebbb0549436e7a53b910424c0ee7df1de97068846"
+          "sha256": "367f8dd4ed145b4fbec3f09b448ddf21ee593a44cef782e6b9eb800c026a3f80"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "cc638fdd358d18221d1d07985d0c65fc14db833c1821438c419a004f1964b6fd"
+          "sha256": "791e17bb8d120bc0c1356de526b05cbe96e88d5b9888830685f8b3298b2611d7"
         },
         {
           "kind": "eml_headers",
           "file": "headers.eml",
           "media_type": "message/rfc822",
-          "sha256": "8ef0973d45c515e0229939663788304a03c28da676f730444f717512bc70a037"
+          "sha256": "8389f0c41d4a7f28ed4948c67acb469c9145c059abfc9f4a4c4a3df900faa8cf"
         }
       ]
     },
@@ -533,14 +533,14 @@
       "inbox_id": "IN-0443",
       "request_id": "BCR-2026-0443",
       "example_id": "20-harrow-vale-remit-change",
-      "claimed_name": "Harrow & Vale Legal Support LLC (fictional)",
+      "claimed_name": "Harrow & Vale Legal Support LLC",
       "change_kinds": [
         "remit"
       ],
       "payment_run_id": "PR-2026-10-30",
       "received_at": "2026-10-27T06:48:00Z",
       "channel": "vendor_portal",
-      "from": "Vendor portal · Harrow & Vale Legal Support LLC (fictional)",
+      "from": "Vendor portal · Harrow & Vale Legal Support LLC",
       "subject": "Vendor portal request: Lockbox for remittances",
       "scenario": null,
       "dir": "data/inbox/items/BCR-2026-0443",
@@ -549,13 +549,13 @@
           "kind": "letter",
           "file": "letter.png",
           "media_type": "image/png",
-          "sha256": "c8f6738cd2e35387c3f52bd1572b7bc8a5b70fe2ae4c6ae9e93ac3b666947201"
+          "sha256": "d4d74e6ac6f4fe3ab746a9290be1c0f116fc6b312c3400e82ba3758d7c5535e8"
         },
         {
           "kind": "letter",
           "file": "letter.pdf",
           "media_type": "application/pdf",
-          "sha256": "f586f965c724739a77e1c6abd72c56afe513bb5dfcd88abaff5658e76f293834"
+          "sha256": "a12a9376ad3151e9658bd2d17d869f75aca68df5d388a9d6c173519396fae316"
         }
       ]
     }

@@ -2,15 +2,15 @@
   "example_id": "12-juniper-lane-bank-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "6f919576f90bc2364eb668daeae9868874ec5d316a0622fb1fa74eeae1591603",
-    "874c80ad25fc2081a23afb79152d67a5bfbce0a6248d4c1f79f6d004f63d4f8d"
+    "4d57202e90c6d99392a40761e86db070c90e3ba1fda761612e269af82115507d",
+    "55b7f28971cbf2878ed2cded3cb879b704790f6c5c9a7c5da1338daa0daecddd"
   ],
   "account_number": "000999000900",
   "claimed_name": "Juniper Lane Travel Management LLC",
   "letterhead_name": "Juniper Lane Travel Management LLC",
   "remit_address": null,
   "bank": {
-    "bank_name": "Harborline Test Savings (fictional)",
+    "bank_name": "Harborline Savings",
     "routing": "110000000",
     "account_last4": "0900"
   },
@@ -26,23 +26,10 @@
   ],
   "effective_date": "2026-11-01",
   "invoice_refs": [],
-  "signer_name": "T. Ellsworth (fictional)",
+  "signer_name": "T. Ellsworth",
   "pressure_phrases": [],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Juniper Lane Travel Management LLC (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Juniper Lane Travel Management LLC (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        605,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -124,12 +111,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "T. Ellsworth (fictional)",
+      "quote": "T. Ellsworth",
       "page": 1,
       "bbox_hint": [
         117,
         617,
-        307,
+        218,
         636
       ],
       "highlight_source": "text_layer"

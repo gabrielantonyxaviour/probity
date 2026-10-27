@@ -99,7 +99,7 @@ function Inner(p: Props) {
           sourceHandle: l.sh,
           targetHandle: l.th,
           selectable: false,
-          data: { label, state, conflict, dim: !!p.dimEdges && !p.dimEdges.has(l.id), validTo: e?.valid_to ?? null, same: !!same, testState: state === "approved" || state === "rejected" || state === "superseded" ? state : "recorded", title },
+          data: { label, state, conflict, dim: !!p.dimEdges && !p.dimEdges.has(l.id), validTo: e?.valid_to ?? null, same: !!same, testState: state === "approved" || state === "rejected" || state === "superseded" ? state : "recorded", title, via: l.via ?? null },
         };
       }),
     [p.layout, p.dimEdges, byId, conflictFlag],

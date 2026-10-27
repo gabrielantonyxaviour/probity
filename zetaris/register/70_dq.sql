@@ -25,3 +25,8 @@ ein IS NOT NULL AND ein <> '000000000'
 
 REGISTER DQ sec_state_of_inc_present TABLE lightning.metastore.probity.vendor360.sec_registrant AS
 state_of_inc IS NOT NULL AND state_of_inc <> ''
+
+-- @@
+
+REGISTER DQ bank_change_before_large_payment TABLE lightning.metastore.probity.vendor360.payment_run_item AS
+amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))

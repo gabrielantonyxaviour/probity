@@ -2,9 +2,9 @@
   "example_id": "01-booz-allen-remit-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "dbbf38195127dbb630c91428253d4f9128cf6a7f65d469dba32cbad7e02cdac3",
-    "37ba4b75564e0b7d54fe7db79591b55c361f9be460e1e5a757a47a6b3cbef709",
-    "348eac79e1dfa33c951cc76c2a233a95d2d6baa45dda73b04b9d67d855e9b073"
+    "d95325a6c67b835bc40472e4f8e85762433dd45e5a14730d476e466ba10a66db",
+    "39fff479de6a4f4cf04fa174d41a441690a66e7b7b8f20727f0db06d3463187e",
+    "2f3c42e967f0306d9e83d864356cc610b4a9965a10ea1b1aab9a27ea63fdd02f"
   ],
   "account_number": "000999000141",
   "claimed_name": "Booz Allen Hamilton Inc.",
@@ -17,7 +17,7 @@
     "zip": "07724"
   },
   "bank": {
-    "bank_name": "Calderwick Test Bank (fictional)",
+    "bank_name": "Calderwick Savings Bank",
     "routing": "110000000",
     "account_last4": "0141"
   },
@@ -37,7 +37,7 @@
     "INV-BAH-20944",
     "INV-BAH-20967"
   ],
-  "signer_name": "R. Castellane (fictional)",
+  "signer_name": "R. Castellane",
   "pressure_phrases": [
     {
       "quote": "Please do not use the old main number; it is being retired.",
@@ -179,12 +179,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "R. Castellane (fictional)",
+      "quote": "R. Castellane",
       "page": 1,
       "bbox_hint": [
         117,
         721,
-        320,
+        231,
         739
       ],
       "highlight_source": "text_layer"

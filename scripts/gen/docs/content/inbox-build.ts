@@ -30,13 +30,13 @@ export function buildInbox(s: InboxSpec, seed: SeedView, index: number): Example
   const item = seed.openItem(s.vendorId);
   const newRemit = s.newRemit ? s.newRemit(v) : null;
   const phone = s.phoneNpa ? seed.freePhone(s.phoneNpa) : v.phone;
-  const company = v.name; // stored name, with " (fictional)"
+  const company = v.name; // stored name, with ""
   const senderDomain = s.lookalike ? `${v.label}-payments.example` : v.domain;
   const email = `${s.fromLocal ?? "ap"}@${senderDomain}`;
   const { paras } = s.body({ v, item, newRemit, account: s.account ?? null, phone });
   const addr = newRemit ?? address(v.remit);
   const letter: Letter = {
-    id: exampleId, company, claimedName: v.plainName, effectiveIso: s.effectiveIso, face: s.face,
+    id: exampleId, company, claimedName: v.plainName, unmarked: true, effectiveIso: s.effectiveIso, face: s.face,
     head: { name: v.plainName, address: addr, align: s.align, rule: s.rule, ...(s.headSize ? { size: s.headSize } : {}), contact: { text: s.channel === "email" || s.channel === "vendor_portal" ? `${phone} · ${email}` : `Phone ${phone}`, phone, ...(s.channel === "mail" ? {} : { email }) } },
     date: s.date, recipient: RECIPIENT, subject: s.subject, ...(s.caps ? { caps: true } : {}), salutation: s.salutation, paras,
     ...(newRemit ? { remit: { label: "New remit-to address", address: newRemit } } : {}),
@@ -45,11 +45,11 @@ export function buildInbox(s: InboxSpec, seed: SeedView, index: number): Example
   };
   const subjectLine = s.channel === "email" ? s.subject : s.channel === "vendor_portal" ? `Vendor portal request: ${s.subject}` : `Scanned letter: ${s.subject}`;
   const eml: EmlSpec | undefined = s.channel === "email"
-    ? { fromName: s.fromName === undefined ? s.signer : s.fromName, from: email, ...(s.replyTo ? { replyTo: s.replyTo } : {}), subject: s.subject, utc: s.received, senderIp: s.ip, auth: s.auth ?? { spf: "pass", dkim: "pass", dmarc: "pass" }, company, body: s.emlBody }
+    ? { fromName: s.fromName === undefined ? s.signer : s.fromName, from: email, ...(s.replyTo ? { replyTo: s.replyTo } : {}), subject: s.subject, utc: s.received, senderIp: s.ip, auth: s.auth ?? { spf: "pass", dkim: "pass", dmarc: "pass" }, company, unmarked: true, body: s.emlBody }
     : undefined;
   const from = s.channel === "email" ? `${s.fromName === null ? "" : `"${s.fromName ?? s.signer}" `}<${email}>`.trim() : s.channel === "vendor_portal" ? `Vendor portal · ${v.name}` : `Mail scan · ${v.name} (postal)`;
   return {
     folder: `data/inbox/items/BCR-2026-${s.no}`, exampleId, requestId: `BCR-2026-${s.no}`, letter, channel: s.channel, receivedAt: s.received,
-    paymentRunId: item?.run ?? "PR-2026-10-30", title: s.scenarioTitle, scenario: null, kinds: s.kinds, manifestName: v.name, from, subject: subjectLine, ...(eml ? { eml } : {}),
+    paymentRunId: item?.run ?? "PR-2026-10-30", title: s.scenarioTitle, scenario: null, kinds: s.kinds, manifestName: v.name, from, subject: subjectLine, unmarked: true, ...(eml ? { eml } : {}),
   };
 }

@@ -5,7 +5,7 @@ Authentication-Results: mx1.halvorsen-ms.example;
 	spf=pass smtp.mailfrom=v2x.example;
 	dkim=pass header.d=v2x.example;
 	dmarc=pass header.from=v2x.example
-From: "L. Haverford (fictional)" <ar@v2x.example>
+From: "L. Haverford" <ar@v2x.example>
 To: ap@halvorsen-ms.example
 Subject: Change of remittance address
 Date: Fri, 23 Oct 2026 12:30:00 -0400
@@ -19,5 +19,5 @@ X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by V2X, Inc. (formerly Vectrus, I
 Hello,
 Attached is a scan of our letter about the change of remittance address. The original is in the mail.
 Regards,
-L. Haverford (fictional)
+L. Haverford
 Accounts Receivable

@@ -12,6 +12,8 @@ import { claimedValue } from "@/lib/model/facts";
 import { FACT_LABELS, FACT_ORDER } from "@/lib/labels";
 import { hasLookalike } from "@/lib/model/reasons";
 import { ClaimsList, PageImage, ZoomBar, domainOf, useEml, usePages } from "./LetterParts";
+import { InjectionCard } from "./InjectionCard";
+import { ReadingsCard } from "./ReadingsCard";
 import { useReview } from "./review-context";
 
 function ExtractionChip() {
@@ -93,12 +95,14 @@ export function LetterBody({ zoomable = true, wideImage, split }: { zoomable?: b
           {zoomable ? <IconButton label={LETTER.expand} small onClick={() => setParams({ letter: "full" }, "push")}><Expand /></IconButton> : null}
         </div>
       </div>
+      <div className="min-w-0" style={split ? { gridColumn: 1 } : undefined}><InjectionCard onShow={(n) => { setTab(`p${n}`); setTimeout(() => document.querySelector('[data-testid="injection-highlight"]')?.scrollIntoView({ block: "center", behavior: "smooth" }), 50); }} /></div>
       {tab === "eml" ? <Headers /> : cur && claims ? (
         <div style={{ overflow: "auto", maxWidth: wideImage ? 900 : undefined }}>
           <PageImage page={cur} claims={claims} zoom={zoom} />
         </div>
       ) : <Skeleton w="100%" h={24} />}
       {claims ? <ExtractionChip /> : null}
+      <div className="min-w-0" style={split ? { gridColumn: 1 } : undefined}><ReadingsCard /></div>
       {claims && !split ? <ClaimsList claims={claims} /> : null}
       {claims && split ? <div style={{ gridColumn: 2, gridRow: "2 / span 3" }}><ClaimsList claims={claims} /></div> : null}
       <p className="t-ui-xs text-fg-muted" style={split ? { gridColumn: 1 } : undefined}>{LETTER.notInspected}</p>

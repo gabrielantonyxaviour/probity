@@ -41,3 +41,54 @@
 /* Nodes glide to their new place and new tags rise in while the scrubber moves through time. */
 .gr[data-asof="true"] .react-flow__node { transition: transform var(--dur-6) var(--ease-expo-out); }
 .gr[data-asof="true"] .gr-node__tags > * { animation: p-pop-in var(--dur-4) var(--ease-expo-out) both; }
+
+/* System page (D2 model per step) */
+.sy-page { display: grid; gap: 40px; padding: var(--app-P); padding-bottom: 64px; min-width: 0; }
+.sy-lanes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.sy-lane { display: grid; gap: 6px; padding: 16px; justify-items: start; min-width: 0; }
+.sy-table { min-width: 760px; }
+.sy-table td { min-width: 0; }
+.sy-metric { display: block; white-space: nowrap; }
+.sy-metric--wrap { white-space: normal; }
+.sy-chosen { background: var(--bg-surface-2); box-shadow: inset 2px 0 0 var(--agree); }
+
+/* D1 two readings */
+.rd { display: grid; gap: 12px; padding: 16px; min-width: 0; }
+.rd__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.rd__score { font-size: 28px; line-height: 1; }
+.rd__who { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px 16px; }
+.rd__reader { display: grid; gap: 2px; min-width: 0; }
+.rd__fields { display: grid; min-width: 0; }
+.rd__field { display: grid; gap: 4px; padding: 8px 10px; border-top: 1px dashed var(--rule); min-width: 0; }
+.rd__fhead { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.rd__ab { display: grid; gap: 2px; }
+.rd__ab > div { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 8px; align-items: baseline; }
+.rd__row--conflict { background: var(--conflict-bg); box-shadow: inset 3px 0 0 var(--conflict); }
+.rd__row--gap { box-shadow: inset 3px 0 0 var(--gap); }
+
+/* D6 instructions to an automated reviewer */
+.ij { display: grid; gap: 10px; padding: 16px; border: 1px solid var(--conflict-border); background: var(--conflict-bg); border-radius: var(--radius-card); min-width: 0; }
+.ij__head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ij__head .t-mono-label { margin-left: auto; }
+.ij__spans { display: grid; gap: 10px; }
+.ij__span { display: grid; gap: 4px; padding-top: 10px; border-top: 1px dashed var(--conflict-border); min-width: 0; }
+.ij__quote { margin: 0; padding-left: 10px; border-left: 2px solid var(--conflict); color: var(--fg-2); }
+.lt-inject { position: absolute; border: 2px dashed var(--conflict); background: color-mix(in srgb, var(--conflict) 18%, transparent); border-radius: 2px; pointer-events: auto; animation: p-pop-in var(--dur-5) var(--ease-expo-out) both; }
+.lt-inject__tag { position: absolute; top: -13px; right: -2px; padding: 0 4px; height: 12px; line-height: 12px; letter-spacing: 0.04em; border-radius: 999px; background: var(--conflict); color: var(--bg-canvas); white-space: nowrap; font-size: 8px; }
+.fs-differ { margin-top: 4px; }
+
+/* D3 T23 federated profile */
+.fd { display: grid; gap: 12px; padding: 16px; min-width: 0; }
+.fd__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 20px; }
+.fd__sys { display: grid; gap: 6px; align-content: start; min-width: 0; padding-top: 8px; border-top: 2px solid var(--rule); }
+.fd__sys[data-system="erp"] { border-top-color: var(--source-synthetic); }
+.fd__sys[data-system="usaspending"], .fd__sys[data-system="edgar"] { border-top-color: var(--source-real); }
+@media (max-width: 720px) {
+  .sy-table { min-width: 0; }
+  .sy-table thead { display: none; }
+  .sy-table, .sy-table tbody, .sy-table tr, .sy-table td { display: block; width: 100%; }
+  .sy-table tr { padding: 8px 0; border-top: var(--line); }
+  .sy-table td { border-top: 0; }
+  .sy-table td[data-lane]::before { content: attr(data-lane); display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); text-transform: uppercase; letter-spacing: var(--tracking-mono); color: var(--fg-muted); }
+  .sy-metric { white-space: normal; }
+}

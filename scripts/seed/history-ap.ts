@@ -34,7 +34,7 @@ export function assignPrefixes(vendors: VendorSpec[]): void {
   const used = new Set(vendors.map((v) => v.prefix).filter(Boolean));
   for (const v of vendors) {
     if (v.prefix) continue;
-    const words = v.name.replace(/ \(fictional\)$/, "").split(/\s+/).filter((w) => /^[A-Za-z]/.test(w));
+    const words = v.name.split(/\s+/).filter((w) => /^[A-Za-z]/.test(w));
     let p = words.slice(0, 3).map((w) => w[0]?.toUpperCase()).join("");
     while (p.length < 3) p += "X";
     for (let i = 0; used.has(p); i++) p = p.slice(0, 2) + "BCDFGHJKLMNPQRSTVWXZ"[i % 20];

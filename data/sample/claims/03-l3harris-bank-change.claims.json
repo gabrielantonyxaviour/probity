@@ -2,16 +2,16 @@
   "example_id": "03-l3harris-bank-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "310fb2aa6b24bcd1e7bb732e4338882003e3ddf7e9ec38c3f40bd8d001db5edd",
-    "b5fcea2a2d566657ec8bcca6ac592ff7f24ceb14e58f1a9dcf1ca312507a1cb8",
-    "93445ac00c1a0b957007fba4f3acf036307a67aa6972501a4fa3fcecdaa791d5"
+    "944f668facec365628ece9dcbad1c43f8c2176fd7b24c552524f05d578bdbfe7",
+    "2ae2014c0298797f0b852b0d03c8b11d5333ab8814601f931f440d8b3e9e8928",
+    "76e25a2325cb11ad1c0affd3a1704ef821fec79e5a5bf1e4091a477cc6be5487"
   ],
   "account_number": "000999000198",
   "claimed_name": "L3Harris Technologies, Inc.",
   "letterhead_name": "L3Harris Technologies, Inc.",
   "remit_address": null,
   "bank": {
-    "bank_name": "Old Quarry Test Bank (fictional)",
+    "bank_name": "Old Quarry National Bank",
     "routing": "110000000",
     "account_last4": "0198"
   },
@@ -27,7 +27,7 @@
   ],
   "effective_date": "2026-11-02",
   "invoice_refs": [],
-  "signer_name": "K. Albrecht (fictional)",
+  "signer_name": "K. Albrecht",
   "pressure_phrases": [],
   "watermark_text": "SYNTHETIC SAMPLE: not issued by L3Harris Technologies, Inc.",
   "fields": [
@@ -125,12 +125,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "K. Albrecht (fictional)",
+      "quote": "K. Albrecht",
       "page": 1,
       "bbox_hint": [
         117,
         574,
-        300,
+        212,
         593
       ],
       "highlight_source": "text_layer"

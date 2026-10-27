@@ -2,8 +2,8 @@
   "example_id": "06b-caci-lookalike",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "603dea7f8023e61af5629ae34460b17d6f82de4d257814ec2ec325da2c2b223a",
-    "2304c38bdbe70a12dcb68f4ffd42c9f4d6cf9cccc82de809357fb96b772d2915",
+    "316a5ee64932fd5fdeea3f87bb6971b71fb549eaf1701a780df32c09d32a2b2d",
+    "23aa1c2fc8ba470199c4eb661055d6a116c76eb23094c0b20f97595e3130538a",
     "9342dc4f176086f09789d4db6f16195448088126abdfa9b19d8b7c18d23f5e1e"
   ],
   "account_number": "000999000420",
@@ -11,7 +11,7 @@
   "letterhead_name": "CACI Internationl Inc",
   "remit_address": null,
   "bank": {
-    "bank_name": "Calderwick Test Bank (fictional)",
+    "bank_name": "Calderwick Savings Bank",
     "routing": "110000000",
     "account_last4": "0420"
   },

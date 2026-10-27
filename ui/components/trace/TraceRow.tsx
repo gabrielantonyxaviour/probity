@@ -4,29 +4,30 @@ import type { TraceEvent } from "@/lib/contracts";
 import { Chip } from "@/components/ui/chip";
 import { TRACE } from "@/lib/copy";
 import { offset } from "@/lib/format";
-import { AGENT_DISPLAY, ACTION_LABELS, STATUS_WORDS } from "@/lib/labels-trace";
+import { actionLabel, agentDisplay, STATUS_WORDS } from "@/lib/labels-trace";
 import { maskAccounts } from "@/lib/mask";
 import { eventAnchor, type ChallengeInfo } from "@/lib/model/trace";
+import { humanSummary } from "@/lib/model/trace-summary";
 import { EngineChip, ModelChip, Monogram, MetaChips, RecheckChip, ZetarisChip } from "./TraceChips";
 
 function label(ev: TraceEvent): string {
   if (ev.action === "register_source" && /pre-?registered/i.test(`${ev.output_summary} ${ev.note ?? ""}`)) return "Used a source pre-registered at setup";
-  return ACTION_LABELS[ev.action];
+  return actionLabel(ev.action);
 }
 
 function Body({ ev, challenge }: { ev: TraceEvent; challenge: ChallengeInfo | null }) {
   const [more, setMore] = useState(false);
   const [raw, setRaw] = useState(false);
-  const a = AGENT_DISPLAY[ev.agent_name];
+  const a = agentDisplay(ev.agent_name);
   const status = STATUS_WORDS[ev.status];
-  const summary = maskAccounts(ev.output_summary);
+  const summary = maskAccounts(humanSummary(ev));
   const long = summary.length > 110 || ev.input_summary.length > 0;
   return (
     <>
       <div className="tr-ev__l1">
         <span className="t-ui-sm t-medium text-fg">{a.name}{a.agent ? "" : " code"}</span>
         <span className="t-ui-sm text-fg-2">· {label(ev)}</span>
-        {ev.target_agent ? <span className="t-mono-label text-fg-muted">→ {AGENT_DISPLAY[ev.target_agent].name}</span> : null}
+        {ev.target_agent ? <span className="t-mono-label text-fg-muted">→ {agentDisplay(ev.target_agent).name}</span> : null}
         {status ? <Chip tone={ev.status === "error" ? "conflict" : "gap"} glyph={ev.status === "error" ? "✕" : "○"}>{status}</Chip> : null}
       </div>
       {summary ? <p className={`t-ui-sm text-fg ${more ? "" : "t-clamp-2"}`} data-testid="timeline-summary">{summary}</p> : null}

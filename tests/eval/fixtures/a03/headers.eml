@@ -5,7 +5,7 @@ Authentication-Results: mx1.halvorsen-ms.example;
 	spf=pass smtp.mailfrom=l3harris.example;
 	dkim=pass header.d=l3harris.example;
 	dmarc=pass header.from=l3harris.example
-From: "K. Albrecht (fictional)" <treasury@l3harris.example>
+From: "K. Albrecht" <treasury@l3harris.example>
 Reply-To: treasury@l3harris-remit.example
 To: ap@halvorsen-ms.example
 Subject: Change of bank account
@@ -20,5 +20,5 @@ X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by L3Harris Technologies, Inc.
 Hello,
 Please see the attached letter regarding a change of bank account effective 2 November 2026.
 Regards,
-K. Albrecht (fictional)
+K. Albrecht
 Treasury Services

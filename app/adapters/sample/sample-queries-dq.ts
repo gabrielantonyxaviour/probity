@@ -1,15 +1,20 @@
 // T20 (RUN DQ counts) and T21 (SHOW DQ INVALID RECORD) over the rebuilt payment_run_item, bank_change_request and registry tables.
 // The rule expressions are the ones in app/templates/dq-rules.ts, evaluated in TypeScript with the same null handling (COALESCE to false).
 import { z } from "zod";
-import { DQ_RULES, type DqRule } from "../../templates/dq-rules";
+import { DQ8_RULE, DQ_RULES, type DqRule } from "../../templates/dq-rules";
 import { AppError } from "../../schemas/errors";
 import { abaValid, dateDiffDays, tsRaw } from "./sample-format";
 import type { Row } from "./sample-store";
 import type { Usl } from "./sample-tables";
 
 const IDS = ["DQ1", "DQ2", "DQ3", "DQ4", "DQ5", "DQ6"] as const;
-const ruleOf = (id: string): DqRule => DQ_RULES[IDS.indexOf(id as (typeof IDS)[number])] ?? (() => { throw new AppError("zetaris_bad_request", "Unknown data quality rule."); })();
-const RULE = z.object({ rule: z.string().regex(/^DQ[1-6]$/), payment_run_id: z.string().optional() });
+const ruleOf = (id: string): DqRule => {
+  if (id === "DQ8") return DQ8_RULE;
+  const i = IDS.indexOf(id as (typeof IDS)[number]);
+  if (i < 0) throw new AppError("zetaris_bad_request", "Unknown data quality rule.");
+  return DQ_RULES[i]!;
+};
+const RULE = z.object({ rule: z.string().regex(/^DQ([1-6]|8)$/), payment_run_id: z.string().optional() });
 
 const TRUSTED = new Set(["edgar_registrant", "vendor_master_pre_window"]);
 const checks: Record<string, (r: Row) => boolean> = {
@@ -19,6 +24,15 @@ const checks: Record<string, (r: Row) => boolean> = {
   DQ4: (r) => r.address_line1 != null && r.address_line1 !== "",
   DQ5: (r) => r.ein != null && r.ein !== "" && r.ein !== "000000000",
   DQ6: (r) => r.state_of_inc != null && r.state_of_inc !== "",
+  DQ8: (r) => {
+    if (r.amount_usd == null || r.amount_usd === "") return true;
+    const amount = Number(r.amount_usd);
+    if (!Number.isFinite(amount) || amount <= 100000) return true;
+    if (r.bank_changed_at == null || r.bank_changed_at === "" || r.scheduled_date == null || r.scheduled_date === "") return true;
+    const days = dateDiffDays(String(r.scheduled_date), String(r.bank_changed_at));
+    if (!Number.isFinite(days) || days < 0 || days > 14) return true;
+    return !!r.callback_confirmed_at && TRUSTED.has(String(r.callback_phone_source));
+  },
 };
 const tableOf = (rule: DqRule, u: Usl): Row[] =>
   rule.table.endsWith("payment_run_item") ? u.payment_run_item : rule.table.endsWith("bank_change_request") ? u.bank_change_request : rule.table.endsWith("registry_entity") ? u.registry_entity : u.sec_registrant;

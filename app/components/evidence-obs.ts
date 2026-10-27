@@ -11,7 +11,7 @@ export function buildObservations(
   const out: Observation[] = [];
   const slot = new Map<string, number>();
   const q8 = rec.query_id.replace(/-/g, "").slice(0, 8);
-  rec.rows.forEach((row) => {
+  rec.rows.forEach((row, idx) => {
     for (const rule of rules) {
       if (rule.when && !rule.when(row)) continue;
       const value = rule.value(row);
@@ -31,6 +31,7 @@ export function buildObservations(
         mode: rec.mode,
         fetched_at: rec.fetched_at,
         latency_ms: rec.latency_ms,
+        row_indexes: [idx],
       });
     }
   });

@@ -1,0 +1,46 @@
+{
+  "id": "t23_v-10198_wide",
+  "vendor_id": "V-10198",
+  "vendor_label": "L3Harris",
+  "form": "wide",
+  "captured_at": "2026-10-27T15:58:15.093Z",
+  "sql": "SELECT CAST(v.vendor_id AS STRING) AS vendor_id, CAST(v.legal_name AS STRING) AS vendor_name, CAST(v.uei AS STRING) AS uei, e.legal_name AS usa_legal_name, e.address_line1 AS usa_address_line1, e.city_name AS usa_city, e.state_code AS usa_state, e.zip AS usa_zip, s.cik AS cik, s.legal_name AS edgar_legal_name, s.phone AS edgar_phone, s.ein AS edgar_ein, p.payment_item_count, p.total_exposure FROM payee_erp.vendor v LEFT JOIN (SELECT CAST(vendor_id AS STRING) AS vendor_id, COUNT(*) AS payment_item_count, SUM(CAST(amount_usd AS DECIMAL(18,2))) AS total_exposure FROM payee_erp.payment_run_item GROUP BY CAST(vendor_id AS STRING)) p ON p.vendor_id = CAST(v.vendor_id AS STRING) LEFT JOIN lightning.metastore.probity.vendor360.registry_entity e ON e.uei = CAST(v.uei AS STRING) LEFT JOIN lightning.metastore.probity.vendor360.sec_registrant s ON s.cik = CAST(v.registrant_cik AS STRING) WHERE CAST(v.vendor_id AS STRING) = 'V-10198' LIMIT 10",
+  "queryId": "dd2acd90-4d03-4076-8029-1dddcef34e41",
+  "latency_ms": 22023,
+  "http_status": 200,
+  "columns": [
+    "vendor_id",
+    "vendor_name",
+    "uei",
+    "usa_legal_name",
+    "usa_address_line1",
+    "usa_city",
+    "usa_state",
+    "usa_zip",
+    "cik",
+    "edgar_legal_name",
+    "edgar_phone",
+    "edgar_ein",
+    "payment_item_count",
+    "total_exposure"
+  ],
+  "rows": [
+    [
+      "V-10198",
+      "L3Harris Technologies, Inc.",
+      "QM4EZDV15JL8",
+      "L3HARRIS TECHNOLOGIES, INC.",
+      "1395 TROUTMAN BLVD NE",
+      "PALM BAY",
+      "FL",
+      "32905",
+      "0000202058",
+      "L3HARRIS TECHNOLOGIES, INC. /DE/",
+      "3217279100",
+      "340276860",
+      "7",
+      "1334727.26"
+    ]
+  ],
+  "row_hash": "945c9550e93389f7"
+}

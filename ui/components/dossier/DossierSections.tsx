@@ -11,6 +11,7 @@ import { isoText, money, plural, runDate, stamp } from "@/lib/format";
 import { maskAccounts } from "@/lib/mask";
 import { factValue } from "@/lib/fact-value";
 import { groupReasons, hasLookalike } from "@/lib/model/reasons";
+import { groupSweep, recName, ruleList, ruleName, ruleTable, uniqueItems } from "@/lib/model/sweep";
 import { NemotronJobs } from "@/components/review/NemotronJobs";
 import { ModelLedger } from "@/components/review/ModelLedger";
 import { splitBanner } from "@/components/review/DecisionCard";
@@ -89,11 +90,20 @@ export function SweepSection({ d }: { d: GateDecision }) {
   const s = d.sweep;
   return (
     <Card n="05" title={DOSSIER.sections.sweep}>
-      <p className="t-ui text-fg">{s.findings.length ? FIXED.sweepHeader(new Set(s.findings.map((f) => f.item_id)).size, d.exposure.payment_run_id, money(s.amount_usd)) : SWEEP.none(d.exposure.payment_run_id, d.exposure.run_item_count)}</p>
+      <p className="t-ui text-fg">{s.findings.length ? FIXED.sweepHeader(uniqueItems(s.findings), d.exposure.payment_run_id, money(s.amount_usd)) : SWEEP.none(d.exposure.payment_run_id, d.exposure.run_item_count, ruleList(s.rules_run.map((r) => r.rule)))}</p>
       {s.findings.length ? (
         <Table head={DOSSIER.sweepCols}>
-          {s.findings.map((f) => (
-            <tr key={f.item_id + f.rule} data-testid="sweep-finding" data-item={f.item_id}><td className="t-mono-data">{f.item_id}</td><td>{f.vendor_name} ({f.vendor_id})</td><td className="t-mono-data">{money(f.amount_usd)}</td><td>{f.rule}</td><td>{f.detail}</td><td>{SWEEP.recs[f.recommendation]}</td><td className="t-mono-data">{f.query_id.slice(0, 8)}</td></tr>
+          {groupSweep(s.findings).flatMap((it) =>
+            it.findings.map((f, j) => (
+              <tr key={it.item_id + f.rule} data-testid={j === 0 ? "sweep-finding" : "sweep-hit"} data-item={it.item_id}><td className="t-mono-data">{j === 0 ? it.item_id : ""}</td><td>{j === 0 ? `${it.vendor_name} (${it.vendor_id})` : ""}</td><td className="t-mono-data">{j === 0 ? money(it.amount_usd) : ""}</td><td>{f.rule} · {ruleName(f.rule)}</td><td>{f.detail}</td><td>{recName(f.recommendation)}</td><td className="t-mono-data">{f.query_id.slice(0, 8)}</td></tr>
+            )),
+          )}
+        </Table>
+      ) : null}
+      {s.rules_run.length ? (
+        <Table head={DOSSIER.sweepRuleCols}>
+          {s.rules_run.map((r) => (
+            <tr key={r.rule} data-testid="sweep-rule" data-rule={r.rule}><td className="t-mono-data">{r.rule}</td><td>{ruleName(r.rule)}</td><td className="t-mono-data t-wrap-any">{ruleTable(r.rule)}</td><td className="t-mono-data">{r.invalid} / {r.total}</td><td className="t-mono-data t-wrap-any">{r.query_id}</td></tr>
           ))}
         </Table>
       ) : null}

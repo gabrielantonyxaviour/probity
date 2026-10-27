@@ -5,6 +5,7 @@ import { test, expect } from "@playwright/test";
 import { erpSnapshot, type ErpSnapshot } from "../helpers/erp";
 import { gotoInbox, showAll } from "../helpers/nav";
 import { EVERYDAY_REQUEST, listRequests } from "../helpers/runs";
+import { rejectFastDeath } from "../helpers/trace";
 
 const markerPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "live-verify-result.json");
 
@@ -58,6 +59,7 @@ test("live verify Kettle Point remit change @live", async ({ page, request }) =>
   }
 
   await expect(page.getByTestId("decision-card").or(page.getByTestId("run-error")).or(page.getByTestId("needs-human")).first()).toBeVisible({ timeout: 300_000 });
+  await rejectFastDeath(request, runId);
   const card = page.getByTestId("decision-card");
   await expect(card).toBeVisible();
   await expect(card).toHaveAttribute("data-decision", /^(APPROVE|HOLD|CALLBACK_VERIFY)$/);

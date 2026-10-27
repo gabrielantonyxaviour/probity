@@ -2,7 +2,7 @@ import { z } from "zod";
 import raw from "./facts.generated.json";
 
 const Sweep = z.object({
-  item_id: z.string(), vendor_id: z.string(), vendor_name: z.string(), rule: z.enum(["DQ1", "DQ2"]), amount_usd: z.number(), query_id: z.string(),
+  item_id: z.string(), vendor_id: z.string(), vendor_name: z.string(), rule: z.enum(["DQ1", "DQ2", "DQ7", "DQ8", "DQ9"]), amount_usd: z.number(), query_id: z.string(),
 });
 const Receipt = z.object({
   model: z.string().nullable(), egress: z.string().nullable(), routing_width: z.number().nullable(), hmem_injected: z.number().nullable(),

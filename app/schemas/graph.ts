@@ -46,6 +46,8 @@ export const GraphNode = z.object({
   flags: z.array(GraphFlag),
   facts: z.array(z.object({ predicate: z.string(), value: z.unknown(), session_id: z.string().optional() })),
   provenance: z.object({ by: z.string(), url: z.string().nullable(), run_id: z.string().nullable(), at: z.string() }),
+  /** Additive (api-depth): when Probity could first have known this node (earliest kept edge; the request: received_at). */
+  known_at: z.string().optional(),
 });
 
 export const GraphEdge = z.object({
@@ -61,6 +63,8 @@ export const GraphEdge = z.object({
   superseded: z.boolean(),
   verdict: z.enum(["approved", "rejected", "pending"]).nullable(),
   evidence_ids: z.array(z.string()),
+  /** Additive (api-depth): when Probity could first have known this edge (wm-read knownAt). */
+  known_at: z.string().optional(),
 });
 
 export const LinkVerdict = z.object({

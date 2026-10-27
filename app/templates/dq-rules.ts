@@ -41,10 +41,22 @@ export const DQ_RULES: readonly DqRule[] = [
   },
 ];
 
+/** DQ8 is registered. It is not an entry of DQ_RULES, so DQ1..DQ6 stay in place. */
+export const DQ8_EXPR =
+  "amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))";
+
+export const DQ8_RULE: DqRule = {
+  name: "bank_change_before_large_payment",
+  table: `${USL}.payment_run_item`,
+  expr: DQ8_EXPR,
+  needsRegistry: false,
+};
+
 export function registerDqSql(rule: DqRule): string {
   return `REGISTER DQ ${rule.name} TABLE ${rule.table} AS\n${rule.expr}`;
 }
 
+/** DQ_RULES order is unchanged. DQ8 is appended for REGISTER and zetaris/dq_rules.sql. */
 export function dqRulesSqlFile(): string {
-  return DQ_RULES.map(registerDqSql).join("\n\n-- @@\n\n") + "\n";
+  return [...DQ_RULES, DQ8_RULE].map(registerDqSql).join("\n\n-- @@\n\n") + "\n";
 }

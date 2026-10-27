@@ -5,7 +5,7 @@ Authentication-Results: mx1.halvorsen-ms.example;
 	spf=pass smtp.mailfrom=corbinhollow-payments.example;
 	dkim=pass header.d=corbinhollow-payments.example;
 	dmarc=pass header.from=corbinhollow-payments.example
-From: "B. Quillfeather (fictional)" <ar@corbinhollow-payments.example>
+From: "B. Quillfeather" <ar@corbinhollow-payments.example>
 To: ap@halvorsen-ms.example
 Subject: Bank account change, please action before Friday
 Date: Sat, 24 Oct 2026 11:15:00 -0400
@@ -13,10 +13,8 @@ Message-ID: <4634db757aa7ef.2B66F7@mail.corbinhollow-payments.example>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 7bit
-X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by Corbin Hollow HVAC Services LLC (fictional)
 
-[SYNTHETIC SAMPLE - not a real email]
 Hi,
 Bank details attached. Please action before Friday.
 Thanks,
-B. Quillfeather (fictional)
+B. Quillfeather

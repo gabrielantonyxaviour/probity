@@ -5,7 +5,7 @@ Authentication-Results: mx1.halvorsen-ms.example;
 	spf=pass smtp.mailfrom=saic.example;
 	dkim=pass header.d=saic.example;
 	dmarc=pass header.from=saic.example
-From: "D. Marchetti (fictional)" <ap@saic.example>
+From: "D. Marchetti" <ap@saic.example>
 To: ap@halvorsen-ms.example
 Subject: Remit-to address update
 Date: Fri, 23 Oct 2026 09:47:00 -0400
@@ -19,5 +19,5 @@ X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by Science Applications Internati
 Hello,
 Our updated remit-to address and bank details are in the attached letter.
 Thank you,
-D. Marchetti (fictional)
+D. Marchetti
 Accounts Receivable

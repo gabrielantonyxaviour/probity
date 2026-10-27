@@ -2,6 +2,7 @@
 // Round-2 amendments included: callback_evidence (REV-46), vendor.is_fictional lives in erp.ts (REV-65).
 import { z } from "zod";
 import * as P from "./patterns";
+import { DualReading, InjectionReport } from "./letter-checks";
 
 export const Mode = z.enum(["live", "zetaris_cache", "passthrough", "mirror", "sample"]);
 export type Mode = z.infer<typeof Mode>;
@@ -38,6 +39,7 @@ export const Observation = z.object({
   mode: Mode,
   fetched_at: z.string(),
   latency_ms: z.number(),
+  row_indexes: z.array(z.number().int().nonnegative()).optional(), // indexes into the query rows that produced it
 });
 export type Observation = z.infer<typeof Observation>;
 
@@ -50,12 +52,14 @@ export const REASON_CODES = [
   "R5",
   "R6",
   "R7",
+  "R8",
   "C1",
   "C2",
   "C3",
   "C4",
   "C5",
   "C6",
+  "C7",
   "I1",
   "I2",
   "I3",
@@ -74,12 +78,14 @@ export const REASON_SLUGS: Record<ReasonCodeId, string> = {
   R5: "known_bad_artifact",
   R6: "account_on_other_vendor",
   R7: "request_dq_fail",
+  R8: "reviewer_instruction",
   C1: "no_independent_callback",
   C2: "source_degraded",
   C3: "internal_evidence_only",
   C4: "name_only_input",
   C5: "recent_contact_change",
   C6: "no_vendor_of_record",
+  C7: "readings_disagree",
   I1: "registries_disagree",
   I2: "former_name_used",
   I3: "family_list_capped",
@@ -94,7 +100,7 @@ export const ReasonCode = z.object({
   detail: z.string(),
   evidence_ids: z.array(z.string()),
   annotation: z.literal("known_benign").optional(),
-  variant: z.enum(["multi_candidate", "name_multi_family", "link_rejected", "link_pending"]).optional(), // R4 only
+  variant: z.enum(["multi_candidate", "name_multi_family", "link_rejected", "link_pending", "hidden", "visible"]).optional(), // R4; R8 hidden|visible
 });
 export type ReasonCode = z.infer<typeof ReasonCode>;
 
@@ -174,7 +180,7 @@ export const SweepFinding = z.object({
   item_id: z.string(),
   vendor_id: z.string().regex(P.VENDOR_ID),
   vendor_name: z.string(),
-  rule: z.enum(["DQ1", "DQ2"]),
+  rule: z.enum(["DQ1", "DQ2", "DQ7", "DQ8", "DQ9"]),
   amount_usd: z.number(),
   detail: z.string(),
   recommendation: z.enum(["hold_item", "callback_before_release"]),
@@ -185,11 +191,13 @@ export const Sweep = z.object({
   amount_usd: z.number(),
   rules_run: z.array(
     z.object({
-      rule: z.enum(["DQ1", "DQ2"]),
+      rule: z.enum(["DQ1", "DQ2", "DQ7", "DQ8", "DQ9"]),
       total: z.number().int(),
       valid: z.number().int(),
       invalid: z.number().int(),
       query_id: z.string(),
+      /** DQ7 only (additive): the shared-account groups the rule found, by hash, with the vendor ids that share each one. */
+      groups: z.array(z.object({ account_hash: z.string(), vendor_ids: z.array(z.string().regex(P.VENDOR_ID)) })).max(10).optional(),
     }),
   ),
   findings: z.array(SweepFinding),
@@ -271,10 +279,12 @@ export const GateDecisionSchema = z.object({
   mode: z.enum(["live", "sample"]),
   limitations: z.array(z.string()),
   labels: z.object({
-    synthetic_notice: z.string(),
+    synthetic_notice: z.string().optional(), // no longer emitted (decision 8); older stored runs carry it
     mode_banner: z.string().nullable(),
-    callback_notice: z.literal("Demo scenario: do not call."),
+    callback_notice: z.string().optional(), // no longer emitted (decision 8); older stored runs carry it
   }),
+  letter_reading: DualReading.optional(), // D1: both Ultra readings, receipts and the field-by-field agreement
+  injection: InjectionReport.optional(), // D6: text addressed to an automated reviewer (R8)
 });
 export type GateDecision = z.infer<typeof GateDecisionSchema>;
 

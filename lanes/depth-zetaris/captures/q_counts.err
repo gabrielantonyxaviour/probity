@@ -1,0 +1,5 @@
+(node:14270) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14270) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"queryId":"ddfdc15c-50ff-4d22-b90a-5cafe176b78a","code":"zetaris_timeout","httpStatus":null,"error":"The operation was aborted due to timeout"}

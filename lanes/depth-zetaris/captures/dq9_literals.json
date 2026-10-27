@@ -1,0 +1,31 @@
+{
+  "id": "dq9_literals",
+  "kind": "expression_logic_literals",
+  "note": "Expression-logic check on literal rows, not an ERP finding. names_match is nameNorm(vendor_name) <=> name_norm, the same expression as the DQ9 count.",
+  "captured_at": "2026-10-27T15:58:38.982Z",
+  "sql": "SELECT label, vendor_name, name_norm, (trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(vendor_name)), ' (FICTIONAL)', ''), '[.,''\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) <=> name_norm) AS names_match FROM (SELECT 'mismatch' AS label, 'Northwind Incorporated' AS vendor_name, 'SOUTH CO' AS name_norm UNION ALL SELECT 'match', 'Northwind Incorporated', 'NORTHWIND INC') s LIMIT 5",
+  "queryId": "44080553-775b-42e4-9ec1-0b589dc9ddc9",
+  "latency_ms": 1769,
+  "http_status": 200,
+  "columns": [
+    "label",
+    "vendor_name",
+    "name_norm",
+    "names_match"
+  ],
+  "rows": [
+    [
+      "mismatch",
+      "Northwind Incorporated",
+      "SOUTH CO",
+      "false"
+    ],
+    [
+      "match",
+      "Northwind Incorporated",
+      "NORTHWIND INC",
+      "true"
+    ]
+  ],
+  "row_hash": "473bc59b1d9a5d16"
+}

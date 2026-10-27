@@ -89,7 +89,7 @@ describe("loops, caps and failure behaviour on S1", () => {
     r.models.down.add("deep");
     const out = await r.run();
     const d = dec(out.env);
-    const ex = out.tracer.events.find((e) => e.action === "extract_claims" && e.status === "success")!;
+    const ex = out.tracer.events.find((e) => e.action === "extract_claims" && e.status === "success" && (e.note ?? "").includes("text+fast"))!;
     expect(ex.note).toContain("text+fast");
     expect(ex.note).toContain("extraction_lane_fast");
     expect((out.env as Env).status).toBe("partial_success");
@@ -191,7 +191,8 @@ describe("J3 re-evaluation reads the stored state and clears C1 after an indepen
     const d = dec(again.env);
     expect(d.request_id).toBe("BCR-2026-0412");
     expect(d.reason_codes.map((c) => c.code)).not.toContain("C4");
-    expect(r.models.calls.filter((c) => c.agent === "letter_reader")).toHaveLength(1);
+    // D1/D6: reading A and the injection review on the first run (no page image here, so no reading B); the re-evaluation calls no reader
+    expect(r.models.calls.filter((c) => c.agent === "letter_reader")).toHaveLength(2);
     expect(again.tracer.events.some((e) => e.action === "extract_claims" && e.output_summary.includes("claims reused"))).toBe(true);
   });
   it("S4 shape: CALLBACK_VERIFY with a scripted EDGAR number, then a confirmed call-back on that number re-evaluates to APPROVE (C4 absent, C1 cleared)", async () => {
@@ -212,7 +213,8 @@ describe("J3 re-evaluation reads the stored state and clears C1 after an indepen
     expect(d2.reason_codes.map((c) => c.code)).not.toContain("C4");
     expect(d2.callback_evidence[0]).toMatchObject({ log_id: "CL-40001", called_by: "T. Okafor (fictional)", phone_e164: "+13217279100" });
     expect(r.erp.statuses.get("BCR-2026-0510")).toBe("approved");
-    expect(r.models.calls.filter((c) => c.agent === "letter_reader")).toHaveLength(1);
+    // D1/D6: reading A and the injection review on the first run (no page image here, so no reading B); the re-evaluation calls no reader
+    expect(r.models.calls.filter((c) => c.agent === "letter_reader")).toHaveLength(2);
   });
   it("a re-evaluation of an unknown run is refused", async () => {
     const r = await rig();

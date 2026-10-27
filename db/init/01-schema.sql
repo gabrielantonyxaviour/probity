@@ -2,8 +2,8 @@
 CREATE TABLE vendor (
   vendor_id        text PRIMARY KEY CHECK (vendor_id ~ '^V-[0-9]{5}$'),
   legal_name       text NOT NULL,
-  legal_name_norm  text NOT NULL,                                   -- SCR-4; name_norm(legal_name), written by the generator (name_norm drops the " (fictional)" marker, spine §9.4)
-  is_fictional     boolean NOT NULL,                                -- REV-65: explicit; true rows store legal_name with the " (fictional)" suffix
+  legal_name_norm  text NOT NULL,                                   -- SCR-4; name_norm(legal_name), written by the generator (name_norm still drops a legacy " (fictional)" marker, spine §9.4)
+  is_fictional     boolean NOT NULL,                                -- REV-65 (amended): explicit flag; names are stored plain, with no suffix
   uei              text CHECK (uei ~ '^[A-Z0-9]{12}$'),
   registrant_cik   text CHECK (registrant_cik ~ '^[0-9]{10}$'),
   remit_line1      text NOT NULL,
@@ -16,8 +16,7 @@ CREATE TABLE vendor (
   legacy_vendor_no text,                                            -- SCR-4
   created_at       timestamptz NOT NULL,
   data_origin      text NOT NULL DEFAULT 'SYNTHETIC' CHECK (data_origin = 'SYNTHETIC'),
-  CHECK ((status = 'merged') = (merged_into IS NOT NULL)),
-  CHECK (is_fictional = (legal_name LIKE '% (fictional)'))           -- REV-65: the suffix and the flag never disagree
+  CHECK ((status = 'merged') = (merged_into IS NOT NULL))
 );
 CREATE INDEX vendor_name_norm_idx ON vendor (legal_name_norm);
 

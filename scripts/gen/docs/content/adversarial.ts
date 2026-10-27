@@ -16,7 +16,7 @@ export interface Adversarial {
   original?: Letter; // near-duplicate pair: the earlier letter
 }
 
-const SIGNERS = ["P. Nakashima-Wells (fictional)", "G. Abernathy-Osei (fictional)", "S. Lindqvist (fictional)", "R. Montoya-Faulk (fictional)", "E. Thackeray (fictional)", "N. Okafor-Brandt (fictional)"];
+const SIGNERS = ["P. Nakashima-Wells", "G. Abernathy-Osei", "S. Lindqvist", "R. Montoya-Faulk", "E. Thackeray", "N. Okafor-Brandt"];
 type Base = { seed: SeedView; vendorId: string; id: string; account: string; subject: string; date: string; effective: string; paras: Letter["paras"]; signer: string; title: string; face?: Letter["face"]; remit?: string; bank?: string };
 function base(b: Base): Letter {
   const v = b.seed.vendor(b.vendorId);

@@ -39,8 +39,8 @@ export const universe = (extra: { calllog?: Row[]; erp?: FakeErp } = {}): Handle
   T12: (_p, c) => [{ uei: "FFCMDLMXRK49", recipient_level: "P", name: "PARSONS CORPORATION", parent_uei: null, parent_name: null, address_line1: "14291 PARK MEADOW DR", city_name: "CHANTILLY", state_code: "VA", zip: "20151", sessions: c.sessions.length }],
   T14: () => [{ cik: "0000275880", name: "PARSONS CORP", phone: "703-988-8500", biz_street1: "5875 Trinity Pkwy #300", biz_city: "Centreville", biz_state: "VA" }],
   T16: (p) => (p.name_norm === "PARSONS CORP" ? [{ cik: "275880", ticker: "PSN", title: "PARSONS CORP" }] : []),
-  T20: (p) => [p.rule === "DQ1" ? { total: 158, valid: 154, invalid: 4 } : { total: 158, valid: 155, invalid: 3 }],
-  T21: (p) => (p.rule === "DQ1" ? DQ1_INVALID : DQ2_INVALID),
+  T20: (p) => (p.rule === "DQ1" ? [{ total: 158, valid: 154, invalid: 4 }] : p.rule === "DQ2" ? [{ total: 158, valid: 155, invalid: 3 }] : []),
+  T21: (p) => (p.rule === "DQ1" ? DQ1_INVALID : p.rule === "DQ2" ? DQ2_INVALID : []),
 });
 
 export const baseConfig = (logs: string): AgentConfig => ({

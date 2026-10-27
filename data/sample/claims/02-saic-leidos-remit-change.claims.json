@@ -2,9 +2,9 @@
   "example_id": "02-saic-leidos-remit-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "0372c79043c5cd0e677be4a8f64e09c239beeb5b0181ec4b60773deef77bc6eb",
-    "f4638361971af5594b8a483424f81a5f0e762a3963ab9f1ba30c6a51b99f85e6",
-    "2dd3791eca61051adde79bd6e872cafe37e9fdafa5c43ec1a5074ffeef163791"
+    "a812e85681838f9ad4dd0f3341eee71b1536d708aa921ac79ca73a0d4b96ca71",
+    "e17f4b06af498981b9afd389d7e27565eb81256ff117347f09aea854fd4b2864",
+    "e757fb81515918a664224310b5721a476ce375e17fc6c3c4da482d420759cf65"
   ],
   "account_number": "000999000163",
   "claimed_name": "Science Applications International Corporation",
@@ -17,7 +17,7 @@
     "zip": "20190"
   },
   "bank": {
-    "bank_name": "Harborline Test Savings (fictional)",
+    "bank_name": "Harborline Savings",
     "routing": "110000000",
     "account_last4": "0163"
   },
@@ -30,7 +30,7 @@
     "INV-LDS-88412",
     "INV-LDS-88433"
   ],
-  "signer_name": "D. Marchetti (fictional)",
+  "signer_name": "D. Marchetti",
   "pressure_phrases": [],
   "watermark_text": "SYNTHETIC SAMPLE: not issued by Science Applications International Corporation",
   "fields": [
@@ -141,12 +141,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "D. Marchetti (fictional)",
+      "quote": "D. Marchetti",
       "page": 1,
       "bbox_hint": [
         117,
         609,
-        311,
+        222,
         628
       ],
       "highlight_source": "text_layer"

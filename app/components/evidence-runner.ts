@@ -13,9 +13,11 @@ import { addLimitation, addPartial } from "../orchestration/state";
 import { emit, publish, type RunContext } from "../orchestration/ctx";
 import { Semaphore, abortable } from "../orchestration/parallel";
 import { addrKey, canonicalJson, sha16 } from "../policy/normalise";
+import { t23Trace } from "../templates/d3";
 import { buildObservations, inputSummary, summariseRows } from "./evidence-obs";
 import { zetarisDownLabel } from "../policy/banners";
 import { OUTAGE_LABEL, outageOf, outageResult } from "./outage";
+import { notAvailable } from "./evidence-info";
 
 export type Step = {
   params: TemplateParams;
@@ -28,6 +30,8 @@ export type Step = {
   trace_agent?: AgentName;
   /** A pre-compiled read (J5 session tables) with its own observation rules; the kit is not consulted. */
   read?: { compiled: CompiledQuery; rules: ObservationRule[]; template_id: TemplateId };
+  /** Best-effort evidence (T23): a failure is traced as "not available this run", never a limitation, partial or fallback. */
+  informational?: boolean;
 };
 
 export type StepResult =
@@ -64,6 +68,7 @@ export class EvidenceRunner implements EvidenceRunnerLike {
       return { ok: true, record: hit, observations: Object.values(s.evidence).filter((o) => o.query_id === hit.query_id), cached: true };
     }
     if (!this.ctx.budget.can("zetaris")) {
+      if (step.informational) return notAvailable(this.ctx, step, "budget_exhausted");
       addLimitation(s, "Zetaris query limit reached; remaining evidence is unknown.");
       return { ok: false, error_code: "budget_exhausted", message: "The query limit for this run was reached." };
     }
@@ -92,10 +97,11 @@ export class EvidenceRunner implements EvidenceRunnerLike {
     }
     for (;;) {
       try {
-        res = await this.exec(port, compiled, info.key === "admin" || info.tier === "sweep" ? 120_000 : 45_000);
+        res = await this.exec(port, compiled, step.informational ? 150_000 : info.key === "admin" || info.tier === "sweep" ? 120_000 : 45_000);
         break;
       } catch (e) {
         const code = e instanceof AppError ? e.code : "zetaris_server";
+        if (step.informational) return notAvailable(this.ctx, step, code);
         if (code === "zetaris_timeout" && retry === 0) {
           retry++;
           emit(this.ctx, { agent_name: "evidence_runner", action: "retry", status: "retrying", template_id: step.params.template_id as TemplateId, retry_count: 1, input_summary: inputSummary(step.params.template_id, step.params as never), output_summary: `${step.params.template_id} timed out; retrying once, narrower` });
@@ -217,7 +223,7 @@ export class EvidenceRunner implements EvidenceRunnerLike {
       zetaris_query_ids: [rec.query_id], sql_hash: rec.sql_hash, row_hash: rec.row_hash ?? undefined, rows: rec.row_count, source_mode: rec.mode,
       latency_ms: rec.latency_ms, planned_by: step.planned_by, key: !step.read && this.ctx.deps.templates.info(tid).key === "admin" ? "admin" : "query",
       retry_count: rec.retry_count, note: o.note ?? (step.why ? step.why.slice(0, 120) : undefined),
-      input_summary: inputSummary(tid, step.params as never), output_summary: summariseRows(tid, rec.rows, rec.params),
+      input_summary: inputSummary(tid, step.params as never), output_summary: tid === "T23" ? t23Trace(rec.rows) : summariseRows(tid, rec.rows, rec.params),
     });
   }
 

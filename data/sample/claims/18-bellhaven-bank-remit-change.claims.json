@@ -2,8 +2,8 @@
   "example_id": "18-bellhaven-bank-remit-change",
   "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
   "source_sha256": [
-    "0771d88e6da78504ced8d1a4d4b0c20ccc6ea254d7a1a767634ecf560f9bd1aa",
-    "557489e4799bd92d9d99fe0a55da055786224ccdca3e88b1265ec5035a80fa2f"
+    "658db3df205ca37e94277e1bbf297cebbd3ddd1e03050e2a1105c3c27868324e",
+    "178dcfd107955c34a3247febcf47c95f79b2432abbe9a0ad77e48de9c6002203"
   ],
   "account_number": "000999000905",
   "claimed_name": "Bellhaven Print & Mail Inc",
@@ -16,7 +16,7 @@
     "zip": "20166"
   },
   "bank": {
-    "bank_name": "Harborline Test Savings (fictional)",
+    "bank_name": "Harborline Savings",
     "routing": "110000000",
     "account_last4": "0905"
   },
@@ -34,23 +34,10 @@
   "invoice_refs": [
     "INV-BPM-37702"
   ],
-  "signer_name": "A. Lindqvist (fictional)",
+  "signer_name": "A. Lindqvist",
   "pressure_phrases": [],
-  "watermark_text": "SYNTHETIC SAMPLE: not issued by Bellhaven Print & Mail Inc (fictional)",
+  "watermark_text": null,
   "fields": [
-    {
-      "field": "watermark",
-      "fact_field": null,
-      "quote": "SYNTHETIC SAMPLE: not issued by Bellhaven Print & Mail Inc (fictional)",
-      "page": 1,
-      "bbox_hint": [
-        117,
-        28,
-        537,
-        40
-      ],
-      "highlight_source": "text_layer"
-    },
     {
       "field": "letterhead_name",
       "fact_field": "legal_name",
@@ -158,12 +145,12 @@
     {
       "field": "signer_name",
       "fact_field": null,
-      "quote": "A. Lindqvist (fictional)",
+      "quote": "A. Lindqvist",
       "page": 1,
       "bbox_hint": [
         117,
         629,
-        307,
+        218,
         648
       ],
       "highlight_source": "text_layer"

@@ -7,7 +7,7 @@
       "dir": "data/eval/adversarial/adv-01-inject-visible-json",
       "hazard": "injection_visible_structured",
       "vendor_id": "V-10509",
-      "letter_sha256": "2515dfcc76c4d56eeaa05c37bdef62ebfa8f087934df7b8371550df9a231623c",
+      "letter_sha256": "c5bdc3f0ad0bfb677b332acd1e55f9107fb52410322f946a89b874874b2bf6a4",
       "injection_spans": 1,
       "pressure_kinds": [
         "embedded_instruction"
@@ -18,7 +18,7 @@
       "dir": "data/eval/adversarial/adv-02-inject-hidden-extraction",
       "hazard": "injection_hidden_extraction_poisoning",
       "vendor_id": "V-10604",
-      "letter_sha256": "9e3f2db82a5d76cdb78465656e7e21ea033e9baaa7ed2239461748bf4558a9d8",
+      "letter_sha256": "702d39edebc2d64e2bcaaee9dfedf41c8cf9cf6d741f1c9eb3c2a841f6287165",
       "injection_spans": 2,
       "pressure_kinds": [
         "embedded_instruction"
@@ -29,7 +29,7 @@
       "dir": "data/eval/adversarial/adv-03-inject-business-voice",
       "hazard": "injection_business_voice",
       "vendor_id": "V-10655",
-      "letter_sha256": "a20099d80e15a6e0f569fa3dd6ec24b6c3b594f2054a97ba9b7de51a70d69a3c",
+      "letter_sha256": "2b5e917f5e63f4775c420a25dc6ee9e268adf3db67eda5c8f687357e8845411e",
       "injection_spans": 1,
       "pressure_kinds": [
         "avoid_verification",
@@ -41,7 +41,7 @@
       "dir": "data/eval/adversarial/adv-04-digit-swap",
       "hazard": "digit_swap_account",
       "vendor_id": "V-10483",
-      "letter_sha256": "c8f7a91ece9ece2654c1ab59983182e80d0c14688b7964f08495f4dcb0bd47cd",
+      "letter_sha256": "41471b3ee512dda4960da7b4159e977345cb61056aca1e55abbd62e198ee3969",
       "injection_spans": 0,
       "pressure_kinds": []
     },
@@ -50,7 +50,7 @@
       "dir": "data/eval/adversarial/adv-05-conflicting-address",
       "hazard": "conflicting_second_address",
       "vendor_id": "V-10592",
-      "letter_sha256": "9be30dfe97ecbb847dc6af4f614413fa451b642951a43dfaf4305288095678aa",
+      "letter_sha256": "2a0bc412c2d8c977033e2df31a5e99d7bcaf61323c4970ae23dae15b3995ca29",
       "injection_spans": 0,
       "pressure_kinds": []
     },
@@ -59,7 +59,7 @@
       "dir": "data/eval/adversarial/adv-06-near-duplicate-legit",
       "hazard": "near_duplicate_legitimate",
       "vendor_id": "V-10388",
-      "letter_sha256": "925c2dcafbf06e943aa643f6495b53a2b30ffd1dcbd1ffbd9885a27cad612eb5",
+      "letter_sha256": "45180847fc9666e4f88c2c2d081026a5c3a8b0413b185376300ac15a01fc4455",
       "injection_spans": 0,
       "pressure_kinds": []
     }

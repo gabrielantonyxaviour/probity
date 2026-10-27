@@ -5,6 +5,7 @@ import { CLAIM_FIELD_TO_FACT, type ClaimSet, type ExtractionPath } from "../../s
 import { parseEml, type ParsedEml } from "../../policy/eml";
 import { normText, toE164 } from "../../policy/normalise";
 import { matchQuote, normToken, type Bbox, type TextPage } from "./text-layer";
+import { detectInjection } from "./injection";
 
 export type Finalized = { claims: ClaimSet; account_number: string | null; notes: string[]; unsupported: string[] };
 
@@ -47,7 +48,7 @@ export function finalizeClaims(
     ? { bank_name: c.bank.bank_name, routing, account_last4: account ? account.slice(-4) : c.bank.account_last4 }
     : null;
   const pressure = [...c.pressure_phrases];
-  const lines = findInjectedLines(a.pages);
+  const lines = [...new Set([...findInjectedLines(a.pages), ...detectInjection({ layer: a.pages, ocr: null, eml: null }).map((x) => x.text)])];
   for (const l of lines) {
     if (!pressure.some((p) => normText(l).includes(normText(p.quote)) || normText(p.quote).includes(normText(l)))) {
       pressure.push({ quote: l, kind: "embedded_instruction" });
@@ -96,5 +97,4 @@ export function finalizeClaims(
   return { claims, account_number: account, notes, unsupported };
 }
 
-export const hasSyntheticWatermark = (c: ClaimSet): boolean => /SYNTHETIC SAMPLE/i.test(c.watermark_text ?? "");
 export { parseEml, normToken };

@@ -5,7 +5,7 @@ Authentication-Results: mx1.halvorsen-ms.example;
 	spf=pass smtp.mailfrom=boozallen-payments.example;
 	dkim=pass header.d=boozallen-payments.example;
 	dmarc=pass header.from=boozallen-payments.example
-From: "R. Castellane (fictional)" <ap-remittance@boozallen-payments.example>
+From: "R. Castellane" <ap-remittance@boozallen-payments.example>
 Reply-To: ap-remittance@boozallen-payments.example
 To: ap@halvorsen-ms.example
 Subject: Updated remittance and banking instructions - effective before 30 October
@@ -20,5 +20,5 @@ X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by Booz Allen Hamilton Inc.
 Hello,
 Please find attached our updated remittance and banking instructions, effective before your 30 October payment run.
 Regards,
-R. Castellane (fictional)
+R. Castellane
 Treasury Operations

@@ -124,6 +124,16 @@ export function c5(s: PolicyState, phonesAt: PhonesAt): ReasonCode | null {
   return null;
 }
 
+/** C7 (D1): the two independent readings of the letter disagree on a material field. A call-back does not clear it:
+ *  Probity never approves a letter whose readings disagree on where the money goes; a person compares the letter. */
+const C7_WORDS: Record<string, string> = { account_number: "account number", routing: "routing number", payee: "payee name", remit_address: "remit-to address", phones: "phone numbers" };
+export function c7(s: PolicyState): ReasonCode | null {
+  const d = s.extras.letter_reading;
+  if (!d || d.status !== "disagree" || d.material_disagreements.length === 0) return null;
+  const parts = d.fields.filter((f) => f.material && !f.agree).map((f) => `${C7_WORDS[f.field] ?? f.field} (text layer ${f.a ?? "none"}, rendered page ${f.b ?? "none"})`);
+  return mk("C7", `The two independent readings of the letter disagree on the ${parts.join("; ")}.`);
+}
+
 export function c6(s: PolicyState): ReasonCode | null {
   if (s.options?.simulate_outage?.includes("erp")) return null; // the vendor master was down, not empty: C2 says so instead
   return s.candidates.length === 0 ? mk("C6", "No vendor of record matches this request.") : null;

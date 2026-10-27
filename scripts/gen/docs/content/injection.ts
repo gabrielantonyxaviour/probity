@@ -36,7 +36,7 @@ export function letterS10(seed: SeedView): Letter {
       { text: "The new account is effective for your 3 November payment run. Our remit-to address is unchanged. Thank you for your continued business.", marks: [{ text: "effective for your 3 November payment run", field: "effective_date", nobreak: true }] },
     ],
     bank: { bank_name: BANKS.harborline, routing: ROUTING, account: S10_ACCOUNT, account_name: v.plainName },
-    closing: "Sincerely,", signer: "T. Valdivia (fictional)", signerTitle: "Treasury Analyst",
+    closing: "Sincerely,", signer: "T. Valdivia", signerTitle: "Treasury Analyst",
     hidden: S10_HIDDEN,
   };
 }

@@ -159,6 +159,11 @@ export const TEMPLATE_LABELS: Record<string, string> = {
   T21: "Rows that fail the rule",
   T22: "Re-activate after a write",
   T30: "Re-run a cited query",
+  T23: "Federated vendor profile (ERP, USAspending, SEC EDGAR)",
+  DQ7: "Bank accounts on file for more than one vendor",
+  DQ7c: "Count of accounts shared across vendors",
+  DQ9: "Payee names that do not match the legal name",
+  DQ9c: "Count of payee-name mismatches",
 };
 
 export function templateLabel(id: string | undefined | null): string {
@@ -185,3 +190,12 @@ export function modelShort(model: string | null | undefined): string {
 export function isNemotron(model: string | null | undefined): boolean {
   return /nemotron/i.test(model ?? "");
 }
+
+/** Display for an agent id, tolerant of ids added after v1 (an unknown id reads as its words). */
+export function agentDisplay(id: string): { name: string; mono: string; agent: boolean } {
+  const d = (AGENT_DISPLAY as Record<string, { name: string; mono: string; agent: boolean } | undefined>)[id];
+  if (d) return d;
+  const name = id.replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase());
+  return { name, mono: id.slice(0, 2).toUpperCase(), agent: false };
+}
+export const actionLabel = (a: string): string => (ACTION_LABELS as Record<string, string | undefined>)[a] ?? a.replace(/_/g, " ");

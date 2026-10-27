@@ -8,7 +8,7 @@ export interface Remit {
 }
 export interface VendorSpec {
   id: string;
-  name: string; // stored legal_name (fictional rows already carry the suffix)
+  name: string; // stored legal_name (the plain legal name; `fictional` is the explicit flag)
   fictional: boolean;
   uei: string | null;
   cik: string | null;
@@ -61,7 +61,7 @@ export type Drop = ReadonlySet<string>;
 export const PATTERNS = ["PT1", "PT2", "PT3", "PT4", "PT5", "PT6", "PT7", "PT8", "PT9", "PT10"] as const;
 
 export const BANKS = {
-  calderwick: "Calderwick Test Bank (fictional)",
-  harborline: "Harborline Test Savings (fictional)",
-  oldQuarry: "Old Quarry Test Bank (fictional)",
+  calderwick: "Calderwick Savings Bank",
+  harborline: "Harborline Savings",
+  oldQuarry: "Old Quarry National Bank",
 } as const;

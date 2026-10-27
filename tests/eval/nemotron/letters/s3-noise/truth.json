@@ -11,7 +11,7 @@
     "letterhead_name": "L3Harris Technologies, Inc.",
     "remit_address": null,
     "bank": {
-      "bank_name": "Old Quarry Test Bank (fictional)",
+      "bank_name": "Old Quarry National Bank",
       "routing": "110 000 000",
       "account_number": "000-999-000-198"
     },
@@ -19,7 +19,7 @@
       "321.555.0144"
     ],
     "effective_date": "2026-11-02",
-    "signer_name": "K. Albrecht (fictional)",
+    "signer_name": "K. Albrecht",
     "signer_title": "Treasury Services",
     "sender_email": null,
     "reply_to": null
@@ -92,7 +92,7 @@
     },
     {
       "field": "recipient",
-      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "text": "Accounts Payable / Halvorsen Mission Systems / 1200 Linden Cross Way / Herndon, VA 20170",
       "boxes": [
         {
           "page": 1,
@@ -144,13 +144,13 @@
     },
     {
       "field": "bank_name",
-      "text": "Old Quarry Test Bank (fictional)",
+      "text": "Old Quarry National Bank",
       "boxes": [
         {
           "page": 1,
           "x": 448,
           "y": 662,
-          "w": 313,
+          "w": 253,
           "h": 28
         }
       ]
@@ -196,13 +196,13 @@
     },
     {
       "field": "signer_name",
-      "text": "K. Albrecht (fictional)",
+      "text": "K. Albrecht",
       "boxes": [
         {
           "page": 1,
           "x": 145,
           "y": 919,
-          "w": 226,
+          "w": 117,
           "h": 30
         }
       ]

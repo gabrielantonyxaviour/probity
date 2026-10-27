@@ -1,0 +1,21 @@
+{
+  "id": "dq8_counts",
+  "captured_at": "2026-10-27T15:47:51.662Z",
+  "sql": "SELECT COUNT(*) AS total, SUM(CASE WHEN COALESCE((amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))), false) THEN 1 ELSE 0 END) AS valid, SUM(CASE WHEN NOT COALESCE((amount_usd IS NULL OR amount_usd <= 100000 OR bank_changed_at IS NULL OR scheduled_date IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) < 0 OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) > 14 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))), false) THEN 1 ELSE 0 END) AS invalid FROM lightning.metastore.probity.vendor360.payment_run_item LIMIT 1",
+  "queryId": "c1015736-a01e-4085-8cbe-bac44f0eec32",
+  "latency_ms": 33321,
+  "http_status": 200,
+  "columns": [
+    "total",
+    "valid",
+    "invalid"
+  ],
+  "rows": [
+    [
+      "153",
+      "153",
+      "0"
+    ]
+  ],
+  "row_hash": "751872ebf9996c81"
+}

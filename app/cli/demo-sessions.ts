@@ -12,7 +12,7 @@ import { RunRecordSchema } from "../runtime/run-record";
 import { readdirSync } from "node:fs";
 
 const MAIN = path.resolve(import.meta.dirname, "main.ts");
-const BY = "Tomás Okafor (fictional)";
+const BY = "Tomás Okafor";
 type Session = { session_id: string | null; pid: number; run_ids: string[]; decision: string | null; codes: string[]; memory_recalled: unknown[] };
 
 function runCli(args: string[], env: NodeJS.ProcessEnv): { code: number; pid: number } {

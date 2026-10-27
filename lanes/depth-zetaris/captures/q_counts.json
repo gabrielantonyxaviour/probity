@@ -1,0 +1,5 @@
+[INFO] SELECT (SELECT COUNT(*) FROM lightning.metastore.probity.vendor360.payment_run_item) AS payment_run_item, (SELECT COUNT(*) FROM lightning.metastore.probity.vendor360.vendor_bank_account) AS vendor_bank_account, (SELECT COUNT(*) FROM lightning.metastore.probity.vendor360.vendor) AS vendor, (SELECT COUNT(*) FROM lightning.metastore.probity.vendor360.ap_invoice) AS ap_invoice LIMIT 1
+    sql_hash: "1093ebe36af2d4a5"
+    key: "query"
+    kind: "sql"
+    queryId: "ddfdc15c-50ff-4d22-b90a-5cafe176b78a"
