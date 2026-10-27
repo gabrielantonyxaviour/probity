@@ -70,11 +70,11 @@ step: `until mkdir <lock> 2>/dev/null; do sleep 5; done` … `rmdir <lock>`, at 
    `synthetic|fictional|demo scenario|do not call|TEST ROUTING` (expect 0 outside the letter image).
 6. **Screen recordings** per `docs/video/slots.json` from :3100 (if the UI changed: `cd ui && NEXT_DIST_DIR=.next-prod PAYEE_API_URL=http://localhost:8787 npx next build`,
    then restart `next start -p 3100` with the same env). `npx tsx scripts/record/screen.ts --list`; read slots
-   `npx tsx scripts/record/screen.ts --slot R01,R02,R03,R04,R09,R13 --out docs/video/raw --run S1=<step-5 S1 run id>` (R04 is now the S10 letter);
+   `npx tsx scripts/record/screen.ts --slot R01,R02,R03,R04,R09,R13 --out docs/video/raw --run S1=<step-5 S1 run id>` (R04 is still specified as the A-02 instruction letter; the S10 run from step 5 is the stronger injection beat, so consider pointing R04 at it);
    run slots `npx tsx scripts/record/screen.ts --slot R05,R06 --out docs/video/raw` (they start real runs, lock held);
    R07 `npm run demo:sessions` panes; R10 `npx tsx scripts/record/zetaris.ts --scene dq --out docs/video/raw` (never during a run). R08, R11, R12 stay disabled.
 7. **Facts and narration**: `npx tsx video/scripts/facts.ts && npx tsx video/scripts/check.ts` (`video/src/data/facts.ts` already accepts DQ7 to DQ9 sweep rows; a hero
-   run now makes about 31 Zetaris queries, not 25: update any copy that says 25, including the HackOS sponsor text). Then `python3 video/scripts/tts.py --plan` and regenerate
+   run now makes about 31 Zetaris queries, not 25: update any copy that says 25, including the HackOS sponsor text, which also still says "72 tests" for the e2e suite: it is 96 now). Then `python3 video/scripts/tts.py --plan` and regenerate
    every segment it flags, at least `python3 video/scripts/tts.py a01` (a01's text changed: no "synthetic"); the current `docs/video/audio/a01.*`
    still says it. Voice per decision 7.
 8. **Render**: `bash video/scripts/render_all.sh` (writes `video/out/probity-motion-draft.mp4` and `deck-silent.mp4`), then
