@@ -28,7 +28,8 @@ export function createZetarisPort(): ZetarisQueryPort {
       const queryId = o.queryId ?? randomUUID();
       const signal = o.signal ? AbortSignal.any([o.signal, AbortSignal.timeout(o.timeoutMs)]) : AbortSignal.timeout(o.timeoutMs);
       try {
-        const r = await runZetaris(q.sql, { key: "query", kind: "sql", limit: q.limit, queryId, signal, columns: q.columns });
+        // An empty column list means "take the header Zetaris returns" (a stored query re-run carries no declared columns).
+        const r = await runZetaris(q.sql, { key: "query", kind: "sql", limit: q.limit, queryId, signal, ...(q.columns.length ? { columns: q.columns } : {}) });
         const cols = q.columns.length ? q.columns : (r.columns ?? []);
         const rows = r.rows.map((row) => Object.fromEntries(row.map((v, i) => [cols[i] ?? `c${i}`, v])) as Record<string, unknown>);
         return {
