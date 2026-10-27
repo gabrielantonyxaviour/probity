@@ -1,0 +1,135 @@
+[
+  {
+    "id": "K1p",
+    "pass": true,
+    "evidence": "SELECT 1 AS one twice, row_hash d011371b255b86e4, columns [one], rows [[1]]. Bad query sample code zetaris_bad_request in k1p_error_sample.json.",
+    "branch": "api",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K1a",
+    "pass": true,
+    "evidence": "Direct USAspending with HEADER Accept application/json. rest_counts.json ok, detail rows match. Without Accept, Spark stored Django HTML as _corrupt_record.",
+    "branch": "REGISTRY_PATH=direct",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K1b",
+    "pass": true,
+    "evidence": "CHILDREN_SHAPE=rows. usa_c_mbphtu7y9s65 count 41. explore_usaspending_b NJ children 1, uei KHK6E1JW9C15, amount 465909306.53.",
+    "branch": "rows",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K1c",
+    "pass": true,
+    "evidence": "Six sec_edgar tables created and cached. explore_edgar_a phone for 0001443646 is 703-902-5000. sec_former_v count 6.",
+    "branch": "direct user-agent",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K1d",
+    "pass": true,
+    "evidence": "Query key read session.pp_usa_r_khk6e1jw9c15: BOOZ ALLEN HAMILTON INC, TINTON FALLS, 487ms then 1563ms. Listing method probed_per_table. Three session tables present after S1.",
+    "branch": "probed_per_table",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K1d2",
+    "pass": true,
+    "evidence": "USL-2 one statement returned 1 row KHK6E1JW9C15-C, 1 COMMVAULT WAY STE 205, TINTON FALLS, vendor_id_on_file null.",
+    "branch": "t11_mode=one_statement",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K1h",
+    "pass": null,
+    "evidence": "sec_ticker_v is not registered. T16 live query returned TABLE_OR_VIEW_NOT_FOUND. Cut rank 2.",
+    "branch": "not_registered",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K2",
+    "pass": true,
+    "evidence": "JDBC host payee-erp-db:5432. CREATE DATASOURCE, REGISTER DATASOURCE TABLES, SHOW DATASOURCE TABLES. Second pass: datasource exists. USL counts vendor 40, payment_run_item 153, bank_change_request 10.",
+    "branch": "ERP_PATH=jdbc",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3-toy",
+    "pass": true,
+    "evidence": "Toy compile, activate, REGISTER DQ, RUN DQ before vendor360. k3_toy_run_dq.json: 12 total, 12 valid, 0 invalid. Toy removed.",
+    "branch": "rest",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3a",
+    "pass": true,
+    "evidence": "REST COMPILE vendor360 ok 309ms after semicolons were added between CREATE TABLE statements. SHOW NAMESPACES lists vendor360 count 12. Second pass skipped compile because ddl_sha matched. JDBC fallback SELECT 1 was not run.",
+    "branch": "compile_channel=rest",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3b",
+    "pass": true,
+    "evidence": "payment_run_item activated from payee_erp and counted 153 on both passes.",
+    "branch": "view",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3c",
+    "pass": true,
+    "evidence": "DQ1 unverified_recent_bank_change 153/150/3. PR-2026-10-30 invalid ids PRI-1030-0009 and PRI-1030-0010. Third invalid row is PRI-1009-0016 on PR-2026-10-09.",
+    "branch": "dq_engine=rest",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3d",
+    "pass": null,
+    "evidence": "payee_app insert/delete was not run. T22 re-activated payment_run_item live (514ms on the S1 pass).",
+    "branch": "T22",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3e",
+    "pass": true,
+    "evidence": "registry_entity activated from probity.usa_entity_v. Count 12 both passes. No inline retry. stage-registry was not run.",
+    "branch": "activation_form=view",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3f",
+    "pass": true,
+    "evidence": "registry_has_address 12/11/1. The invalid row is CG8SV4246V29-P.",
+    "branch": "rest",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3g",
+    "pass": true,
+    "evidence": "Compile accepted timestamp, date, decimal and FOREIGN KEY. A two-table probe with those types compiled in 827ms. vendor360 compiled with the same types.",
+    "branch": "typed",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K3h",
+    "pass": true,
+    "evidence": "T01 name_norm for Booz Allen Hamilton Inc is BOOZ ALLEN HAMILTON INC, equal to nameNorm() in app/templates/name-norm.ts.",
+    "branch": "sql",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K7",
+    "pass": null,
+    "evidence": "No second Zetaris user was created. ZETARIS_API_KEY fills both the admin and query keys. Grants were not issued. A query-key CREATE was not sent outside the guard.",
+    "branch": "one_key",
+    "at": "2026-10-27T13:26:40Z"
+  },
+  {
+    "id": "K1f",
+    "pass": true,
+    "evidence": "second_usa_entity_v_ms=2748; usa_entity_v has no entity_key column, timed concat(uei, recipient_level)",
+    "branch": "cache_mode=sql",
+    "at": "2026-10-27T13:33:34.302Z"
+  }
+]

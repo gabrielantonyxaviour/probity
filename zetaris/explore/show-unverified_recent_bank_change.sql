@@ -1,0 +1,1 @@
+SHOW DQ INVALID RECORD unverified_recent_bank_change TABLE lightning.metastore.probity.vendor360.payment_run_item

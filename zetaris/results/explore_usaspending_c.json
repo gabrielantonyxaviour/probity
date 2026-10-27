@@ -1,0 +1,116 @@
+{
+  "sql": "SELECT alias_name, entity_key, n_entities FROM (SELECT upper(alias_name) AS alias_name, entity_key, size(collect_set(entity_key) OVER (PARTITION BY upper(alias_name))) AS n_entities FROM probity.usa_alias_v) x WHERE n_entities > 1 ORDER BY alias_name, entity_key LIMIT 100",
+  "sql_hash": "6b5293e1def2d614",
+  "queryId": "15c1f843-4bdb-4dd5-8b67-928d61de5505",
+  "executed_at": "2026-10-27T13:35:50.215Z",
+  "latency_ms": 11476,
+  "key": "query",
+  "columns": [
+    "alias_name",
+    "entity_key",
+    "n_entities"
+  ],
+  "rows": [
+    [
+      "BOOZ ALLEN HAMILTON INC.",
+      "JCBMLGPE6Z71-C",
+      "2"
+    ],
+    [
+      "BOOZ ALLEN HAMILTON INC.",
+      "MBPHTU7Y9S65-P",
+      "2"
+    ],
+    [
+      "HARRIS CORPORATION",
+      "QM4EZDV15JL8-C",
+      "2"
+    ],
+    [
+      "HARRIS CORPORATION",
+      "SJULQDJ8NZU7-P",
+      "2"
+    ],
+    [
+      "L3 SECURITY & DETECTION SYSTEMS  INC.",
+      "SJULQDJ8NZU7-P",
+      "2"
+    ],
+    [
+      "L3 SECURITY & DETECTION SYSTEMS  INC.",
+      "ZL41ERXMPAR3-P",
+      "2"
+    ],
+    [
+      "L3HARRIS TECHNOLOGIES  INC.",
+      "QM4EZDV15JL8-C",
+      "2"
+    ],
+    [
+      "L3HARRIS TECHNOLOGIES  INC.",
+      "SJULQDJ8NZU7-P",
+      "2"
+    ],
+    [
+      "LEIDOS  INC.",
+      "MDSWM6MB1BH7-C",
+      "2"
+    ],
+    [
+      "LEIDOS  INC.",
+      "ZL41ERXMPAR3-P",
+      "2"
+    ],
+    [
+      "LEIDOS INC",
+      "UE9QJD4KK1L6-C",
+      "2"
+    ],
+    [
+      "LEIDOS INC",
+      "ZL41ERXMPAR3-P",
+      "2"
+    ],
+    [
+      "LEIDOS SECURITY DETECTION & AUTOMATION  INC.",
+      "SJULQDJ8NZU7-P",
+      "2"
+    ],
+    [
+      "LEIDOS SECURITY DETECTION & AUTOMATION  INC.",
+      "ZL41ERXMPAR3-P",
+      "2"
+    ],
+    [
+      "SAIC GEMINI  INC.",
+      "MMLKPW9JLX64-C",
+      "2"
+    ],
+    [
+      "SAIC GEMINI  INC.",
+      "RE7WMNV9L719-P",
+      "2"
+    ],
+    [
+      "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+      "MMLKPW9JLX64-C",
+      "2"
+    ],
+    [
+      "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+      "RE7WMNV9L719-P",
+      "2"
+    ],
+    [
+      "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+      "MDSWM6MB1BH7-C",
+      "2"
+    ],
+    [
+      "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+      "UE9QJD4KK1L6-C",
+      "2"
+    ]
+  ],
+  "row_hash": "0c3f1ab7cd73f848"
+}

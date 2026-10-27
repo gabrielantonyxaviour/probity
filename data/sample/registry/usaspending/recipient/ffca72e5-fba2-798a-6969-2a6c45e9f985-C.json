@@ -1,0 +1,58 @@
+{
+ "name": "BOOZ ALLEN HAMILTON INC",
+ "alternate_names": [
+  "BOOZ ALLEN  HAMILTON INC",
+  "BOOZ ALLEN & HAMILTON INC",
+  "BOOZ ALLEN & HAMILTON INC.",
+  "BOOZ ALLEN & HAMILTON, INC",
+  "BOOZ ALLEN HAMILTON",
+  "BOOZ ALLEN HAMILTON INC.",
+  "BOOZ ALLEN HAMILTON INCORPORATED (3626)",
+  "BOOZ, ALLEN & HAMILTON, INC",
+  "BOOZ-ALLEN & HAMILTON INC.",
+  "BOOZ-ALLEN + HAMILTON, INC.",
+  "BOOZ-ALLEN AND HAMILTON INC"
+ ],
+ "duns": "006928857",
+ "uei": "JCBMLGPE6Z71",
+ "recipient_id": "ffca72e5-fba2-798a-6969-2a6c45e9f985-C",
+ "recipient_level": "C",
+ "parent_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+ "parent_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+ "parent_duns": "964725688",
+ "parent_uei": "MBPHTU7Y9S65",
+ "parents": [
+  {
+   "parent_duns": "964725688",
+   "parent_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+   "parent_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+   "parent_uei": "MBPHTU7Y9S65"
+  }
+ ],
+ "business_types": [
+  "category_business",
+  "corporate_entity_not_tax_exempt",
+  "other_than_small_business",
+  "special_designations",
+  "us_owned_business"
+ ],
+ "location": {
+  "address_line1": "8283 GREENSBORO DR",
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": "MCLEAN",
+  "county_name": null,
+  "state_code": "VA",
+  "zip": "22102",
+  "zip4": "3830",
+  "foreign_postal_code": null,
+  "country_name": "UNITED STATES",
+  "country_code": "USA",
+  "congressional_code": "11"
+ },
+ "total_transaction_amount": 6134982681.39,
+ "total_transactions": 3558,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "families": [
+    { "family": "Booz Allen", "details": [{ "uei": "MBPHTU7Y9S65", "level": "P" }, { "uei": "JCBMLGPE6Z71", "level": "C" }], "children_of": ["MBPHTU7Y9S65"], "registrant_cik": "0001443646" },
+    { "family": "Leidos", "details": [{ "uei": "ZL41ERXMPAR3", "level": "P" }, { "uei": "MDSWM6MB1BH7", "level": "C" }, { "uei": "UE9QJD4KK1L6", "level": "C" }], "children_of": ["ZL41ERXMPAR3"], "registrant_cik": "0001336920" },
+    { "family": "SAIC", "details": [{ "uei": "RE7WMNV9L719", "level": "P" }, { "uei": "MMLKPW9JLX64", "level": "C" }], "children_of": ["RE7WMNV9L719"], "registrant_cik": "0001571123" },
+    { "family": "V2X", "details": [{ "uei": "CG8SV4246V29", "level": "P" }], "children_of": ["CG8SV4246V29"], "registrant_cik": "0001601548" },
+    { "family": "L3Harris", "details": [{ "uei": "SJULQDJ8NZU7", "level": "P" }, { "uei": "QM4EZDV15JL8", "level": "C" }], "children_of": ["SJULQDJ8NZU7"], "registrant_cik": "0000202058" },
+    { "family": "CACI", "details": [{ "uei": "QSRTXLFKV857", "level": "P" }, { "uei": "N3PBJAVNKF61", "level": "C" }], "children_of": ["QSRTXLFKV857"], "registrant_cik": "0000016058", "note": "children list has exactly 100 rows: possibly truncated" }
+  ],
+  "discovery": [
+    { "uei": "KHK6E1JW9C15", "level": "C", "note": "S1 runtime discovery; pre-registered only when PREREGISTER_DISCOVERY=true" }
+  ],
+  "judge_set": [
+    { "family": "Parsons", "name_query": "Parsons Corporation", "details": [{ "uei": "FFCMDLMXRK49", "level": "P" }, { "uei": "QF9PHLXT2886", "level": "P" }], "children_of": ["FFCMDLMXRK49"], "registrant_cik": "0000275880", "capture": true },
+    { "family": "ManTech", "name_query": "ManTech International Corporation", "details": [{ "uei": "KZA5CX3J8KE8", "level": "P" }, { "uei": "JY2BDT2K58Z6", "level": "C" }], "children_of": ["KZA5CX3J8KE8"], "registrant_cik": "0000892537", "capture": true },
+    { "family": "KBR", "name_query": "KBR, Inc.", "details": [{ "uei": "VJ3XVZC76HT9", "level": "P" }], "children_of": ["VJ3XVZC76HT9"], "registrant_cik": "0001357615", "capture": false },
+    { "family": "Maximus", "name_query": "Maximus, Inc.", "details": [{ "uei": "RBGHRKKXVQ83", "level": "P" }, { "uei": "TREKW6J3QSF5", "level": "C" }], "children_of": ["RBGHRKKXVQ83"], "registrant_cik": "0001032220", "capture": false },
+    { "family": "ICF", "name_query": "ICF International, Inc.", "details": [{ "uei": "S48EJAG5DJ11", "level": "P" }, { "uei": "QHBLBNKKV4U3", "level": "C" }], "children_of": ["S48EJAG5DJ11"], "registrant_cik": "0001362004", "capture": false },
+    { "family": "Lockheed Martin", "name_query": "Lockheed Martin Corporation", "details": [{ "uei": "ZFN2JJXBLZT3", "level": "P" }], "children_of": ["ZFN2JJXBLZT3"], "registrant_cik": "0000936468", "capture": false },
+    { "family": "General Dynamics (GDIT)", "name_query": "General Dynamics Information Technology", "details": [{ "uei": "SMNWM6HN79X5", "level": "C" }], "children_of": ["VF58HFRNGEL8"], "registrant_cik": "0000040533", "capture": false }
+  ]
+}

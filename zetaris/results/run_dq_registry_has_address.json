@@ -1,0 +1,27 @@
+{
+  "sql": "RUN DQ registry_has_address TABLE lightning.metastore.probity.vendor360.registry_entity",
+  "sql_hash": "a77807078719185b",
+  "queryId": "6f322d59-4206-48f3-a7a8-d2c547dc183f",
+  "executed_at": "2026-10-27T13:35:11.222Z",
+  "latency_ms": 11265,
+  "key": "query",
+  "columns": [
+    "name",
+    "table",
+    "type",
+    "total_record",
+    "valid_record",
+    "invalid_record"
+  ],
+  "rows": [
+    [
+      "registry_has_address",
+      "registry_entity",
+      "Custom Data Quality",
+      "12",
+      "11",
+      "1"
+    ]
+  ],
+  "row_hash": "12effd6575ce1b59"
+}

@@ -1,0 +1,91 @@
+{
+  "sql": "SELECT state_province, COUNT(*) AS children, CAST(SUM(amount) AS DECIMAL(18,2)) AS amount_usd FROM probity.usa_child_v WHERE parent_uei = 'MBPHTU7Y9S65' GROUP BY state_province ORDER BY children DESC, state_province LIMIT 60",
+  "sql_hash": "d18426e0be8cc4b9",
+  "queryId": "02e50eec-f46e-4ef1-9a5c-df3b5a8bdbf2",
+  "executed_at": "2026-10-27T13:35:38.738Z",
+  "latency_ms": 1259,
+  "key": "query",
+  "columns": [
+    "state_province",
+    "children",
+    "amount_usd"
+  ],
+  "rows": [
+    [
+      "VA",
+      "13",
+      "6135365197.84"
+    ],
+    [
+      "MD",
+      "8",
+      "24250315.91"
+    ],
+    [
+      "CA",
+      "3",
+      "0.00"
+    ],
+    [
+      "OH",
+      "3",
+      "100137472.44"
+    ],
+    [
+      "TX",
+      "3",
+      "0.00"
+    ],
+    [
+      "MA",
+      "2",
+      "0.00"
+    ],
+    [
+      "AL",
+      "1",
+      "0.00"
+    ],
+    [
+      "CO",
+      "1",
+      "0.00"
+    ],
+    [
+      "FL",
+      "1",
+      "0.00"
+    ],
+    [
+      "GA",
+      "1",
+      "0.00"
+    ],
+    [
+      "MI",
+      "1",
+      "0.00"
+    ],
+    [
+      "NC",
+      "1",
+      "0.00"
+    ],
+    [
+      "NJ",
+      "1",
+      "465909306.53"
+    ],
+    [
+      "PA",
+      "1",
+      "0.00"
+    ],
+    [
+      "SC",
+      "1",
+      "0.00"
+    ]
+  ],
+  "row_hash": "8527518107969f9f"
+}

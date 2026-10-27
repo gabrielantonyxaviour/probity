@@ -1,0 +1,448 @@
+{
+  "meta": {
+    "generated_by": "tests/engines/fixtures/make.ts",
+    "source": "data/sample (ERP seed + registry captures)",
+    "fetched_at": "2026-10-27T12:30:47.167Z",
+    "query_ids": "derived from template and params (no Zetaris in unit tests)"
+  },
+  "oracle": [
+    {
+      "vendor_id": "V-10027",
+      "scenario": "S1",
+      "received_at": "2026-10-22T15:12:00Z",
+      "t02": [
+        {
+          "contact_id": "VC-00002",
+          "kind": "email",
+          "value": "accounts.receivable@boozallen.example",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00003",
+          "kind": "phone",
+          "value": "(703) 902-5000",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": "2026-10-19T16:20:00Z",
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00004",
+          "kind": "phone",
+          "value": "(703) 555-0182",
+          "valid_from": "2026-10-19T16:20:00Z",
+          "valid_to": null,
+          "changed_via": "email request"
+        }
+      ],
+      "t01": {
+        "template_id": "T01",
+        "query_id": "7dccff7c-88f4-40aa-aec9-20bc07df3204",
+        "row_hash": "8ff1a5a407443fef",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "vendor_id": "V-10027",
+            "legal_name": "Booz Allen Hamilton Inc",
+            "uei": "JCBMLGPE6Z71",
+            "registrant_cik": "0001443646",
+            "remit_line1": "8283 Greensboro Dr",
+            "remit_unit": null,
+            "remit_city": "McLean",
+            "remit_state": "VA",
+            "remit_zip": "22102",
+            "status": "active",
+            "created_at": "2011-05-16T14:00:00Z",
+            "name_norm": "BOOZ ALLEN HAMILTON INC",
+            "email_domains_on_file": "boozallen.example"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10027"
+        }
+      },
+      "t02_batch": {
+        "template_id": "T02",
+        "query_id": "64b880aa-9ba4-449d-a0ad-daea75e03bfd",
+        "row_hash": "7e40b1319664a844",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "contact_id": "VC-00002",
+            "kind": "email",
+            "value": "accounts.receivable@boozallen.example",
+            "valid_from": "2019-04-02T12:00:00Z",
+            "valid_to": null,
+            "changed_via": "migration"
+          },
+          {
+            "contact_id": "VC-00003",
+            "kind": "phone",
+            "value": "(703) 902-5000",
+            "valid_from": "2019-04-02T12:00:00Z",
+            "valid_to": "2026-10-19T16:20:00Z",
+            "changed_via": "migration"
+          },
+          {
+            "contact_id": "VC-00004",
+            "kind": "phone",
+            "value": "(703) 555-0182",
+            "valid_from": "2026-10-19T16:20:00Z",
+            "valid_to": null,
+            "changed_via": "email request"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10027"
+        }
+      }
+    },
+    {
+      "vendor_id": "V-10442",
+      "scenario": "S2",
+      "received_at": "2026-10-23T13:47:00Z",
+      "t02": [
+        {
+          "contact_id": "VC-00043",
+          "kind": "email",
+          "value": "ar.federal@leidos.example",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00044",
+          "kind": "phone",
+          "value": "571-526-6000",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        }
+      ],
+      "t01": {
+        "template_id": "T01",
+        "query_id": "5126a4e0-3faa-4dc1-a4cc-d0e6218ea5a2",
+        "row_hash": "b733a0cb47659c70",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "vendor_id": "V-10442",
+            "legal_name": "Leidos, Inc.",
+            "uei": "UE9QJD4KK1L6",
+            "registrant_cik": "0001336920",
+            "remit_line1": "1750 Presidents St",
+            "remit_unit": "Fl 10",
+            "remit_city": "Reston",
+            "remit_state": "VA",
+            "remit_zip": "20190",
+            "status": "active",
+            "created_at": "2013-10-01T14:00:00Z",
+            "name_norm": "LEIDOS INC",
+            "email_domains_on_file": "leidos.example"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10442"
+        }
+      },
+      "t02_batch": {
+        "template_id": "T02",
+        "query_id": "a995fc3e-33bc-43c4-ae1b-f740853a7525",
+        "row_hash": "ee3e1e39e7aeed4f",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "contact_id": "VC-00043",
+            "kind": "email",
+            "value": "ar.federal@leidos.example",
+            "valid_from": "2019-04-02T12:00:00Z",
+            "valid_to": null,
+            "changed_via": "migration"
+          },
+          {
+            "contact_id": "VC-00044",
+            "kind": "phone",
+            "value": "571-526-6000",
+            "valid_from": "2019-04-02T12:00:00Z",
+            "valid_to": null,
+            "changed_via": "migration"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10442"
+        }
+      }
+    },
+    {
+      "vendor_id": "V-10587",
+      "scenario": "S2",
+      "received_at": "2026-10-23T13:47:00Z",
+      "t02": [
+        {
+          "contact_id": "VC-00060",
+          "kind": "email",
+          "value": "ap@saic.example",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00061",
+          "kind": "phone",
+          "value": "703.676.4300",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        }
+      ],
+      "t01": {
+        "template_id": "T01",
+        "query_id": "d47ab97d-662d-4d9a-a451-f6b19ef32b31",
+        "row_hash": "3b9c879e519262d9",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "vendor_id": "V-10587",
+            "legal_name": "Science Applications International Corp",
+            "uei": "MMLKPW9JLX64",
+            "registrant_cik": "0001571123",
+            "remit_line1": "12010 Sunset Hills Rd",
+            "remit_unit": null,
+            "remit_city": "Reston",
+            "remit_state": "VA",
+            "remit_zip": "20190",
+            "status": "active",
+            "created_at": "2013-10-01T14:00:00Z",
+            "name_norm": "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+            "email_domains_on_file": "saic.example"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10587"
+        }
+      },
+      "t02_batch": {
+        "template_id": "T02",
+        "query_id": "c3fb2420-9177-4f7d-a209-81f7b071051f",
+        "row_hash": "d2575f88a439b9dc",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "contact_id": "VC-00060",
+            "kind": "email",
+            "value": "ap@saic.example",
+            "valid_from": "2019-04-02T12:00:00Z",
+            "valid_to": null,
+            "changed_via": "migration"
+          },
+          {
+            "contact_id": "VC-00061",
+            "kind": "phone",
+            "value": "703.676.4300",
+            "valid_from": "2019-04-02T12:00:00Z",
+            "valid_to": null,
+            "changed_via": "migration"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10587"
+        }
+      }
+    },
+    {
+      "vendor_id": "V-10198",
+      "scenario": "S3",
+      "received_at": "2026-10-20T14:05:00Z",
+      "t02": [
+        {
+          "contact_id": "VC-00019",
+          "kind": "email",
+          "value": "treasury@l3harris.example",
+          "valid_from": "2019-07-01T15:00:00Z",
+          "valid_to": null,
+          "changed_via": "vendor_portal"
+        },
+        {
+          "contact_id": "VC-00020",
+          "kind": "phone",
+          "value": "3217279100",
+          "valid_from": "2019-07-01T15:00:00Z",
+          "valid_to": null,
+          "changed_via": "vendor_portal"
+        }
+      ],
+      "t01": {
+        "template_id": "T01",
+        "query_id": "62b2e3ac-562e-4653-a44f-a3a06dc4e7e9",
+        "row_hash": "fd9d404e5d278c63",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "vendor_id": "V-10198",
+            "legal_name": "L3Harris Technologies, Inc.",
+            "uei": "QM4EZDV15JL8",
+            "registrant_cik": "0000202058",
+            "remit_line1": "1395 Troutman Blvd NE",
+            "remit_unit": null,
+            "remit_city": "Palm Bay",
+            "remit_state": "FL",
+            "remit_zip": "32905",
+            "status": "active",
+            "created_at": "2012-08-20T14:00:00Z",
+            "name_norm": "L3HARRIS TECHNOLOGIES INC",
+            "email_domains_on_file": "harris.example,l3harris.example"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10198"
+        }
+      },
+      "t02_batch": {
+        "template_id": "T02",
+        "query_id": "c333d2e0-8b70-41fc-a40e-b7a97d5612f8",
+        "row_hash": "69c3de7962b92033",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "contact_id": "VC-00019",
+            "kind": "email",
+            "value": "treasury@l3harris.example",
+            "valid_from": "2019-07-01T15:00:00Z",
+            "valid_to": null,
+            "changed_via": "vendor_portal"
+          },
+          {
+            "contact_id": "VC-00020",
+            "kind": "phone",
+            "value": "3217279100",
+            "valid_from": "2019-07-01T15:00:00Z",
+            "valid_to": null,
+            "changed_via": "vendor_portal"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10198"
+        }
+      }
+    },
+    {
+      "vendor_id": "V-10311",
+      "scenario": "S4",
+      "received_at": "2026-10-23T16:30:00Z",
+      "t02": [
+        {
+          "contact_id": "VC-00030",
+          "kind": "email",
+          "value": "ar@vectrus.example",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": "2022-07-11T15:00:00Z",
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00031",
+          "kind": "email",
+          "value": "ar@v2x.example",
+          "valid_from": "2022-07-11T15:00:00Z",
+          "valid_to": null,
+          "changed_via": "vendor_portal"
+        },
+        {
+          "contact_id": "VC-00032",
+          "kind": "phone",
+          "value": "(719) 555-0110",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": "2022-07-11T15:00:00Z",
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00033",
+          "kind": "phone",
+          "value": "(571) 481-2000",
+          "valid_from": "2022-07-11T15:00:00Z",
+          "valid_to": null,
+          "changed_via": "vendor_portal"
+        }
+      ],
+      "t01": {
+        "template_id": "T01",
+        "query_id": "068fd194-fbf3-4ac7-adea-0746479b85ff",
+        "row_hash": "10b133b7a8b951a9",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "vendor_id": "V-10311",
+            "legal_name": "V2X, Inc.",
+            "uei": "CG8SV4246V29",
+            "registrant_cik": "0001601548",
+            "remit_line1": "2424 Garden of the Gods Rd",
+            "remit_unit": null,
+            "remit_city": "Colorado Springs",
+            "remit_state": "CO",
+            "remit_zip": "80919",
+            "status": "active",
+            "created_at": "2015-02-09T14:00:00Z",
+            "name_norm": "V2X INC",
+            "email_domains_on_file": "v2x.example,vectrus.example"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10311"
+        }
+      },
+      "t02_batch": {
+        "template_id": "T02",
+        "query_id": "d268fab7-cafb-43cb-a8f0-a5e4f2e8cbe2",
+        "row_hash": "ed368cbeb2ca21d4",
+        "mode": "sample",
+        "fetched_at": "2026-10-27T12:30:47.167Z",
+        "rows": [
+          {
+            "contact_id": "VC-00030",
+            "kind": "email",
+            "value": "ar@vectrus.example",
+            "valid_from": "2019-04-02T12:00:00Z",
+            "valid_to": "2022-07-11T15:00:00Z",
+            "changed_via": "migration"
+          },
+          {
+            "contact_id": "VC-00031",
+            "kind": "email",
+            "value": "ar@v2x.example",
+            "valid_from": "2022-07-11T15:00:00Z",
+            "valid_to": null,
+            "changed_via": "vendor_portal"
+          },
+          {
+            "contact_id": "VC-00032",
+            "kind": "phone",
+            "value": "(719) 555-0110",
+            "valid_from": "2019-04-02T12:00:00Z",
+            "valid_to": "2022-07-11T15:00:00Z",
+            "changed_via": "migration"
+          },
+          {
+            "contact_id": "VC-00033",
+            "kind": "phone",
+            "value": "(571) 481-2000",
+            "valid_from": "2022-07-11T15:00:00Z",
+            "valid_to": null,
+            "changed_via": "vendor_portal"
+          }
+        ],
+        "params": {
+          "vendor_id": "V-10311"
+        }
+      }
+    }
+  ]
+}

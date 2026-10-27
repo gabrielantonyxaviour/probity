@@ -1,0 +1,142 @@
+{
+  "example_id": "14-chesterfield-bank-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "40865ea0064773f3b68404a09be5b8f98fec40fa54f2342ac425046a6e35c54e",
+    "8dc2573c5b1bc9bf6dfcaf80f72becc7131ca6bea8f26edb2db84cef609800a1",
+    "85e0d416994e9917e8857ed1ce1d2df588507d9585e89dccdb243e04ce23858d"
+  ],
+  "account_number": "000999000902",
+  "claimed_name": "Chesterfield Ridge Staffing Group Inc",
+  "letterhead_name": "Chesterfield Ridge Staffing Group Inc",
+  "remit_address": null,
+  "bank": {
+    "bank_name": "Old Quarry Test Bank (fictional)",
+    "routing": "110000000",
+    "account_last4": "0902"
+  },
+  "sender_email": "accounts@chesterfieldridge.example",
+  "sender_domain": "chesterfieldridge.example",
+  "reply_to_domain": null,
+  "phones": [
+    {
+      "number": "(804) 555-0160",
+      "quote": "(804) 555-0160",
+      "e164": "+18045550160"
+    }
+  ],
+  "effective_date": "2026-10-30",
+  "invoice_refs": [
+    "INV-CRS-11872"
+  ],
+  "signer_name": "H. Ostergaard (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by Chesterfield Ridge Staffing Group Inc (fictional)",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by Chesterfield Ridge Staffing Group Inc (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        604,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Chesterfield Ridge Staffing Group Inc",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        75,
+        661,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(804) 555-0160",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        121,
+        224,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "invoice_ref",
+      "fact_field": "invoice_refs",
+      "quote": "INV-CRS-11872",
+      "page": 1,
+      "bbox_hint": [
+        605,
+        346,
+        737,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "Chesterfield Ridge Staffing Group Inc",
+      "page": 1,
+      "bbox_hint": [
+        222,
+        364,
+        521,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_routing",
+      "fact_field": "bank_account",
+      "quote": "110000000",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        484,
+        593,
+        502
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_account",
+      "fact_field": "bank_account",
+      "quote": "000999000902",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        513,
+        628,
+        530
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "H. Ostergaard (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        617,
+        326,
+        636
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

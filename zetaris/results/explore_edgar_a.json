@@ -1,0 +1,60 @@
+{
+  "sql": "SELECT cik, legal_name, phone, biz_city, biz_state FROM probity.sec_registrant_v ORDER BY cik LIMIT 10",
+  "sql_hash": "b95aef4d344f5ce9",
+  "queryId": "d2bd1081-84e7-4e0f-ab3e-1383d5c45a7b",
+  "executed_at": "2026-10-27T13:35:52.246Z",
+  "latency_ms": 2029,
+  "key": "query",
+  "columns": [
+    "cik",
+    "legal_name",
+    "phone",
+    "biz_city",
+    "biz_state"
+  ],
+  "rows": [
+    [
+      "0000016058",
+      "CACI INTERNATIONAL INC /DE/",
+      "7038417800",
+      "RESTON",
+      "VA"
+    ],
+    [
+      "0000202058",
+      "L3HARRIS TECHNOLOGIES, INC. /DE/",
+      "3217279100",
+      "MELBOURNE",
+      "FL"
+    ],
+    [
+      "0001336920",
+      "Leidos Holdings, Inc.",
+      "571-526-6000",
+      "RESTON",
+      "VA"
+    ],
+    [
+      "0001443646",
+      "Booz Allen Hamilton Holding Corp",
+      "703-902-5000",
+      "MCLEAN",
+      "VA"
+    ],
+    [
+      "0001571123",
+      "Science Applications International Corp",
+      "703-676-4300",
+      "RESTON",
+      "VA"
+    ],
+    [
+      "0001601548",
+      "V2X, Inc.",
+      "(571) 481-2000",
+      "RESTON",
+      "VA"
+    ]
+  ],
+  "row_hash": "e720a6ceea44ddea"
+}

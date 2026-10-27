@@ -1,0 +1,1 @@
+SELECT i.payment_run_id, r.scheduled_date, COUNT(*) AS items, CAST(SUM(i.amount_usd) AS DECIMAL(16,2)) AS total_usd FROM payee_erp.payment_run_item i JOIN payee_erp.payment_run r ON r.payment_run_id = i.payment_run_id GROUP BY i.payment_run_id, r.scheduled_date ORDER BY r.scheduled_date LIMIT 20

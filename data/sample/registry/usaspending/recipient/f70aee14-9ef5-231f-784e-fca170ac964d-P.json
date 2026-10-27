@@ -1,0 +1,43 @@
+{
+ "name": "THE PARSONS CORPORATION",
+ "alternate_names": [
+  "MICHAEL BAKER INTERNATIONAL  INC",
+  "MICHAEL BAKER INTERNATIONAL  INC."
+ ],
+ "duns": "030866545",
+ "uei": "QF9PHLXT2886",
+ "recipient_id": "f70aee14-9ef5-231f-784e-fca170ac964d-P",
+ "recipient_level": "P",
+ "parent_id": "f70aee14-9ef5-231f-784e-fca170ac964d-P",
+ "parent_name": "THE PARSONS CORPORATION",
+ "parent_duns": "030866545",
+ "parent_uei": "QF9PHLXT2886",
+ "parents": [
+  {
+   "parent_id": "f70aee14-9ef5-231f-784e-fca170ac964d-P",
+   "parent_duns": "030866545",
+   "parent_uei": "QF9PHLXT2886",
+   "parent_name": "THE PARSONS CORPORATION"
+  }
+ ],
+ "business_types": [],
+ "location": {
+  "address_line1": null,
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": null,
+  "county_name": null,
+  "state_code": null,
+  "zip": null,
+  "zip4": null,
+  "foreign_postal_code": null,
+  "country_name": null,
+  "country_code": null,
+  "congressional_code": null
+ },
+ "total_transaction_amount": 8729908.34,
+ "total_transactions": 137,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

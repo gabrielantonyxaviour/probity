@@ -1,0 +1,1 @@
+SELECT b.vendor_id, b.bank_account_id, b.changed_at, l.phone_source, l.outcome, l.called_at FROM payee_erp.vendor_bank_account b LEFT JOIN payee_erp.vendor_contact_log l ON l.vendor_id = b.vendor_id AND l.purpose = 'bank_change_callback' AND l.called_at >= b.changed_at WHERE b.changed_at >= date_sub(DATE'2026-10-30', 30) ORDER BY b.changed_at LIMIT 50

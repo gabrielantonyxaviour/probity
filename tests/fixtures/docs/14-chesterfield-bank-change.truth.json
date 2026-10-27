@@ -1,0 +1,237 @@
+{
+  "example_id": "14-chesterfield-bank-change",
+  "letter_id": "14-chesterfield-bank-change",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Chesterfield Ridge Staffing Group Inc",
+    "letterhead_name": "Chesterfield Ridge Staffing Group Inc",
+    "remit_address": null,
+    "bank": {
+      "bank_name": "Old Quarry Test Bank (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000902"
+    },
+    "phones": [
+      "(804) 555-0160"
+    ],
+    "effective_date": "2026-10-30",
+    "signer_name": "H. Ostergaard (fictional)",
+    "signer_title": "Director of Finance",
+    "sender_email": "accounts@chesterfieldridge.example",
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by Chesterfield Ridge Staffing Group Inc (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 601,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Chesterfield Ridge Staffing Group Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 672,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "4497 Heron Ln, Richmond, VA 23220",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 318,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(804) 555-0160",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 193,
+          "w": 132,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_email",
+      "text": "accounts@chesterfieldridge.example",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 292,
+          "y": 193,
+          "w": 317,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 22, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Change of bank account",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 355,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "invoice_refs",
+      "text": "INV-CRS-11872",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 748,
+          "y": 553,
+          "w": 163,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Chesterfield Ridge Staffing Group Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 274,
+          "y": 583,
+          "w": 370,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Old Quarry Test Bank (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 731,
+          "w": 313,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 775,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000902  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 820,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Chesterfield Ridge Staffing Group Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 864,
+          "w": 370,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "H. Ostergaard (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 987,
+          "w": 258,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Director of Finance",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1020,
+          "w": 189,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+ "cik": "0001571123",
+ "name": "Science Applications International Corp",
+ "tickers": [
+  "SAIC"
+ ],
+ "exchanges": [
+  "Nasdaq"
+ ],
+ "ein": "461932921",
+ "sic": "7373",
+ "sicDescription": "Services-Computer Integrated Systems Design",
+ "stateOfIncorporation": "DE",
+ "phone": "703-676-4300",
+ "addresses": {
+  "mailing": {
+   "street1": "12010 SUNSET HILLS ROAD",
+   "street2": null,
+   "city": "RESTON",
+   "stateOrCountry": "VA",
+   "zipCode": "20190"
+  },
+  "business": {
+   "street1": "12010 SUNSET HILLS ROAD",
+   "street2": null,
+   "city": "RESTON",
+   "stateOrCountry": "VA",
+   "zipCode": "20190"
+  }
+ },
+ "formerNames": [
+  {
+   "name": "SAIC Gemini, Inc.",
+   "from": "2013-03-07T00:00:00.000Z",
+   "to": "2013-09-27T00:00:00.000Z"
+  }
+ ]
+}

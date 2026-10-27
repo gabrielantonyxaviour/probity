@@ -1,0 +1,71 @@
+{
+ "name": "PARSONS CORPORATION",
+ "alternate_names": [
+  "BRAXTON SCIENCE & TECHNO",
+  "BRAXTON SCIENCE & TECHNOLOGY GROUP  LLC",
+  "BRAXTON TECHNOLOGIES  LLC",
+  "FIRST DEFENSE SERVICES PTE. LTD.",
+  "FOURTH DIMENSION ENGINEERING LLC",
+  "INGENICOMM  LLC",
+  "INTELLIGENT SOFTWARE SOLUTIONS USA, LLC",
+  "NDP  LLC",
+  "OGSYSTEMS  LLC",
+  "PARSONS GOVERNMENT SERVICES INC",
+  "PARSONS GOVERNMENT SERVICES INC.",
+  "PARSONS-COLAS UKP JV",
+  "PARSONS-VERSAR JOINT VENTURE",
+  "POLARIS ALPHA  LLC",
+  "POLARIS ALPHA ADVANCED SYSTEMS INC",
+  "POLARIS ALPHA CYBER AND SIGINT  LLC",
+  "PTSI MANAGED SERVICES INC",
+  "QRC  LLC",
+  "SPACE GROUND SYSTEM SOLUTIONS  INC",
+  "SPACE GROUND SYSTEM SOLUTIONS  INC.",
+  "THE PARSONS CORPORATION",
+  "TSM LLC",
+  "XATOR CORPORATION",
+  "XATOR LLC"
+ ],
+ "duns": "030866545",
+ "uei": "FFCMDLMXRK49",
+ "recipient_id": "ac2c100c-050a-9cb9-0e54-596894cdcf7e-P",
+ "recipient_level": "P",
+ "parent_id": "ac2c100c-050a-9cb9-0e54-596894cdcf7e-P",
+ "parent_name": "PARSONS CORPORATION",
+ "parent_duns": "030866545",
+ "parent_uei": "FFCMDLMXRK49",
+ "parents": [
+  {
+   "parent_id": "ac2c100c-050a-9cb9-0e54-596894cdcf7e-P",
+   "parent_duns": "030866545",
+   "parent_uei": "FFCMDLMXRK49",
+   "parent_name": "PARSONS CORPORATION"
+  }
+ ],
+ "business_types": [
+  "category_business",
+  "corporate_entity_not_tax_exempt",
+  "other_than_small_business",
+  "special_designations",
+  "us_owned_business"
+ ],
+ "location": {
+  "address_line1": "14291 PARK MEADOW DR 100",
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": "CHANTILLY",
+  "county_name": null,
+  "state_code": "VA",
+  "zip": "20151",
+  "zip4": "4253",
+  "foreign_postal_code": null,
+  "country_name": "UNITED STATES",
+  "country_code": "USA",
+  "congressional_code": "11"
+ },
+ "total_transaction_amount": 1070392457.88,
+ "total_transactions": 814,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

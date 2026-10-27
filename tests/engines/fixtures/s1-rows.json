@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "generated_by": "tests/engines/fixtures/make.ts",
+    "source": "data/sample (ERP seed + registry captures)",
+    "fetched_at": "2026-10-27T12:30:47.167Z",
+    "query_ids": "derived from template and params (no Zetaris in unit tests)"
+  },
+  "request": {
+    "request_id": "BCR-2026-0412",
+    "received_at": "2026-10-22T15:12:00Z",
+    "claims": {
+      "claimed_name": "Booz Allen Hamilton Inc.",
+      "letterhead_name": "Booz Allen Hamilton Inc.",
+      "remit_address": {
+        "line1": "1 Commvault Way",
+        "unit": "Suite 205",
+        "city": "Tinton Falls",
+        "state": "NJ",
+        "zip": "07724"
+      },
+      "bank": {
+        "bank_name": null,
+        "routing": "110000000",
+        "account_last4": "0141"
+      },
+      "sender_email": "ap-remittance@boozallen-payments.example",
+      "sender_domain": "boozallen-payments.example",
+      "reply_to_domain": "boozallen-payments.example",
+      "phones": [
+        {
+          "number": "(703) 555-0147",
+          "quote": "Treasury Operations (703) 555-0147"
+        }
+      ],
+      "effective_date": null,
+      "invoice_refs": ["INV-BAH-20931", "INV-BAH-20944", "INV-BAH-20967"],
+      "signer_name": "R. Castellane (fictional)",
+      "pressure_phrases": [],
+      "watermark_text": "SYNTHETIC SAMPLE: not issued by Booz Allen Hamilton Inc.",
+      "fields": [],
+      "extraction_path": "sidecar"
+    },
+    "account_hash": "175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6",
+    "account_last4": "0141",
+    "candidate_vendor_ids": ["V-10027"],
+    "doc_ids": ["DOC-BCR-2026-0412-1", "DOC-BCR-2026-0412-2"],
+    "channel": "email"
+  },
+  "batches": [
+    {
+      "template_id": "T01",
+      "query_id": "7dccff7c-88f4-40aa-aec9-20bc07df3204",
+      "row_hash": "8ff1a5a407443fef",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "vendor_id": "V-10027",
+          "legal_name": "Booz Allen Hamilton Inc",
+          "uei": "JCBMLGPE6Z71",
+          "registrant_cik": "0001443646",
+          "remit_line1": "8283 Greensboro Dr",
+          "remit_unit": null,
+          "remit_city": "McLean",
+          "remit_state": "VA",
+          "remit_zip": "22102",
+          "status": "active",
+          "created_at": "2011-05-16T14:00:00Z",
+          "name_norm": "BOOZ ALLEN HAMILTON INC",
+          "email_domains_on_file": "boozallen.example"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10027"
+      }
+    },
+    {
+      "template_id": "T02",
+      "query_id": "64b880aa-9ba4-449d-a0ad-daea75e03bfd",
+      "row_hash": "7e40b1319664a844",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "contact_id": "VC-00002",
+          "kind": "email",
+          "value": "accounts.receivable@boozallen.example",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00003",
+          "kind": "phone",
+          "value": "(703) 902-5000",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": "2026-10-19T16:20:00Z",
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00004",
+          "kind": "phone",
+          "value": "(703) 555-0182",
+          "valid_from": "2026-10-19T16:20:00Z",
+          "valid_to": null,
+          "changed_via": "email request"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10027"
+      }
+    },
+    {
+      "template_id": "T05",
+      "query_id": "9aac2c83-6ac6-421f-af63-f39a5c002044",
+      "row_hash": "2964ba60af7e014e",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "vendor_id": "V-10027",
+          "vm_name": "Booz Allen Hamilton Inc",
+          "uei": "JCBMLGPE6Z71",
+          "registrant_cik": "0001443646",
+          "remit_line1": "8283 Greensboro Dr",
+          "remit_city": "McLean",
+          "remit_state": "VA",
+          "email_domains_on_file": "boozallen.example",
+          "entity_key": "JCBMLGPE6Z71-C",
+          "usa_name": "BOOZ ALLEN HAMILTON INC",
+          "parent_uei": "MBPHTU7Y9S65",
+          "usa_line1": "8283 GREENSBORO DR",
+          "usa_city": "MCLEAN",
+          "usa_state": "VA",
+          "cik": "0001443646",
+          "sec_name": "Booz Allen Hamilton Holding Corp",
+          "sec_phone": "703-902-5000",
+          "sec_ein": "000000000",
+          "biz_street1": "8283 GREENSBORO DRIVE",
+          "biz_city": "MCLEAN",
+          "biz_state": "VA"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10027"
+      }
+    },
+    {
+      "template_id": "T05b",
+      "query_id": "33ed0eca-4e1b-4637-a12f-95e52d6e5a3c",
+      "row_hash": "afd7f09142c6b8af",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "p_entity_key": "MBPHTU7Y9S65-P",
+          "p_legal_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+          "p_address_line1": "8283 GREENSBORO DR",
+          "p_city_name": "MCLEAN",
+          "p_state_code": "VA",
+          "p_zip": "22102"
+        }
+      ],
+      "params": {
+        "parent_uei": "MBPHTU7Y9S65"
+      }
+    },
+    {
+      "template_id": "T07",
+      "query_id": "d8c15626-ea75-48c1-a183-321806564dc6",
+      "row_hash": "461186555f80344b",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "via": "vendor_bank_account",
+          "owner_vendor_id": "V-10812",
+          "request_id": null,
+          "bank_account_id": "BA-40812",
+          "status": "active",
+          "at_ts": "2026-10-18T13:02:00Z",
+          "vendor_name": "Quillan Ridge Fleet Services LLC (fictional)"
+        }
+      ],
+      "params": {
+        "account_hash": "175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6"
+      }
+    },
+    {
+      "template_id": "T10",
+      "query_id": "37930b51-6fcb-41e2-a32d-738838902d58",
+      "row_hash": "eac07171ab962e35",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "child_uei": "KHK6E1JW9C15",
+          "child_recipient_id": "30b32b62-ffbf-d7e6-5b9d-95a295b95a6d-C",
+          "child_name": "BOOZ ALLEN HAMILTON INC",
+          "state_province": "NJ",
+          "amount": 465909306.53,
+          "list_size": 41
+        }
+      ],
+      "params": {
+        "parent_uei": "MBPHTU7Y9S65",
+        "state": "NJ"
+      }
+    },
+    {
+      "template_id": "T11",
+      "query_id": "4effe4d2-5dcd-42de-a245-79912fbc8fae",
+      "row_hash": "c1b67c33bb67476b",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "row_key": "KHK6E1JW9C15-C",
+          "matched_uei": "KHK6E1JW9C15",
+          "matched_level": "C",
+          "matched_name": "BOOZ ALLEN HAMILTON INC",
+          "address_line1": "1 COMMVAULT WAY STE 205",
+          "city_name": "TINTON FALLS",
+          "state_code": "NJ",
+          "zip": "07724",
+          "via": "session",
+          "vendor_id_on_file": null
+        }
+      ],
+      "params": {
+        "parent_uei": "MBPHTU7Y9S65"
+      }
+    },
+    {
+      "template_id": "T12",
+      "query_id": "ecaa549e-5584-4386-a0ac-518c8c026f9d",
+      "row_hash": "bef87843dd0147e8",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "name": "BOOZ ALLEN HAMILTON INC",
+          "alternate_names": ["BOOZ ALLEN HAMILTON INC."],
+          "duns": "085631448",
+          "uei": "KHK6E1JW9C15",
+          "recipient_id": "30b32b62-ffbf-d7e6-5b9d-95a295b95a6d-C",
+          "recipient_level": "C",
+          "parent_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+          "parent_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+          "parent_duns": "964725688",
+          "parent_uei": "MBPHTU7Y9S65",
+          "parents": [
+            {
+              "parent_duns": "964725688",
+              "parent_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+              "parent_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+              "parent_uei": "MBPHTU7Y9S65"
+            }
+          ],
+          "business_types": [
+            "category_business",
+            "corporate_entity_not_tax_exempt",
+            "other_than_small_business",
+            "special_designations",
+            "us_owned_business"
+          ],
+          "location": {
+            "address_line1": "1 COMMVAULT WAY STE 205",
+            "address_line2": null,
+            "address_line3": null,
+            "foreign_province": null,
+            "city_name": "TINTON FALLS",
+            "county_name": null,
+            "state_code": "NJ",
+            "zip": "07724",
+            "zip4": "3096",
+            "foreign_postal_code": null,
+            "country_name": "UNITED STATES",
+            "country_code": "USA",
+            "congressional_code": "04"
+          },
+          "total_transaction_amount": 465909306.53,
+          "total_transactions": 35,
+          "total_face_value_loan_amount": 0,
+          "total_face_value_loan_transactions": 0
+        }
+      ],
+      "params": {
+        "uei": "KHK6E1JW9C15",
+        "level": "C"
+      }
+    }
+  ]
+}

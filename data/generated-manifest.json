@@ -1,0 +1,821 @@
+{
+  "synthetic": true,
+  "seed": 20261027,
+  "world_now": "2026-10-27T07:00:00Z",
+  "outputs": {
+    "seed": [
+      {
+        "path": "data/sample/erp/ap_invoice.json",
+        "sha256": "1db088532d890f742eaa219c00588605e3331776b59a400a9d001ec6decec0f7",
+        "bytes": 32083
+      },
+      {
+        "path": "data/sample/erp/bank_change_document.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      {
+        "path": "data/sample/erp/bank_change_request.json",
+        "sha256": "1e47f97be2ec13a0294e58ae4fe0b9a2ae5019573c31e20ca1eb7d1cec615515",
+        "bytes": 9069
+      },
+      {
+        "path": "data/sample/erp/payment_run_item.json",
+        "sha256": "f50c252b6e199e31b68075e1e42f6d9e9acde3a1a61ffe8c9f2e21b334cdc3ad",
+        "bytes": 36251
+      },
+      {
+        "path": "data/sample/erp/payment_run.json",
+        "sha256": "cd6d67f3db6c40f179109b9cb5508996b8d213c0c50eb6bcd1474feb80f41d7d",
+        "bytes": 1904
+      },
+      {
+        "path": "data/sample/erp/vendor_bank_account.json",
+        "sha256": "ab8f9eb503b9bb3749a33a56b20ad13016a37814fe1fbb0c5fa82b7f421a7d5e",
+        "bytes": 20866
+      },
+      {
+        "path": "data/sample/erp/vendor_contact_log.json",
+        "sha256": "b60c5220054f912cb17fe33e06a9a29831fa9e475eee77ca0466204d33847f77",
+        "bytes": 9341
+      },
+      {
+        "path": "data/sample/erp/vendor_contact.json",
+        "sha256": "2504b34860167d99751a4568726abcfce41d94330eae628017296bb5cef40114",
+        "bytes": 25692
+      },
+      {
+        "path": "data/sample/erp/vendor_domain.json",
+        "sha256": "59823e0f722efa5874c59cac426d6b7b0114991f905c2e7c1413578d9b55ec1f",
+        "bytes": 6742
+      },
+      {
+        "path": "data/sample/erp/vendor_remit_history.json",
+        "sha256": "ad22207ea984366d90a0fb86fd166c65e893b41c643682819fb3e0a3d7ef9f38",
+        "bytes": 15889
+      },
+      {
+        "path": "data/sample/erp/vendor.json",
+        "sha256": "9d9ab6ca07db1d1e6b4ec6bc4c592403e4a06802a3ed93020f0f0c0214d5dc0c",
+        "bytes": 21282
+      },
+      {
+        "path": "db/init/02-seed.sql",
+        "sha256": "e89247ac7377c6fff648c2e0059562fd4ea0b4c1a5718ca222f8bd87b8856758",
+        "bytes": 82334
+      },
+      {
+        "path": "db/seed/ap_invoice.json",
+        "sha256": "1db088532d890f742eaa219c00588605e3331776b59a400a9d001ec6decec0f7",
+        "bytes": 32083
+      },
+      {
+        "path": "db/seed/bank_change_document.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      {
+        "path": "db/seed/bank_change_request.json",
+        "sha256": "1e47f97be2ec13a0294e58ae4fe0b9a2ae5019573c31e20ca1eb7d1cec615515",
+        "bytes": 9069
+      },
+      {
+        "path": "db/seed/payment_run_item.json",
+        "sha256": "f50c252b6e199e31b68075e1e42f6d9e9acde3a1a61ffe8c9f2e21b334cdc3ad",
+        "bytes": 36251
+      },
+      {
+        "path": "db/seed/payment_run.json",
+        "sha256": "cd6d67f3db6c40f179109b9cb5508996b8d213c0c50eb6bcd1474feb80f41d7d",
+        "bytes": 1904
+      },
+      {
+        "path": "db/seed/vendor_bank_account.json",
+        "sha256": "ab8f9eb503b9bb3749a33a56b20ad13016a37814fe1fbb0c5fa82b7f421a7d5e",
+        "bytes": 20866
+      },
+      {
+        "path": "db/seed/vendor_contact_log.json",
+        "sha256": "b60c5220054f912cb17fe33e06a9a29831fa9e475eee77ca0466204d33847f77",
+        "bytes": 9341
+      },
+      {
+        "path": "db/seed/vendor_contact.json",
+        "sha256": "2504b34860167d99751a4568726abcfce41d94330eae628017296bb5cef40114",
+        "bytes": 25692
+      },
+      {
+        "path": "db/seed/vendor_domain.json",
+        "sha256": "59823e0f722efa5874c59cac426d6b7b0114991f905c2e7c1413578d9b55ec1f",
+        "bytes": 6742
+      },
+      {
+        "path": "db/seed/vendor_remit_history.json",
+        "sha256": "ad22207ea984366d90a0fb86fd166c65e893b41c643682819fb3e0a3d7ef9f38",
+        "bytes": 15889
+      },
+      {
+        "path": "db/seed/vendor.json",
+        "sha256": "9d9ab6ca07db1d1e6b4ec6bc4c592403e4a06802a3ed93020f0f0c0214d5dc0c",
+        "bytes": 21282
+      }
+    ],
+    "documents": [
+      {
+        "path": "data/inbox/items/BCR-2026-0401/letter.pdf",
+        "sha256": "dfb4b6b6bcd832b44426087df7501b0a0ef6acc4994dd1962dd933c8ae01226e",
+        "bytes": 104176
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0401/letter.png",
+        "sha256": "e70acc9205035b8a85a0b446a82749217bb5e0e2c7d731105b95e1344afe80b8",
+        "bytes": 214033
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0401/request.json",
+        "sha256": "13b767f5389ae5742cd8dc61441075c84022fdc47eba160ee86fcff872709d7e",
+        "bytes": 402
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0405/letter.pdf",
+        "sha256": "874c80ad25fc2081a23afb79152d67a5bfbce0a6248d4c1f79f6d004f63d4f8d",
+        "bytes": 178024
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0405/letter.png",
+        "sha256": "6f919576f90bc2364eb668daeae9868874ec5d316a0622fb1fa74eeae1591603",
+        "bytes": 219530
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0405/request.json",
+        "sha256": "40bfb138d1e7f5f55586fd4c50ef6f27ff205c8a5488a61c1c617588b1017206",
+        "bytes": 417
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0409/headers.eml",
+        "sha256": "1891e08617f9e01adaa01aaf2ff30ae7bea074686d5ed5c081807f8ff3464622",
+        "bytes": 1220
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0409/letter.pdf",
+        "sha256": "a68d6b7a2014cc9946e82857f80e46af7be9ce8e1e6e74e32e8fe2b363409b2b",
+        "bytes": 176622
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0409/letter.png",
+        "sha256": "383510c035da1e94155db07a5b3145383bfb81f63ef00a7f92e6b51efd2c4921",
+        "bytes": 223107
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0409/request.json",
+        "sha256": "11a83071aba445b9431847e20504e78765687e832717f8498ee42a66e8966afb",
+        "bytes": 501
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0414/headers.eml",
+        "sha256": "85e0d416994e9917e8857ed1ce1d2df588507d9585e89dccdb243e04ce23858d",
+        "bytes": 1166
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0414/letter.pdf",
+        "sha256": "8dc2573c5b1bc9bf6dfcaf80f72becc7131ca6bea8f26edb2db84cef609800a1",
+        "bytes": 200208
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0414/letter.png",
+        "sha256": "40865ea0064773f3b68404a09be5b8f98fec40fa54f2342ac425046a6e35c54e",
+        "bytes": 222183
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0414/request.json",
+        "sha256": "12f2cdd7c014dd2d80b308b8dd9a4502fc2373c11b8cab0bef471135a905764d",
+        "bytes": 497
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0420/headers.eml",
+        "sha256": "dd18c6fd7af9d1d1f6a8d5f55a94257c663c56fcc39bfe22d0542d504b4af01b",
+        "bytes": 1215
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0420/letter.pdf",
+        "sha256": "77b69242f1205245f041ea6dd1c49215e33c7fd0fe761e24d62eea5d179cb61b",
+        "bytes": 38363
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0420/letter.png",
+        "sha256": "770f95c56f3c5668dda1f92437ace7c71a2125a9027871843e9ed44f4dbb2b78",
+        "bytes": 209266
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0420/request.json",
+        "sha256": "65688c930a5e89b60ef5cf4815747a73fb60c30f2dc4688d0ab8cdae6bd3878a",
+        "bytes": 492
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0425/headers.eml",
+        "sha256": "9a190619c466a0b6b2c2b07356336b5ec3dd96fecc19c479eac26fc755b519aa",
+        "bytes": 1121
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0425/letter.pdf",
+        "sha256": "ee0d2b89cbdb4f20d5697310c1c563f2d63933ac96a18301067746a02a44541a",
+        "bytes": 180710
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0425/letter.png",
+        "sha256": "a478150938ad1507e6cf1dfa25c26cf4c40769451ed622349657441279d7b6d8",
+        "bytes": 202317
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0425/request.json",
+        "sha256": "78662eb8422b539532910009532e399819df14f69679b605ab30cece9fe2aefd",
+        "bytes": 483
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0429/headers.eml",
+        "sha256": "0b5280196c42d34984dc418c53b6a0569eec357a642c4836254bad37bf2749eb",
+        "bytes": 1089
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0429/letter.pdf",
+        "sha256": "cd8c92e097d5dcaf6e7aa0baf27fe0d492a1bb971ebe4efa459908455cd7cef9",
+        "bytes": 175913
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0429/letter.png",
+        "sha256": "3f0ea6beb73380fd97cad48033005415bdb68fe63024adbf1f5d8dfa8f06e57e",
+        "bytes": 206437
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0429/request.json",
+        "sha256": "f0d04d604b3691846e72537d033af476efa6d2b27f4560b71a6e9bf28f1f7c14",
+        "bytes": 477
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0434/letter.pdf",
+        "sha256": "557489e4799bd92d9d99fe0a55da055786224ccdca3e88b1265ec5035a80fa2f",
+        "bytes": 42815
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0434/letter.png",
+        "sha256": "0771d88e6da78504ced8d1a4d4b0c20ccc6ea254d7a1a767634ecf560f9bd1aa",
+        "bytes": 215195
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0434/request.json",
+        "sha256": "1bd576c032631e4bf353a1aac10213789269f378e10d5b7893cf2fddbc980b02",
+        "bytes": 426
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0439/headers.eml",
+        "sha256": "8ef0973d45c515e0229939663788304a03c28da676f730444f717512bc70a037",
+        "bytes": 1155
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0439/letter.pdf",
+        "sha256": "cc638fdd358d18221d1d07985d0c65fc14db833c1821438c419a004f1964b6fd",
+        "bytes": 110589
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0439/letter.png",
+        "sha256": "f4d6a7b30034b6f3e09b67eebbb0549436e7a53b910424c0ee7df1de97068846",
+        "bytes": 206377
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0439/request.json",
+        "sha256": "566fb2b860a8d8aab0dd4af7385cad52712c5fb0df056d5e1542df9a2f975a99",
+        "bytes": 514
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0443/letter.pdf",
+        "sha256": "f586f965c724739a77e1c6abd72c56afe513bb5dfcd88abaff5658e76f293834",
+        "bytes": 172884
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0443/letter.png",
+        "sha256": "c8f6738cd2e35387c3f52bd1572b7bc8a5b70fe2ae4c6ae9e93ac3b666947201",
+        "bytes": 192587
+      },
+      {
+        "path": "data/inbox/items/BCR-2026-0443/request.json",
+        "sha256": "1429ae9814d9ed9088416411266c147b313fa4c968c4bf5f630fd61b7d19e7ac",
+        "bytes": 422
+      },
+      {
+        "path": "data/inbox/manifest.json",
+        "sha256": "d6f4beea0832388914ac26ed3e46cbc6690338909f9b944292535b60c50e40fb",
+        "bytes": 17707
+      },
+      {
+        "path": "data/sample/claims/01-booz-allen-remit-change.claims.json",
+        "sha256": "281663e713dc52afd5df8e6434295dc60d5f76fcc8594c9e1682c3e05c4f0547",
+        "bytes": 4414
+      },
+      {
+        "path": "data/sample/claims/02-saic-leidos-remit-change.claims.json",
+        "sha256": "c981295cca7019f1ab9b7f66295c763aacc753bf6b13754ecf76056b0fb99f81",
+        "bytes": 3634
+      },
+      {
+        "path": "data/sample/claims/03-l3harris-bank-change.claims.json",
+        "sha256": "3bcbadcb92947434cbf65025d2fd6ce65ebd9131f687b871672f786b9ea664ec",
+        "bytes": 3183
+      },
+      {
+        "path": "data/sample/claims/04-v2x-remit-change.claims.json",
+        "sha256": "d86c2ed91217da0260a8ac6c983c5561d76d9cf39180c5abc62017d5018b0572",
+        "bytes": 2910
+      },
+      {
+        "path": "data/sample/claims/06b-caci-lookalike.claims.json",
+        "sha256": "3e510ba5113c964f96c6a3e7f7baa2875fc694819c88113a855be7fad52d8e88",
+        "bytes": 4156
+      },
+      {
+        "path": "data/sample/claims/11-kettle-point-remit-change.claims.json",
+        "sha256": "cfa09a3f5cdb05c6d181293a94d80e9015529500ae7f0ea12c5a7976eae6a359",
+        "bytes": 2898
+      },
+      {
+        "path": "data/sample/claims/12-juniper-lane-bank-change.claims.json",
+        "sha256": "6efd491709999aa17f6c66ae75e8510dbb04a8e63c7643d6f0d493d1188087d6",
+        "bytes": 3144
+      },
+      {
+        "path": "data/sample/claims/13-pembrook-bank-remit-change.claims.json",
+        "sha256": "c46f33724b741c851d2d23f0d633c8dd4388c6b80a8b8b0910fa1219564e3f5f",
+        "bytes": 3621
+      },
+      {
+        "path": "data/sample/claims/14-chesterfield-bank-change.claims.json",
+        "sha256": "e581370dc0a1c42e7a61949f28c48265fe57be06da572074777f92c6d45fd8db",
+        "bytes": 3311
+      },
+      {
+        "path": "data/sample/claims/15-corbin-hollow-bank-change.claims.json",
+        "sha256": "a0f40d917b80e2eea15d2b64db1ccfcb853eef0dc08184cf5fccdd91a1561301",
+        "bytes": 3643
+      },
+      {
+        "path": "data/sample/claims/16-granite-shoals-remit-change.claims.json",
+        "sha256": "65239a7ad1648a30ca8f6df86d583b80b90eef9abecd9706be9826596dacb9c1",
+        "bytes": 3042
+      },
+      {
+        "path": "data/sample/claims/17-ostrander-bank-change.claims.json",
+        "sha256": "1214c957fa7cb6791beb0c2778672d97b3deca04659bdfb82264319fdf3a6f77",
+        "bytes": 3260
+      },
+      {
+        "path": "data/sample/claims/18-bellhaven-bank-remit-change.claims.json",
+        "sha256": "3b956eecf37c0b21ab806b58042fced8b6fb86ff6631ec8b3c6823d5c7cefcb8",
+        "bytes": 3771
+      },
+      {
+        "path": "data/sample/claims/19-merriwether-bank-change.claims.json",
+        "sha256": "aebbd260812efe1f776fa76ad6650888a041f3585d754201e2727190372e3439",
+        "bytes": 3509
+      },
+      {
+        "path": "data/sample/claims/20-harrow-vale-remit-change.claims.json",
+        "sha256": "7485f1f81f6da4e7f25a5084effa958f692b69eb44d3b22b4ccf1611f593908a",
+        "bytes": 2902
+      },
+      {
+        "path": "input_examples/01-booz-allen-remit-change/headers.eml",
+        "sha256": "348eac79e1dfa33c951cc76c2a233a95d2d6baa45dda73b04b9d67d855e9b073",
+        "bytes": 1348
+      },
+      {
+        "path": "input_examples/01-booz-allen-remit-change/letter.pdf",
+        "sha256": "37ba4b75564e0b7d54fe7db79591b55c361f9be460e1e5a757a47a6b3cbef709",
+        "bytes": 34476
+      },
+      {
+        "path": "input_examples/01-booz-allen-remit-change/letter.png",
+        "sha256": "dbbf38195127dbb630c91428253d4f9128cf6a7f65d469dba32cbad7e02cdac3",
+        "bytes": 242128
+      },
+      {
+        "path": "input_examples/01-booz-allen-remit-change/request.json",
+        "sha256": "268c944c9454e9c5cb53e9405bf47e20b8fa1356bab7d74cc785cbdef162a5b3",
+        "bytes": 506
+      },
+      {
+        "path": "input_examples/02-saic-leidos-remit-change/headers.eml",
+        "sha256": "2dd3791eca61051adde79bd6e872cafe37e9fdafa5c43ec1a5074ffeef163791",
+        "bytes": 1066
+      },
+      {
+        "path": "input_examples/02-saic-leidos-remit-change/letter.pdf",
+        "sha256": "f4638361971af5594b8a483424f81a5f0e762a3963ab9f1ba30c6a51b99f85e6",
+        "bytes": 182759
+      },
+      {
+        "path": "input_examples/02-saic-leidos-remit-change/letter.png",
+        "sha256": "0372c79043c5cd0e677be4a8f64e09c239beeb5b0181ec4b60773deef77bc6eb",
+        "bytes": 214051
+      },
+      {
+        "path": "input_examples/02-saic-leidos-remit-change/request.json",
+        "sha256": "b7e07d89533904e10b425670abcef0532e92f5ab7755c6887ef9d02b4e73ee85",
+        "bytes": 509
+      },
+      {
+        "path": "input_examples/03-l3harris-bank-change/headers.eml",
+        "sha256": "93445ac00c1a0b957007fba4f3acf036307a67aa6972501a4fa3fcecdaa791d5",
+        "bytes": 1109
+      },
+      {
+        "path": "input_examples/03-l3harris-bank-change/letter.pdf",
+        "sha256": "b5fcea2a2d566657ec8bcca6ac592ff7f24ceb14e58f1a9dcf1ca312507a1cb8",
+        "bytes": 35390
+      },
+      {
+        "path": "input_examples/03-l3harris-bank-change/letter.png",
+        "sha256": "310fb2aa6b24bcd1e7bb732e4338882003e3ddf7e9ec38c3f40bd8d001db5edd",
+        "bytes": 191292
+      },
+      {
+        "path": "input_examples/03-l3harris-bank-change/request.json",
+        "sha256": "461129d3daa48417d87526636780071d8873d1b4c61b05063de04eb88fc21f37",
+        "bytes": 489
+      },
+      {
+        "path": "input_examples/04-v2x-remit-change/headers.eml",
+        "sha256": "627772a50d9686d513d7f3946f922b41fc5a7b043050bb8b970f1753173d5d4e",
+        "bytes": 1069
+      },
+      {
+        "path": "input_examples/04-v2x-remit-change/letter.pdf",
+        "sha256": "e320ab8829fe93132e4995c98bad8b97fd986ae18e21318b8e363372116f3f4e",
+        "bytes": 134176
+      },
+      {
+        "path": "input_examples/04-v2x-remit-change/letter.png",
+        "sha256": "819885dbb0a63ceecacbd760dc84563c1a80b8c6ef7ce412384c9c48640ac542",
+        "bytes": 583079
+      },
+      {
+        "path": "input_examples/04-v2x-remit-change/request.json",
+        "sha256": "3482f532c87512a8b3635898a67bebc1c4b748385465ababc4a2b8bc9e3efdcb",
+        "bytes": 508
+      },
+      {
+        "path": "input_examples/05-judge-name-only.json",
+        "sha256": "8874313208d70f2e4ebf4e6c564e30af82e1d8fcb5751ec1920bcd537bc10be6",
+        "bytes": 141
+      },
+      {
+        "path": "input_examples/05b-judge-private-company.json",
+        "sha256": "e6ef6044bffc84e9090101595c8094c93a1ce9bb5a31ce2f707825da150b0a00",
+        "bytes": 155
+      },
+      {
+        "path": "input_examples/06b-caci-lookalike/headers.eml",
+        "sha256": "9342dc4f176086f09789d4db6f16195448088126abdfa9b19d8b7c18d23f5e1e",
+        "bytes": 1082
+      },
+      {
+        "path": "input_examples/06b-caci-lookalike/letter.pdf",
+        "sha256": "2304c38bdbe70a12dcb68f4ffd42c9f4d6cf9cccc82de809357fb96b772d2915",
+        "bytes": 38706
+      },
+      {
+        "path": "input_examples/06b-caci-lookalike/letter.png",
+        "sha256": "603dea7f8023e61af5629ae34460b17d6f82de4d257814ec2ec325da2c2b223a",
+        "bytes": 203046
+      },
+      {
+        "path": "input_examples/06b-caci-lookalike/request.json",
+        "sha256": "28d4cb55a69a5dd96ae6701a2d602bc1acdcd6f8b0db89c60c7e7aef7e0d0657",
+        "bytes": 505
+      },
+      {
+        "path": "input_examples/06d-account-reuse.json",
+        "sha256": "95dfccc551dba0c93b5d8a2dbe06a68400cbb6578b939a864a8a691a3ee2020f",
+        "bytes": 588
+      },
+      {
+        "path": "tests/eval/fixtures/a02/a02.claims.json",
+        "sha256": "41c63f65d4a5bad903d4dd505933b5680a5615613b1977a709b44428e5b4d985",
+        "bytes": 3645
+      },
+      {
+        "path": "tests/eval/fixtures/a02/headers.eml",
+        "sha256": "93445ac00c1a0b957007fba4f3acf036307a67aa6972501a4fa3fcecdaa791d5",
+        "bytes": 1109
+      },
+      {
+        "path": "tests/eval/fixtures/a02/letter.pdf",
+        "sha256": "463d49753f93f699970e6780a7032a15f93f1550c82e76a9eb06a165613719d9",
+        "bytes": 35526
+      },
+      {
+        "path": "tests/eval/fixtures/a02/letter.png",
+        "sha256": "2f32b02a2fe7d0837c2f7a722e00e7a7902e2403c5aedd7422923e2f3ef975ac",
+        "bytes": 200935
+      },
+      {
+        "path": "tests/eval/fixtures/a02/request.json",
+        "sha256": "f7ec95fd3faef6610b255e892e9dc06cc63be68d8c05611b61c307b046e54830",
+        "bytes": 49298
+      },
+      {
+        "path": "tests/eval/fixtures/a03/a03.claims.json",
+        "sha256": "19ba3496e979f017bb05cae49d98ca62f710a927ba406130fe490ffca2df6f0b",
+        "bytes": 3183
+      },
+      {
+        "path": "tests/eval/fixtures/a03/headers.eml",
+        "sha256": "9756f1555232e7a4fa2a2e828d6faaa1a05c36dbfc8a1e357e5e77ac893582c5",
+        "bytes": 1152
+      },
+      {
+        "path": "tests/eval/fixtures/a03/letter.pdf",
+        "sha256": "b5fcea2a2d566657ec8bcca6ac592ff7f24ceb14e58f1a9dcf1ca312507a1cb8",
+        "bytes": 35390
+      },
+      {
+        "path": "tests/eval/fixtures/a03/letter.png",
+        "sha256": "310fb2aa6b24bcd1e7bb732e4338882003e3ddf7e9ec38c3f40bd8d001db5edd",
+        "bytes": 191292
+      },
+      {
+        "path": "tests/eval/fixtures/a03/request.json",
+        "sha256": "b0f60df2a0bc0f21af3edbd21b3c8757170367f90dbac01e8a8e0be0c71c36b3",
+        "bytes": 49180
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-clean/letter.pdf",
+        "sha256": "37ba4b75564e0b7d54fe7db79591b55c361f9be460e1e5a757a47a6b3cbef709",
+        "bytes": 34476
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-clean/letter.png",
+        "sha256": "dbbf38195127dbb630c91428253d4f9128cf6a7f65d469dba32cbad7e02cdac3",
+        "bytes": 242128
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-clean/truth.json",
+        "sha256": "739be599587f339c501131dc9b78ed4da0113c57318e0cc4a661cc13e54bc91a",
+        "bytes": 5450
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-instruction/letter.pdf",
+        "sha256": "4ce3cac8a017336c19f81be9f315d08a976f176d5430f76790d53c522aadaaaf",
+        "bytes": 34597
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-instruction/letter.png",
+        "sha256": "ed32d435a1e3380af889a09a4388da44111cff64d7cd22692356c39459080310",
+        "bytes": 252316
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-instruction/truth.json",
+        "sha256": "a2e754d940ed0be2a7675ae50393681e6fe43874e68e0424b241fe09b960f613",
+        "bytes": 5801
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-noise/letter.pdf",
+        "sha256": "9b278ce5c5bf1df73ccba1485dce0c97ce368664296e57838e0e07384ee6b532",
+        "bytes": 34470
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-noise/letter.png",
+        "sha256": "ed31f6ab4ef7d3af9bd45be8801c3bc24cf140ac96b13d3c4c96ae16d56f9889",
+        "bytes": 241911
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-noise/truth.json",
+        "sha256": "09fef31c31fcbcaa00addd8eacca498e2300427dad71e5302a23b488aafdf042",
+        "bytes": 5456
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-scan/letter.pdf",
+        "sha256": "c8c4246c08eec961cf95e5bca038e927f32e7fb5b2d341cdcdd748adc1434bd7",
+        "bytes": 153234
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-scan/letter.png",
+        "sha256": "4b58d9a2565616480724bd593c8c8767321bb9a927a160e607140ab02082e401",
+        "bytes": 681665
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s1-scan/truth.json",
+        "sha256": "20f4ec94a6c520964066b444fa23b6218c1a404cc778166bdb4f35f531c28e4e",
+        "bytes": 5448
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-clean/letter.pdf",
+        "sha256": "b5fcea2a2d566657ec8bcca6ac592ff7f24ceb14e58f1a9dcf1ca312507a1cb8",
+        "bytes": 35390
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-clean/letter.png",
+        "sha256": "310fb2aa6b24bcd1e7bb732e4338882003e3ddf7e9ec38c3f40bd8d001db5edd",
+        "bytes": 191292
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-clean/truth.json",
+        "sha256": "446e6a57c4635c623ced1a7ec3ab5cc2bbd82e69513a61f8a221c19b2a8a3528",
+        "bytes": 4224
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-instruction/letter.pdf",
+        "sha256": "463d49753f93f699970e6780a7032a15f93f1550c82e76a9eb06a165613719d9",
+        "bytes": 35526
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-instruction/letter.png",
+        "sha256": "2f32b02a2fe7d0837c2f7a722e00e7a7902e2403c5aedd7422923e2f3ef975ac",
+        "bytes": 200935
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-instruction/truth.json",
+        "sha256": "8f698af393180b8aacfbdaa891cb3bad4a84c93f01b15870c5213307c232dc38",
+        "bytes": 4574
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-noise/letter.pdf",
+        "sha256": "9aaec0e05c389a8e870c6388586a9842b94211181f1b3cb3c30a3f2778b24ac8",
+        "bytes": 35390
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-noise/letter.png",
+        "sha256": "619e6d9028dd8f34da67b919ebe90e8854ae6bf2fc3d9c1833918cddcd6895e1",
+        "bytes": 191292
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-noise/truth.json",
+        "sha256": "431f152e3c9b77b4cece45880b8a6689254441168da25568d570ef2f554c6bad",
+        "bytes": 4230
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-scan/letter.pdf",
+        "sha256": "eb77e428d7b583e74400a9e4cabace45d84abd5845f04ef7b92e9548206d067f",
+        "bytes": 139144
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-scan/letter.png",
+        "sha256": "5540985500512bc131b3bd45e46855fc59914c334acf7182e500a97715c3f9cb",
+        "bytes": 610456
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s3-scan/truth.json",
+        "sha256": "35b75de99c2c0d248a0bca4e610175e5c743a6a647d173bae2cec0da5cccb56b",
+        "bytes": 4222
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-clean/letter.pdf",
+        "sha256": "598e15f9609bf00ac23cce20ce2b4b69d7f934e672831729c504b2277a61416d",
+        "bytes": 39571
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-clean/letter.png",
+        "sha256": "061d5b23e6bb57b028e9731a99f015dc41507d16c36f897c4c72469afce695c2",
+        "bytes": 184470
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-clean/truth.json",
+        "sha256": "c3948e901a426af55166291007acdaa6b1aab3833672e4b36572ff08f7cdda10",
+        "bytes": 3522
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-instruction/letter.pdf",
+        "sha256": "85076c1bce4d2895cb89b69b82fbbb47fa9509f046523e16fec9b9d1f498c8f4",
+        "bytes": 39878
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-instruction/letter.png",
+        "sha256": "096019351367b61d22b1abd9caf5c2a9ba33cab2734f54312840a0e9b58f375e",
+        "bytes": 193407
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-instruction/truth.json",
+        "sha256": "b32225218734e606274cafa05832e5f7a5eb07b48029fa3026aab0e0a10dae08",
+        "bytes": 3872
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-noise/letter.pdf",
+        "sha256": "256d79100b60ddeb42f9e9848180e2751690cc972c159f28373dd877f669db4f",
+        "bytes": 39411
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-noise/letter.png",
+        "sha256": "42943e74abfcc6709cb4d2502576727d8a08f5ee695163556d5ec33525e3b216",
+        "bytes": 184211
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-noise/truth.json",
+        "sha256": "c45da8aea8dd2e04282580c7b8fea13ff451cba856b14969ff60d8c111fb9eb4",
+        "bytes": 3518
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-scan/letter.pdf",
+        "sha256": "e320ab8829fe93132e4995c98bad8b97fd986ae18e21318b8e363372116f3f4e",
+        "bytes": 134176
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-scan/letter.png",
+        "sha256": "819885dbb0a63ceecacbd760dc84563c1a80b8c6ef7ce412384c9c48640ac542",
+        "bytes": 583079
+      },
+      {
+        "path": "tests/eval/nemotron/letters/s4-scan/truth.json",
+        "sha256": "7434c75a488f0253cf985d74becb13dac104c1025dbe23c517e0dd75d50d3a30",
+        "bytes": 3520
+      },
+      {
+        "path": "tests/fixtures/docs/01-booz-allen-remit-change.truth.json",
+        "sha256": "5c078b6d428ed047c7a8a1e821ee705d0df054282f445a9a7e974affb1ed141d",
+        "bytes": 5562
+      },
+      {
+        "path": "tests/fixtures/docs/02-saic-leidos-remit-change.truth.json",
+        "sha256": "dfb05e6b7b318989a5c26643183e4538317266f6843b52f72fb9642298182120",
+        "bytes": 4502
+      },
+      {
+        "path": "tests/fixtures/docs/03-l3harris-bank-change.truth.json",
+        "sha256": "af329519dc19ba2e389f5deb42e5bd41d434a94f685915464eb38d8b2ebd569a",
+        "bytes": 4277
+      },
+      {
+        "path": "tests/fixtures/docs/04-v2x-remit-change.truth.json",
+        "sha256": "27609e34012ceb522aa622d8bf27a32af64d7c6eb37e3d83ef1de2690c508d29",
+        "bytes": 3556
+      },
+      {
+        "path": "tests/fixtures/docs/06b-caci-lookalike.truth.json",
+        "sha256": "79769fb02fca48951975fcc6dbf7ad09f9a6af854a81636509eb4f1d3c86c9a4",
+        "bytes": 4467
+      },
+      {
+        "path": "tests/fixtures/docs/11-kettle-point-remit-change.truth.json",
+        "sha256": "f3627d27fd64be4a479f14b1b128c1c3da3a4661101f24bd12b4a4e4f20f5875",
+        "bytes": 3698
+      },
+      {
+        "path": "tests/fixtures/docs/12-juniper-lane-bank-change.truth.json",
+        "sha256": "4b4578c73531c6d088a38d5a13f5e0b235d30558708128de09b0facb403614f8",
+        "bytes": 4560
+      },
+      {
+        "path": "tests/fixtures/docs/13-pembrook-bank-remit-change.truth.json",
+        "sha256": "df7e377b3743ff7626a125c24332a7af0013d0754d149a47b63c92033c55360f",
+        "bytes": 4941
+      },
+      {
+        "path": "tests/fixtures/docs/14-chesterfield-bank-change.truth.json",
+        "sha256": "2e9a759329de7731a5e19edb3f89a53cd4bcd6e23daf48b546d422fec9e5db84",
+        "bytes": 4593
+      },
+      {
+        "path": "tests/fixtures/docs/15-corbin-hollow-bank-change.truth.json",
+        "sha256": "f4e864b917595549d590f0c3a7d42bf8f6e3390b81dd44ccee16e310b83fb349",
+        "bytes": 4871
+      },
+      {
+        "path": "tests/fixtures/docs/16-granite-shoals-remit-change.truth.json",
+        "sha256": "6ac34504892e3acd2ea709fb06f5c79ce412b7f0f2b4f44a8a5a3ed3a2673a82",
+        "bytes": 3904
+      },
+      {
+        "path": "tests/fixtures/docs/17-ostrander-bank-change.truth.json",
+        "sha256": "0f2f765903982ed08707bb29e39bf2bbd701ebc47b70ed8e895b7282a3d50943",
+        "bytes": 4535
+      },
+      {
+        "path": "tests/fixtures/docs/18-bellhaven-bank-remit-change.truth.json",
+        "sha256": "a9e7b83be5e343fcbf7ed023b7923e425d6a328f7d2221d170a5c96b9fd71a97",
+        "bytes": 4896
+      },
+      {
+        "path": "tests/fixtures/docs/19-merriwether-bank-change.truth.json",
+        "sha256": "35458d924ce3839adf8fe31e8dfbfbede9f53addd2ffeb33594542e5d3bb726f",
+        "bytes": 4790
+      },
+      {
+        "path": "tests/fixtures/docs/20-harrow-vale-remit-change.truth.json",
+        "sha256": "06e8a4c3effc51f55941f0181a224b64c136a30ef5800d84cd95f4f02fd94151",
+        "bytes": 3834
+      }
+    ]
+  },
+  "real_named": 7,
+  "fictional": 33,
+  "rows": {
+    "vendor": 40,
+    "vendor_domain": 46,
+    "vendor_contact": 100,
+    "vendor_remit_history": 46,
+    "vendor_bank_account": 52,
+    "bank_change_request": 10,
+    "bank_change_document": 0,
+    "vendor_contact_log": 28,
+    "ap_invoice": 171,
+    "payment_run": 11,
+    "payment_run_item": 153
+  }
+}

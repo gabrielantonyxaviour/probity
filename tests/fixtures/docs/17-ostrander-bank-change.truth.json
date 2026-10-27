@@ -1,0 +1,237 @@
+{
+  "example_id": "17-ostrander-bank-change",
+  "letter_id": "17-ostrander-bank-change",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Ostrander Test & Calibration Inc",
+    "letterhead_name": "Ostrander Test & Calibration Inc",
+    "remit_address": null,
+    "bank": {
+      "bank_name": "Old Quarry Test Bank (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000904"
+    },
+    "phones": [
+      "(256) 555-0126"
+    ],
+    "effective_date": "2026-10-30",
+    "signer_name": "D. Whitcombe (fictional)",
+    "signer_title": "Controller",
+    "sender_email": "ar@ostranderlab.example",
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by Ostrander Test & Calibration Inc (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 566,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Ostrander Test & Calibration Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 553,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "5851 Quarry Hill Pkwy, Ste 290, Huntsville, AL 35804",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 436,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(256) 555-0126",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 193,
+          "w": 133,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_email",
+      "text": "ar@ostranderlab.example",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 293,
+          "y": 193,
+          "w": 212,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 26, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Updated ACH instructions",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 363,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Ostrander Test & Calibration Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 553,
+          "w": 321,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "invoice_refs",
+      "text": "INV-OTC-30455",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 283,
+          "y": 583,
+          "w": 165,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Old Quarry Test Bank (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 700,
+          "w": 313,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 745,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000904  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 789,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Ostrander Test & Calibration Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 834,
+          "w": 321,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "D. Whitcombe (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 957,
+          "w": 258,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Controller",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 989,
+          "w": 100,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

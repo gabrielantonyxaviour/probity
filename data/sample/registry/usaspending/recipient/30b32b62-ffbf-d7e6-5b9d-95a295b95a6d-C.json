@@ -1,0 +1,48 @@
+{
+ "name": "BOOZ ALLEN HAMILTON INC",
+ "alternate_names": [
+  "BOOZ ALLEN HAMILTON INC."
+ ],
+ "duns": "085631448",
+ "uei": "KHK6E1JW9C15",
+ "recipient_id": "30b32b62-ffbf-d7e6-5b9d-95a295b95a6d-C",
+ "recipient_level": "C",
+ "parent_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+ "parent_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+ "parent_duns": "964725688",
+ "parent_uei": "MBPHTU7Y9S65",
+ "parents": [
+  {
+   "parent_duns": "964725688",
+   "parent_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+   "parent_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+   "parent_uei": "MBPHTU7Y9S65"
+  }
+ ],
+ "business_types": [
+  "category_business",
+  "corporate_entity_not_tax_exempt",
+  "other_than_small_business",
+  "special_designations",
+  "us_owned_business"
+ ],
+ "location": {
+  "address_line1": "1 COMMVAULT WAY STE 205",
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": "TINTON FALLS",
+  "county_name": null,
+  "state_code": "NJ",
+  "zip": "07724",
+  "zip4": "3096",
+  "foreign_postal_code": null,
+  "country_name": "UNITED STATES",
+  "country_code": "USA",
+  "congressional_code": "04"
+ },
+ "total_transaction_amount": 465909306.53,
+ "total_transactions": 35,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

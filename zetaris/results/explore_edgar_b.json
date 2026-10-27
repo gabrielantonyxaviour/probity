@@ -1,0 +1,53 @@
+{
+  "sql": "SELECT cik, former_name, valid_from, valid_to FROM probity.sec_former_v ORDER BY cik, valid_to DESC LIMIT 50",
+  "sql_hash": "f00100684ca1eb53",
+  "queryId": "7c65e9cc-6b81-41c5-8ac6-353adfc75681",
+  "executed_at": "2026-10-27T13:35:55.798Z",
+  "latency_ms": 3550,
+  "key": "query",
+  "columns": [
+    "cik",
+    "former_name",
+    "valid_from",
+    "valid_to"
+  ],
+  "rows": [
+    [
+      "0000202058",
+      "HARRIS CORP /DE/",
+      "1994-09-09",
+      "2019-06-25"
+    ],
+    [
+      "0001336920",
+      "SAIC, Inc.",
+      "2005-09-01",
+      "2013-09-27"
+    ],
+    [
+      "0001443646",
+      "EXPLORER HOLDING CORP",
+      "2008-08-19",
+      "2009-07-27"
+    ],
+    [
+      "0001571123",
+      "SAIC Gemini, Inc.",
+      "2013-03-07",
+      "2013-09-27"
+    ],
+    [
+      "0001601548",
+      "Vectrus, Inc.",
+      "2014-04-04",
+      "2022-06-15"
+    ],
+    [
+      "0001601548",
+      "Exelis MSCO Inc.",
+      "2014-03-10",
+      "2014-03-10"
+    ]
+  ],
+  "row_hash": "77a8c2d000f78d31"
+}

@@ -1,0 +1,27 @@
+{
+  "sql": "RUN DQ sec_ein_present TABLE lightning.metastore.probity.vendor360.sec_registrant",
+  "sql_hash": "9e311418d2834963",
+  "queryId": "8505d4b0-fc07-4704-8489-f73718597bab",
+  "executed_at": "2026-10-27T13:35:23.047Z",
+  "latency_ms": 5187,
+  "key": "query",
+  "columns": [
+    "name",
+    "table",
+    "type",
+    "total_record",
+    "valid_record",
+    "invalid_record"
+  ],
+  "rows": [
+    [
+      "sec_ein_present",
+      "sec_registrant",
+      "Custom Data Quality",
+      "6",
+      "5",
+      "1"
+    ]
+  ],
+  "row_hash": "2cd05c0fea28f1d8"
+}

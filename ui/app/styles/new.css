@@ -1,0 +1,13 @@
+/* New request: 720 form column, 50/50 split with help panel at >= 1120 (PRODUCT_UI_GUIDE section 3). */
+.nw { display: grid; }
+@media (min-width: 1120px) { .nw { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .nw__help { border-left: var(--line); } }
+.nw__form { padding: var(--app-P); max-width: var(--form-max); width: 100%; margin-inline: auto; display: grid; gap: 20px; align-content: start; }
+.nw__help { padding: var(--app-P); background: var(--dot-grid); display: grid; align-content: start; gap: 16px; }
+.nw__help-card { background: var(--bg-canvas); border: var(--line); border-radius: var(--radius-card); padding: 20px; display: grid; gap: 12px; }
+.drop { display: grid; justify-items: center; align-content: center; gap: 12px; min-height: 160px; padding: 32px; border: 1px dashed var(--input); border-radius: var(--radius-card); text-align: center; transition: box-shadow var(--dur-2) ease; }
+.drop[data-over="true"] { box-shadow: 0 0 0 2px var(--fg-2); background: var(--dot-grid); }
+.drop[data-invalid="true"] { border-color: var(--conflict); }
+.grid-2 { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid-3 { grid-template-columns: 2fr 1fr 1fr; } }
+.tiles { display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1120px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

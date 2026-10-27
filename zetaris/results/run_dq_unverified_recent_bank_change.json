@@ -1,0 +1,27 @@
+{
+  "sql": "RUN DQ unverified_recent_bank_change TABLE lightning.metastore.probity.vendor360.payment_run_item",
+  "sql_hash": "084736cef01d56b0",
+  "queryId": "94e9dbc0-305a-49b1-9afd-20a4128e95cf",
+  "executed_at": "2026-10-27T13:34:47.997Z",
+  "latency_ms": 3502,
+  "key": "query",
+  "columns": [
+    "name",
+    "table",
+    "type",
+    "total_record",
+    "valid_record",
+    "invalid_record"
+  ],
+  "rows": [
+    [
+      "unverified_recent_bank_change",
+      "payment_run_item",
+      "Custom Data Quality",
+      "153",
+      "150",
+      "3"
+    ]
+  ],
+  "row_hash": "52dfe70f64fe8032"
+}

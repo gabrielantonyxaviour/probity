@@ -1,0 +1,250 @@
+{
+  "example_id": "19-merriwether-bank-change",
+  "letter_id": "19-merriwether-bank-change",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Merriwether Cloud Reseller LLC",
+    "letterhead_name": "Merriwether Cloud Reseller LLC",
+    "remit_address": null,
+    "bank": {
+      "bank_name": "Calderwick Test Bank (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000906"
+    },
+    "phones": [
+      "(703) 555-0176"
+    ],
+    "effective_date": "2026-11-03",
+    "signer_name": "P. Oyelaran (fictional)",
+    "signer_title": "Accounts Receivable",
+    "sender_email": "billing@merriwethercloud.example",
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by Merriwether Cloud Reseller LLC (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 560,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Merriwether Cloud Reseller LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 318,
+          "y": 116,
+          "w": 600,
+          "h": 51
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "3868 Larchmont St, Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 454,
+          "y": 169,
+          "w": 328,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(703) 555-0176",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 401,
+          "y": 193,
+          "w": 133,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_email",
+      "text": "billing@merriwethercloud.example",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 548,
+          "y": 193,
+          "w": 287,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 26, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Bank account update for our subscriptions",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 534,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Merriwether Cloud Reseller LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 553,
+          "w": 314,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "From 3 November 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 583,
+          "w": 239,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "invoice_refs",
+      "text": "INV-MCR-50154",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 502,
+          "y": 583,
+          "w": 169,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Calderwick Test Bank (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 700,
+          "w": 316,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 745,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000906  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 789,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Merriwether Cloud Reseller LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 834,
+          "w": 314,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "P. Oyelaran (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 957,
+          "w": 233,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Accounts Receivable",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 989,
+          "w": 207,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

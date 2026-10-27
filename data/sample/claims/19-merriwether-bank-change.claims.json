@@ -1,0 +1,155 @@
+{
+  "example_id": "19-merriwether-bank-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "f4d6a7b30034b6f3e09b67eebbb0549436e7a53b910424c0ee7df1de97068846",
+    "cc638fdd358d18221d1d07985d0c65fc14db833c1821438c419a004f1964b6fd",
+    "8ef0973d45c515e0229939663788304a03c28da676f730444f717512bc70a037"
+  ],
+  "account_number": "000999000906",
+  "claimed_name": "Merriwether Cloud Reseller LLC",
+  "letterhead_name": "Merriwether Cloud Reseller LLC",
+  "remit_address": null,
+  "bank": {
+    "bank_name": "Calderwick Test Bank (fictional)",
+    "routing": "110000000",
+    "account_last4": "0906"
+  },
+  "sender_email": "billing@merriwethercloud.example",
+  "sender_domain": "merriwethercloud.example",
+  "reply_to_domain": null,
+  "phones": [
+    {
+      "number": "(703) 555-0176",
+      "quote": "(703) 555-0176",
+      "e164": "+17035550176"
+    }
+  ],
+  "effective_date": "2026-11-03",
+  "invoice_refs": [
+    "INV-MCR-50154"
+  ],
+  "signer_name": "P. Oyelaran (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by Merriwether Cloud Reseller LLC (fictional)",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by Merriwether Cloud Reseller LLC (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        570,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Merriwether Cloud Reseller LLC",
+      "page": 1,
+      "bbox_hint": [
+        257,
+        73,
+        743,
+        104
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(703) 555-0176",
+      "page": 1,
+      "bbox_hint": [
+        324,
+        121,
+        432,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "Merriwether Cloud Reseller LLC",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        346,
+        371,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "effective_date",
+      "fact_field": null,
+      "quote": "From 3 November 2026",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        364,
+        311,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "invoice_ref",
+      "fact_field": "invoice_refs",
+      "quote": "INV-MCR-50154",
+      "page": 1,
+      "bbox_hint": [
+        406,
+        364,
+        543,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_routing",
+      "fact_field": "bank_account",
+      "quote": "110000000",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        466,
+        593,
+        483
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_account",
+      "fact_field": "bank_account",
+      "quote": "000999000906",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        493,
+        628,
+        511
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "P. Oyelaran (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        598,
+        306,
+        617
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

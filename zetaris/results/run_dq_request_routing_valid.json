@@ -1,0 +1,27 @@
+{
+  "sql": "RUN DQ request_routing_valid TABLE lightning.metastore.probity.vendor360.bank_change_request",
+  "sql_hash": "d67a4b67a7fd5f11",
+  "queryId": "5f12b735-4fba-4d62-92c9-e59dd61a8728",
+  "executed_at": "2026-10-27T13:34:59.415Z",
+  "latency_ms": 1385,
+  "key": "query",
+  "columns": [
+    "name",
+    "table",
+    "type",
+    "total_record",
+    "valid_record",
+    "invalid_record"
+  ],
+  "rows": [
+    [
+      "request_routing_valid",
+      "bank_change_request",
+      "Custom Data Quality",
+      "11",
+      "10",
+      "1"
+    ]
+  ],
+  "row_hash": "de1e212fcbef30b1"
+}

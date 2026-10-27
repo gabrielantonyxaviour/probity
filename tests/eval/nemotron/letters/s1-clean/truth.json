@@ -1,0 +1,283 @@
+{
+  "example_id": "s1-clean",
+  "letter_id": "s1-clean",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Booz Allen Hamilton Inc.",
+    "letterhead_name": "Booz Allen Hamilton Inc.",
+    "remit_address": {
+      "line1": "1 Commvault Way",
+      "unit": "Suite 205",
+      "city": "Tinton Falls",
+      "state": "NJ",
+      "zip": "07724"
+    },
+    "bank": {
+      "bank_name": "Calderwick Test Bank (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000141"
+    },
+    "phones": [
+      "(703) 555-0147"
+    ],
+    "effective_date": "2026-10-30",
+    "signer_name": "R. Castellane (fictional)",
+    "signer_title": "Treasury Operations",
+    "sender_email": null,
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by Booz Allen Hamilton Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 438,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Booz Allen Hamilton Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 423,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "8283 Greensboro Drive, McLean, VA 22102",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 354,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(703) 555-0147",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 326,
+          "y": 193,
+          "w": 133,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_email",
+      "text": "ap-remittance@boozallen-payments.example",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 473,
+          "y": 193,
+          "w": 375,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 22, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Updated remittance and banking instructions",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 566,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Booz Allen Hamilton Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 704,
+          "y": 553,
+          "w": 247,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "invoice_refs",
+      "text": "INV-BAH-20931, INV-BAH-20944 and INV-BAH-20967",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 443,
+          "y": 614,
+          "w": 560,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "effective before your 30 October payment run",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 372,
+          "y": 660,
+          "w": 456,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "pressure_phrase",
+      "text": "Please do not use the old main number; it is being retired.",
+      "kind": "avoid_verification",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 737,
+          "w": 574,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "remit_address",
+      "text": "1 Commvault Way, Suite 205, Tinton Falls, NJ 07724",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 170,
+          "y": 844,
+          "w": 526,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Calderwick Test Bank (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 896,
+          "w": 316,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 941,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000141  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 985,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Booz Allen Hamilton Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 1030,
+          "w": 247,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "R. Castellane (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1153,
+          "w": 250,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Treasury Operations",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1185,
+          "w": 203,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

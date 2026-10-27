@@ -1,0 +1,23 @@
+{
+  "input": {
+    "example_id": "16-granite-shoals-remit-change",
+    "request_id": "BCR-2026-0425",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      },
+      {
+        "kind": "eml_headers",
+        "file": "headers.eml"
+      }
+    ],
+    "received_at": "2026-10-25T14:02:00Z",
+    "channel": "email",
+    "payment_run_id": "PR-2026-11-03",
+    "meta": {
+      "title": "Granite Shoals new suite, same building"
+    }
+  },
+  "options": {}
+}

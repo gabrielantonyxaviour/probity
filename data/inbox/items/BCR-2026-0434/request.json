@@ -1,0 +1,19 @@
+{
+  "input": {
+    "example_id": "18-bellhaven-bank-remit-change",
+    "request_id": "BCR-2026-0434",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      }
+    ],
+    "received_at": "2026-10-26T20:41:00Z",
+    "channel": "mail",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "Bellhaven Print & Mail bank and address change, mailed letter"
+    }
+  },
+  "options": {}
+}

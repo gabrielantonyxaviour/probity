@@ -1,0 +1,47 @@
+{
+  "sql": "SHOW DQ INVALID RECORD registry_has_address TABLE lightning.metastore.probity.vendor360.registry_entity",
+  "sql_hash": "432c6b4278a0155b",
+  "queryId": "061d295e-3371-4abb-aecf-ea52785c1a97",
+  "executed_at": "2026-10-27T13:35:17.859Z",
+  "latency_ms": 6634,
+  "key": "query",
+  "columns": [
+    "entity_key",
+    "uei",
+    "recipient_level",
+    "recipient_id",
+    "legal_name",
+    "name_norm",
+    "parent_uei",
+    "parent_name",
+    "address_line1",
+    "address_line2",
+    "city_name",
+    "state_code",
+    "zip",
+    "country_code",
+    "total_transaction_amount",
+    "source_table"
+  ],
+  "rows": [
+    [
+      "CG8SV4246V29-P",
+      "CG8SV4246V29",
+      "P",
+      "67c1673d-a37e-2db1-3f6f-74f6b233ff7c-P",
+      "V2X, INC.",
+      "V2X INC",
+      "CG8SV4246V29",
+      "V2X, INC.",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "1228953103.38",
+      "usaspending.usa_r_cg8sv4246v29"
+    ]
+  ],
+  "row_hash": "5142ce1ae8f0a145"
+}

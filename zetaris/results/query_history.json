@@ -1,0 +1,6 @@
+{
+  "source": null,
+  "captured_at": "2026-10-27T13:10:48.636Z",
+  "how": "no queryId in api/driver logs or an audit.query_id column",
+  "rows": []
+}

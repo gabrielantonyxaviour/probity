@@ -1,0 +1,38 @@
+{
+ "keyword": "Parsons Corporation",
+ "page_metadata": {
+  "page": 1,
+  "total": 3,
+  "limit": 8,
+  "next": null,
+  "previous": null,
+  "hasNext": false,
+  "hasPrevious": false
+ },
+ "results": [
+  {
+   "id": "ac2c100c-050a-9cb9-0e54-596894cdcf7e-P",
+   "duns": "030866545",
+   "uei": "FFCMDLMXRK49",
+   "name": "PARSONS CORPORATION",
+   "recipient_level": "P",
+   "amount": 1070377853.35
+  },
+  {
+   "id": "f70aee14-9ef5-231f-784e-fca170ac964d-P",
+   "duns": "030866545",
+   "uei": "QF9PHLXT2886",
+   "name": "THE PARSONS CORPORATION",
+   "recipient_level": "P",
+   "amount": 8729908.34
+  },
+  {
+   "id": "ac2c100c-050a-9cb9-0e54-596894cdcf7e-C",
+   "duns": "030866545",
+   "uei": "FFCMDLMXRK49",
+   "name": "PARSONS CORPORATION",
+   "recipient_level": "C",
+   "amount": 0
+  }
+ ]
+}

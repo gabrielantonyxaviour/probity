@@ -1,0 +1,224 @@
+{
+  "example_id": "s3-scan",
+  "letter_id": "s3-scan",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "L3Harris Technologies, Inc.",
+    "letterhead_name": "L3Harris Technologies, Inc.",
+    "remit_address": null,
+    "bank": {
+      "bank_name": "Old Quarry Test Bank (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000198"
+    },
+    "phones": [
+      "(321) 555-0144"
+    ],
+    "effective_date": "2026-11-02",
+    "signer_name": "K. Albrecht (fictional)",
+    "signer_title": "Treasury Services",
+    "sender_email": null,
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by L3Harris Technologies, Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 457,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "L3Harris Technologies, Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 467,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "1025 West NASA Boulevard, Melbourne, FL 32919",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 412,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(321) 555-0144",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 305,
+          "y": 193,
+          "w": 133,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 20, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Change of bank account",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 342,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "L3Harris Technologies, Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 712,
+          "y": 553,
+          "w": 273,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "effective 2 November 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 200,
+          "y": 583,
+          "w": 273,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Old Quarry Test Bank (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 662,
+          "w": 313,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 707,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000198  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 751,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "L3Harris Technologies, Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 795,
+          "w": 273,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "K. Albrecht (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 919,
+          "w": 226,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Treasury Services",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 951,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

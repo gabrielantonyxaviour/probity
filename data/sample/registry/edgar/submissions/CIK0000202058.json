@@ -1,0 +1,38 @@
+{
+ "cik": "0000202058",
+ "name": "L3HARRIS TECHNOLOGIES, INC. /DE/",
+ "tickers": [
+  "LHX"
+ ],
+ "exchanges": [
+  "NYSE"
+ ],
+ "ein": "340276860",
+ "sic": "3812",
+ "sicDescription": "Search, Detection, Navigation, Guidance, Aeronautical Sys",
+ "stateOfIncorporation": "DE",
+ "phone": "3217279100",
+ "addresses": {
+  "mailing": {
+   "street1": "1025 W NASA BLVD",
+   "street2": null,
+   "city": "MELBOURNE",
+   "stateOrCountry": "FL",
+   "zipCode": "32919"
+  },
+  "business": {
+   "street1": "1025 W NASA BLVD",
+   "street2": null,
+   "city": "MELBOURNE",
+   "stateOrCountry": "FL",
+   "zipCode": "32919"
+  }
+ },
+ "formerNames": [
+  {
+   "name": "HARRIS CORP /DE/",
+   "from": "1994-09-09T00:00:00.000Z",
+   "to": "2019-06-25T00:00:00.000Z"
+  }
+ ]
+}

@@ -1,0 +1,279 @@
+/* Probity design tokens (Griffin-based). Contract: DESIGN_SYSTEM.md. Written 2026-10-27.
+ * Dark is the default. Light: <html data-theme="light">. Follow the OS: data-theme="system". Print is always light.
+ * The landing page forces data-theme="dark" and never toggles.
+ * Every themed colour is light-dark(LIGHT, DARK), resolved by `color-scheme` (Chrome 123+, Safari 17.5+, Firefox 120+,
+ * the same floor as @starting-style). Components use semantic tokens only. A hex outside this file is a defect.
+ * Measured values come from griffin.com's public CSS. Values Griffin does not have are marked INFERRED. */
+
+/* ── 1. Primitives (measured; components never reference these directly) ─────────────────────────────── */
+:root {
+  --stone-45: #fdfcf9;  --stone-100: #f9f5ef; --stone-200: #f1ece5; --stone-300: #e6e1d9; --stone-400: #d4cfc6;
+  --stone-500: #c2bcb2; --stone-550: #aba69d; --stone-600: #959089; --stone-650: #7c7771; --stone-700: #625d58;
+  --stone-800: #514e4b; --stone-900: #363533; --stone-950: #2c2a28; --stone-1000: #1a1918; --stone-1100: #0c0c0b;
+  --ink-900: #27251e;   --ink-700: #4a463f;   --ink-600: #3f3c35;     /* light-theme inks; 700 and 600 INFERRED */
+  --mint-500: #85eda5;  --amber-500: #f5be0e; --red-500: #f85156;     --red-400: #f87171;  --teal-500: #00d7ca;
+  --cobalt-300: #aab8fe; --violet-300: #b29bff; --olive-500: #a59066; --olive-400: #b5a27a; /* olive-400 INFERRED */
+  --green-700: #136a22; --rust-700: #914a27;  --red-700: #a23544;     --cobalt-700: #3a46b0; /* cobalt-700 INFERRED */
+  --teal-700: #1b6b75;  --olive-700: #6e5c38; --violet-700: #5b3fb0;  /* INFERRED light-theme accents (AA on cream) */
+}
+
+/* ── 2. Theme switch ─────────────────────────────────────────────────────────────────────────────────── */
+:root                      { color-scheme: dark; }
+:root[data-theme="light"]  { color-scheme: light; }
+:root[data-theme="system"] { color-scheme: light dark; }
+
+/* ── 3. Semantic colour (light-dark(LIGHT, DARK)) ────────────────────────────────────────────────────── */
+:root {
+  /* surfaces: canvas → surface (cards) → surface-2 (row hover, selected) → surface-3 (pressed) → active (tab) */
+  --bg-canvas:    light-dark(var(--stone-100), var(--stone-1100));
+  --bg-surface:   light-dark(var(--stone-45),  var(--stone-1000));
+  --bg-surface-2: light-dark(var(--stone-200), var(--stone-950));
+  --bg-surface-3: light-dark(#eae6e0,          var(--stone-900));
+  --bg-active:    light-dark(#dcd8d2,          var(--stone-800));
+  --bg-field:     light-dark(#ffffff,          var(--stone-1100));
+  --bg-header:    light-dark(color-mix(in srgb, var(--stone-100) 80%, transparent), color-mix(in srgb, var(--stone-1100) 80%, transparent));
+  --bg-popover:   light-dark(color-mix(in srgb, var(--stone-45) 88%, transparent), color-mix(in srgb, var(--stone-1000) 75%, transparent));
+  --bg-menu:      light-dark(color-mix(in srgb, var(--stone-45) 82%, transparent), color-mix(in srgb, var(--stone-1000) 60%, transparent));
+  --overlay-hover:      light-dark(rgba(39, 26, 0, .07), rgba(255, 255, 255, .08));
+  --overlay-item-hover: light-dark(rgba(39, 26, 0, .10), color-mix(in srgb, var(--stone-45) 14%, transparent));
+  --scrim:        light-dark(rgba(39, 37, 30, .32), color-mix(in srgb, var(--stone-600) 44%, transparent));
+
+  /* text (dark ratios on canvas / surface): 18.02/16.16 · 12.62/11.32 · 6.18/5.54 · 4.41 non-text · 3.01 disabled */
+  --fg:          light-dark(var(--ink-900),   var(--stone-100));
+  --fg-2:        light-dark(var(--ink-700),   var(--stone-400));
+  --fg-muted:    light-dark(var(--stone-700), var(--stone-600));
+  --fg-subtle:   var(--stone-650);   /* icons, idle markers, or text >= 24px only */
+  --fg-disabled: light-dark(#a5a29b,          var(--stone-700));
+
+  /* lines: hairlines are decorative (1.6:1); --input is the >= 3:1 control edge */
+  --rule:        light-dark(#dcd8d2, var(--stone-900));
+  --rule-strong: light-dark(#c9c4bc, var(--stone-800));
+  --rule-hover:  light-dark(#a5a29b, var(--stone-700));
+  --ui-line:     light-dark(rgba(39, 26, 0, .08), rgba(255, 255, 255, .08));  /* lines inside em-scaled panels */
+  --input:       var(--stone-650);
+  --ring:        light-dark(var(--stone-650), var(--stone-550));               /* 8.08 on dark canvas */
+  --selection:   light-dark(var(--stone-400), var(--stone-900));
+
+  /* actions: the primary pill is warm off-white on dark, ink on light. Never a brand hue. */
+  --primary:         light-dark(var(--ink-900),  var(--stone-300));
+  --primary-hover:   light-dark(var(--stone-1100), var(--stone-45));
+  --primary-pressed: light-dark(var(--ink-600),  var(--stone-400));
+  --primary-fg:      light-dark(var(--stone-45), var(--stone-1100));           /* 15.04 dark */
+  --decision-fg:     light-dark(var(--stone-45), var(--stone-1100));           /* text on a filled decision chip */
+
+  /* evidence semantics: always glyph + word + colour. -bg = 12% wash, -border = 40% mix. */
+  --agree:          light-dark(var(--green-700), var(--mint-500));             /* ✓ Agrees · APPROVE */
+  --agree-bg:       light-dark(#e2e7da, #1b271d);  --agree-bg-raised: light-dark(#e2e7da, #273229);
+  --agree-border:   light-dark(#9dbd9d, #3c6649);
+  --gap:            light-dark(var(--rust-700), var(--amber-500));             /* ○ Not found · CALL BACK FIRST */
+  --gap-bg:         light-dark(#e9dbd1, #28210b);  --gap-bg-raised: light-dark(#e9dbd1, #342d17);
+  --gap-border:     light-dark(#cfb19f, #69530c);
+  --conflict:       light-dark(var(--red-700), var(--red-500));                /* ✕ ⇄ bars, glyphs, fills */
+  --conflict-text:  light-dark(var(--red-700), var(--red-400));                /* every small red text */
+  --conflict-bg:    light-dark(#ecd8d5, #281414);  --conflict-bg-raised: light-dark(#ecd8d5, #35201f);
+  --conflict-border: light-dark(#d6a8ab, #6a2829);
+  --info:           light-dark(var(--cobalt-700), var(--cobalt-300));          /* SAMPLE mode, notes, sweep */
+  --info-bg:        light-dark(#e2e0e7, #1f2128);  --info-bg-raised: light-dark(#e2e0e7, #2b2c34);
+  --info-border:    light-dark(#adafd6, #4b516c);
+  --source-real:    light-dark(var(--teal-700), var(--teal-500));              /* live public registry */
+  --source-real-bg: light-dark(#dee4e0, #0b2422);  --source-real-bg-raised: light-dark(#dee4e0, #17302d);
+  --source-synthetic:      light-dark(var(--olive-700), var(--olive-500));     /* demo · synthetic: strokes, dots */
+  --source-synthetic-text: light-dark(var(--olive-700), var(--olive-400));
+  --source-synthetic-bg:   light-dark(#e6e0d5, #211e18);
+  --superseded:     var(--stone-650);                                         /* stroke at 50%; label uses --fg-muted */
+  --running:        var(--fg);                                                /* outline + white pulse dot */
+
+  /* decision aliases (the only three decisions) */
+  --approve: var(--agree);     --approve-bg: var(--agree-bg);     --approve-border: var(--agree-border);
+  --callback: var(--gap);      --callback-bg: var(--gap-bg);      --callback-border: var(--gap-border);
+  --hold: var(--conflict);     --hold-bg: var(--conflict-bg);     --hold-border: var(--conflict-border);
+
+  /* code and SQL (green/red mean decisions, so code never uses them) */
+  --code-keyword: light-dark(var(--ink-600), var(--stone-400));
+  --code-ident:   var(--fg);
+  --code-string:  light-dark(var(--olive-700), var(--olive-400));
+  --code-number:  var(--info);
+  --code-param:   light-dark(var(--violet-700), var(--violet-300));
+  --code-comment: var(--fg-muted);
+
+  /* entity graph */
+  --edge-recorded: var(--fg-muted); --edge-approved: var(--agree); --edge-rejected: var(--conflict);
+  --edge-pending: var(--gap);       --edge-superseded: var(--superseded);
+
+  /* landing only (dark-only): scrollytelling step accents and the payment-river matrix tiers */
+  --step-read: var(--cobalt-300); --step-gather: var(--teal-500); --step-challenge: var(--violet-300);
+  --step-decide: var(--red-500);  /* the demo case is a HOLD; the step shows all three decision markers */
+  --matrix-t1: var(--stone-1000); --matrix-t2: var(--stone-950); --matrix-t3: var(--stone-800);
+  --matrix-t4: var(--stone-600);  --matrix-caught: var(--red-500);
+
+  /* shadcn/ui aliases (the names --primary, --input and --ring above already match shadcn) */
+  --background: var(--bg-canvas);  --foreground: var(--fg);
+  --card: var(--bg-surface);       --card-foreground: var(--fg);
+  --popover: var(--bg-surface);    --popover-foreground: var(--fg);
+  --primary-foreground: var(--primary-fg);
+  --secondary: var(--bg-canvas);   --secondary-foreground: var(--fg);
+  --muted: var(--bg-surface-2);    --muted-foreground: var(--fg-muted);
+  --accent: var(--bg-surface-3);   --accent-foreground: var(--fg);
+  --destructive: var(--conflict);  --border: var(--rule);
+}
+
+/* ── 4. Typography ───────────────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* next/font exposes the faces as --ff-newsreader, --ff-hanken, --ff-plex-mono (see tailwind-theme.ts) */
+  --font-serif: var(--ff-newsreader, "Newsreader"), "Apple Garamond", Baskerville, "Times New Roman", serif;
+  --font-sans:  var(--ff-hanken, "Hanken Grotesk"), -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono:  var(--ff-plex-mono, "IBM Plex Mono"), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --weight-light: 300; --weight-regular: 400; --weight-medium: 500;
+  --tracking-serif: -0.03em;      /* Newsreader calibrated to Cambon's -0.05/-0.02em */
+  --tracking-sans-sm: -0.01em;    /* Hanken at <= 16px; 0 at >= 18px */
+  --tracking-mono: 0.06em;        /* every uppercase mono label */
+  --tracking-mono-panel: 0.08em;  /* mono headers inside em-scaled panels */
+  --tracking-group: 0.07em;       /* 10px sans menu group title */
+  --tracking-figure: -0.02em;     /* mono numerals >= 2em */
+
+  /* marketing scale (landing and the dossier head); steps switch at 768 / 960 / 1120 below */
+  --text-hero: 32px;        --leading-hero: 1;
+  --text-display: 32px;     --leading-display: 1;
+  --text-heading: 28px;     --leading-heading: 1.1;
+  --text-title: 24px;       --leading-title: 32px;       /* panel title, active accordion item */
+  --text-title-sm: 20px;    --leading-title-sm: 28px;    /* inactive accordion item */
+  --text-subheading: 20px;  --leading-subheading: 1.2;
+  --text-lede: 18px;        --leading-lede: 1.4;
+  --text-body: 16px;        --leading-body: 24px;
+  --text-caption: 14px;     --leading-caption: 20px;
+  --text-card-title: 16px;  --leading-card-title: 21px;
+  --text-eyebrow: 12px;     /* line-height 1 */
+  --text-small: 14px;       --leading-small: 18px;       /* footer links */
+  --text-note: 13px;        --leading-note: 18px;
+  --text-legal: 12px;       --leading-legal: 16px;
+  --text-mono-section: 14px; --leading-mono-section: 16px; /* section label, footer column head */
+  /* product scale (compact, fixed at every width) */
+  --text-app-title: 28px;   --leading-app-title: 31px;   /* serif page H1 */
+  --text-decision: 28px;    --leading-decision: 36px;    /* serif decision word; 32/40 at >= 960 */
+  --text-app-lede: 18px;    --leading-app-lede: 25px;    /* banner sentence */
+  --text-ui: 14px;          --leading-ui: 20px;          /* table cells, body copy in the app (weight 400) */
+  --text-ui-sm: 13px;       --leading-ui-sm: 18px;       /* dense rows, details */
+  --text-ui-xs: 12px;       --leading-ui-xs: 16px;       /* captions, helper text */
+  --text-mono-ui: 12px;     --leading-mono-ui: 16px;     /* buttons, nav, tabs, eyebrows in the app */
+  --text-mono-label: 11px;  --leading-mono-label: 16px;  /* chips, badges, column heads, field labels */
+  --text-mono-data: 13px;   --leading-mono-data: 18px;   /* ids, hashes, routing, money in tables */
+  --text-code: 13px;        --leading-code: 1.5;         /* 14px on the landing */
+  --text-figure: 2.25em;    /* big mono value inside an em-scaled panel */
+  --panel-base: 14px;       /* em base of query panels, receipts, call-back card */
+}
+
+/* ── 5. Space, frame, rows, controls ─────────────────────────────────────────────────────────────────── */
+:root {
+  /* the only spacing steps: 2 4 6 8 12 16 20 24 32 40 48 64 80 120 (Tailwind 0.5 … 30) */
+  --space-0-5: 2px; --space-1: 4px; --space-1-5: 6px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px; --space-12: 48px; --space-16: 64px;
+  --space-20: 80px; --space-30: 120px;
+  --container-max: 1400px;  --container-pad: 8px;   /* outer gutter; 16 at >= 640 */
+  --P: 20px;                /* marketing content pad; 24 at >= 640, 40 at >= 1120. Sections pad 2P, CTA 3P */
+  --app-P: 16px;            /* product panel pad; 20 at >= 640, 24 at >= 1120 */
+  --header-h: 64px;         --app-header-h: 56px;    --banner-h: 36px;   --strip-h: 44px;
+  --matrix-h: 180px;        /* 254 at >= 640; compact strip 128 */
+  --row-comfy: 56px;        --row-compact: 36px;     --row-dense: 32px;
+  --control-sm: 32px;       --control-md: 32px;      /* md = 40 at >= 960, landing only */
+  --input-h: 40px;          --icon-box: 36px;        /* 44 at >= 960, 52 at >= 1120 (landing lists) */
+  --rail-letter: 360px;     --rail-trace: 400px;     --rail-collapsed: 48px;  --centre-min: 600px;
+  --measure-lede: 50ch;     --measure-body: 60ch;    --measure-heading: 20ch; --measure-desc: 40ch;
+  --dossier-max: 768px;     --form-max: 720px;       --sheet-w: 560px;        --dialog-max: 480px;
+  --z-sticky: 20; --z-header: 40; --z-nav: 50; --z-overlay: 60; --z-toast: 70;
+}
+
+/* ── 6. Radii, lines, elevation ──────────────────────────────────────────────────────────────────────── */
+:root {
+  --radius-pill: 9999px;  /* buttons, nav, pill tabs */
+  --radius-micro: 999px;  /* chips, switches, graph attribute pills */
+  --radius-card: 12px;    /* data cards, sheets, dialogs, popovers, segmented toggle */
+  --radius-tile: 8px;     /* badges, link cards, tiles, menus, graph nodes, challenge cards, narrow row cards */
+  --radius-alert: 6px;    /* inline alerts */
+  --radius-box: 4px;      /* icon boxes, code cards, checkboxes, skeleton bars */
+  --radius-sheet: 20px;   /* mobile bottom sheet / menu */
+  --stroke-hair: 1px;     --stroke-graph: 1.5px;   --stroke-state: 2px;   /* the only accent stroke widths */
+  --line: 1px solid var(--rule);
+  --line-dashed: 1px dashed var(--rule);
+  --line-strong: 1px solid var(--rule-strong);
+  --edge-pill: inset 0 0 0 1px var(--rule);                 /* pills, chips, badges: adds no size */
+  --edge-input: inset 0 0 0 1px var(--input);
+  --edge-input-focus: inset 0 0 0 1.5px var(--fg-2);
+  --shadow-overlay: inset 0 0 0 1px var(--rule-hover), rgba(0,0,0,.022) 0 6px 18px, rgba(0,0,0,.044) 0 3px 9px,
+                    rgba(0,0,0,.044) 0 1px 1px;            /* menus, sheets, dialogs only; never on panels */
+  --blur-nav: blur(12px); --blur-menu: blur(48px); --blur-popover: blur(4px); --blur-scrim: blur(4px);
+  --dot-grid: radial-gradient(circle, var(--rule) 1px, transparent 1px) 0 0 / 16px 16px;
+  --dot-grid-fine: radial-gradient(circle, var(--rule) .75px, transparent .75px) 0 0 / .75em .75em;
+  --progress-gradient: linear-gradient(90deg, transparent 0, rgba(249,245,239,.15) 60%, rgba(249,245,239,.6) 90%, var(--stone-100));
+}
+
+/* ── 7. Motion ───────────────────────────────────────────────────────────────────────────────────────── */
+:root {
+  --dur-1: 150ms; --dur-2: 200ms; --dur-3: 230ms; --dur-4: 300ms; --dur-5: 350ms; --dur-6: 400ms;
+  --dur-7: 500ms; --dur-8: 550ms; --dur-9: 600ms; --dur-pulse: 3000ms; --dur-autoplay: 8000ms;
+  --ease-quick-out: cubic-bezier(.3, .76, .27, 1);   /* HOUSE: hover panels, nav pill, sheet open */
+  --ease-expo-out:  cubic-bezier(.16, 1, .3, 1);     /* dialog, popover, toast */
+  --ease-in-out:    cubic-bezier(.65, 0, .35, 1);    /* clip-path wipes, toggle knob, bars */
+  --ease-spring:    cubic-bezier(.34, 1.56, .64, 1); /* micro-pill rise only (6–8px) */
+  --ease-standard:  cubic-bezier(.4, 0, .2, 1);      /* width reveal */
+  --ease-exit:      cubic-bezier(.4, 0, 1, 1);       /* sheet close */
+  --ease-content:   cubic-bezier(0, 0, .58, 1);      /* content enter, eyebrow wipe, line draw */
+  --ease-plain:     cubic-bezier(.25, .1, .25, 1);   /* colour, border, height */
+  --rise-xs: 4px; --rise-sm: 6px; --rise-md: 8px;
+  --hover-scale-from: .94; --menu-scale-from: .9; --dialog-scale-from: .96;
+  --stagger: 60ms; --stagger-annot: 600ms;
+}
+@keyframes p-pulse { from { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 50%, transparent); }
+                     to   { box-shadow: 0 0 0 .5em transparent; } }
+@keyframes p-wipe-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+@keyframes p-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes p-rise-in { from { opacity: 0; translate: 0 var(--rise-xs); } to { opacity: 1; translate: 0 0; } }
+@keyframes p-slide-up { from { opacity: 0; translate: 0 var(--rise-md); } to { opacity: 1; translate: 0 0; } }
+@keyframes p-slide-down { from { opacity: 0; translate: 0 calc(-1 * var(--rise-md)); } to { opacity: 1; translate: 0 0; } }
+@keyframes p-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes p-dialog-in { from { opacity: 0; transform: translateY(5%) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes p-spin { to { rotate: 1turn; } }
+
+/* ── 8. Responsive steps (Griffin breakpoints: 640 · 768 · 960 · 1120 · 1280; product wide = 1440) ──────── */
+@media (min-width: 640px) {
+  :root { --container-pad: 16px; --P: 24px; --app-P: 20px; --matrix-h: 254px; }
+}
+@media (min-width: 768px) {
+  :root { --text-hero: 40px; --text-display: 40px; --text-heading: 32px; --text-subheading: 24px;
+          --text-lede: 20px; }
+}
+@media (min-width: 960px) {
+  :root { --text-hero: 72px; --text-display: 48px; --text-heading: 40px; --text-subheading: 28px;
+          --text-title: 32px; --leading-title: 40px; --text-title-sm: 24px; --leading-title-sm: 32px;
+          --text-caption: 16px; --leading-caption: 22px; --text-card-title: 18px; --leading-card-title: 24px;
+          --text-eyebrow: 14px; --text-decision: 32px; --leading-decision: 40px;
+          --control-md: 40px; --icon-box: 44px; }
+}
+@media (min-width: 1120px) {
+  :root { --P: 40px; --app-P: 24px; --text-card-title: 20px; --leading-card-title: 28px; --icon-box: 52px; }
+}
+
+/* ── 9. Global base (behaviour every page shares) ────────────────────────────────────────────────────── */
+html { background: var(--bg-canvas); }
+body {
+  background: var(--bg-canvas); color: var(--fg); font-family: var(--font-sans);
+  font-weight: var(--weight-regular); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility; font-optical-sizing: auto;
+}
+::selection { background: var(--selection); }
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; --dur-4: 0ms; --dur-5: 0ms; --dur-6: 0ms; --dur-7: 0ms;
+          --dur-8: 0ms; --dur-9: 0ms; --stagger: 0ms; --stagger-annot: 0ms; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0ms !important; scroll-behavior: auto !important; }
+}
+@media (forced-colors: active) {
+  /* inset box-shadow edges vanish in forced colours: draw real borders instead */
+  .p-pill, .p-chip, .p-badge, .p-field { border: 1px solid CanvasText; }
+}
+@media print {
+  /* the dossier prints light, black-and-white safe: glyphs carry status, hairlines print as 0.5pt ink */
+  :root { color-scheme: light; --bg-canvas: #ffffff; --bg-surface: #ffffff; --rule: var(--ink-900);
+          --line: .5pt solid var(--ink-900); --line-dashed: .5pt dashed var(--ink-900); }
+  *, *::before, *::after { transition: none !important; animation: none !important; box-shadow: none !important; }
+  .p-pill, .p-chip, .p-badge { border: .5pt solid var(--ink-900); }
+}

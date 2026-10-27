@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-27T13:33:16.685Z",
+  "ok": true,
+  "counts": {
+    "usaspending.usa_r_mbphtu7y9s65": 1,
+    "usaspending.usa_r_jcbmlgpe6z71": 1,
+    "usaspending.usa_r_zl41erxmpar3": 1,
+    "usaspending.usa_r_mdswm6mb1bh7": 1,
+    "usaspending.usa_r_ue9qjd4kk1l6": 1,
+    "usaspending.usa_r_re7wmnv9l719": 1,
+    "usaspending.usa_r_mmlkpw9jlx64": 1,
+    "usaspending.usa_r_cg8sv4246v29": 1,
+    "usaspending.usa_r_sjulqdj8nzu7": 1,
+    "usaspending.usa_r_qm4ezdv15jl8": 1,
+    "usaspending.usa_r_qsrtxlfkv857": 1,
+    "usaspending.usa_r_n3pbjavnkf61": 1,
+    "usaspending.usa_c_mbphtu7y9s65": 41,
+    "usaspending.usa_c_zl41erxmpar3": 176,
+    "usaspending.usa_c_re7wmnv9l719": 47,
+    "usaspending.usa_c_cg8sv4246v29": 5,
+    "usaspending.usa_c_sjulqdj8nzu7": 174,
+    "usaspending.usa_c_qsrtxlfkv857": 100,
+    "sec_edgar.sec_s_0001443646": 1,
+    "sec_edgar.sec_s_0001336920": 1,
+    "sec_edgar.sec_s_0001571123": 1,
+    "sec_edgar.sec_s_0001601548": 1,
+    "sec_edgar.sec_s_0000202058": 1,
+    "sec_edgar.sec_s_0000016058": 1
+  },
+  "notes": []
+}

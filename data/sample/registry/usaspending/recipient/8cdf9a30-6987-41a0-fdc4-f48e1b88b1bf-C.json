@@ -1,0 +1,52 @@
+{
+ "name": "L3HARRIS TECHNOLOGIES, INC.",
+ "alternate_names": [
+  "HARRIS CORPORATION",
+  "HARRIS CORPORATION (6860)",
+  "HARRIS INVESTMENTS OF DELAWARE INCORPORATED",
+  "L3HARRIS TECHNOLOGIES  INC."
+ ],
+ "duns": "021715206",
+ "uei": "QM4EZDV15JL8",
+ "recipient_id": "8cdf9a30-6987-41a0-fdc4-f48e1b88b1bf-C",
+ "recipient_level": "C",
+ "parent_id": "12b896e2-1ad1-3536-da90-51b17b1b316b-P",
+ "parent_name": "L3HARRIS TECHNOLOGIES, INC",
+ "parent_duns": "004203337",
+ "parent_uei": "SJULQDJ8NZU7",
+ "parents": [
+  {
+   "parent_duns": "004203337",
+   "parent_name": "L3HARRIS TECHNOLOGIES, INC",
+   "parent_id": "12b896e2-1ad1-3536-da90-51b17b1b316b-P",
+   "parent_uei": "SJULQDJ8NZU7"
+  }
+ ],
+ "business_types": [
+  "category_business",
+  "corporate_entity_not_tax_exempt",
+  "manufacturer_of_goods",
+  "other_than_small_business",
+  "special_designations",
+  "us_owned_business"
+ ],
+ "location": {
+  "address_line1": "1395 TROUTMAN BLVD NE",
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": "PALM BAY",
+  "county_name": null,
+  "state_code": "FL",
+  "zip": "32905",
+  "zip4": "3377",
+  "foreign_postal_code": null,
+  "country_name": "UNITED STATES",
+  "country_code": "USA",
+  "congressional_code": "08"
+ },
+ "total_transaction_amount": 583046059.97,
+ "total_transactions": 543,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

@@ -1,0 +1,256 @@
+{
+  "example_id": "18-bellhaven-bank-remit-change",
+  "letter_id": "18-bellhaven-bank-remit-change",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Bellhaven Print & Mail Inc",
+    "letterhead_name": "Bellhaven Print & Mail Inc",
+    "remit_address": {
+      "line1": "7 Cooperage Row",
+      "unit": "Suite B",
+      "city": "Sterling",
+      "state": "VA",
+      "zip": "20166"
+    },
+    "bank": {
+      "bank_name": "Harborline Test Savings (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000905"
+    },
+    "phones": [
+      "(703) 555-0153"
+    ],
+    "effective_date": "2026-11-02",
+    "signer_name": "A. Lindqvist (fictional)",
+    "signer_title": "Business Manager",
+    "sender_email": null,
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by Bellhaven Print & Mail Inc (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 519,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Bellhaven Print & Mail Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 466,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "7 Cooperage Row, Suite B, Sterling, VA 20166",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 382,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(703) 555-0153",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 204,
+          "y": 193,
+          "w": 132,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 21, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: New bank and mailing address for payments",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 581,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Bellhaven Print & Mail Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 553,
+          "w": 257,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "after 2 November 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 732,
+          "y": 583,
+          "w": 234,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "invoice_refs",
+      "text": "INV-BPM-37702",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 309,
+          "y": 583,
+          "w": 169,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "remit_address",
+      "text": "7 Cooperage Row, Suite B, Sterling, VA 20166",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 170,
+          "y": 698,
+          "w": 457,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Harborline Test Savings (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 751,
+          "w": 337,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 795,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000905  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 840,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Bellhaven Print & Mail Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 884,
+          "w": 257,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "A. Lindqvist (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1007,
+          "w": 234,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Business Manager",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1040,
+          "w": 182,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

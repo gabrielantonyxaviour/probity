@@ -1,0 +1,38 @@
+{
+  "sql": "SELECT via, owner_vendor_id, request_id, bank_account_id, status, at_ts, vendor_name FROM (\n  SELECT 'vendor_bank_account' AS via, b.vendor_id AS owner_vendor_id, CAST(NULL AS STRING) AS request_id,\n         b.bank_account_id AS bank_account_id, b.status AS status, CAST(b.changed_at AS STRING) AS at_ts, v.legal_name AS vendor_name\n  FROM lightning.metastore.probity.vendor360.vendor_bank_account b\n  JOIN lightning.metastore.probity.vendor360.vendor v ON v.vendor_id = b.vendor_id\n  WHERE b.account_hash = '175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6'\n  UNION ALL\n  SELECT 'bank_change_request', r.vendor_id, r.request_id, CAST(NULL AS STRING), r.status, CAST(r.received_at AS STRING), CAST(NULL AS STRING)\n  FROM lightning.metastore.probity.vendor360.bank_change_request r\n  WHERE r.new_account_hash = '175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6'\n) x\nLIMIT 50",
+  "sql_hash": "a7ae9eda047597c4",
+  "queryId": "037a134c-aca4-4963-83cf-bec90d4366f6",
+  "executed_at": "2026-10-27T13:36:13.863Z",
+  "latency_ms": 3570,
+  "key": "query",
+  "columns": [
+    "via",
+    "owner_vendor_id",
+    "request_id",
+    "bank_account_id",
+    "status",
+    "at_ts",
+    "vendor_name"
+  ],
+  "rows": [
+    [
+      "vendor_bank_account",
+      "V-10812",
+      null,
+      "BA-40812",
+      "active",
+      "2026-10-18 13:02:00",
+      "Quillan Ridge Fleet Services LLC (fictional)"
+    ],
+    [
+      "bank_change_request",
+      "V-10027",
+      "BCR-2026-0599",
+      null,
+      "held",
+      "2026-10-22 15:12:00",
+      null
+    ]
+  ],
+  "row_hash": "d02351608c5953e7"
+}

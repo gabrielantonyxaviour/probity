@@ -1,0 +1,46 @@
+{
+ "keyword": "ManTech International Corporation",
+ "page_metadata": {
+  "page": 1,
+  "total": 4,
+  "limit": 8,
+  "next": null,
+  "previous": null,
+  "hasNext": false,
+  "hasPrevious": false
+ },
+ "results": [
+  {
+   "id": "4c1f7ae7-7f7d-43c4-d9b7-e5fb262d6c93-P",
+   "duns": "053518312",
+   "uei": "KZA5CX3J8KE8",
+   "name": "MANTECH INTERNATIONAL CORPORATION",
+   "recipient_level": "P",
+   "amount": 1349669989.48
+  },
+  {
+   "id": "673974e2-79e0-d020-b2c5-6381c3a2d9da-C",
+   "duns": "053518312",
+   "uei": "MLA8BNWPUXD1",
+   "name": "MANTECH INTERNATIONAL CORPORATION",
+   "recipient_level": "C",
+   "amount": 0
+  },
+  {
+   "id": "673974e2-79e0-d020-b2c5-6381c3a2d9da-P",
+   "duns": "053518312",
+   "uei": "MLA8BNWPUXD1",
+   "name": "MANTECH INTERNATIONAL CORPORATION",
+   "recipient_level": "P",
+   "amount": 0
+  },
+  {
+   "id": "a0bfc411-3e0b-98da-3ea9-e84a97c88d6b-P",
+   "duns": null,
+   "uei": "ZQARECWNRPP1",
+   "name": "MANTECH INTERNATIONAL CORPORATION",
+   "recipient_level": "P",
+   "amount": 0
+  }
+ ]
+}

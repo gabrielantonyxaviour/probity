@@ -1,0 +1,156 @@
+{
+  "example_id": "02-saic-leidos-remit-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "0372c79043c5cd0e677be4a8f64e09c239beeb5b0181ec4b60773deef77bc6eb",
+    "f4638361971af5594b8a483424f81a5f0e762a3963ab9f1ba30c6a51b99f85e6",
+    "2dd3791eca61051adde79bd6e872cafe37e9fdafa5c43ec1a5074ffeef163791"
+  ],
+  "account_number": "000999000163",
+  "claimed_name": "Science Applications International Corporation",
+  "letterhead_name": "Science Applications International Corporation",
+  "remit_address": {
+    "line1": "12010 Sunset Hills Rd",
+    "unit": null,
+    "city": "Reston",
+    "state": "VA",
+    "zip": "20190"
+  },
+  "bank": {
+    "bank_name": "Harborline Test Savings (fictional)",
+    "routing": "110000000",
+    "account_last4": "0163"
+  },
+  "sender_email": "ap@saic.example",
+  "sender_domain": "saic.example",
+  "reply_to_domain": null,
+  "phones": [],
+  "effective_date": "2026-11-01",
+  "invoice_refs": [
+    "INV-LDS-88412",
+    "INV-LDS-88433"
+  ],
+  "signer_name": "D. Marchetti (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by Science Applications International Corporation",
+  "fields": [
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "Science Applications International Corporation",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        78,
+        696,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by Science Applications International Corporation",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        601,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Science Applications International Corporation",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        78,
+        696,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "invoice_ref",
+      "fact_field": "invoice_refs",
+      "quote": "INV-LDS-88412 and INV-LDS-88433",
+      "page": 1,
+      "bbox_hint": [
+        504,
+        331,
+        804,
+        348
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "effective_date",
+      "fact_field": null,
+      "quote": "from 1 November 2026",
+      "page": 1,
+      "bbox_hint": [
+        626,
+        349,
+        816,
+        367
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "remit_address",
+      "fact_field": "remit_address",
+      "quote": "12010 Sunset Hills Rd, Reston, VA 20190",
+      "page": 1,
+      "bbox_hint": [
+        138,
+        416,
+        473,
+        434
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_routing",
+      "fact_field": "bank_account",
+      "quote": "110000000",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        477,
+        593,
+        494
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_account",
+      "fact_field": "bank_account",
+      "quote": "000999000163",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        505,
+        628,
+        523
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "D. Marchetti (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        609,
+        311,
+        628
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

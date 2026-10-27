@@ -1,0 +1,6 @@
+{
+  "at": "2026-10-27T13:31:49.918Z",
+  "httpStatus": 400,
+  "code": "zetaris_bad_request",
+  "message": "[TABLE_OR_VIEW_NOT_FOUND] The table or view `no_such_db`.`no_such_table` cannot be found. Verify the spelling and correctness of the schema and catalog. If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog. To t..."
+}

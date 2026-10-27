@@ -1,0 +1,28 @@
+ACTIVATE USL TABLE lightning.metastore.probity.vendor360.bank_change_request AS
+SELECT
+  COALESCE(CAST(request_id AS STRING), '') AS request_id,
+  CAST(vendor_id AS STRING) AS vendor_id,
+  CAST(candidate_vendor_ids AS STRING) AS candidate_vendor_ids,
+  CAST(claimed_name AS STRING) AS claimed_name,
+  trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(CAST(claimed_name AS STRING))), ' (FICTIONAL)', ''), '[.,''"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) AS claimed_name_norm,
+  CAST(letterhead_name AS STRING) AS letterhead_name,
+  CAST(claimed_remit_line1 AS STRING) AS claimed_remit_line1,
+  CAST(claimed_remit_unit AS STRING) AS claimed_remit_unit,
+  CAST(claimed_remit_city AS STRING) AS claimed_remit_city,
+  CAST(claimed_remit_state AS STRING) AS claimed_remit_state,
+  CAST(claimed_remit_zip AS STRING) AS claimed_remit_zip,
+  CAST(new_routing AS STRING) AS new_routing,
+  CAST(new_account_last4 AS STRING) AS new_account_last4,
+  CAST(new_account_hash AS STRING) AS new_account_hash,
+  CAST(sender_domain AS STRING) AS sender_domain,
+  CAST(reply_to_domain AS STRING) AS reply_to_domain,
+  CAST(letter_phones AS STRING) AS letter_phones,
+  CAST(invoice_refs AS STRING) AS invoice_refs,
+  CAST(received_at AS TIMESTAMP) AS received_at,
+  CAST(requested_effective AS DATE) AS requested_effective,
+  CAST(channel AS STRING) AS channel,
+  CAST(extraction_path AS STRING) AS extraction_path,
+  CAST(extraction_model AS STRING) AS extraction_model,
+  CAST(status AS STRING) AS status,
+  CAST(data_origin AS STRING) AS data_origin
+FROM payee_erp.bank_change_request

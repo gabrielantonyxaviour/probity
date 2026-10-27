@@ -1,0 +1,1 @@
+SHOW DQ INVALID RECORD request_routing_valid TABLE lightning.metastore.probity.vendor360.bank_change_request

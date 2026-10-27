@@ -1,0 +1,142 @@
+{
+  "example_id": "17-ostrander-bank-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "3f0ea6beb73380fd97cad48033005415bdb68fe63024adbf1f5d8dfa8f06e57e",
+    "cd8c92e097d5dcaf6e7aa0baf27fe0d492a1bb971ebe4efa459908455cd7cef9",
+    "0b5280196c42d34984dc418c53b6a0569eec357a642c4836254bad37bf2749eb"
+  ],
+  "account_number": "000999000904",
+  "claimed_name": "Ostrander Test & Calibration Inc",
+  "letterhead_name": "Ostrander Test & Calibration Inc",
+  "remit_address": null,
+  "bank": {
+    "bank_name": "Old Quarry Test Bank (fictional)",
+    "routing": "110000000",
+    "account_last4": "0904"
+  },
+  "sender_email": "ar@ostranderlab.example",
+  "sender_domain": "ostranderlab.example",
+  "reply_to_domain": null,
+  "phones": [
+    {
+      "number": "(256) 555-0126",
+      "quote": "(256) 555-0126",
+      "e164": "+12565550126"
+    }
+  ],
+  "effective_date": "2026-10-30",
+  "invoice_refs": [
+    "INV-OTC-30455"
+  ],
+  "signer_name": "D. Whitcombe (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by Ostrander Test & Calibration Inc (fictional)",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by Ostrander Test & Calibration Inc (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        575,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Ostrander Test & Calibration Inc",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        75,
+        565,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(256) 555-0126",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        121,
+        225,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "Ostrander Test & Calibration Inc",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        346,
+        377,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "invoice_ref",
+      "fact_field": "invoice_refs",
+      "quote": "INV-OTC-30455",
+      "page": 1,
+      "bbox_hint": [
+        229,
+        364,
+        362,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_routing",
+      "fact_field": "bank_account",
+      "quote": "110000000",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        466,
+        593,
+        483
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_account",
+      "fact_field": "bank_account",
+      "quote": "000999000904",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        493,
+        628,
+        511
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "D. Whitcombe (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        598,
+        326,
+        617
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

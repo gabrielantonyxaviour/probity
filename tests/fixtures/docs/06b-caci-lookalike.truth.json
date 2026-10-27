@@ -1,0 +1,227 @@
+{
+  "example_id": "06b-caci-lookalike",
+  "letter_id": "06b-caci-lookalike",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "CACI Internationl Inc",
+    "letterhead_name": "CACI Internationl Inc",
+    "remit_address": null,
+    "bank": {
+      "bank_name": "Calderwick Test Bank (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000420"
+    },
+    "phones": [
+      "(703) 555-0147"
+    ],
+    "effective_date": null,
+    "signer_name": "Accounts Department",
+    "signer_title": "",
+    "sender_email": "ap@caci-payments.example",
+    "reply_to": "caci.treasury.desk@remit-desk.example"
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by CACI International Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 422,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "CACI Internationl Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 429,
+          "y": 120,
+          "w": 379,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "11487 Sunset Hills Rd Reston VA",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 478,
+          "y": 169,
+          "w": 279,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(703) 555-0147",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 552,
+          "y": 193,
+          "w": 132,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 26, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: URGENT - BANK DETAILS UPDATE REQUIRED TODAY",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 687,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "pressure_phrase",
+      "text": "update our banking details immediately",
+      "kind": "urgency",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 583,
+          "w": 395,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "pressure_phrase",
+      "text": "Do not contact our main office, as finance staff are working remotely; confirm by reply email only.",
+      "kind": "avoid_verification",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 630,
+          "w": 966,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "pressure_phrase",
+      "text": "Please keep this change confidential until the audit closes.",
+      "kind": "secrecy",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 660,
+          "w": 582,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Calderwick Test Bank (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 739,
+          "w": 316,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 783,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000420  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 828,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "CACI Internationl Inc",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 872,
+          "w": 213,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "Accounts Department",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 995,
+          "w": 231,
+          "h": 30
+        }
+      ]
+    }
+  ]
+}

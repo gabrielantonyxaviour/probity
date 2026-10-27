@@ -1,0 +1,28 @@
+{
+ "cik": "0000892537",
+ "name": "MANTECH INTERNATIONAL CORP",
+ "tickers": [],
+ "exchanges": [],
+ "ein": "221852179",
+ "sic": "8741",
+ "sicDescription": "Services-Management Services",
+ "stateOfIncorporation": "DE",
+ "phone": "703-218-6000",
+ "addresses": {
+  "mailing": {
+   "street1": "2251 CORPORATE PARK DRIVE",
+   "street2": null,
+   "city": "HERNDON",
+   "stateOrCountry": "VA",
+   "zipCode": "20171"
+  },
+  "business": {
+   "street1": "2251 CORPORATE PARK DRIVE",
+   "street2": null,
+   "city": "HERNDON",
+   "stateOrCountry": "VA",
+   "zipCode": "20171"
+  }
+ },
+ "formerNames": []
+}

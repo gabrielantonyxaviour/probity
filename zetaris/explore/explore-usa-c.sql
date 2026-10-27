@@ -1,0 +1,1 @@
+SELECT alias_name, entity_key, n_entities FROM (SELECT upper(alias_name) AS alias_name, entity_key, size(collect_set(entity_key) OVER (PARTITION BY upper(alias_name))) AS n_entities FROM probity.usa_alias_v) x WHERE n_entities > 1 ORDER BY alias_name, entity_key LIMIT 100

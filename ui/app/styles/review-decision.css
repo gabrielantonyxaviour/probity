@@ -1,0 +1,87 @@
+/* Decision card, stepper, Why list, call-back card, sweep, Nemotron jobs (PRODUCT_UI_REVIEW section 3). */
+.dec-wrap { padding: var(--app-P); border-bottom: var(--line); }
+.dec-card { --dc: var(--fg); position: relative; container-type: inline-size; background: var(--bg-surface); border: var(--line); border-radius: var(--radius-card); overflow: clip; }
+.dec-card[data-decision="HOLD"] { --dc: var(--hold); }
+.dec-card[data-decision="CALLBACK_VERIFY"] { --dc: var(--callback); }
+.dec-card[data-decision="APPROVE"] { --dc: var(--approve); }
+.dec-beam { position: absolute; inset: 0 auto 0 0; width: 2px; background: linear-gradient(to bottom, var(--dc) 0, var(--dc) calc(100% - 100px), transparent); }
+.dec-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 20px 20px 0 24px; }
+@container (min-width: 520px) { .dec-head { grid-template-columns: minmax(0, 1fr) auto; align-items: start; } }
+.dec-title { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.dec-rings { width: 8px; height: 8px; border-radius: 50%; background: var(--dc); flex: none; color: var(--dc); box-shadow: 0 0 0 3px var(--bg-surface), 0 0 0 4px color-mix(in srgb, var(--dc) 60%, transparent), 0 0 0 7px var(--bg-surface), 0 0 0 8px color-mix(in srgb, var(--dc) 30%, transparent); margin: 8px 12px 8px 8px; }
+.dec-word { color: var(--fg); display: flex; align-items: baseline; gap: 12px; }
+.dec-enum { display: grid; gap: 4px; justify-items: start; }
+@container (min-width: 520px) { .dec-enum { justify-items: end; text-align: right; } }
+.dec-banner { padding: 12px 20px 0 24px; max-width: 60ch; }
+.dec-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 20px 0 24px; }
+.dec-body { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: 20px; border-top: var(--line); }
+@container (min-width: 640px) { .dec-body { grid-template-columns: 1fr 1fr; } }
+@container (min-width: 880px) { .dec-body { grid-template-columns: 7fr 5fr; } }
+.dec-body:has(> .dec-col:only-child) { grid-template-columns: minmax(0, 1fr) !important; }
+.dec-col { padding: 20px 20px 20px 24px; min-width: 0; display: grid; gap: 12px; align-content: start; }
+.dec-col + .dec-col { border-top: var(--line); }
+@container (min-width: 640px) { .dec-col + .dec-col { border-top: 0; border-left: var(--line); } }
+.dec-foot { border-top: var(--line); padding: 12px 20px 12px 24px; display: grid; gap: 8px; }
+.dec-foot__row { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 8px 16px; }
+.dec-summary { max-width: 70ch; }
+.dec-summary[data-open="false"] { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.dec-callrow { padding: 12px 20px 0 24px; }
+.dec-note { padding: 8px 20px 0 24px; }
+
+/* Why list */
+.why-group { display: grid; gap: 0; }
+.why-group > .t-eyebrow { margin-bottom: 4px; }
+.why-row { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px dashed var(--rule); }
+.why-row:first-of-type { border-top: 0; }
+.why-box { display: inline-flex; width: 24px; height: 24px; align-items: center; justify-content: center; border-radius: var(--radius-box); box-shadow: inset 0 0 0 1px var(--rule-strong); font-size: 13px; line-height: 1; }
+.why-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 6px; }
+.why-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur-6) var(--ease-plain); }
+.why-more[data-open="true"] { grid-template-rows: 1fr; }
+.why-more > div { overflow: hidden; }
+.why-toggle { color: var(--fg-2); display: flex; align-items: center; gap: 8px; padding: 12px 0 4px; }
+
+/* Stepper */
+.stp { padding: 20px 20px 20px 28px; display: grid; gap: 16px; }
+.stp__top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.stp__list { position: relative; display: grid; gap: 16px; padding-left: 0; }
+.stp__list::before { content: ""; position: absolute; left: 3.5px; top: 6px; bottom: 6px; width: 1px; background: var(--rule); }
+.stp__item { position: relative; display: flex; align-items: baseline; gap: 12px; padding-left: 28px; color: var(--fg-disabled); }
+.stp__mark { position: absolute; left: 0; top: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--fg-subtle); box-shadow: 0 0 0 3px var(--bg-surface), 0 0 0 4px color-mix(in srgb, var(--fg-subtle) 60%, transparent), 0 0 0 7px var(--bg-surface); }
+.stp__item[data-state="done"] { color: var(--fg-muted); } .stp__item[data-state="done"] .stp__mark { background: var(--fg-muted); box-shadow: 0 0 0 3px var(--bg-surface), 0 0 0 4px color-mix(in srgb, var(--fg-muted) 60%, transparent), 0 0 0 7px var(--bg-surface); }
+.stp__item[data-state="running"] { color: var(--fg); } .stp__item[data-state="running"] .stp__mark { background: var(--fg); color: var(--fg); animation: p-pulse var(--dur-pulse) var(--ease-plain) infinite; }
+.stp__item[data-state="pending"] .stp__mark { background: transparent; box-shadow: 0 0 0 3px var(--bg-surface), 0 0 0 4px var(--fg-disabled), 0 0 0 7px var(--bg-surface); }
+.stp__item[data-state="skipped"] .stp__mark { background: transparent; box-shadow: 0 0 0 1px var(--fg-subtle); }
+.stp__g { width: 1em; display: inline-block; text-align: center; flex: none; }
+.stp__n { color: var(--fg-muted); }
+
+/* Call-back card (em-scaled panel) */
+.cb { font-size: var(--panel-base); display: grid; gap: .75em; }
+.cb__panel { padding: .75em; border: var(--line); border-radius: var(--radius-box); background: var(--bg-canvas); }
+.cb__head { display: flex; align-items: center; justify-content: space-between; gap: .5em; color: var(--fg-muted); }
+.cb__body { margin-top: .75em; padding-top: .75em; border-top: 1px dashed var(--rule); display: grid; gap: .75em; }
+.cb__label { color: var(--fg-muted); font-size: .8em; line-height: 1.3; }
+.cb__num { display: flex; align-items: center; gap: .5em; font-size: var(--text-figure); line-height: 1; color: var(--fg); flex-wrap: wrap; }
+.cb__ok { display: inline-flex; width: 26px; height: 26px; border-radius: 50%; align-items: center; justify-content: center; background: var(--agree-bg-raised); color: var(--agree); font-size: 14px; font-family: var(--font-sans); letter-spacing: 0; }
+.cb__dnu { display: grid; gap: .5em; padding-top: .75em; border-top: 1px dashed var(--rule); }
+.cb__dnu-row { display: flex; flex-wrap: wrap; gap: .25em .75em; align-items: baseline; }
+.cb__lines { display: grid; gap: .5em; counter-reset: line; }
+.cb__lines li { display: grid; grid-template-columns: 2em 1fr; gap: .5em; font-size: 1em; line-height: 1.4; counter-increment: line; }
+.cb__lines li::before { content: counter(line, decimal-leading-zero); color: var(--fg-muted); font-family: var(--font-mono); font-size: .85em; font-feature-settings: "zero" 1; }
+.cb__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Sweep, Nemotron */
+.sw-rows { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: 12px; min-width: 0; }
+.sw-row { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 6px; padding: 12px 0; border-top: 1px dashed var(--rule); }
+.sw-row:first-child { border-top: 0; }
+.sw-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.sw-foot { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 8px; }
+.nj { display: grid; gap: 0; }
+.nj__row { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px dashed var(--rule); text-align: left; width: 100%; }
+.nj__row:first-child { border-top: 0; }
+.nj__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.ledger-wrap { overflow-x: auto; border: var(--line); border-radius: var(--radius-card); }
+.ledger { width: 100%; min-width: 640px; }
+.ledger th { height: 32px; padding: 0 12px; text-align: left; font-family: var(--font-mono); font-size: var(--text-mono-label); font-weight: 500; text-transform: uppercase; letter-spacing: var(--tracking-mono); color: var(--fg-muted); border-bottom: var(--line); white-space: nowrap; }
+.ledger td { padding: 8px 12px; border-top: 1px dashed var(--rule); font-size: var(--text-ui-sm); line-height: var(--leading-ui-sm); }
+.ledger tr:first-child td { border-top: 0; }
+.ledger .num { text-align: right; font-family: var(--font-mono); font-feature-settings: "zero" 1, "tnum" 1; }

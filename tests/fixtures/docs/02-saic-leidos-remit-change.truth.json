@@ -1,0 +1,228 @@
+{
+  "example_id": "02-saic-leidos-remit-change",
+  "letter_id": "02-saic-leidos-remit-change",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Science Applications International Corporation",
+    "letterhead_name": "Science Applications International Corporation",
+    "remit_address": {
+      "line1": "12010 Sunset Hills Rd",
+      "unit": null,
+      "city": "Reston",
+      "state": "VA",
+      "zip": "20190"
+    },
+    "bank": {
+      "bank_name": "Harborline Test Savings (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000163"
+    },
+    "phones": [],
+    "effective_date": "2026-11-01",
+    "signer_name": "D. Marchetti (fictional)",
+    "signer_title": "Accounts Receivable",
+    "sender_email": "ap@saic.example",
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by Science Applications International Corporation",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 598,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Science Applications International Corporation",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 124,
+          "w": 715,
+          "h": 40
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "12010 Sunset Hills Road, Reston, VA 20190",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 359,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 23, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 250,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 309,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Remit-to address update",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 440,
+          "w": 352,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "invoice_refs",
+      "text": "INV-LDS-88412 and INV-LDS-88433",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 623,
+          "y": 529,
+          "w": 371,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "from 1 November 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 774,
+          "y": 559,
+          "w": 234,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "remit_address",
+      "text": "12010 Sunset Hills Rd, Reston, VA 20190",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 170,
+          "y": 666,
+          "w": 415,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Harborline Test Savings (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 719,
+          "w": 337,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 763,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000163  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 808,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Science Applications International Corporation",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 852,
+          "w": 466,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "D. Marchetti (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 975,
+          "w": 239,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Accounts Receivable",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1008,
+          "w": 207,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

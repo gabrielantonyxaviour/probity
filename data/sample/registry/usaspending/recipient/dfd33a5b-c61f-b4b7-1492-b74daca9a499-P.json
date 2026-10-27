@@ -1,0 +1,57 @@
+{
+ "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+ "alternate_names": [
+  "DYNAMICS RESEARCH CORPORATION",
+  "ENGILITY CORP.",
+  "ENGILITY CORPORATION",
+  "ENGILITY LLC",
+  "FORFEITURE SUPPORT ASSOCIATES LLC",
+  "KADIX SYSTEMS  LLC",
+  "SAIC GEMINI  INC.",
+  "SCIENCE APPLICATIONS INT",
+  "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+  "TEXELTEK  INC."
+ ],
+ "duns": "078745061",
+ "uei": "RE7WMNV9L719",
+ "recipient_id": "dfd33a5b-c61f-b4b7-1492-b74daca9a499-P",
+ "recipient_level": "P",
+ "parent_id": "dfd33a5b-c61f-b4b7-1492-b74daca9a499-P",
+ "parent_name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+ "parent_duns": "078745061",
+ "parent_uei": "RE7WMNV9L719",
+ "parents": [
+  {
+   "parent_id": "dfd33a5b-c61f-b4b7-1492-b74daca9a499-P",
+   "parent_duns": "078745061",
+   "parent_uei": "RE7WMNV9L719",
+   "parent_name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION"
+  }
+ ],
+ "business_types": [
+  "category_business",
+  "corporate_entity_not_tax_exempt",
+  "other_than_small_business",
+  "special_designations",
+  "us_owned_business"
+ ],
+ "location": {
+  "address_line1": "12010 SUNSET HILLS RD",
+  "address_line2": "STE 500",
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": "RESTON",
+  "county_name": null,
+  "state_code": "VA",
+  "zip": "20190",
+  "zip4": "5888",
+  "foreign_postal_code": null,
+  "country_name": "UNITED STATES",
+  "country_code": "USA",
+  "congressional_code": "11"
+ },
+ "total_transaction_amount": 130982136.16,
+ "total_transactions": 687,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

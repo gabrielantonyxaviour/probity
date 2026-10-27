@@ -1,0 +1,183 @@
+{
+  "motion": [
+    {
+      "id": "M01",
+      "name": "river-open",
+      "seconds": 9
+    },
+    {
+      "id": "M02",
+      "name": "problem",
+      "seconds": 12
+    },
+    {
+      "id": "M03",
+      "name": "semantic layer",
+      "seconds": 10
+    },
+    {
+      "id": "M04",
+      "name": "catch",
+      "seconds": 8
+    },
+    {
+      "id": "M05",
+      "name": "agents",
+      "seconds": 12
+    },
+    {
+      "id": "M06",
+      "name": "zetaris",
+      "seconds": 6
+    },
+    {
+      "id": "M07",
+      "name": "receipts",
+      "seconds": 4
+    },
+    {
+      "id": "M08",
+      "name": "impact",
+      "seconds": 6
+    },
+    {
+      "id": "M09",
+      "name": "outro",
+      "seconds": 6
+    }
+  ],
+  "sequence": [
+    "M01",
+    "R01",
+    "M02",
+    "M03",
+    "M04",
+    "R02",
+    "M05",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "M06",
+    "R09",
+    "R10",
+    "M07",
+    "R11",
+    "R12",
+    "R13",
+    "M08",
+    "M09"
+  ],
+  "narration": [
+    {
+      "id": "N01",
+      "audio": "a01.m4a",
+      "label": "Problem + solution (pitch)",
+      "covers": [
+        "M01",
+        "R01",
+        "M02",
+        "M03",
+        "M04",
+        "R02"
+      ],
+      "text": "An accounts-payable controls lead at a federal contractor gets an email: new bank details, {{days_before_payment_words}} days before ${{exposure_millions}} million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. The letters and internal records are synthetic; every registry fact is real."
+    },
+    {
+      "id": "N02",
+      "audio": "a02.m4a",
+      "label": "Agents",
+      "covers": [
+        "M05",
+        "R03"
+      ],
+      "text": "Four agents, each with its own authority. The Letter Reader, on Nemotron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a fixed floor of Zetaris checks; Nemotron Lightning adds the checks the floor misses. Before a newly discovered link counts, the Examiner re-runs its Zetaris query and checks the rows have not changed, and it sends the Scout back when evidence is missing. Code decides the verdict.",
+      "text_fit": "Four agents, each with its own authority. The Letter Reader, on Nemotron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a fixed floor of Zetaris checks; Nemotron Lightning adds what it misses. Before a new link counts, the Examiner re-runs its Zetaris query and checks the rows. Code decides the verdict."
+    },
+    {
+      "id": "N03",
+      "audio": "a03.m4a",
+      "label": "Injection catch",
+      "covers": [
+        "R04"
+      ],
+      "text": "A letter that talks to the AI is quoted as a warning sign, never obeyed."
+    },
+    {
+      "id": "N04",
+      "audio": "a04.m4a",
+      "label": "Live run: S1",
+      "covers": [
+        "R05"
+      ],
+      "text": "Here is the real run. The reader quotes the letter, including the line asking us not to use the old number. The Scout checks the vendor master and the registries through Zetaris. The address matches nothing we know, so the Examiner sends the Scout back. A coverage rule walks Booz Allen's family, forty-one entities, and keeps the one in New Jersey. A naive check would pass this: it is a real Booz Allen address. It belongs to a different Booz Allen company that has never billed us. The Examiner re-runs that query before it counts. Decision: hold. The call-back number comes from SEC filings; the letter's number and the master number changed by email three days earlier are on the do-not-use list."
+    },
+    {
+      "id": "N05",
+      "audio": "a05.m4a",
+      "label": "S2",
+      "covers": [
+        "R06"
+      ],
+      "text": "Same name, two companies. When it cannot tell which vendor a request is for, it refuses to guess and writes a script for each.",
+      "text_fit": "Same name, two companies. It refuses to guess, and writes a call-back script for each."
+    },
+    {
+      "id": "N06",
+      "audio": "a06.m4a",
+      "label": "Memory",
+      "covers": [
+        "R07"
+      ],
+      "text": "Three separate processes. A later CACI request reuses the phone from the impersonation we confirmed in session a, and another request reuses its account. The World Model remembers both, and both are held.",
+      "text_fit": "Three separate processes. A later CACI request reuses the phone from the impersonation we confirmed in session a, and another reuses its account. The World Model remembers both; both are held."
+    },
+    {
+      "id": "N07",
+      "audio": "a07.m4a",
+      "label": "S7 (only if a real outage clip or the hook exists)",
+      "covers": [
+        "R08"
+      ],
+      "text": "If the data layer is down, it uses labelled offline captures and will not approve.",
+      "text_fit": "If Zetaris is down, it says so and never approves."
+    },
+    {
+      "id": "N08",
+      "audio": "a08.m4a",
+      "label": "Sponsor tech",
+      "covers": [
+        "M06",
+        "R09",
+        "R10",
+        "M07",
+        "R11"
+      ],
+      "text": "Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer and registers what it discovers at run time; every query has an id you can re-run. The sweep is a Zetaris data-quality rule. Every agent model call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which model answered.",
+      "text_fit": "Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer; every query has an id you can re-run. The sweep is a Zetaris data-quality rule. Every agent call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which."
+    },
+    {
+      "id": "N09",
+      "audio": "a09.m4a",
+      "label": "F29 (only if SW-F29 passed)",
+      "covers": [
+        "R12"
+      ],
+      "text": "For a company we have never paid, Nemotron Ultra approves the SEC link from cited rows, and only then is there an SEC number to call.",
+      "text_fit": "For a company we have never paid, Ultra approves the SEC link from cited rows, unlocking a number to call."
+    },
+    {
+      "id": "N10",
+      "audio": "a10.m4a",
+      "label": "Output and impact",
+      "covers": [
+        "R13",
+        "M08",
+        "M09"
+      ],
+      "text": "Not asked, but checked: {{sweep_count_words}} other payments in Friday's run fail controls. The controller gets a hold list in dollars and a script with independent numbers. Median decision time: {{q8_seconds}} seconds. It never moves money. Clone it and run sample mode with no keys."
+    }
+  ]
+}

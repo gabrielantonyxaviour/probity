@@ -1,0 +1,38 @@
+{
+ "cik": "0000275880",
+ "name": "PARSONS CORP",
+ "tickers": [
+  "PSN"
+ ],
+ "exchanges": [
+  "NYSE"
+ ],
+ "ein": "953232481",
+ "sic": "7373",
+ "sicDescription": "Services-Computer Integrated Systems Design",
+ "stateOfIncorporation": "DE",
+ "phone": "703-988-8500",
+ "addresses": {
+  "mailing": {
+   "street1": "5875 TRINITY PKWY #300",
+   "street2": null,
+   "city": "CENTREVILLE",
+   "stateOrCountry": "VA",
+   "zipCode": "20120"
+  },
+  "business": {
+   "street1": "5875 TRINITY PKWY #300",
+   "street2": null,
+   "city": "CENTREVILLE",
+   "stateOrCountry": "VA",
+   "zipCode": "20120"
+  }
+ },
+ "formerNames": [
+  {
+   "name": "PARSON CORP",
+   "from": "2019-02-11T00:00:00.000Z",
+   "to": "2019-02-11T00:00:00.000Z"
+  }
+ ]
+}

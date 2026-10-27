@@ -1,0 +1,173 @@
+{
+  "sql": "LIST DQ USL lightning.metastore.probity.vendor360",
+  "sql_hash": "eed31a744ab85cd3",
+  "queryId": "401af712-b514-41ad-8e59-b34a9140e000",
+  "executed_at": "2026-10-27T13:34:44.494Z",
+  "latency_ms": 100,
+  "key": "query",
+  "columns": [
+    "name",
+    "table",
+    "type",
+    "expression"
+  ],
+  "rows": [
+    [
+      "entity_key",
+      "registry_entity",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "registry_has_address",
+      "registry_entity",
+      "Custom Data Quality",
+      "address_line1 IS NOT NULL AND address_line1 <> ''"
+    ],
+    [
+      "child_key",
+      "registry_child",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "parent_link_key",
+      "registry_parent",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "alias_key",
+      "registry_alias",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "cik",
+      "sec_registrant",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "sec_ein_present",
+      "sec_registrant",
+      "Custom Data Quality",
+      "ein IS NOT NULL AND ein <> '000000000'"
+    ],
+    [
+      "sec_state_of_inc_present",
+      "sec_registrant",
+      "Custom Data Quality",
+      "state_of_inc IS NOT NULL AND state_of_inc <> ''"
+    ],
+    [
+      "contact_id",
+      "vendor_contact",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "vendor_id",
+      "vendor_contact",
+      "Foreign key constraints",
+      ""
+    ],
+    [
+      "bank_account_id",
+      "vendor_bank_account",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "vendor_id",
+      "vendor_bank_account",
+      "Foreign key constraints",
+      ""
+    ],
+    [
+      "log_id",
+      "vendor_contact_log",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "vendor_id",
+      "vendor_contact_log",
+      "Foreign key constraints",
+      ""
+    ],
+    [
+      "invoice_no",
+      "ap_invoice",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "vendor_id",
+      "ap_invoice",
+      "Foreign key constraints",
+      ""
+    ],
+    [
+      "item_id",
+      "payment_run_item",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "vendor_id",
+      "payment_run_item",
+      "Foreign key constraints",
+      ""
+    ],
+    [
+      "invoice_no",
+      "payment_run_item",
+      "Foreign key constraints",
+      ""
+    ],
+    [
+      "bank_account_id",
+      "payment_run_item",
+      "Foreign key constraints",
+      ""
+    ],
+    [
+      "unverified_recent_bank_change",
+      "payment_run_item",
+      "Custom Data Quality",
+      "bank_changed_at IS NULL OR datediff(CAST(scheduled_date AS DATE), CAST(bank_changed_at AS DATE)) >= 30 OR (callback_confirmed_at IS NOT NULL AND callback_phone_source IN ('edgar_registrant', 'vendor_master_pre_window'))"
+    ],
+    [
+      "account_single_vendor",
+      "payment_run_item",
+      "Custom Data Quality",
+      "account_vendor_count <= 1"
+    ],
+    [
+      "vendor_id",
+      "vendor",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "registrant_cik",
+      "vendor",
+      "Foreign key constraints",
+      ""
+    ],
+    [
+      "request_id",
+      "bank_change_request",
+      "Primary key constraints",
+      ""
+    ],
+    [
+      "request_routing_valid",
+      "bank_change_request",
+      "Custom Data Quality",
+      "new_routing IS NULL OR (new_routing RLIKE '^[0-9]{9}$' AND pmod(3 * ((ascii(substr(new_routing, 1, 1)) - 48) + (ascii(substr(new_routing, 4, 1)) - 48) + (ascii(substr(new_routing, 7, 1)) - 48)) + 7 * ((ascii(substr(new_routing, 2, 1)) - 48) + (ascii(substr(new_routing, 5, 1)) - 48) + (ascii(substr(new_routing, 8, 1)) - 48)) + ((ascii(substr(new_routing, 3, 1)) - 48) + (ascii(substr(new_routing, 6, 1)) - 48) + (ascii(substr(new_routing, 9, 1)) - 48)), 10) = 0)"
+    ]
+  ],
+  "row_hash": "82601670751af1f9"
+}

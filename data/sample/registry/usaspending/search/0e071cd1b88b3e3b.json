@@ -1,0 +1,78 @@
+{
+ "keyword": "Science Applications International Corporation",
+ "page_metadata": {
+  "page": 1,
+  "total": 49,
+  "limit": 8,
+  "next": 2,
+  "previous": null,
+  "hasNext": true,
+  "hasPrevious": false
+ },
+ "results": [
+  {
+   "id": "20af0683-f17d-1f8f-38ee-2f11bd124559-P",
+   "duns": "078883327",
+   "uei": "MMLKPW9JLX64",
+   "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+   "recipient_level": "P",
+   "amount": 4318367862.88
+  },
+  {
+   "id": "20af0683-f17d-1f8f-38ee-2f11bd124559-C",
+   "duns": "078883327",
+   "uei": "MMLKPW9JLX64",
+   "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+   "recipient_level": "C",
+   "amount": 4227322246.81
+  },
+  {
+   "id": "dfd33a5b-c61f-b4b7-1492-b74daca9a499-P",
+   "duns": "078745061",
+   "uei": "RE7WMNV9L719",
+   "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+   "recipient_level": "P",
+   "amount": 131124981.07
+  },
+  {
+   "id": "900dcfe5-fb04-162f-2149-75b51d42021a-C",
+   "duns": "117447395",
+   "uei": "L7EUZR8R5RZ3",
+   "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+   "recipient_level": "C",
+   "amount": 91045616.07
+  },
+  {
+   "id": "6d7248f9-fd1b-2fe9-b188-b5e95ce285bf-C",
+   "duns": "079209257",
+   "uei": "W86MRS1GLQW5",
+   "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+   "recipient_level": "C",
+   "amount": 59357165.93
+  },
+  {
+   "id": "6d7248f9-fd1b-2fe9-b188-b5e95ce285bf-P",
+   "duns": "079209257",
+   "uei": "W86MRS1GLQW5",
+   "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+   "recipient_level": "P",
+   "amount": 56163993.93
+  },
+  {
+   "id": "dfd33a5b-c61f-b4b7-1492-b74daca9a499-C",
+   "duns": "078745061",
+   "uei": "RE7WMNV9L719",
+   "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+   "recipient_level": "C",
+   "amount": 42167191.72
+  },
+  {
+   "id": "c2f5f6b8-465f-7be8-2613-8ae005e2bd5e-C",
+   "duns": "063943865",
+   "uei": "EMF7TKXPXKJ2",
+   "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+   "recipient_level": "C",
+   "amount": 17506762.46
+  }
+ ]
+}

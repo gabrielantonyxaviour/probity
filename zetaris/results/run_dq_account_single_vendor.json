@@ -1,0 +1,27 @@
+{
+  "sql": "RUN DQ account_single_vendor TABLE lightning.metastore.probity.vendor360.payment_run_item",
+  "sql_hash": "4dc975b8c0a06351",
+  "queryId": "ddab9580-809d-4151-8117-e639406a3e2f",
+  "executed_at": "2026-10-27T13:34:55.293Z",
+  "latency_ms": 5852,
+  "key": "query",
+  "columns": [
+    "name",
+    "table",
+    "type",
+    "total_record",
+    "valid_record",
+    "invalid_record"
+  ],
+  "rows": [
+    [
+      "account_single_vendor",
+      "payment_run_item",
+      "Custom Data Quality",
+      "153",
+      "150",
+      "3"
+    ]
+  ],
+  "row_hash": "3f61b1991af60d17"
+}

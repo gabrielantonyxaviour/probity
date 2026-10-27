@@ -1,0 +1,200 @@
+{
+  "example_id": "16-granite-shoals-remit-change",
+  "letter_id": "16-granite-shoals-remit-change",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Granite Shoals Engineering PLLC",
+    "letterhead_name": "Granite Shoals Engineering PLLC",
+    "remit_address": {
+      "line1": "2043 Larchmont Rd",
+      "unit": "Suite 410",
+      "city": "San Antonio",
+      "state": "TX",
+      "zip": "78207"
+    },
+    "bank": null,
+    "phones": [
+      "(210) 555-0197"
+    ],
+    "effective_date": "2026-11-01",
+    "signer_name": "J. Okeke-Ruiz (fictional)",
+    "signer_title": "Office Manager",
+    "sender_email": "ap@graniteshoals.example",
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by Granite Shoals Engineering PLLC (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 567,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Granite Shoals Engineering PLLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 597,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "2043 Larchmont Rd, Suite 410, San Antonio, TX 78207",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 466,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(210) 555-0197",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 193,
+          "w": 132,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_email",
+      "text": "ap@graniteshoals.example",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 292,
+          "y": 193,
+          "w": 231,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 23, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 179,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: New suite number for remittances",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 470,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Granite Shoals Engineering PLLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 553,
+          "w": 347,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "from 1 November 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 484,
+          "y": 583,
+          "w": 243,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "remit_address",
+      "text": "2043 Larchmont Rd, Suite 410, San Antonio, TX 78207",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 170,
+          "y": 698,
+          "w": 569,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "J. Okeke-Ruiz (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 814,
+          "w": 270,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Office Manager",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 846,
+          "w": 158,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

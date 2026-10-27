@@ -1,0 +1,25 @@
+{
+  "sql": "SHOW NAMESPACES OR TABLES IN lightning.metastore.probity",
+  "sql_hash": "35d0f45252475193",
+  "queryId": "a162318b-06a1-47c9-9156-674c8a46a206",
+  "executed_at": "2026-10-27T13:34:44.197Z",
+  "latency_ms": 1037,
+  "key": "query",
+  "columns": [
+    "name",
+    "type",
+    "usl_id",
+    "count",
+    "activated"
+  ],
+  "rows": [
+    [
+      "vendor360",
+      "usl",
+      "1796",
+      "12",
+      null
+    ]
+  ],
+  "row_hash": "a1784651fe14e08b"
+}

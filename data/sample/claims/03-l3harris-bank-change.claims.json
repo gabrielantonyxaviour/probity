@@ -1,0 +1,140 @@
+{
+  "example_id": "03-l3harris-bank-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "310fb2aa6b24bcd1e7bb732e4338882003e3ddf7e9ec38c3f40bd8d001db5edd",
+    "b5fcea2a2d566657ec8bcca6ac592ff7f24ceb14e58f1a9dcf1ca312507a1cb8",
+    "93445ac00c1a0b957007fba4f3acf036307a67aa6972501a4fa3fcecdaa791d5"
+  ],
+  "account_number": "000999000198",
+  "claimed_name": "L3Harris Technologies, Inc.",
+  "letterhead_name": "L3Harris Technologies, Inc.",
+  "remit_address": null,
+  "bank": {
+    "bank_name": "Old Quarry Test Bank (fictional)",
+    "routing": "110000000",
+    "account_last4": "0198"
+  },
+  "sender_email": "treasury@l3harris.example",
+  "sender_domain": "l3harris.example",
+  "reply_to_domain": null,
+  "phones": [
+    {
+      "number": "(321) 555-0144",
+      "quote": "(321) 555-0144",
+      "e164": "+13215550144"
+    }
+  ],
+  "effective_date": "2026-11-02",
+  "invoice_refs": [],
+  "signer_name": "K. Albrecht (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by L3Harris Technologies, Inc.",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by L3Harris Technologies, Inc.",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        487,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "L3Harris Technologies, Inc.",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        75,
+        495,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(321) 555-0144",
+      "page": 1,
+      "bbox_hint": [
+        247,
+        121,
+        354,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "L3Harris Technologies, Inc.",
+      "page": 1,
+      "bbox_hint": [
+        576,
+        346,
+        797,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "effective_date",
+      "fact_field": null,
+      "quote": "effective 2 November 2026",
+      "page": 1,
+      "bbox_hint": [
+        162,
+        364,
+        383,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_routing",
+      "fact_field": "bank_account",
+      "quote": "110000000",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        442,
+        593,
+        459
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_account",
+      "fact_field": "bank_account",
+      "quote": "000999000198",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        469,
+        628,
+        487
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "K. Albrecht (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        574,
+        300,
+        593
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

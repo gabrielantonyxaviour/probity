@@ -1,0 +1,23 @@
+{
+  "input": {
+    "example_id": "13-pembrook-bank-remit-change",
+    "request_id": "BCR-2026-0409",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      },
+      {
+        "kind": "eml_headers",
+        "file": "headers.eml"
+      }
+    ],
+    "received_at": "2026-10-22T13:05:00Z",
+    "channel": "email",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "Pembrook billing consolidation, replies from a shared desk"
+    }
+  },
+  "options": {}
+}

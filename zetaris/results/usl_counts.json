@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-27T13:34:29.495Z",
+  "counts": {
+    "registry_entity": 12,
+    "registry_child": 543,
+    "sec_registrant": 6,
+    "vendor": 40,
+    "payment_run_item": 153,
+    "bank_change_request": 11
+  }
+}

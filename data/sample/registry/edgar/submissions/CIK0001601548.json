@@ -1,0 +1,43 @@
+{
+ "cik": "0001601548",
+ "name": "V2X, Inc.",
+ "tickers": [
+  "VVX"
+ ],
+ "exchanges": [
+  "NYSE"
+ ],
+ "ein": "383924636",
+ "sic": "8744",
+ "sicDescription": "Services-Facilities Support Management Services",
+ "stateOfIncorporation": "IN",
+ "phone": "(571) 481-2000",
+ "addresses": {
+  "mailing": {
+   "street1": "2100 RESTON PARKWAY",
+   "street2": "SUITE 300",
+   "city": "RESTON",
+   "stateOrCountry": "VA",
+   "zipCode": null
+  },
+  "business": {
+   "street1": "2100 RESTON PARKWAY",
+   "street2": "SUITE 300",
+   "city": "RESTON",
+   "stateOrCountry": "VA",
+   "zipCode": null
+  }
+ },
+ "formerNames": [
+  {
+   "name": "Vectrus, Inc.",
+   "from": "2014-04-04T00:00:00.000Z",
+   "to": "2022-06-15T00:00:00.000Z"
+  },
+  {
+   "name": "Exelis MSCO Inc.",
+   "from": "2014-03-10T00:00:00.000Z",
+   "to": "2014-03-10T00:00:00.000Z"
+  }
+ ]
+}

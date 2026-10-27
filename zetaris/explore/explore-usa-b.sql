@@ -1,0 +1,1 @@
+SELECT state_province, COUNT(*) AS children, CAST(SUM(amount) AS DECIMAL(18,2)) AS amount_usd FROM probity.usa_child_v WHERE parent_uei = 'MBPHTU7Y9S65' GROUP BY state_province ORDER BY children DESC, state_province LIMIT 60

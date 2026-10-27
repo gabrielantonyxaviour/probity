@@ -1,0 +1,186 @@
+{
+  "sql": "SELECT vendor_id, legal_name, status FROM payee_erp.vendor WHERE uei IS NULL AND registrant_cik IS NULL ORDER BY vendor_id LIMIT 50",
+  "sql_hash": "e0bf42a0c3d2d6b3",
+  "queryId": "958eaa34-6149-4960-b7a8-242bbb299c6a",
+  "executed_at": "2026-10-27T13:35:57.777Z",
+  "latency_ms": 331,
+  "key": "query",
+  "columns": [
+    "vendor_id",
+    "legal_name",
+    "status"
+  ],
+  "rows": [
+    [
+      "V-07734",
+      "LEIDOS INC",
+      "merged"
+    ],
+    [
+      "V-10154",
+      "Bluefen Geospatial Imaging LLC (fictional)",
+      "inactive"
+    ],
+    [
+      "V-10167",
+      "Calloway Freight Brokers Inc (fictional)",
+      "inactive"
+    ],
+    [
+      "V-10179",
+      "Elkhorn Radio Repair Co (fictional)",
+      "inactive"
+    ],
+    [
+      "V-10186",
+      "Larkspur Mobile Notary LLC (fictional)",
+      "inactive"
+    ],
+    [
+      "V-10233",
+      "Northgate Office Interiors LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10234",
+      "NORTHGATE OFFICE INTERIORS (fictional)",
+      "active"
+    ],
+    [
+      "V-10261",
+      "Brackwater Survey Instrumnets LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10349",
+      "Chesterfield Ridge Staffing Group Inc (fictional)",
+      "active"
+    ],
+    [
+      "V-10357",
+      "Kettle Point Data Cabling LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10388",
+      "Larkfield Translation Services LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10402",
+      "Pembrook Secure Shredding Co (fictional)",
+      "active"
+    ],
+    [
+      "V-10471",
+      "Ostrander Test & Calibration Inc (fictional)",
+      "active"
+    ],
+    [
+      "V-10483",
+      "Fallow Creek Catering LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10509",
+      "Wexley Badge & Credential Supply Inc (fictional)",
+      "active"
+    ],
+    [
+      "V-10528",
+      "Corbin Hollow HVAC Services LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10544",
+      "Juniper Lane Travel Management LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10561",
+      "Sable Harbor Marine Logistics LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10592",
+      "Thornfield Environmental Labs Inc (fictional)",
+      "active"
+    ],
+    [
+      "V-10604",
+      "Ridgeback Network Supply Co (fictional)",
+      "active"
+    ],
+    [
+      "V-10617",
+      "Ashgrove Records Management LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10630",
+      "Merriwether Cloud Reseller LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10645",
+      "Sterling Fox Cyber Training LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10655",
+      "Marrowstone Facility Partners LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10671",
+      "Copperline Fiber Splicing LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10688",
+      "Granite Shoals Engineering PLLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10702",
+      "Dovecote Furniture Installers LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10718",
+      "Bellhaven Print & Mail Inc (fictional)",
+      "active"
+    ],
+    [
+      "V-10731",
+      "Windrow Grounds Maintenance LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10749",
+      "Pinecrest Medical Courier LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10763",
+      "Tidewater Cable & Conduit LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10776",
+      "Harrow & Vale Legal Support LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10790",
+      "Quarrytown Facilities Group LLC (fictional)",
+      "active"
+    ],
+    [
+      "V-10812",
+      "Quillan Ridge Fleet Services LLC (fictional)",
+      "active"
+    ]
+  ],
+  "row_hash": "042070509d29b91e"
+}

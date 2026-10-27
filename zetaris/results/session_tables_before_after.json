@@ -1,0 +1,36 @@
+{
+  "method": "probed_per_table",
+  "at": "2026-10-27T13:26:29.989Z",
+  "before_s1": [
+    "pp_usa_r_khk6e1jw9c15"
+  ],
+  "note": "SHOW TABLES IN session was not sent. Before S1 the state file listed only the K1d table. Probes are after S1.",
+  "probes": [
+    {
+      "table": "pp_usa_r_khk6e1jw9c15",
+      "present": true
+    },
+    {
+      "table": "pp_usa_c_mbphtu7y9s65",
+      "present": true
+    },
+    {
+      "table": "pp_sec_s_0001443646",
+      "present": true
+    }
+  ],
+  "registrar": [
+    {
+      "table": "pp_usa_r_khk6e1jw9c15",
+      "reused": true
+    },
+    {
+      "table": "pp_usa_c_mbphtu7y9s65",
+      "reused": true
+    },
+    {
+      "table": "pp_sec_s_0001443646",
+      "reused": true
+    }
+  ]
+}

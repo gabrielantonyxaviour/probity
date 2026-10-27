@@ -1,0 +1,91 @@
+# Probity compose project (06 section 9.3). Judges run the sample profile; the live profile adds the ERP database and the source gateway.
+# Live: set -a; . ./.env.local; . ./.env.db.local; set +a; docker compose -f docker-compose.yml -f docker-compose.live.yml --profile live up -d
+name: probity
+
+x-api-env: &api-env
+  HOST: 0.0.0.0
+  PORT: "8787"
+  SAMPLE_MODE: ${SAMPLE_MODE:-false}        # REV-05: default live; the judge command passes SAMPLE_MODE=true
+  LOG_FORMAT: ${LOG_FORMAT:-pretty}
+  ZETARIS_API_ORIGIN: ${ZETARIS_API_ORIGIN_CONTAINER:-http://host.docker.internal:8888}
+  METERLESS_BASE_URL: ${METERLESS_BASE_URL_CONTAINER:-http://host.docker.internal:8088/v1}
+  ERP_DATABASE_URL: postgres://payee_app:${PAYEE_APP_PASSWORD:-}@payee-erp-db:5432/payee_erp
+  SOURCE_GATEWAY_URL: http://source-gateway:8790
+
+x-node-health: &node-health
+  interval: 10s
+  timeout: 3s
+  retries: 5
+  start_period: 20s
+
+services:
+  payee-api:
+    build: { context: ., dockerfile: Dockerfile }
+    env_file: [{ path: .env, required: false }]
+    environment: *api-env
+    ports: ["127.0.0.1:${PAYEE_API_PORT:-8787}:8787"]
+    # No extra_hosts: Colima resolves host.docker.internal to 192.168.5.2 (the Mac) natively (VERIFIED_FACTS 08:35Z).
+    # Mapping it to host-gateway would point it at the VM bridge instead and lose Nightshift. Override only via
+    # docker-compose.override.yml if a future machine needs it.
+    volumes:                                  # REV-53: the sample stack keeps container-local logs/.world/hmem/.state
+      - uploads:/app/uploads                  # (created and chowned in the Dockerfile); host binds live in docker-compose.live.yml
+    depends_on:
+      payee-erp-db: { condition: service_healthy, required: false }
+      source-gateway: { condition: service_healthy, required: false }
+    healthcheck:
+      <<: *node-health
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+    restart: unless-stopped
+
+  payee-ui:
+    build: { context: ., dockerfile: ui/Dockerfile }
+    environment:
+      PAYEE_API_URL: http://payee-api:8787
+    ports: ["127.0.0.1:${PAYEE_UI_PORT:-3100}:3100"]
+    depends_on:
+      payee-api: { condition: service_healthy }
+    healthcheck:
+      <<: *node-health
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3100/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+    restart: unless-stopped
+
+  payee-erp-db:
+    profiles: ["live"]
+    image: postgres:16-bookworm
+    container_name: payee-erp-db
+    environment:
+      POSTGRES_DB: payee_erp
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-}         # no ':?' here: interpolation runs even for the sample profile
+      PAYEE_APP_PASSWORD: ${PAYEE_APP_PASSWORD:-}
+      ZETARIS_READER_PASSWORD: ${ERP_ZETARIS_READER_PASSWORD:-}
+    ports: ["127.0.0.1:55432:5432"]
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+      - erpdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d payee_erp"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  source-gateway:
+    profiles: ["live"]
+    build: { context: ., dockerfile: Dockerfile }
+    container_name: source-gateway
+    command: ["node", "--import", "tsx", "services/source-gateway/server.ts"]
+    env_file: [{ path: .env, required: false }]
+    environment:
+      PORT: "8790"
+      ERP_READER_DATABASE_URL: postgres://zetaris_reader:${ERP_ZETARIS_READER_PASSWORD:-}@payee-erp-db:5432/payee_erp
+    ports: ["127.0.0.1:${PAYEE_GATEWAY_PORT:-8790}:8790"]
+    depends_on:
+      payee-erp-db: { condition: service_healthy }
+    healthcheck:
+      <<: *node-health
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8790/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+    restart: unless-stopped
+
+volumes:
+  uploads: {}
+  erpdata: {}

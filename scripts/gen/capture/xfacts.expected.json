@@ -1,0 +1,306 @@
+{
+ "X1": {
+  "nj": [
+   "KHK6E1JW9C15"
+  ],
+  "children": 41,
+  "khk": [
+   "1 COMMVAULT WAY STE 205",
+   null,
+   "TINTON FALLS",
+   "NJ",
+   "07724"
+  ],
+  "jcb": [
+   "8283 GREENSBORO DR",
+   null,
+   "MCLEAN",
+   "VA",
+   "22102"
+  ],
+  "parent": [
+   "8283 GREENSBORO DR",
+   null,
+   "MCLEAN",
+   "VA",
+   "22102"
+  ]
+ },
+ "X2": {
+  "ein": "000000000",
+  "phone": "703-902-5000",
+  "former": [
+   [
+    "2008-08-19",
+    "2009-07-27"
+   ]
+  ]
+ },
+ "X3": {
+  "ue9": [
+   true,
+   true
+  ],
+  "mdsSaic": true,
+  "leidosFormer": [
+   [
+    "2005-09-01",
+    "2013-09-27"
+   ]
+  ],
+  "saicFormer": [
+   [
+    "2013-03-07",
+    "2013-09-27"
+   ]
+  ]
+ },
+ "X4": {
+  "parent_uei": "MDSWM6MB1BH7",
+  "parents": [
+   "MDSWM6MB1BH7",
+   "ZL41ERXMPAR3"
+  ],
+  "child": [
+   "1750 PRESIDENTS ST FL 10",
+   null,
+   "RESTON",
+   "VA",
+   "20190"
+  ],
+  "parentLoc": [
+   "1750 PRESIDENTS ST FL 4",
+   null,
+   "RESTON",
+   "VA",
+   "20190"
+  ]
+ },
+ "X5": {
+  "parents": [
+   "MMLKPW9JLX64",
+   "RE7WMNV9L719",
+   "ZL41ERXMPAR3"
+  ]
+ },
+ "X6": {
+  "location": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "vectrus": [
+   true
+  ],
+  "former": [
+   [
+    [
+     "2014-04-04",
+     "2022-06-15"
+    ]
+   ],
+   [
+    [
+     "2014-03-10",
+     "2014-03-10"
+    ]
+   ]
+  ],
+  "business": [
+   "2100 RESTON PARKWAY",
+   "SUITE 300",
+   "RESTON",
+   "VA",
+   null
+  ],
+  "phone": "(571) 481-2000",
+  "inc": "IN"
+ },
+ "X7": {
+  "edgar": [
+   "11487 SUNSET HILLS ROAD",
+   null,
+   "RESTON",
+   "VA",
+   null
+  ],
+  "phone": "7038417800",
+  "parent": [
+   "12021 SUNSET HILLS RD",
+   null,
+   "RESTON",
+   "VA",
+   "20190"
+  ],
+  "child": [
+   "14370 NEWBROOK DR",
+   null,
+   "CHANTILLY",
+   "VA",
+   "20151"
+  ],
+  "childParents": [
+   "QSRTXLFKV857",
+   "ZWJ2TPLX7MS2"
+  ],
+  "childParentNames": [
+   "CACI INTERNATIONAL INC",
+   "SYSTEMWARE, INC."
+  ]
+ },
+ "X8": {
+  "former": [
+   [
+    "1994-09-09",
+    "2019-06-25"
+   ]
+  ],
+  "phone": "3217279100",
+  "child": [
+   "1395 TROUTMAN BLVD NE",
+   null,
+   "PALM BAY",
+   "FL",
+   "32905"
+  ],
+  "aliases": [
+   true,
+   true
+  ]
+ },
+ "X9": {
+  "stateOfIncorporation": ""
+ },
+ "X10": {
+  "caci": true,
+  "lockheed": true
+ },
+ "X11": {
+  "inLeidosList": true,
+  "inSaicList": true,
+  "selfParented": true
+ },
+ "X12": {
+  "sunnyvale": [
+   "P",
+   "EJKTQ884VTM3",
+   "385 MOFFETT PARK DR STE 110",
+   null,
+   "SUNNYVALE",
+   "CA",
+   true
+  ],
+  "inSearch": true,
+  "annapolisChildState": [
+   "MD"
+  ],
+  "parentAlias": true
+ },
+ "X13": {
+  "a": [
+   "PARSONS CORPORATION",
+   "14291 PARK MEADOW DR 100",
+   null,
+   "CHANTILLY",
+   "VA",
+   "20151"
+  ],
+  "b": [
+   "THE PARSONS CORPORATION",
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bAlias": [
+   true
+  ],
+  "edgar": [
+   "5875 TRINITY PKWY #300",
+   null,
+   "CENTREVILLE",
+   "VA",
+   "20120"
+  ],
+  "former": [
+   [
+    "2019-02-11",
+    "2019-02-11"
+   ]
+  ]
+ },
+ "X14": {
+  "location": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "aliases": [
+   true,
+   true,
+   true
+  ],
+  "tickers": [],
+  "inTickerFile": false
+ },
+ "X15": {
+  "street": [
+   "ATTN: TREASURY DEPT.",
+   "1600 TYSONS BLVD, #1400"
+  ],
+  "parent": [
+   "1600 TYSONS BLVD STE 1400",
+   null,
+   "MCLEAN",
+   "VA",
+   "22102"
+  ],
+  "childUnit": "1600 TYSONS BLVD STE 300",
+  "childParents": [
+   "RBGHRKKXVQ83",
+   "TREKW6J3QSF5"
+  ]
+ },
+ "X16": [
+  true,
+  true,
+  true,
+  true
+ ],
+ "X17": {
+  "parent_uei": "Y9CDLHK3A125",
+  "parents": [
+   "QSRTXLFKV857",
+   "Y9CDLHK3A125",
+   "ZWJ2TPLX7MS2"
+  ],
+  "listed": true,
+  "listSize": 100
+ },
+ "X18": {
+  "parents": [
+   "FAZSFFE6CST9",
+   "S2L2MCGC1XM3",
+   "VF58HFRNGEL8"
+  ],
+  "names": [
+   [
+    "FAZSFFE6CST9",
+    "GENERAL DYNAMICS CORP"
+   ],
+   [
+    "S2L2MCGC1XM3",
+    "GENERAL DYNAMICS CORPORATION"
+   ],
+   [
+    "VF58HFRNGEL8",
+    "GENERAL DYNAMICS CORP"
+   ]
+  ]
+ }
+}

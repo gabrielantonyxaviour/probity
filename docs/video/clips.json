@@ -1,0 +1,15 @@
+[
+  { "clip": "R01", "run_id": null, "mode": null, "narrated_events": [], "trimmed_seconds": null },
+  { "clip": "R02", "run_id": null, "mode": null, "narrated_events": ["hold", "sweep_banner"], "trimmed_seconds": null },
+  { "clip": "R03", "run_id": null, "mode": null, "narrated_events": [], "trimmed_seconds": null },
+  { "clip": "R04", "run_id": null, "mode": null, "narrated_events": ["injection_chip"], "trimmed_seconds": null },
+  { "clip": "R05", "run_id": null, "mode": null, "narrated_events": ["gap_request_G1", "register_source", "requery", "hold", "callback_script", "sweep_peek"], "trimmed_seconds": null },
+  { "clip": "R06", "run_id": null, "mode": null, "narrated_events": ["cannot_determine_vendor"], "trimmed_seconds": null },
+  { "clip": "R07", "run_id": null, "mode": null, "narrated_events": ["r5_chip_phone", "r5_chip_account"], "trimmed_seconds": null },
+  { "clip": "R08", "run_id": null, "mode": null, "narrated_events": ["zetaris_unreachable"], "trimmed_seconds": null },
+  { "clip": "R09", "run_id": null, "mode": null, "narrated_events": ["rerun_matches"], "trimmed_seconds": null },
+  { "clip": "R10", "run_id": null, "mode": null, "narrated_events": [], "trimmed_seconds": null },
+  { "clip": "R11", "run_id": null, "mode": null, "narrated_events": [], "trimmed_seconds": null },
+  { "clip": "R12", "run_id": null, "mode": null, "narrated_events": ["examiner_approves_sec_link"], "trimmed_seconds": null },
+  { "clip": "R13", "run_id": null, "mode": null, "narrated_events": ["sweep_findings"], "trimmed_seconds": null }
+]

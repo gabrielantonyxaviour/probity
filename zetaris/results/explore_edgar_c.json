@@ -1,0 +1,46 @@
+{
+  "sql": "SELECT cik, legal_name, ein, biz_zip, state_of_inc FROM probity.sec_registrant_v WHERE biz_zip IS NULL OR ein IS NULL OR ein = '000000000' OR state_of_inc IS NULL OR state_of_inc = '' ORDER BY cik LIMIT 10",
+  "sql_hash": "13bcff2bf0ba510a",
+  "queryId": "9a8af3ef-bfbc-4291-9edf-7aa292113d55",
+  "executed_at": "2026-10-27T13:35:57.445Z",
+  "latency_ms": 1644,
+  "key": "query",
+  "columns": [
+    "cik",
+    "legal_name",
+    "ein",
+    "biz_zip",
+    "state_of_inc"
+  ],
+  "rows": [
+    [
+      "0000016058",
+      "CACI INTERNATIONAL INC /DE/",
+      "541345888",
+      null,
+      "DE"
+    ],
+    [
+      "0001336920",
+      "Leidos Holdings, Inc.",
+      "203562868",
+      "20190",
+      ""
+    ],
+    [
+      "0001443646",
+      "Booz Allen Hamilton Holding Corp",
+      "000000000",
+      "22102",
+      "DE"
+    ],
+    [
+      "0001601548",
+      "V2X, Inc.",
+      "383924636",
+      null,
+      "IN"
+    ]
+  ],
+  "row_hash": "e8abbf448b029629"
+}

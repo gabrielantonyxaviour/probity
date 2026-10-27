@@ -1,0 +1,129 @@
+{
+  "example_id": "16-granite-shoals-remit-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "a478150938ad1507e6cf1dfa25c26cf4c40769451ed622349657441279d7b6d8",
+    "ee0d2b89cbdb4f20d5697310c1c563f2d63933ac96a18301067746a02a44541a",
+    "9a190619c466a0b6b2c2b07356336b5ec3dd96fecc19c479eac26fc755b519aa"
+  ],
+  "account_number": null,
+  "claimed_name": "Granite Shoals Engineering PLLC",
+  "letterhead_name": "Granite Shoals Engineering PLLC",
+  "remit_address": {
+    "line1": "2043 Larchmont Rd",
+    "unit": "Suite 410",
+    "city": "San Antonio",
+    "state": "TX",
+    "zip": "78207"
+  },
+  "bank": null,
+  "sender_email": "ap@graniteshoals.example",
+  "sender_domain": "graniteshoals.example",
+  "reply_to_domain": null,
+  "phones": [
+    {
+      "number": "(210) 555-0197",
+      "quote": "(210) 555-0197",
+      "e164": "+12105550197"
+    }
+  ],
+  "effective_date": "2026-11-01",
+  "invoice_refs": [],
+  "signer_name": "J. Okeke-Ruiz (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by Granite Shoals Engineering PLLC (fictional)",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by Granite Shoals Engineering PLLC (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        576,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Granite Shoals Engineering PLLC",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        75,
+        600,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(210) 555-0197",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        121,
+        224,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "Granite Shoals Engineering PLLC",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        346,
+        398,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "effective_date",
+      "fact_field": null,
+      "quote": "from 1 November 2026",
+      "page": 1,
+      "bbox_hint": [
+        392,
+        364,
+        588,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "remit_address",
+      "fact_field": "remit_address",
+      "quote": "2043 Larchmont Rd, Suite 410, San Antonio, TX 78207",
+      "page": 1,
+      "bbox_hint": [
+        138,
+        436,
+        598,
+        454
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "J. Okeke-Ruiz (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        509,
+        336,
+        528
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

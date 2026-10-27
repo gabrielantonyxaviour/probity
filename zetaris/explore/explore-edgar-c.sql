@@ -1,0 +1,1 @@
+SELECT cik, legal_name, ein, biz_zip, state_of_inc FROM probity.sec_registrant_v WHERE biz_zip IS NULL OR ein IS NULL OR ein = '000000000' OR state_of_inc IS NULL OR state_of_inc = '' ORDER BY cik LIMIT 10

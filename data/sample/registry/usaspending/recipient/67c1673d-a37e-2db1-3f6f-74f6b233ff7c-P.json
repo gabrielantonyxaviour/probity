@@ -1,0 +1,46 @@
+{
+ "name": "V2X, INC.",
+ "alternate_names": [
+  "V2X  INC.",
+  "VECTRUS  INC.",
+  "VECTRUS SERVICES A/S",
+  "VECTRUS SYSTEMS LLC",
+  "ZENETEX LLC"
+ ],
+ "duns": "079387563",
+ "uei": "CG8SV4246V29",
+ "recipient_id": "67c1673d-a37e-2db1-3f6f-74f6b233ff7c-P",
+ "recipient_level": "P",
+ "parent_id": "67c1673d-a37e-2db1-3f6f-74f6b233ff7c-P",
+ "parent_name": "V2X, INC.",
+ "parent_duns": "079387563",
+ "parent_uei": "CG8SV4246V29",
+ "parents": [
+  {
+   "parent_id": "67c1673d-a37e-2db1-3f6f-74f6b233ff7c-P",
+   "parent_duns": "079387563",
+   "parent_uei": "CG8SV4246V29",
+   "parent_name": "V2X, INC."
+  }
+ ],
+ "business_types": [],
+ "location": {
+  "address_line1": null,
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": null,
+  "county_name": null,
+  "state_code": null,
+  "zip": null,
+  "zip4": null,
+  "foreign_postal_code": null,
+  "country_name": null,
+  "country_code": null,
+  "congressional_code": null
+ },
+ "total_transaction_amount": 1228953103.38,
+ "total_transactions": 1112,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

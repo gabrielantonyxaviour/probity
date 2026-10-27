@@ -1,0 +1,38 @@
+{
+ "cik": "0001336920",
+ "name": "Leidos Holdings, Inc.",
+ "tickers": [
+  "LDOS"
+ ],
+ "exchanges": [
+  "NYSE"
+ ],
+ "ein": "203562868",
+ "sic": "7373",
+ "sicDescription": "Services-Computer Integrated Systems Design",
+ "stateOfIncorporation": "",
+ "phone": "571-526-6000",
+ "addresses": {
+  "mailing": {
+   "street1": "1750 PRESIDENTS STREET",
+   "street2": null,
+   "city": "RESTON",
+   "stateOrCountry": "VA",
+   "zipCode": "20190"
+  },
+  "business": {
+   "street1": "1750 PRESIDENTS STREET",
+   "street2": null,
+   "city": "RESTON",
+   "stateOrCountry": "VA",
+   "zipCode": "20190"
+  }
+ },
+ "formerNames": [
+  {
+   "name": "SAIC, Inc.",
+   "from": "2005-09-01T00:00:00.000Z",
+   "to": "2013-09-27T00:00:00.000Z"
+  }
+ ]
+}

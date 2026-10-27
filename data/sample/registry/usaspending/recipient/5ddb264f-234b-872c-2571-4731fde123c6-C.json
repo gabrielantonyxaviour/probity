@@ -1,0 +1,56 @@
+{
+ "name": "LEIDOS, INC.",
+ "alternate_names": [
+  "LEIDOS INC",
+  "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION"
+ ],
+ "duns": "833063105",
+ "uei": "UE9QJD4KK1L6",
+ "recipient_id": "5ddb264f-234b-872c-2571-4731fde123c6-C",
+ "recipient_level": "C",
+ "parent_id": "e77c753b-6638-3d5b-442e-c1225ca669d6-P",
+ "parent_name": "LEIDOS, INC.",
+ "parent_duns": "054781240",
+ "parent_uei": "MDSWM6MB1BH7",
+ "parents": [
+  {
+   "parent_duns": "054781240",
+   "parent_name": "LEIDOS, INC.",
+   "parent_id": "e77c753b-6638-3d5b-442e-c1225ca669d6-P",
+   "parent_uei": "MDSWM6MB1BH7"
+  },
+  {
+   "parent_duns": "611641312",
+   "parent_name": "LEIDOS HOLDINGS, INC.",
+   "parent_id": "3b1c9c58-1f9e-8125-7105-02f4ff2c5b8b-P",
+   "parent_uei": "ZL41ERXMPAR3"
+  }
+ ],
+ "business_types": [
+  "category_business",
+  "corporate_entity_not_tax_exempt",
+  "manufacturer_of_goods",
+  "other_than_small_business",
+  "special_designations",
+  "us_owned_business"
+ ],
+ "location": {
+  "address_line1": "1750 PRESIDENTS ST FL 10",
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": "RESTON",
+  "county_name": null,
+  "state_code": "VA",
+  "zip": "20190",
+  "zip4": "5617",
+  "foreign_postal_code": null,
+  "country_name": "UNITED STATES",
+  "country_code": "USA",
+  "congressional_code": "11"
+ },
+ "total_transaction_amount": 2533770642.06,
+ "total_transactions": 8366,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

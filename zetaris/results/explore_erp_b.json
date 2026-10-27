@@ -1,0 +1,51 @@
+{
+  "sql": "SELECT b.vendor_id, b.bank_account_id, b.changed_at, l.phone_source, l.outcome, l.called_at FROM payee_erp.vendor_bank_account b LEFT JOIN payee_erp.vendor_contact_log l ON l.vendor_id = b.vendor_id AND l.purpose = 'bank_change_callback' AND l.called_at >= b.changed_at WHERE b.changed_at >= date_sub(DATE'2026-10-30', 30) ORDER BY b.changed_at LIMIT 50",
+  "sql_hash": "63c11a15cf4b245c",
+  "queryId": "41595166-72b7-4f74-b5dc-11fb46ef7a8e",
+  "executed_at": "2026-10-27T13:35:58.409Z",
+  "latency_ms": 632,
+  "key": "query",
+  "columns": [
+    "vendor_id",
+    "bank_account_id",
+    "changed_at",
+    "phone_source",
+    "outcome",
+    "called_at"
+  ],
+  "rows": [
+    [
+      "V-10645",
+      "BA-40645",
+      "2026-10-01 15:00:00.0",
+      null,
+      null,
+      null
+    ],
+    [
+      "V-10604",
+      "BA-40604",
+      "2026-10-05 15:00:00.0",
+      "vendor_master_pre_window",
+      "confirmed",
+      "2026-10-06 14:10:00.0"
+    ],
+    [
+      "V-10763",
+      "BA-40763",
+      "2026-10-16 18:05:00.0",
+      null,
+      null,
+      null
+    ],
+    [
+      "V-10812",
+      "BA-40812",
+      "2026-10-18 13:02:00.0",
+      null,
+      null,
+      null
+    ]
+  ],
+  "row_hash": "bf2977f4936de1de"
+}

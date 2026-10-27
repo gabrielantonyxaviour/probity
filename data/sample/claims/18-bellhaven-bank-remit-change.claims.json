@@ -1,0 +1,173 @@
+{
+  "example_id": "18-bellhaven-bank-remit-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "0771d88e6da78504ced8d1a4d4b0c20ccc6ea254d7a1a767634ecf560f9bd1aa",
+    "557489e4799bd92d9d99fe0a55da055786224ccdca3e88b1265ec5035a80fa2f"
+  ],
+  "account_number": "000999000905",
+  "claimed_name": "Bellhaven Print & Mail Inc",
+  "letterhead_name": "Bellhaven Print & Mail Inc",
+  "remit_address": {
+    "line1": "7 Cooperage Row",
+    "unit": "Suite B",
+    "city": "Sterling",
+    "state": "VA",
+    "zip": "20166"
+  },
+  "bank": {
+    "bank_name": "Harborline Test Savings (fictional)",
+    "routing": "110000000",
+    "account_last4": "0905"
+  },
+  "sender_email": null,
+  "sender_domain": null,
+  "reply_to_domain": null,
+  "phones": [
+    {
+      "number": "(703) 555-0153",
+      "quote": "(703) 555-0153",
+      "e164": "+17035550153"
+    }
+  ],
+  "effective_date": "2026-11-02",
+  "invoice_refs": [
+    "INV-BPM-37702"
+  ],
+  "signer_name": "A. Lindqvist (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by Bellhaven Print & Mail Inc (fictional)",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by Bellhaven Print & Mail Inc (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        537,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Bellhaven Print & Mail Inc",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        75,
+        494,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(703) 555-0153",
+      "page": 1,
+      "bbox_hint": [
+        165,
+        121,
+        272,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "Bellhaven Print & Mail Inc",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        346,
+        325,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "effective_date",
+      "fact_field": null,
+      "quote": "after 2 November 2026",
+      "page": 1,
+      "bbox_hint": [
+        592,
+        364,
+        782,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "invoice_ref",
+      "fact_field": "invoice_refs",
+      "quote": "INV-BPM-37702",
+      "page": 1,
+      "bbox_hint": [
+        250,
+        364,
+        387,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "remit_address",
+      "fact_field": "remit_address",
+      "quote": "7 Cooperage Row, Suite B, Sterling, VA 20166",
+      "page": 1,
+      "bbox_hint": [
+        138,
+        436,
+        507,
+        454
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_routing",
+      "fact_field": "bank_account",
+      "quote": "110000000",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        497,
+        593,
+        514
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_account",
+      "fact_field": "bank_account",
+      "quote": "000999000905",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        525,
+        628,
+        543
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "A. Lindqvist (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        629,
+        307,
+        648
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

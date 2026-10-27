@@ -1,0 +1,23 @@
+{
+  "input": {
+    "example_id": "19-merriwether-bank-change",
+    "request_id": "BCR-2026-0439",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      },
+      {
+        "kind": "eml_headers",
+        "file": "headers.eml"
+      }
+    ],
+    "received_at": "2026-10-27T06:12:00Z",
+    "channel": "email",
+    "payment_run_id": "PR-2026-11-03",
+    "meta": {
+      "title": "Merriwether Cloud Reseller bank update, sent from a shared billing mailbox"
+    }
+  },
+  "options": {}
+}

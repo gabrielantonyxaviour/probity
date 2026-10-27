@@ -1,0 +1,19 @@
+{
+  "input": {
+    "example_id": "12-juniper-lane-bank-change",
+    "request_id": "BCR-2026-0405",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      }
+    ],
+    "received_at": "2026-10-21T18:44:00Z",
+    "channel": "vendor_portal",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "Juniper Lane bank change via the vendor portal"
+    }
+  },
+  "options": {}
+}

@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "generated_by": "tests/engines/fixtures/make.ts",
+    "source": "data/sample (ERP seed + registry captures)",
+    "fetched_at": "2026-10-27T12:30:47.167Z",
+    "query_ids": "derived from template and params (no Zetaris in unit tests)"
+  },
+  "s6b": {
+    "request_id": "BCR-2026-0431",
+    "received_at": "2026-10-26T12:58:00Z",
+    "claims": {
+      "claimed_name": "CACI Internationl Inc",
+      "letterhead_name": "CACI Internationl Inc",
+      "remit_address": {
+        "line1": "11487 Sunset Hills Rd",
+        "unit": null,
+        "city": "Reston",
+        "state": "VA",
+        "zip": null
+      },
+      "bank": {
+        "bank_name": null,
+        "routing": "110000000",
+        "account_last4": "0420"
+      },
+      "sender_email": "ap@caci-payments.example",
+      "sender_domain": "caci-payments.example",
+      "reply_to_domain": "remit-desk.example",
+      "phones": [
+        {
+          "number": "(703) 555-0147",
+          "quote": "Treasury Operations (703) 555-0147"
+        }
+      ],
+      "effective_date": null,
+      "invoice_refs": [],
+      "signer_name": null,
+      "pressure_phrases": [],
+      "watermark_text": "SYNTHETIC SAMPLE: not issued by CACI Internationl Inc",
+      "fields": [],
+      "extraction_path": "sidecar"
+    },
+    "account_hash": "f631a7ef26d5fefae38d22fa994d580a615d8b0bec0e6051d955ecd83f6a9aa8",
+    "account_last4": "0420",
+    "candidate_vendor_ids": ["V-10112"],
+    "doc_ids": ["DOC-BCR-2026-0431-1", "DOC-BCR-2026-0431-2"],
+    "channel": "email"
+  },
+  "s6d": {
+    "request_id": "BCR-2026-0446",
+    "received_at": "2026-10-27T09:30:00Z",
+    "claims": {
+      "claimed_name": "L3Harris Technologies, Inc.",
+      "letterhead_name": null,
+      "remit_address": null,
+      "bank": {
+        "bank_name": null,
+        "routing": "110000000",
+        "account_last4": "0141"
+      },
+      "sender_email": "treasury@l3harris.example",
+      "sender_domain": "l3harris.example",
+      "reply_to_domain": null,
+      "phones": [],
+      "effective_date": null,
+      "invoice_refs": [],
+      "signer_name": null,
+      "pressure_phrases": [],
+      "watermark_text": "SYNTHETIC SAMPLE: not issued by L3Harris Technologies, Inc.",
+      "fields": [],
+      "extraction_path": "typed"
+    },
+    "account_hash": "175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6",
+    "account_last4": "0141",
+    "candidate_vendor_ids": ["V-10198"],
+    "doc_ids": [],
+    "channel": "typed"
+  },
+  "s3": {
+    "request_id": "BCR-2026-0398",
+    "received_at": "2026-10-20T14:05:00Z",
+    "claims": {
+      "claimed_name": "L3Harris Technologies, Inc.",
+      "letterhead_name": "L3Harris Technologies, Inc.",
+      "remit_address": null,
+      "bank": {
+        "bank_name": null,
+        "routing": "110000000",
+        "account_last4": "0198"
+      },
+      "sender_email": "treasury@l3harris.example",
+      "sender_domain": "l3harris.example",
+      "reply_to_domain": null,
+      "phones": [
+        {
+          "number": "(321) 555-0144",
+          "quote": "Treasury Operations (321) 555-0144"
+        }
+      ],
+      "effective_date": null,
+      "invoice_refs": [],
+      "signer_name": "K. Albrecht (fictional)",
+      "pressure_phrases": [],
+      "watermark_text": "SYNTHETIC SAMPLE: not issued by L3Harris Technologies, Inc.",
+      "fields": [],
+      "extraction_path": "sidecar"
+    },
+    "account_hash": "c291d552ede4369127081e6559567bac9111fc21d4f7ab0ce1fd15fbaa0c1e99",
+    "account_last4": "0198",
+    "candidate_vendor_ids": ["V-10198"],
+    "doc_ids": ["DOC-BCR-2026-0398-1", "DOC-BCR-2026-0398-2"],
+    "channel": "email"
+  },
+  "t01_caci": {
+    "template_id": "T01",
+    "query_id": "ea433a66-6249-4c84-a16b-a7d4e1d86df4",
+    "row_hash": "ecb1ea4e4b2a4f2e",
+    "mode": "sample",
+    "fetched_at": "2026-10-27T12:30:47.167Z",
+    "rows": [
+      {
+        "vendor_id": "V-10112",
+        "legal_name": "CACI, INC. - FEDERAL",
+        "uei": "N3PBJAVNKF61",
+        "registrant_cik": "0000016058",
+        "remit_line1": "14370 Newbrook Dr",
+        "remit_unit": null,
+        "remit_city": "Chantilly",
+        "remit_state": "VA",
+        "remit_zip": "20151",
+        "status": "active",
+        "created_at": "2010-11-03T14:00:00Z",
+        "name_norm": "CACI INC - FEDERAL",
+        "email_domains_on_file": "caci.example"
+      }
+    ],
+    "params": {
+      "vendor_id": "V-10112"
+    }
+  },
+  "t02_caci": {
+    "template_id": "T02",
+    "query_id": "5d594fa3-f009-4bcf-a55a-9526a92cf68c",
+    "row_hash": "e89d1a2b78d6661f",
+    "mode": "sample",
+    "fetched_at": "2026-10-27T12:30:47.167Z",
+    "rows": [
+      {
+        "contact_id": "VC-00005",
+        "kind": "email",
+        "value": "treasury@caci.example",
+        "valid_from": "2019-04-02T12:00:00Z",
+        "valid_to": null,
+        "changed_via": "migration"
+      },
+      {
+        "contact_id": "VC-00006",
+        "kind": "phone",
+        "value": "(703) 841-7800",
+        "valid_from": "2019-04-02T12:00:00Z",
+        "valid_to": null,
+        "changed_via": "migration"
+      }
+    ],
+    "params": {
+      "vendor_id": "V-10112"
+    }
+  },
+  "t01_l3": {
+    "template_id": "T01",
+    "query_id": "62b2e3ac-562e-4653-a44f-a3a06dc4e7e9",
+    "row_hash": "fd9d404e5d278c63",
+    "mode": "sample",
+    "fetched_at": "2026-10-27T12:30:47.167Z",
+    "rows": [
+      {
+        "vendor_id": "V-10198",
+        "legal_name": "L3Harris Technologies, Inc.",
+        "uei": "QM4EZDV15JL8",
+        "registrant_cik": "0000202058",
+        "remit_line1": "1395 Troutman Blvd NE",
+        "remit_unit": null,
+        "remit_city": "Palm Bay",
+        "remit_state": "FL",
+        "remit_zip": "32905",
+        "status": "active",
+        "created_at": "2012-08-20T14:00:00Z",
+        "name_norm": "L3HARRIS TECHNOLOGIES INC",
+        "email_domains_on_file": "harris.example,l3harris.example"
+      }
+    ],
+    "params": {
+      "vendor_id": "V-10198"
+    }
+  },
+  "toE164": "+17035550147"
+}

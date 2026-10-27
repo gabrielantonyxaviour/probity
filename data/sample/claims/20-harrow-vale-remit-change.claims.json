@@ -1,0 +1,128 @@
+{
+  "example_id": "20-harrow-vale-remit-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "c8f6738cd2e35387c3f52bd1572b7bc8a5b70fe2ae4c6ae9e93ac3b666947201",
+    "f586f965c724739a77e1c6abd72c56afe513bb5dfcd88abaff5658e76f293834"
+  ],
+  "account_number": null,
+  "claimed_name": "Harrow & Vale Legal Support LLC",
+  "letterhead_name": "Harrow & Vale Legal Support LLC",
+  "remit_address": {
+    "line1": "PO Box 7731",
+    "unit": null,
+    "city": "Washington",
+    "state": "DC",
+    "zip": "20044"
+  },
+  "bank": null,
+  "sender_email": null,
+  "sender_domain": null,
+  "reply_to_domain": null,
+  "phones": [
+    {
+      "number": "(202) 555-0168",
+      "quote": "(202) 555-0168",
+      "e164": "+12025550168"
+    }
+  ],
+  "effective_date": "2026-11-01",
+  "invoice_refs": [],
+  "signer_name": "E. Nakagawa-Stein (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by Harrow & Vale Legal Support LLC (fictional)",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by Harrow & Vale Legal Support LLC (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        578,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Harrow & Vale Legal Support LLC",
+      "page": 1,
+      "bbox_hint": [
+        402,
+        75,
+        883,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(202) 555-0168",
+      "page": 1,
+      "bbox_hint": [
+        592,
+        121,
+        699,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "Harrow & Vale Legal Support LLC",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        346,
+        397,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "effective_date",
+      "fact_field": null,
+      "quote": "from 1 November 2026",
+      "page": 1,
+      "bbox_hint": [
+        248,
+        364,
+        445,
+        382
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "remit_address",
+      "fact_field": "remit_address",
+      "quote": "PO Box 7731, Washington, DC 20044",
+      "page": 1,
+      "bbox_hint": [
+        138,
+        436,
+        447,
+        454
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "E. Nakagawa-Stein (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        509,
+        383,
+        528
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

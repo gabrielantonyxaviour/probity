@@ -1,0 +1,26 @@
+{
+  "sql": "SELECT recipient_level, COUNT(*) AS entities, COUNT(DISTINCT parent_uei) AS distinct_parents FROM probity.usa_entity_v GROUP BY recipient_level ORDER BY recipient_level LIMIT 10",
+  "sql_hash": "4983aaf930882bf2",
+  "queryId": "49b9a07f-b310-4748-8f30-4642afc354e9",
+  "executed_at": "2026-10-27T13:35:37.478Z",
+  "latency_ms": 3312,
+  "key": "query",
+  "columns": [
+    "recipient_level",
+    "entities",
+    "distinct_parents"
+  ],
+  "rows": [
+    [
+      "C",
+      "6",
+      "5"
+    ],
+    [
+      "P",
+      "6",
+      "6"
+    ]
+  ],
+  "row_hash": "e886335750322286"
+}

@@ -1,0 +1,187 @@
+{
+  "example_id": "s4-noise",
+  "letter_id": "s4-noise",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "V2X, Inc.",
+    "letterhead_name": "Vectrus, Inc.",
+    "remit_address": {
+      "line1": "2100 Reston Parkway",
+      "unit": "Suite 300",
+      "city": "Reston",
+      "state": "VA",
+      "zip": "20191"
+    },
+    "bank": null,
+    "phones": [
+      "571.555.0121"
+    ],
+    "effective_date": "2026-11-01",
+    "signer_name": "L. Haverford (fictional)",
+    "signer_title": "Accounts Receivable",
+    "sender_email": null,
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by V2X, Inc. (formerly Vectrus, Inc.)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 497,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Vectrus, Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 223,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "2424 Garden of the Gods Road, Colorado Springs, CO 80919",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 507,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "571.555.0121",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 335,
+          "y": 193,
+          "w": 119,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 23, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Change of remittance address",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 420,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "Effective 1 November 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 553,
+          "w": 274,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "V2X, Inc.",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 742,
+          "y": 553,
+          "w": 91,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "remit_address",
+      "text": "2100 Reston Parkway, Suite 300, Reston, VA 20191",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 170,
+          "y": 690,
+          "w": 519,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "L. Haverford (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 805,
+          "w": 241,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Accounts Receivable",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 838,
+          "w": 207,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

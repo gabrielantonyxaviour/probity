@@ -1,0 +1,19 @@
+{
+  "input": {
+    "example_id": "20-harrow-vale-remit-change",
+    "request_id": "BCR-2026-0443",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      }
+    ],
+    "received_at": "2026-10-27T06:48:00Z",
+    "channel": "vendor_portal",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "Harrow & Vale lockbox address via the vendor portal"
+    }
+  },
+  "options": {}
+}

@@ -1,0 +1,194 @@
+{
+  "example_id": "01-booz-allen-remit-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "dbbf38195127dbb630c91428253d4f9128cf6a7f65d469dba32cbad7e02cdac3",
+    "37ba4b75564e0b7d54fe7db79591b55c361f9be460e1e5a757a47a6b3cbef709",
+    "348eac79e1dfa33c951cc76c2a233a95d2d6baa45dda73b04b9d67d855e9b073"
+  ],
+  "account_number": "000999000141",
+  "claimed_name": "Booz Allen Hamilton Inc.",
+  "letterhead_name": "Booz Allen Hamilton Inc.",
+  "remit_address": {
+    "line1": "1 Commvault Way",
+    "unit": "Suite 205",
+    "city": "Tinton Falls",
+    "state": "NJ",
+    "zip": "07724"
+  },
+  "bank": {
+    "bank_name": "Calderwick Test Bank (fictional)",
+    "routing": "110000000",
+    "account_last4": "0141"
+  },
+  "sender_email": "ap-remittance@boozallen-payments.example",
+  "sender_domain": "boozallen-payments.example",
+  "reply_to_domain": "boozallen-payments.example",
+  "phones": [
+    {
+      "number": "(703) 555-0147",
+      "quote": "(703) 555-0147",
+      "e164": "+17035550147"
+    }
+  ],
+  "effective_date": "2026-10-30",
+  "invoice_refs": [
+    "INV-BAH-20931",
+    "INV-BAH-20944",
+    "INV-BAH-20967"
+  ],
+  "signer_name": "R. Castellane (fictional)",
+  "pressure_phrases": [
+    {
+      "quote": "Please do not use the old main number; it is being retired.",
+      "kind": "avoid_verification"
+    }
+  ],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by Booz Allen Hamilton Inc.",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by Booz Allen Hamilton Inc.",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        472,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Booz Allen Hamilton Inc.",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        75,
+        460,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(703) 555-0147",
+      "page": 1,
+      "bbox_hint": [
+        264,
+        121,
+        371,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "Booz Allen Hamilton Inc.",
+      "page": 1,
+      "bbox_hint": [
+        570,
+        346,
+        769,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "invoice_ref",
+      "fact_field": "invoice_refs",
+      "quote": "INV-BAH-20931, INV-BAH-20944 and INV-BAH-20967",
+      "page": 1,
+      "bbox_hint": [
+        358,
+        384,
+        811,
+        401
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "effective_date",
+      "fact_field": null,
+      "quote": "effective before your 30 October payment run",
+      "page": 1,
+      "bbox_hint": [
+        301,
+        413,
+        670,
+        430
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "pressure_phrase",
+      "fact_field": null,
+      "quote": "Please do not use the old main number; it is being retired.",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        461,
+        582,
+        478
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "remit_address",
+      "fact_field": "remit_address",
+      "quote": "1 Commvault Way, Suite 205, Tinton Falls, NJ 07724",
+      "page": 1,
+      "bbox_hint": [
+        138,
+        528,
+        563,
+        545
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_routing",
+      "fact_field": "bank_account",
+      "quote": "110000000",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        588,
+        593,
+        606
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "bank_account",
+      "fact_field": "bank_account",
+      "quote": "000999000141",
+      "page": 1,
+      "bbox_hint": [
+        362,
+        616,
+        628,
+        633
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "R. Castellane (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        721,
+        320,
+        739
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

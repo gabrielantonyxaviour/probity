@@ -1,0 +1,83 @@
+{
+  "sql": "SELECT i.payment_run_id, r.scheduled_date, COUNT(*) AS items, CAST(SUM(i.amount_usd) AS DECIMAL(16,2)) AS total_usd FROM payee_erp.payment_run_item i JOIN payee_erp.payment_run r ON r.payment_run_id = i.payment_run_id GROUP BY i.payment_run_id, r.scheduled_date ORDER BY r.scheduled_date LIMIT 20",
+  "sql_hash": "a77b2174b2700b96",
+  "queryId": "4436c316-0f16-40cc-9ebf-5413bad23813",
+  "executed_at": "2026-10-27T13:35:59.257Z",
+  "latency_ms": 847,
+  "key": "query",
+  "columns": [
+    "payment_run_id",
+    "scheduled_date",
+    "items",
+    "total_usd"
+  ],
+  "rows": [
+    [
+      "PR-2026-09-29",
+      "2026-09-29",
+      "14",
+      "1203106.36"
+    ],
+    [
+      "PR-2026-10-02",
+      "2026-10-02",
+      "14",
+      "806235.03"
+    ],
+    [
+      "PR-2026-10-06",
+      "2026-10-06",
+      "15",
+      "814465.68"
+    ],
+    [
+      "PR-2026-10-09",
+      "2026-10-09",
+      "16",
+      "1672142.68"
+    ],
+    [
+      "PR-2026-10-13",
+      "2026-10-13",
+      "13",
+      "1132776.70"
+    ],
+    [
+      "PR-2026-10-16",
+      "2026-10-16",
+      "16",
+      "1326429.59"
+    ],
+    [
+      "PR-2026-10-20",
+      "2026-10-20",
+      "13",
+      "1053202.11"
+    ],
+    [
+      "PR-2026-10-23",
+      "2026-10-23",
+      "15",
+      "842142.02"
+    ],
+    [
+      "PR-2026-10-27",
+      "2026-10-27",
+      "15",
+      "1102418.39"
+    ],
+    [
+      "PR-2026-10-30",
+      "2026-10-30",
+      "14",
+      "2407839.48"
+    ],
+    [
+      "PR-2026-11-03",
+      "2026-11-03",
+      "8",
+      "1037684.42"
+    ]
+  ],
+  "row_hash": "17d14048d5d4de9f"
+}

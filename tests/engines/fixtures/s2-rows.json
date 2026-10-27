@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "generated_by": "tests/engines/fixtures/make.ts",
+    "source": "data/sample (ERP seed + registry captures)",
+    "fetched_at": "2026-10-27T12:30:47.167Z",
+    "query_ids": "derived from template and params (no Zetaris in unit tests)"
+  },
+  "request": {
+    "request_id": "BCR-2026-0416",
+    "received_at": "2026-10-23T13:47:00Z",
+    "claims": {
+      "claimed_name": "Science Applications International Corporation",
+      "letterhead_name": "Science Applications International Corporation",
+      "remit_address": {
+        "line1": "12010 Sunset Hills Rd",
+        "unit": null,
+        "city": "Reston",
+        "state": "VA",
+        "zip": "20190"
+      },
+      "bank": {
+        "bank_name": null,
+        "routing": "110000000",
+        "account_last4": "0163"
+      },
+      "sender_email": "ap@saic.example",
+      "sender_domain": "saic.example",
+      "reply_to_domain": null,
+      "phones": [],
+      "effective_date": null,
+      "invoice_refs": ["INV-LDS-88412", "INV-LDS-88433"],
+      "signer_name": "D. Marchetti (fictional)",
+      "pressure_phrases": [],
+      "watermark_text": "SYNTHETIC SAMPLE: not issued by Science Applications International Corporation",
+      "fields": [],
+      "extraction_path": "sidecar"
+    },
+    "account_hash": "89e028b73ac496fe454b75943745b422d87665c7eaa6e9cdabfa6c26eea6dde3",
+    "account_last4": "0163",
+    "candidate_vendor_ids": ["V-10442", "V-10587"],
+    "doc_ids": ["DOC-BCR-2026-0416-1", "DOC-BCR-2026-0416-2"],
+    "channel": "email"
+  },
+  "batches": [
+    {
+      "template_id": "T01",
+      "query_id": "5126a4e0-3faa-4dc1-a4cc-d0e6218ea5a2",
+      "row_hash": "b733a0cb47659c70",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "vendor_id": "V-10442",
+          "legal_name": "Leidos, Inc.",
+          "uei": "UE9QJD4KK1L6",
+          "registrant_cik": "0001336920",
+          "remit_line1": "1750 Presidents St",
+          "remit_unit": "Fl 10",
+          "remit_city": "Reston",
+          "remit_state": "VA",
+          "remit_zip": "20190",
+          "status": "active",
+          "created_at": "2013-10-01T14:00:00Z",
+          "name_norm": "LEIDOS INC",
+          "email_domains_on_file": "leidos.example"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10442"
+      }
+    },
+    {
+      "template_id": "T01",
+      "query_id": "d47ab97d-662d-4d9a-a451-f6b19ef32b31",
+      "row_hash": "3b9c879e519262d9",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "vendor_id": "V-10587",
+          "legal_name": "Science Applications International Corp",
+          "uei": "MMLKPW9JLX64",
+          "registrant_cik": "0001571123",
+          "remit_line1": "12010 Sunset Hills Rd",
+          "remit_unit": null,
+          "remit_city": "Reston",
+          "remit_state": "VA",
+          "remit_zip": "20190",
+          "status": "active",
+          "created_at": "2013-10-01T14:00:00Z",
+          "name_norm": "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+          "email_domains_on_file": "saic.example"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10587"
+      }
+    },
+    {
+      "template_id": "T02",
+      "query_id": "a995fc3e-33bc-43c4-ae1b-f740853a7525",
+      "row_hash": "ee3e1e39e7aeed4f",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "contact_id": "VC-00043",
+          "kind": "email",
+          "value": "ar.federal@leidos.example",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00044",
+          "kind": "phone",
+          "value": "571-526-6000",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10442"
+      }
+    },
+    {
+      "template_id": "T02",
+      "query_id": "c3fb2420-9177-4f7d-a209-81f7b071051f",
+      "row_hash": "d2575f88a439b9dc",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "contact_id": "VC-00060",
+          "kind": "email",
+          "value": "ap@saic.example",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        },
+        {
+          "contact_id": "VC-00061",
+          "kind": "phone",
+          "value": "703.676.4300",
+          "valid_from": "2019-04-02T12:00:00Z",
+          "valid_to": null,
+          "changed_via": "migration"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10587"
+      }
+    },
+    {
+      "template_id": "T05",
+      "query_id": "a61345a1-3c69-48a0-a0f8-9f90ac0e5c30",
+      "row_hash": "a25f424446664862",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "vendor_id": "V-10442",
+          "vm_name": "Leidos, Inc.",
+          "uei": "UE9QJD4KK1L6",
+          "registrant_cik": "0001336920",
+          "remit_line1": "1750 Presidents St",
+          "remit_city": "Reston",
+          "remit_state": "VA",
+          "email_domains_on_file": "leidos.example",
+          "entity_key": "UE9QJD4KK1L6-C",
+          "usa_name": "LEIDOS, INC.",
+          "parent_uei": "MDSWM6MB1BH7",
+          "usa_line1": "1750 PRESIDENTS ST FL 10",
+          "usa_city": "RESTON",
+          "usa_state": "VA",
+          "cik": "0001336920",
+          "sec_name": "Leidos Holdings, Inc.",
+          "sec_phone": "571-526-6000",
+          "sec_ein": "203562868",
+          "biz_street1": "1750 PRESIDENTS STREET",
+          "biz_city": "RESTON",
+          "biz_state": "VA"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10442"
+      }
+    },
+    {
+      "template_id": "T05",
+      "query_id": "c88b80d2-64ee-48dd-af82-5f69c8eabf6a",
+      "row_hash": "26eb8dd1b192af62",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "vendor_id": "V-10587",
+          "vm_name": "Science Applications International Corp",
+          "uei": "MMLKPW9JLX64",
+          "registrant_cik": "0001571123",
+          "remit_line1": "12010 Sunset Hills Rd",
+          "remit_city": "Reston",
+          "remit_state": "VA",
+          "email_domains_on_file": "saic.example",
+          "entity_key": "MMLKPW9JLX64-C",
+          "usa_name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+          "parent_uei": "RE7WMNV9L719",
+          "usa_line1": "12010 SUNSET HILLS RD",
+          "usa_city": "RESTON",
+          "usa_state": "VA",
+          "cik": "0001571123",
+          "sec_name": "Science Applications International Corp",
+          "sec_phone": "703-676-4300",
+          "sec_ein": "461932921",
+          "biz_street1": "12010 SUNSET HILLS ROAD",
+          "biz_city": "RESTON",
+          "biz_state": "VA"
+        }
+      ],
+      "params": {
+        "vendor_id": "V-10587"
+      }
+    },
+    {
+      "template_id": "T06a",
+      "query_id": "66a4c96c-13fb-48da-acc9-f1e67e5900af",
+      "row_hash": "29a6907b3fa97d55",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "via": "alias",
+          "key": "UE9QJD4KK1L6-C",
+          "name": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+          "name_norm": "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+          "alias_source": "usaspending_alt"
+        },
+        {
+          "via": "alias",
+          "key": "MMLKPW9JLX64-C",
+          "name": "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+          "name_norm": "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+          "alias_source": "usaspending_alt"
+        }
+      ],
+      "params": {
+        "name_norm": "SCIENCE APPLICATIONS INTERNATIONAL CORP"
+      }
+    },
+    {
+      "template_id": "T12",
+      "query_id": "8c77d33f-c95a-4973-af5e-46a0b231547f",
+      "row_hash": "6cdfdb691fb4f083",
+      "mode": "sample",
+      "fetched_at": "2026-10-27T12:30:47.167Z",
+      "rows": [
+        {
+          "name": "LEIDOS, INC.",
+          "alternate_names": ["LEIDOS INC", "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION"],
+          "duns": "833063105",
+          "uei": "UE9QJD4KK1L6",
+          "recipient_id": "5ddb264f-234b-872c-2571-4731fde123c6-C",
+          "recipient_level": "C",
+          "parent_id": "e77c753b-6638-3d5b-442e-c1225ca669d6-P",
+          "parent_name": "LEIDOS, INC.",
+          "parent_duns": "054781240",
+          "parent_uei": "MDSWM6MB1BH7",
+          "parents": [
+            {
+              "parent_duns": "054781240",
+              "parent_name": "LEIDOS, INC.",
+              "parent_id": "e77c753b-6638-3d5b-442e-c1225ca669d6-P",
+              "parent_uei": "MDSWM6MB1BH7"
+            },
+            {
+              "parent_duns": "611641312",
+              "parent_name": "LEIDOS HOLDINGS, INC.",
+              "parent_id": "3b1c9c58-1f9e-8125-7105-02f4ff2c5b8b-P",
+              "parent_uei": "ZL41ERXMPAR3"
+            }
+          ],
+          "business_types": [
+            "category_business",
+            "corporate_entity_not_tax_exempt",
+            "manufacturer_of_goods",
+            "other_than_small_business",
+            "special_designations",
+            "us_owned_business"
+          ],
+          "location": {
+            "address_line1": "1750 PRESIDENTS ST FL 10",
+            "address_line2": null,
+            "address_line3": null,
+            "foreign_province": null,
+            "city_name": "RESTON",
+            "county_name": null,
+            "state_code": "VA",
+            "zip": "20190",
+            "zip4": "5617",
+            "foreign_postal_code": null,
+            "country_name": "UNITED STATES",
+            "country_code": "USA",
+            "congressional_code": "11"
+          },
+          "total_transaction_amount": 2533770642.06,
+          "total_transactions": 8366,
+          "total_face_value_loan_amount": 0,
+          "total_face_value_loan_transactions": 0
+        }
+      ],
+      "params": {
+        "uei": "UE9QJD4KK1L6",
+        "level": "C"
+      }
+    }
+  ]
+}

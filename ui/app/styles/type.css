@@ -1,0 +1,27 @@
+/* Type roles (DESIGN_SYSTEM section 2.3). Serif 300 only; mono UPPER for anything clicked, scanned or copied. */
+.t-serif { font-family: var(--font-serif); font-weight: 300; letter-spacing: var(--tracking-serif); font-feature-settings: "liga" 1, "clig" 1; }
+.t-app-title { font-family: var(--font-serif); font-weight: 300; font-size: var(--text-app-title); line-height: var(--leading-app-title); letter-spacing: var(--tracking-serif); text-wrap: pretty; }
+.t-decision { font-family: var(--font-serif); font-weight: 300; font-size: var(--text-decision); line-height: var(--leading-decision); letter-spacing: var(--tracking-serif); }
+.t-display { font-family: var(--font-serif); font-weight: 300; font-size: var(--text-display); line-height: var(--leading-display); letter-spacing: var(--tracking-serif); text-wrap: balance; }
+.t-heading { font-family: var(--font-serif); font-weight: 300; font-size: 28px; line-height: 31px; letter-spacing: var(--tracking-serif); text-wrap: pretty; }
+.t-lede { font-family: var(--font-sans); font-weight: 300; font-size: var(--text-app-lede); line-height: var(--leading-app-lede); letter-spacing: 0; text-wrap: pretty; }
+.t-ui { font-size: var(--text-ui); line-height: var(--leading-ui); font-weight: 400; letter-spacing: var(--tracking-sans-sm); }
+.t-ui-sm { font-size: var(--text-ui-sm); line-height: var(--leading-ui-sm); font-weight: 400; letter-spacing: var(--tracking-sans-sm); }
+.t-ui-xs { font-size: var(--text-ui-xs); line-height: var(--leading-ui-xs); font-weight: 400; letter-spacing: 0; }
+.t-mono-ui, .t-mono-label, .t-eyebrow, .t-mono-panel {
+  font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: var(--tracking-mono);
+  font-feature-settings: "zero" 1, "tnum" 1;
+}
+.t-mono-ui { font-size: var(--text-mono-ui); line-height: var(--leading-mono-ui); }
+.t-mono-label { font-size: var(--text-mono-label); line-height: var(--leading-mono-label); }
+.t-eyebrow { font-size: var(--text-eyebrow); line-height: 1; color: var(--fg-2); }
+.t-mono-panel { font-size: .75em; letter-spacing: var(--tracking-mono-panel); line-height: 1.2; }
+.t-mono-data { font-family: var(--font-mono); font-size: var(--text-mono-data); line-height: var(--leading-mono-data); font-weight: 400; font-feature-settings: "zero" 1, "tnum" 1; letter-spacing: 0; }
+.t-code { font-family: var(--font-mono); font-size: var(--text-code); line-height: var(--leading-code); font-weight: 400; font-feature-settings: "zero" 1; letter-spacing: 0; }
+.t-figure { font-family: var(--font-mono); font-size: var(--text-figure); line-height: 1; letter-spacing: var(--tracking-figure); font-feature-settings: "zero" 1, "tnum" 1; }
+.t-medium { font-weight: 500; }
+.t-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.t-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.t-wrap-any { overflow-wrap: anywhere; }
+.measure-body { max-width: var(--measure-body); }
+.measure-lede { max-width: var(--measure-lede); }

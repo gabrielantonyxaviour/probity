@@ -1,0 +1,38 @@
+/* Motion: decision reveal, row enter, region transitions. CSS only; reduced motion is handled globally in tokens.css. */
+@keyframes p-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes p-pop-in { from { opacity: 0; translate: 0 var(--rise-xs); } to { opacity: 1; translate: 0 0; } }
+@keyframes p-menu-in { from { opacity: 0; scale: .97; } to { opacity: 1; scale: 1; } }
+@keyframes p-sheet-in { from { clip-path: inset(0 0 0 100% round 12px); } to { clip-path: inset(0 round 12px); } }
+@keyframes p-sheet-out { from { clip-path: inset(0 round 12px); } to { clip-path: inset(0 0 0 100% round 12px); } }
+@keyframes p-sheet-left-in { from { clip-path: inset(0 100% 0 0 round 12px); } to { clip-path: inset(0 round 12px); } }
+@keyframes p-sheet-left-out { from { clip-path: inset(0 round 12px); } to { clip-path: inset(0 100% 0 0 round 12px); } }
+@keyframes p-sheet-up-in { from { clip-path: inset(100% 0 0 0 round 20px); } to { clip-path: inset(0 round 20px); } }
+@keyframes p-sheet-up-out { from { clip-path: inset(0 round 20px); } to { clip-path: inset(100% 0 0 0 round 20px); } }
+@keyframes p-beam-draw { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes p-check-draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+@keyframes p-ring-pulse { from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--conflict) 50%, transparent); } to { box-shadow: 0 0 0 10px transparent; } }
+@keyframes p-node-in { from { opacity: 0; scale: .96; } to { opacity: 1; scale: 1; } }
+@keyframes p-spin-dot { to { rotate: 1turn; } }
+
+.row-enter { animation: p-rise-in var(--dur-3) var(--ease-quick-out) both; }
+.row-enter:nth-child(2) { animation-delay: var(--stagger); }
+.row-enter:nth-child(3) { animation-delay: calc(2 * var(--stagger)); }
+.row-enter:nth-child(n+4) { animation-delay: calc(3 * var(--stagger)); }
+.eyebrow-wipe { animation: p-wipe-in var(--dur-7) var(--ease-content) 50ms both; }
+.fade-in { animation: p-fade-in var(--dur-1) var(--ease-plain) both; }
+.content-in { animation: p-fade-in var(--dur-7) var(--ease-content) both; }
+.chip-rise { animation: p-slide-up var(--dur-5) var(--ease-spring) both; }
+.draw-check { animation: p-check-draw var(--dur-8) var(--ease-content) both; display: inline-block; }
+.p-spinner { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid currentColor; border-right-color: transparent; animation: p-spin 800ms linear infinite; flex: none; }
+
+/* Decision reveal (motion.md 4.3): stepper out 200ms, beam draws 600ms, word at +160, banner +220, reasons +280, rings +700 */
+.dec-slot { display: grid; }
+.dec-slot > * { grid-area: 1 / 1; min-width: 0; }
+.dec-stepper[data-out="true"] { animation: p-fade-out var(--dur-2) var(--ease-plain) both; visibility: hidden; animation-fill-mode: both; }
+.dec-card[data-reveal="true"] .dec-beam { transform-origin: top; animation: p-beam-draw var(--dur-9) var(--ease-in-out) 100ms both; }
+.dec-card[data-reveal="true"] .dec-word { animation: p-fade-in var(--dur-7) var(--ease-content) 160ms both; }
+.dec-card[data-reveal="true"] .dec-eyebrow { animation: p-wipe-in var(--dur-7) var(--ease-content) 100ms both; }
+.dec-card[data-reveal="true"] .dec-banner { animation: p-fade-in var(--dur-7) var(--ease-content) 220ms both; }
+.dec-card[data-reveal="true"] .dec-body { animation: p-fade-in var(--dur-7) var(--ease-content) 280ms both; }
+.dec-card[data-reveal="true"] .dec-body .p-chip { animation: p-slide-up var(--dur-5) var(--ease-spring) 280ms both; }
+.dec-card[data-reveal="true"] .dec-rings { animation: p-fade-in var(--dur-4) var(--ease-content) 700ms both; }

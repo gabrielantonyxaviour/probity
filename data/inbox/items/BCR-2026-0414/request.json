@@ -1,0 +1,23 @@
+{
+  "input": {
+    "example_id": "14-chesterfield-bank-change",
+    "request_id": "BCR-2026-0414",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      },
+      {
+        "kind": "eml_headers",
+        "file": "headers.eml"
+      }
+    ],
+    "received_at": "2026-10-22T19:30:00Z",
+    "channel": "email",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "Chesterfield Ridge bank change with a new contact number"
+    }
+  },
+  "options": {}
+}

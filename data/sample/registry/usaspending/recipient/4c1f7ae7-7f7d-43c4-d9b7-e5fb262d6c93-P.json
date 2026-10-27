@@ -1,0 +1,57 @@
+{
+ "name": "MANTECH INTERNATIONAL CORPORATION",
+ "alternate_names": [
+  "AERO TURBINE  INC",
+  "CARLYLE HOLDING CORP",
+  "ECI SOFTWARE SOLUTIONS  INC",
+  "ELECTRON BEAM DEVELOPMENT CORP",
+  "INTERNATIONAL MARINE AND INDUSTRIAL APPLICATORS  LLC",
+  "MANTECH ADVANCED SYSTEMS INTERNATIONAL  INC.",
+  "STANDARD AERO (ALLIANCE) INC.",
+  "STANDARD AERO (SAN ANTONIO) INC.",
+  "STANDARD AERO LIMITED",
+  "STANDARDAERO",
+  "STANDARDAERO BUSINESS AVIATION SERVICES  LLC",
+  "STANDARDAERO COMPONENT SERVICES  INC",
+  "STANDARDAERO COMPONENT SERVICES  INC.",
+  "TCW ASSET MANAGEMENT COMPANY LLC",
+  "UNISON SOFTWARE  INC.",
+  "UNISON SOFTWARE INC"
+ ],
+ "duns": "053518312",
+ "uei": "KZA5CX3J8KE8",
+ "recipient_id": "4c1f7ae7-7f7d-43c4-d9b7-e5fb262d6c93-P",
+ "recipient_level": "P",
+ "parent_id": "4c1f7ae7-7f7d-43c4-d9b7-e5fb262d6c93-P",
+ "parent_name": "MANTECH INTERNATIONAL CORPORATION",
+ "parent_duns": "053518312",
+ "parent_uei": "KZA5CX3J8KE8",
+ "parents": [
+  {
+   "parent_id": "4c1f7ae7-7f7d-43c4-d9b7-e5fb262d6c93-P",
+   "parent_duns": "053518312",
+   "parent_uei": "KZA5CX3J8KE8",
+   "parent_name": "MANTECH INTERNATIONAL CORPORATION"
+  }
+ ],
+ "business_types": [],
+ "location": {
+  "address_line1": null,
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": null,
+  "county_name": null,
+  "state_code": null,
+  "zip": null,
+  "zip4": null,
+  "foreign_postal_code": null,
+  "country_name": null,
+  "country_code": null,
+  "congressional_code": null
+ },
+ "total_transaction_amount": 1351686127.51,
+ "total_transactions": 1017,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

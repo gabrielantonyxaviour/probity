@@ -1,0 +1,19 @@
+{
+  "sql": "SELECT name, location.city_name AS city FROM session.pp_usa_r_khk6e1jw9c15 LIMIT 1",
+  "sql_hash": "ad1dd72ab81ebf0c",
+  "queryId": "0b8721e0-4dac-4fc7-ab18-46cf945cfdbb",
+  "executed_at": "2026-10-27T13:34:43.157Z",
+  "latency_ms": 2210,
+  "key": "query",
+  "columns": [
+    "name",
+    "city"
+  ],
+  "rows": [
+    [
+      "BOOZ ALLEN HAMILTON INC",
+      "TINTON FALLS"
+    ]
+  ],
+  "row_hash": "b6a12c51cf68d3b0"
+}

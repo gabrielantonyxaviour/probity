@@ -1,0 +1,5 @@
+{
+  "pending": true,
+  "reason": "output_examples/MANIFEST.json is absent (no recorded run yet)",
+  "generated_by": "video/scripts/facts.ts"
+}

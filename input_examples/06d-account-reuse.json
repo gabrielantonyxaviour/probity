@@ -1,0 +1,24 @@
+{
+  "input": {
+    "request_id": "BCR-2026-0446",
+    "vendor": {
+      "vendor_id": "V-10198"
+    },
+    "claims": {
+      "claimed_name": "L3Harris Technologies, Inc.",
+      "bank": {
+        "routing": "110000000",
+        "account_number": "000999000141"
+      },
+      "sender_email": "treasury@l3harris.example"
+    },
+    "received_at": "2026-10-27T09:30:00Z",
+    "channel": "typed",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "L3Harris bank change reusing an account from a confirmed impersonation",
+      "scenario": "S6d"
+    }
+  },
+  "options": {}
+}

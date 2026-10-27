@@ -1,0 +1,63 @@
+{
+ "name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+ "alternate_names": [
+  "ANALYSIS  COMPUTING & ENGINEERING SOLUTIONS  INC.",
+  "AQUILENT  INC.",
+  "AQUILENT INC",
+  "BOOZ ALLEN HAMILTON ENGINEERING SERVICES  LLC",
+  "BOOZ ALLEN HAMILTON ENGINEERING SERVICES LLC",
+  "BOOZ ALLEN HAMILTON HOLD",
+  "BOOZ ALLEN HAMILTON INC",
+  "BOOZ ALLEN HAMILTON INC.",
+  "EVERWATCH CORP.",
+  "EVERWATCH SOLUTIONS INC.",
+  "IAN EVAN & ALEXANDER CORP",
+  "MIDDLE BAY SOLUTIONS II  LLC",
+  "MIDDLE BAY SOLUTIONS LLC",
+  "SDI TECHNOLOGY CORPORATION",
+  "THUNDERYARD LIBERTY JV LLC",
+  "THUNDERYARD SOLUTIONS LLC"
+ ],
+ "duns": "964725688",
+ "uei": "MBPHTU7Y9S65",
+ "recipient_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+ "recipient_level": "P",
+ "parent_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+ "parent_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION",
+ "parent_duns": "964725688",
+ "parent_uei": "MBPHTU7Y9S65",
+ "parents": [
+  {
+   "parent_id": "ed02855e-60d7-2540-e3d7-18fba1dd1316-P",
+   "parent_duns": "964725688",
+   "parent_uei": "MBPHTU7Y9S65",
+   "parent_name": "BOOZ ALLEN HAMILTON HOLDING CORPORATION"
+  }
+ ],
+ "business_types": [
+  "category_business",
+  "corporate_entity_not_tax_exempt",
+  "other_than_small_business",
+  "special_designations",
+  "us_owned_business"
+ ],
+ "location": {
+  "address_line1": "8283 GREENSBORO DR",
+  "address_line2": null,
+  "address_line3": null,
+  "foreign_province": null,
+  "city_name": "MCLEAN",
+  "county_name": null,
+  "state_code": "VA",
+  "zip": "22102",
+  "zip4": "3830",
+  "foreign_postal_code": null,
+  "country_name": "UNITED STATES",
+  "country_code": "USA",
+  "congressional_code": "11"
+ },
+ "total_transaction_amount": 6725662292.72,
+ "total_transactions": 3688,
+ "total_face_value_loan_amount": 0,
+ "total_face_value_loan_transactions": 0
+}

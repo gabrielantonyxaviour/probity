@@ -1,0 +1,129 @@
+{
+  "example_id": "04-v2x-remit-change",
+  "extracted_by": "generator ground truth (SAMPLE_MODE fixture)",
+  "source_sha256": [
+    "819885dbb0a63ceecacbd760dc84563c1a80b8c6ef7ce412384c9c48640ac542",
+    "e320ab8829fe93132e4995c98bad8b97fd986ae18e21318b8e363372116f3f4e",
+    "627772a50d9686d513d7f3946f922b41fc5a7b043050bb8b970f1753173d5d4e"
+  ],
+  "account_number": null,
+  "claimed_name": "V2X, Inc.",
+  "letterhead_name": "Vectrus, Inc.",
+  "remit_address": {
+    "line1": "2100 Reston Parkway",
+    "unit": "Suite 300",
+    "city": "Reston",
+    "state": "VA",
+    "zip": "20191"
+  },
+  "bank": null,
+  "sender_email": "ar@v2x.example",
+  "sender_domain": "v2x.example",
+  "reply_to_domain": null,
+  "phones": [
+    {
+      "number": "(571) 555-0121",
+      "quote": "(571) 555-0121",
+      "e164": "+15715550121"
+    }
+  ],
+  "effective_date": "2026-11-01",
+  "invoice_refs": [],
+  "signer_name": "L. Haverford (fictional)",
+  "pressure_phrases": [],
+  "watermark_text": "SYNTHETIC SAMPLE: not issued by V2X, Inc. (formerly Vectrus, Inc.)",
+  "fields": [
+    {
+      "field": "watermark",
+      "fact_field": null,
+      "quote": "SYNTHETIC SAMPLE: not issued by V2X, Inc. (formerly Vectrus, Inc.)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        28,
+        519,
+        40
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "letterhead_name",
+      "fact_field": "legal_name",
+      "quote": "Vectrus, Inc.",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        75,
+        298,
+        103
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "phone",
+      "fact_field": "callback_phone",
+      "quote": "(571) 555-0121",
+      "page": 1,
+      "bbox_hint": [
+        271,
+        121,
+        378,
+        135
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "effective_date",
+      "fact_field": null,
+      "quote": "Effective 1 November 2026",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        346,
+        339,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "claimed_name",
+      "fact_field": "legal_name",
+      "quote": "V2X, Inc.",
+      "page": 1,
+      "bbox_hint": [
+        600,
+        346,
+        674,
+        363
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "remit_address",
+      "fact_field": "remit_address",
+      "quote": "2100 Reston Parkway, Suite 300, Reston, VA 20191",
+      "page": 1,
+      "bbox_hint": [
+        138,
+        431,
+        557,
+        449
+      ],
+      "highlight_source": "text_layer"
+    },
+    {
+      "field": "signer_name",
+      "fact_field": null,
+      "quote": "L. Haverford (fictional)",
+      "page": 1,
+      "bbox_hint": [
+        117,
+        503,
+        312,
+        522
+      ],
+      "highlight_source": "text_layer"
+    }
+  ],
+  "extraction_path": "sidecar"
+}

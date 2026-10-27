@@ -1,0 +1,62 @@
+{
+ "113": {
+  "cik_str": 936468,
+  "ticker": "LMT",
+  "title": "LOCKHEED MARTIN CORP"
+ },
+ "176": {
+  "cik_str": 40533,
+  "ticker": "GD",
+  "title": "GENERAL DYNAMICS CORP"
+ },
+ "342": {
+  "cik_str": 202058,
+  "ticker": "LHX",
+  "title": "L3HARRIS TECHNOLOGIES, INC. /DE/"
+ },
+ "687": {
+  "cik_str": 1336920,
+  "ticker": "LDOS",
+  "title": "Leidos Holdings, Inc."
+ },
+ "771": {
+  "cik_str": 16058,
+  "ticker": "CACI",
+  "title": "CACI INTERNATIONAL INC /DE/"
+ },
+ "1003": {
+  "cik_str": 1443646,
+  "ticker": "BAH",
+  "title": "Booz Allen Hamilton Holding Corp"
+ },
+ "1256": {
+  "cik_str": 1571123,
+  "ticker": "SAIC",
+  "title": "Science Applications International Corp"
+ },
+ "1390": {
+  "cik_str": 275880,
+  "ticker": "PSN",
+  "title": "PARSONS CORP"
+ },
+ "1432": {
+  "cik_str": 1357615,
+  "ticker": "KBR",
+  "title": "KBR, INC."
+ },
+ "1744": {
+  "cik_str": 1032220,
+  "ticker": "MMS",
+  "title": "MAXIMUS, INC."
+ },
+ "1999": {
+  "cik_str": 1601548,
+  "ticker": "VVX",
+  "title": "V2X, Inc."
+ },
+ "2259": {
+  "cik_str": 1362004,
+  "ticker": "ICFI",
+  "title": "ICF International, Inc."
+ }
+}

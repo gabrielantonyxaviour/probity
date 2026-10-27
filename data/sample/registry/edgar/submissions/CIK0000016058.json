@@ -1,0 +1,38 @@
+{
+ "cik": "0000016058",
+ "name": "CACI INTERNATIONAL INC /DE/",
+ "tickers": [
+  "CACI"
+ ],
+ "exchanges": [
+  "NYSE"
+ ],
+ "ein": "541345888",
+ "sic": "7373",
+ "sicDescription": "Services-Computer Integrated Systems Design",
+ "stateOfIncorporation": "DE",
+ "phone": "7038417800",
+ "addresses": {
+  "mailing": {
+   "street1": "11487 SUNSET HILLS ROAD",
+   "street2": null,
+   "city": "RESTON",
+   "stateOrCountry": "VA",
+   "zipCode": null
+  },
+  "business": {
+   "street1": "11487 SUNSET HILLS ROAD",
+   "street2": null,
+   "city": "RESTON",
+   "stateOrCountry": "VA",
+   "zipCode": null
+  }
+ },
+ "formerNames": [
+  {
+   "name": "CACI INTERNATIONAL INC /DE/",
+   "from": "1994-09-26T00:00:00.000Z",
+   "to": "2026-10-22T00:00:00.000Z"
+  }
+ ]
+}

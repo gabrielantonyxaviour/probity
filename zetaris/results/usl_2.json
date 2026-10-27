@@ -1,0 +1,35 @@
+{
+  "sql": "SELECT f.row_key, f.uei AS matched_uei, f.recipient_level AS matched_level, f.legal_name AS matched_name,\n       f.address_line1, f.city_name, f.state_code, f.zip, f.via, v.vendor_id AS vendor_id_on_file FROM (\n  SELECT entity_key AS row_key, uei, recipient_level, legal_name, address_line1, city_name, state_code, zip, 'usl' AS via\n  FROM lightning.metastore.probity.vendor360.registry_entity\n  WHERE (parent_uei = 'MBPHTU7Y9S65' OR uei = 'MBPHTU7Y9S65') AND state_code = 'NJ'\n  UNION ALL\n  SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)), CAST(uei AS STRING), CAST(recipient_level AS STRING),\n         CAST(name AS STRING), CAST(location.address_line1 AS STRING), CAST(location.city_name AS STRING),\n         CAST(location.state_code AS STRING), CAST(location.zip AS STRING), 'session.pp_usa_r_khk6e1jw9c15'\n  FROM session.pp_usa_r_khk6e1jw9c15\n  WHERE CAST(location.state_code AS STRING) = 'NJ'\n) f\nLEFT JOIN lightning.metastore.probity.vendor360.vendor v ON v.uei = f.uei\nWHERE upper(f.city_name) = 'TINTON FALLS' AND f.address_line1 LIKE '1 %'\nLIMIT 50",
+  "sql_hash": "75a1f7b70ca23206",
+  "queryId": "19937322-d7df-4349-88dc-7a9b3d991a56",
+  "executed_at": "2026-10-27T13:36:19.929Z",
+  "latency_ms": 6063,
+  "key": "query",
+  "columns": [
+    "row_key",
+    "matched_uei",
+    "matched_level",
+    "matched_name",
+    "address_line1",
+    "city_name",
+    "state_code",
+    "zip",
+    "via",
+    "vendor_id_on_file"
+  ],
+  "rows": [
+    [
+      "KHK6E1JW9C15-C",
+      "KHK6E1JW9C15",
+      "C",
+      "BOOZ ALLEN HAMILTON INC",
+      "1 COMMVAULT WAY STE 205",
+      "TINTON FALLS",
+      "NJ",
+      "07724",
+      "session.pp_usa_r_khk6e1jw9c15",
+      null
+    ]
+  ],
+  "row_hash": "b933a247033a78f4"
+}

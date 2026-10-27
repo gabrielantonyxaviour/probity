@@ -1,0 +1,10 @@
+# Live-only host binds (REV-53). Used by npm run live:up so the sample stack creates no host folders and keeps no state.
+services:
+  payee-api:
+    volumes:
+      - ./logs:/app/logs
+      - ./.world:/app/.world
+      - ./data/hmem:/app/data/hmem
+      - ./zetaris/.state:/app/zetaris/.state
+    environment:
+      WORLD_DIR: /app                       # live only; the engine writes /app/.world/probity.json

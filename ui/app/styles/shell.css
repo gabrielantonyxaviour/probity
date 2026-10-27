@@ -1,0 +1,43 @@
+/* App shell: header 56, banners, ruled frame, footer bar (PRODUCT_UI_GUIDE section 1). */
+.app-shell { --sticky-top: calc(var(--app-header-h) + var(--banner-live, 0px)); min-height: 100dvh; display: flex; flex-direction: column; }
+.skip-link { position: absolute; left: 8px; top: -48px; z-index: calc(var(--z-toast) + 1); padding: 8px 14px; border-radius: var(--radius-pill); background: var(--primary); color: var(--primary-fg); }
+.skip-link:focus { top: 8px; }
+.app-header { position: sticky; top: 0; z-index: var(--z-header); height: var(--app-header-h); background: var(--bg-header); backdrop-filter: var(--blur-nav); border-bottom: var(--line); }
+.app-header__bar { display: flex; align-items: center; gap: 12px; height: 100%; width: calc(100% - 2 * var(--container-pad)); max-width: var(--container-max); margin-inline: auto; padding-inline: var(--app-P); }
+.app-header__grow { flex: 1; min-width: 0; display: flex; justify-content: center; }
+.app-header__right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.wordmark { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--fg); flex: none; }
+.wordmark__box { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; border-radius: var(--radius-box); box-shadow: inset 0 0 0 1px var(--rule-strong); font-size: 12px; line-height: 1; }
+.wordmark__text { font-family: var(--font-serif); font-weight: 300; font-size: 20px; letter-spacing: var(--tracking-serif); line-height: 1; }
+.app-banners { position: sticky; top: var(--app-header-h); z-index: calc(var(--z-header) - 1); }
+.app-main { flex: 1 0 auto; min-width: 0; }
+.frame { width: calc(100% - 2 * var(--container-pad)); max-width: var(--container-max); margin-inline: auto; border-left: var(--line); border-right: var(--line); min-height: 60dvh; }
+.app-footer { border-top: var(--line); padding: calc(var(--app-P) / 2) var(--app-P); }
+.app-footer__row { width: calc(100% - 2 * var(--container-pad)); max-width: var(--container-max); margin-inline: auto; display: flex; flex-wrap: wrap; gap: 4px 20px; justify-content: space-between; color: var(--fg-muted); }
+@media (max-width: 767px) { .app-footer__row { flex-direction: column; text-align: center; align-items: center; } }
+
+.sys-mid, .sys-short, .sys-long { display: none; }
+@media (min-width: 1440px) { .sys-long { display: inline; } }
+@media (min-width: 640px) and (max-width: 1439px) { .sys-mid { display: inline; } }
+@media (max-width: 639px) { .sys-short { display: inline; } }
+.hide-lg { display: inline-flex; } .show-lg { display: none; }
+@media (min-width: 1120px) { .hide-lg { display: none; } .show-lg { display: inline-flex; } }
+.hide-sm { display: inline-flex; } @media (max-width: 639px) { .hide-sm { display: none !important; } }
+.run-chip-long { display: none; } @media (min-width: 1280px) { .run-chip-long { display: inline; } .run-chip-short { display: none; } }
+
+.page-head { display: grid; gap: 24px 40px; padding: var(--app-P); border-bottom: var(--line); }
+@media (min-width: 640px) { .page-head--split { grid-template-columns: minmax(0, 1fr) auto; align-items: end; } }
+.page-head__aside { display: grid; gap: 12px; justify-items: start; }
+@media (min-width: 640px) { .page-head__aside { justify-items: end; } }
+.region-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px; padding-bottom: 8px; border-bottom: var(--line); margin-bottom: var(--app-P); }
+.cta-band { display: grid; justify-items: center; gap: 8px; text-align: center; padding: calc(2 * var(--app-P)) var(--app-P); }
+.cta-band .p-btn { margin-top: 16px; }
+.hero-error { display: grid; justify-items: center; gap: 16px; text-align: center; padding: calc(3 * var(--app-P)) var(--app-P); }
+
+.sheet-menu { padding: 8px 6px 16px; display: grid; gap: 16px; }
+.sheet-menu__nav { display: grid; gap: 4px; }
+.sheet-menu__nav a { display: flex; align-items: center; height: 44px; padding: 0 12px; border-radius: var(--radius-pill); text-decoration: none; }
+.sheet-menu__nav a[aria-current="page"] { background: var(--bg-active); }
+.sys-rows { display: grid; gap: 0; }
+.sys-rows > div { display: grid; grid-template-columns: 56px 1fr auto; gap: 8px; align-items: baseline; padding: 8px 0; }
+.sys-rows > div + div { border-top: 1px dashed var(--rule); }

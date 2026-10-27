@@ -1,0 +1,23 @@
+{
+  "input": {
+    "example_id": "15-corbin-hollow-bank-change",
+    "request_id": "BCR-2026-0420",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      },
+      {
+        "kind": "eml_headers",
+        "file": "headers.eml"
+      }
+    ],
+    "received_at": "2026-10-24T15:15:00Z",
+    "channel": "email",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "Corbin Hollow bank change from a lookalike address"
+    }
+  },
+  "options": {}
+}

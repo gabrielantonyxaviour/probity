@@ -1,0 +1,23 @@
+{
+  "input": {
+    "example_id": "17-ostrander-bank-change",
+    "request_id": "BCR-2026-0429",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      },
+      {
+        "kind": "eml_headers",
+        "file": "headers.eml"
+      }
+    ],
+    "received_at": "2026-10-26T13:20:00Z",
+    "channel": "email",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "Ostrander Test & Calibration ACH update"
+    }
+  },
+  "options": {}
+}

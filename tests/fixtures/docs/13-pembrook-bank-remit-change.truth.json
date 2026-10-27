@@ -1,0 +1,256 @@
+{
+  "example_id": "13-pembrook-bank-remit-change",
+  "letter_id": "13-pembrook-bank-remit-change",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Pembrook Secure Shredding Co",
+    "letterhead_name": "Pembrook Secure Shredding Co",
+    "remit_address": {
+      "line1": "PO Box 2210",
+      "unit": null,
+      "city": "Manassas",
+      "state": "VA",
+      "zip": "20108"
+    },
+    "bank": {
+      "bank_name": "Calderwick Test Bank (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000901"
+    },
+    "phones": [
+      "(703) 555-0195"
+    ],
+    "effective_date": "2026-11-01",
+    "signer_name": "M. Prakash (fictional)",
+    "signer_title": "Billing Manager",
+    "sender_email": "ar@pembrookshredding.example",
+    "reply_to": "ar.desk@payablehub.example"
+  },
+  "fields": [
+    {
+      "field": "watermark",
+      "text": "SYNTHETIC SAMPLE: not issued by Pembrook Secure Shredding Co (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 44,
+          "w": 561,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "field": "letterhead_name",
+      "text": "Pembrook Secure Shredding Co",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 540,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "PO Box 2210, Manassas, VA 20108",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 288,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(703) 555-0195",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 193,
+          "w": 133,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_email",
+      "text": "ar@pembrookshredding.example",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 293,
+          "y": 193,
+          "w": 273,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 21, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Billing consolidation: new remit-to and bank account",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 644,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Pembrook Secure Shredding Co",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 413,
+          "y": 553,
+          "w": 316,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "From the November cycle",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 553,
+          "w": 256,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "remit_address",
+      "text": "PO Box 2210, Manassas, VA 20108",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 170,
+          "y": 759,
+          "w": 352,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Calderwick Test Bank (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 812,
+          "w": 316,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 856,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000901  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 900,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Pembrook Secure Shredding Co",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 945,
+          "w": 316,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "M. Prakash (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1068,
+          "w": 229,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Billing Manager",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1100,
+          "w": 154,
+          "h": 28
+        }
+      ]
+    }
+  ]
+}

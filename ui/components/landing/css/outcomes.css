@@ -1,0 +1,69 @@
+/* Three answers: autoplay accordion + live card (blueprint section 4, motion.md 1.6). */
+.l-out { display: grid; gap: 32px; }
+@media (min-width: 768px) { .l-out { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.l-out-left { display: grid; gap: 32px; align-content: start; min-width: 0; }
+.l-acc { --progress: 0; border-top: var(--line); }
+.l-acc-item { position: relative; border-bottom: var(--line); }
+.l-acc-h { margin: 0; }
+.l-acc-title { width: 100%; padding: 20px 0; display: block; text-align: left; cursor: pointer; color: var(--fg-muted);
+  font-family: var(--font-serif); font-weight: var(--weight-light); letter-spacing: var(--tracking-serif);
+  font-size: var(--text-title-sm); line-height: var(--leading-title-sm);
+  transition: color var(--dur-4) var(--ease-plain), font-size var(--dur-4) var(--ease-plain), line-height var(--dur-4) var(--ease-plain); }
+@media (hover: hover) { .l-acc-title:hover { color: var(--fg); } }
+.l-acc-item[data-open] .l-acc-title { color: var(--fg); font-size: var(--text-title); line-height: var(--leading-title); }
+.l-acc-body { display: grid; grid-template-rows: 0fr; opacity: 0; visibility: hidden;
+  transition: grid-template-rows var(--dur-6) var(--ease-plain), opacity 250ms var(--ease-plain), visibility 0s linear var(--dur-6); }
+.l-acc-item[data-open] .l-acc-body { grid-template-rows: 1fr; opacity: 1; visibility: visible;
+  transition: grid-template-rows var(--dur-6) var(--ease-plain), opacity 250ms var(--ease-plain) 100ms, visibility 0s; }
+.l-acc-inner { overflow: hidden; min-height: 0; display: grid; gap: 16px; justify-items: start; }
+.l-acc-item[data-open] .l-acc-inner { padding-bottom: 32px; }
+.l-acc-text { margin: 0; max-width: 48ch; font-size: var(--text-caption); line-height: var(--leading-caption); color: var(--fg-2); }
+.l-acc-features { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.l-acc-features li { display: flex; align-items: center; gap: 12px; font-size: var(--text-caption); color: var(--fg); }
+.l-acc-features svg { color: var(--fg-2); flex: none; }
+.l-acc-features li:first-child svg { color: var(--conflict-text); }
+.l-acc-caption { margin: 0; max-width: 48ch; font-size: var(--text-note); line-height: var(--leading-note); color: var(--fg-muted); }
+/* progress line on the open item's bottom rule */
+.l-acc-item[data-open]::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: calc(var(--progress) * 100%);
+  background: var(--progress-gradient); }
+
+/* visual */
+.l-out-visual { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 16px; border-radius: var(--radius-card);
+  box-shadow: var(--edge-pill); min-height: 464px; }
+@media (min-width: 420px) { .l-out-visual { min-height: 512px; } }
+@media (min-width: 475px) { .l-out-visual { min-height: 572px; } }
+@media (min-width: 768px) { .l-out-visual { min-height: 800px; } }
+@media (min-width: 960px) { .l-out-visual { min-height: 932px; } }
+.l-out-stage { position: relative; flex: 1; min-height: 360px; }
+.l-out-layers { position: absolute; inset: 0; display: grid; align-items: center; }
+.l-out-layer { grid-area: 1 / 1; opacity: 0; pointer-events: none; transition: opacity var(--dur-9) var(--ease-plain); min-width: 0; }
+.l-out-layer[data-on] { opacity: 1; pointer-events: auto; }
+.l-out-jsonlayer { border-radius: var(--radius-box); background-color: var(--bg-canvas); padding: 16px; overflow: auto;
+  clip-path: inset(0 100% 0 0); transition: clip-path var(--dur-9) var(--ease-in-out); }
+.l-out-cardlayer { transition: clip-path var(--dur-9) var(--ease-in-out); clip-path: inset(0); }
+.l-out-stage[data-view="json"] .l-out-jsonlayer { clip-path: inset(0); }
+.l-out-stage[data-view="json"] .l-out-cardlayer { clip-path: inset(0 0 0 100%); }
+.l-seg { align-self: center; display: inline-flex; padding: 2px; border-radius: var(--radius-card); box-shadow: var(--edge-pill); background: var(--bg-canvas); }
+.l-seg-btn { padding: 8px 16px; border-radius: 10px; color: var(--fg-muted); cursor: pointer; transition: background var(--dur-3) var(--ease-quick-out), color var(--dur-3) var(--ease-quick-out); }
+.l-seg-btn[aria-pressed="true"] { background: var(--bg-active); color: var(--fg); }
+
+/* data card */
+.l-card { border-radius: var(--radius-card); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--rule); overflow: clip; text-align: left; }
+.l-card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px; border-bottom: var(--line); }
+.l-card-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.l-card-body { padding: 16px; display: grid; gap: 16px; }
+.l-card-banner { margin: 0; font-family: var(--font-serif); font-weight: var(--weight-light); letter-spacing: var(--tracking-serif);
+  font-size: 22px; line-height: 28px; color: var(--fg); text-wrap: pretty; }
+.l-card-dl { margin: 0; }
+.l-card-dl > div { display: flex; justify-content: space-between; gap: 24px; padding: 10px 0; border-top: var(--line-dashed); font-size: var(--text-ui-sm); line-height: var(--leading-ui-sm); }
+.l-card-dl dt { color: var(--fg-muted); font-weight: var(--weight-light); }
+.l-card-dl dd { margin: 0; color: var(--fg); font-family: var(--font-mono); font-size: var(--text-mono-data); text-align: right; min-width: 0; overflow-wrap: anywhere; }
+.l-reasons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.l-card-note { margin: 0; font-size: var(--text-ui-xs); line-height: var(--leading-ui-xs); color: var(--fg-muted); }
+.l-card--empty { display: grid; gap: 16px; justify-items: start; padding: 24px; border-radius: var(--radius-card); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--rule); }
+.l-card-eyebrow { color: var(--fg-muted); }
+.l-card-empty { margin: 0; font-family: var(--font-serif); font-weight: var(--weight-light); font-size: 24px; line-height: 32px; letter-spacing: var(--tracking-serif); max-width: 24ch; }
+
+/* code card (em-scaled panel) and JSON colouring */
+.l-pre { margin: 0; font: var(--weight-regular) 12px / 1.55 var(--font-mono); color: var(--code-ident); white-space: pre-wrap; overflow-wrap: anywhere; font-feature-settings: "zero" 1; }
+.j-key { color: var(--code-keyword); } .j-str { color: var(--code-string); } .j-num { color: var(--code-number); } .j-kw { color: var(--code-param); }
