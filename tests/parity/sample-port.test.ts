@@ -48,8 +48,8 @@ describe("zetaris-sample", () => {
     const inv = await z.run(compile({ template_id: "T03", invoice_nos: ["INV-BAH-20931"] }), O);
     expect(inv.rows.map((r) => r.invoice_no)).toEqual(["INV-BAH-20931"]);
     const t09 = await z.run(compile({ template_id: "T09", vendor_id: "V-10027", payment_run_id: "PR-2026-10-30" }), O);
-    expect(t09.row_count).toBe(14);
-    expect(t09.rows[0]).toMatchObject({ run_item_count: "14", run_amount_usd: "2407839.48" });
+    expect(t09.row_count).toBe(15);
+    expect(t09.rows[0]).toMatchObject({ run_item_count: "15", run_amount_usd: "2426479.48" });
   });
   it("USL reads see only the setup-registered records; a session table adds the sibling after registration", async () => {
     const params = { template_id: "T11", parent_uei: "MBPHTU7Y9S65", addr_key: "1 COMMVAULT WAY|TINTON FALLS|NJ" };
@@ -72,15 +72,16 @@ describe("zetaris-sample", () => {
     const t21 = compile({ template_id: "T21", rule: "DQ3" });
     await expect(z.run(t21, O)).rejects.toMatchObject({ code: "sample_data_missing" });
   });
-  it("RUN DQ and SHOW DQ INVALID RECORD follow the data: the seed alone has 2 shared-account items; this run's own request makes it 3", async () => {
+  it("RUN DQ and SHOW DQ INVALID RECORD follow the data: the seed alone has 3 shared-account items (the Northgate pair); this run's own request makes it 4", async () => {
     const run = await z.run(compile({ template_id: "T20", rule: "DQ2" }), O);
-    expect(run.rows[0]).toMatchObject({ name: "account_single_vendor", table: "payment_run_item", type: "Custom Data Quality", total_record: "153", valid_record: "151", invalid_record: "2" });
+    expect(run.rows[0]).toMatchObject({ name: "account_single_vendor", table: "payment_run_item", type: "Custom Data Quality", total_record: "154", valid_record: "151", invalid_record: "3" });
     const hash = "175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6";
     const requests = [{ request_id: "BCR-2026-0999", vendor_id: "V-10027", new_account_hash: hash, status: "pending", received_at: "2026-10-27T12:00:00Z" }];
     const zz = createSampleZetaris(cfg, { erp: { snapshot: () => ({ requests, callbacks: [] }) } });
     const inv = await zz.run(compile({ template_id: "T21", rule: "DQ2", payment_run_id: "PR-2026-10-30" }), O);
-    expect(inv.row_count).toBe(3);
+    expect(inv.row_count).toBe(4);
     expect(inv.rows.map((r) => r.item_id)).toContain("PRI-1030-0009");
+    expect(inv.rows.map((r) => r.item_id)).toContain("PRI-1030-0015");
   });
   it("sees the ERP rows a run wrote (overlay): the request in T07, a call-back in T08", async () => {
     const hash = "175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6";

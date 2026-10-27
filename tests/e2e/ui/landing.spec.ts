@@ -7,7 +7,7 @@ test("landing hero links into the queue", async ({ page }) => {
   await page.goto("/");
   const hero = page.locator("#hero-title");
   await expect(hero).toBeVisible();
-  await expect(hero).toContainText("Prove who is asking");
+  await expect(hero).toContainText("Verify the payee");
   await assertNoHScroll(page, "/");
   const primary = page.locator(".l-hero-pills a[href='/app']");
   await expect(primary).toBeVisible();

@@ -1,7 +1,7 @@
 {
  "id": "a08",
- "text_original": "Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer; every query has an id you can re-run. The sweep is a Zetaris data-quality rule. Every agent call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which.",
- "text_spoken": "Every registry and ledger fact in this decision came from Zuh-tarris, which joins our vendor master, U.S.A. spending and SEC Edgar in one semantic layer; every query has an id you can re-run. The sweep is a Zuh-tarris data-quality rule. Every agent call goes through Meterless Nightshift to a pinned Nemmo-tron model, and the ledger shows which.",
+ "text_original": "Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer. Each one traces back to its rows: source system, table, query id and row hash, and you can re-run it. The sweep runs Zetaris data-quality rules. Every agent call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which.",
+ "text_spoken": "Every registry and ledger fact in this decision came from Zuh-tarris, which joins our vendor master, U.S.A. spending and SEC Edgar in one semantic layer. Each one traces back to its rows: source system, table, query id and row hash, and you can re-run it. The sweep runs Zuh-tarris data-quality rules. Every agent call goes through Meterless Nightshift to a pinned Nemmo-tron model, and the ledger shows which.",
  "words": [
   {
    "word": "Every",
@@ -21,46 +21,46 @@
   {
    "word": "ledger",
    "start": 1.154,
-   "end": 1.385
+   "end": 1.462
   },
   {
    "word": "fact",
-   "start": 1.462,
-   "end": 1.692
-  },
-  {
-   "word": "in",
-   "start": 1.731,
+   "start": 1.538,
    "end": 1.769
   },
   {
+   "word": "in",
+   "start": 1.808,
+   "end": 1.846
+  },
+  {
    "word": "this",
-   "start": 1.846,
-   "end": 1.923
+   "start": 1.923,
+   "end": 2.0
   },
   {
    "word": "decision",
-   "start": 2.0,
-   "end": 2.462
+   "start": 2.077,
+   "end": 2.538
   },
   {
    "word": "came",
-   "start": 2.538,
-   "end": 2.692
+   "start": 2.615,
+   "end": 2.769
   },
   {
    "word": "from",
-   "start": 2.769,
-   "end": 2.923
+   "start": 2.846,
+   "end": 3.0
   },
   {
    "word": "Zuh-tarris,",
-   "start": 3.0,
+   "start": 3.077,
    "end": 4.0
   },
   {
    "word": "which",
-   "start": 4.077,
+   "start": 4.115,
    "end": 4.231
   },
   {
@@ -71,11 +71,11 @@
   {
    "word": "our",
    "start": 4.615,
-   "end": 4.692
+   "end": 4.769
   },
   {
    "word": "vendor",
-   "start": 4.769,
+   "start": 4.846,
    "end": 5.077
   },
   {
@@ -86,7 +86,7 @@
   {
    "word": "U.S.A.",
    "start": 5.846,
-   "end": 6.231
+   "end": 6.154
   },
   {
    "word": "spending",
@@ -100,198 +100,253 @@
   },
   {
    "word": "SEC",
-   "start": 7.154,
-   "end": 7.538
+   "start": 7.231,
+   "end": 7.615
   },
   {
    "word": "Edgar",
-   "start": 7.692,
-   "end": 8.077
+   "start": 7.769,
+   "end": 8.154
   },
   {
    "word": "in",
-   "start": 8.154,
+   "start": 8.231,
    "end": 8.385
   },
   {
    "word": "one",
-   "start": 8.5,
-   "end": 8.615
+   "start": 8.538,
+   "end": 8.692
   },
   {
    "word": "semantic",
-   "start": 8.692,
-   "end": 9.154
+   "start": 8.769,
+   "end": 9.231
   },
   {
-   "word": "layer;",
-   "start": 9.231,
-   "end": 10.0
+   "word": "layer.",
+   "start": 9.308,
+   "end": 9.615
   },
   {
-   "word": "every",
-   "start": 10.077,
+   "word": "Each",
+   "start": 10.154,
    "end": 10.385
   },
   {
-   "word": "query",
+   "word": "one",
    "start": 10.462,
-   "end": 10.846
+   "end": 10.615
   },
   {
-   "word": "has",
-   "start": 10.923,
+   "word": "traces",
+   "start": 10.692,
    "end": 11.0
   },
   {
-   "word": "an",
+   "word": "back",
    "start": 11.077,
-   "end": 11.154
-  },
-  {
-   "word": "id",
-   "start": 11.231,
-   "end": 11.538
-  },
-  {
-   "word": "you",
-   "start": 11.615,
-   "end": 11.692
-  },
-  {
-   "word": "can",
-   "start": 11.769,
-   "end": 11.846
-  },
-  {
-   "word": "re-run.",
-   "start": 11.923,
-   "end": 12.846
-  },
-  {
-   "word": "The",
-   "start": 12.885,
-   "end": 12.923
-  },
-  {
-   "word": "sweep",
-   "start": 13.0,
-   "end": 13.385
-  },
-  {
-   "word": "is",
-   "start": 13.462,
-   "end": 13.538
-  },
-  {
-   "word": "a",
-   "start": 13.615,
-   "end": 13.692
-  },
-  {
-   "word": "Zuh-tarris",
-   "start": 13.731,
-   "end": 14.308
-  },
-  {
-   "word": "data-quality",
-   "start": 14.385,
-   "end": 15.0
-  },
-  {
-   "word": "rule.",
-   "start": 15.077,
-   "end": 15.769
-  },
-  {
-   "word": "Every",
-   "start": 15.846,
-   "end": 16.077
-  },
-  {
-   "word": "agent",
-   "start": 16.154,
-   "end": 16.462
-  },
-  {
-   "word": "call",
-   "start": 16.615,
-   "end": 16.769
-  },
-  {
-   "word": "goes",
-   "start": 16.846,
-   "end": 17.0
-  },
-  {
-   "word": "through",
-   "start": 17.077,
-   "end": 17.231
-  },
-  {
-   "word": "Meterless",
-   "start": 17.308,
-   "end": 17.692
-  },
-  {
-   "word": "Nightshift",
-   "start": 17.769,
-   "end": 18.308
+   "end": 11.231
   },
   {
    "word": "to",
-   "start": 18.385,
-   "end": 18.462
+   "start": 11.308,
+   "end": 11.385
   },
   {
-   "word": "a",
-   "start": 18.538,
-   "end": 18.615
+   "word": "its",
+   "start": 11.462,
+   "end": 11.538
   },
   {
-   "word": "pinned",
-   "start": 18.692,
-   "end": 19.0
+   "word": "rows:",
+   "start": 11.615,
+   "end": 12.308
   },
   {
-   "word": "Nemmo-tron",
-   "start": 19.077,
-   "end": 19.615
+   "word": "source",
+   "start": 12.385,
+   "end": 12.615
   },
   {
-   "word": "model,",
-   "start": 19.769,
-   "end": 20.154
+   "word": "system,",
+   "start": 12.692,
+   "end": 13.308
+  },
+  {
+   "word": "table,",
+   "start": 13.5,
+   "end": 14.0
+  },
+  {
+   "word": "query",
+   "start": 14.077,
+   "end": 14.385
+  },
+  {
+   "word": "id",
+   "start": 14.462,
+   "end": 14.769
   },
   {
    "word": "and",
-   "start": 20.231,
-   "end": 20.308
+   "start": 14.846,
+   "end": 14.923
+  },
+  {
+   "word": "row",
+   "start": 15.0,
+   "end": 15.231
+  },
+  {
+   "word": "hash,",
+   "start": 15.423,
+   "end": 15.846
+  },
+  {
+   "word": "and",
+   "start": 15.923,
+   "end": 16.0
+  },
+  {
+   "word": "you",
+   "start": 16.038,
+   "end": 16.077
+  },
+  {
+   "word": "can",
+   "start": 16.154,
+   "end": 16.231
+  },
+  {
+   "word": "re-run",
+   "start": 16.308,
+   "end": 16.692
+  },
+  {
+   "word": "it.",
+   "start": 16.769,
+   "end": 16.923
+  },
+  {
+   "word": "The",
+   "start": 17.385,
+   "end": 17.462
+  },
+  {
+   "word": "sweep",
+   "start": 17.538,
+   "end": 17.846
+  },
+  {
+   "word": "runs",
+   "start": 17.923,
+   "end": 18.154
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 18.192,
+   "end": 18.692
+  },
+  {
+   "word": "data-quality",
+   "start": 18.769,
+   "end": 19.385
+  },
+  {
+   "word": "rules.",
+   "start": 19.462,
+   "end": 20.077
+  },
+  {
+   "word": "Every",
+   "start": 20.308,
+   "end": 20.615
+  },
+  {
+   "word": "agent",
+   "start": 20.692,
+   "end": 21.0
+  },
+  {
+   "word": "call",
+   "start": 21.077,
+   "end": 21.308
+  },
+  {
+   "word": "goes",
+   "start": 21.385,
+   "end": 21.538
+  },
+  {
+   "word": "through",
+   "start": 21.615,
+   "end": 21.769
+  },
+  {
+   "word": "Meterless",
+   "start": 21.846,
+   "end": 22.231
+  },
+  {
+   "word": "Nightshift",
+   "start": 22.308,
+   "end": 22.846
+  },
+  {
+   "word": "to",
+   "start": 22.923,
+   "end": 23.0
+  },
+  {
+   "word": "a",
+   "start": 23.077,
+   "end": 23.154
+  },
+  {
+   "word": "pinned",
+   "start": 23.192,
+   "end": 23.462
+  },
+  {
+   "word": "Nemmo-tron",
+   "start": 23.615,
+   "end": 24.077
+  },
+  {
+   "word": "model,",
+   "start": 24.154,
+   "end": 24.692
+  },
+  {
+   "word": "and",
+   "start": 24.769,
+   "end": 24.846
   },
   {
    "word": "the",
-   "start": 20.385,
-   "end": 20.423
+   "start": 24.885,
+   "end": 24.923
   },
   {
    "word": "ledger",
-   "start": 20.462,
-   "end": 20.846
+   "start": 25.0,
+   "end": 25.308
   },
   {
    "word": "shows",
-   "start": 21.0,
-   "end": 21.154
+   "start": 25.385,
+   "end": 25.615
   },
   {
    "word": "which.",
-   "start": 21.346,
-   "end": 21.769
+   "start": 25.692,
+   "end": 26.308
   }
  ],
- "seconds": 21.77,
- "window_seconds": 24,
- "provisional": true,
+ "seconds": 26.31,
+ "window_seconds": 28,
+ "provisional": false,
  "voice": "v7li4BiiSMnJL2FCuD6D",
  "model": "eleven_v4",
  "seed": 4242,

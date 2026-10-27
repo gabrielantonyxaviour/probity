@@ -17,7 +17,7 @@ export type Ctx = {
 export type SlotFn = (c: Ctx) => Promise<void>;
 
 /** Request ids behind the scenarios a slot needs. */
-export const REQ = { S1: "BCR-2026-0412", S2: "BCR-2026-0416", S3: "BCR-2026-0398", S4: "BCR-2026-0418", S6: "BCR-2026-0446" } as const;
+export const REQ = { S1: "BCR-2026-0412", S2: "BCR-2026-0416", S3: "BCR-2026-0398", S4: "BCR-2026-0418", S6: "BCR-2026-0446", S10: "BCR-2026-0407" } as const;
 
 export async function newestDecidedRun(api: string, requestId: string): Promise<string | null> {
   const r = await fetch(`${api}/runs?limit=100`, { signal: AbortSignal.timeout(15_000) });

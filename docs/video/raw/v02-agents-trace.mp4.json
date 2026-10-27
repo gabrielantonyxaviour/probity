@@ -1,0 +1,13 @@
+{
+  "slot": "R03",
+  "file": "v02-agents-trace.mp4",
+  "started_at": "2026-10-27T20:01:02.951Z",
+  "seconds": 12,
+  "target_seconds": 10,
+  "frames": 249,
+  "scale": 2,
+  "ui": "http://localhost:3100",
+  "runs": {
+    "BCR-2026-0412": "r-20261027T194659Z-c63a"
+  }
+}

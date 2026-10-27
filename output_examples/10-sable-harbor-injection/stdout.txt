@@ -1,0 +1,78 @@
+[INFO] run=r-20261027T192243Z-3cfa agent=orchestrator action=run_start target=letter_reader | mode=live budget=480s
+[WARN] run=r-20261027T192243Z-3cfa agent=letter_reader action=extract_claims codes=R8 status=partial_success note=injection:detect | 4 span(s) addressed to an automated reviewer (3 hidden in the text layer); quoted and ignored
+[INFO] run=r-20261027T192243Z-3cfa agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1264/383 ms=9142 | 1264/383 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1264/383 ms=9142 note=injection:review | review: 4/4 candidates addressed to a reviewer; 4 more quoted
+[INFO] run=r-20261027T192243Z-3cfa agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1885/1072 ms=30471 | 1885/1072 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1885/1072 ms=30471 note=dual_read:B; ocr+deep; visual | claimed=Sable Harbor Marine Logistics LLC; acct ••••0731; routing 110000000; 1 phone(s); 2 pressure phrase(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1853/1967 ms=43847 | 1853/1967 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1853/1967 ms=43847 note=dual_read:A; text+deep; transcribe | claimed=Sable Harbor Marine Logistics LLC; acct ••••0731; routing 110000000; 1 phone(s); 3 pressure phrase(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=letter_reader action=extract_claims note=dual_read:reconcile 7/7 | agreement 7/7; every material field agrees
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T04b qid=90903b4f rows=1 mode=live ms=1460 | rows=1 vendor_id=V-10561 legal_name=Sable Harbor Marine Logistics LLC name_norm=SABLE HARBOR MARINE LOGISTICS LLC
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T03 qid=33416a72 rows=1 mode=live ms=1543 | rows=1 invoice_no=INV-SHM-90317 vendor_id=V-10561 amount_usd=109131.61
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T04 qid=2814aa4b rows=1 mode=live ms=1693 | rows=1 vendor_id=V-10561 legal_name=Sable Harbor Marine Logistics LLC email_domains_on_file=sableharbor.example,sableharborship.exam
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T06c qid=589e02f0 rows=0 mode=live ms=12251 | rows=0
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T06b qid=f81a91c4 rows=0 mode=live ms=17518 | rows=0
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T06a qid=f4e03e50 rows=0 mode=live ms=34899 | rows=0
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T09 qid=993a4b86 rows=8 mode=live ms=4340 | run items=8 8 rows
+[INFO] run=r-20261027T192243Z-3cfa agent=orchestrator action=intake_request target=memory_gate | BCR-2026-0407 inserted (pending); candidates=[V-10561 hard 1.00]
+[INFO] run=r-20261027T192243Z-3cfa agent=orchestrator action=handoff target=memory_gate | claims -> memory_gate
+[INFO] run=r-20261027T192243Z-3cfa agent=memory_gate action=memory_recall target=registry_scout | 0 hits
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T02 qid=7e1be1e0 rows=3 mode=live ms=1484 | rows=3 email finance@sableharbor.example 2019-04-02->open; phone (757) 555-0122 2019-04-02->2021-04-28; phone (757) 555-0125 2021-04-28->open
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T01 qid=e094b64f rows=1 mode=live ms=1868 | rows=1 vendor_id=V-10561 legal_name=Sable Harbor Marine Logistics LLC name_norm=SABLE HARBOR MARINE LOGISTICS LLC
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T08 qid=efd7f48b rows=0 mode=live ms=386 | rows=0
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T07 qid=17a3022a rows=1 mode=live ms=4462 | rows=1 bank_change_request V-10561
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T05 qid=e912b4d6 rows=1 mode=live ms=22832 | rows=1   ; parent none; cik none phone none
+[INFO] run=r-20261027T192243Z-3cfa agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3490/83 ms=1513 | 3490/83 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3774/87 ms=1134 | 3774/87 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3900/50 ms=886 | 3900/50 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3989/50 ms=1639 | 3989/50 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3989/50 ms=28030 note=model reviewed floor | r0: floor 5 steps + 0 extra step(s) (reviewed the floor and added none)
+[INFO] run=r-20261027T192243Z-3cfa agent=identity_linker action=memory_write | entities 1, edges 0, facts 0 written; 14 unchanged
+[INFO] run=r-20261027T192243Z-3cfa agent=identity_linker action=propose_link target=identity_examiner | candidate_vendor invoice_ref+domain_on_file+name_exact score 1: req:BCR-2026-0407 -> vendor:V-10561 hard
+[INFO] run=r-20261027T192243Z-3cfa agent=identity_linker action=handoff target=identity_examiner | links -> identity_examiner
+[INFO] run=r-20261027T192243Z-3cfa agent=identity_examiner action=approve_link | hard: attribution exact key
+[INFO] run=r-20261027T192243Z-3cfa agent=identity_examiner action=handoff target=gate_officer | verdicts -> gate_officer
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T08b qid=02260a72 rows=1 mode=live ms=2209 | rows=1 request_id=BCR-2026-0407 new_routing=110000000 routing_check=valid
+[INFO] run=r-20261027T192243Z-3cfa agent=gate_officer action=decide codes=R8,C1,C3 | HOLD codes=R8,C1,C3 coverage=2/2
+[INFO] run=r-20261027T192243Z-3cfa agent=gate_officer action=select_callback | +17575550125 vendor_master_pre_window; do_not_use none
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=T20 qid=badc494c rows=1 mode=live ms=8624 | rows=1 name=unverified_recent_bank_change table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=T20 qid=a44e6eb8 rows=1 mode=live ms=8663 | rows=1 name=account_single_vendor table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=T21 qid=7824ab7e rows=4 mode=live ms=5083 | rows=4 item_id=PRI-1002-0014 payment_run_id=PR-2026-10-02 scheduled_date=2026-10-02
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=T21 qid=88f44182 rows=3 mode=live ms=5129 | rows=3 item_id=PRI-1009-0016 payment_run_id=PR-2026-10-09 scheduled_date=2026-10-09
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=dq_run rule=DQ1 template=T20 qid=badc494c rows=0 | DQ1 table-wide total=154 valid=151 invalid=3; in PR-2026-11-03: 0
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=dq_run rule=DQ2 template=T20 qid=a44e6eb8 rows=0 | DQ2 table-wide total=154 valid=150 invalid=4; in PR-2026-11-03: 0
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=DQ7c qid=43449e3b rows=1 mode=live ms=3598 | rows=1 total_rows=52 invalid_rows=2
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=DQ7 qid=850a3824 rows=1 mode=live ms=1205 | rows=1 account_hash=35b3f6fe36f7fbd4de8d547f66f5712c070586a5 vendor_count=2 vendor_ids=V-10233,V-10234
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=dq_run rule=DQ7 template=DQ7 qid=43449e3b rows=0 | DQ7 total=52 valid=50 invalid=2; in PR-2026-11-03: 0
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=T20 qid=5f7fa2d6 rows=1 mode=live ms=6326 | rows=1 name=bank_change_before_large_payment table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=T21 qid=0ff6fc5f rows=0 mode=live ms=4959 | rows=0
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=dq_run rule=DQ8 template=T20 qid=5f7fa2d6 rows=0 | DQ8 total=154 valid=154 invalid=0; in PR-2026-11-03: 0
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=DQ9c qid=e9bf6bb4 rows=1 mode=live ms=5286 | rows=1 total=154 valid=154 invalid=0
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=run_template template=DQ9 qid=f121d8ae rows=0 mode=live ms=6140 | rows=0
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=dq_run rule=DQ9 template=DQ9 qid=e9bf6bb4 rows=0 | DQ9 total=154 valid=154 invalid=0; in PR-2026-11-03: 0
+[INFO] run=r-20261027T192243Z-3cfa agent=evidence_runner action=run_template template=T23 qid=3f4f4216 rows=1 mode=live ms=27545 note=One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_ | One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_erp.payment_run_item) are JDBC read at query time. USAspending and EDGAR legs are USL tables in the statement, not direct REST. Pushdown was not shown.
+[INFO] run=r-20261027T192243Z-3cfa agent=sweep_runner action=unsolicited_sweep qid=88f44182 rows=0 | No other items in PR-2026-11-03 fail payment controls.
+[INFO] run=r-20261027T192243Z-3cfa agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1211/116 ms=4620 | 1211/116 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1211/116 ms=4620 | 4 sentences
+[WARN] run=r-20261027T192243Z-3cfa agent=gate_officer action=number_check status=needs_revision note=failed | a do-not-use clause names no number
+[INFO] run=r-20261027T192243Z-3cfa agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1376/110 ms=1820 | 1376/110 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192243Z-3cfa agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1376/110 ms=1820 | 4 sentences
+[INFO] run=r-20261027T192243Z-3cfa agent=gate_officer action=number_check note=regenerated | regenerated: 3 tokens checked, 0 unknown, grounded in the decision
+[INFO] run=r-20261027T192243Z-3cfa agent=orchestrator action=run_end codes=R8,C1,C3 note=envelope=success | HOLD in 162.8s; trace logs/trace-r-20261027T192243Z-3cfa.jsonl
+[INFO] run=r-20261027T192243Z-3cfa DECISION=HOLD codes=R8,C1,C3 coverage=2/2 exposure=$109,131.61 (1 items, PR-2026-11-03)
+[INFO] run=r-20261027T192243Z-3cfa callback=(757) 555-0125 (Vendor master, on file since 2021-04-28) do_not_use=none
+[INFO] run=r-20261027T192243Z-3cfa sweep=0 item(s) $0.00 | models: fast=nvidia/nemotron-3.5-lightning-30b-a3b deep=nvidia/nemotron-3-ultra-550b-a55b | 162.8s | trace=logs/trace-r-20261027T192243Z-3cfa.jsonl
+
+Probity · BCR-2026-0407 · Sable Harbor Marine Logistics LLC (V-10561)
+Decision: HOLD   policy pp-2026-10-27.1   mode live   162.8 s   status success
+Blocks:   R8 reviewer_instruction (hidden)
+Limits:   C1 no_independent_callback · C3 internal_evidence_only
+Noted:    none
+Exposure: PR-2026-11-03 · 1 items · $109,131.61 (cut-off 14:00 ET)
+Call back: (757) 555-0125 · Vendor master, on file since 2021-04-28
+Readings: agree · 7/7 fields agree · A text_layer ok, B ocr ok
+Injection: 4 span(s) addressed to an automated reviewer (hidden) · review confirmed
+Sweep:    no other items in PR-2026-11-03 fail payment controls
+Models:   letter_reader deep nvidia/nemotron-3-ultra-550b-a55b ×3; registry_scout fast nvidia/nemotron-3.5-lightning-30b-a3b ×4; identity_examiner deep none (no model call) ×0; gate_officer fast nvidia/nemotron-3.5-lightning-30b-a3b ×2
+Trace:    logs/trace-r-20261027T192243Z-3cfa.jsonl
+Review:   http://localhost:3100/review/r-20261027T192243Z-3cfa

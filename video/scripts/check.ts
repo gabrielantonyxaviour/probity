@@ -1,5 +1,5 @@
 // Run from the repo root:  npx tsx video/scripts/check.ts
-// Build-time assertions: total <= 210 s, narration <= 2.6 words/s per window, clips.json covers every slot,
+// Build-time assertions: total <= 230 s, narration <= 2.6 words/s per window, clips.json covers every slot,
 // no run-derived figure typed into a .tsx file, no file over 300 lines.
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -25,7 +25,7 @@ const len = new Map<string, number>();
 for (const m of script.motion) len.set(m.id, m.seconds);
 for (const s of slots.slots) len.set(s.id, s.enabled ? s.seconds : 0);
 const total = script.sequence.reduce((a, id) => a + (len.get(id) ?? 0), 0);
-out(total <= Math.min(210, slots.cap_seconds), `film length ${total} s (cap 210 s)`);
+out(total <= Math.min(230, slots.cap_seconds), `film length ${total} s (cap 230 s)`);
 
 // Spoken length of the {{FILL}} tokens, as words (the real values come from facts.generated.json at recording time).
 const FILL_WORDS: Record<string, number> = { days_before_payment_words: 1, exposure_millions: 4, sweep_count_words: 1, q8_seconds: 2 };

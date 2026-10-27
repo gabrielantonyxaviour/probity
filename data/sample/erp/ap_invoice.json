@@ -824,6 +824,14 @@
     "data_origin": "SYNTHETIC"
   },
   {
+    "invoice_no": "INV-NOI-30318",
+    "vendor_id": "V-10233",
+    "amount_usd": 18640.00,
+    "invoice_date": "2026-09-28",
+    "status": "scheduled",
+    "data_origin": "SYNTHETIC"
+  },
+  {
     "invoice_no": "INV-NOJ-60014",
     "vendor_id": "V-10234",
     "amount_usd": 23156.89,

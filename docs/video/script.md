@@ -1,10 +1,21 @@
-# Probity demo video: script and slots
+# Probity film: script and slots
 
-Source: `08-submission.md` section 5.2 (narration verbatim, REV-35) and spine section 1 (pitch, REV-14). Slot ids and lengths: `slots.json` (edit it, no code change). Motion scene lengths: `video/script.json`. Total is asserted at build: `npx tsx video/scripts/check.ts` (cap 210 s).
+Total at most 230 s (asserted by `npx tsx video/scripts/check.ts` and the composition). Slot ids and lengths: `slots.json`; motion lengths, order and narration: `video/script.json`; film cuts of the raw takes: `cuts.json` (`video/scripts/cut.py`).
 
-Rules that bind the narration: `$1.28 million`, `eight days`, the sweep count and the median decision time are `{{FILL}}` tokens resolved from `video/src/data/facts.generated.json` of the filmed S1 run (REV-59), never typed. Never say "every fact", "Nemotron discovers the family", "fetched live" or "the only way it reads data" (REV-13). Say "a coverage rule walks the family" and "every registry and ledger fact in this decision came from Zetaris". Real EDGAR switchboard numbers on screen carry "Demo scenario: do not call."
+Rules that bind the narration: the exposure, days before payment, sweep count and median time per check are `{{FILL}}` tokens resolved from `video/src/data/facts.generated.json` of the recorded S1 run, never typed. Never say "every fact" on its own, "Nemotron discovers the family", "fetched live" or "the only way it reads data"; say "every registry and ledger fact in this decision came from Zetaris" and "each one traces back to its rows". No synthetic, demo or "(fictional)" wording on screen or in narration (decision 8); data disclosure lives in the README, the HackOS text and the video description. Narration is Gabriel's ElevenLabs voice through `video/scripts/tts.py` (decision 7); captions are burned in from its word timings (`video/scripts/captions.py`). Build credit is Grok-first (decision 13) on the end card and in N12.
 
-## Timeline (current slots.json; disabled conditional slots collapse to 0 s and later beats shift)
+## Depth story (wave 3)
+
+| Beat | Where |
+|---|---|
+| Two independent Nemotron Ultra readings that must agree | N02 over M05 (A1 "Nemotron 3 Ultra × 2", agreement from facts) and R03 |
+| "The letter told the AI to approve it": the injection HOLD | N03 over R04 (S10 Sable Harbor, R8) |
+| Each fact traces back to its rows: lineage | N08 over M06 (lineage chain) and R09 (evidence drawer lineage + Re-run in Zetaris) |
+| What was known when: time travel | N11 over R14 (as-of scrubber on the S1 entity graph) |
+| The new sweep rules (DQ1, DQ2, DQ7, DQ8, DQ9) | M06 rule annotations, N10 over R13 and M08 |
+| Grok-first build credit | M09 end card and N12 |
+
+## Timeline
 
 | Start | End | Id | Kind |
 |---|---|---|---|
@@ -14,121 +25,94 @@ Rules that bind the narration: `$1.28 million`, `eight days`, the sweep count an
 | 0:29.0 | 0:39.0 | M03 semantic layer | motion (10 s) |
 | 0:39.0 | 0:47.0 | M04 catch | motion (8 s) |
 | 0:47.0 | 0:53.0 | R02 Hold Banner + Sweep Banner | recording slot (6 s) |
-| 0:53.0 | 1:05.0 | M05 agents | motion (12 s) |
-| 1:05.0 | 1:15.0 | R03 Trace Rail A1 To A4 | recording slot (10 s) |
-| 1:15.0 | 1:23.0 | R04 Injection Letter | recording slot (8 s) |
-| 1:23.0 | 2:23.0 | R05 S1 Live Run | recording slot (60 s) |
-| 2:23.0 | 2:31.0 | R06 S2 Refuses To Guess | recording slot (8 s) |
-| 2:31.0 | 2:43.0 | R07 Three Sessions | recording slot (12 s) |
+| 0:53.0 | 1:07.0 | M05 agents | motion (14 s) |
+| 1:07.0 | 1:17.0 | R03 Trace Rail A1 To A4 | recording slot (10 s) |
+| 1:17.0 | 1:29.0 | R04 Injection Hold | recording slot (12 s) |
+| 1:29.0 | 2:17.0 | R05 S1 Live Run | recording slot (48 s) |
+| 2:17.0 | 2:25.0 | R06 S2 Refuses To Guess | recording slot (8 s) |
+| 2:25.0 | 2:37.0 | R07 Three Sessions | recording slot (12 s) |
+| 2:37.0 | 2:46.0 | R14 What Was Known When | recording slot (9 s) |
 | - | - | R08 S7 Outage | recording slot (disabled) |
-| 2:43.0 | 2:49.0 | M06 zetaris | motion (6 s) |
-| 2:49.0 | 2:57.0 | R09 Evidence Drawer Re-Run In Zetaris | recording slot (8 s) |
-| 2:57.0 | 3:03.0 | R10 Zetaris Ui List Dq / Run Dq | recording slot (6 s) |
-| 3:03.0 | 3:07.0 | M07 receipts | motion (4 s) |
+| 2:46.0 | 2:54.0 | M06 zetaris | motion (8 s) |
+| 2:54.0 | 3:04.0 | R09 Evidence Drawer Lineage + Re-Run | recording slot (10 s) |
+| 3:04.0 | 3:10.0 | R10 Zetaris Ui List Dq / Run Dq | recording slot (6 s) |
+| 3:10.0 | 3:14.0 | M07 receipts | motion (4 s) |
 | - | - | R11 What Nemotron Did | recording slot (disabled) |
 | - | - | R12 S5 Parsons Examiner Card | recording slot (disabled) |
-| 3:07.0 | 3:13.0 | R13 Sweep Panel | recording slot (6 s) |
-| 3:13.0 | 3:19.0 | M08 impact | motion (6 s) |
-| 3:19.0 | 3:25.0 | M09 outro | motion (6 s) |
+| 3:14.0 | 3:22.0 | R13 Sweep Panel | recording slot (8 s) |
+| 3:22.0 | 3:32.0 | M08 impact | motion (10 s) |
+| 3:32.0 | 3:43.0 | M09 outro | motion (11 s) |
 
-Total: 205 s (cap 210 s). Enabling R08 (S7, +4 s) fits; enabling R12 (F29, +8 s) as well needs a cut, in this order: S7, then F29 (its 8 s go to impact), then shorten agents.
+Total: 223 s (cap 230 s).
 
-## Narration, one take per segment (`docs/video/audio/aNN.m4a`)
+## Narration (`docs/video/audio/aNN.m4a`, generated by `python3 video/scripts/tts.py`)
 
-Gabriel reads each segment into QuickTime (O9). Each file starts at the first enabled scene it covers and plays over the segment window. The spoken text is **Record this**; where the verbatim 08 text is faster than 2.6 words/s for its window, a trimmed version is given and the verbatim line is kept for the record. The coordinator trims words, never the slot order (08 section 5.2).
-
-### N01 Problem + solution (pitch) (a01.m4a; covers M01, R01, M02, M03, M04, R02; window 53 s)
-
-Record this (133 words, 2.51 words/s):
+### N01 Problem + solution (pitch) (pitch) (a01.m4a; covers M01, R01, M02, M03, M04, R02; window 53 s)
 
 > An accounts-payable controls lead at a federal contractor gets an email: new bank details, {{days_before_payment_words}} days before ${{exposure_millions}} million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. Every registry fact is live public data.
 
-### N02 Agents (a02.m4a; covers M05, R03; window 22 s)
+### N02 Agents (a02.m4a; covers M05, R03; window 24 s)
 
-Record this (55 words, 2.50 words/s):
+> Four agents, each with its own authority. The Letter Reader reads the letter twice, in two independent Nemotron Ultra calls; the readings must agree field by field. The Registry Scout runs a floor of Zetaris checks, and Nemotron Lightning adds what it misses. The Examiner re-runs each new link's Zetaris query and checks the rows. Code decides the verdict.
 
-> Four agents, each with its own authority. The Letter Reader, on Nemotron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a fixed floor of Zetaris checks; Nemotron Lightning adds what it misses. Before a new link counts, the Examiner re-runs its Zetaris query and checks the rows. Code decides the verdict.
+### N03 Injection hold (S10) (S10) (a03.m4a; covers R04; window 12 s)
 
-Verbatim 08 text, kept for the record (71 words, 3.23 words/s: too fast for the window):
+> This letter told the AI to approve it, in hidden lines. Probity quotes them as evidence, never obeys, and holds the payment. A call-back cannot clear it.
 
-> Four agents, each with its own authority. The Letter Reader, on Nemotron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a fixed floor of Zetaris checks; Nemotron Lightning adds the checks the floor misses. Before a newly discovered link counts, the Examiner re-runs its Zetaris query and checks the rows have not changed, and it sends the Scout back when evidence is missing. Code decides the verdict.
-
-### N03 Injection catch (a03.m4a; covers R04; window 8 s)
-
-Record this (15 words, 1.88 words/s):
-
-> A letter that talks to the AI is quoted as a warning sign, never obeyed.
-
-### N04 Live run: S1 (a04.m4a; covers R05; window 60 s)
-
-Record this (122 words, 2.03 words/s):
+### N04 Live run: S1 (a04.m4a; covers R05; window 48 s)
 
 > Here is the real run. The reader quotes the letter, including the line asking us not to use the old number. The Scout checks the vendor master and the registries through Zetaris. The address matches nothing we know, so the Examiner sends the Scout back. A coverage rule walks Booz Allen's family, forty-one entities, and keeps the one in New Jersey. A naive check would pass this: it is a real Booz Allen address. It belongs to a different Booz Allen company that has never billed us. The Examiner re-runs that query before it counts. Decision: hold. The call-back number comes from SEC filings; the letter's number and the master number changed by email three days earlier are on the do-not-use list.
 
 ### N05 S2 (a05.m4a; covers R06; window 8 s)
 
-Record this (15 words, 1.88 words/s):
-
 > Same name, two companies. It refuses to guess, and writes a call-back script for each.
 
-Verbatim 08 text, kept for the record (24 words, 3.00 words/s: too fast for the window):
+### N06 Memory (World Model, R5) (a06.m4a; covers R07; window 12 s)
 
-> Same name, two companies. When it cannot tell which vendor a request is for, it refuses to guess and writes a script for each.
+> Memory across sessions. An impersonation confirmed in one session is remembered by the World Model; a later L3Harris request reuses that bank account, and it is held.
 
-### N06 Memory (a06.m4a; covers R07; window 12 s)
-
-Record this (31 words, 2.58 words/s):
-
-> Three separate processes. A later CACI request reuses the phone from the impersonation we confirmed in session a, and another reuses its account. The World Model remembers both; both are held.
-
-Verbatim 08 text, kept for the record (33 words, 2.75 words/s: too fast for the window):
-
-> Three separate processes. A later CACI request reuses the phone from the impersonation we confirmed in session a, and another request reuses its account. The World Model remembers both, and both are held.
-
-### N07 S7 (only if a real outage clip or the hook exists) (a07.m4a; covers R08; window 0 s)
-
-Record this (10 words; window collapsed while the slot is disabled) **Conditional:** only if its slot is enabled.
+### N07 S7 (only if a real outage clip or the hook exists) (only if a real outage clip or the hook exists) (a07.m4a; covers R08; window 0 s)
 
 > If Zetaris is down, it says so and never approves.
 
-Verbatim 08 text, kept for the record (15 words):
+Conditional: the slot is disabled, so this segment is not in the film.
 
-> If the data layer is down, it uses labelled offline captures and will not approve.
+### N08 Sponsor tech and lineage (a08.m4a; covers M06, R09, R10, M07, R11; window 28 s)
 
-### N08 Sponsor tech (a08.m4a; covers M06, R09, R10, M07, R11; window 24 s)
+> Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer. Each one traces back to its rows: source system, table, query id and row hash, and you can re-run it. The sweep runs Zetaris data-quality rules. Every agent call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which.
 
-Record this (56 words, 2.33 words/s):
-
-> Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer; every query has an id you can re-run. The sweep is a Zetaris data-quality rule. Every agent call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which.
-
-Verbatim 08 text, kept for the record (67 words, 2.79 words/s: too fast for the window):
-
-> Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer and registers what it discovers at run time; every query has an id you can re-run. The sweep is a Zetaris data-quality rule. Every agent model call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which model answered.
-
-### N09 F29 (only if SW-F29 passed) (a09.m4a; covers R12; window 0 s)
-
-Record this (20 words; window collapsed while the slot is disabled) **Conditional:** only if its slot is enabled.
+### N09 F29 (only if SW-F29 passed) (only if SW-F29 passed) (a09.m4a; covers R12; window 0 s)
 
 > For a company we have never paid, Ultra approves the SEC link from cited rows, unlocking a number to call.
 
-Verbatim 08 text, kept for the record (26 words):
+Conditional: the slot is disabled, so this segment is not in the film.
 
-> For a company we have never paid, Nemotron Ultra approves the SEC link from cited rows, and only then is there an SEC number to call.
+### N10 Sweep and impact (a10.m4a; covers R13, M08; window 18 s)
 
-### N10 Output and impact (a10.m4a; covers R13, M08, M09; window 18 s)
+> Not asked, but checked: five Zetaris rules sweep Friday's run, down to two vendors sharing one bank account. In all, {{sweep_count_words}} other payments fail controls; the controller gets a hold list in dollars. Median time per check: {{q8_seconds}} seconds.
 
-Record this (44 words, 2.44 words/s):
+### N11 Time travel (a11.m4a; covers R14; window 9 s)
 
-> Not asked, but checked: {{sweep_count_words}} other payments in Friday's run fail controls. The controller gets a hold list in dollars and a script with independent numbers. Median decision time: {{q8_seconds}} seconds. It never moves money. Clone it and run sample mode with no keys.
+> What was known when: scrub the graph back to before the run, and the New Jersey company is not in it yet.
 
-## On-screen copy in motion scenes (exact)
+### N12 Close and build credit (a12.m4a; covers M09; window 11 s)
 
-- M02: "$23.5 million diverted after stolen contractor logins changed banking details on a government vendor payment system (2018)." Source: USAO-NJ release 22-160 (29 Apr 2022); GAO-26-108174. Caption: "Modelled on this case; requests and internal records are synthetic." Never "SAM.gov".
-- M02: "$3,046,598,558 lost to business email compromise in 2025." Source: FBI IC3 2025 Internet Crime Report.
-- M02: "91% of organisations call back on a system-of-record number, not one in the email." Source: AFP 2025 Payments Fraud and Control Survey (2024 data). The paired "63% saw requests to change bank account or payment instructions" is not used (Opus decides; same source and year if added).
-- M05: Letter Reader (Nemotron 3 Ultra), Registry Scout (Nemotron 3.5 Lightning), Identity Examiner (Nemotron 3 Ultra), Gate Officer (code decides); "GapRequest, ≤2 rounds"; "re-query · row hash".
-- M07, M08, M06 query ids: every run-derived value comes from facts.generated.json; while it is pending the scene shows "AWAITING RECORDED RUN".
+> It never moves money. Built Grok-first: Grok built the Zetaris data layer and the end-to-end tests; Claude Code built the agents and the interface.
+
+## On-screen copy in motion scenes
+
+- M02: three sourced cards ($23.5 million, USAO-NJ 22-160 and GAO-26-108174; $3,046,598,558, FBI IC3 2025; 91%, AFP 2025 survey). Never "SAM.gov".
+- M03: Vendor master + AP ledger (INTERNAL · ERP), USAspending and SEC EDGAR (REAL · PUBLIC) merge into vendor360.
+- M05: A1 Letter Reader (Nemotron 3 Ultra × 2, "Reads it twice; the readings must agree" + the recorded agreement), A2 Registry Scout (Nemotron 3.5 Lightning), A3 Identity Examiner (Nemotron 3 Ultra), A4 Gate Officer (code decides); "GapRequest, ≤2 rounds"; "re-query · row hash".
+- M06: vendor360's 12 tables; the five sweep rules; "Each fact traces back to its rows." with the lineage chain source system → USL table → query id → SQL hash → row hash; the query count and ids from facts.
+- M07: the Nightshift receipt from facts. M08: hold list in dollars, at stake, this check end to end, median per check (facts).
+- M09: Probity, the line, the repo, SAMPLE_MODE, and "Built Grok-first: Grok (xAI) built the Zetaris data layer (source registration, the unified vendor360 layer, data-quality rules, live checks) and wrote the independent end-to-end test suite. Claude Code built the agents and the interface."
 
 ## Recording lower thirds (in `slots.json`)
 
-R02 "Live USAspending and SEC EDGAR data, joined in Zetaris"; R07 "Three separate processes; memory carried over by the World Model"; R09 "Every fact is a Zetaris query you can re-run"; R10 "The payment-run sweep is a Zetaris data-quality rule".
+- R02: "Live USAspending and SEC EDGAR data, joined in Zetaris"
+- R07: "Three separate processes; memory carried over by the World Model"
+- R09: "Lineage: source system, USL table, query id, SQL hash, row hash"
+- R10: "The payment-run sweep is a Zetaris data-quality rule"
+- R13: "Five Zetaris data-quality rules sweep the payment run"
+- R14: "Time travel: the graph as it was known at any moment"

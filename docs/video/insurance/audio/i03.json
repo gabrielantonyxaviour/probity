@@ -1,0 +1,124 @@
+{
+ "id": "i03",
+ "text_original": "Here is the letter. Nemotron Ultra reads it into quoted claims, so every claim points back to a line on the page.",
+ "text_spoken": "Here is the letter. Nemmo-tron Ultra reads it into quoted claims, so every claim points back to a line on the page.",
+ "words": [
+  {
+   "word": "Here",
+   "start": 0.0,
+   "end": 0.231
+  },
+  {
+   "word": "is",
+   "start": 0.308,
+   "end": 0.462
+  },
+  {
+   "word": "the",
+   "start": 0.5,
+   "end": 0.538
+  },
+  {
+   "word": "letter.",
+   "start": 0.615,
+   "end": 1.192
+  },
+  {
+   "word": "Nemmo-tron",
+   "start": 1.462,
+   "end": 1.923
+  },
+  {
+   "word": "Ultra",
+   "start": 2.0,
+   "end": 2.385
+  },
+  {
+   "word": "reads",
+   "start": 2.538,
+   "end": 2.769
+  },
+  {
+   "word": "it",
+   "start": 2.846,
+   "end": 2.923
+  },
+  {
+   "word": "into",
+   "start": 3.038,
+   "end": 3.154
+  },
+  {
+   "word": "quoted",
+   "start": 3.231,
+   "end": 3.538
+  },
+  {
+   "word": "claims,",
+   "start": 3.615,
+   "end": 4.385
+  },
+  {
+   "word": "so",
+   "start": 4.462,
+   "end": 4.615
+  },
+  {
+   "word": "every",
+   "start": 4.692,
+   "end": 5.0
+  },
+  {
+   "word": "claim",
+   "start": 5.077,
+   "end": 5.385
+  },
+  {
+   "word": "points",
+   "start": 5.538,
+   "end": 5.846
+  },
+  {
+   "word": "back",
+   "start": 5.923,
+   "end": 6.154
+  },
+  {
+   "word": "to",
+   "start": 6.231,
+   "end": 6.308
+  },
+  {
+   "word": "a",
+   "start": 6.346,
+   "end": 6.385
+  },
+  {
+   "word": "line",
+   "start": 6.462,
+   "end": 6.692
+  },
+  {
+   "word": "on",
+   "start": 6.731,
+   "end": 6.769
+  },
+  {
+   "word": "the",
+   "start": 6.846,
+   "end": 6.923
+  },
+  {
+   "word": "page.",
+   "start": 7.0,
+   "end": 7.692
+  }
+ ],
+ "seconds": 7.69,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

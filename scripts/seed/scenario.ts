@@ -95,6 +95,9 @@ export const RUN_1030_ITEMS: ItemSpec[] = [
   { run: "PR-2026-10-30", vendor: "V-10604", invoice: "INV-RNS-44176", account: null, cents: 2346018 },
   { run: "PR-2026-10-30", vendor: "V-10718", invoice: "INV-BPM-37702", account: null, cents: 631240 },
 ];
+/** The Northgate pair (V-10233, V-10234) share one account (DQ7). This item puts one of them in the 30 Oct run, so the sweep flags it.
+ *  Placed after every random draw in buildAp, so no other generated row moves. */
+export const RUN_1030_DQ7_ITEM: ItemSpec = { run: "PR-2026-10-30", vendor: "V-10233", invoice: "INV-NOI-30318", account: "BA-40233", cents: 1864000 };
 export const RUN_1103_ITEMS: ItemSpec[] = [
   { run: "PR-2026-11-03", vendor: "V-10311", invoice: "INV-VTX-90215", account: "BA-40311", cents: 31875000 },
   { run: "PR-2026-11-03", vendor: "V-10112", invoice: "INV-CAC-77104", account: "BA-40112", cents: 40230000 },

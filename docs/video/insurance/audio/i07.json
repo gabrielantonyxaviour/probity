@@ -1,0 +1,199 @@
+{
+ "id": "i07",
+ "text_original": "The World Model keeps what the request claims, what our records say, and what the registries say, as one graph. The decision path shows how the requested account leads to another vendor, and the conflicts are marked.",
+ "text_spoken": "The World Model keeps what the request claims, what our records say, and what the registries say, as one graph. The decision path shows how the requested account leads to another vendor, and the conflicts are marked.",
+ "words": [
+  {
+   "word": "The",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "World",
+   "start": 0.231,
+   "end": 0.462
+  },
+  {
+   "word": "Model",
+   "start": 0.538,
+   "end": 0.769
+  },
+  {
+   "word": "keeps",
+   "start": 0.923,
+   "end": 1.154
+  },
+  {
+   "word": "what",
+   "start": 1.231,
+   "end": 1.385
+  },
+  {
+   "word": "the",
+   "start": 1.423,
+   "end": 1.462
+  },
+  {
+   "word": "request",
+   "start": 1.692,
+   "end": 1.923
+  },
+  {
+   "word": "claims,",
+   "start": 2.0,
+   "end": 2.692
+  },
+  {
+   "word": "what",
+   "start": 2.769,
+   "end": 2.846
+  },
+  {
+   "word": "our",
+   "start": 2.923,
+   "end": 3.0
+  },
+  {
+   "word": "records",
+   "start": 3.231,
+   "end": 3.462
+  },
+  {
+   "word": "say,",
+   "start": 3.538,
+   "end": 4.077
+  },
+  {
+   "word": "and",
+   "start": 4.154,
+   "end": 4.231
+  },
+  {
+   "word": "what",
+   "start": 4.308,
+   "end": 4.385
+  },
+  {
+   "word": "the",
+   "start": 4.423,
+   "end": 4.462
+  },
+  {
+   "word": "registries",
+   "start": 4.538,
+   "end": 5.154
+  },
+  {
+   "word": "say,",
+   "start": 5.231,
+   "end": 5.615
+  },
+  {
+   "word": "as",
+   "start": 5.731,
+   "end": 5.846
+  },
+  {
+   "word": "one",
+   "start": 6.0,
+   "end": 6.154
+  },
+  {
+   "word": "graph.",
+   "start": 6.231,
+   "end": 6.962
+  },
+  {
+   "word": "The",
+   "start": 7.231,
+   "end": 7.269
+  },
+  {
+   "word": "decision",
+   "start": 7.308,
+   "end": 7.692
+  },
+  {
+   "word": "path",
+   "start": 7.769,
+   "end": 8.077
+  },
+  {
+   "word": "shows",
+   "start": 8.154,
+   "end": 8.385
+  },
+  {
+   "word": "how",
+   "start": 8.462,
+   "end": 8.692
+  },
+  {
+   "word": "the",
+   "start": 8.731,
+   "end": 8.769
+  },
+  {
+   "word": "requested",
+   "start": 8.846,
+   "end": 9.308
+  },
+  {
+   "word": "account",
+   "start": 9.385,
+   "end": 9.692
+  },
+  {
+   "word": "leads",
+   "start": 9.769,
+   "end": 10.0
+  },
+  {
+   "word": "to",
+   "start": 10.077,
+   "end": 10.154
+  },
+  {
+   "word": "another",
+   "start": 10.346,
+   "end": 10.538
+  },
+  {
+   "word": "vendor,",
+   "start": 10.615,
+   "end": 11.308
+  },
+  {
+   "word": "and",
+   "start": 11.346,
+   "end": 11.385
+  },
+  {
+   "word": "the",
+   "start": 11.462,
+   "end": 11.538
+  },
+  {
+   "word": "conflicts",
+   "start": 11.615,
+   "end": 12.154
+  },
+  {
+   "word": "are",
+   "start": 12.231,
+   "end": 12.308
+  },
+  {
+   "word": "marked.",
+   "start": 12.385,
+   "end": 13.0
+  }
+ ],
+ "seconds": 13.0,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

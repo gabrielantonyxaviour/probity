@@ -1,0 +1,1148 @@
+{
+  "run_id": "r-20261027T191044Z-3e73",
+  "status": "success",
+  "output": {
+    "summary": "Hold: this request could be for Science Applications International Corp (V-10587) or Leidos, Inc. (V-10442). We cannot tell which vendor it is for.",
+    "recommendations": [
+      "Do not change bank details for this requester.",
+      "Call (703) 676-4300 (SEC EDGAR)",
+      "Call (571) 526-6000 (SEC EDGAR)",
+      "Review PRI-1030-0009 (Quillan Ridge Fleet Services LLC, $87,400.00) before release.",
+      "Review PRI-1030-0010 (Tidewater Cable & Conduit LLC, $63,275.50) before release.",
+      "Review PRI-1030-0015 (Northgate Office Interiors LLC, $18,640.00) before release."
+    ],
+    "artifacts": [
+      {
+        "type": "gate_decision",
+        "data": {
+          "decision_id": "dec-r-20261027T191044Z-3e73",
+          "policy_version": "pp-2026-10-27.1",
+          "request_id": "BCR-2026-0416",
+          "decision": "HOLD",
+          "banner_text": "Hold: we cannot tell which vendor this request is for. Do not change bank details for either Science Applications International Corp or Leidos, Inc. 2 payment(s) totalling $555,220.40 in PR-2026-10-30 need review before release.",
+          "banner_variant": "multi_candidate",
+          "decided_at": "2026-10-27T19:14:35.952Z",
+          "reason_codes": [
+            {
+              "code": "R4",
+              "class": "red",
+              "detail": "Cannot determine which vendor this request is for. Do not guess.",
+              "evidence_ids": [],
+              "variant": "multi_candidate"
+            },
+            {
+              "code": "C1",
+              "class": "cap",
+              "detail": "No call-back to an independent number is on record for this request.",
+              "evidence_ids": []
+            },
+            {
+              "code": "I2",
+              "class": "info",
+              "detail": "'Science Applications International Corporation' is a former or alternate name of Leidos, Inc. (USAspending alternate name).",
+              "evidence_ids": [
+                "ev-78edaabe-3-ln"
+              ]
+            }
+          ],
+          "exposure": {
+            "payment_run_id": "PR-2026-10-30",
+            "scheduled_date": "2026-10-30",
+            "cutoff_local": "14:00 ET",
+            "scope": "candidates",
+            "vendor_item_count": 2,
+            "vendor_amount_usd": 555220.4,
+            "run_item_count": 15,
+            "run_amount_usd": 2426479.48,
+            "by_vendor": [
+              {
+                "vendor_id": "V-10587",
+                "vendor_name": "Science Applications International Corp",
+                "item_count": 1,
+                "amount_usd": 198400
+              },
+              {
+                "vendor_id": "V-10442",
+                "vendor_name": "Leidos, Inc.",
+                "item_count": 1,
+                "amount_usd": 356820.4
+              }
+            ]
+          },
+          "resolved": {
+            "vendor_id": null,
+            "vendor_name": null,
+            "candidate_vendor_ids": [
+              "V-10587",
+              "V-10442"
+            ],
+            "uei": null,
+            "parent_uei": null,
+            "registrant_cik": null,
+            "family_size": null
+          },
+          "evidence_coverage": {
+            "decisive_fields": 2,
+            "with_live_evidence": 2,
+            "degraded_sources": []
+          },
+          "fact_sheet": [
+            {
+              "field": "legal_name",
+              "label": "Legal name",
+              "claimed": "Science Applications International Corporation",
+              "observations": [
+                {
+                  "evidence_id": "ev-cb830af0-0-ln",
+                  "field": "legal_name",
+                  "source": "vendor_master",
+                  "value": "Science Applications International Corp",
+                  "row_key": "V-10587",
+                  "template_id": "T04b",
+                  "query_id": "cb830af0-f470-4a7d-97a5-70d23437170f",
+                  "sql_hash": "9f7eb33de45ff38a",
+                  "row_hash": "87722fcb51f2ab7b",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:11:51.242Z",
+                  "latency_ms": 1091,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-d48540a5-0-ln",
+                  "field": "legal_name",
+                  "source": "edgar",
+                  "value": "Science Applications International Corp",
+                  "row_key": "0001571123",
+                  "template_id": "T06c",
+                  "query_id": "d48540a5-1bae-4da7-88a1-03f01cfce153",
+                  "sql_hash": "88bb62823fdaa79c",
+                  "row_hash": "167e8f9d9ded8877",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:01.113Z",
+                  "latency_ms": 9584,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-fe4d891a-0-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+                  "row_key": "RE7WMNV9L719-P",
+                  "template_id": "T06b",
+                  "query_id": "fe4d891a-fa24-4ee8-a0d7-4c42b62edf86",
+                  "sql_hash": "c5a5d414a043908a",
+                  "row_hash": "44d67d80e4ba8685",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:04.987Z",
+                  "latency_ms": 13636,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-fe4d891a-1-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+                  "row_key": "MMLKPW9JLX64-C",
+                  "template_id": "T06b",
+                  "query_id": "fe4d891a-fa24-4ee8-a0d7-4c42b62edf86",
+                  "sql_hash": "c5a5d414a043908a",
+                  "row_hash": "44d67d80e4ba8685",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:04.987Z",
+                  "latency_ms": 13636,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-78edaabe-0-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+                  "row_key": "MDSWM6MB1BH7-C",
+                  "template_id": "T06a",
+                  "query_id": "78edaabe-bb1f-4891-bfe2-d470861cfaf5",
+                  "sql_hash": "1e6ec3436435201e",
+                  "row_hash": "9378083e28b200c9",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:17.380Z",
+                  "latency_ms": 26137,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-78edaabe-1-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+                  "row_key": "MMLKPW9JLX64-C",
+                  "template_id": "T06a",
+                  "query_id": "78edaabe-bb1f-4891-bfe2-d470861cfaf5",
+                  "sql_hash": "1e6ec3436435201e",
+                  "row_hash": "9378083e28b200c9",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:17.380Z",
+                  "latency_ms": 26137,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-78edaabe-2-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "SCIENCE APPLICATIONS INTERNATIONAL CORP",
+                  "row_key": "RE7WMNV9L719-P",
+                  "template_id": "T06a",
+                  "query_id": "78edaabe-bb1f-4891-bfe2-d470861cfaf5",
+                  "sql_hash": "1e6ec3436435201e",
+                  "row_hash": "9378083e28b200c9",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:17.380Z",
+                  "latency_ms": 26137,
+                  "row_indexes": [
+                    2
+                  ]
+                },
+                {
+                  "evidence_id": "ev-78edaabe-3-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+                  "row_key": "UE9QJD4KK1L6-C",
+                  "template_id": "T06a",
+                  "query_id": "78edaabe-bb1f-4891-bfe2-d470861cfaf5",
+                  "sql_hash": "1e6ec3436435201e",
+                  "row_hash": "9378083e28b200c9",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:17.380Z",
+                  "latency_ms": 26137,
+                  "row_indexes": [
+                    3
+                  ]
+                }
+              ],
+              "status": "ambiguous",
+              "why": "Vendor master lists Science Applications International Corp; the request says Science Applications International Corporation."
+            },
+            {
+              "field": "remit_address",
+              "label": "Remit-to address",
+              "claimed": "12010 Sunset Hills Rd, Reston, VA 20190",
+              "observations": [
+                {
+                  "evidence_id": "ev-c77e45e8-0-ra",
+                  "field": "remit_address",
+                  "source": "vendor_master",
+                  "value": "1750 Presidents St, Fl 10, Reston, VA, 20190",
+                  "row_key": "V-10442",
+                  "template_id": "T01",
+                  "query_id": "c77e45e8-ee71-4cfb-85ea-1a30bd93ff3a",
+                  "sql_hash": "3de22c7157cd16e3",
+                  "row_hash": "b5d7344dfc2a60cb",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:18.843Z",
+                  "latency_ms": 1460,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-cfce89fd-0-ra",
+                  "field": "remit_address",
+                  "source": "vendor_master",
+                  "value": "12010 Sunset Hills Rd, Reston, VA, 20190",
+                  "row_key": "V-10587",
+                  "template_id": "T01",
+                  "query_id": "cfce89fd-aacc-4c22-a1ab-4b827759665e",
+                  "sql_hash": "b4f963515f21b4f0",
+                  "row_hash": "8b030c69f2d1722e",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:26.838Z",
+                  "latency_ms": 709,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-27348d82-0-ra",
+                  "field": "remit_address",
+                  "source": "vendor_master",
+                  "value": "12010 Sunset Hills Rd, Reston, VA",
+                  "row_key": "V-10587",
+                  "template_id": "T05",
+                  "query_id": "27348d82-42e4-485b-9df3-e0c1d255513c",
+                  "sql_hash": "99f52a7dbc9a35ec",
+                  "row_hash": "26eb8dd1b192af62",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.975Z",
+                  "latency_ms": 23846,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-27348d82-1-ra",
+                  "field": "remit_address",
+                  "source": "usaspending",
+                  "value": "12010 SUNSET HILLS RD, RESTON, VA",
+                  "row_key": "MMLKPW9JLX64-C",
+                  "template_id": "T05",
+                  "query_id": "27348d82-42e4-485b-9df3-e0c1d255513c",
+                  "sql_hash": "99f52a7dbc9a35ec",
+                  "row_hash": "26eb8dd1b192af62",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.975Z",
+                  "latency_ms": 23846,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-27348d82-2-ra",
+                  "field": "remit_address",
+                  "source": "edgar",
+                  "value": "12010 SUNSET HILLS ROAD, RESTON, VA",
+                  "row_key": "0001571123",
+                  "template_id": "T05",
+                  "query_id": "27348d82-42e4-485b-9df3-e0c1d255513c",
+                  "sql_hash": "99f52a7dbc9a35ec",
+                  "row_hash": "26eb8dd1b192af62",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.975Z",
+                  "latency_ms": 23846,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b9f17290-0-ra",
+                  "field": "remit_address",
+                  "source": "vendor_master",
+                  "value": "1750 Presidents St, Reston, VA",
+                  "row_key": "V-10442",
+                  "template_id": "T05",
+                  "query_id": "b9f17290-e280-446a-9e94-0b0d1ee57cc3",
+                  "sql_hash": "7fc9bd938efd6bee",
+                  "row_hash": "a25f424446664862",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.978Z",
+                  "latency_ms": 23045,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b9f17290-1-ra",
+                  "field": "remit_address",
+                  "source": "usaspending",
+                  "value": "1750 PRESIDENTS ST FL 10, RESTON, VA",
+                  "row_key": "UE9QJD4KK1L6-C",
+                  "template_id": "T05",
+                  "query_id": "b9f17290-e280-446a-9e94-0b0d1ee57cc3",
+                  "sql_hash": "7fc9bd938efd6bee",
+                  "row_hash": "a25f424446664862",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.978Z",
+                  "latency_ms": 23045,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b9f17290-2-ra",
+                  "field": "remit_address",
+                  "source": "edgar",
+                  "value": "1750 PRESIDENTS STREET, RESTON, VA",
+                  "row_key": "0001336920",
+                  "template_id": "T05",
+                  "query_id": "b9f17290-e280-446a-9e94-0b0d1ee57cc3",
+                  "sql_hash": "7fc9bd938efd6bee",
+                  "row_hash": "a25f424446664862",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.978Z",
+                  "latency_ms": 23045,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "ambiguous",
+              "why": "Vendor master lists 12010 Sunset Hills Rd, Reston, VA; the request says 12010 Sunset Hills Rd, Reston, VA 20190."
+            },
+            {
+              "field": "bank_account",
+              "label": "Bank account",
+              "claimed": "routing 110000000, account ending 0163",
+              "observations": [
+                {
+                  "evidence_id": "ev-e9eca082-0-ba",
+                  "field": "bank_account",
+                  "source": "vendor_master",
+                  "value": "bank_change_request, pending, 2026-10-23 13:47:00",
+                  "row_key": "",
+                  "template_id": "T07",
+                  "query_id": "e9eca082-5965-45ff-b4cf-d86eec10e682",
+                  "sql_hash": "ef50a5b9ad588cde",
+                  "row_hash": "8ce68ce98616da90",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:30.122Z",
+                  "latency_ms": 2334,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-44559bbe-0-ba",
+                  "field": "bank_account",
+                  "source": "request",
+                  "value": "110000000, valid",
+                  "row_key": "BCR-2026-0416",
+                  "template_id": "T08b",
+                  "query_id": "44559bbe-ee09-4f9a-964c-17b5f8092cb2",
+                  "sql_hash": "34c1fcceb77957ed",
+                  "row_hash": "21672bd7ad4a4186",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:14:35.949Z",
+                  "latency_ms": 1224,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "ambiguous",
+              "why": "New account; not on any other vendor. Ownership is not verified."
+            },
+            {
+              "field": "sender_domain",
+              "label": "Sender domain",
+              "claimed": "saic.example",
+              "observations": [
+                {
+                  "evidence_id": "ev-73626495-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "saic.example",
+                  "row_key": "V-10587",
+                  "template_id": "T04",
+                  "query_id": "73626495-266c-454e-a078-076810ea1986",
+                  "sql_hash": "847dc33aec6f922c",
+                  "row_hash": "871c1d75277c09f9",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:11:51.527Z",
+                  "latency_ms": 1377,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-c77e45e8-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "leidos.example",
+                  "row_key": "V-10442",
+                  "template_id": "T01",
+                  "query_id": "c77e45e8-ee71-4cfb-85ea-1a30bd93ff3a",
+                  "sql_hash": "3de22c7157cd16e3",
+                  "row_hash": "b5d7344dfc2a60cb",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:18.843Z",
+                  "latency_ms": 1460,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-76c868d9-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "saic.example",
+                  "row_key": "VC-00060",
+                  "template_id": "T02",
+                  "query_id": "76c868d9-3587-4fff-8060-6011e1cb1aaa",
+                  "sql_hash": "35b8a61a0e817f94",
+                  "row_hash": "d3e253d05bf80c41",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:26.554Z",
+                  "latency_ms": 425,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-cfce89fd-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "saic.example",
+                  "row_key": "V-10587",
+                  "template_id": "T01",
+                  "query_id": "cfce89fd-aacc-4c22-a1ab-4b827759665e",
+                  "sql_hash": "b4f963515f21b4f0",
+                  "row_hash": "8b030c69f2d1722e",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:26.838Z",
+                  "latency_ms": 709,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-306a04b6-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "leidos.example",
+                  "row_key": "VC-00043",
+                  "template_id": "T02",
+                  "query_id": "306a04b6-3cd3-4b85-b0da-63d29840eb1a",
+                  "sql_hash": "d243826068d0eeb2",
+                  "row_hash": "0cf42a0c66ac5f29",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:27.177Z",
+                  "latency_ms": 338,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "ambiguous",
+              "why": "saic.example is on file for Science Applications International Corp or Leidos, Inc."
+            },
+            {
+              "field": "callback_phone",
+              "label": "Call-back phone",
+              "claimed": null,
+              "observations": [
+                {
+                  "evidence_id": "ev-76c868d9-0-cp",
+                  "field": "callback_phone",
+                  "source": "vendor_master",
+                  "value": "703.676.4300 (2019-04-02 12:00:00 → null)",
+                  "row_key": "VC-00061",
+                  "template_id": "T02",
+                  "query_id": "76c868d9-3587-4fff-8060-6011e1cb1aaa",
+                  "sql_hash": "35b8a61a0e817f94",
+                  "row_hash": "d3e253d05bf80c41",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:26.554Z",
+                  "latency_ms": 425,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-306a04b6-0-cp",
+                  "field": "callback_phone",
+                  "source": "vendor_master",
+                  "value": "571-526-6000 (2019-04-02 12:00:00 → null)",
+                  "row_key": "VC-00044",
+                  "template_id": "T02",
+                  "query_id": "306a04b6-3cd3-4b85-b0da-63d29840eb1a",
+                  "sql_hash": "d243826068d0eeb2",
+                  "row_hash": "0cf42a0c66ac5f29",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:27.177Z",
+                  "latency_ms": 338,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-27348d82-0-cp",
+                  "field": "callback_phone",
+                  "source": "edgar",
+                  "value": "703-676-4300",
+                  "row_key": "0001571123",
+                  "template_id": "T05",
+                  "query_id": "27348d82-42e4-485b-9df3-e0c1d255513c",
+                  "sql_hash": "99f52a7dbc9a35ec",
+                  "row_hash": "26eb8dd1b192af62",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.975Z",
+                  "latency_ms": 23846,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b9f17290-0-cp",
+                  "field": "callback_phone",
+                  "source": "edgar",
+                  "value": "571-526-6000",
+                  "row_key": "0001336920",
+                  "template_id": "T05",
+                  "query_id": "b9f17290-e280-446a-9e94-0b0d1ee57cc3",
+                  "sql_hash": "7fc9bd938efd6bee",
+                  "row_hash": "a25f424446664862",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.978Z",
+                  "latency_ms": 23045,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "ambiguous",
+              "why": "The request lists no phone number; the script uses the independent number."
+            },
+            {
+              "field": "invoice_refs",
+              "label": "Invoice references",
+              "claimed": "INV-LDS-88412, INV-LDS-88433",
+              "observations": [
+                {
+                  "evidence_id": "ev-f732256b-0-ir",
+                  "field": "invoice_refs",
+                  "source": "vendor_master",
+                  "value": "INV-LDS-88412 → V-10442",
+                  "row_key": "INV-LDS-88412",
+                  "template_id": "T03",
+                  "query_id": "f732256b-492e-4a10-a5f6-698503b78d91",
+                  "sql_hash": "66e82c40f69246d1",
+                  "row_hash": "94ac0f57decf8e09",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:11:51.350Z",
+                  "latency_ms": 1200,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-f732256b-1-ir",
+                  "field": "invoice_refs",
+                  "source": "vendor_master",
+                  "value": "INV-LDS-88433 → V-10442",
+                  "row_key": "INV-LDS-88433",
+                  "template_id": "T03",
+                  "query_id": "f732256b-492e-4a10-a5f6-698503b78d91",
+                  "sql_hash": "66e82c40f69246d1",
+                  "row_hash": "94ac0f57decf8e09",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:11:51.350Z",
+                  "latency_ms": 1200,
+                  "row_indexes": [
+                    1
+                  ]
+                }
+              ],
+              "status": "ambiguous",
+              "why": "All 2 invoice references belong to Science Applications International Corp or Leidos, Inc."
+            },
+            {
+              "field": "parent",
+              "label": "Parent company (federal award ID, UEI)",
+              "claimed": null,
+              "observations": [
+                {
+                  "evidence_id": "ev-27348d82-0-pa",
+                  "field": "parent",
+                  "source": "usaspending",
+                  "value": "RE7WMNV9L719",
+                  "row_key": "MMLKPW9JLX64-C",
+                  "template_id": "T05",
+                  "query_id": "27348d82-42e4-485b-9df3-e0c1d255513c",
+                  "sql_hash": "99f52a7dbc9a35ec",
+                  "row_hash": "26eb8dd1b192af62",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.975Z",
+                  "latency_ms": 23846,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b9f17290-0-pa",
+                  "field": "parent",
+                  "source": "usaspending",
+                  "value": "MDSWM6MB1BH7",
+                  "row_key": "UE9QJD4KK1L6-C",
+                  "template_id": "T05",
+                  "query_id": "b9f17290-e280-446a-9e94-0b0d1ee57cc3",
+                  "sql_hash": "7fc9bd938efd6bee",
+                  "row_hash": "a25f424446664862",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.978Z",
+                  "latency_ms": 23045,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-9a1f1654-0-pa",
+                  "field": "parent",
+                  "source": "usaspending",
+                  "value": "RE7WMNV9L719-P, SCIENCE APPLICATIONS INTERNATIONAL CORPORATION",
+                  "row_key": "RE7WMNV9L719-P",
+                  "template_id": "T05b",
+                  "query_id": "9a1f1654-125e-4860-a807-c436eddee1c2",
+                  "sql_hash": "81af75f11b2dffd6",
+                  "row_hash": "e10984c992fb40e6",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:13:07.078Z",
+                  "latency_ms": 17099,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "ambiguous",
+              "why": "No parent record was found."
+            },
+            {
+              "field": "registrant",
+              "label": "SEC registrant (company ID, CIK)",
+              "claimed": null,
+              "observations": [
+                {
+                  "evidence_id": "ev-c77e45e8-0-rg",
+                  "field": "registrant",
+                  "source": "vendor_master",
+                  "value": "0001336920",
+                  "row_key": "V-10442",
+                  "template_id": "T01",
+                  "query_id": "c77e45e8-ee71-4cfb-85ea-1a30bd93ff3a",
+                  "sql_hash": "3de22c7157cd16e3",
+                  "row_hash": "b5d7344dfc2a60cb",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:18.843Z",
+                  "latency_ms": 1460,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-cfce89fd-0-rg",
+                  "field": "registrant",
+                  "source": "vendor_master",
+                  "value": "0001571123",
+                  "row_key": "V-10587",
+                  "template_id": "T01",
+                  "query_id": "cfce89fd-aacc-4c22-a1ab-4b827759665e",
+                  "sql_hash": "b4f963515f21b4f0",
+                  "row_hash": "8b030c69f2d1722e",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:26.838Z",
+                  "latency_ms": 709,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-27348d82-0-rg",
+                  "field": "registrant",
+                  "source": "edgar",
+                  "value": "0001571123 Science Applications International Corp",
+                  "row_key": "0001571123",
+                  "template_id": "T05",
+                  "query_id": "27348d82-42e4-485b-9df3-e0c1d255513c",
+                  "sql_hash": "99f52a7dbc9a35ec",
+                  "row_hash": "26eb8dd1b192af62",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.975Z",
+                  "latency_ms": 23846,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b9f17290-0-rg",
+                  "field": "registrant",
+                  "source": "edgar",
+                  "value": "0001336920 Leidos Holdings, Inc.",
+                  "row_key": "0001336920",
+                  "template_id": "T05",
+                  "query_id": "b9f17290-e280-446a-9e94-0b0d1ee57cc3",
+                  "sql_hash": "7fc9bd938efd6bee",
+                  "row_hash": "a25f424446664862",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:12:49.978Z",
+                  "latency_ms": 23045,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "ambiguous",
+              "why": "No SEC registrant was found."
+            }
+          ],
+          "conflicts": [
+            {
+              "conflict_id": "cf-attribution-e54f8bd2",
+              "description": "This request could belong to Leidos, Inc. (V-10442) or Science Applications International Corp (V-10587); the evidence does not decide which.",
+              "resolution": "unresolved",
+              "by": "policy"
+            }
+          ],
+          "callback_evidence": [],
+          "callback_scripts": [
+            {
+              "for_vendor_id": "V-10587",
+              "vendor_name": "Science Applications International Corp",
+              "number_e164": "+17036764300",
+              "number_display": "(703) 676-4300",
+              "number_source": "edgar_registrant",
+              "source_ref": "CIK 0001571123",
+              "source_label": "SEC EDGAR submissions, CIK 0001571123, fetched 2026-10-27T19:12:49.975Z",
+              "valid_since": null,
+              "do_not_use": [],
+              "lines": [
+                "Call (703) 676-4300 (SEC EDGAR submissions, CIK 0001571123, fetched 2026-10-27T19:12:49.975Z).",
+                "Ask for accounts receivable or treasury. Do not read out the new details first.",
+                "Ask them to state the bank name and the last four digits of the account they expect us to pay.",
+                "Ask them to state the remit-to address they expect. Compare it with: 12010 Sunset Hills Rd, Reston, VA 20190.",
+                "Record the outcome in Probity: confirmed, denied or no answer."
+              ]
+            },
+            {
+              "for_vendor_id": "V-10442",
+              "vendor_name": "Leidos, Inc.",
+              "number_e164": "+15715266000",
+              "number_display": "(571) 526-6000",
+              "number_source": "edgar_registrant",
+              "source_ref": "CIK 0001336920",
+              "source_label": "SEC EDGAR submissions, CIK 0001336920, fetched 2026-10-27T19:12:49.978Z",
+              "valid_since": null,
+              "do_not_use": [],
+              "lines": [
+                "Call (571) 526-6000 (SEC EDGAR submissions, CIK 0001336920, fetched 2026-10-27T19:12:49.978Z).",
+                "Ask for accounts receivable or treasury. Do not read out the new details first.",
+                "Ask them to state the bank name and the last four digits of the account they expect us to pay.",
+                "Ask them to state the remit-to address they expect. Compare it with: 12010 Sunset Hills Rd, Reston, VA 20190.",
+                "Record the outcome in Probity: confirmed, denied or no answer."
+              ]
+            }
+          ],
+          "sweep": {
+            "payment_run_id": "PR-2026-10-30",
+            "amount_usd": 169315.5,
+            "rules_run": [
+              {
+                "rule": "DQ1",
+                "total": 154,
+                "valid": 151,
+                "invalid": 3,
+                "query_id": "3508043a-a4a5-4858-b25f-52424c5864a8"
+              },
+              {
+                "rule": "DQ2",
+                "total": 154,
+                "valid": 150,
+                "invalid": 4,
+                "query_id": "77d79ff3-e575-4bf4-9e9d-c2356136bcfc"
+              },
+              {
+                "rule": "DQ7",
+                "total": 52,
+                "valid": 50,
+                "invalid": 2,
+                "query_id": "84d7e917-3970-4f83-b64d-3eab856a83b9",
+                "groups": [
+                  {
+                    "account_hash": "35b3f6fe36f7fbd4de8d547f66f5712c070586a5175353215a1cf5f83b7cf1f5",
+                    "vendor_ids": [
+                      "V-10233",
+                      "V-10234"
+                    ]
+                  }
+                ]
+              },
+              {
+                "rule": "DQ8",
+                "total": 154,
+                "valid": 154,
+                "invalid": 0,
+                "query_id": "62417904-b163-478a-99de-7bdfc5b7ed24"
+              },
+              {
+                "rule": "DQ9",
+                "total": 154,
+                "valid": 154,
+                "invalid": 0,
+                "query_id": "5608449b-d743-43ec-806a-d5253cefebf7"
+              }
+            ],
+            "findings": [
+              {
+                "item_id": "PRI-1030-0009",
+                "vendor_id": "V-10812",
+                "vendor_name": "Quillan Ridge Fleet Services LLC",
+                "rule": "DQ1",
+                "amount_usd": 87400,
+                "detail": "Bank details changed 12 days before payment with no call-back on an independent number.",
+                "recommendation": "callback_before_release",
+                "query_id": "51eb7e27-da0e-41e0-9a2a-2e662eb3d00e"
+              },
+              {
+                "item_id": "PRI-1030-0009",
+                "vendor_id": "V-10812",
+                "vendor_name": "Quillan Ridge Fleet Services LLC",
+                "rule": "DQ2",
+                "amount_usd": 87400,
+                "detail": "The account in this request is already on Quillan Ridge Fleet Services LLC (V-10812), created 5 days before the request, scheduled for $87,400.00.",
+                "recommendation": "hold_item",
+                "query_id": "adb6d230-f64e-465c-833c-6ef95ba6265a"
+              },
+              {
+                "item_id": "PRI-1030-0010",
+                "vendor_id": "V-10763",
+                "vendor_name": "Tidewater Cable & Conduit LLC",
+                "rule": "DQ1",
+                "amount_usd": 63275.5,
+                "detail": "Bank details changed 14 days before payment with no call-back on an independent number.",
+                "recommendation": "callback_before_release",
+                "query_id": "51eb7e27-da0e-41e0-9a2a-2e662eb3d00e"
+              },
+              {
+                "item_id": "PRI-1030-0015",
+                "vendor_id": "V-10233",
+                "vendor_name": "Northgate Office Interiors LLC",
+                "rule": "DQ2",
+                "amount_usd": 18640,
+                "detail": "The account in this request is already on Northgate Office Interiors LLC (V-10233), created 2552 days before the request, scheduled for $18,640.00.",
+                "recommendation": "hold_item",
+                "query_id": "adb6d230-f64e-465c-833c-6ef95ba6265a"
+              },
+              {
+                "item_id": "PRI-1030-0015",
+                "vendor_id": "V-10233",
+                "vendor_name": "Northgate Office Interiors LLC",
+                "rule": "DQ7",
+                "amount_usd": 18640,
+                "detail": "This account hash is on file for more than one vendor. account_hash 35b3f6fe36f7fbd4de8d547f66f5712c070586a5175353215a1cf5f83b7cf1f5. vendor_ids V-10233,V-10234.",
+                "recommendation": "hold_item",
+                "query_id": "e9bd3063-e6d8-4d69-bfe3-022a0e4737b7"
+              }
+            ]
+          },
+          "suggested_edits": [],
+          "memory_recalled": [],
+          "models_used": [
+            {
+              "agent": "letter_reader",
+              "lane": "deep",
+              "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "calls": 3,
+              "tokens_in": 4468,
+              "tokens_out": 2659,
+              "latency_ms_p50": 31978,
+              "nemotron": true
+            },
+            {
+              "agent": "registry_scout",
+              "lane": "fast",
+              "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "calls": 4,
+              "tokens_in": 20767,
+              "tokens_out": 480,
+              "latency_ms_p50": 1971,
+              "nemotron": true
+            },
+            {
+              "agent": "identity_examiner",
+              "lane": "deep",
+              "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "calls": 3,
+              "tokens_in": 2598,
+              "tokens_out": 871,
+              "latency_ms_p50": 8671,
+              "nemotron": true
+            },
+            {
+              "agent": "gate_officer",
+              "lane": "fast",
+              "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "calls": 1,
+              "tokens_in": 1260,
+              "tokens_out": 207,
+              "latency_ms_p50": 2765,
+              "nemotron": true
+            }
+          ],
+          "cost": {
+            "vision_calls": 0,
+            "deep_calls": 6,
+            "fast_calls": 5,
+            "tokens_total": 33310
+          },
+          "rationale": {
+            "text": "HOLD for Science Applications International Corp or Leidos, Inc. in PR-2026-10-30. Cannot determine which vendor this request is for; do not guess. Confirm first: no call-back to an independent number is on record for this request. Call Science Applications International Corp on (703) 676-4300 (SEC EDGAR submissions, CIK 0001571123, fetched 2026-10-27) and Leidos, Inc. on (571) 526-6000 (SEC EDGAR submissions, CIK 0001336920, fetched 2026-10-27). 3 other items totalling $169,315.50 in PR-2026-10-30 also fail payment controls.",
+            "source": "model",
+            "number_check": "passed"
+          },
+          "rounds": 1,
+          "mode": "live",
+          "limitations": [],
+          "labels": {
+            "mode_banner": null
+          },
+          "letter_reading": {
+            "status": "agree",
+            "readings": [
+              {
+                "reading": "A",
+                "input": "text_layer",
+                "instructions": "transcribe",
+                "path": "text+deep",
+                "status": "ok",
+                "error_code": null,
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "model_call_id": "mc-r-20261027T191044Z-3e73-1",
+                "receipt_id": "rcpt_req_vkh33aws",
+                "egress_destination": "nvidia",
+                "latency_ms": 65883,
+                "tokens_in": 1696,
+                "tokens_out": 1832,
+                "values": {
+                  "account_number": "[REDACTED]",
+                  "routing": "110000000",
+                  "payee": "Science Applications International Corporation",
+                  "remit_address": "12010 Sunset Hills Rd, Reston, VA 20190",
+                  "phones": null,
+                  "bank_name": "Harborline Savings",
+                  "effective_date": "1 November 2026",
+                  "invoice_refs": "INV-LDS-88412, INV-LDS-88433"
+                }
+              },
+              {
+                "reading": "B",
+                "input": "ocr",
+                "instructions": "visual",
+                "path": "ocr+deep",
+                "status": "ok",
+                "error_code": null,
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "model_call_id": "mc-r-20261027T191044Z-3e73-3",
+                "receipt_id": "rcpt_req_o8ti2wpr",
+                "egress_destination": "nvidia",
+                "latency_ms": 31978,
+                "tokens_in": 1855,
+                "tokens_out": 812,
+                "values": {
+                  "account_number": "[REDACTED]",
+                  "routing": "110000000",
+                  "payee": "Science Applications International Corporation",
+                  "remit_address": "12010 Sunset Hills Rd, Reston, VA 20190",
+                  "phones": null,
+                  "bank_name": "Harborline Savings",
+                  "effective_date": "1 November 2026",
+                  "invoice_refs": "INV-LDS-88412, INV-LDS-88433"
+                }
+              }
+            ],
+            "fields": [
+              {
+                "field": "account_number",
+                "material": true,
+                "a": "••••0163",
+                "b": "••••0163",
+                "agree": true
+              },
+              {
+                "field": "routing",
+                "material": true,
+                "a": "110000000",
+                "b": "110000000",
+                "agree": true
+              },
+              {
+                "field": "payee",
+                "material": true,
+                "a": "Science Applications International Corporation",
+                "b": "Science Applications International Corporation",
+                "agree": true
+              },
+              {
+                "field": "remit_address",
+                "material": true,
+                "a": "12010 Sunset Hills Rd, Reston, VA 20190",
+                "b": "12010 Sunset Hills Rd, Reston, VA 20190",
+                "agree": true
+              },
+              {
+                "field": "bank_name",
+                "material": false,
+                "a": "Harborline Savings",
+                "b": "Harborline Savings",
+                "agree": true
+              },
+              {
+                "field": "effective_date",
+                "material": false,
+                "a": "1 November 2026",
+                "b": "1 November 2026",
+                "agree": true
+              },
+              {
+                "field": "invoice_refs",
+                "material": false,
+                "a": "INV-LDS-88412, INV-LDS-88433",
+                "b": "INV-LDS-88412, INV-LDS-88433",
+                "agree": true
+              }
+            ],
+            "compared": 7,
+            "agreed": 7,
+            "agreement": 1,
+            "material_disagreements": [],
+            "primary": "A"
+          },
+          "injection": {
+            "detected": false,
+            "variant": null,
+            "spans": [],
+            "review": {
+              "status": "confirmed",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model_call_id": "mc-r-20261027T191044Z-3e73-2",
+              "receipt_id": "rcpt_req_72jsbldf",
+              "egress_destination": "nvidia",
+              "latency_ms": 1342,
+              "confirmed": 0,
+              "added": 0
+            },
+            "limitation": null
+          }
+        }
+      },
+      {
+        "type": "trace",
+        "path": "logs/trace-r-20261027T191044Z-3e73.jsonl"
+      }
+    ],
+    "needs_human": null
+  },
+  "agents": [
+    {
+      "name": "letter_reader",
+      "role": "Reads the request letter and email headers into quoted claims (Nemotron 3 Ultra over the PDF text layer or OCR text)"
+    },
+    {
+      "name": "registry_scout",
+      "role": "Plans and gathers evidence through Zetaris query templates; discovers related entities on request (Nemotron 3.5 Lightning)"
+    },
+    {
+      "name": "identity_examiner",
+      "role": "Critic with block authority: re-queries Zetaris, approves or rejects identity links, demands missing evidence (rules + Nemotron 3 Ultra)"
+    },
+    {
+      "name": "gate_officer",
+      "role": "Applies the deterministic payment policy, selects an independent call-back number, sweeps the payment run, writes the rationale (code + Nemotron 3.5 Lightning)"
+    }
+  ],
+  "trace_id": "t-8b56a0eb",
+  "log_file": "logs/trace-r-20261027T191044Z-3e73.jsonl",
+  "execution_time_seconds": 273.4
+}

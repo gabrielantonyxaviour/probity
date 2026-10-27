@@ -1,0 +1,239 @@
+{
+ "id": "i01",
+ "text_original": "A vendor's bank details change by email, days before a big payment run. Policy says call back on a number that did not come from the letter, but finding that number takes four systems. This is Probity's inbox: every bank-change request waiting before Friday's payments.",
+ "text_spoken": "A vendor's bank details change by email, days before a big payment run. Policy says call back on a number that did not come from the letter, but finding that number takes four systems. This is Probity's inbox: every bank-change request waiting before Friday's payments.",
+ "words": [
+  {
+   "word": "A",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "vendor's",
+   "start": 0.308,
+   "end": 0.615
+  },
+  {
+   "word": "bank",
+   "start": 0.731,
+   "end": 0.846
+  },
+  {
+   "word": "details",
+   "start": 0.923,
+   "end": 1.385
+  },
+  {
+   "word": "change",
+   "start": 1.462,
+   "end": 1.692
+  },
+  {
+   "word": "by",
+   "start": 1.808,
+   "end": 1.923
+  },
+  {
+   "word": "email,",
+   "start": 2.0,
+   "end": 2.615
+  },
+  {
+   "word": "days",
+   "start": 2.692,
+   "end": 3.0
+  },
+  {
+   "word": "before",
+   "start": 3.077,
+   "end": 3.308
+  },
+  {
+   "word": "a",
+   "start": 3.346,
+   "end": 3.385
+  },
+  {
+   "word": "big",
+   "start": 3.462,
+   "end": 3.615
+  },
+  {
+   "word": "payment",
+   "start": 3.769,
+   "end": 3.923
+  },
+  {
+   "word": "run.",
+   "start": 4.0,
+   "end": 4.615
+  },
+  {
+   "word": "Policy",
+   "start": 4.846,
+   "end": 5.077
+  },
+  {
+   "word": "says",
+   "start": 5.231,
+   "end": 5.385
+  },
+  {
+   "word": "call",
+   "start": 5.538,
+   "end": 5.769
+  },
+  {
+   "word": "back",
+   "start": 5.885,
+   "end": 6.0
+  },
+  {
+   "word": "on",
+   "start": 6.038,
+   "end": 6.077
+  },
+  {
+   "word": "a",
+   "start": 6.115,
+   "end": 6.154
+  },
+  {
+   "word": "number",
+   "start": 6.231,
+   "end": 6.462
+  },
+  {
+   "word": "that",
+   "start": 6.577,
+   "end": 6.692
+  },
+  {
+   "word": "did",
+   "start": 6.808,
+   "end": 6.923
+  },
+  {
+   "word": "not",
+   "start": 7.0,
+   "end": 7.231
+  },
+  {
+   "word": "come",
+   "start": 7.308,
+   "end": 7.385
+  },
+  {
+   "word": "from",
+   "start": 7.462,
+   "end": 7.615
+  },
+  {
+   "word": "the",
+   "start": 7.641,
+   "end": 7.666
+  },
+  {
+   "word": "letter,",
+   "start": 7.692,
+   "end": 8.385
+  },
+  {
+   "word": "but",
+   "start": 8.462,
+   "end": 8.538
+  },
+  {
+   "word": "finding",
+   "start": 8.731,
+   "end": 8.923
+  },
+  {
+   "word": "that",
+   "start": 9.0,
+   "end": 9.077
+  },
+  {
+   "word": "number",
+   "start": 9.154,
+   "end": 9.538
+  },
+  {
+   "word": "takes",
+   "start": 9.731,
+   "end": 9.923
+  },
+  {
+   "word": "four",
+   "start": 10.0,
+   "end": 10.077
+  },
+  {
+   "word": "systems.",
+   "start": 10.231,
+   "end": 11.308
+  },
+  {
+   "word": "This",
+   "start": 11.385,
+   "end": 11.769
+  },
+  {
+   "word": "is",
+   "start": 11.846,
+   "end": 11.923
+  },
+  {
+   "word": "Probity's",
+   "start": 12.0,
+   "end": 12.538
+  },
+  {
+   "word": "inbox:",
+   "start": 12.808,
+   "end": 13.462
+  },
+  {
+   "word": "every",
+   "start": 13.654,
+   "end": 13.846
+  },
+  {
+   "word": "bank-change",
+   "start": 13.962,
+   "end": 14.385
+  },
+  {
+   "word": "request",
+   "start": 14.462,
+   "end": 14.846
+  },
+  {
+   "word": "waiting",
+   "start": 15.0,
+   "end": 15.385
+  },
+  {
+   "word": "before",
+   "start": 15.5,
+   "end": 15.615
+  },
+  {
+   "word": "Friday's",
+   "start": 15.692,
+   "end": 16.077
+  },
+  {
+   "word": "payments.",
+   "start": 16.154,
+   "end": 16.923
+  }
+ ],
+ "seconds": 16.92,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

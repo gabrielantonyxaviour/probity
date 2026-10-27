@@ -1305,6 +1305,15 @@
     "data_origin": "SYNTHETIC"
   },
   {
+    "item_id": "PRI-1030-0015",
+    "payment_run_id": "PR-2026-10-30",
+    "vendor_id": "V-10233",
+    "invoice_no": "INV-NOI-30318",
+    "bank_account_id": "BA-40233",
+    "amount_usd": 18640.00,
+    "data_origin": "SYNTHETIC"
+  },
+  {
     "item_id": "PRI-1103-0001",
     "payment_run_id": "PR-2026-11-03",
     "vendor_id": "V-10311",

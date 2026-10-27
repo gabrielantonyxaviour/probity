@@ -1,87 +1,147 @@
 {
  "id": "a03",
- "text_original": "A letter that talks to the AI is quoted as a warning sign, never obeyed.",
- "text_spoken": "A letter that talks to the AI is quoted as a warning sign, never obeyed.",
+ "text_original": "This letter told the AI to approve it, in hidden lines. Probity quotes them as evidence, never obeys, and holds the payment. A call-back cannot clear it.",
+ "text_spoken": "This letter told the AI to approve it, in hidden lines. Probity quotes them as evidence, never obeys, and holds the payment. A call-back cannot clear it.",
  "words": [
   {
-   "word": "A",
+   "word": "This",
    "start": 0.0,
-   "end": 0.077
+   "end": 0.231
   },
   {
    "word": "letter",
-   "start": 0.154,
-   "end": 0.462
+   "start": 0.308,
+   "end": 0.615
   },
   {
-   "word": "that",
-   "start": 0.577,
-   "end": 0.692
-  },
-  {
-   "word": "talks",
-   "start": 0.808,
-   "end": 1.0
-  },
-  {
-   "word": "to",
-   "start": 1.038,
-   "end": 1.077
+   "word": "told",
+   "start": 0.692,
+   "end": 0.923
   },
   {
    "word": "the",
-   "start": 1.154,
-   "end": 1.231
+   "start": 1.0,
+   "end": 1.077
   },
   {
    "word": "AI",
-   "start": 1.308,
-   "end": 1.769
+   "start": 1.154,
+   "end": 1.385
   },
   {
-   "word": "is",
-   "start": 1.846,
+   "word": "to",
+   "start": 1.462,
+   "end": 1.538
+  },
+  {
+   "word": "approve",
+   "start": 1.769,
    "end": 2.0
   },
   {
-   "word": "quoted",
+   "word": "it,",
    "start": 2.077,
-   "end": 2.462
+   "end": 2.385
+  },
+  {
+   "word": "in",
+   "start": 2.462,
+   "end": 2.538
+  },
+  {
+   "word": "hidden",
+   "start": 2.615,
+   "end": 2.846
+  },
+  {
+   "word": "lines.",
+   "start": 2.923,
+   "end": 3.615
+  },
+  {
+   "word": "Probity",
+   "start": 3.846,
+   "end": 4.231
+  },
+  {
+   "word": "quotes",
+   "start": 4.308,
+   "end": 4.538
+  },
+  {
+   "word": "them",
+   "start": 4.615,
+   "end": 4.692
   },
   {
    "word": "as",
-   "start": 2.538,
-   "end": 2.615
+   "start": 4.769,
+   "end": 4.846
   },
   {
-   "word": "a",
-   "start": 2.654,
-   "end": 2.692
-  },
-  {
-   "word": "warning",
-   "start": 2.769,
-   "end": 3.154
-  },
-  {
-   "word": "sign,",
-   "start": 3.231,
-   "end": 3.923
+   "word": "evidence,",
+   "start": 4.923,
+   "end": 5.692
   },
   {
    "word": "never",
-   "start": 4.077,
-   "end": 4.385
+   "start": 5.846,
+   "end": 6.077
   },
   {
-   "word": "obeyed.",
-   "start": 4.462,
-   "end": 5.077
+   "word": "obeys,",
+   "start": 6.154,
+   "end": 6.846
+  },
+  {
+   "word": "and",
+   "start": 6.923,
+   "end": 7.0
+  },
+  {
+   "word": "holds",
+   "start": 7.077,
+   "end": 7.385
+  },
+  {
+   "word": "the",
+   "start": 7.423,
+   "end": 7.462
+  },
+  {
+   "word": "payment.",
+   "start": 7.538,
+   "end": 8.192
+  },
+  {
+   "word": "A",
+   "start": 8.385,
+   "end": 8.462
+  },
+  {
+   "word": "call-back",
+   "start": 8.538,
+   "end": 9.0
+  },
+  {
+   "word": "cannot",
+   "start": 9.154,
+   "end": 9.538
+  },
+  {
+   "word": "clear",
+   "start": 9.615,
+   "end": 9.846
+  },
+  {
+   "word": "it.",
+   "start": 9.923,
+   "end": 10.385
   }
  ],
- "seconds": 5.08,
- "window_seconds": 8,
- "provisional": true,
+ "seconds": 10.38,
+ "window_seconds": 12,
+ "provisional": false,
  "voice": "v7li4BiiSMnJL2FCuD6D",
  "model": "eleven_v4",
  "seed": 4242,

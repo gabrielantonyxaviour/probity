@@ -1,0 +1,89 @@
+[INFO] run=r-20261027T191924Z-438f agent=orchestrator action=run_start target=letter_reader | mode=live budget=480s
+[INFO] run=r-20261027T191924Z-438f agent=letter_reader action=extract_claims note=injection:detect | no text addressed to an automated reviewer
+[INFO] run=r-20261027T191924Z-438f agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=2021/701 ms=19491 | 2021/701 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191924Z-438f agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=2021/701 ms=19491 note=dual_read:B; ocr+deep; visual | claimed=V2X, Inc.; acct none; routing none; 1 phone(s); 0 pressure phrase(s)
+[INFO] run=r-20261027T191924Z-438f agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1846/669 ms=19514 | 1846/669 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191924Z-438f agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1846/669 ms=19514 note=dual_read:A; ocr+deep; transcribe | claimed=V2X, Inc.; acct none; routing none; 1 phone(s); 0 pressure phrase(s)
+[INFO] run=r-20261027T191924Z-438f agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1061/15 ms=20442 | 1061/15 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191924Z-438f agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1061/15 ms=20442 note=injection:review | review: 0/0 candidates addressed to a reviewer; 0 more quoted
+[INFO] run=r-20261027T191924Z-438f agent=letter_reader action=extract_claims note=dual_read:reconcile 4/4 | agreement 4/4; every material field agrees
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T04b qid=ee4815c5 rows=0 mode=live ms=2104 | rows=0
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T04b qid=0bc67f88 rows=1 mode=live ms=3045 | rows=1 vendor_id=V-10311 legal_name=V2X, Inc. name_norm=V2X INC
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T04 qid=4ad5d472 rows=1 mode=live ms=4307 | rows=1 vendor_id=V-10311 legal_name=V2X, Inc. email_domains_on_file=v2x.example,vectrus.example
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T06c qid=1c1ca286 rows=1 mode=live ms=11760 | rows=1 via=registrant key=0001601548 name=V2X, Inc.
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T06b qid=7b36cf6a rows=1 mode=live ms=22084 | rows=1 via=entity key=CG8SV4246V29-P name=V2X, INC.
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T06b qid=76a66acd rows=0 mode=live ms=17050 | rows=0
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T06a qid=b8584c0e rows=1 mode=live ms=40552 | rows=1 via=alias key=CG8SV4246V29-P name=V2X  INC.
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T06c qid=417c72cc rows=0 mode=live ms=7503 | rows=0
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T06a qid=aa9b65cc rows=2 mode=live ms=38257 | rows=2 via=alias key=0001601548 name=Vectrus, Inc.
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T09 qid=d0dd6545 rows=8 mode=live ms=2367 | run items=8 8 rows
+[INFO] run=r-20261027T191924Z-438f agent=orchestrator action=intake_request target=memory_gate | BCR-2026-0418 inserted (pending); candidates=[V-10311 hard 0.70]
+[INFO] run=r-20261027T191924Z-438f agent=orchestrator action=handoff target=memory_gate | claims -> memory_gate
+[INFO] run=r-20261027T191924Z-438f agent=memory_gate action=memory_recall target=registry_scout | 0 hits
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T02 qid=641796a5 rows=4 mode=live ms=559 | rows=4 email ar@vectrus.example 2019-04-02->2022-07-11; phone (719) 555-0110 2019-04-02->2022-07-11; email ar@v2x.example 2022-07-11->open
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T08 qid=c9eb8292 rows=0 mode=live ms=392 | rows=0
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T01 qid=999deec3 rows=1 mode=live ms=1165 | rows=1 vendor_id=V-10311 legal_name=V2X, Inc. name_norm=V2X INC
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T05 qid=2099e925 rows=1 mode=live ms=20340 | rows=1 CG8SV4246V29-P  ; parent CG8SV4246V29; cik 0001601548 phone (571) 481-2000
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T05b qid=03cacfa4 rows=1 mode=live ms=15247 note=parent location for I1 | rows=1 p_entity_key=CG8SV4246V29-P p_legal_name=V2X, INC. p_address_line1=
+[INFO] run=r-20261027T191924Z-438f agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3680/84 ms=3540 | 3680/84 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191924Z-438f agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4055/87 ms=1109 | 4055/87 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191924Z-438f agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4181/83 ms=1042 | 4181/83 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191924Z-438f agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4303/65 ms=1197 | 4303/65 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191924Z-438f agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4303/65 ms=42501 note=model reviewed floor | r0: floor 8 steps + 0 extra step(s) (reviewed the floor and added none)
+[INFO] run=r-20261027T191924Z-438f agent=identity_linker action=memory_write | entities 2, edges 0, facts 0 written; 31 unchanged
+[INFO] run=r-20261027T191924Z-438f agent=identity_linker action=propose_link target=identity_examiner | candidate_vendor domain_on_file+name_exact+alias_exact score 0.7: req:BCR-2026-0418 -> vendor:V-10311 hard
+[INFO] run=r-20261027T191924Z-438f agent=identity_linker action=propose_link target=identity_examiner | same_as via vendor.uei: vendor:V-10311 -> uei:CG8SV4246V29-P hard
+[INFO] run=r-20261027T191924Z-438f agent=identity_linker action=propose_link target=identity_examiner | registered_as via vendor.registrant_cik: uei:CG8SV4246V29-P -> cik:0001601548 hard
+[INFO] run=r-20261027T191924Z-438f agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:V2X INC -> uei:CG8SV4246V29-P hard
+[INFO] run=r-20261027T191924Z-438f agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:VECTRUS INC -> cik:0001601548 hard
+[INFO] run=r-20261027T191924Z-438f agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:VECTRUS INC -> uei:CG8SV4246V29-P hard
+[INFO] run=r-20261027T191924Z-438f agent=identity_linker action=handoff target=identity_examiner | links -> identity_examiner
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=requery template=T05 qid=2099e925 mode=live | T05 row_hash match b14988b3c6d90609
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=requery template=T08 qid=c9eb8292 mode=live | T08 row_hash match 4f53cda18c2baa0c
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=approve_link | hard: attribution exact key
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=approve_link | hard: vendor_entity exact key
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=approve_link | hard: registrant exact key
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=approve_link | hard: alias exact key
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=approve_link | hard: alias exact key
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=approve_link | hard: alias exact key
+[INFO] run=r-20261027T191924Z-438f agent=identity_examiner action=handoff target=gate_officer | verdicts -> gate_officer
+[INFO] run=r-20261027T191924Z-438f agent=gate_officer action=decide codes=C1,I2,I5 | CALLBACK_VERIFY codes=C1,I2,I5 coverage=3/4
+[INFO] run=r-20261027T191924Z-438f agent=gate_officer action=select_callback | +15714812000 edgar_registrant; do_not_use (571) 555-0121 appears only on the request
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=T20 qid=dbf01e9a rows=1 mode=live ms=9280 | rows=1 name=unverified_recent_bank_change table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=T20 qid=24375e13 rows=1 mode=live ms=9415 | rows=1 name=account_single_vendor table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=T21 qid=ebc3335c rows=3 mode=live ms=5828 | rows=3 item_id=PRI-1009-0016 payment_run_id=PR-2026-10-09 scheduled_date=2026-10-09
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=T21 qid=a459eccc rows=4 mode=live ms=5869 | rows=4 item_id=PRI-1002-0014 payment_run_id=PR-2026-10-02 scheduled_date=2026-10-02
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=dq_run rule=DQ1 template=T20 qid=dbf01e9a rows=0 | DQ1 table-wide total=154 valid=151 invalid=3; in PR-2026-11-03: 0
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=dq_run rule=DQ2 template=T20 qid=24375e13 rows=0 | DQ2 table-wide total=154 valid=150 invalid=4; in PR-2026-11-03: 0
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=DQ7c qid=d2083263 rows=1 mode=live ms=3078 | rows=1 total_rows=52 invalid_rows=2
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=DQ7 qid=6789e248 rows=1 mode=live ms=907 | rows=1 account_hash=35b3f6fe36f7fbd4de8d547f66f5712c070586a5 vendor_count=2 vendor_ids=V-10233,V-10234
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=dq_run rule=DQ7 template=DQ7 qid=d2083263 rows=0 | DQ7 total=52 valid=50 invalid=2; in PR-2026-11-03: 0
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=T20 qid=e64d6aec rows=1 mode=live ms=6417 | rows=1 name=bank_change_before_large_payment table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=T21 qid=69789a0c rows=0 mode=live ms=4807 | rows=0
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=dq_run rule=DQ8 template=T20 qid=e64d6aec rows=0 | DQ8 total=154 valid=154 invalid=0; in PR-2026-11-03: 0
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=DQ9c qid=52c61b28 rows=1 mode=live ms=4707 | rows=1 total=154 valid=154 invalid=0
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=run_template template=DQ9 qid=2df6a9a4 rows=0 mode=live ms=3172 | rows=0
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=dq_run rule=DQ9 template=DQ9 qid=52c61b28 rows=0 | DQ9 total=154 valid=154 invalid=0; in PR-2026-11-03: 0
+[INFO] run=r-20261027T191924Z-438f agent=evidence_runner action=run_template template=T23 qid=faabd441 rows=1 mode=live ms=29678 note=One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_ | One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_erp.payment_run_item) are JDBC read at query time. USAspending and EDGAR legs are USL tables in the statement, not direct REST. Pushdown was not shown.
+[INFO] run=r-20261027T191924Z-438f agent=sweep_runner action=unsolicited_sweep qid=ebc3335c rows=0 | No other items in PR-2026-11-03 fail payment controls.
+[INFO] run=r-20261027T191924Z-438f agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1159/113 ms=4536 | 1159/113 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191924Z-438f agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1159/113 ms=4536 | 4 sentences
+[INFO] run=r-20261027T191924Z-438f agent=gate_officer action=number_check note=passed | passed: 5 tokens checked, 0 unknown, grounded in the decision
+[INFO] run=r-20261027T191924Z-438f agent=orchestrator action=run_end codes=C1,I2,I5 note=envelope=success | CALLBACK_VERIFY in 192.4s; trace logs/trace-r-20261027T191924Z-438f.jsonl
+[INFO] run=r-20261027T191924Z-438f DECISION=CALLBACK_VERIFY codes=C1,I2,I5 coverage=3/4 exposure=$318,750.00 (1 items, PR-2026-11-03)
+[INFO] run=r-20261027T191924Z-438f callback=(571) 481-2000 (SEC EDGAR submissions, CIK 0001601548, fetched 2026-10-27T19:21:04.072Z) do_not_use=(571) 555-0121
+[INFO] run=r-20261027T191924Z-438f sweep=0 item(s) $0.00 | models: fast=nvidia/nemotron-3.5-lightning-30b-a3b deep=nvidia/nemotron-3-ultra-550b-a55b | 192.4s | trace=logs/trace-r-20261027T191924Z-438f.jsonl
+
+Probity · BCR-2026-0418 · V2X, Inc. (V-10311)
+Decision: CALLBACK_VERIFY   policy pp-2026-10-27.1   mode live   192.4 s   status success
+Blocks:   none
+Limits:   C1 no_independent_callback
+Noted:    I2 former_name_used · I5 registry_dq_gap
+Exposure: PR-2026-11-03 · 1 items · $318,750.00 (cut-off 14:00 ET)
+Call back: (571) 481-2000 · SEC EDGAR submissions, CIK 0001601548, fetched 2026-10-27T19:21:04.072Z
+Readings: agree · 4/4 fields agree · A ocr ok, B ocr ok
+Do not use: (571) 555-0121 (appears only on the request)
+Sweep:    no other items in PR-2026-11-03 fail payment controls
+Models:   letter_reader deep nvidia/nemotron-3-ultra-550b-a55b ×3; registry_scout fast nvidia/nemotron-3.5-lightning-30b-a3b ×4; identity_examiner deep none (no model call) ×0; gate_officer fast nvidia/nemotron-3.5-lightning-30b-a3b ×1
+Trace:    logs/trace-r-20261027T191924Z-438f.jsonl
+Review:   http://localhost:3100/review/r-20261027T191924Z-438f

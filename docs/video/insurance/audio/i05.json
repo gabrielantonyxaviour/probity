@@ -1,0 +1,189 @@
+{
+ "id": "i05",
+ "text_original": "Each fact opens an evidence drawer: the exact Zetaris query, the rows it returned, and the lineage back to USAspending or SEC EDGAR. I can re-run that query in Zetaris, live, from right here.",
+ "text_spoken": "Each fact opens an evidence drawer: the exact Zuh-tarris query, the rows it returned, and the lineage back to U.S.A. spending or SEC Edgar. I can re-run that query in Zuh-tarris, live, from right here.",
+ "words": [
+  {
+   "word": "Each",
+   "start": 0.0,
+   "end": 0.231
+  },
+  {
+   "word": "fact",
+   "start": 0.308,
+   "end": 0.615
+  },
+  {
+   "word": "opens",
+   "start": 0.692,
+   "end": 1.0
+  },
+  {
+   "word": "an",
+   "start": 1.115,
+   "end": 1.231
+  },
+  {
+   "word": "evidence",
+   "start": 1.269,
+   "end": 1.615
+  },
+  {
+   "word": "drawer:",
+   "start": 1.692,
+   "end": 2.462
+  },
+  {
+   "word": "the",
+   "start": 2.538,
+   "end": 2.615
+  },
+  {
+   "word": "exact",
+   "start": 2.692,
+   "end": 3.154
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 3.231,
+   "end": 3.769
+  },
+  {
+   "word": "query,",
+   "start": 3.962,
+   "end": 4.538
+  },
+  {
+   "word": "the",
+   "start": 4.577,
+   "end": 4.615
+  },
+  {
+   "word": "rows",
+   "start": 4.692,
+   "end": 4.923
+  },
+  {
+   "word": "it",
+   "start": 4.962,
+   "end": 5.0
+  },
+  {
+   "word": "returned,",
+   "start": 5.077,
+   "end": 5.846
+  },
+  {
+   "word": "and",
+   "start": 5.923,
+   "end": 6.0
+  },
+  {
+   "word": "the",
+   "start": 6.038,
+   "end": 6.077
+  },
+  {
+   "word": "lineage",
+   "start": 6.154,
+   "end": 6.615
+  },
+  {
+   "word": "back",
+   "start": 6.731,
+   "end": 6.846
+  },
+  {
+   "word": "to",
+   "start": 6.923,
+   "end": 7.0
+  },
+  {
+   "word": "U.S.A.",
+   "start": 7.077,
+   "end": 7.462
+  },
+  {
+   "word": "spending",
+   "start": 7.538,
+   "end": 8.077
+  },
+  {
+   "word": "or",
+   "start": 8.154,
+   "end": 8.308
+  },
+  {
+   "word": "SEC",
+   "start": 8.462,
+   "end": 8.846
+  },
+  {
+   "word": "Edgar.",
+   "start": 8.923,
+   "end": 9.846
+  },
+  {
+   "word": "I",
+   "start": 9.923,
+   "end": 10.0
+  },
+  {
+   "word": "can",
+   "start": 10.115,
+   "end": 10.231
+  },
+  {
+   "word": "re-run",
+   "start": 10.308,
+   "end": 10.615
+  },
+  {
+   "word": "that",
+   "start": 10.692,
+   "end": 10.769
+  },
+  {
+   "word": "query",
+   "start": 10.846,
+   "end": 11.154
+  },
+  {
+   "word": "in",
+   "start": 11.192,
+   "end": 11.231
+  },
+  {
+   "word": "Zuh-tarris,",
+   "start": 11.308,
+   "end": 12.154
+  },
+  {
+   "word": "live,",
+   "start": 12.231,
+   "end": 12.769
+  },
+  {
+   "word": "from",
+   "start": 12.885,
+   "end": 13.0
+  },
+  {
+   "word": "right",
+   "start": 13.077,
+   "end": 13.231
+  },
+  {
+   "word": "here.",
+   "start": 13.308,
+   "end": 13.846
+  }
+ ],
+ "seconds": 13.85,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

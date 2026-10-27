@@ -1,142 +1,152 @@
 {
  "id": "a06",
- "text_original": "Three processes. A CACI request reuses the phone from the impersonation we confirmed, and another reuses its account. The World Model remembers both; both are held.",
- "text_spoken": "Three processes. A Kay-sigh request reuses the phone from the impersonation we confirmed, and another reuses its account. The World Model remembers both; both are held.",
+ "text_original": "Memory across sessions. An impersonation confirmed in one session is remembered by the World Model; a later L3Harris request reuses that bank account, and it is held.",
+ "text_spoken": "Memory across sessions. An impersonation confirmed in one session is remembered by the World Model; a later L-three Harris request reuses that bank account, and it is held.",
  "words": [
   {
-   "word": "Three",
+   "word": "Memory",
    "start": 0.0,
-   "end": 0.208
+   "end": 0.462
   },
   {
-   "word": "processes.",
-   "start": 0.231,
-   "end": 1.077
+   "word": "across",
+   "start": 0.538,
+   "end": 0.923
   },
   {
-   "word": "A",
-   "start": 1.538,
-   "end": 1.615
+   "word": "sessions.",
+   "start": 1.0,
+   "end": 1.846
   },
   {
-   "word": "Kay-sigh",
-   "start": 1.692,
-   "end": 2.077
-  },
-  {
-   "word": "request",
-   "start": 2.346,
-   "end": 2.615
-  },
-  {
-   "word": "reuses",
-   "start": 2.769,
-   "end": 3.308
-  },
-  {
-   "word": "the",
-   "start": 3.346,
-   "end": 3.385
-  },
-  {
-   "word": "phone",
-   "start": 3.462,
-   "end": 3.692
-  },
-  {
-   "word": "from",
-   "start": 3.769,
-   "end": 3.846
-  },
-  {
-   "word": "the",
-   "start": 3.923,
-   "end": 4.0
+   "word": "An",
+   "start": 2.077,
+   "end": 2.154
   },
   {
    "word": "impersonation",
-   "start": 4.115,
-   "end": 4.769
+   "start": 2.231,
+   "end": 3.0
   },
   {
-   "word": "we",
-   "start": 4.846,
-   "end": 4.923
+   "word": "confirmed",
+   "start": 3.077,
+   "end": 3.538
   },
   {
-   "word": "confirmed,",
-   "start": 5.231,
-   "end": 5.846
+   "word": "in",
+   "start": 3.615,
+   "end": 3.692
   },
   {
-   "word": "and",
-   "start": 5.962,
-   "end": 6.077
+   "word": "one",
+   "start": 3.846,
+   "end": 4.0
   },
   {
-   "word": "another",
-   "start": 6.308,
-   "end": 6.538
+   "word": "session",
+   "start": 4.077,
+   "end": 4.462
   },
   {
-   "word": "reuses",
-   "start": 6.692,
-   "end": 7.154
+   "word": "is",
+   "start": 4.538,
+   "end": 4.692
   },
   {
-   "word": "its",
-   "start": 7.231,
-   "end": 7.308
+   "word": "remembered",
+   "start": 4.923,
+   "end": 5.231
   },
   {
-   "word": "account.",
-   "start": 7.385,
-   "end": 8.115
+   "word": "by",
+   "start": 5.308,
+   "end": 5.385
   },
   {
-   "word": "The",
-   "start": 8.385,
-   "end": 8.462
+   "word": "the",
+   "start": 5.462,
+   "end": 5.538
   },
   {
    "word": "World",
-   "start": 8.538,
-   "end": 8.769
+   "start": 5.615,
+   "end": 5.769
   },
   {
-   "word": "Model",
-   "start": 8.846,
+   "word": "Model;",
+   "start": 5.846,
+   "end": 6.615
+  },
+  {
+   "word": "a",
+   "start": 6.654,
+   "end": 6.692
+  },
+  {
+   "word": "later",
+   "start": 6.769,
+   "end": 7.077
+  },
+  {
+   "word": "L-three",
+   "start": 7.154,
+   "end": 7.462
+  },
+  {
+   "word": "Harris",
+   "start": 7.538,
+   "end": 7.846
+  },
+  {
+   "word": "request",
+   "start": 7.923,
+   "end": 8.385
+  },
+  {
+   "word": "reuses",
+   "start": 8.538,
    "end": 9.077
   },
   {
-   "word": "remembers",
+   "word": "that",
    "start": 9.154,
-   "end": 9.615
+   "end": 9.231
   },
   {
-   "word": "both;",
-   "start": 9.692,
-   "end": 10.462
+   "word": "bank",
+   "start": 9.308,
+   "end": 9.538
   },
   {
-   "word": "both",
-   "start": 10.538,
-   "end": 10.846
+   "word": "account,",
+   "start": 9.731,
+   "end": 10.077
   },
   {
-   "word": "are",
-   "start": 10.923,
-   "end": 11.077
+   "word": "and",
+   "start": 10.115,
+   "end": 10.154
+  },
+  {
+   "word": "it",
+   "start": 10.231,
+   "end": 10.308
+  },
+  {
+   "word": "is",
+   "start": 10.346,
+   "end": 10.385
   },
   {
    "word": "held.",
-   "start": 11.269,
-   "end": 11.692
+   "start": 10.462,
+   "end": 11.077
   }
  ],
- "seconds": 11.69,
+ "seconds": 11.08,
  "window_seconds": 12,
- "provisional": true,
+ "provisional": false,
  "voice": "v7li4BiiSMnJL2FCuD6D",
  "model": "eleven_v4",
  "seed": 4242,

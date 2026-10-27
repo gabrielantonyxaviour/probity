@@ -1,10 +1,68 @@
-# Probity status: depth-2 freeze (end of wave 2B)
+# Probity status: final (end of wave 3)
 
-Written 2026-10-27 about 19:00Z by the depth-2 integrator (freeze gate). HackOS closes 23:45Z (07:45 MYT Wed 28 Oct).
-Repository `gabrielantonyxaviour/probity` (PUBLIC), branch `main`. Earlier checkpoints: `168f6a3`, `18b1b7b` (wave 1), `31f926c` (wave 2A).
-This file ships in the commit "Probity depth: dual Ultra reading, injection defence, Zetaris DQ7-9 + federated join, lineage, time travel".
-Lane reports for this wave: `lanes/{agents-depth,zetaris-wire,api-depth,seed-clean,eval-depth,ui-wire,e2e-depth,insurance-video}.md`.
-Insurance submission is in (HackOS #1, video <https://youtu.be/2_jLXg70EEI>); the final update replaces the video and adds the deck.
+Written 2026-10-27 about 21:30Z (05:30 MYT Wed 28 Oct) by the wave-3 finalizer. HackOS closes 23:45Z (07:45 MYT Wed 28 Oct).
+Repository `gabrielantonyxaviour/probity` (PUBLIC), branch `main`. This file ships in the commit "Probity wave 3: production run, recorded examples,
+film and deck, judge path verified" (parent `4b7f82c`). Lane reports for this wave: `lanes/wave3-{operator,film,zetaris-cut,docker-judge}.md`.
+The depth-2 freeze status (sections 1 to 4 below) is kept for the record; where it disagrees with this section, this section is current.
+
+## 0. Final state (wave 3)
+
+Deliverables (binaries are not committed, see limitation 12):
+
+| Item | Path | Check |
+|---|---|---|
+| Film | `docs/video/probity-film.mp4` (copy `../_docs/probity-film.mp4`) | 3:43.1 (223.1 s), 1920x1080 H.264 + AAC, -16 LUFS, captions burned in, Gabriel's ElevenLabs voice. YouTube link: to be added by the coordinator (README line 17 says "Video: to be linked") |
+| Deck | `docs/deck/probity-deck.pptx` (ignored, 39 MB, one clip per slide) and `docs/deck/probity-deck.pdf` (committed, 10 pages); copies in `../_docs/` | 10 slides with speaker notes |
+| Zetaris challenge cut | `../_docs/ZEN_291026.mp4` | 3:20 (200.0 s), 1920x1080; the submit-date copy is Gabriel's step (`docs/zetaris-challenge/SUBMIT.md`); window 29 Oct to 2 Nov 23:45Z (07:45 MYT 3 Nov) |
+| HackOS texts for the final update | `../_docs/hackos-submitted/v2-desc.txt` (1,941 characters), `v2-sponsor.txt` (3,942 characters) | Grok-first credit; numbers from the runs below |
+
+Production run (operator, after `db:reset` to the new seed: `vendor=40 bcr=10 items=154`), from the :3100 inbox Verify button, Zetaris lock per run:
+
+| Scenario | Run | Decision | Decision / end | Nemotron calls | Zetaris queries |
+|---|---|---|---|---|---|
+| S1 Booz Allen (BCR-2026-0412) | `r-20261027T194659Z-c63a` | HOLD R1, R3, R6, C1, C5, I5, I6, success | 300 s / 353 s | 13 (5 Ultra, 8 Lightning) | 31 |
+| S10 Sable Harbor (BCR-2026-0407) | `r-20261027T195257Z-61bc` | HOLD R8, C1, C3, success, 4 spans confirmed 4/4 | 141 s / 193 s | 10 (4 Ultra, 6 Lightning) | 24 |
+| S3 L3Harris (BCR-2026-0398) | `r-20261027T195617Z-d013` | APPROVE, success | 147 s / 193 s | 7 (3 Ultra, 4 Lightning) | 26 |
+
+Readings agree 8/8, 7/7, 6/6. Sweep on PR-2026-10-30: 3 items, $169,315.50 (PRI-1030-0009 DQ1+DQ2, PRI-1030-0010 DQ1, PRI-1030-0015 DQ2+DQ7, the new seeded DQ7 item).
+Recorded examples (`output_examples/`, 5 runs, 40 files, `MANIFEST.json`): 01 `r-20261027T192533Z-0211` HOLD (34 queries, 13 calls), 02 `r-20261027T191044Z-3e73` HOLD R4,
+03 `r-20261027T191522Z-0b05` APPROVE (`partial_success`: rationale template fallback), 04 `r-20261027T191924Z-438f` CALLBACK_VERIFY, 10 `r-20261027T192243Z-3cfa` HOLD R8. S9 has no input (cut).
+
+Gates after the last edit (finalizer, 21:10Z to 21:20Z): `tsc --noEmit` root and ui clean; `npm run lint` clean (after fixing 5 errors in two new wave-3 files);
+`check:lines` ok; `vitest run tests/unit tests/engines tests/parity` 72 files, 599 passed, 3 skipped; `zetaris:test` 26 passed; `test:conformance` 8/8 and 13/13; ui vitest 42 passed, 1 skipped.
+E2E non-live (lock held): first pass against the running :3100 build 79 passed, 15 failed, 2 skipped. Causes and fixes:
+(1) **UI regression at 390 px**: the new DQ7 payment-item finding prints a 64-character account hash that did not wrap (scrollWidth 470), failing
+the mobile and as-of overflow checks; fixed with `t-wrap-any` in `ui/components/review/SweepAlert.tsx`. (2) Test data: `dialogs.spec.ts` needed a
+CALLBACK_VERIFY run of S3, which is now APPROVE; it now falls back to the newest CALLBACK_VERIFY run of any request. `asof.spec.ts` "no decision" needs an
+undecided run, which the archive removed; it now skips when none exists. (3) The evidence re-run timed out once at 45 s under parallel Zetaris load (passed on the re-run).
+Second pass against a production build of the fix (`ui/.next-final`, served on **:3101**, same API): **93 passed, 3 skipped, 0 failed of 96**.
+Live e2e project not run (it would start real runs: the replay markers were deleted on purpose).
+
+Running now: API :8787 (PID 6206), production UI :3100 (PID 44120, **built before the wrap fix**), fixed UI :3101 (`next start`, `ui/.next-final`, log
+`scratchpad/final/ui3101.log`), dev UI :3200. **Action for the operator:** restart :3100 from the fixed build if it is used again
+(`cd ui && NEXT_DIST_DIR=.next-prod PAYEE_API_URL=http://localhost:8787 npx next build`, then `next start -p 3100`), or stop :3101 once :3100 is rebuilt.
+Recordings and the film were made from the :3100 build; the fix only changes wrapping at phone width.
+
+Remaining for Gabriel / the coordinator: upload the film (unlisted) and put the URL on README line 17 and in `docs/submission/hackos-form.md`; on the
+HackOS card "Save Changes" with the video, the deck PDF, `v2-desc.txt` and `v2-sponsor.txt`; the Zetaris entry from 29 Oct.
+
+### Known limitations (current; README section 14 has the public list)
+
+1. Letter documents print "TEST ROUTING" / "TEST ACCOUNT" in their bank table, and the Booz Allen letter carries its in-document watermark (decision-8
+   exception). Both are visible in the film's R01 letter shot and as thumbnails; the S10 claims column quotes the bank table. Not masked.
+2. Zetaris latency: S1 now decides in 285 to 300 s (budget 480 s); single queries reach 45 s; two recording takes hit C2 and were re-run. Keep one operator.
+3. C7 has no live example (every shipped letter reads the same twice); unit-tested only.
+4. R8 false positives: 2 of 25 clean letters in the adversarial eval; a false R8 holds, never approves.
+5. DQ8 and DQ9 find nothing on the current ledger (154 of 154 valid); DQ7 now flags one payment item (PRI-1030-0015), which DQ2 also flags.
+6. T23 is informational and can time out under load; it never changes a decision.
+7. Stop is stored with run `status: "error"` (stage `CANCELLED`); the UI shows "Stopped".
+8. Registry lineage shows a wildcard (`usaspending.usa_*`) unless a template selects `source_table`; T23's ERP legs are not in lineage.
+9. One Zetaris key for query and admin; no Zetaris query history on this edition; SW-F29 name-to-CIK built but unused.
+10. Eval samples are small (Examiner 16 calls; labels by our coding assistant, not experts).
+11. Sample mode shows its own "SAMPLE MODE" notice (judge-facing mode banner, not on the live UI); the judge sim skipped the host `npm ci` path for disk space.
+12. Not committed on purpose: `docs/video/probity-film.mp4`, `docs/video/{raw,cut}/*.mp4`, `docs/video/audio/*.m4a`, `docs/zetaris-challenge/{raw,build}` and
+    `audio/*.m4a`, `docs/deck/probity-deck.pptx`, `video/out/`, `logs/` (archives under `logs/archive-*`).
+13. The Zetaris challenge rules page still has placeholders (promoter, maximum length); re-read it before submitting.
 
 ## 1. FROZEN feature list
 

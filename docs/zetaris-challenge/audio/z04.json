@@ -1,191 +1,366 @@
 {
  "id": "z04",
- "text_original": "The sweep is a data-quality rule. In the Zetaris console, LIST DQ shows the rules registered on the semantic layer, and RUN DQ account single vendor flags payments whose bank account already belongs to another vendor.",
- "text_spoken": "The sweep is a data-quality rule. In the Zuh-tarris console, LIST D-Q shows the rules registered on the semantic layer, and RUN D-Q account single vendor flags payments whose bank account already belongs to another vendor.",
+ "text_original": "After the decision, a sweep of data-quality rules runs over the payment ledger. In the Zetaris console, LIST DQ shows the rules registered on the semantic layer, and RUN DQ flags payments whose bank account already belongs to another vendor. The newest rules found two vendors sharing one account. And one query across the ledger, USAspending and EDGAR returns the vendor's profile and its payment exposure in a single row.",
+ "text_spoken": "After the decision, a sweep of data-quality rules runs over the payment ledger. In the Zuh-tarris console, LIST D-Q shows the rules registered on the semantic layer, and RUN D-Q flags payments whose bank account already belongs to another vendor. The newest rules found two vendors sharing one account. And one query across the ledger, U.S.A. spending and Edgar returns the vendor's profile and its payment exposure in a single row.",
  "words": [
   {
-   "word": "The",
+   "word": "After",
    "start": 0.0,
-   "end": 0.154
+   "end": 0.277
   },
   {
-   "word": "sweep",
-   "start": 0.231,
-   "end": 0.615
+   "word": "the",
+   "start": 0.308,
+   "end": 0.372
   },
   {
-   "word": "is",
-   "start": 0.692,
-   "end": 0.769
-  },
-  {
-   "word": "a",
-   "start": 0.846,
+   "word": "decision,",
+   "start": 0.385,
    "end": 0.923
   },
   {
+   "word": "a",
+   "start": 1.231,
+   "end": 1.308
+  },
+  {
+   "word": "sweep",
+   "start": 1.346,
+   "end": 1.615
+  },
+  {
+   "word": "of",
+   "start": 1.692,
+   "end": 1.769
+  },
+  {
    "word": "data-quality",
-   "start": 1.0,
-   "end": 1.692
-  },
-  {
-   "word": "rule.",
-   "start": 1.769,
-   "end": 2.462
-  },
-  {
-   "word": "In",
-   "start": 2.5,
+   "start": 1.923,
    "end": 2.538
   },
   {
+   "word": "rules",
+   "start": 2.692,
+   "end": 3.0
+  },
+  {
+   "word": "runs",
+   "start": 3.154,
+   "end": 3.385
+  },
+  {
+   "word": "over",
+   "start": 3.462,
+   "end": 3.538
+  },
+  {
    "word": "the",
-   "start": 2.615,
-   "end": 2.654
+   "start": 3.615,
+   "end": 3.692
+  },
+  {
+   "word": "payment",
+   "start": 3.769,
+   "end": 4.0
+  },
+  {
+   "word": "ledger.",
+   "start": 4.077,
+   "end": 4.654
+  },
+  {
+   "word": "In",
+   "start": 4.923,
+   "end": 5.0
+  },
+  {
+   "word": "the",
+   "start": 5.077,
+   "end": 5.115
   },
   {
    "word": "Zuh-tarris",
-   "start": 2.692,
-   "end": 3.231
+   "start": 5.154,
+   "end": 5.615
   },
   {
    "word": "console,",
-   "start": 3.462,
-   "end": 4.077
+   "start": 5.692,
+   "end": 6.462
   },
   {
    "word": "LIST",
-   "start": 4.154,
-   "end": 4.462
+   "start": 6.615,
+   "end": 6.923
   },
   {
    "word": "D-Q",
-   "start": 4.615,
-   "end": 5.231
+   "start": 7.077,
+   "end": 7.615
   },
   {
    "word": "shows",
-   "start": 5.308,
-   "end": 5.538
+   "start": 7.692,
+   "end": 7.923
   },
   {
    "word": "the",
-   "start": 5.615,
-   "end": 5.692
+   "start": 8.0,
+   "end": 8.077
   },
   {
    "word": "rules",
-   "start": 5.846,
-   "end": 6.0
+   "start": 8.154,
+   "end": 8.385
   },
   {
    "word": "registered",
-   "start": 6.077,
-   "end": 6.538
+   "start": 8.462,
+   "end": 9.0
   },
   {
    "word": "on",
-   "start": 6.615,
-   "end": 6.692
+   "start": 9.038,
+   "end": 9.077
   },
   {
    "word": "the",
-   "start": 6.731,
-   "end": 6.769
+   "start": 9.154,
+   "end": 9.192
   },
   {
    "word": "semantic",
-   "start": 6.846,
-   "end": 7.308
+   "start": 9.231,
+   "end": 9.692
   },
   {
    "word": "layer,",
-   "start": 7.385,
-   "end": 8.0
+   "start": 9.769,
+   "end": 10.385
   },
   {
    "word": "and",
-   "start": 8.115,
-   "end": 8.231
+   "start": 10.5,
+   "end": 10.615
   },
   {
    "word": "RUN",
-   "start": 8.385,
-   "end": 8.615
+   "start": 10.769,
+   "end": 11.0
   },
   {
    "word": "D-Q",
-   "start": 8.692,
-   "end": 9.154
-  },
-  {
-   "word": "account",
-   "start": 9.231,
-   "end": 9.615
-  },
-  {
-   "word": "single",
-   "start": 9.692,
-   "end": 10.0
-  },
-  {
-   "word": "vendor",
-   "start": 10.077,
-   "end": 10.308
+   "start": 11.077,
+   "end": 11.538
   },
   {
    "word": "flags",
-   "start": 10.385,
-   "end": 10.692
+   "start": 11.692,
+   "end": 12.0
   },
   {
    "word": "payments",
-   "start": 10.769,
-   "end": 11.231
+   "start": 12.077,
+   "end": 12.462
   },
   {
    "word": "whose",
-   "start": 11.346,
-   "end": 11.462
-  },
-  {
-   "word": "bank",
-   "start": 11.538,
-   "end": 11.769
-  },
-  {
-   "word": "account",
-   "start": 11.962,
-   "end": 12.154
-  },
-  {
-   "word": "already",
-   "start": 12.231,
+   "start": 12.577,
    "end": 12.692
   },
   {
-   "word": "belongs",
+   "word": "bank",
    "start": 12.769,
-   "end": 13.077
+   "end": 12.923
+  },
+  {
+   "word": "account",
+   "start": 13.0,
+   "end": 13.385
+  },
+  {
+   "word": "already",
+   "start": 13.462,
+   "end": 13.846
+  },
+  {
+   "word": "belongs",
+   "start": 13.923,
+   "end": 14.308
   },
   {
    "word": "to",
-   "start": 13.154,
-   "end": 13.231
+   "start": 14.346,
+   "end": 14.385
   },
   {
    "word": "another",
-   "start": 13.385,
-   "end": 13.538
+   "start": 14.462,
+   "end": 14.692
   },
   {
    "word": "vendor.",
-   "start": 13.615,
-   "end": 14.231
+   "start": 14.769,
+   "end": 15.615
+  },
+  {
+   "word": "The",
+   "start": 15.654,
+   "end": 15.692
+  },
+  {
+   "word": "newest",
+   "start": 15.769,
+   "end": 16.077
+  },
+  {
+   "word": "rules",
+   "start": 16.154,
+   "end": 16.462
+  },
+  {
+   "word": "found",
+   "start": 16.538,
+   "end": 16.846
+  },
+  {
+   "word": "two",
+   "start": 16.923,
+   "end": 17.0
+  },
+  {
+   "word": "vendors",
+   "start": 17.077,
+   "end": 17.538
+  },
+  {
+   "word": "sharing",
+   "start": 17.731,
+   "end": 17.923
+  },
+  {
+   "word": "one",
+   "start": 18.0,
+   "end": 18.077
+  },
+  {
+   "word": "account.",
+   "start": 18.154,
+   "end": 19.077
+  },
+  {
+   "word": "And",
+   "start": 19.154,
+   "end": 19.231
+  },
+  {
+   "word": "one",
+   "start": 19.308,
+   "end": 19.462
+  },
+  {
+   "word": "query",
+   "start": 19.538,
+   "end": 19.846
+  },
+  {
+   "word": "across",
+   "start": 19.923,
+   "end": 20.231
+  },
+  {
+   "word": "the",
+   "start": 20.269,
+   "end": 20.308
+  },
+  {
+   "word": "ledger,",
+   "start": 20.385,
+   "end": 21.077
+  },
+  {
+   "word": "U.S.A.",
+   "start": 21.231,
+   "end": 21.615
+  },
+  {
+   "word": "spending",
+   "start": 21.692,
+   "end": 22.231
+  },
+  {
+   "word": "and",
+   "start": 22.346,
+   "end": 22.462
+  },
+  {
+   "word": "Edgar",
+   "start": 22.538,
+   "end": 23.077
+  },
+  {
+   "word": "returns",
+   "start": 23.308,
+   "end": 23.538
+  },
+  {
+   "word": "the",
+   "start": 23.577,
+   "end": 23.615
+  },
+  {
+   "word": "vendor's",
+   "start": 23.692,
+   "end": 24.077
+  },
+  {
+   "word": "profile",
+   "start": 24.346,
+   "end": 24.615
+  },
+  {
+   "word": "and",
+   "start": 24.692,
+   "end": 24.769
+  },
+  {
+   "word": "its",
+   "start": 24.846,
+   "end": 24.923
+  },
+  {
+   "word": "payment",
+   "start": 25.0,
+   "end": 25.308
+  },
+  {
+   "word": "exposure",
+   "start": 25.423,
+   "end": 25.923
+  },
+  {
+   "word": "in",
+   "start": 25.962,
+   "end": 26.0
+  },
+  {
+   "word": "a",
+   "start": 26.077,
+   "end": 26.231
+  },
+  {
+   "word": "single",
+   "start": 26.385,
+   "end": 26.538
+  },
+  {
+   "word": "row.",
+   "start": 26.615,
+   "end": 27.077
   }
  ],
- "seconds": 14.23,
- "window_seconds": 16,
+ "seconds": 27.08,
+ "window_seconds": 27,
  "provisional": false,
  "voice": "v7li4BiiSMnJL2FCuD6D",
  "model": "eleven_v4",

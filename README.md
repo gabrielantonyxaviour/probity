@@ -14,7 +14,7 @@ Default mode is live (Zetaris + Nightshift). To run it in one command, no keys, 
     SAMPLE_MODE=true docker compose --profile sample up --build
     # UI  http://localhost:3100    API  http://localhost:8787    (SAMPLE MODE banner shown)
 
-Demo video: <https://youtu.be/2_jLXg70EEI> (unlisted walkthrough of the live product) · Deck: `docs/deck/probity-deck.pdf` · Sponsor tech: `docs/SPONSOR_TECH.md`
+Video: to be linked (the 3:43 film, `docs/video/probity-film.mp4`, is kept out of git; an earlier walkthrough of the live product is at <https://youtu.be/2_jLXg70EEI>) · Deck: [`docs/deck/probity-deck.pdf`](docs/deck/probity-deck.pdf) (10 slides; the PowerPoint `docs/deck/probity-deck.pptx` with clips is built by `python3 video/scripts/build_pptx.py` and kept out of git) · Sponsor tech: `docs/SPONSOR_TECH.md`
 
 An accounts-payable controls lead at a federal contractor gets an email: new bank details, eight days before $1.28 million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. The letters and internal records are synthetic; every registry fact is real.
 
@@ -99,20 +99,22 @@ Six deepening items were added on 2026-10-27 after the first end-to-end runs. Ea
 |---|---|---|---|
 | D1 Two readings of each letter | Nemotron 3 Ultra reads every letter twice, independently: reading A from the PDF text layer, reading B from the OCR of the rendered page, with different instructions. Code compares them field by field (account and routing digits, payee, remit address, phones, bank, date, invoices). A disagreement on a payment field is reason code C7: the decision stops at a call-back and a call-back does not clear it | Live S1 agreed on 8 of 8 fields, S3 on 6 of 6, S10 on 7 of 7. Across 34 evaluation letters: 32 agree, 1 disagrees (reading B corrected a deliberate typo, which is safe but not a transcription), 1 single reading. No shipped letter produces a live disagreement; the C7 path is covered by a unit test | `tests/unit/orchestration/letter-checks.test.ts`, [`docs/evidence/adversarial-eval.md`](docs/evidence/adversarial-eval.md) |
 | D2 The right model per step | A measured table, Lightning against Ultra on the same real inputs, for each model step. It is shown in the product at `/app/system` | Letter reading: Ultra right on 184 of 184 decisive fields on the 30 of 36 reads it answered, Lightning 41 of 76 on 14 of 34. Examiner critique (thinking on): Ultra 8 of 8 recorded and 6 of 6 control verdicts right, Lightning 4 of 7 and approved 3 links that should be blocked. Scout tool turns: Lightning p50 1.6 s against 3.7 s. Small samples (direction, not rates); the Examiner labels were written by our coding assistant from the scenario design, not by an expert | [`docs/evidence/model-per-step.md`](docs/evidence/model-per-step.md) |
-| D3 More Zetaris data-quality rules and a federated query | After every decision the sweep runs DQ1 and DQ2 plus DQ7 (one bank account on file for two vendors; it names the vendor ids), DQ8 `bank_change_before_large_payment` (registered with `REGISTER DQ`) and DQ9 (payee name differs from the vendor master). T23 is one Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris: the ERP legs are read over JDBC at query time; pushdown is not shown. T23 is informational: when it fails the trace says "not available this run" and the decision and run status do not change | Live S1: DQ7 found 2 of 52 bank-account rows (V-10233 and V-10234 share one account), DQ8 and DQ9 0 of 153; T23 returned the V-10027 profile on all three legs | [`zetaris/results/d3-wire-live.json`](zetaris/results/d3-wire-live.json), `app/components/sweep-extra.ts`, `app/templates/d3.ts` |
+| D3 More Zetaris data-quality rules and a federated query | After every decision the sweep runs DQ1 and DQ2 plus DQ7 (one bank account on file for two vendors; it names the vendor ids), DQ8 `bank_change_before_large_payment` (registered with `REGISTER DQ`) and DQ9 (payee name differs from the vendor master). T23 is one Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris: the ERP legs are read over JDBC at query time; pushdown is not shown. T23 is informational: when it fails the trace says "not available this run" and the decision and run status do not change | Live S1 (`r-20261027T194659Z-c63a`): DQ7 found 2 of 52 bank-account rows (V-10233 and V-10234 share one account) and flagged V-10233's item in the 30 Oct run (PRI-1030-0015, $18,640.00, also caught by DQ2); DQ8 and DQ9 0 of 154; T23 returned the V-10027 profile on all three legs (ERP, USAspending, EDGAR) | [`zetaris/results/d3-wire-live.json`](zetaris/results/d3-wire-live.json), `app/components/sweep-extra.ts`, `app/templates/d3.ts` |
 | D4 Evidence lineage | Every query detail (`GET /runs/:id/queries/:qid`) carries its lineage: source system, then USL table in `vendor360`, then query id, SQL hash, row hash and rows. Registry tables name their flatten view; run-time session tables resolve to the REST endpoint they were registered from | Every one of the 21 template kinds in an S1 run returns lineage. Registry legs show a wildcard (`usaspending.usa_*`) unless a template selects `source_table` | `app/api/lineage.ts`, `tests/unit/api/lineage.test.ts`, `tests/e2e/ui/lineage.spec.ts` |
 | D5 Identity-graph time travel | `GET /runs/:id/graph?at=` is bitemporal (valid by then and known by then); every node and edge carries `known_at`; the review page has an as-of scrubber | On the S1 graph: at the moment the letter arrived, 15 nodes and 15 edges, no sibling UEI and no flag on the lookalike domain; at the decision, 28 nodes and 37 edges with the Tinton Falls sibling `KHK6E1JW9C15` | `app/engines/wm-read.ts`, `tests/engines/wm-graph-known-at.test.ts`, `tests/e2e/ui/asof.spec.ts` |
 | D6 Prompt-injection defence | A code detector finds text addressed to an automated reviewer (hidden text under 3 pt, override or decision directives, text written to an AI) in the letter and the email body; one Ultra review confirms the candidates and may add spans but never removes one code found. Any confirmed span is R8, a HOLD that a call-back does not clear. The spans are quoted, never followed | Live S10 (Sable Harbor): HOLD R8, C1, C3; 4 spans (3 hidden 1 pt lines and the email notice), review confirmed 4 of 4. Across 34 letters: injected text counted on 10 of 11 spans (the old keyword filter: 6 of 11), 5 of 5 hidden spans, 7 of 7 injected letters flagged; **2 of 25 clean letters were falsely flagged** (named in the file) | [`docs/evidence/adversarial-eval.md`](docs/evidence/adversarial-eval.md), `app/agents/letter-reader/injection.ts` |
 
-Live runs of the frozen build on 2026-10-27 (production UI and API, real Zetaris, ERP and Nightshift; every receipt egress `nvidia`, H-MEM injected 0 on every call):
+Live runs of the frozen build on 2026-10-27 between 19:47Z and 19:59Z, each started from the production UI's inbox (Verify) after an ERP reset, one at a time (real Zetaris, ERP and Nightshift; every receipt egress `nvidia`, H-MEM injected 0 on every call):
 
-| Scenario | Run | Decision | Time to decision / run end | Nemotron calls | Notes |
-|---|---|---|---|---|---|
-| S1 Booz Allen remit change | `r-20261027T183716Z-afcb` | **HOLD** R1, R3, R6, C1, C5, I5, I6, status `success`, no limitations | 222 s / 271 s | 13 (5 Ultra, 8 Lightning) | Readings agree 8 of 8; the Examiner re-ran T11 in Zetaris and the row hash matched; sweep DQ1, DQ2, DQ7, DQ8, DQ9 and T23 all answered; rationale written by Nemotron passed the number check first time |
-| S10 Sable Harbor, hidden instructions | `r-20261027T184215Z-3a68` | **HOLD** R8, C1, C3, status `success` | 167 s / 216 s | 9 (3 Ultra, 6 Lightning) | 4 injected spans (3 hidden, 1 email), review confirmed 4 of 4; readings agree 7 of 7; the rationale quotes nothing from the injected text |
-| S3 L3Harris bank change | `r-20261027T184603Z-01ee` | **APPROVE**, status `success`, no codes | 149 s / 200 s | 6 (3 Ultra, 3 Lightning) | Readings agree 6 of 6; T05 and T08 re-run in Zetaris, both row hashes matched; call-back CL-20398 to the SEC-registered number |
+| Scenario | Run | Decision | Time to decision / run end | Nemotron calls | Zetaris queries | Notes |
+|---|---|---|---|---|---|---|
+| S1 Booz Allen remit change | `r-20261027T194659Z-c63a` | **HOLD** R1, R3, R6, C1, C5, I5, I6, status `success`, no limitations | 300 s / 353 s | 13 (5 Ultra, 8 Lightning) | 31 | Readings agree 8 of 8; one revision round; the Examiner re-ran T11 in Zetaris and the row hash matched; sweep DQ1, DQ2, DQ7, DQ8, DQ9 and T23 all answered, 3 items and $169,315.50 flagged in the 30 Oct run; rationale written by Nemotron passed the number check first time |
+| S10 Sable Harbor, hidden instructions | `r-20261027T195257Z-61bc` | **HOLD** R8, C1, C3, status `success` | 141 s / 193 s | 10 (4 Ultra, 6 Lightning) | 24 | 4 injected spans (3 hidden, 1 in the email), Ultra review confirmed 4 of 4; readings agree 7 of 7; the rationale was regenerated once after the number check and quotes nothing from the injected text |
+| S3 L3Harris bank change | `r-20261027T195617Z-d013` | **APPROVE**, status `success`, no codes | 147 s / 193 s | 7 (3 Ultra, 4 Lightning) | 26 | Readings agree 6 of 6; T05 and T08 re-run in Zetaris, both row hashes matched; confirmed call-back CL-20398 to the SEC-registered number (321) 727-9100 |
 
-The independent end-to-end suite (written by Grok) passed 96 of 96 tests at three widths (plus 3 of 3 in the live project, which replays recorded live checks) on 2026-10-27 at 18:50Z against the production build and the live API; see `tests/e2e/` and [`lanes/e2e-depth.md`](lanes/e2e-depth.md).
+Run times include Zetaris latency on one local driver; the recorded S1 example (`output_examples/01-booz-allen-remit-change`, `r-20261027T192533Z-0211`) decided in 285 s with 34 Zetaris queries. An earlier pass of the same three checks at 18:37Z to 18:49Z decided in 222, 167 and 149 s.
+
+The independent end-to-end suite (written by Grok) ran 96 tests at three widths against the production build and the live API at 21:13Z on 2026-10-27: 93 passed and 3 were skipped (the "no decision" as-of case, because the reset history holds no undecided run). See `tests/e2e/` and [`lanes/e2e-depth.md`](lanes/e2e-depth.md).
 
 ## 5. Architecture
 
@@ -157,7 +159,7 @@ until curl -fs http://localhost:3100 >/dev/null; do sleep 2; done
 curl -s http://localhost:8787/readyz     # {"ready":true,"mode":"sample",...}
 ```
 
-Then open <http://localhost:3100>. The inbox lists the pending requests; open one and verify it. Stop with `docker compose down -v`.
+Then open <http://localhost:3100>. The inbox lists the pending requests; open one and verify it. Stop with `docker compose down -v`. If port 8787 or 3100 is busy, set `PAYEE_API_PORT` and `PAYEE_UI_PORT` (for example `PAYEE_API_PORT=18787 PAYEE_UI_PORT=13100 SAMPLE_MODE=true docker compose --profile sample up -d --build`) and use those ports in the `curl` lines and the browser; add `-p <name>` to every compose command to keep it apart from another stack. The first build installs the API and UI dependencies from npm (the UI image alone took about 5 minutes on a 9 Mbps link); a rebuild from cache takes seconds.
 
 **B. Sample mode without Docker (Node 22).**
 
@@ -189,7 +191,7 @@ npm run warmup           # one call per lane; prints the returned model per lane
 npx probity run --input input_examples/01-booz-allen-remit-change/request.json
 ```
 
-Measured: `zetaris:register` ran phases P0 to P9 (`zetaris/results/registration.json`) and is idempotent, so a second pass skips what exists. A live Booz Allen run (S1) took a median of 196.6 s over 3 runs (218.1, 196.6 and 187.8 s; budget 480 s), from `docs/eval.md`. Containers reach Zetaris and Nightshift at `host.docker.internal`, which Colima resolves natively with no `extra_hosts` (checked from a container on this Colima setup on 2026-10-27: the Zetaris API on :8888 answered, and Nightshift's `/healthz` answered earlier the same day). Manual steps beyond the two prerequisites: none.
+Measured: `zetaris:register` ran phases P0 to P9 (`zetaris/results/registration.json`) and is idempotent, so a second pass skips what exists. A live Booz Allen run (S1) took a median of 196.6 s over 3 runs (218.1, 196.6 and 187.8 s; budget 480 s), from `docs/eval.md`; the frozen build, with two letter readings and the wider sweep, decided S1 in 285 s and 300 s on 2026-10-27 (section Depth). Containers reach Zetaris and Nightshift at `host.docker.internal`, which Colima resolves natively with no `extra_hosts` (checked from a container on this Colima setup on 2026-10-27: the Zetaris API on :8888 answered, and Nightshift's `/healthz` answered earlier the same day). Manual steps beyond the two prerequisites: none.
 
 ## 8. Usage
 
@@ -214,13 +216,13 @@ curl -s -X POST http://localhost:8787/run -H 'content-type: application/json' \
   -d '{"input":{"vendor":{"legal_name":"Leidos, Inc."}},"options":{"sample_mode":false}}' | jq .status
 ```
 
-The second call is a live run and needs live mode. The response is a run envelope (`run_id`, `status`, `output`, `agents`, `trace_id`, `log_file`, `execution_time_seconds`); the decision is the `gate_decision` artifact inside `output.artifacts`. Below is a cut of one live run of the Booz Allen request (run `r-20261027T140116Z-e306`, started from the review UI, decided in 197 s). The same command works on a saved response in `output_examples/` (written by `npm run record:examples`, listed in `output_examples/MANIFEST.json`) and on a run record in `logs/`:
+The second call is a live run and needs live mode. The response is a run envelope (`run_id`, `status`, `output`, `agents`, `trace_id`, `log_file`, `execution_time_seconds`); the decision is the `gate_decision` artifact inside `output.artifacts`. Below is a cut of the recorded live run of the Booz Allen request (run `r-20261027T192533Z-0211`, recorded by `npm run record:examples`, decided in 285 s). The same command works on any saved response in `output_examples/` (listed in `output_examples/MANIFEST.json`) and on a run record in `logs/`:
 
 ```bash
 jq '(.envelope // .) | .output.artifacts[] | select(.type=="gate_decision") | .data
     | {decision, reasons: [.reason_codes[].code], callback_lines: .callback_scripts[0].lines,
        sweep_findings: [.sweep.findings[] | {vendor_id, rule, amount_usd}], models_used: [.models_used[] | {agent, model}]}' \
-  logs/run-r-20261027T140116Z-e306.json
+  output_examples/01-booz-allen-remit-change/response.json
 ```
 
 ```text
@@ -228,7 +230,7 @@ jq '(.envelope // .) | .output.artifacts[] | select(.type=="gate_decision") | .d
   "decision": "HOLD",
   "reasons": ["R1", "R3", "R6", "C1", "C5", "I5", "I6"],
   "callback_lines": [
-    "Call (703) 902-5000 (SEC EDGAR submissions, CIK 0001443646, fetched 2026-10-27T14:02:39.700Z). Do not use (703) 555-0147, (703) 555-0182.",
+    "Call (703) 902-5000 (SEC EDGAR submissions, CIK 0001443646, fetched 2026-10-27T19:27:57.572Z). Do not use (703) 555-0147, (703) 555-0182.",
     "Ask for accounts receivable or treasury. Do not read out the new details first.",
     "Ask them to state the bank name and the last four digits of the account they expect us to pay.",
     "Ask them to state the remit-to address they expect. Compare it with: 1 Commvault Way, Suite 205, Tinton Falls, NJ 07724.",
@@ -238,7 +240,9 @@ jq '(.envelope // .) | .output.artifacts[] | select(.type=="gate_decision") | .d
   "sweep_findings": [
     { "vendor_id": "V-10812", "rule": "DQ1", "amount_usd": 87400 },
     { "vendor_id": "V-10812", "rule": "DQ2", "amount_usd": 87400 },
-    { "vendor_id": "V-10763", "rule": "DQ1", "amount_usd": 63275.5 }
+    { "vendor_id": "V-10763", "rule": "DQ1", "amount_usd": 63275.5 },
+    { "vendor_id": "V-10233", "rule": "DQ2", "amount_usd": 18640 },
+    { "vendor_id": "V-10233", "rule": "DQ7", "amount_usd": 18640 }
   ],
   "models_used": [
     { "agent": "letter_reader",     "model": "nvidia/nemotron-3-ultra-550b-a55b" },
@@ -249,7 +253,7 @@ jq '(.envelope // .) | .output.artifacts[] | select(.type=="gate_decision") | .d
 }
 ```
 
-(Pretty-printing compacted to fit; the values are exactly the command's output.) The run made 12 Nemotron calls and 25 Zetaris queries, found one revision round (the Tinton Falls sibling UEI `KHK6E1JW9C15`), and the sweep exposure was 3 items, $1,284,550.00 for this vendor, with $150,675.50 flagged on two other vendors in the same run.
+(Pretty-printing compacted to fit; the values are exactly the command's output.) The run made 13 Nemotron calls and 34 Zetaris queries, needed one revision round (the Tinton Falls sibling UEI `KHK6E1JW9C15`), and the exposure was 3 items, $1,284,550.00 for this vendor, with $169,315.50 flagged on three items of three other vendors in the same run.
 
 Endpoints:
 
@@ -314,13 +318,13 @@ Parity: `npx vitest run tests/parity` runs the sample half on its own. `npm run 
 ## 11. Zetaris
 
 - **Sources (3).** USAspending and SEC EDGAR as Zetaris REST tables calling the public APIs directly (USAspending with `HEADER Accept application/json`; EDGAR with the declared user agent), and a synthetic ERP as the Postgres datasource `payee_erp` (JDBC `CREATE DATASOURCE`, queried in place). Request documents are not a Zetaris source; their extracted claims land in the ERP table `bank_change_request`, which Zetaris reads.
-- **USL `vendor360`.** 12 tables (`SHOW NAMESPACES` reports `vendor360` with count 12), one `COMPILE USL` (`zetaris/usl.ddl`), activation queries in `zetaris/activate/*.sql`. Counts after activation: 12 registry entities, 543 family children, 6 SEC registrants, 40 vendors, 153 payment-run items (`zetaris/results/usl_counts.json`). ERD: [`zetaris/results/vendor360-erd.md`](zetaris/results/vendor360-erd.md), generated from `zetaris/usl.ddl` by `scripts/zetaris/usl-erd.ts`.
+- **USL `vendor360`.** 12 tables (`SHOW NAMESPACES` reports `vendor360` with count 12), one `COMPILE USL` (`zetaris/usl.ddl`), activation queries in `zetaris/activate/*.sql`. Counts after activation: 12 registry entities, 543 family children, 6 SEC registrants, 40 vendors, 153 payment-run items (`zetaris/results/usl_counts.json`, captured before the seed gained a 154th item, PRI-1030-0015, on 2026-10-27). ERD: [`zetaris/results/vendor360-erd.md`](zetaris/results/vendor360-erd.md), generated from `zetaris/usl.ddl` by `scripts/zetaris/usl-erd.ts`.
 - **USL proven active by the product's own queries.** The fact sheet (T05), the family address match (T11) and account reuse (T07), in `zetaris/usl_queries.sql`; captured results in `zetaris/results/usl_{1,2,3}.json`.
 - **Exploratory queries.** Three per source in `zetaris/explore/{usaspending,edgar,erp}.sql`, with captured results `zetaris/results/explore_<source>_{a,b,c}.json`.
 - **Data-quality rules.** Only the registered rules, as listed by `LIST DQ USL` in `zetaris/results/list_dq_usl.json`: six rules in all. DQ1 and DQ2 (`unverified_recent_bank_change`, `account_single_vendor`) run on every live decision as the payment-run sweep. DQ3 `request_routing_valid` checks the ABA checksum of the requested routing number on the synthetic request table (11 rows, 1 invalid). DQ4 to DQ6 run on real registry rows and surface real gaps in public data: `registry_has_address` (12 entities, 1 without an address), `sec_ein_present` (6 registrants, 1 with a placeholder or missing EIN) and `sec_state_of_inc_present` (6 registrants, 1 without a state of incorporation). Run results: `zetaris/results/run_dq_*.json`. Since the depth work a seventh rule is registered, DQ8 `bank_change_before_large_payment` (the live `REGISTER DQ` and `LIST DQ USL` are in `zetaris/results/d3-wire-live.json`; `list_dq_usl.json` is the earlier capture), and the sweep also runs DQ7 (shared bank account) and DQ9 (payee name mismatch) as plain Zetaris statements, not registered rules.
 - **Discovery at run time.** The Registrar registers the matching sibling's record as a Zetaris REST session table at run time (in the hero run, `session.pp_usa_r_khk6e1jw9c15`, the Tinton Falls entity), then the Evidence Runner queries it. Session tables are listed by probing each name (`zetaris/results/session_tables_before_after.json`).
 - **Governed access.** One Zetaris key is used for both query and registration; the query/admin split exists in code as two adapters, not as a Zetaris grant (K7 was not run). Agents hold no database credentials; raw account numbers never reach Zetaris, only `sha256(routing:account)` and the last four digits.
-- **Query history.** Zetaris on this edition has no `SHOW QUERY HISTORY` (HTTP 400), so [`zetaris/results/query_history.md`](zetaris/results/query_history.md) is built from the product's own per-run query file: 25 queries for the hero run, median latency 6.3 s.
+- **Query history.** Zetaris on this edition has no `SHOW QUERY HISTORY` (HTTP 400), so [`zetaris/results/query_history.md`](zetaris/results/query_history.md) is built from the product's own per-run query file: 25 queries for the hero run of that capture, median latency 6.3 s (the frozen build, with the wider sweep and T23, makes 31 to 34 per S1 check).
 - **Re-run in Zetaris.** Every fact cell calls `POST /zetaris/rerun {run_id, query_id}`: the same SQL, a new `query_id`, and a `row_hash` match or drift.
 - **Reflection.** [`docs/usl-reflection/01-time-saved.md`](docs/usl-reflection/01-time-saved.md), [`02-would-it-help.md`](docs/usl-reflection/02-would-it-help.md), [`03-killer-requirement.md`](docs/usl-reflection/03-killer-requirement.md).
 
@@ -363,9 +367,11 @@ The vendored H-MEM engine is declared in section 15 and exercised only by its co
 | USAspending recipient search | Real | same | Name → candidate UEIs, **discovery only** (never cited as a fact) | App adapter (discovery only) |
 | SEC EDGAR submissions | Real | SEC public data; fair-access policy (declared User-Agent, at most 10 requests/s; we throttle to 2) | 6 registrants | REST tables + CACHE |
 | SEC `company_tickers.json` | Real | same | Name → CIK (template T16 returned the Booz Allen, L3Harris and Parsons CIKs in `zetaris/results/t16.json`; no recorded decision uses it yet) | REST table through our source gateway (the direct file inferred 10,430 columns) |
-| Vendor master, AP ledger, payment runs, requests | **Synthetic** (`data_origin='SYNTHETIC'`) | Ours, MIT | 40 vendor records, of which 7 name real companies (6 active vendors plus the merged legacy Leidos record) and 33 are invented (flagged `is_fictional` in the vendor table; the names themselves carry no marker); 11 payment runs, 153 run items, 10 request rows and 28 call-back log rows. All counts are copied from `data/generated-manifest.json` | JDBC datasource |
+| Vendor master, AP ledger, payment runs, requests | **Synthetic** (`data_origin='SYNTHETIC'`) | Ours, MIT | 40 vendor records, of which 7 name real companies (6 active vendors plus the merged legacy Leidos record) and 33 are invented (flagged `is_fictional` in the vendor table; the names themselves carry no marker); 11 payment runs, 154 run items, 172 AP invoices, 10 request rows and 28 call-back log rows. All counts are copied from `data/generated-manifest.json` | JDBC datasource |
 | Request letters and `.eml` headers | **Synthetic**; letters in a real company's name carry an in-document notice that they were not issued by that company | Ours | 15 inbox items (document sets and typed JSON), generated from `data/inbox/manifest.json` | Not a source; claims are stored in the ERP |
 | Registry mirror (`data/sample/`) | Real API responses captured 2026-10-27 | as above | same slice | SAMPLE_MODE and the labelled mirror fallback only |
+
+Recorded live examples: `output_examples/` holds 5 live runs recorded on 2026-10-27 between 19:10Z and 19:31Z at commit `4b7f82c` (01 Booz Allen HOLD, 02 SAIC/Leidos HOLD R4, 03 L3Harris APPROVE, 04 V2X CALLBACK_VERIFY, 10 Sable Harbor HOLD R8), 8 files each and 40 in all (request, response, CLI output, trace, Zetaris queries, Nightshift receipts, lane warm-up, RECORDED.md), indexed with sha256 in `output_examples/MANIFEST.json`. Example 03 is `partial_success` because its rationale fell back to the template; the decision is the same. There is no example for S9: its input was cut.
 
 Safety rules: test routing number 110000000 ("TEST ROUTING"), test accounts 000999000### ("TEST ACCOUNT"), 555-01xx phone numbers, `*.example` domains, invented people and companies flagged `is_fictional` in the seed, and real corporate main numbers appear only inside synthetic records, where they are never offered as a call-back number. No personal data. Full detail, record counts and regeneration are in [`data/README.md`](data/README.md).
 
@@ -394,9 +400,9 @@ Safety rules: test routing number 110000000 ("TEST ROUTING"), test accounts 0009
 19. Zetaris query history could not be exported on this edition, so trace query ids cannot be matched against a Zetaris-side log. We keep our own query file per run.
 20. Session tables are shown before and after a run by probing each table, not by a Zetaris listing command.
 21. Nemotron 3.5 Lightning is the fast lane and is not used to read letters: in our evaluation it answered 3 of 12 letters (seven HTTP 502 responses and two `needs_human`), against 12 of 12 for Ultra.
-22. Zetaris latency is variable on a single local driver: the 25 queries of the hero run took 0.6 to 26.4 s each (median 6.3 s), and queries slow down when several runs share the driver.
+22. Zetaris latency is variable on a single local driver: the 31 queries of the frozen-build S1 run `r-20261027T194659Z-c63a` took 0.9 to 44.9 s each (median 7.2 s), so the check decided in 300 s against a 480 s budget; queries slow down when several runs share the driver, and two recording takes hit C2 (a Zetaris timeout) and were re-run.
 23. The injection detector is not perfect: on 25 clean or legitimate letters it raised R8 twice (one on OCR noise, one where the Ultra review labelled pressure language aimed at the clerk), and one wrapped instruction sentence was only half quoted (`docs/evidence/adversarial-eval.md`). A false R8 holds a request for a person to read; it never approves one.
-24. On the current ledger DQ8 and DQ9 find nothing (153 of 153 valid) and DQ7's two vendors have no item in the payment run, so the extra rules add counts and query ids to the sweep but no payment-item finding today.
+24. On the current ledger DQ8 and DQ9 find nothing (154 of 154 valid). DQ7's shared account (V-10233, V-10234) has one item in the 30 Oct run, which DQ2 also flags, so DQ7 adds one payment-item finding and DQ8 and DQ9 add only counts and query ids.
 25. The federated vendor profile (T23) is informational and best-effort: Zetaris answers it in about 25 s when idle and it can time out under load; it never changes a decision.
 
 ## 15. Pre-existing components

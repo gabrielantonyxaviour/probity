@@ -1,8 +1,8 @@
 # HackOS form values, declarations and resolved switches
 
-Product: Probity · team Zen · last updated 2026-10-27 about 15:40Z from `README.md`, `STATUS.md`, `docs/eval.md`, `docs/evidence/nemotron-eval.md` and the Zetaris captures in `zetaris/results/`.
+Product: Probity · team Zen · last updated 2026-10-27 about 21:25Z (wave-3 finalizer: numbers from the frozen-build live runs `r-20261027T194659Z-c63a`, `r-20261027T195257Z-61bc`, `r-20261027T195617Z-d013` and `output_examples/MANIFEST.json`) from `README.md`, `STATUS.md`, `docs/eval.md`, `docs/evidence/nemotron-eval.md` and the Zetaris captures in `zetaris/results/`.
 Hard close 2026-10-27 23:45 UTC. Gabriel approved a first early submission (decision 14); updates are allowed until the close. Every value is pasted from this file; nothing is retyped. The submit check is `grep -rn '[{][{]' README.md docs/ --exclude-dir=video --exclude-dir=deck`, which must print nothing for the files this lane owns.
-Two values are not known yet and are written as "to be added": the demo video URL and the deck URL.
+One value is not known yet: the YouTube URL of the final film (`docs/video/probity-film.mp4`, 3:43), written as "to be linked". The deck is a file upload (`docs/deck/probity-deck.pdf`, 10 pages; `docs/deck/probity-deck.pptx` with clips stays out of git). The pasted HackOS texts for the final update are `_docs/hackos-submitted/v2-desc.txt` and `v2-sponsor.txt` (outside the repo, beside the first submission's `hk-desc.txt` and `hk-sponsor.txt`).
 
 ## 1. Field to value
 
@@ -16,8 +16,8 @@ Two values are not known yet and are written as "to be added": the demo video UR
 | Short description | Section 2.1 (the 280-character variant) |
 | Long description | Section 2.2 |
 | Repo (public) | https://github.com/gabrielantonyxaviour/probity (public since 2026-10-27 14:44Z) |
-| Demo video | To be added (unlisted YouTube, approved) |
-| Deck | To be added (Drive or PDF link); the source PDF is `docs/deck/probity-deck.pdf` in the repo |
+| Demo video | Video: to be linked (unlisted YouTube, approved; file `docs/video/probity-film.mp4`, 3:43). The first submission's walkthrough is <https://youtu.be/2_jLXg70EEI> |
+| Deck | Upload `docs/deck/probity-deck.pdf` (10 pages, in the repo); the PowerPoint `docs/deck/probity-deck.pptx` plays one clip per slide and is not committed |
 | Live demo | None: runs locally in Docker. "Run `SAMPLE_MODE=true docker compose --profile sample up --build`, then open http://localhost:3100" |
 | Colab | None |
 | Sponsor-tech explanation | The full text of `docs/SPONSOR_TECH.md`, with any `<!-- ... -->` comments stripped |
@@ -46,7 +46,7 @@ If the field has no cap, the 319-character spec text may be used instead:
 >
 > Four agents with different authority. A Letter Reader (Nemotron 3 Ultra) turns the letter into quoted claims. A Registry Scout (Nemotron 3.5 Lightning) plans Zetaris query templates, and a coverage rule in code sets the floor. An Identity Examiner can block any link or fact, re-runs the decisive Zetaris queries itself and compares row hashes, and can send the Scout back for more evidence. A Gate Officer applies the payment policy, which is code, and writes a number-checked rationale.
 >
-> Measured on the live stack (Zetaris, Nightshift, Nemotron): the Booz Allen request was held in 197 s with 12 Nemotron calls and 25 Zetaris queries, and the L3Harris request was approved in 143 s. In our letter-reading evaluation, Nemotron 3 Ultra read 12 of 12 letters with 72 of 72 decisive fields exact.
+> Measured on the live stack (Zetaris, Nightshift, Nemotron) with the frozen build on 2026-10-27: the Booz Allen request was held in 300 s with 13 Nemotron calls and 31 Zetaris queries (two Ultra readings agreed on 8 of 8 fields; the sweep flagged 3 more items, $169,315.50, in the same run); a letter carrying hidden instructions to an AI reviewer was held under R8 in 141 s; the L3Harris request was approved in 147 s with a cited call-back. In our letter-reading evaluation, Nemotron 3 Ultra read 12 of 12 letters with 72 of 72 decisive fields exact. The independent end-to-end suite ran 96 tests at three widths: 93 passed, 3 skipped.
 >
 > Requests, letters and ERP records are synthetic; registry facts are real public data (USAspending and SEC EDGAR). To run it with no keys: `SAMPLE_MODE=true docker compose --profile sample up --build`, then open http://localhost:3100.
 
@@ -58,7 +58,7 @@ If the H-MEM directory is deleted before the final commit, remove "and H-MEM", "
 
 ### 2.4 AI usage declaration
 
-> Tools used to build: Grok (xAI) built the Zetaris data layer (source registration, the unified vendor360 USL, data-quality rules, live verification) and wrote the independent end-to-end test suite; Claude Code (Claude Opus 5.5 and Claude Sonnet 5.5) built the agents and interface, the prompts, the README, the deck and the video script. Cursor was not used. Grok's working logs are zetaris/grok-session.log, lanes/grok-zetaris-session.log and lanes/grok-e2e-session.log. Runtime models: NVIDIA Nemotron only, through Meterless Nightshift, pinned by exact id: nvidia/nemotron-3.5-lightning-30b-a3b (evidence planning and tool calls, rationale) and nvidia/nemotron-3-ultra-550b-a55b (letter reading, identity-link review). No meterless/* routing id is ever used. Every call's requested and returned model is logged per call, and the verdict is computed by code, not by a model. Synthetic letters are generated by our code, not by an image model. Narration: an ElevenLabs voice clone of a team member's own voice, disclosed in the video description.
+> Tools used to build: Grok (xAI) built the Zetaris data layer (source registration, the unified vendor360 USL, data-quality rules, live verification) and wrote the independent end-to-end test suite; Claude Code (Claude Opus 5.5 and Claude Sonnet 5.5) built the agents and interface, the prompts, the README, the deck and the video script. Cursor was not used. Grok's working logs are zetaris/grok-session.log, lanes/grok-zetaris-session.log, lanes/grok-zetaris-wire-session.log, lanes/grok-e2e-session.log and lanes/grok-e2e-depth-session.log. Runtime models: NVIDIA Nemotron only, through Meterless Nightshift, pinned by exact id: nvidia/nemotron-3.5-lightning-30b-a3b (evidence planning and tool calls, rationale) and nvidia/nemotron-3-ultra-550b-a55b (letter reading, identity-link review). No meterless/* routing id is ever used. Every call's requested and returned model is logged per call, and the verdict is computed by code, not by a model. Synthetic letters are generated by our code, not by an image model. Narration: an ElevenLabs voice clone of a team member's own voice, disclosed in the video description.
 
 ### 2.5 Data declaration
 
@@ -70,8 +70,8 @@ The T01 challenge page and the live submission form were not read by this lane. 
 
 | Requirement | Value source | Status |
 |---|---|---|
-| Demo video, 1 to 4 minutes, one real request through Nightshift shown, keys hidden | `docs/video/` | To be added |
-| Slide deck | `docs/deck/probity-deck.pdf` | To be added (link) |
+| Demo video, 1 to 4 minutes, one real request through Nightshift shown, keys hidden | `docs/video/probity-film.mp4` (3:43, 1920x1080) | Rendered; YouTube link to be added |
+| Slide deck | `docs/deck/probity-deck.pdf` | Ready (10 pages; upload the file) |
 | Public GitHub repo with README (setup, usage, dependencies) | Repo URL above | Ready (public) |
 | Sponsor-tech explanation | `docs/SPONSOR_TECH.md` | Drafted by this lane earlier; its own fills are owned elsewhere |
 | Pre-existing components declared | Section 2.3 | Ready |
@@ -91,7 +91,7 @@ Each honesty switch from `spec/08-submission.md` section 2.6, with the branch th
 |---|---|---|
 | SW1 (USAspending direct) | pass | K1a: direct REST table with `HEADER Accept application/json`; `zetaris/results/rest_counts.json`, `kill_verdicts.json` |
 | SW2 (run-time session tables) | pass | K1d: `session.pp_usa_r_khk6e1jw9c15` read with the query key; used in the hero run |
-| SW3 (ERP through JDBC) | pass | K2: JDBC datasource `payee_erp`, 40 vendors, 153 payment-run items |
+| SW3 (ERP through JDBC) | pass | K2: JDBC datasource `payee_erp`, 40 vendors, 154 payment-run items (153 at the K2 capture) |
 | SW4 (manual steps) | none | REST `COMPILE USL` succeeded after semicolons were added between statements (K3a) |
 | SW4b (DQ4 to DQ6) | pass | Three registry rules registered and run: `registry_has_address`, `sec_ein_present`, `sec_state_of_inc_present` |
 | SW4c (REST-backed activation) | pass | Activation from views over the REST tables works (`activation_form=view`) |

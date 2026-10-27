@@ -1,0 +1,191 @@
+{
+  "at": "2026-10-27T19:03:00.350Z",
+  "run_id": "warmup-20261027t190243z",
+  "catalog": {
+    "status": "online",
+    "count": 19,
+    "ids": [
+      "meterless/auto",
+      "meterless/fast",
+      "meterless/deep",
+      "meterless/cheap",
+      "meterless/local",
+      "meterless/fusion",
+      "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "nvidia/nemotron-3-ultra-550b-a55b",
+      "nvidia/nemotron-3-embed-1b",
+      "nvidia/nemotron-3.5-bolt-e4b",
+      "nvidia/nemotron-3.5-embed-1b",
+      "webllm/Llama-3.2-1B-Instruct-q4f16_1-MLC",
+      "webllm/Llama-3.2-3B-Instruct-q4f16_1-MLC",
+      "webllm/Qwen2.5-1.5B-Instruct-q4f16_1-MLC",
+      "webllm/Qwen2.5-3B-Instruct-q4f16_1-MLC",
+      "webllm/Qwen2.5-Coder-3B-Instruct-q4f16_1-MLC",
+      "webllm/gemma-2-2b-it-q4f16_1-MLC",
+      "webllm/Phi-3.5-mini-instruct-q4f16_1-MLC",
+      "webllm/SmolLM2-1.7B-Instruct-q4f16_1-MLC"
+    ]
+  },
+  "lanes": {
+    "fast": {
+      "pin_source": "env",
+      "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "returned_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "model_source": "response_body",
+      "state": "confirmed_nemotron",
+      "nemotron": true,
+      "latency_ms": 1075,
+      "tokens": {
+        "in": 24,
+        "out": 3
+      },
+      "ok": true,
+      "tool_call_ok": true,
+      "image_ok": false,
+      "extras_unsupported": false
+    },
+    "deep": {
+      "pin_source": "env",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "returned_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "model_source": "response_body",
+      "state": "confirmed_nemotron",
+      "nemotron": true,
+      "latency_ms": 579,
+      "tokens": {
+        "in": 24,
+        "out": 3
+      },
+      "ok": true
+    },
+    "vision": {
+      "state": "unavailable",
+      "reason": "no image path to NVIDIA on this edition"
+    }
+  },
+  "L1_TOOL_MODE": "native",
+  "REASONING_CONTROL": "kwargs",
+  "k4d": {
+    "json_thinking_off": {
+      "form": "json_thinking_off",
+      "ok": true,
+      "structured_output": "passed",
+      "zod_ok": true,
+      "latency_ms": 1469
+    },
+    "json_thinking_on": {
+      "form": "json_thinking_on",
+      "ok": true,
+      "structured_output": "passed",
+      "zod_ok": true,
+      "latency_ms": 2607
+    },
+    "forced_tool": {
+      "form": "forced_tool",
+      "ok": true,
+      "structured_output": null,
+      "zod_ok": true,
+      "latency_ms": 2167
+    }
+  },
+  "hmem": {
+    "same_id": [
+      {
+        "app": "probity-warmup-20261027t190243z-app-same",
+        "scope": "app",
+        "injected": 0,
+        "top_score": null
+      },
+      {
+        "app": "probity-warmup-20261027t190243z-app-same",
+        "scope": "app",
+        "injected": 0,
+        "top_score": null
+      }
+    ],
+    "per_call": [
+      {
+        "app": "probity-warmup-20261027t190243z-app-1",
+        "scope": "app",
+        "injected": 0,
+        "top_score": null
+      },
+      {
+        "app": "probity-warmup-20261027t190243z-app-2",
+        "scope": "app",
+        "injected": 0,
+        "top_score": null
+      }
+    ],
+    "by_scope": {
+      "user": {
+        "same_id": [
+          {
+            "app": "probity-warmup-20261027t190243z-user-same",
+            "scope": "user",
+            "injected": 1,
+            "top_score": 0.474
+          },
+          {
+            "app": "probity-warmup-20261027t190243z-user-same",
+            "scope": "user",
+            "injected": 1,
+            "top_score": 0.474
+          }
+        ],
+        "per_call": [
+          {
+            "app": "probity-warmup-20261027t190243z-user-1",
+            "scope": "user",
+            "injected": 1,
+            "top_score": 0.474
+          },
+          {
+            "app": "probity-warmup-20261027t190243z-user-2",
+            "scope": "user",
+            "injected": 1,
+            "top_score": 0.474
+          }
+        ]
+      },
+      "app": {
+        "same_id": [
+          {
+            "app": "probity-warmup-20261027t190243z-app-same",
+            "scope": "app",
+            "injected": 0,
+            "top_score": null
+          },
+          {
+            "app": "probity-warmup-20261027t190243z-app-same",
+            "scope": "app",
+            "injected": 0,
+            "top_score": null
+          }
+        ],
+        "per_call": [
+          {
+            "app": "probity-warmup-20261027t190243z-app-1",
+            "scope": "app",
+            "injected": 0,
+            "top_score": null
+          },
+          {
+            "app": "probity-warmup-20261027t190243z-app-2",
+            "scope": "app",
+            "injected": 0,
+            "top_score": null
+          }
+        ]
+      }
+    }
+  },
+  "cross_check": {
+    "status": "ran",
+    "risk_level": "low",
+    "recommended_action": "allow",
+    "verifier_model": null,
+    "latency_ms": 4016
+  },
+  "exit_code": 0
+}

@@ -42,8 +42,8 @@ export const M08: React.FC = () => {
           {facts.pending ? <Awaiting /> : (
             <>
               <Stat label="At stake in this run" value={fx.usd(facts.vendor_amount_usd)} f={f} at={96} />
-              <Stat label="Decision time" value={facts.execution_time_seconds === undefined ? "-" : `${Math.round(facts.execution_time_seconds)} s`} f={f} at={108} />
-              <Stat label="Median decision time" value={fx.q8() === null ? "-" : `${fx.q8()} s`} f={f} at={120} />
+              <Stat label="This check, end to end" value={facts.execution_time_seconds === undefined ? "-" : `${Math.round(facts.execution_time_seconds)} s`} f={f} at={108} />
+              <Stat label="Median per check" value={fx.q8() === null ? "-" : `${fx.q8()} s`} f={f} at={120} />
             </>
           )}
         </div>

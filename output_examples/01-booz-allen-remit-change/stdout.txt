@@ -1,0 +1,110 @@
+[INFO] run=r-20261027T192533Z-0211 agent=orchestrator action=run_start target=letter_reader | mode=live budget=480s
+[INFO] run=r-20261027T192533Z-0211 agent=letter_reader action=extract_claims note=injection:detect | no text addressed to an automated reviewer
+[INFO] run=r-20261027T192533Z-0211 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1056/15 ms=1802 | 1056/15 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1056/15 ms=1802 note=injection:review | review: 0/0 candidates addressed to a reviewer; 0 more quoted
+[INFO] run=r-20261027T192533Z-0211 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1917/1512 ms=40620 | 1917/1512 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1917/1512 ms=40620 note=dual_read:A; text+deep; transcribe | claimed=Booz Allen Hamilton Inc.; acct ••••0141; routing 110000000; 1 phone(s); 3 pressure phrase(s)
+[INFO] run=r-20261027T192533Z-0211 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=2076/2090 ms=79945 | 2076/2090 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=2076/2090 ms=79945 note=dual_read:B; ocr+deep; visual | claimed=Booz Allen Hamilton Inc.; acct ••••0141; routing 110000000; 1 phone(s); 3 pressure phrase(s)
+[INFO] run=r-20261027T192533Z-0211 agent=letter_reader action=extract_claims note=dual_read:reconcile 8/8 | agreement 8/8; every material field agrees
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T04b qid=15c98718 rows=1 mode=live ms=1109 | rows=1 vendor_id=V-10027 legal_name=Booz Allen Hamilton Inc name_norm=BOOZ ALLEN HAMILTON INC
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T03 qid=64fbb460 rows=3 mode=live ms=1195 | rows=3 invoice_no=INV-BAH-20931 vendor_id=V-10027 amount_usd=612400.00
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T04 qid=0319b23d rows=0 mode=live ms=1550 | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06c qid=6f8c3ab9 rows=0 mode=live ms=13047 | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06b qid=e831ced5 rows=1 mode=live ms=20119 | rows=1 via=entity key=JCBMLGPE6Z71-C name=BOOZ ALLEN HAMILTON INC
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06a qid=263915ad rows=4 mode=live ms=37252 | rows=4 via=alias key=JCBMLGPE6Z71-C name=BOOZ ALLEN  HAMILTON INC
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T09 qid=ad0220cb rows=15 mode=live ms=3502 | run items=15 15 rows
+[INFO] run=r-20261027T192533Z-0211 agent=orchestrator action=intake_request target=memory_gate | BCR-2026-0412 inserted (pending); candidates=[V-10027 soft 0.70]
+[INFO] run=r-20261027T192533Z-0211 agent=orchestrator action=handoff target=memory_gate | claims -> memory_gate
+[INFO] run=r-20261027T192533Z-0211 agent=memory_gate action=memory_recall target=registry_scout | 0 hits
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T02 qid=3ed170a0 rows=3 mode=live ms=2085 | rows=3 email accounts.receivable@boozallen.example 2019-04-02->open; phone (703) 902-5000 2019-04-02->2026-10-19; phone (703) 555-0182 2026-10-19->open
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T01 qid=9389f328 rows=1 mode=live ms=2470 | rows=1 vendor_id=V-10027 legal_name=Booz Allen Hamilton Inc name_norm=BOOZ ALLEN HAMILTON INC
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T08 qid=a959b22f rows=0 mode=live ms=398 | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T07 qid=f8db7ca9 rows=2 mode=live ms=1586 | rows=2 vendor_bank_account V-10812; bank_change_request V-10027
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T05 qid=d6222dd1 rows=1 mode=live ms=20156 | rows=1 JCBMLGPE6Z71-C MCLEAN VA; parent MBPHTU7Y9S65; cik 0001443646 phone 703-902-5000
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T05b qid=44ff5354 rows=1 mode=live ms=15572 note=parent location for I1 | rows=1 p_entity_key=MBPHTU7Y9S65-P p_legal_name=BOOZ ALLEN HAMILTON HOLDING CORPORATION p_address_line1=8283 GREENSBORO DR
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3788/89 ms=1387 | 3788/89 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06c qid=cc325c68 rows=1 mode=live ms=7155 note=SEC registrant name differs from the vendor master name | rows=1 via=registrant key=0001443646 name=Booz Allen Hamilton Holding Corp
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06b qid=99a72ce3 rows=1 mode=live ms=13395 note=SEC registrant name differs from the vendor master name | rows=1 via=entity key=MBPHTU7Y9S65-P name=BOOZ ALLEN HAMILTON HOLDING CORPORATION
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06a qid=4a2827f1 rows=0 mode=live ms=30484 note=SEC registrant name differs from the vendor master name | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4203/119 ms=1566 | 4203/119 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=record_finding | registrant supports: SEC EDGAR registrant name matches the vendor's parent UEI name: BOOZ ALLEN HAMILTON HOLDING CORP
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4394/91 ms=1336 | 4394/91 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06c qid=37f5412b rows=0 mode=live ms=7067 note=SEC registrant name differs from the vendor master name | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06b qid=0409c246 rows=0 mode=live ms=14039 note=SEC registrant name differs from the vendor master name | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template template=T06a qid=a454564a rows=0 mode=live ms=29329 note=SEC registrant name differs from the vendor master name | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4680/83 ms=1193 | 4680/83 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4680/83 ms=101091 note=model added 2 check(s) | r0: floor 6 steps + 2 extra step(s) (T06)
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=memory_write | entities 0, edges 0, facts 0 written; 44 unchanged
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=propose_link target=identity_examiner | candidate_vendor invoice_ref+name_exact+alias_exact score 0.7: req:BCR-2026-0412 -> vendor:V-10027 soft
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=propose_link target=identity_examiner | same_as via vendor.uei: vendor:V-10027 -> uei:JCBMLGPE6Z71-C hard
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=propose_link target=identity_examiner | registered_as via vendor.registrant_cik: uei:MBPHTU7Y9S65-P -> cik:0001443646 hard
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:BOOZ ALLEN HAMILTON INC -> uei:JCBMLGPE6Z71-C hard
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:BOOZ ALLEN HAMILTON INC -> uei:MBPHTU7Y9S65-P soft
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=handoff target=identity_examiner | links -> identity_examiner
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=approve_link | hard: vendor_entity exact key
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=approve_link | hard: registrant exact key
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=approve_link | hard: alias exact key
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=reject_link rule=B1 | B1: name similarity only
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=approve_link lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1310/301 ms=7505 | 1310/301 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=approve_link lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1310/301 ms=7505 | approve (0.80): The request quotes the legal name Booz Allen Hamilton Inc and invoice numbers INV-BAH-20931, INV-BAH-20944, INV-BAH-20967. Vendor master rows for V-10027 show the same legal name (ev-15c98718-0-ln, ev-9389f328-0-ln) and list those three invoice numbers as belonging to V-10027 (ev-64…
+[WARN] run=r-20261027T192533Z-0211 agent=identity_examiner action=gap_request target=registry_scout rule=G1 status=needs_revision | G1: tools T10, T12, register_source, T11
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=raise_conflict target=gate_officer note=cf-account-3ac8534c | The requested account is already on Quillan Ridge Fleet Services LLC (V-10812). (unresolved)
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template round=1 template=T10 qid=9e674d4b rows=1 mode=live ms=3577 note=G1: family children narrowed by the claimed state | rows=1 KHK6E1JW9C15 (NJ); family list 41 rows, narrowed to NJ
+[INFO] run=r-20261027T192533Z-0211 agent=registrar action=register_source round=1 template=T12 ms=125 note=reused | session.pp_usa_r_khk6e1jw9c15 reused
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template round=1 template=T11 qid=21988d80 rows=1 mode=live ms=14138 note=t11_split | rows=1 matched_uei=KHK6E1JW9C15 level=C BOOZ ALLEN HAMILTON INC vendor_id_on_file=none
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage round=1 lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3339/124 ms=1425 | 3339/124 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage round=1 lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3502/124 ms=1362 | 3502/124 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage round=1 lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3665/103 ms=1336 | 3665/103 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=registry_scout action=plan_coverage round=1 lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3665/103 ms=23948 note=model reviewed floor | r1: floor 2 steps + 0 extra step(s) (reviewed the floor and added none)
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=memory_write round=1 | entities 0, edges 0, facts 0 written; 8 unchanged
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=propose_link round=1 target=identity_examiner | requests_remit_to_match hard: addr:1 COMMVAULT WAY|TINTON FALLS|NJ -> uei:KHK6E1JW9C15-C hard
+[INFO] run=r-20261027T192533Z-0211 agent=identity_linker action=handoff round=1 target=identity_examiner | links -> identity_examiner
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=requery round=1 template=T11 qid=21988d80 mode=live | T11 row_hash match b933a247033a78f4
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=approve_link round=1 | hard: remit_owner exact key
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=raise_conflict round=1 target=gate_officer note=cf-remit_owner-714c679c | The new remit address is a real BOOZ ALLEN HAMILTON INC address, but it belongs to UEI KHK6E1JW9C15, not to UEI JCBMLGPE6Z71 that we contract with and pay. (resolved)
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=raise_conflict round=1 lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=631/295 ms=14127 | 631/295 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=raise_conflict round=1 lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=631/295 ms=14127 note=cf-account-3ac8534c | The vendor master shows the requested bank account is already active for Quillan Ridge Fleet Services LLC (V-10812) as of 2026-10-18 13:02:00 (ev-f8db7ca9-0-ba). This matters because the account cannot be added again for the same vendor without clarification.
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=raise_conflict round=1 lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=631/295 ms=14127 note=cf-remit_owner-714c679c | USAspending lists the new remit address 1 COMMVAULT WAY STE 205, TINTON FALLS, NJ, 07724 under UEI KHK6E1JW9C15 (ev-21988d80-0-ra), while the vendor master and USAspending show the contracted address 8283 Greensboro Dr, McLean, VA under UEI JCBMLGPE6Z71 (ev-d6222dd1-0-ra, ev-d6222dd1-1-ra). The dis…
+[INFO] run=r-20261027T192533Z-0211 agent=identity_examiner action=handoff round=1 target=gate_officer | verdicts -> gate_officer
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template round=1 template=T08b qid=9d60fae7 rows=1 mode=live ms=767 | rows=1 request_id=BCR-2026-0412 new_routing=110000000 routing_check=valid
+[INFO] run=r-20261027T192533Z-0211 agent=gate_officer action=decide round=1 codes=R1,R3,R6,C1,C5,I5,I6 | HOLD codes=R1,R3,R6,C1,C5,I5,I6 coverage=4/4
+[INFO] run=r-20261027T192533Z-0211 agent=gate_officer action=select_callback round=1 | +17039025000 edgar_registrant; do_not_use (703) 555-0147 appears only on the request; (703) 555-0182 changed on file 2026-10-19, 3 days before the request
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=T20 qid=c4e90524 rows=1 mode=live ms=6188 | rows=1 name=unverified_recent_bank_change table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=T20 qid=ee272010 rows=1 mode=live ms=6378 | rows=1 name=account_single_vendor table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=T21 qid=466a6b1c rows=3 mode=live ms=3833 | rows=3 item_id=PRI-1009-0016 payment_run_id=PR-2026-10-09 scheduled_date=2026-10-09
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=T21 qid=ae8bbaca rows=4 mode=live ms=3834 | rows=4 item_id=PRI-1002-0014 payment_run_id=PR-2026-10-02 scheduled_date=2026-10-02
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=dq_run round=1 rule=DQ1 template=T20 qid=c4e90524 rows=2 | DQ1 table-wide total=154 valid=151 invalid=3; in PR-2026-10-30: 2
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=dq_run round=1 rule=DQ2 template=T20 qid=ee272010 rows=2 | DQ2 table-wide total=154 valid=150 invalid=4; in PR-2026-10-30: 2
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=DQ7c qid=18858b33 rows=1 mode=live ms=1469 | rows=1 total_rows=52 invalid_rows=2
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=DQ7 qid=3c348228 rows=1 mode=live ms=514 | rows=1 account_hash=35b3f6fe36f7fbd4de8d547f66f5712c070586a5 vendor_count=2 vendor_ids=V-10233,V-10234
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=dq_run round=1 rule=DQ7 template=DQ7 qid=18858b33 rows=1 | DQ7 total=52 valid=50 invalid=2; in PR-2026-10-30: 1
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=T20 qid=f5a66072 rows=1 mode=live ms=5701 | rows=1 name=bank_change_before_large_payment table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=T21 qid=07137445 rows=0 mode=live ms=2521 | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=dq_run round=1 rule=DQ8 template=T20 qid=f5a66072 rows=0 | DQ8 total=154 valid=154 invalid=0; in PR-2026-10-30: 0
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=DQ9c qid=f7f379bd rows=1 mode=live ms=4762 | rows=1 total=154 valid=154 invalid=0
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=run_template round=1 template=DQ9 qid=03e2db09 rows=0 mode=live ms=1894 | rows=0
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=dq_run round=1 rule=DQ9 template=DQ9 qid=f7f379bd rows=0 | DQ9 total=154 valid=154 invalid=0; in PR-2026-10-30: 0
+[INFO] run=r-20261027T192533Z-0211 agent=evidence_runner action=run_template round=1 template=T23 qid=2a674f4b rows=1 mode=live ms=23484 note=One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_ | One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_erp.payment_run_item) are JDBC read at query time. USAspending and EDGAR legs are USL tables in the statement, not direct REST. Pushdown was not shown.
+[INFO] run=r-20261027T192533Z-0211 agent=sweep_runner action=unsolicited_sweep round=1 qid=466a6b1c rows=3 | Not asked, but checked: 3 other item(s) in PR-2026-10-30 ($169,315.50) fail payment controls.
+[INFO] run=r-20261027T192533Z-0211 agent=gate_officer action=write_rationale round=1 lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1395/328 ms=4102 | 1395/328 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T192533Z-0211 agent=gate_officer action=write_rationale round=1 lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1395/328 ms=4102 | 7 sentences
+[INFO] run=r-20261027T192533Z-0211 agent=gate_officer action=number_check round=1 note=passed | passed: 15 tokens checked, 0 unknown, grounded in the decision
+[INFO] run=r-20261027T192533Z-0211 agent=orchestrator action=run_end round=1 codes=R1,R3,R6,C1,C5,I5,I6 note=envelope=success | HOLD in 323.2s; trace logs/trace-r-20261027T192533Z-0211.jsonl
+[INFO] run=r-20261027T192533Z-0211 DECISION=HOLD codes=R1,R3,R6,C1,C5,I5,I6 coverage=4/4 exposure=$1,284,550.00 (3 items, PR-2026-10-30)
+[INFO] run=r-20261027T192533Z-0211 callback=(703) 902-5000 (SEC EDGAR submissions, CIK 0001443646, fetched 2026-10-27T19:27:57.572Z) do_not_use=(703) 555-0147,(703) 555-0182
+[INFO] run=r-20261027T192533Z-0211 sweep=5 item(s) $275,355.50 | models: fast=nvidia/nemotron-3.5-lightning-30b-a3b deep=nvidia/nemotron-3-ultra-550b-a55b | 323.2s | trace=logs/trace-r-20261027T192533Z-0211.jsonl
+
+Probity · BCR-2026-0412 · Booz Allen Hamilton Inc (V-10027)
+Decision: HOLD   policy pp-2026-10-27.1   mode live   323.2 s   status success
+Blocks:   R1 sender_domain_not_on_file · R3 remit_entity_not_vendor_of_record · R6 account_on_other_vendor
+Limits:   C1 no_independent_callback · C5 recent_contact_change
+Noted:    I5 registry_dq_gap · I6 pressure_language
+Exposure: PR-2026-10-30 · 3 items · $1,284,550.00 (cut-off 14:00 ET)
+Call back: (703) 902-5000 · SEC EDGAR submissions, CIK 0001443646, fetched 2026-10-27T19:27:57.572Z
+Readings: agree · 8/8 fields agree · A text_layer ok, B ocr ok
+Do not use: (703) 555-0147 (appears only on the request); (703) 555-0182 (changed on file 2026-10-19, 3 days before the request)
+Sweep:    5 other item(s) in PR-2026-10-30 fail payment controls: PRI-1030-0009 Quillan Ridge Fleet Services LLC $87,400.00 DQ1; PRI-1030-0009 Quillan Ridge Fleet Services LLC $87,400.00 DQ2; PRI-1030-0010 Tidewater Cable & Conduit LLC $63,275.50 DQ1; PRI-1030-0015 Northgate Office Interiors LLC $18,640.00 DQ2; PRI-1030-0015 Northgate Office Interiors LLC $18,640.00 DQ7
+Models:   letter_reader deep nvidia/nemotron-3-ultra-550b-a55b ×3; registry_scout fast nvidia/nemotron-3.5-lightning-30b-a3b ×7; identity_examiner deep nvidia/nemotron-3-ultra-550b-a55b ×2; gate_officer fast nvidia/nemotron-3.5-lightning-30b-a3b ×1
+Trace:    logs/trace-r-20261027T192533Z-0211.jsonl
+Review:   http://localhost:3100/review/r-20261027T192533Z-0211

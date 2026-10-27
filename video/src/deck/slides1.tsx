@@ -1,6 +1,7 @@
 import React from "react";
 import { C, FONT, monoStyle, Serif, Eyebrow, Awaiting } from "./parts";
 import { SlideHead, Notice, Media, Cap, Body, fade, useLocal } from "./parts";
+import { deck } from "../data/deck";
 
 export const D01: React.FC = () => {
   const f = useLocal();
@@ -15,7 +16,7 @@ export const D01: React.FC = () => {
         <Cap f={f} at={44}>The request: the vendor letter, as received</Cap>
       </div>
       <div style={{ position: "absolute", left: 1000, top: 440 }}>
-        <Media slot="R02" at={1.8} label="HOLD BANNER" w={800} h={450} f={f} show={40} />
+        <Media slot="R02" at={1.5} label="HOLD BANNER" w={800} h={450} f={f} show={40} />
         <Cap f={f} at={54}>The decision, before the payment run</Cap>
       </div>
       <Notice f={f} />
@@ -24,7 +25,7 @@ export const D01: React.FC = () => {
 };
 
 const PERSONAS = [
-  { name: "Dana", role: "AP controls lead", org: "Fictional federal integrator", line: "Owns the call-back policy and the payment-run release." },
+  { name: "Dana", role: "AP controls lead", org: "Federal integrator", line: "Owns the call-back policy and the payment-run release." },
   { name: "Priya", role: "Assistant controller", org: "Signs off the run", line: "Needs a hold list in dollars, not a mailbox." },
   { name: "Tomás", role: "Vendor-master analyst", org: "Keeps the records straight", line: "Applies changes, makes the call-back." },
 ];
@@ -71,58 +72,26 @@ export const D02: React.FC = () => {
   );
 };
 
-type Cell = { t: string; k?: "red" | "amber" | "ok" };
-const ROWS: { case: string; cells: Cell[] }[] = [
-  { case: "S1 · Booz Allen", cells: [
-    { t: "Remit to 1 Commvault Way, Suite 205, Tinton Falls, NJ" },
-    { t: "Never paid this entity", k: "red" },
-    { t: "KHK6E1JW9C15 BOOZ ALLEN HAMILTON INC · Tinton Falls NJ. 1 of 41 children, the only one in NJ", k: "red" },
-    { t: "Parent 0001443646 files as Booz Allen Hamilton Holding Corp; former name EXPLORER HOLDING CORP", k: "amber" } ] },
-  { case: "S1 · The phone", cells: [
-    { t: "Call (703) 555-0147" },
-    { t: "Master number changed by email 3 days earlier", k: "red" },
-    { t: "Not carried by USAspending", k: "amber" },
-    { t: "SEC number 703-902-5000. Never a number from the letter.", k: "ok" } ] },
-  { case: "S2 · SAIC or Leidos", cells: [
-    { t: "Science Applications International Corporation" },
-    { t: "Two vendors fit: V-10442, V-10587", k: "red" },
-    { t: "LEIDOS, INC. carries the alias SCIENCE APPLICATIONS INTERNATIONAL CORPORATION", k: "amber" },
-    { t: "Leidos Holdings, Inc. former name SAIC, Inc. (2005–2013)", k: "amber" } ] },
-  { case: "S4 · V2X", cells: [
-    { t: "Letterhead: Vectrus, Inc." },
-    { t: "V2X on file", k: "ok" },
-    { t: "CG8SV4246V29 alias VECTRUS INC.; location null", k: "amber" },
-    { t: "0001601548 former names Vectrus, Inc. (2014–2022), Exelis MSCO Inc.", k: "amber" } ] },
+const VISUALS = [
+  { slot: "R04", label: "INJECTION HOLD", cap: "The letter told the AI to approve it: quoted as evidence, held (R8)" },
+  { slot: "R05", label: "S1 DECISION", cap: "Hold, with a call-back number from SEC records" },
+  { slot: "R09", label: "LINEAGE + RE-RUN", cap: "Every registry fact traces back to its Zetaris rows" },
+  { slot: "R14", label: "AS-OF GRAPH", cap: "Time travel: the graph as it was known at any moment" },
 ];
-const COLS = ["", "Claim in the request", "Vendor master", "USAspending", "SEC EDGAR"];
-const W = [190, 360, 300, 420, 410];
-const TONE = { red: [C.holdBg, C.holdBorder], amber: ["#28210b", "#69530c"], ok: ["#1b271d", "#3c6649"] } as const;
 export const D03: React.FC = () => {
   const f = useLocal();
+  const at = (slot: string) => deck.media.D03?.find((m) => m.slot === slot)?.at ?? 2;
   return (
     <>
-      <SlideHead f={f} id="D03" eyebrow="Four sources, four answers" size={52} />
-      <div style={{ position: "absolute", left: 120, top: 230 }}>
-        <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
-          {COLS.map((c, i) => <div key={c + i} style={{ ...monoStyle, fontSize: 12, color: C.muted, width: W[i], opacity: fade(f, 12) }}>{c}</div>)}
-        </div>
-        {ROWS.map((r, ri) => (
-          <div key={r.case} style={{ display: "flex", gap: 8, marginBottom: 8, opacity: fade(f, 16 + ri * 6) }}>
-            <div style={{ width: W[0], ...monoStyle, fontSize: 13, color: C.fg, padding: "14px 0" }}>{r.case}</div>
-            {r.cells.map((c, ci) => (
-              <div key={ci} style={{ width: W[ci + 1], minHeight: 118, boxSizing: "border-box", padding: "12px 14px", fontFamily: FONT.sans, fontWeight: 300, fontSize: 16, lineHeight: 1.35, color: C.fg2,
-                background: c.k ? TONE[c.k][0] : "rgba(26,25,24,0.7)", border: `1px solid ${c.k ? TONE[c.k][1] : C.rule}`, borderRadius: 4 }}>{c.t}</div>
-            ))}
+      <SlideHead f={f} id="D03" eyebrow="The production interface, live runs" size={52} />
+      <div style={{ position: "absolute", left: 120, top: 220, display: "grid", gridTemplateColumns: "820px 820px", gap: "26px 40px" }}>
+        {VISUALS.map((v, i) => (
+          <div key={v.slot}>
+            <Media slot={v.slot} at={at(v.slot)} label={v.label} w={820} h={322} f={f} show={14 + i * 6} />
+            <Cap f={f} at={24 + i * 6}>{v.cap}</Cap>
           </div>
         ))}
-        <div style={{ display: "flex", gap: 22, marginTop: 18, alignItems: "center", opacity: fade(f, 46) }}>
-          <div style={{ fontFamily: FONT.serif, fontWeight: 300, fontSize: 26, letterSpacing: "-0.03em", color: C.fg }}>Every registry fact here is real public data.</div>
-          <div style={{ ...monoStyle, fontSize: 12, color: C.holdText }}>■ disagrees</div>
-          <div style={{ ...monoStyle, fontSize: 12, color: C.gap }}>■ gap or inconsistent</div>
-          <div style={{ ...monoStyle, fontSize: 12, color: C.agree }}>■ consistent</div>
-        </div>
       </div>
-      <Notice f={f} />
     </>
   );
 };
@@ -151,11 +120,11 @@ export const D04: React.FC = () => {
         ))}
       </div>
       <Body f={f} at={44} size={20} style={{ position: "absolute", left: 120, top: 600, width: 800 }}>
-        A cited fact sheet. A call-back script that uses only independently sourced numbers. The exposure on the payment run. An unasked sweep of the rest of the run.
+        A cited fact sheet with lineage to Zetaris rows. A call-back script that uses only independently sourced numbers. The exposure on the payment run. An unasked sweep of the rest of the run by five Zetaris rules.
       </Body>
       <Serif frame={f} at={54} size={30} style={{ position: "absolute", left: 120, top: 760, width: 800 }}>Code decides; models read, plan, critique and explain.</Serif>
       <div style={{ position: "absolute", left: 1000, top: 250 }}>
-        <Media slot="R05" at={44} label="S1 DECISION" w={800} h={450} f={f} show={26} />
+        <Media slot="R05" at={deck.media.D04?.[0]?.at ?? 50} label="S1 DECISION" w={800} h={450} f={f} show={26} />
         <div style={{ display: "flex", gap: 12, marginTop: 16, opacity: fade(f, 60) }}>
           {["Reasons, in order", "Call-back by provenance", "Exposure strip", "Sweep"].map((t) => (
             <div key={t} style={{ ...monoStyle, fontSize: 11, color: C.fg2, border: `1px solid ${C.ruleStrong}`, padding: "6px 10px" }}>{t}</div>

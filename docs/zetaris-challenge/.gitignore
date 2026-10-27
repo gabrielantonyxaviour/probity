@@ -1,0 +1,6 @@
+raw/
+build/
+audio-old/
+__pycache__/
+*.m4a
+*.mp4

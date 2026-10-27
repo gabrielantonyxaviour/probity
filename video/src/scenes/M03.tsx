@@ -10,12 +10,12 @@ import { LANE_Y, LANE_Z } from "../river/layout-streams";
 import { ease, bez, clamp01 } from "../system/motion";
 
 export const SOURCES = [
-  { name: "Vendor master + AP ledger", tag: "SYNTHETIC", color: C.synthetic },
+  { name: "Vendor master + AP ledger", tag: "INTERNAL · ERP", color: C.olive },
   { name: "USAspending", tag: "REAL · PUBLIC", color: C.real },
   { name: "SEC EDGAR", tag: "REAL · PUBLIC", color: C.real },
 ] as const;
 
-/** Three source ribbons (labelled real / synthetic) merge into one plane: vendor360, Zetaris. */
+/** Three source ribbons (internal ERP and two public registries) merge into one plane: vendor360, Zetaris. */
 export const M03: React.FC = () => {
   const { f, g, alpha } = useScene("M03");
   const e = bez(ease.content);

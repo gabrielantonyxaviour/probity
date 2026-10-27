@@ -16,7 +16,11 @@ const COL_TOP = 118;
 export const RecordingSlot: React.FC<{ seg: Seg; showPlaceholder?: boolean }> = ({ seg, showPlaceholder = true }) => {
   const frame = useCurrentFrame();
   const slot = seg.slot;
-  const present = useAssetExists(slot ? `raw/${slot.file}` : "raw/none", "video");
+  // A film cut (docs/video/cut/<file>, made by video/scripts/cut.py at exactly the slot length) wins over the raw take.
+  const hasCut = useAssetExists(slot ? `cut/${slot.file}` : "cut/none", "video");
+  const hasRaw = useAssetExists(slot ? `raw/${slot.file}` : "raw/none", "video");
+  const present = hasCut || hasRaw;
+  const src = slot ? `${hasCut ? "cut" : "raw"}/${slot.file}` : "";
   if (!slot || seg.len === 0) return null;
   const e = bez(ease.inOut);
   const inP = e(clamp01(frame / WIPE));
@@ -24,6 +28,7 @@ export const RecordingSlot: React.FC<{ seg: Seg; showPlaceholder?: boolean }> = 
   const clip = `inset(0 ${(1 - inP) * 100}% 0 ${outP * 100}%)`;
   const clipInfo = clipFor(slot.id);
   const trimmed = clipInfo?.trimmed_seconds ?? null;
+  const caption = clipInfo?.caption ?? (trimmed ? `wait trimmed: ${trimmed} s` : null);
   const left = (VIDEO.width - COL_W) / 2;
   return (
     <AbsoluteFill style={{ clipPath: clip }}>
@@ -34,13 +39,13 @@ export const RecordingSlot: React.FC<{ seg: Seg; showPlaceholder?: boolean }> = 
         }}
       >
         {present ? (
-          <OffthreadVideo src={staticFile(`raw/${slot.file}`)} muted startFrom={0} endAt={seg.len} style={{ width: COL_W, height: COL_H, objectFit: "cover" }} />
+          <OffthreadVideo src={staticFile(src)} muted startFrom={0} endAt={seg.len} style={{ width: COL_W, height: COL_H, objectFit: "cover" }} />
         ) : (
           showPlaceholder && <Placeholder id={slot.id} title={slot.title} seconds={slot.seconds} kind={slot.kind} />
         )}
-        {trimmed ? (
+        {caption ? (
           <div style={{ ...monoStyle, position: "absolute", right: 24, bottom: 20, fontSize: 15, color: C.fg, background: "rgba(12,12,11,0.72)", padding: "6px 10px", border: `1px solid ${C.rule}` }}>
-            wait trimmed: {trimmed} s
+            {caption}
           </div>
         ) : null}
       </div>

@@ -25,7 +25,6 @@ export const C = {
   olive: "#a59066",
   info: "#aab8fe",
   real: "#00d7ca",
-  synthetic: "#a59066",
 } as const;
 
 export const STEP = { read: C.cobalt, gather: C.teal, challenge: C.violet, decide: C.hold } as const;
@@ -37,4 +36,4 @@ export const FONT = {
 } as const;
 
 export const VIDEO = { width: 1920, height: 1080, fps: 30, columnWidth: 1400 } as const;
-export const TOTAL_CAP_SECONDS = 210;
+export const TOTAL_CAP_SECONDS = 230;

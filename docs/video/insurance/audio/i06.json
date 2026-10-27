@@ -1,0 +1,49 @@
+{
+ "id": "i06",
+ "text_original": "Same rows, same hash. The evidence holds.",
+ "text_spoken": "Same rows, same hash. The evidence holds.",
+ "words": [
+  {
+   "word": "Same",
+   "start": 0.0,
+   "end": 0.308
+  },
+  {
+   "word": "rows,",
+   "start": 0.385,
+   "end": 1.0
+  },
+  {
+   "word": "same",
+   "start": 1.077,
+   "end": 1.308
+  },
+  {
+   "word": "hash.",
+   "start": 1.385,
+   "end": 1.962
+  },
+  {
+   "word": "The",
+   "start": 2.154,
+   "end": 2.231
+  },
+  {
+   "word": "evidence",
+   "start": 2.308,
+   "end": 2.615
+  },
+  {
+   "word": "holds.",
+   "start": 2.692,
+   "end": 3.462
+  }
+ ],
+ "seconds": 3.46,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

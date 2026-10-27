@@ -1,0 +1,13 @@
+{
+  "slot": "R09",
+  "file": "v08-zetaris-rerun.mp4",
+  "started_at": "2026-10-27T20:02:53.459Z",
+  "seconds": 55.9,
+  "target_seconds": 10,
+  "frames": 1238,
+  "scale": 2,
+  "ui": "http://localhost:3100",
+  "runs": {
+    "BCR-2026-0412": "r-20261027T194659Z-c63a"
+  }
+}

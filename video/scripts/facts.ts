@@ -85,6 +85,25 @@ function build(): Facts {
     }
   }
 
+  const qp = join(EXAMPLES, hero, `queries-${r.run_id}.jsonl`);
+  const zetarisQueries = existsSync(qp) ? readFileSync(qp, "utf8").split("\n").filter(Boolean).length : null;
+  const lr = decision.letter_reading;
+  const letterReading = lr ? { status: lr.status, compared: lr.compared, agreed: lr.agreed } : null;
+  const rulesRun = decision.sweep.rules_run.map((x) => ({ rule: x.rule, total: x.total, invalid: x.invalid, vendor_ids: [...new Set((x.groups ?? []).flatMap((g) => g.vendor_ids))] }));
+  // S10 (hidden-instruction letter): the injection hold, when that example was recorded.
+  let injection: Record<string, unknown> | null = null;
+  const s10 = dirs.find((d) => d.startsWith("10-"));
+  if (s10 && existsSync(join(EXAMPLES, s10, "response.json"))) {
+    const x = loadResponse(join(EXAMPLES, s10, "response.json"));
+    const inj = x.decision?.injection;
+    if (x.decision && inj) {
+      injection = {
+        run_id: x.r.run_id, decision: x.decision.decision, detected: inj.detected, variant: inj.variant,
+        spans: inj.spans.length, hidden: inj.spans.filter((sp) => sp.hidden).length, review: inj.review.status ?? null,
+      };
+    }
+  }
+
   const sweep = decision.sweep.findings.map((f) => ({
     item_id: f.item_id, vendor_id: f.vendor_id, vendor_name: f.vendor_name, rule: f.rule, amount_usd: f.amount_usd, query_id: f.query_id,
   }));
@@ -105,6 +124,10 @@ function build(): Facts {
     q8_runs: times.length,
     execution_time_seconds: r.execution_time_seconds,
     receipt,
+    letter_reading: letterReading,
+    rules_run: rulesRun,
+    zetaris_queries: zetarisQueries,
+    injection,
   };
 }
 

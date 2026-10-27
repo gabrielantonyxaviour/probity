@@ -615,8 +615,8 @@
   }
  ],
  "seconds": 42.77,
- "window_seconds": 60,
- "provisional": true,
+ "window_seconds": 58,
+ "provisional": false,
  "voice": "v7li4BiiSMnJL2FCuD6D",
  "model": "eleven_v4",
  "seed": 4242,

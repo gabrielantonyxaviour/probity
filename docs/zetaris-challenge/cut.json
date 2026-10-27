@@ -1,0 +1,173 @@
+{
+ "out": "ZEN_291026.mp4",
+ "gap": 0.6,
+ "tail": 0.8,
+ "segments": [
+  {
+   "id": "z01",
+   "clips": [
+    {
+     "file": "docs/video/raw/v04-s1-live.mp4",
+     "ss": 0,
+     "t": 4.5
+    },
+    {
+     "file": "docs/video/raw/v01-pitch-hold.mp4",
+     "ss": 0.2,
+     "t": 8.0
+    },
+    {
+     "file": "docs/video/raw/v04-s1-live.mp4",
+     "ss": 4.5,
+     "t": 4.9
+    }
+   ]
+  },
+  {
+   "id": "z02",
+   "clips": [
+    {
+     "file": "docs/zetaris-challenge/raw/m03.mp4",
+     "ss": 0,
+     "t": 10
+    },
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-usl.mp4",
+     "ss": 10.5,
+     "t": 4.5
+    },
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-usl.mp4",
+     "ss": 32.1,
+     "t": 4.6
+    }
+   ]
+  },
+  {
+   "id": "z03",
+   "clips": [
+    {
+     "file": "docs/video/raw/v04-s1-live.mp4",
+     "ss": 58,
+     "t": 3
+    },
+    {
+     "file": "docs/video/raw/v04-s1-live.mp4",
+     "ss": 148,
+     "t": 5.7
+    },
+    {
+     "file": "docs/video/raw/v04-s1-live.mp4",
+     "ss": 244,
+     "t": 8.6
+    },
+    {
+     "file": "docs/video/raw/v04-s1-live.mp4",
+     "ss": 274,
+     "t": 6
+    },
+    {
+     "file": "docs/video/raw/v08-zetaris-rerun.mp4",
+     "ss": 5,
+     "t": 5
+    },
+    {
+     "file": "docs/video/raw/v08-zetaris-rerun.mp4",
+     "ss": 50.5,
+     "t": 5.4
+    }
+   ]
+  },
+  {
+   "id": "z04",
+   "clips": [
+    {
+     "file": "docs/video/raw/v10-sweep-panel.mp4",
+     "ss": 0.5,
+     "t": 5.1
+    },
+    {
+     "file": "docs/video/raw/v08-zetaris-dq.mp4",
+     "ss": 22,
+     "t": 5.3
+    },
+    {
+     "file": "docs/video/raw/v08-zetaris-dq.mp4",
+     "ss": 46,
+     "t": 5.2
+    },
+    {
+     "file": "docs/video/raw/v10-sweep-panel.mp4",
+     "ss": 10.5,
+     "t": 3.7
+    },
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-t23.mp4",
+     "ss": 27,
+     "t": 3.4
+    },
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-t23.mp4",
+     "ss": 154.53,
+     "t": 5.0
+    }
+   ]
+  },
+  {
+   "id": "z05",
+   "captions": false,
+   "clips": [
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-grok.mp4",
+     "ss": 0,
+     "t": 36
+    }
+   ]
+  },
+  {
+   "id": "z06",
+   "clips": [
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-edgar.mp4",
+     "ss": 26,
+     "t": 7
+    },
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-edgar.mp4",
+     "ss": 105.53,
+     "t": 4.4
+    },
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-moments.mp4",
+     "ss": 0,
+     "t": 6.4
+    },
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-moments.mp4",
+     "ss": 6.5,
+     "t": 15
+    },
+    {
+     "file": "docs/zetaris-challenge/raw/zetaris-moments.mp4",
+     "ss": 21.5,
+     "t": 22
+    },
+    {
+     "file": "docs/video/raw/v10-sweep-panel.mp4",
+     "ss": 0,
+     "t": 3.3
+    }
+   ]
+  },
+  {
+   "id": "z07",
+   "clips": [
+    {
+     "file": "docs/zetaris-challenge/raw/m09.mp4",
+     "ss": 0,
+     "t": 6
+    }
+   ]
+  }
+ ]
+}

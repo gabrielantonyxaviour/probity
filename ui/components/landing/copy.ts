@@ -14,9 +14,9 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const HERO = {
-  line1: "Prove who is asking",
-  line2: "before the money moves",
-  lede: "Probity checks a vendor’s bank-detail change against your vendor master, payment history and public registries, then says approve, call back or hold.",
+  line1: "Verify the payee,",
+  line2: "not the paperwork.",
+  lede: "Probity catches the diverted payment before it leaves. It checks a vendor’s bank-detail change against your vendor master, payment history and public registries, then says approve, call back or hold.",
   ledeMuted: "Every fact links to the query that produced it.",
   primary: CTA_LABEL,
   secondary: "VIEW ON GITHUB",

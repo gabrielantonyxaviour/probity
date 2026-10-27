@@ -1,0 +1,129 @@
+{
+ "id": "i02",
+ "text_original": "Booz Allen Hamilton asks to move its remit address and bank account. Three payments, one point two eight million dollars, are due Friday.",
+ "text_spoken": "Booz Allen Hamilton asks to move its remit address and bank account. Three payments, one point two eight million dollars, are due Friday.",
+ "words": [
+  {
+   "word": "Booz",
+   "start": 0.0,
+   "end": 0.308
+  },
+  {
+   "word": "Allen",
+   "start": 0.423,
+   "end": 0.538
+  },
+  {
+   "word": "Hamilton",
+   "start": 0.615,
+   "end": 1.077
+  },
+  {
+   "word": "asks",
+   "start": 1.231,
+   "end": 1.615
+  },
+  {
+   "word": "to",
+   "start": 1.654,
+   "end": 1.692
+  },
+  {
+   "word": "move",
+   "start": 1.769,
+   "end": 1.923
+  },
+  {
+   "word": "its",
+   "start": 2.038,
+   "end": 2.154
+  },
+  {
+   "word": "remit",
+   "start": 2.231,
+   "end": 2.538
+  },
+  {
+   "word": "address",
+   "start": 2.769,
+   "end": 3.0
+  },
+  {
+   "word": "and",
+   "start": 3.077,
+   "end": 3.154
+  },
+  {
+   "word": "bank",
+   "start": 3.231,
+   "end": 3.462
+  },
+  {
+   "word": "account.",
+   "start": 3.654,
+   "end": 3.923
+  },
+  {
+   "word": "Three",
+   "start": 4.385,
+   "end": 4.538
+  },
+  {
+   "word": "payments,",
+   "start": 4.615,
+   "end": 5.308
+  },
+  {
+   "word": "one",
+   "start": 5.385,
+   "end": 5.462
+  },
+  {
+   "word": "point",
+   "start": 5.615,
+   "end": 5.846
+  },
+  {
+   "word": "two",
+   "start": 5.885,
+   "end": 5.923
+  },
+  {
+   "word": "eight",
+   "start": 6.077,
+   "end": 6.231
+  },
+  {
+   "word": "million",
+   "start": 6.462,
+   "end": 6.769
+  },
+  {
+   "word": "dollars,",
+   "start": 6.846,
+   "end": 7.385
+  },
+  {
+   "word": "are",
+   "start": 7.423,
+   "end": 7.462
+  },
+  {
+   "word": "due",
+   "start": 7.538,
+   "end": 7.692
+  },
+  {
+   "word": "Friday.",
+   "start": 7.769,
+   "end": 8.462
+  }
+ ],
+ "seconds": 8.46,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Freeze, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { Freeze, OffthreadVideo, staticFile, useCurrentFrame } from "remotion";
 import { C, FONT, VIDEO } from "../system/tokens";
 import { Eyebrow, Serif, monoStyle, Awaiting } from "../system/Text";
 import { useAssetExists } from "../system/useAsset";
@@ -8,9 +8,9 @@ import { deck } from "../data/deck";
 import { ease, bez, clamp01 } from "../system/motion";
 
 export const fade = (f: number, at: number, len = 15) => bez(ease.content)(clamp01((f - at) / len));
-export const NOTICE = "Synthetic letters and internal records · real USAspending and SEC EDGAR data";
+export const NOTICE = "Registry facts: live USAspending and SEC EDGAR data, joined in Zetaris";
 
-/** Slide chrome: mono eyebrow + serif title (exact 08 section 4 string), optional synthetic-notice footer. */
+/** Slide chrome: mono eyebrow + serif title (exact 08 section 4 string), optional source footer. */
 export const SlideHead: React.FC<{ f: number; id: string; eyebrow: string; size?: number; width?: number; top?: number }> = ({ f, id, eyebrow, size = 58, width = 1500, top = 84 }) => {
   const s = deck.slides.find((x) => x.id === id);
   return (
@@ -27,15 +27,16 @@ export const Notice: React.FC<{ f: number }> = ({ f }) => (
 /** A frozen frame of a real recording (a screenshot cut from the same file the film uses); a marked placeholder when absent. */
 export const Media: React.FC<{ slot: string; at: number; label: string; w: number; h: number; style?: React.CSSProperties; f?: number; show?: number }> = ({ slot, at, label, w, h, style, f = 99, show = 12 }) => {
   const cfg = slotsFile.slots.find((s) => s.id === slot);
-  const present = useAssetExists(cfg ? `raw/${cfg.file}` : "raw/none", "video");
+  const hasCut = useAssetExists(cfg ? `cut/${cfg.file}` : "cut/none", "video");
+  const hasRaw = useAssetExists(cfg ? `raw/${cfg.file}` : "raw/none", "video");
+  const present = hasCut || hasRaw;
   return (
     <div style={{ width: w, height: h, border: `1px solid ${C.rule}`, background: C.ground, position: "relative", overflow: "hidden", opacity: fade(f, show), ...style }}>
       {present && cfg ? (
-        <Sequence from={0} durationInFrames={1}>
-          <Freeze frame={0}>
-            <OffthreadVideo src={staticFile(`raw/${cfg.file}`)} startFrom={Math.round(at * VIDEO.fps)} muted style={{ width: w, height: h, objectFit: "cover" }} />
-          </Freeze>
-        </Sequence>
+        // Held for the whole slide: Freeze pins the clip at `at` seconds (a 1-frame Sequence would vanish after frame 0).
+        <Freeze frame={Math.round(at * VIDEO.fps)}>
+          <OffthreadVideo src={staticFile(`${hasCut ? "cut" : "raw"}/${cfg.file}`)} muted style={{ width: w, height: h, objectFit: "cover" }} />
+        </Freeze>
       ) : (
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10, textAlign: "center", padding: 24 }}>
           <div style={{ ...monoStyle, fontSize: 14, color: C.fg }}>RECORDING SLOT {slot} · {label}</div>

@@ -1,0 +1,124 @@
+{
+ "id": "a11",
+ "text_original": "What was known when: scrub the graph back to before the run, and the New Jersey company is not in it yet.",
+ "text_spoken": "What was known when: scrub the graph back to before the run, and the New Jersey company is not in it yet.",
+ "words": [
+  {
+   "word": "What",
+   "start": 0.0,
+   "end": 0.231
+  },
+  {
+   "word": "was",
+   "start": 0.308,
+   "end": 0.462
+  },
+  {
+   "word": "known",
+   "start": 0.538,
+   "end": 0.769
+  },
+  {
+   "word": "when:",
+   "start": 0.923,
+   "end": 1.692
+  },
+  {
+   "word": "scrub",
+   "start": 1.769,
+   "end": 2.077
+  },
+  {
+   "word": "the",
+   "start": 2.115,
+   "end": 2.154
+  },
+  {
+   "word": "graph",
+   "start": 2.231,
+   "end": 2.538
+  },
+  {
+   "word": "back",
+   "start": 2.615,
+   "end": 2.769
+  },
+  {
+   "word": "to",
+   "start": 2.846,
+   "end": 2.923
+  },
+  {
+   "word": "before",
+   "start": 3.115,
+   "end": 3.308
+  },
+  {
+   "word": "the",
+   "start": 3.346,
+   "end": 3.385
+  },
+  {
+   "word": "run,",
+   "start": 3.462,
+   "end": 4.077
+  },
+  {
+   "word": "and",
+   "start": 4.154,
+   "end": 4.385
+  },
+  {
+   "word": "the",
+   "start": 4.462,
+   "end": 4.538
+  },
+  {
+   "word": "New",
+   "start": 4.615,
+   "end": 4.692
+  },
+  {
+   "word": "Jersey",
+   "start": 4.769,
+   "end": 5.077
+  },
+  {
+   "word": "company",
+   "start": 5.308,
+   "end": 5.538
+  },
+  {
+   "word": "is",
+   "start": 5.615,
+   "end": 5.769
+  },
+  {
+   "word": "not",
+   "start": 5.923,
+   "end": 6.077
+  },
+  {
+   "word": "in",
+   "start": 6.154,
+   "end": 6.231
+  },
+  {
+   "word": "it",
+   "start": 6.308,
+   "end": 6.385
+  },
+  {
+   "word": "yet.",
+   "start": 6.538,
+   "end": 6.923
+  }
+ ],
+ "seconds": 6.92,
+ "window_seconds": 9,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

@@ -15,6 +15,7 @@ import { TL, seg, type Seg } from "./timeline/timeline";
 import { script } from "./data/script";
 import { useAssetExists } from "./system/useAsset";
 import { C } from "./system/tokens";
+import { Captions } from "./scenes/Captions";
 
 const SCENES: Record<string, React.FC> = { M01, M02, M03, M04, M05, M06, M07, M08, M09 };
 
@@ -60,5 +61,6 @@ export const Film: React.FC<{ withAudio?: boolean; motionOnly?: boolean }> = ({ 
           return first ? <NarrationTrack key={n.id} id={n.id} file={n.audio} from={first.start} /> : null;
         })
       : null}
+    {withAudio && !motionOnly ? <Captions /> : null}
   </AbsoluteFill>
 );

@@ -1,0 +1,26 @@
+{
+  "input": {
+    "example_id": "04-v2x-remit-change",
+    "request_id": "BCR-2026-0418",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      },
+      {
+        "kind": "eml_headers",
+        "file": "headers.eml"
+      }
+    ],
+    "received_at": "2026-10-23T16:30:00Z",
+    "channel": "email",
+    "payment_run_id": "PR-2026-11-03",
+    "meta": {
+      "title": "V2X (formerly Vectrus) remit change, scanned letter",
+      "scenario": "S4"
+    }
+  },
+  "options": {
+    "async": false
+  }
+}

@@ -1,0 +1,111 @@
+[INFO] run=r-20261027T191044Z-3e73 agent=orchestrator action=run_start target=letter_reader | mode=live budget=480s
+[INFO] run=r-20261027T191044Z-3e73 agent=letter_reader action=extract_claims note=injection:detect | no text addressed to an automated reviewer
+[INFO] run=r-20261027T191044Z-3e73 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=917/15 ms=1342 | 917/15 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=917/15 ms=1342 note=injection:review | review: 0/0 candidates addressed to a reviewer; 0 more quoted
+[INFO] run=r-20261027T191044Z-3e73 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1855/812 ms=31978 | 1855/812 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1855/812 ms=31978 note=dual_read:B; ocr+deep; visual | claimed=Science Applications International Corporation; acct ••••0163; routing 110000000; 0 phone(s); 0 pressure phrase(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1696/1832 ms=65883 | 1696/1832 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1696/1832 ms=65883 note=dual_read:A; text+deep; transcribe | claimed=Science Applications International Corporation; acct ••••0163; routing 110000000; 0 phone(s); 0 pressure phrase(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=letter_reader action=extract_claims note=dual_read:reconcile 7/7 | agreement 7/7; every material field agrees
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T04b qid=cb830af0 rows=1 mode=live ms=1091 | rows=1 vendor_id=V-10587 legal_name=Science Applications International Corp name_norm=SCIENCE APPLICATIONS INTERNATIONAL CORP
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T03 qid=f732256b rows=2 mode=live ms=1200 | rows=2 invoice_no=INV-LDS-88412 vendor_id=V-10442 amount_usd=356820.40
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T04 qid=73626495 rows=1 mode=live ms=1377 | rows=1 vendor_id=V-10587 legal_name=Science Applications International Corp email_domains_on_file=saic.example
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T06c qid=d48540a5 rows=1 mode=live ms=9584 | rows=1 via=registrant key=0001571123 name=Science Applications International Corp
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T06b qid=fe4d891a rows=2 mode=live ms=13636 | rows=2 via=entity key=RE7WMNV9L719-P name=SCIENCE APPLICATIONS INTERNATIONAL CORPO
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T06a qid=78edaabe rows=4 mode=live ms=26137 | rows=4 via=alias key=MDSWM6MB1BH7-C name=SCIENCE APPLICATIONS INTERNATIONAL CORPO
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T01 qid=c77e45e8 rows=1 mode=live ms=1460 | rows=1 vendor_id=V-10442 legal_name=Leidos, Inc. name_norm=LEIDOS INC
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T09 qid=db5a4c83 rows=15 mode=live ms=5360 | run items=15 15 rows
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T09 qid=a1caabeb rows=15 mode=live ms=1530 | run items=15 15 rows
+[INFO] run=r-20261027T191044Z-3e73 agent=orchestrator action=intake_request target=memory_gate | BCR-2026-0416 inserted (pending); candidates=[V-10587 hard 0.70, V-10442 soft 0.40]
+[INFO] run=r-20261027T191044Z-3e73 agent=orchestrator action=handoff target=memory_gate | claims -> memory_gate
+[INFO] run=r-20261027T191044Z-3e73 agent=memory_gate action=memory_recall target=registry_scout | 0 hits
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T02 qid=76c868d9 rows=2 mode=live ms=425 | rows=2 email ap@saic.example 2019-04-02->open; phone 703.676.4300 2019-04-02->open
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T01 qid=cfce89fd rows=1 mode=live ms=709 | rows=1 vendor_id=V-10587 legal_name=Science Applications International Corp name_norm=SCIENCE APPLICATIONS INTERNATIONAL CORP
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T08 qid=20542300 rows=0 mode=live ms=378 | rows=0
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T02 qid=306a04b6 rows=2 mode=live ms=338 | rows=2 email ar.federal@leidos.example 2019-04-02->open; phone 571-526-6000 2019-04-02->open
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T08 qid=7ae98c11 rows=0 mode=live ms=610 | rows=0
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T07 qid=e9eca082 rows=1 mode=live ms=2334 | rows=1 bank_change_request BCR-2026-0416
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T05 qid=27348d82 rows=1 mode=live ms=23846 | rows=1 MMLKPW9JLX64-C RESTON VA; parent RE7WMNV9L719; cik 0001571123 phone 703-676-4300
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T05 qid=b9f17290 rows=1 mode=live ms=23045 | rows=1 UE9QJD4KK1L6-C RESTON VA; parent MDSWM6MB1BH7; cik 0001336920 phone 571-526-6000
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T05b qid=61e9129b rows=0 mode=live ms=17006 note=parent location for I1 | rows=0
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T05b qid=9a1f1654 rows=1 mode=live ms=17099 note=parent location for I1 | rows=1 p_entity_key=RE7WMNV9L719-P p_legal_name=SCIENCE APPLICATIONS INTERNATIONAL CORPO p_address_line1=12010 SUNSET HILLS RD
+[INFO] run=r-20261027T191044Z-3e73 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4772/87 ms=1408 | 4772/87 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=4770/99 ms=2532 | 4770/99 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=5485/183 ms=1971 | 5485/183 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=registry_scout action=record_finding | parent supports: Parent UEI RE7WMNV9L719 linked to SCIENCE APPLICATIONS INTERNATIONAL CORPORATION via alias and entity paths; matches claim
+[INFO] run=r-20261027T191044Z-3e73 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=5740/111 ms=1338 | 5740/111 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T06c qid=c8d39432 rows=0 mode=live ms=13568 note=SEC registrant name differs from the vendor master name | rows=0
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T06b qid=0bcfd65d rows=0 mode=live ms=19155 note=SEC registrant name differs from the vendor master name | rows=0
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template template=T06a qid=fb467209 rows=0 mode=live ms=38428 note=SEC registrant name differs from the vendor master name | rows=0
+[INFO] run=r-20261027T191044Z-3e73 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=5740/111 ms=80797 note=model added 1 check(s) | r0: floor 14 steps + 1 extra step(s) (T06)
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=memory_write | entities 0, edges 0, facts 0 written; 60 unchanged
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | candidate_vendor domain_on_file+name_exact+alias_exact score 0.7: req:BCR-2026-0416 -> vendor:V-10587 hard
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | same_as via vendor.uei: vendor:V-10587 -> uei:MMLKPW9JLX64-C hard
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | registered_as via vendor.registrant_cik: uei:RE7WMNV9L719-P -> cik:0001571123 hard
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | candidate_vendor invoice_ref score 0.4: req:BCR-2026-0416 -> vendor:V-10442 soft
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | same_as via vendor.uei: vendor:V-10442 -> uei:UE9QJD4KK1L6-C hard
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | registered_as via vendor.registrant_cik: uei:MDSWM6MB1BH7-P -> cik:0001336920 hard
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:SCIENCE APPLICATIONS INTERNATIONAL CORP -> uei:MDSWM6MB1BH7-C soft
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:SCIENCE APPLICATIONS INTERNATIONAL CORP -> uei:MMLKPW9JLX64-C hard
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:SCIENCE APPLICATIONS INTERNATIONAL CORP -> uei:RE7WMNV9L719-P soft
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:SCIENCE APPLICATIONS INTERNATIONAL CORP -> uei:UE9QJD4KK1L6-C hard
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=handoff target=identity_examiner | links -> identity_examiner
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link | hard: attribution exact key
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link | hard: vendor_entity exact key
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link | hard: registrant exact key
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link | hard: vendor_entity exact key
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link | hard: registrant exact key
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=reject_link rule=B1 | B1: name similarity only
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link | hard: alias exact key
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=reject_link rule=B1 | B1: name similarity only
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link | hard: alias exact key
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1075/387 ms=8317 | 1075/387 tokens, finish stop, 0 tool call(s)
+[WARN] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1075/387 ms=8317 status=needs_revision | need_more: A row linking request BCR-2026-0416 to invoice INV-LDS-88412 or INV-LDS-88433 (e.g., request_invoice table with request_id and invoice_number)
+[WARN] run=r-20261027T191044Z-3e73 agent=identity_examiner action=gap_request target=registry_scout rule=G4 status=needs_revision note=attributable to multiple vendors | G4: tools T01, T02, T05, T08
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=raise_conflict target=gate_officer note=cf-attribution-e54f8bd2 | This request could belong to Leidos, Inc. (V-10442) or Science Applications International Corp (V-10587); the evidence does not decide which. (unresolved)
+[INFO] run=r-20261027T191044Z-3e73 agent=registry_scout action=plan_coverage round=1 note=all_cached | r1: every step already cached
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_linker action=handoff round=1 target=identity_examiner | links -> identity_examiner
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link round=1 lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1075/340 ms=8671 | 1075/340 tokens, finish stop, 0 tool call(s)
+[WARN] run=r-20261027T191044Z-3e73 agent=identity_examiner action=approve_link round=1 lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1075/340 ms=8671 status=needs_revision | need_more: request invoice number or vendor identifier matching INV-LDS-88412 or INV-LDS-88433
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=raise_conflict round=1 lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=448/144 ms=30142 | 448/144 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=identity_examiner action=handoff round=1 target=gate_officer | verdicts -> gate_officer
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template round=1 template=T08b qid=44559bbe rows=1 mode=live ms=1224 | rows=1 request_id=BCR-2026-0416 new_routing=110000000 routing_check=valid
+[INFO] run=r-20261027T191044Z-3e73 agent=gate_officer action=decide round=1 codes=R4,C1,I2 | HOLD codes=R4,C1,I2 coverage=2/2
+[INFO] run=r-20261027T191044Z-3e73 agent=gate_officer action=select_callback round=1 | +17036764300 edgar_registrant; do_not_use none
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=T20 qid=3508043a rows=1 mode=live ms=8710 | rows=1 name=unverified_recent_bank_change table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=T20 qid=77d79ff3 rows=1 mode=live ms=8743 | rows=1 name=account_single_vendor table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=T21 qid=51eb7e27 rows=3 mode=live ms=4610 | rows=3 item_id=PRI-1009-0016 payment_run_id=PR-2026-10-09 scheduled_date=2026-10-09
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=T21 qid=adb6d230 rows=4 mode=live ms=4610 | rows=4 item_id=PRI-1002-0014 payment_run_id=PR-2026-10-02 scheduled_date=2026-10-02
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=dq_run round=1 rule=DQ1 template=T20 qid=3508043a rows=2 | DQ1 table-wide total=154 valid=151 invalid=3; in PR-2026-10-30: 2
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=dq_run round=1 rule=DQ2 template=T20 qid=77d79ff3 rows=2 | DQ2 table-wide total=154 valid=150 invalid=4; in PR-2026-10-30: 2
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=DQ7c qid=84d7e917 rows=1 mode=live ms=2150 | rows=1 total_rows=52 invalid_rows=2
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=DQ7 qid=e9bd3063 rows=1 mode=live ms=1895 | rows=1 account_hash=35b3f6fe36f7fbd4de8d547f66f5712c070586a5 vendor_count=2 vendor_ids=V-10233,V-10234
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=dq_run round=1 rule=DQ7 template=DQ7 qid=84d7e917 rows=1 | DQ7 total=52 valid=50 invalid=2; in PR-2026-10-30: 1
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=T20 qid=62417904 rows=1 mode=live ms=5666 | rows=1 name=bank_change_before_large_payment table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=T21 qid=bbae41b3 rows=0 mode=live ms=3199 | rows=0
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=dq_run round=1 rule=DQ8 template=T20 qid=62417904 rows=0 | DQ8 total=154 valid=154 invalid=0; in PR-2026-10-30: 0
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=DQ9c qid=5608449b rows=1 mode=live ms=2556 | rows=1 total=154 valid=154 invalid=0
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=run_template round=1 template=DQ9 qid=fa22bc96 rows=0 mode=live ms=3967 | rows=0
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=dq_run round=1 rule=DQ9 template=DQ9 qid=5608449b rows=0 | DQ9 total=154 valid=154 invalid=0; in PR-2026-10-30: 0
+[INFO] run=r-20261027T191044Z-3e73 agent=evidence_runner action=run_template round=1 template=T23 qid=22b5f4fb rows=1 mode=live ms=25513 note=One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_ | One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_erp.payment_run_item) are JDBC read at query time. USAspending and EDGAR legs are USL tables in the statement, not direct REST. Pushdown was not shown.
+[INFO] run=r-20261027T191044Z-3e73 agent=sweep_runner action=unsolicited_sweep round=1 qid=51eb7e27 rows=3 | Not asked, but checked: 3 other item(s) in PR-2026-10-30 ($169,315.50) fail payment controls.
+[INFO] run=r-20261027T191044Z-3e73 agent=gate_officer action=write_rationale round=1 lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1260/207 ms=2765 | 1260/207 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191044Z-3e73 agent=gate_officer action=write_rationale round=1 lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1260/207 ms=2765 | 7 sentences
+[INFO] run=r-20261027T191044Z-3e73 agent=gate_officer action=number_check round=1 note=passed | passed: 9 tokens checked, 0 unknown, grounded in the decision
+[INFO] run=r-20261027T191044Z-3e73 agent=orchestrator action=run_end round=1 codes=R4,C1,I2 note=envelope=success | HOLD in 273.4s; trace logs/trace-r-20261027T191044Z-3e73.jsonl
+[INFO] run=r-20261027T191044Z-3e73 DECISION=HOLD codes=R4,C1,I2 coverage=2/2 exposure=$555,220.40 (2 items, PR-2026-10-30)
+[INFO] run=r-20261027T191044Z-3e73 callback=(703) 676-4300 (SEC EDGAR submissions, CIK 0001571123, fetched 2026-10-27T19:12:49.975Z) do_not_use=none
+[INFO] run=r-20261027T191044Z-3e73 sweep=5 item(s) $275,355.50 | models: fast=nvidia/nemotron-3.5-lightning-30b-a3b deep=nvidia/nemotron-3-ultra-550b-a55b | 273.4s | trace=logs/trace-r-20261027T191044Z-3e73.jsonl
+
+Probity · BCR-2026-0416 · no vendor of record
+Decision: HOLD   policy pp-2026-10-27.1   mode live   273.4 s   status success
+Blocks:   R4 identity_ambiguous (multi_candidate)
+Limits:   C1 no_independent_callback
+Noted:    I2 former_name_used
+Exposure: PR-2026-10-30 · 2 items · $555,220.40 (cut-off 14:00 ET)
+Call back: (703) 676-4300 · SEC EDGAR submissions, CIK 0001571123, fetched 2026-10-27T19:12:49.975Z
+Readings: agree · 7/7 fields agree · A text_layer ok, B ocr ok
+Sweep:    5 other item(s) in PR-2026-10-30 fail payment controls: PRI-1030-0009 Quillan Ridge Fleet Services LLC $87,400.00 DQ1; PRI-1030-0009 Quillan Ridge Fleet Services LLC $87,400.00 DQ2; PRI-1030-0010 Tidewater Cable & Conduit LLC $63,275.50 DQ1; PRI-1030-0015 Northgate Office Interiors LLC $18,640.00 DQ2; PRI-1030-0015 Northgate Office Interiors LLC $18,640.00 DQ7
+Models:   letter_reader deep nvidia/nemotron-3-ultra-550b-a55b ×3; registry_scout fast nvidia/nemotron-3.5-lightning-30b-a3b ×4; identity_examiner deep nvidia/nemotron-3-ultra-550b-a55b ×3; gate_officer fast nvidia/nemotron-3.5-lightning-30b-a3b ×1
+Trace:    logs/trace-r-20261027T191044Z-3e73.jsonl
+Review:   http://localhost:3100/review/r-20261027T191044Z-3e73

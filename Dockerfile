@@ -23,8 +23,8 @@ COPY scripts/fetch-tessdata.ts scripts/smoke.ts ./scripts/
 COPY data ./data
 COPY input_examples ./input_examples
 RUN node --import tsx scripts/fetch-tessdata.ts \
- && mkdir -p logs .world data/hmem uploads \
- && chown -R node:node logs .world data/hmem uploads \
+ && mkdir -p logs .world data/hmem uploads .sample \
+ && chown -R node:node logs .world data/hmem uploads .sample \
  && ln -s /app/bin/probity.mjs /usr/local/bin/probity
 USER node
 EXPOSE 8787 8790

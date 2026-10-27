@@ -1,0 +1,174 @@
+{
+ "id": "i09",
+ "text_original": "Then, unasked, it checks the rest of Friday's payment run. Two more payments, about a hundred and fifty thousand dollars, fail payment controls, found by Zetaris data-quality rules across all payment items.",
+ "text_spoken": "Then, unasked, it checks the rest of Friday's payment run. Two more payments, about a hundred and fifty thousand dollars, fail payment controls, found by Zuh-tarris data-quality rules across all payment items.",
+ "words": [
+  {
+   "word": "Then,",
+   "start": 0.0,
+   "end": 0.385
+  },
+  {
+   "word": "unasked,",
+   "start": 0.615,
+   "end": 1.462
+  },
+  {
+   "word": "it",
+   "start": 1.538,
+   "end": 1.615
+  },
+  {
+   "word": "checks",
+   "start": 1.769,
+   "end": 1.923
+  },
+  {
+   "word": "the",
+   "start": 1.962,
+   "end": 2.0
+  },
+  {
+   "word": "rest",
+   "start": 2.077,
+   "end": 2.308
+  },
+  {
+   "word": "of",
+   "start": 2.385,
+   "end": 2.462
+  },
+  {
+   "word": "Friday's",
+   "start": 2.615,
+   "end": 2.846
+  },
+  {
+   "word": "payment",
+   "start": 2.923,
+   "end": 3.154
+  },
+  {
+   "word": "run.",
+   "start": 3.231,
+   "end": 3.731
+  },
+  {
+   "word": "Two",
+   "start": 4.0,
+   "end": 4.077
+  },
+  {
+   "word": "more",
+   "start": 4.154,
+   "end": 4.308
+  },
+  {
+   "word": "payments,",
+   "start": 4.385,
+   "end": 5.0
+  },
+  {
+   "word": "about",
+   "start": 5.115,
+   "end": 5.231
+  },
+  {
+   "word": "a",
+   "start": 5.308,
+   "end": 5.385
+  },
+  {
+   "word": "hundred",
+   "start": 5.462,
+   "end": 5.692
+  },
+  {
+   "word": "and",
+   "start": 5.808,
+   "end": 5.923
+  },
+  {
+   "word": "fifty",
+   "start": 6.0,
+   "end": 6.154
+  },
+  {
+   "word": "thousand",
+   "start": 6.308,
+   "end": 6.692
+  },
+  {
+   "word": "dollars,",
+   "start": 6.769,
+   "end": 7.462
+  },
+  {
+   "word": "fail",
+   "start": 7.538,
+   "end": 7.769
+  },
+  {
+   "word": "payment",
+   "start": 7.846,
+   "end": 8.077
+  },
+  {
+   "word": "controls,",
+   "start": 8.154,
+   "end": 9.0
+  },
+  {
+   "word": "found",
+   "start": 9.077,
+   "end": 9.308
+  },
+  {
+   "word": "by",
+   "start": 9.346,
+   "end": 9.385
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 9.462,
+   "end": 10.0
+  },
+  {
+   "word": "data-quality",
+   "start": 10.077,
+   "end": 10.692
+  },
+  {
+   "word": "rules",
+   "start": 10.846,
+   "end": 11.077
+  },
+  {
+   "word": "across",
+   "start": 11.154,
+   "end": 11.615
+  },
+  {
+   "word": "all",
+   "start": 11.692,
+   "end": 11.846
+  },
+  {
+   "word": "payment",
+   "start": 11.923,
+   "end": 12.231
+  },
+  {
+   "word": "items.",
+   "start": 12.308,
+   "end": 13.0
+  }
+ ],
+ "seconds": 13.0,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

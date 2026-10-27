@@ -1,0 +1,13 @@
+{
+  "slot": "R13",
+  "file": "v10-sweep-panel.mp4",
+  "started_at": "2026-10-27T20:01:55.261Z",
+  "seconds": 15.1,
+  "target_seconds": 8,
+  "frames": 300,
+  "scale": 2,
+  "ui": "http://localhost:3100",
+  "runs": {
+    "BCR-2026-0412": "r-20261027T194659Z-c63a"
+  }
+}

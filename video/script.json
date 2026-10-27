@@ -23,12 +23,12 @@
     {
       "id": "M05",
       "name": "agents",
-      "seconds": 12
+      "seconds": 14
     },
     {
       "id": "M06",
       "name": "zetaris",
-      "seconds": 6
+      "seconds": 8
     },
     {
       "id": "M07",
@@ -38,12 +38,12 @@
     {
       "id": "M08",
       "name": "impact",
-      "seconds": 6
+      "seconds": 10
     },
     {
       "id": "M09",
       "name": "outro",
-      "seconds": 6
+      "seconds": 11
     }
   ],
   "sequence": [
@@ -59,6 +59,7 @@
     "R05",
     "R06",
     "R07",
+    "R14",
     "R08",
     "M06",
     "R09",
@@ -93,17 +94,16 @@
         "M05",
         "R03"
       ],
-      "text": "Four agents, each with its own authority. The Letter Reader, on Nemotron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a fixed floor of Zetaris checks; Nemotron Lightning adds the checks the floor misses. Before a newly discovered link counts, the Examiner re-runs its Zetaris query and checks the rows have not changed, and it sends the Scout back when evidence is missing. Code decides the verdict.",
-      "text_fit": "Four agents, each with its own authority. The Letter Reader, on Nemotron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a fixed floor of Zetaris checks; Nemotron Lightning adds what it misses. Before a new link counts, the Examiner re-runs its Zetaris query and checks the rows. Code decides the verdict."
+      "text": "Four agents, each with its own authority. The Letter Reader reads the letter twice, in two independent Nemotron Ultra calls; the readings must agree field by field. The Registry Scout runs a floor of Zetaris checks, and Nemotron Lightning adds what it misses. The Examiner re-runs each new link's Zetaris query and checks the rows. Code decides the verdict."
     },
     {
       "id": "N03",
       "audio": "a03.m4a",
-      "label": "Injection catch",
+      "label": "Injection hold (S10)",
       "covers": [
         "R04"
       ],
-      "text": "A letter that talks to the AI is quoted as a warning sign, never obeyed."
+      "text": "This letter told the AI to approve it, in hidden lines. Probity quotes them as evidence, never obeys, and holds the payment. A call-back cannot clear it."
     },
     {
       "id": "N04",
@@ -127,12 +127,11 @@
     {
       "id": "N06",
       "audio": "a06.m4a",
-      "label": "Memory",
+      "label": "Memory (World Model, R5)",
       "covers": [
         "R07"
       ],
-      "text": "Three separate processes. A later CACI request reuses the phone from the impersonation we confirmed in session a, and another request reuses its account. The World Model remembers both, and both are held.",
-      "text_fit": "Three separate processes. A later CACI request reuses the phone from the impersonation we confirmed in session a, and another reuses its account. The World Model remembers both; both are held."
+      "text": "Memory across sessions. An impersonation confirmed in one session is remembered by the World Model; a later L3Harris request reuses that bank account, and it is held."
     },
     {
       "id": "N07",
@@ -147,7 +146,7 @@
     {
       "id": "N08",
       "audio": "a08.m4a",
-      "label": "Sponsor tech",
+      "label": "Sponsor tech and lineage",
       "covers": [
         "M06",
         "R09",
@@ -155,8 +154,7 @@
         "M07",
         "R11"
       ],
-      "text": "Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer and registers what it discovers at run time; every query has an id you can re-run. The sweep is a Zetaris data-quality rule. Every agent model call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which model answered.",
-      "text_fit": "Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer; every query has an id you can re-run. The sweep is a Zetaris data-quality rule. Every agent call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which."
+      "text": "Every registry and ledger fact in this decision came from Zetaris, which joins our vendor master, USAspending and SEC EDGAR in one semantic layer. Each one traces back to its rows: source system, table, query id and row hash, and you can re-run it. The sweep runs Zetaris data-quality rules. Every agent call goes through Meterless Nightshift to a pinned Nemotron model, and the ledger shows which."
     },
     {
       "id": "N09",
@@ -171,13 +169,30 @@
     {
       "id": "N10",
       "audio": "a10.m4a",
-      "label": "Output and impact",
+      "label": "Sweep and impact",
       "covers": [
         "R13",
-        "M08",
+        "M08"
+      ],
+      "text": "Not asked, but checked: five Zetaris rules sweep Friday's run, down to two vendors sharing one bank account. In all, {{sweep_count_words}} other payments fail controls; the controller gets a hold list in dollars. Median time per check: {{q8_seconds}} seconds."
+    },
+    {
+      "id": "N11",
+      "audio": "a11.m4a",
+      "label": "Time travel",
+      "covers": [
+        "R14"
+      ],
+      "text": "What was known when: scrub the graph back to before the run, and the New Jersey company is not in it yet."
+    },
+    {
+      "id": "N12",
+      "audio": "a12.m4a",
+      "label": "Close and build credit",
+      "covers": [
         "M09"
       ],
-      "text": "Not asked, but checked: {{sweep_count_words}} other payments in Friday's run fail controls. The controller gets a hold list in dollars and a script with independent numbers. Median decision time: {{q8_seconds}} seconds. It never moves money. Clone it and run sample mode with no keys."
+      "text": "It never moves money. Built Grok-first: Grok built the Zetaris data layer and the end-to-end tests; Claude Code built the agents and the interface."
     }
   ]
 }

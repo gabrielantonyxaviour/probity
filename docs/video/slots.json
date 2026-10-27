@@ -1,20 +1,133 @@
 {
-  "fps": 30,
-  "cap_seconds": 210,
-  "note": "Recording slots for the Film. Drop docs/video/raw/<file> in place (video/public/raw is a symlink to it); no code change. Set enabled:false to collapse a conditional slot to 0 frames; later beats shift. Cut order if over 210 s: S7 (R08), then F29 (R12 goes to impact), then shorten agents.",
-  "slots": [
-    { "id": "R01", "file": "v01-pitch-letter.mp4", "seconds": 8, "enabled": true, "title": "S1 LETTER", "kind": "S1 pitch: letter full screen, watermark, zoom on remit + phone", "lower_third": null },
-    { "id": "R02", "file": "v01-pitch-hold.mp4", "seconds": 6, "enabled": true, "title": "HOLD BANNER + SWEEP BANNER", "kind": "S1 decision: Hold banner, then sweep banner", "lower_third": "Live USAspending and SEC EDGAR data, joined in Zetaris" },
-    { "id": "R03", "file": "v02-agents-trace.mp4", "seconds": 10, "enabled": true, "title": "TRACE RAIL A1 TO A4", "kind": "Real run's trace rail, A1 to A4", "lower_third": null },
-    { "id": "R04", "file": "v03-injection.mp4", "seconds": 8, "enabled": true, "title": "INJECTION LETTER", "kind": "A-02 letter, 'Instruction to an AI' chip, Read by nemotron-3-ultra", "lower_third": null },
-    { "id": "R05", "file": "v04-s1-live.mp4", "seconds": 60, "enabled": true, "title": "S1 LIVE RUN", "kind": "S1 live run end to end, UX section J staging; no cut inside the decision reveal", "lower_third": null },
-    { "id": "R06", "file": "v05-s2.mp4", "seconds": 8, "enabled": true, "title": "S2 REFUSES TO GUESS", "kind": "S2 'Cannot determine which vendor...'", "lower_third": null },
-    { "id": "R07", "file": "v06-memory.mp4", "seconds": 12, "enabled": true, "title": "THREE SESSIONS", "kind": "demo:sessions panes + R5 chips", "lower_third": "Three separate processes; memory carried over by the World Model" },
-    { "id": "R08", "file": "v07-s7-outage.mp4", "seconds": 4, "enabled": false, "title": "S7 OUTAGE", "kind": "Conditional: real outage clip or labelled hook (SW-F22)", "lower_third": null },
-    { "id": "R09", "file": "v08-zetaris-rerun.mp4", "seconds": 8, "enabled": true, "title": "EVIDENCE DRAWER RE-RUN IN ZETARIS", "kind": "Evidence drawer, Re-run in Zetaris, matches the cited rows", "lower_third": "Every fact is a Zetaris query you can re-run" },
-    { "id": "R10", "file": "v08-zetaris-dq.mp4", "seconds": 6, "enabled": true, "title": "ZETARIS UI LIST DQ / RUN DQ", "kind": "Zetaris UI: LIST DQ USL, RUN DQ", "lower_third": "The payment-run sweep is a Zetaris data-quality rule" },
-    { "id": "R11", "file": "v08-nemotron-did.mp4", "seconds": 4, "enabled": false, "title": "WHAT NEMOTRON DID", "kind": "Optional: What Nemotron did panel + ledger; M07 becomes a lower third over it", "lower_third": null },
-    { "id": "R12", "file": "v09-f29-parsons.mp4", "seconds": 8, "enabled": false, "title": "S5 PARSONS EXAMINER CARD", "kind": "Conditional (SW-F29): Examiner approves the ticker-derived SEC link", "lower_third": null },
-    { "id": "R13", "file": "v10-sweep-panel.mp4", "seconds": 6, "enabled": true, "title": "SWEEP PANEL", "kind": "Sweep panel with V-10812 / V-10763 and amounts; exposure strip", "lower_third": null }
-  ]
+ "fps": 30,
+ "cap_seconds": 230,
+ "note": "Recording slots for the Film. Drop docs/video/raw/<file> in place (video/public/raw is a symlink to it); no code change. Set enabled:false to collapse a conditional slot to 0 frames; later beats shift. Cut order if over 230 s: S7 (R08), then F29 (R12 goes to impact), then shorten agents.",
+ "slots": [
+  {
+   "id": "R01",
+   "file": "v01-pitch-letter.mp4",
+   "seconds": 8,
+   "enabled": true,
+   "title": "S1 LETTER",
+   "kind": "S1 pitch: letter full screen, watermark, zoom on remit + phone",
+   "lower_third": null
+  },
+  {
+   "id": "R02",
+   "file": "v01-pitch-hold.mp4",
+   "seconds": 6,
+   "enabled": true,
+   "title": "HOLD BANNER + SWEEP BANNER",
+   "kind": "S1 decision: Hold banner, then sweep banner",
+   "lower_third": "Live USAspending and SEC EDGAR data, joined in Zetaris"
+  },
+  {
+   "id": "R03",
+   "file": "v02-agents-trace.mp4",
+   "seconds": 10,
+   "enabled": true,
+   "title": "TRACE RAIL A1 TO A4",
+   "kind": "Real run's trace rail, A1 to A4",
+   "lower_third": null
+  },
+  {
+   "id": "R04",
+   "file": "v03-injection.mp4",
+   "seconds": 12,
+   "enabled": true,
+   "title": "INJECTION HOLD",
+   "kind": "S10 Sable Harbor letter: hidden lines told the AI to approve; R8 HOLD, quoted as evidence",
+   "lower_third": null
+  },
+  {
+   "id": "R05",
+   "file": "v04-s1-live.mp4",
+   "seconds": 48,
+   "enabled": true,
+   "title": "S1 LIVE RUN",
+   "kind": "S1 live run end to end, UX section J staging; no cut inside the decision reveal",
+   "lower_third": null
+  },
+  {
+   "id": "R06",
+   "file": "v05-s2.mp4",
+   "seconds": 8,
+   "enabled": true,
+   "title": "S2 REFUSES TO GUESS",
+   "kind": "S2 'Cannot determine which vendor...'",
+   "lower_third": null
+  },
+  {
+   "id": "R07",
+   "file": "v06-memory.mp4",
+   "seconds": 12,
+   "enabled": true,
+   "title": "THREE SESSIONS",
+   "kind": "L3Harris request held: its bank account was used in a confirmed impersonation in another session (R5, World Model)",
+   "lower_third": "Memory across sessions, kept by the Meterless World Model"
+  },
+  {
+   "id": "R08",
+   "file": "v07-s7-outage.mp4",
+   "seconds": 4,
+   "enabled": false,
+   "title": "S7 OUTAGE",
+   "kind": "Conditional: real outage clip or labelled hook (SW-F22)",
+   "lower_third": null
+  },
+  {
+   "id": "R09",
+   "file": "v08-zetaris-rerun.mp4",
+   "seconds": 10,
+   "enabled": true,
+   "title": "EVIDENCE DRAWER LINEAGE + RE-RUN",
+   "kind": "Evidence drawer: lineage (source system, USL table, query id, row hash), Re-run in Zetaris matches",
+   "lower_third": "Lineage: source system, USL table, query id, SQL hash, row hash"
+  },
+  {
+   "id": "R10",
+   "file": "v08-zetaris-dq.mp4",
+   "seconds": 6,
+   "enabled": true,
+   "title": "ZETARIS UI LIST DQ / RUN DQ",
+   "kind": "Zetaris UI: LIST DQ USL, RUN DQ",
+   "lower_third": "The payment-run sweep is a Zetaris data-quality rule"
+  },
+  {
+   "id": "R11",
+   "file": "v08-nemotron-did.mp4",
+   "seconds": 4,
+   "enabled": false,
+   "title": "WHAT NEMOTRON DID",
+   "kind": "Optional: What Nemotron did panel + ledger; M07 becomes a lower third over it",
+   "lower_third": null
+  },
+  {
+   "id": "R12",
+   "file": "v09-f29-parsons.mp4",
+   "seconds": 8,
+   "enabled": false,
+   "title": "S5 PARSONS EXAMINER CARD",
+   "kind": "Conditional (SW-F29): Examiner approves the ticker-derived SEC link",
+   "lower_third": null
+  },
+  {
+   "id": "R13",
+   "file": "v10-sweep-panel.mp4",
+   "seconds": 8,
+   "enabled": true,
+   "title": "SWEEP PANEL",
+   "kind": "Sweep panel: DQ1, DQ2, DQ7, DQ8, DQ9; findings and amounts; exposure strip",
+   "lower_third": "Five Zetaris data-quality rules sweep the payment run"
+  },
+  {
+   "id": "R14",
+   "file": "v11-asof.mp4",
+   "seconds": 9,
+   "enabled": true,
+   "title": "WHAT WAS KNOWN WHEN",
+   "kind": "S1 entity graph, as-of scrubber dragged back before the run: the New Jersey entity is absent",
+   "lower_third": "Time travel: the graph as it was known at any moment"
+  }
+ ]
 }

@@ -46,7 +46,7 @@ describe("seed generator", () => {
     expect(T.bank_change_document).toHaveLength(0);
     expect(T.vendor_contact_log).toHaveLength(28);
     expect(T.payment_run).toHaveLength(11);
-    expect(T.payment_run_item.filter((i) => i.payment_run_id === "PR-2026-10-30")).toHaveLength(14);
+    expect(T.payment_run_item.filter((i) => i.payment_run_id === "PR-2026-10-30")).toHaveLength(15);
     expect(T.vendor_bank_account.filter((a) => a.status === "active")).toHaveLength(39);
   });
 
@@ -58,7 +58,7 @@ describe("seed generator", () => {
     const run = T.payment_run_item.filter((i) => i.payment_run_id === "PR-2026-10-30");
     const cents = (rows: typeof run): number => rows.reduce((s, r) => s + Math.round(Number(r.amount_usd) * 100), 0);
     expect(cents(run.filter((i) => i.vendor_id === "V-10027"))).toBe(128_455_000);
-    expect(cents(run)).toBe(240_783_948);
+    expect(cents(run)).toBe(242_647_948);
     expect(JSON.stringify(T)).not.toMatch(/exposure|total_usd/);
   });
 

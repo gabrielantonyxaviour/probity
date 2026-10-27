@@ -1,0 +1,264 @@
+{
+ "id": "i11",
+ "text_original": "Why trust it? Registry facts come from Zetaris queries you can re-run. The readings come from Nemotron models through Nightshift, and every model call has a receipt naming the model. The World Model carries memory between sessions. And a fact that cannot be read shows as unknown, never as fine.",
+ "text_spoken": "Why trust it? Registry facts come from Zuh-tarris queries you can re-run. The readings come from Nemmo-tron models through Nightshift, and every model call has a receipt naming the model. The World Model carries memory between sessions. And a fact that cannot be read shows as unknown, never as fine.",
+ "words": [
+  {
+   "word": "Why",
+   "start": 0.0,
+   "end": 0.308
+  },
+  {
+   "word": "trust",
+   "start": 0.385,
+   "end": 0.692
+  },
+  {
+   "word": "it?",
+   "start": 0.769,
+   "end": 1.0
+  },
+  {
+   "word": "Registry",
+   "start": 1.462,
+   "end": 1.923
+  },
+  {
+   "word": "facts",
+   "start": 2.0,
+   "end": 2.308
+  },
+  {
+   "word": "come",
+   "start": 2.385,
+   "end": 2.462
+  },
+  {
+   "word": "from",
+   "start": 2.538,
+   "end": 2.692
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 2.769,
+   "end": 3.308
+  },
+  {
+   "word": "queries",
+   "start": 3.385,
+   "end": 3.692
+  },
+  {
+   "word": "you",
+   "start": 3.769,
+   "end": 3.846
+  },
+  {
+   "word": "can",
+   "start": 3.923,
+   "end": 4.0
+  },
+  {
+   "word": "re-run.",
+   "start": 4.077,
+   "end": 4.615
+  },
+  {
+   "word": "The",
+   "start": 5.077,
+   "end": 5.154
+  },
+  {
+   "word": "readings",
+   "start": 5.269,
+   "end": 5.615
+  },
+  {
+   "word": "come",
+   "start": 5.692,
+   "end": 5.846
+  },
+  {
+   "word": "from",
+   "start": 5.923,
+   "end": 6.0
+  },
+  {
+   "word": "Nemmo-tron",
+   "start": 6.077,
+   "end": 6.615
+  },
+  {
+   "word": "models",
+   "start": 6.808,
+   "end": 7.0
+  },
+  {
+   "word": "through",
+   "start": 7.077,
+   "end": 7.231
+  },
+  {
+   "word": "Nightshift,",
+   "start": 7.308,
+   "end": 8.154
+  },
+  {
+   "word": "and",
+   "start": 8.269,
+   "end": 8.385
+  },
+  {
+   "word": "every",
+   "start": 8.462,
+   "end": 8.769
+  },
+  {
+   "word": "model",
+   "start": 8.846,
+   "end": 9.077
+  },
+  {
+   "word": "call",
+   "start": 9.154,
+   "end": 9.385
+  },
+  {
+   "word": "has",
+   "start": 9.462,
+   "end": 9.615
+  },
+  {
+   "word": "a",
+   "start": 9.654,
+   "end": 9.692
+  },
+  {
+   "word": "receipt",
+   "start": 9.962,
+   "end": 10.231
+  },
+  {
+   "word": "naming",
+   "start": 10.385,
+   "end": 10.692
+  },
+  {
+   "word": "the",
+   "start": 10.731,
+   "end": 10.769
+  },
+  {
+   "word": "model.",
+   "start": 10.846,
+   "end": 11.423
+  },
+  {
+   "word": "The",
+   "start": 11.692,
+   "end": 11.769
+  },
+  {
+   "word": "World",
+   "start": 11.846,
+   "end": 12.077
+  },
+  {
+   "word": "Model",
+   "start": 12.154,
+   "end": 12.385
+  },
+  {
+   "word": "carries",
+   "start": 12.462,
+   "end": 12.769
+  },
+  {
+   "word": "memory",
+   "start": 12.923,
+   "end": 13.231
+  },
+  {
+   "word": "between",
+   "start": 13.308,
+   "end": 13.615
+  },
+  {
+   "word": "sessions.",
+   "start": 13.692,
+   "end": 14.423
+  },
+  {
+   "word": "And",
+   "start": 14.615,
+   "end": 14.692
+  },
+  {
+   "word": "a",
+   "start": 14.769,
+   "end": 14.808
+  },
+  {
+   "word": "fact",
+   "start": 14.846,
+   "end": 15.077
+  },
+  {
+   "word": "that",
+   "start": 15.154,
+   "end": 15.231
+  },
+  {
+   "word": "cannot",
+   "start": 15.308,
+   "end": 15.615
+  },
+  {
+   "word": "be",
+   "start": 15.692,
+   "end": 15.769
+  },
+  {
+   "word": "read",
+   "start": 15.923,
+   "end": 16.231
+  },
+  {
+   "word": "shows",
+   "start": 16.308,
+   "end": 16.538
+  },
+  {
+   "word": "as",
+   "start": 16.615,
+   "end": 16.692
+  },
+  {
+   "word": "unknown,",
+   "start": 16.769,
+   "end": 17.538
+  },
+  {
+   "word": "never",
+   "start": 17.692,
+   "end": 18.0
+  },
+  {
+   "word": "as",
+   "start": 18.077,
+   "end": 18.231
+  },
+  {
+   "word": "fine.",
+   "start": 18.308,
+   "end": 18.923
+  }
+ ],
+ "seconds": 18.92,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

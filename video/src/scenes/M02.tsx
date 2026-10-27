@@ -18,7 +18,6 @@ const CARDS: Card[] = [
     id: "doj", from: 14, to: 130, eyebrow: "A real case · 2018",
     text: (<><b style={B}>$23.5 million</b> diverted after stolen contractor logins changed banking details on a government vendor payment system (2018).</>),
     source: "USAO-NJ release 22-160 (29 Apr 2022); GAO-26-108174",
-    note: "Modelled on this case; requests and internal records are synthetic.",
   },
   {
     id: "ic3", from: 130, to: 218, eyebrow: "Business email compromise",

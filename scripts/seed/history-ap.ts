@@ -1,8 +1,8 @@
-// AP history: nine released runs, the 30 Oct run (exactly 14 items) and the 3 Nov draft. Totals are never stored.
+// AP history: nine released runs, the 30 Oct run (exactly 15 items: 14 plus the DQ7 Northgate item) and the 3 Nov draft. Totals are never stored.
 import { addDays } from "../gen/contracts";
 import type { VendorWorld } from "./build-vendors";
 import { Rng } from "./rng";
-import { RUN_1030_ITEMS, RUN_1103_ITEMS } from "./scenario";
+import { RUN_1030_DQ7_ITEM, RUN_1030_ITEMS, RUN_1103_ITEMS } from "./scenario";
 import type { AccountSpec, CallLogSpec, ItemSpec, VendorSpec } from "./types";
 
 export interface RunSpec { id: string; date: string; status: "released" | "scheduled" | "draft" }
@@ -47,7 +47,7 @@ export function buildAp(vw: VendorWorld, logs: CallLogSpec[]): ApWorld {
   const rng = Rng.for("ap");
   assignPrefixes(vw.vendors);
   const byId = new Map(vw.vendors.map((v) => [v.id, v]));
-  const usedNo = new Set<string>([...RUN_1030_ITEMS, ...RUN_1103_ITEMS].map((i) => i.invoice));
+  const usedNo = new Set<string>([...RUN_1030_ITEMS, ...RUN_1103_ITEMS, RUN_1030_DQ7_ITEM].map((i) => i.invoice));
   const invoiceNo = (vendor: string): string => {
     const prefix = (byId.get(vendor) as VendorSpec).prefix;
     let no = `INV-${prefix}-${rng.int(10000, 99999)}`;
@@ -94,5 +94,6 @@ export function buildAp(vw: VendorWorld, logs: CallLogSpec[]): ApWorld {
     const void_ = i >= 12;
     invoices.push({ no: invoiceNo(v.id), vendor: v.id, cents: cents(v.id), date: addDays("2026-10-27", -rng.int(void_ ? 40 : 3, void_ ? 90 : 38)), status: void_ ? "void" : i % 3 === 0 ? "approved" : "open" });
   });
+  place(RUN_1030_DQ7_ITEM, "scheduled", "2026-10-30"); // last, so it shifts no earlier random draw
   return { runs: RUNS, items, invoices };
 }

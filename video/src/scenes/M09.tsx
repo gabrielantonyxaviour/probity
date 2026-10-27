@@ -31,6 +31,12 @@ export const M09: React.FC = () => {
           <div style={{ ...monoStyle, fontSize: 14, color: C.muted }}>SAMPLE_MODE: one command, no keys</div>
         </div>
       </div>
+      <div style={{ position: "absolute", left: 1060, top: 330, width: 740, opacity: e(clamp01((f - 150) / 18)) }}>
+        <div style={{ ...monoStyle, fontSize: 14, color: C.fg2, marginBottom: 12 }}>Built Grok-first</div>
+        <div style={{ fontFamily: FONT.sans, fontWeight: 300, fontSize: 23, color: C.fg2, lineHeight: 1.45 }}>
+          Grok (xAI) built the Zetaris data layer (source registration, the unified vendor360 layer, data-quality rules, live checks) and wrote the independent end-to-end test suite. Claude Code built the agents and the interface.
+        </div>
+      </div>
       {gate.visible && f > 114 ? <Annotation frame={f} at={118} x={gate.x} y={gate.y - 24} dx={0} dy={-56} label="Held before release" color={C.fg2} /> : null}
     </AbsoluteFill>
   );

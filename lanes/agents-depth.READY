@@ -1,0 +1,12 @@
+agents-depth READY 2026-10-27T17:15Z
+D1 (two independent Ultra readings, reconciled, C7) and D6 (injection detector, Ultra review, R8) are in the code and verified live
+in-process on the real stack (Zetaris, ERP, Nightshift):
+  S10 r-20261027T172534Z-f038  via the live API :8787: HOLD R8(hidden),C1,C3, readings agree 7/7, 4 spans, review confirmed
+  S1  r-20261027T165929Z-b78f  HOLD R1,R3,R6,C1,C5,I5,I6  readings agree 8/8
+  S3  r-20261027T171552Z-39f4  APPROVE, readings agree 6/6, rationale names no number to call
+Entry points: readLetter (app/agents/letter-reader/index.ts) in a run; readLetterDual({pdf_path, png_paths, eml, models, ocr}) in extract.ts for the eval (both readings, detector and review, no Zetaris); extractClaims stays the single-reading path.
+Detector alone: detectInjection() in app/agents/letter-reader/injection.ts. Contract: lanes/agents-depth.CONTRACT.md.
+The API on :8787 serves it since the 17:24Z restart (PID 7269).
+Through the API (PID 7269), 18:03Z to 18:13Z: S3 r-20261027T180350Z-d6ef APPROVE (success, readings 6/6);
+S1 r-20261027T180740Z-a214 HOLD R1,R3,R6,C1,C5,I5,I6 (success, readings 8/8); S10 r-20261027T172843Z-5ed6 HOLD R8,C1,C3 (7/7, 4 spans).
+

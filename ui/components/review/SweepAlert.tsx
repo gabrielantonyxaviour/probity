@@ -38,7 +38,7 @@ export function SweepAlert() {
                 </p>
                 {it.findings.map((f) => (
                   <div key={f.rule} className="sw-hit" data-testid="sweep-hit" data-rule={f.rule}>
-                    <p className="t-ui-sm text-fg-2">{f.detail}</p>
+                    <p className="t-ui-sm text-fg-2 t-wrap-any">{f.detail}</p>
                     <div className="sw-chips">
                       <Chip wrap tone="info" glyph="i">{f.rule} · {ruleName(f.rule)}</Chip>
                       <Chip wrap tone="gap" glyph="○">{recName(f.recommendation)}</Chip>

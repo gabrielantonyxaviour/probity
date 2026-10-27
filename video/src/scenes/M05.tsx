@@ -8,12 +8,13 @@ import { planesParams } from "../river/world";
 import { planeOffset, PLANE_X, PLANE_COLS } from "../river/layout-planes";
 import { CW } from "../river/cells";
 import { ease, bez, clamp01, msToFrames } from "../system/motion";
+import { fx } from "../data/facts";
 
 const AGENTS = [
-  { code: "A1", name: "Letter Reader", model: "Nemotron 3 Ultra", line: "Turns the letter into quoted claims", color: STEP.read, at: 60 },
-  { code: "A2", name: "Registry Scout", model: "Nemotron 3.5 Lightning", line: "A fixed floor of Zetaris checks, plus the checks the floor misses", color: STEP.gather, at: 126 },
-  { code: "A3", name: "Identity Examiner", model: "Nemotron 3 Ultra", line: "Re-runs the query, sends the Scout back when evidence is missing", color: STEP.challenge, at: 207 },
-  { code: "A4", name: "Gate Officer", model: "Code decides", line: "Applies policy: approve, call back or hold", color: STEP.decide, at: 285 },
+  { code: "A1", name: "Letter Reader", model: "Nemotron 3 Ultra × 2", line: "Reads it twice; the readings must agree", color: STEP.read, at: 60 },
+  { code: "A2", name: "Registry Scout", model: "Nemotron 3.5 Lightning", line: "A fixed floor of Zetaris checks, plus the checks the floor misses", color: STEP.gather, at: 165 },
+  { code: "A3", name: "Identity Examiner", model: "Nemotron 3 Ultra", line: "Re-runs the query, sends the Scout back when evidence is missing", color: STEP.challenge, at: 246 },
+  { code: "A4", name: "Gate Officer", model: "Code decides", line: "Applies policy: approve, call back or hold", color: STEP.decide, at: 312 },
 ] as const;
 
 const Check: React.FC<{ p: number; color: string }> = ({ p, color }) => (
@@ -29,8 +30,8 @@ export const M05: React.FC = () => {
   const { act, mix } = planesParams(g);
   const rEdge = (i: number) => anchor(g, PLANE_X + (PLANE_COLS / 2) * CW, planeOffset(i, act, mix), 0);
   const loopA = rEdge(2), loopB = rEdge(1);
-  const loopP = e(clamp01((f - 228) / msToFrames(550)));
-  const tickP = e(clamp01((f - 246) / 9));
+  const loopP = e(clamp01((f - 267) / msToFrames(550)));
+  const tickP = e(clamp01((f - 285) / 9));
   const mx = Math.max(loopA.x, loopB.x) + 70;
   const d = `M ${loopA.x} ${loopA.y} C ${mx} ${loopA.y}, ${mx} ${loopB.y}, ${loopB.x} ${loopB.y}`;
   return (
@@ -45,7 +46,10 @@ export const M05: React.FC = () => {
               <div style={{ position: "absolute", left: 0, top: 0, width: 3, height: 86 * bar, background: a.color }} />
               <Eyebrow frame={f} at={a.at} color={a.color} size={13} style={{ marginBottom: 10 }}>{a.code} · {a.model}</Eyebrow>
               <div style={{ fontFamily: FONT.serif, fontWeight: 300, fontSize: 40, color: C.fg, letterSpacing: "-0.03em", lineHeight: 1.05 }}>{a.name}</div>
-              <div style={{ fontFamily: FONT.sans, fontWeight: 300, fontSize: 17, color: C.muted, marginTop: 8, height: 24, opacity: active ? 1 : 0 }}>{a.line}</div>
+              <div style={{ fontFamily: FONT.sans, fontWeight: 300, fontSize: 17, color: C.muted, marginTop: 8, height: 24, opacity: active ? 1 : 0 }}>
+                {a.line}
+                {a.code === "A1" && fx.readings() ? <span style={{ ...monoStyle, fontSize: 12, color: C.agree, marginLeft: 12 }}>{fx.readings()}</span> : null}
+              </div>
             </div>
           );
         })}
@@ -56,7 +60,7 @@ export const M05: React.FC = () => {
             <path d={d} fill="none" stroke={STEP.challenge} strokeWidth={1.5} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - loopP} />
             <circle cx={loopB.x} cy={loopB.y} r={3} fill={STEP.challenge} opacity={loopP} />
           </svg>
-          <div style={{ position: "absolute", left: mx + 14, top: (loopA.y + loopB.y) / 2 - 22, opacity: clamp01((f - 228 - 18) / 9) }}>
+          <div style={{ position: "absolute", left: mx + 14, top: (loopA.y + loopB.y) / 2 - 22, opacity: clamp01((f - 267 - 18) / 9) }}>
             <div style={{ ...monoStyle, fontSize: 13, color: STEP.challenge }}>GapRequest, ≤2 rounds</div>
             <div style={{ ...monoStyle, fontSize: 12, color: C.fg2, marginTop: 8, opacity: tickP }}>
               re-query · row hash<Check p={tickP} color={C.agree} />

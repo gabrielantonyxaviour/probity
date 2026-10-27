@@ -1,42 +1,29 @@
 # Assembling the Probity film
 
-The film is one Remotion composition, `Film` (1920x1080, 30 fps). Motion scenes M01..M09 are built; the thirteen recording slots R01..R13 play real recordings from `docs/video/raw/` and narration from `docs/video/audio/`. Nothing in the pipeline needs a code change when a file lands.
+The film is one Remotion composition, `Film` (1920x1080, 30 fps, at most 230 s), with narration and burned-in captions.
+Motion scenes M01..M09 are built; the recording slots play film cuts of real recordings, and the narration is Gabriel's
+ElevenLabs voice. Nothing in the pipeline needs a code change when a file lands.
 
-## Inputs (filled by the recording session, never by the video lane)
+## Inputs
 
 | What | Where | Rule |
 |---|---|---|
-| Screen recordings | `docs/video/raw/<file>` named in `docs/video/slots.json` (`v01-pitch-letter.mp4` ... ) | Pre-trim each to its slot length (seconds in `slots.json`); the film plays the first N seconds. `video/public/raw` is a symlink to this folder. Waits trimmed: put the true length in `clips.json` `trimmed_seconds` and the film captions "wait trimmed: {n} s". |
-| Narration | `docs/video/audio/a01.m4a` ... `a10.m4a` | One take per segment (`script.md`); each starts at the first enabled scene it covers. Absent file = silent segment. |
-| Provenance | `docs/video/clips.json` | One entry per slot: `{clip, run_id, mode, narrated_events[], trimmed_seconds?}` (REV-60). A SAMPLE clip may be used only with the SAMPLE banner in frame and "in sample mode" narration, never in R05. Grok validates each narrated event against that run's trace before export. |
-| Run facts | `video/src/data/facts.generated.json` | `npx tsx video/scripts/facts.ts` after `output_examples/MANIFEST.json` lists the filmed S1 run. Until then scenes show "AWAITING RECORDED RUN". |
+| Screen recordings | `docs/video/raw/<file>` named in `docs/video/slots.json` | Written by the recording session (`scripts/record/screen.ts`, `zetaris.ts`). R14 (as-of graph) is recorded by `npx tsx video/scripts/record-asof.ts --run <S1 run>` (reads a finished run only). |
+| Film cuts | `docs/video/cut/<file>` from `python3 video/scripts/cut.py` | Exactly the slot length. `docs/video/cuts.json` keeps spans and speeds up waits; a short take is padded with its last frame. The film prefers the cut over the raw take. A sped-up span carries a corner caption from `clips.json` `caption`. |
+| Narration | `docs/video/audio/aNN.m4a` + `aNN.json` (word timings) | `python3 video/scripts/tts.py` after `facts.ts` (fills resolve from the recorded run). Each file starts at the first enabled scene it covers. |
+| Captions | `video/src/data/captions.generated.json` | `python3 video/scripts/captions.py` from the narration sidecars. |
+| Provenance | `docs/video/clips.json` | One entry per slot: `{clip, run_id, mode, narrated_events[], trimmed_seconds?, caption?}`. |
+| Run facts | `video/src/data/facts.generated.json` | `npx tsx video/scripts/facts.ts` from `output_examples/` (S1 hero, S10 injection). Until then scenes show "AWAITING RECORDED RUN". |
 
-## Steps
-
-```bash
-cd probity
-npx tsx video/scripts/facts.ts          # run facts from output_examples (run_id + sha256), or {pending:true}
-npx tsx video/scripts/check.ts          # <=210 s, <=2.6 words/s, clips.json coverage, no typed figures, <=300 lines
-cd video
-export AR=/usr/bin/ar AS=/usr/bin/as PATH="/usr/bin:$PATH"
-# optional when the Remotion CDN is unreachable: export REMOTION_BROWSER_EXECUTABLE=/path/to/chrome-headless-shell
-npx remotion render src/index.ts Film out/probity-demo.mp4 --gl=angle --codec=h264 --audio-codec=aac --pixel-format=yuv420p --crf=18
-ffprobe -v error -show_entries format=duration:stream=width,height,codec_name,r_frame_rate -of compact out/probity-demo.mp4
-```
-
-Pass: duration <= 210 s, 1920x1080, h264 + aac (aac only when at least one `aNN.m4a` exists).
-
-`DeckSilent` (the deck film) is separate. After the recordings land, rebuild the deck so its frames embed them:
+## Steps (from `probity/`)
 
 ```bash
-npx remotion render src/index.ts DeckSilent out/deck-silent.mp4 --gl=angle --codec=h264 --crf=16 --pixel-format=yuv420p
-python3 scripts/build_pptx.py --film out/deck-silent.mp4 --out ../docs/deck/probity-deck.pptx
+npx tsx video/scripts/facts.ts && npx tsx video/scripts/check.ts
+python3 video/scripts/tts.py --plan && python3 video/scripts/tts.py --skip-zero-window --budget 20000
+python3 video/scripts/captions.py
+python3 video/scripts/cut.py --probe && python3 video/scripts/cut.py
+bash video/scripts/render_all.sh          # out/probity-film.mp4 (h264 + aac) and out/deck-silent.mp4
+(cd video && /opt/homebrew/opt/python@3.11/libexec/bin/python3 scripts/build_pptx.py --film out/deck-silent.mp4 --out ../docs/deck/probity-deck.pptx)
 ```
 
-## Conditional slots and cuts
-
-`slots.json` `enabled:false` collapses a slot to 0 frames; later beats shift and the world keeps flowing. If the film is over 210 s, `check.ts` and the composition both refuse to build: cut S7 (R08), then F29 (R12, its 8 s go to impact), then shorten agents (M05). R11 (What Nemotron did) is optional and not counted in the default 205 s.
-
-## Fallback without Remotion for the recordings (08 section 5.3)
-
-ffmpeg trims and concat remain valid for the recordings; use `ffmpeg -i <draft> ...` only to overlay narration. The motion draft is `video/out/probity-motion-draft.mp4`.
+Pass: duration at most 230 s, 1920x1080, H.264 + AAC, no blank frame after the first second, loudness near -16 LUFS.

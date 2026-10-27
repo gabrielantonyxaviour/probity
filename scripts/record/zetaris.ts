@@ -5,6 +5,8 @@
 //   npx tsx scripts/record/zetaris.ts --scene dq --out docs/video/raw        # R10: v08-zetaris-dq.mp4
 //   npx tsx scripts/record/zetaris.ts --scene history --out docs/zetaris-challenge/raw
 //   npx tsx scripts/record/zetaris.ts --scene usl --out docs/zetaris-challenge/raw    # the sources and SHOW NAMESPACES (vendor360, 12)
+//   npx tsx scripts/record/zetaris.ts --scene edgar --out docs/zetaris-challenge/raw  # the EDGAR registrant row (CIK 0001443646) through the USL
+//   npx tsx scripts/record/zetaris.ts --scene t23 --out docs/zetaris-challenge/raw    # T23: one statement across the ERP, USAspending and EDGAR legs
 //   --scale 1|2   --headed   --zui http://localhost:3000
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -19,6 +21,8 @@ const SCENES: Record<string, { file: string; run: (p: Page) => Promise<void> }> 
   dq: { file: "v08-zetaris-dq.mp4", run: dqScene },
   history: { file: "zetaris-history.mp4", run: historyScene },
   usl: { file: "zetaris-usl.mp4", run: uslScene },
+  edgar: { file: "zetaris-edgar.mp4", run: edgarScene },
+  t23: { file: "zetaris-t23.mp4", run: t23Scene },
 };
 
 async function signIn(p: Page, email: string, password: string): Promise<void> {
@@ -57,8 +61,11 @@ async function runStatement(p: Page, sql: string): Promise<void> {
     await p.mouse.down();
     await p.mouse.up();
   }
-  await p.waitForSelector("text=/Total Count/", { timeout: 420_000 }); // the workspace shows this footer once rows are back; a loaded Spark can take minutes
+  await p.locator("text=Executing query").first().waitFor({ state: "visible", timeout: 20_000 }).catch(() => undefined);
+  await p.locator("text=Executing query").first().waitFor({ state: "hidden", timeout: 420_000 }); // a loaded Spark can take minutes
+  await p.waitForSelector("text=/Total Count/", { timeout: 60_000 });
   await dwell(2600);
+  await moveTo(p, 1250, 760); // the screencast sends frames on change only: a cursor move closes the result's hold
 }
 
 async function dqScene(p: Page): Promise<void> {
@@ -76,6 +83,39 @@ async function uslScene(p: Page): Promise<void> {
   await hover(p, p.locator("button:has-text('Unified Semantic Layer')").last(), 1800);
   await openWorkspace(p);
   await runStatement(p, "SHOW NAMESPACES OR TABLES IN lightning.metastore.probity");
+}
+
+/** The SEC registrant row for Booz Allen, read through the vendor360 USL (the EDGAR submissions API is behind this table). */
+async function edgarScene(p: Page): Promise<void> {
+  await openWorkspace(p);
+  await runStatement(p, `SELECT cik, legal_name, phone, biz_city, biz_state FROM ${NS}.sec_registrant WHERE cik = '0001443646'`);
+  await hover(p, p.locator("text=/Booz Allen/i").first(), 1800).catch(() => undefined);
+}
+
+/** T23, the template's own SQL (app/templates/d3.ts) with line breaks added, pasted in one go: the statement is long. */
+async function t23Scene(p: Page): Promise<void> {
+  const { t23Sql } = await import("../../app/templates/d3");
+  const sql = t23Sql("V-10027").replace(/, (?=(CAST|e\.|s\.|p\.))/g, ",\n  ").replace(/ (FROM|LEFT JOIN|WHERE) /g, "\n$1 ");
+  await openWorkspace(p);
+  const editor = p.locator(".monaco-editor").first();
+  await click(p, editor);
+  await p.keyboard.press("Meta+a");
+  await p.keyboard.press("Backspace");
+  await p.keyboard.insertText(sql);
+  await p.keyboard.press("Escape");
+  await dwell(2600);
+  const play = p.locator("button:has(svg.lucide-play), button[title*='Run' i], button[aria-label*='Run' i]").first();
+  if (await play.count()) await click(p, play);
+  else {
+    await moveTo(p, 1558, 121);
+    await p.mouse.down();
+    await p.mouse.up();
+  }
+  await p.locator("text=Executing query").first().waitFor({ state: "visible", timeout: 20_000 }).catch(() => undefined);
+  await p.locator("text=Executing query").first().waitFor({ state: "hidden", timeout: 420_000 });
+  await p.waitForSelector("text=/Total Count/", { timeout: 60_000 });
+  await dwell(3200);
+  await moveTo(p, 1250, 760);
 }
 
 async function historyScene(p: Page): Promise<void> {

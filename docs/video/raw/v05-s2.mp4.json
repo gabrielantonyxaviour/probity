@@ -1,0 +1,11 @@
+{
+  "slot": "R06",
+  "file": "v05-s2.mp4",
+  "started_at": "2026-10-27T20:32:25.712Z",
+  "seconds": 227.2,
+  "target_seconds": 8,
+  "frames": 1434,
+  "scale": 2,
+  "ui": "http://localhost:3100",
+  "runs": {}
+}

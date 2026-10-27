@@ -1,7 +1,7 @@
 {
  "id": "a02",
- "text_original": "Four agents, each with its own authority. The Letter Reader, on Nemotron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a floor of Zetaris checks; Nemotron Lightning adds what it misses. Before a link counts, the Examiner re-runs its Zetaris query and checks the rows. Code decides the verdict.",
- "text_spoken": "Four agents, each with its own authority. The Letter Reader, on Nemmo-tron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a floor of Zuh-tarris checks; Nemmo-tron Lightning adds what it misses. Before a link counts, the Examiner re-runs its Zuh-tarris query and checks the rows. Code decides the verdict.",
+ "text_original": "Four agents, each with its own authority. The Letter Reader reads the letter twice, in two independent Nemotron Ultra calls; the readings must agree field by field. The Registry Scout runs a floor of Zetaris checks, and Nemotron Lightning adds what it misses. The Examiner re-runs each new link's Zetaris query and checks the rows. Code decides the verdict.",
+ "text_spoken": "Four agents, each with its own authority. The Letter Reader reads the letter twice, in two independent Nemmo-tron Ultra calls; the readings must agree field by field. The Registry Scout runs a floor of Zuh-tarris checks, and Nemmo-tron Lightning adds what it misses. The Examiner re-runs each new link's Zuh-tarris query and checks the rows. Code decides the verdict.",
  "words": [
   {
    "word": "Four",
@@ -35,243 +35,273 @@
   },
   {
    "word": "authority.",
-   "start": 2.538,
-   "end": 2.923
+   "start": 2.5,
+   "end": 3.231
   },
   {
    "word": "The",
-   "start": 3.385,
-   "end": 3.462
+   "start": 3.269,
+   "end": 3.308
   },
   {
    "word": "Letter",
-   "start": 3.615,
-   "end": 3.769
+   "start": 3.385,
+   "end": 3.615
   },
   {
-   "word": "Reader,",
-   "start": 3.962,
+   "word": "Reader",
+   "start": 3.692,
+   "end": 4.077
+  },
+  {
+   "word": "reads",
+   "start": 4.154,
    "end": 4.385
   },
   {
-   "word": "on",
-   "start": 4.462,
-   "end": 4.538
-  },
-  {
-   "word": "Nemmo-tron",
-   "start": 4.577,
-   "end": 5.077
-  },
-  {
-   "word": "3",
-   "start": 5.154,
-   "end": 5.308
-  },
-  {
-   "word": "Ultra,",
-   "start": 5.462,
-   "end": 6.154
-  },
-  {
-   "word": "turns",
-   "start": 6.269,
-   "end": 6.462
-  },
-  {
    "word": "the",
-   "start": 6.5,
-   "end": 6.538
+   "start": 4.462,
+   "end": 4.5
   },
   {
    "word": "letter",
-   "start": 6.615,
-   "end": 6.923
+   "start": 4.538,
+   "end": 4.769
   },
   {
-   "word": "into",
-   "start": 7.0,
-   "end": 7.154
+   "word": "twice,",
+   "start": 4.846,
+   "end": 5.538
   },
   {
-   "word": "quoted",
-   "start": 7.231,
-   "end": 7.615
+   "word": "in",
+   "start": 5.654,
+   "end": 5.769
   },
   {
-   "word": "claims.",
-   "start": 7.692,
-   "end": 8.385
+   "word": "two",
+   "start": 5.885,
+   "end": 6.0
   },
   {
-   "word": "The",
-   "start": 8.615,
-   "end": 8.692
-  },
-  {
-   "word": "Registry",
-   "start": 8.923,
-   "end": 9.154
-  },
-  {
-   "word": "Scout",
-   "start": 9.231,
-   "end": 9.538
-  },
-  {
-   "word": "runs",
-   "start": 9.615,
-   "end": 9.769
-  },
-  {
-   "word": "a",
-   "start": 9.846,
-   "end": 9.923
-  },
-  {
-   "word": "floor",
-   "start": 10.0,
-   "end": 10.308
-  },
-  {
-   "word": "of",
-   "start": 10.385,
-   "end": 10.462
-  },
-  {
-   "word": "Zuh-tarris",
-   "start": 10.538,
-   "end": 11.077
-  },
-  {
-   "word": "checks;",
-   "start": 11.154,
-   "end": 11.923
+   "word": "independent",
+   "start": 6.154,
+   "end": 6.769
   },
   {
    "word": "Nemmo-tron",
-   "start": 12.0,
-   "end": 12.462
+   "start": 6.808,
+   "end": 7.231
   },
   {
-   "word": "Lightning",
-   "start": 12.538,
-   "end": 13.0
+   "word": "Ultra",
+   "start": 7.385,
+   "end": 7.615
   },
   {
-   "word": "adds",
-   "start": 13.077,
-   "end": 13.308
+   "word": "calls;",
+   "start": 7.692,
+   "end": 8.462
   },
   {
-   "word": "what",
-   "start": 13.385,
-   "end": 13.462
+   "word": "the",
+   "start": 8.538,
+   "end": 8.615
   },
   {
-   "word": "it",
-   "start": 13.5,
-   "end": 13.538
+   "word": "readings",
+   "start": 8.731,
+   "end": 9.077
   },
   {
-   "word": "misses.",
-   "start": 13.615,
-   "end": 14.308
+   "word": "must",
+   "start": 9.231,
+   "end": 9.462
   },
   {
-   "word": "Before",
-   "start": 14.538,
-   "end": 14.846
+   "word": "agree",
+   "start": 9.654,
+   "end": 9.846
+  },
+  {
+   "word": "field",
+   "start": 10.077,
+   "end": 10.385
+  },
+  {
+   "word": "by",
+   "start": 10.462,
+   "end": 10.615
+  },
+  {
+   "word": "field.",
+   "start": 10.769,
+   "end": 11.538
+  },
+  {
+   "word": "The",
+   "start": 11.577,
+   "end": 11.615
+  },
+  {
+   "word": "Registry",
+   "start": 11.692,
+   "end": 12.154
+  },
+  {
+   "word": "Scout",
+   "start": 12.231,
+   "end": 12.538
+  },
+  {
+   "word": "runs",
+   "start": 12.615,
+   "end": 12.769
   },
   {
    "word": "a",
-   "start": 14.885,
-   "end": 14.923
+   "start": 12.846,
+   "end": 12.923
   },
   {
-   "word": "link",
-   "start": 15.0,
-   "end": 15.231
+   "word": "floor",
+   "start": 13.0,
+   "end": 13.231
   },
   {
-   "word": "counts,",
-   "start": 15.462,
-   "end": 15.846
-  },
-  {
-   "word": "the",
-   "start": 15.923,
-   "end": 15.962
-  },
-  {
-   "word": "Examiner",
-   "start": 16.0,
-   "end": 16.615
-  },
-  {
-   "word": "re-runs",
-   "start": 16.769,
-   "end": 17.231
-  },
-  {
-   "word": "its",
-   "start": 17.308,
-   "end": 17.385
+   "word": "of",
+   "start": 13.308,
+   "end": 13.385
   },
   {
    "word": "Zuh-tarris",
-   "start": 17.423,
-   "end": 17.923
+   "start": 13.462,
+   "end": 13.923
   },
   {
-   "word": "query",
-   "start": 18.0,
-   "end": 18.385
+   "word": "checks,",
+   "start": 14.0,
+   "end": 14.615
   },
   {
    "word": "and",
-   "start": 18.462,
-   "end": 18.538
+   "start": 14.692,
+   "end": 14.769
   },
   {
-   "word": "checks",
-   "start": 18.615,
-   "end": 18.846
+   "word": "Nemmo-tron",
+   "start": 14.846,
+   "end": 15.231
   },
   {
-   "word": "the",
-   "start": 18.923,
-   "end": 19.0
+   "word": "Lightning",
+   "start": 15.308,
+   "end": 15.846
   },
   {
-   "word": "rows.",
-   "start": 19.192,
-   "end": 19.462
+   "word": "adds",
+   "start": 15.962,
+   "end": 16.077
   },
   {
-   "word": "Code",
-   "start": 19.923,
-   "end": 20.231
+   "word": "what",
+   "start": 16.154,
+   "end": 16.231
   },
   {
-   "word": "decides",
-   "start": 20.385,
+   "word": "it",
+   "start": 16.308,
+   "end": 16.385
+  },
+  {
+   "word": "misses.",
+   "start": 16.5,
+   "end": 17.308
+  },
+  {
+   "word": "The",
+   "start": 17.346,
+   "end": 17.385
+  },
+  {
+   "word": "Examiner",
+   "start": 17.462,
+   "end": 18.0
+  },
+  {
+   "word": "re-runs",
+   "start": 18.154,
+   "end": 18.692
+  },
+  {
+   "word": "each",
+   "start": 18.769,
+   "end": 18.923
+  },
+  {
+   "word": "new",
+   "start": 19.077,
+   "end": 19.154
+  },
+  {
+   "word": "link's",
+   "start": 19.231,
+   "end": 19.538
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 19.615,
+   "end": 20.077
+  },
+  {
+   "word": "query",
+   "start": 20.154,
+   "end": 20.538
+  },
+  {
+   "word": "and",
+   "start": 20.654,
    "end": 20.769
   },
   {
+   "word": "checks",
+   "start": 20.885,
+   "end": 21.0
+  },
+  {
    "word": "the",
-   "start": 20.846,
-   "end": 20.885
+   "start": 21.077,
+   "end": 21.115
+  },
+  {
+   "word": "rows.",
+   "start": 21.154,
+   "end": 22.0
+  },
+  {
+   "word": "Code",
+   "start": 22.192,
+   "end": 22.385
+  },
+  {
+   "word": "decides",
+   "start": 22.538,
+   "end": 23.0
+  },
+  {
+   "word": "the",
+   "start": 23.038,
+   "end": 23.077
   },
   {
    "word": "verdict.",
-   "start": 20.923,
-   "end": 21.615
+   "start": 23.154,
+   "end": 23.769
   }
  ],
- "seconds": 21.62,
- "window_seconds": 22,
- "provisional": true,
+ "seconds": 23.77,
+ "window_seconds": 24,
+ "provisional": false,
  "voice": "v7li4BiiSMnJL2FCuD6D",
  "model": "eleven_v4",
  "seed": 4242,

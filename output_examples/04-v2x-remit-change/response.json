@@ -1,0 +1,817 @@
+{
+  "run_id": "r-20261027T191924Z-438f",
+  "status": "success",
+  "output": {
+    "summary": "Call back first: V2X, Inc. (V-10311). Proof is incomplete until an independent call-back confirms the change.",
+    "recommendations": [
+      "Call (571) 481-2000 (SEC EDGAR) before changing anything."
+    ],
+    "artifacts": [
+      {
+        "type": "gate_decision",
+        "data": {
+          "decision_id": "dec-r-20261027T191924Z-438f",
+          "policy_version": "pp-2026-10-27.1",
+          "request_id": "BCR-2026-0418",
+          "decision": "CALLBACK_VERIFY",
+          "banner_text": "Call back before changing anything. Use (571) 481-2000 (SEC EDGAR submissions, CIK 0001601548, fetched 2026-10-27T19:21:04.072Z). Do not use the numbers on the request.",
+          "banner_variant": "standard",
+          "decided_at": "2026-10-27T19:21:47.234Z",
+          "reason_codes": [
+            {
+              "code": "C1",
+              "class": "cap",
+              "detail": "No call-back to an independent number is on record for this request.",
+              "evidence_ids": []
+            },
+            {
+              "code": "I2",
+              "class": "info",
+              "detail": "'Vectrus, Inc.' is a former or alternate name of V2X, Inc. (SEC EDGAR former name).",
+              "evidence_ids": [
+                "ev-aa9b65cc-0-ln"
+              ]
+            },
+            {
+              "code": "I5",
+              "class": "info",
+              "detail": "USAspending data gap: no address on record for V2X, INC. (CG8SV4246V29). (checked in code)",
+              "evidence_ids": [
+                "ev-2099e925-1-ln"
+              ]
+            }
+          ],
+          "exposure": {
+            "payment_run_id": "PR-2026-11-03",
+            "scheduled_date": "2026-11-03",
+            "cutoff_local": "14:00 ET",
+            "scope": "vendor",
+            "vendor_item_count": 1,
+            "vendor_amount_usd": 318750,
+            "run_item_count": 8,
+            "run_amount_usd": 1037684.42,
+            "by_vendor": [
+              {
+                "vendor_id": "V-10311",
+                "vendor_name": "V2X, Inc.",
+                "item_count": 1,
+                "amount_usd": 318750
+              }
+            ]
+          },
+          "resolved": {
+            "vendor_id": "V-10311",
+            "vendor_name": "V2X, Inc.",
+            "candidate_vendor_ids": [
+              "V-10311"
+            ],
+            "uei": "CG8SV4246V29",
+            "parent_uei": "CG8SV4246V29",
+            "registrant_cik": "0001601548",
+            "family_size": null
+          },
+          "evidence_coverage": {
+            "decisive_fields": 4,
+            "with_live_evidence": 3,
+            "degraded_sources": []
+          },
+          "fact_sheet": [
+            {
+              "field": "legal_name",
+              "label": "Legal name",
+              "claimed": "V2X, Inc.",
+              "observations": [
+                {
+                  "evidence_id": "ev-0bc67f88-0-ln",
+                  "field": "legal_name",
+                  "source": "vendor_master",
+                  "value": "V2X, Inc.",
+                  "row_key": "V-10311",
+                  "template_id": "T04b",
+                  "query_id": "0bc67f88-a4a9-44b1-a0fc-e52bd4ffc2b3",
+                  "sql_hash": "c1aa042fdd05aa70",
+                  "row_hash": "50bdddd048439295",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:19:49.918Z",
+                  "latency_ms": 3045,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-1c1ca286-0-ln",
+                  "field": "legal_name",
+                  "source": "edgar",
+                  "value": "V2X, Inc.",
+                  "row_key": "0001601548",
+                  "template_id": "T06c",
+                  "query_id": "1c1ca286-9b6a-43f9-9c77-9c713eb889c3",
+                  "sql_hash": "1d17ddfe804fa869",
+                  "row_hash": "7ca1c01fd9a55665",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:02.940Z",
+                  "latency_ms": 11760,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-7b36cf6a-0-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "V2X, INC.",
+                  "row_key": "CG8SV4246V29-P",
+                  "template_id": "T06b",
+                  "query_id": "7b36cf6a-b28f-4551-bd35-734f20c733fa",
+                  "sql_hash": "ad858d6b5470bff6",
+                  "row_hash": "1f4f9c1787df542b",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:12.007Z",
+                  "latency_ms": 22084,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b8584c0e-0-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "V2X  INC.",
+                  "row_key": "CG8SV4246V29-P",
+                  "template_id": "T06a",
+                  "query_id": "b8584c0e-cc98-464f-96a1-78396f06e35a",
+                  "sql_hash": "12d2c777b3844ff2",
+                  "row_hash": "4eb03c6d8f603971",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:29.529Z",
+                  "latency_ms": 40552,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-aa9b65cc-0-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "Vectrus, Inc.",
+                  "row_key": "0001601548",
+                  "template_id": "T06a",
+                  "query_id": "aa9b65cc-2f71-4130-840a-ccd35bb49232",
+                  "sql_hash": "463e84da05ab6432",
+                  "row_hash": "7188553b16386e56",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:41.200Z",
+                  "latency_ms": 38257,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-aa9b65cc-1-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "VECTRUS  INC.",
+                  "row_key": "CG8SV4246V29-P",
+                  "template_id": "T06a",
+                  "query_id": "aa9b65cc-2f71-4130-840a-ccd35bb49232",
+                  "sql_hash": "463e84da05ab6432",
+                  "row_hash": "7188553b16386e56",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:41.200Z",
+                  "latency_ms": 38257,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-999deec3-0-ln",
+                  "field": "legal_name",
+                  "source": "vendor_master",
+                  "value": "V2X, Inc.",
+                  "row_key": "V-10311",
+                  "template_id": "T01",
+                  "query_id": "999deec3-f258-4772-bbcd-fc1ac9fd178e",
+                  "sql_hash": "3803c35cd177aa2f",
+                  "row_hash": "5c80103a2558cf25",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:44.896Z",
+                  "latency_ms": 1165,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-2099e925-0-ln",
+                  "field": "legal_name",
+                  "source": "vendor_master",
+                  "value": "V2X, Inc.",
+                  "row_key": "V-10311",
+                  "template_id": "T05",
+                  "query_id": "2099e925-44f2-4d03-819a-d1f0d3aae140",
+                  "sql_hash": "9683501bc69da7d7",
+                  "row_hash": "b14988b3c6d90609",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:21:04.072Z",
+                  "latency_ms": 20340,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "Vendor master lists V2X, Inc.; the request says V2X, Inc."
+            },
+            {
+              "field": "remit_address",
+              "label": "Remit-to address",
+              "claimed": "2100 Reston Parkway, Suite 300, Reston, VA 20191",
+              "observations": [
+                {
+                  "evidence_id": "ev-999deec3-0-ra",
+                  "field": "remit_address",
+                  "source": "vendor_master",
+                  "value": "2424 Garden of the Gods Rd, Colorado Springs, CO, 80919",
+                  "row_key": "V-10311",
+                  "template_id": "T01",
+                  "query_id": "999deec3-f258-4772-bbcd-fc1ac9fd178e",
+                  "sql_hash": "3803c35cd177aa2f",
+                  "row_hash": "5c80103a2558cf25",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:44.896Z",
+                  "latency_ms": 1165,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-2099e925-0-ra",
+                  "field": "remit_address",
+                  "source": "vendor_master",
+                  "value": "2424 Garden of the Gods Rd, Colorado Springs, CO",
+                  "row_key": "V-10311",
+                  "template_id": "T05",
+                  "query_id": "2099e925-44f2-4d03-819a-d1f0d3aae140",
+                  "sql_hash": "9683501bc69da7d7",
+                  "row_hash": "b14988b3c6d90609",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:21:04.072Z",
+                  "latency_ms": 20340,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-2099e925-1-ra",
+                  "field": "remit_address",
+                  "source": "edgar",
+                  "value": "2100 RESTON PARKWAY, RESTON, VA",
+                  "row_key": "0001601548",
+                  "template_id": "T05",
+                  "query_id": "2099e925-44f2-4d03-819a-d1f0d3aae140",
+                  "sql_hash": "9683501bc69da7d7",
+                  "row_hash": "b14988b3c6d90609",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:21:04.072Z",
+                  "latency_ms": 20340,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "SEC EDGAR lists 2100 RESTON PARKWAY, RESTON, VA; the request says 2100 Reston Parkway, Suite 300, Reston, VA 20191."
+            },
+            {
+              "field": "bank_account",
+              "label": "Bank account",
+              "claimed": "routing unknown, account ending unknown",
+              "observations": [],
+              "status": "gap",
+              "why": "New account; not on any other vendor. Ownership is not verified."
+            },
+            {
+              "field": "sender_domain",
+              "label": "Sender domain",
+              "claimed": "v2x.example",
+              "observations": [
+                {
+                  "evidence_id": "ev-4ad5d472-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "v2x.example,vectrus.example",
+                  "row_key": "V-10311",
+                  "template_id": "T04",
+                  "query_id": "4ad5d472-ff72-40a6-8c4f-ca7f051abddb",
+                  "sql_hash": "ed0714d684490d41",
+                  "row_hash": "007285713f6017a7",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:19:51.179Z",
+                  "latency_ms": 4307,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-641796a5-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "vectrus.example",
+                  "row_key": "VC-00030",
+                  "template_id": "T02",
+                  "query_id": "641796a5-61b5-4f1d-8b88-c009cc3fef52",
+                  "sql_hash": "c340d525343cefdf",
+                  "row_hash": "f8d2112b1b912282",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:44.290Z",
+                  "latency_ms": 559,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-641796a5-1-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "v2x.example",
+                  "row_key": "VC-00031",
+                  "template_id": "T02",
+                  "query_id": "641796a5-61b5-4f1d-8b88-c009cc3fef52",
+                  "sql_hash": "c340d525343cefdf",
+                  "row_hash": "f8d2112b1b912282",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:44.290Z",
+                  "latency_ms": 559,
+                  "row_indexes": [
+                    2
+                  ]
+                },
+                {
+                  "evidence_id": "ev-999deec3-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "v2x.example,vectrus.example",
+                  "row_key": "V-10311",
+                  "template_id": "T01",
+                  "query_id": "999deec3-f258-4772-bbcd-fc1ac9fd178e",
+                  "sql_hash": "3803c35cd177aa2f",
+                  "row_hash": "5c80103a2558cf25",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:44.896Z",
+                  "latency_ms": 1165,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "v2x.example is on file for V2X, Inc."
+            },
+            {
+              "field": "callback_phone",
+              "label": "Call-back phone",
+              "claimed": "(571) 555-0121",
+              "observations": [
+                {
+                  "evidence_id": "ev-641796a5-0-cp",
+                  "field": "callback_phone",
+                  "source": "vendor_master",
+                  "value": "(719) 555-0110 (2019-04-02 12:00:00 → 2022-07-11 15:00:00)",
+                  "row_key": "VC-00032",
+                  "template_id": "T02",
+                  "query_id": "641796a5-61b5-4f1d-8b88-c009cc3fef52",
+                  "sql_hash": "c340d525343cefdf",
+                  "row_hash": "f8d2112b1b912282",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:44.290Z",
+                  "latency_ms": 559,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-641796a5-1-cp",
+                  "field": "callback_phone",
+                  "source": "vendor_master",
+                  "value": "(571) 481-2000 (2022-07-11 15:00:00 → null)",
+                  "row_key": "VC-00033",
+                  "template_id": "T02",
+                  "query_id": "641796a5-61b5-4f1d-8b88-c009cc3fef52",
+                  "sql_hash": "c340d525343cefdf",
+                  "row_hash": "f8d2112b1b912282",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:44.290Z",
+                  "latency_ms": 559,
+                  "row_indexes": [
+                    3
+                  ]
+                },
+                {
+                  "evidence_id": "ev-2099e925-0-cp",
+                  "field": "callback_phone",
+                  "source": "edgar",
+                  "value": "(571) 481-2000",
+                  "row_key": "0001601548",
+                  "template_id": "T05",
+                  "query_id": "2099e925-44f2-4d03-819a-d1f0d3aae140",
+                  "sql_hash": "9683501bc69da7d7",
+                  "row_hash": "b14988b3c6d90609",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:21:04.072Z",
+                  "latency_ms": 20340,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "mismatch",
+              "why": "(571) 555-0121 appears only on the request."
+            },
+            {
+              "field": "invoice_refs",
+              "label": "Invoice references",
+              "claimed": null,
+              "observations": [],
+              "status": "gap",
+              "why": "No invoice references were claimed."
+            },
+            {
+              "field": "parent",
+              "label": "Parent company (federal award ID, UEI)",
+              "claimed": null,
+              "observations": [
+                {
+                  "evidence_id": "ev-2099e925-0-pa",
+                  "field": "parent",
+                  "source": "usaspending",
+                  "value": "CG8SV4246V29",
+                  "row_key": "CG8SV4246V29-P",
+                  "template_id": "T05",
+                  "query_id": "2099e925-44f2-4d03-819a-d1f0d3aae140",
+                  "sql_hash": "9683501bc69da7d7",
+                  "row_hash": "b14988b3c6d90609",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:21:04.072Z",
+                  "latency_ms": 20340,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-03cacfa4-0-pa",
+                  "field": "parent",
+                  "source": "usaspending",
+                  "value": "CG8SV4246V29-P, V2X, INC.",
+                  "row_key": "CG8SV4246V29-P",
+                  "template_id": "T05b",
+                  "query_id": "03cacfa4-a407-4728-ae08-c1448e94cfb5",
+                  "sql_hash": "200307738871bc9b",
+                  "row_hash": "dc43231de774f275",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:21:19.323Z",
+                  "latency_ms": 15247,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "USAspending lists V2X, INC. (CG8SV4246V29) as the parent."
+            },
+            {
+              "field": "registrant",
+              "label": "SEC registrant (company ID, CIK)",
+              "claimed": null,
+              "observations": [
+                {
+                  "evidence_id": "ev-999deec3-0-rg",
+                  "field": "registrant",
+                  "source": "vendor_master",
+                  "value": "0001601548",
+                  "row_key": "V-10311",
+                  "template_id": "T01",
+                  "query_id": "999deec3-f258-4772-bbcd-fc1ac9fd178e",
+                  "sql_hash": "3803c35cd177aa2f",
+                  "row_hash": "5c80103a2558cf25",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:20:44.896Z",
+                  "latency_ms": 1165,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-2099e925-0-rg",
+                  "field": "registrant",
+                  "source": "edgar",
+                  "value": "0001601548 V2X, Inc.",
+                  "row_key": "0001601548",
+                  "template_id": "T05",
+                  "query_id": "2099e925-44f2-4d03-819a-d1f0d3aae140",
+                  "sql_hash": "9683501bc69da7d7",
+                  "row_hash": "b14988b3c6d90609",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:21:04.072Z",
+                  "latency_ms": 20340,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "SEC EDGAR registrant 0001601548 V2X, Inc."
+            }
+          ],
+          "conflicts": [],
+          "callback_evidence": [],
+          "callback_scripts": [
+            {
+              "for_vendor_id": "V-10311",
+              "vendor_name": "V2X, Inc.",
+              "number_e164": "+15714812000",
+              "number_display": "(571) 481-2000",
+              "number_source": "edgar_registrant",
+              "source_ref": "CIK 0001601548",
+              "source_label": "SEC EDGAR submissions, CIK 0001601548, fetched 2026-10-27T19:21:04.072Z",
+              "valid_since": null,
+              "do_not_use": [
+                {
+                  "number_display": "(571) 555-0121",
+                  "reason": "appears only on the request"
+                }
+              ],
+              "lines": [
+                "Call (571) 481-2000 (SEC EDGAR submissions, CIK 0001601548, fetched 2026-10-27T19:21:04.072Z). Do not use (571) 555-0121.",
+                "Ask for accounts receivable or treasury. Do not read out the new details first.",
+                "Ask them to state the bank name and the last four digits of the account they expect us to pay.",
+                "Ask them to state the remit-to address they expect. Compare it with: 2100 Reston Parkway, Suite 300, Reston, VA 20191.",
+                "Record the outcome in Probity: confirmed, denied or no answer."
+              ]
+            }
+          ],
+          "sweep": {
+            "payment_run_id": "PR-2026-11-03",
+            "amount_usd": 0,
+            "rules_run": [
+              {
+                "rule": "DQ1",
+                "total": 154,
+                "valid": 151,
+                "invalid": 3,
+                "query_id": "dbf01e9a-3d6d-4d08-8de0-9908026d02ea"
+              },
+              {
+                "rule": "DQ2",
+                "total": 154,
+                "valid": 150,
+                "invalid": 4,
+                "query_id": "24375e13-9984-4724-8709-ed20714eb2f0"
+              },
+              {
+                "rule": "DQ7",
+                "total": 52,
+                "valid": 50,
+                "invalid": 2,
+                "query_id": "d2083263-87c8-4150-bb21-cfb562510681",
+                "groups": [
+                  {
+                    "account_hash": "35b3f6fe36f7fbd4de8d547f66f5712c070586a5175353215a1cf5f83b7cf1f5",
+                    "vendor_ids": [
+                      "V-10233",
+                      "V-10234"
+                    ]
+                  }
+                ]
+              },
+              {
+                "rule": "DQ8",
+                "total": 154,
+                "valid": 154,
+                "invalid": 0,
+                "query_id": "e64d6aec-46a7-42df-a6da-0af6d109dd26"
+              },
+              {
+                "rule": "DQ9",
+                "total": 154,
+                "valid": 154,
+                "invalid": 0,
+                "query_id": "52c61b28-2f90-43c0-9443-5ad0b2983305"
+              }
+            ],
+            "findings": []
+          },
+          "suggested_edits": [
+            {
+              "vendor_id": "V-10311",
+              "field": "remit_address",
+              "current": "2424 Garden of the Gods Rd, Colorado Springs, CO 80919",
+              "suggested": "2100 RESTON PARKWAY, RESTON, VA",
+              "evidence_ids": [
+                "ev-2099e925-0-ra",
+                "ev-2099e925-1-ra"
+              ],
+              "status": "proposed"
+            }
+          ],
+          "memory_recalled": [],
+          "models_used": [
+            {
+              "agent": "letter_reader",
+              "lane": "deep",
+              "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "calls": 3,
+              "tokens_in": 4928,
+              "tokens_out": 1385,
+              "latency_ms_p50": 19514,
+              "nemotron": true
+            },
+            {
+              "agent": "registry_scout",
+              "lane": "fast",
+              "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "calls": 4,
+              "tokens_in": 16219,
+              "tokens_out": 319,
+              "latency_ms_p50": 1197,
+              "nemotron": true
+            },
+            {
+              "agent": "identity_examiner",
+              "lane": "deep",
+              "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model": "none (no model call)",
+              "calls": 0,
+              "tokens_in": null,
+              "tokens_out": null,
+              "latency_ms_p50": 0,
+              "nemotron": false
+            },
+            {
+              "agent": "gate_officer",
+              "lane": "fast",
+              "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "calls": 1,
+              "tokens_in": 1159,
+              "tokens_out": 113,
+              "latency_ms_p50": 4536,
+              "nemotron": true
+            }
+          ],
+          "cost": {
+            "vision_calls": 0,
+            "deep_calls": 3,
+            "fast_calls": 5,
+            "tokens_total": 24123
+          },
+          "rationale": {
+            "text": "CALLBACK_VERIFY for V2X, Inc. in PR-2026-11-03. No call-back to an independent number is on record for this request. Call (571) 481-2000 (SEC EDGAR submissions, CIK 0001601548, fetched 2026-10-27), and do not use (571) 555-0121.",
+            "source": "model",
+            "number_check": "passed"
+          },
+          "rounds": 0,
+          "mode": "live",
+          "limitations": [],
+          "labels": {
+            "mode_banner": null
+          },
+          "letter_reading": {
+            "status": "agree",
+            "readings": [
+              {
+                "reading": "A",
+                "input": "ocr",
+                "instructions": "transcribe",
+                "path": "ocr+deep",
+                "status": "ok",
+                "error_code": null,
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "model_call_id": "mc-r-20261027T191924Z-438f-1",
+                "receipt_id": "rcpt_req_rjfiyw2j",
+                "egress_destination": "nvidia",
+                "latency_ms": 19514,
+                "tokens_in": 1846,
+                "tokens_out": 669,
+                "values": {
+                  "account_number": null,
+                  "routing": null,
+                  "payee": "V2X, Inc.",
+                  "remit_address": "2100 Reston Parkway, Suite 300, Reston, VA 20191",
+                  "phones": "(571) 555-0121",
+                  "bank_name": null,
+                  "effective_date": "1 November 2026",
+                  "invoice_refs": null
+                }
+              },
+              {
+                "reading": "B",
+                "input": "ocr",
+                "instructions": "visual",
+                "path": "ocr+deep",
+                "status": "ok",
+                "error_code": null,
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "model_call_id": "mc-r-20261027T191924Z-438f-2",
+                "receipt_id": "rcpt_req_ajowm1p2",
+                "egress_destination": "nvidia",
+                "latency_ms": 19491,
+                "tokens_in": 2021,
+                "tokens_out": 701,
+                "values": {
+                  "account_number": null,
+                  "routing": null,
+                  "payee": "V2X, Inc.",
+                  "remit_address": "2100 Reston Parkway, Suite 300, Reston, VA 20191",
+                  "phones": "(571) 555-0121",
+                  "bank_name": null,
+                  "effective_date": "1 November 2026",
+                  "invoice_refs": null
+                }
+              }
+            ],
+            "fields": [
+              {
+                "field": "payee",
+                "material": true,
+                "a": "V2X, Inc.",
+                "b": "V2X, Inc.",
+                "agree": true
+              },
+              {
+                "field": "remit_address",
+                "material": true,
+                "a": "2100 Reston Parkway, Suite 300, Reston, VA 20191",
+                "b": "2100 Reston Parkway, Suite 300, Reston, VA 20191",
+                "agree": true
+              },
+              {
+                "field": "phones",
+                "material": true,
+                "a": "(571) 555-0121",
+                "b": "(571) 555-0121",
+                "agree": true
+              },
+              {
+                "field": "effective_date",
+                "material": false,
+                "a": "1 November 2026",
+                "b": "1 November 2026",
+                "agree": true
+              }
+            ],
+            "compared": 4,
+            "agreed": 4,
+            "agreement": 1,
+            "material_disagreements": [],
+            "primary": "A"
+          },
+          "injection": {
+            "detected": false,
+            "variant": null,
+            "spans": [],
+            "review": {
+              "status": "confirmed",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model_call_id": "mc-r-20261027T191924Z-438f-3",
+              "receipt_id": "rcpt_req_siani3vn",
+              "egress_destination": "nvidia",
+              "latency_ms": 20442,
+              "confirmed": 0,
+              "added": 0
+            },
+            "limitation": null
+          }
+        }
+      },
+      {
+        "type": "trace",
+        "path": "logs/trace-r-20261027T191924Z-438f.jsonl"
+      }
+    ],
+    "needs_human": null
+  },
+  "agents": [
+    {
+      "name": "letter_reader",
+      "role": "Reads the request letter and email headers into quoted claims (Nemotron 3 Ultra over the PDF text layer or OCR text)"
+    },
+    {
+      "name": "registry_scout",
+      "role": "Plans and gathers evidence through Zetaris query templates; discovers related entities on request (Nemotron 3.5 Lightning)"
+    },
+    {
+      "name": "identity_examiner",
+      "role": "Critic with block authority: re-queries Zetaris, approves or rejects identity links, demands missing evidence (rules + Nemotron 3 Ultra) · lane unavailable, deterministic fallback used"
+    },
+    {
+      "name": "gate_officer",
+      "role": "Applies the deterministic payment policy, selects an independent call-back number, sweeps the payment run, writes the rationale (code + Nemotron 3.5 Lightning)"
+    }
+  ],
+  "trace_id": "t-b4c59f3d",
+  "log_file": "logs/trace-r-20261027T191924Z-438f.jsonl",
+  "execution_time_seconds": 192.4
+}

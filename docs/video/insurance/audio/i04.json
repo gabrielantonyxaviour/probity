@@ -1,0 +1,244 @@
+{
+ "id": "i04",
+ "text_original": "And here is the decision: hold. The new address belongs to a different Booz Allen company, not our vendor. The bank account is already on another vendor. And the sender's domain imitates the real one. Code decides the verdict, with a reason code for each block.",
+ "text_spoken": "And here is the decision: hold. The new address belongs to a different Booz Allen company, not our vendor. The bank account is already on another vendor. And the sender's domain imitates the real one. Code decides the verdict, with a reason code for each block.",
+ "words": [
+  {
+   "word": "And",
+   "start": 0.0,
+   "end": 0.192
+  },
+  {
+   "word": "here",
+   "start": 0.231,
+   "end": 0.433
+  },
+  {
+   "word": "is",
+   "start": 0.462,
+   "end": 0.577
+  },
+  {
+   "word": "the",
+   "start": 0.615,
+   "end": 0.68
+  },
+  {
+   "word": "decision:",
+   "start": 0.692,
+   "end": 1.692
+  },
+  {
+   "word": "hold.",
+   "start": 1.769,
+   "end": 2.385
+  },
+  {
+   "word": "The",
+   "start": 2.615,
+   "end": 2.692
+  },
+  {
+   "word": "new",
+   "start": 2.769,
+   "end": 2.923
+  },
+  {
+   "word": "address",
+   "start": 3.115,
+   "end": 3.308
+  },
+  {
+   "word": "belongs",
+   "start": 3.385,
+   "end": 3.692
+  },
+  {
+   "word": "to",
+   "start": 3.769,
+   "end": 3.846
+  },
+  {
+   "word": "a",
+   "start": 3.923,
+   "end": 4.0
+  },
+  {
+   "word": "different",
+   "start": 4.077,
+   "end": 4.385
+  },
+  {
+   "word": "Booz",
+   "start": 4.462,
+   "end": 4.615
+  },
+  {
+   "word": "Allen",
+   "start": 4.692,
+   "end": 4.923
+  },
+  {
+   "word": "company,",
+   "start": 5.115,
+   "end": 5.615
+  },
+  {
+   "word": "not",
+   "start": 5.731,
+   "end": 5.846
+  },
+  {
+   "word": "our",
+   "start": 5.923,
+   "end": 6.0
+  },
+  {
+   "word": "vendor.",
+   "start": 6.077,
+   "end": 6.923
+  },
+  {
+   "word": "The",
+   "start": 7.0,
+   "end": 7.077
+  },
+  {
+   "word": "bank",
+   "start": 7.192,
+   "end": 7.308
+  },
+  {
+   "word": "account",
+   "start": 7.5,
+   "end": 7.692
+  },
+  {
+   "word": "is",
+   "start": 7.808,
+   "end": 7.923
+  },
+  {
+   "word": "already",
+   "start": 8.0,
+   "end": 8.462
+  },
+  {
+   "word": "on",
+   "start": 8.538,
+   "end": 8.615
+  },
+  {
+   "word": "another",
+   "start": 8.769,
+   "end": 8.923
+  },
+  {
+   "word": "vendor.",
+   "start": 9.115,
+   "end": 9.692
+  },
+  {
+   "word": "And",
+   "start": 9.769,
+   "end": 9.846
+  },
+  {
+   "word": "the",
+   "start": 9.897,
+   "end": 9.949
+  },
+  {
+   "word": "sender's",
+   "start": 10.0,
+   "end": 10.385
+  },
+  {
+   "word": "domain",
+   "start": 10.615,
+   "end": 10.846
+  },
+  {
+   "word": "imitates",
+   "start": 10.962,
+   "end": 11.308
+  },
+  {
+   "word": "the",
+   "start": 11.385,
+   "end": 11.462
+  },
+  {
+   "word": "real",
+   "start": 11.538,
+   "end": 11.769
+  },
+  {
+   "word": "one.",
+   "start": 11.846,
+   "end": 12.538
+  },
+  {
+   "word": "Code",
+   "start": 12.692,
+   "end": 12.846
+  },
+  {
+   "word": "decides",
+   "start": 12.923,
+   "end": 13.231
+  },
+  {
+   "word": "the",
+   "start": 13.308,
+   "end": 13.346
+  },
+  {
+   "word": "verdict,",
+   "start": 13.385,
+   "end": 14.077
+  },
+  {
+   "word": "with",
+   "start": 14.154,
+   "end": 14.231
+  },
+  {
+   "word": "a",
+   "start": 14.269,
+   "end": 14.308
+  },
+  {
+   "word": "reason",
+   "start": 14.385,
+   "end": 14.692
+  },
+  {
+   "word": "code",
+   "start": 14.769,
+   "end": 15.0
+  },
+  {
+   "word": "for",
+   "start": 15.077,
+   "end": 15.231
+  },
+  {
+   "word": "each",
+   "start": 15.308,
+   "end": 15.462
+  },
+  {
+   "word": "block.",
+   "start": 15.538,
+   "end": 16.077
+  }
+ ],
+ "seconds": 16.08,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

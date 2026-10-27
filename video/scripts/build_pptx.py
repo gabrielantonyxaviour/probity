@@ -3,7 +3,7 @@
 Adapted from Lockgate pitch/deck/scripts/build_pptx.py. With --film, one DeckSilent render is cut at each slide's
 offsets, so every clip starts on the previous clip's last frame and clicking through plays as one film; PowerPoint and
 Keynote hold the last frame until the next click. Speaker notes carry the narration line for that slide.
-The PDF is made from each clip's held (last) frame. Slides 1-3 carry the synthetic-data footer inside the frame.
+The PDF is made from each clip's held (last) frame. Slides 1-3 carry the registry-source footer inside the frame.
 
 Usage (from video/):  python3 scripts/build_pptx.py --film out/deck-silent.mp4 --out ../docs/deck/probity-deck.pptx
 Needs: python-pptx, lxml, Pillow, ffmpeg on PATH.

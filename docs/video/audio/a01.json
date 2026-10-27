@@ -1,16 +1,16 @@
 {
  "id": "a01",
- "text_original": "An accounts-payable controls lead at a federal contractor gets an email: new bank details, seven days before $1.28 million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. The letters and internal records are synthetic; every registry fact is real.",
- "text_spoken": "An accounts-payable controls lead at a federal contractor gets an email: new bank details, seven days before 1.28 million dollars in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with Nvidia Nemmo-tron, then discovers the vendor's real corporate family across U.S.A. spending, SEC Edgar and our own vendor master through Zuh-tarris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. The letters and internal records are synthetic; every registry fact is real.",
+ "text_original": "An accounts-payable controls lead at a federal contractor gets an email: new bank details, eight days before $1.28 million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. Every registry fact is live public data.",
+ "text_spoken": "An accounts-payable controls lead at a federal contractor gets an email: new bank details, eight days before 1.28 million dollars in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with Nvidia Nemmo-tron, then discovers the vendor's real corporate family across U.S.A. spending, SEC Edgar and our own vendor master through Zuh-tarris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. Every registry fact is live public data.",
  "words": [
   {
    "word": "An",
    "start": 0.0,
-   "end": 0.154
+   "end": 0.077
   },
   {
    "word": "accounts-payable",
-   "start": 0.346,
+   "start": 0.308,
    "end": 0.846
   },
   {
@@ -21,31 +21,31 @@
   {
    "word": "lead",
    "start": 1.462,
-   "end": 1.615
+   "end": 1.692
   },
   {
    "word": "at",
-   "start": 1.692,
+   "start": 1.731,
    "end": 1.769
   },
   {
    "word": "a",
-   "start": 1.808,
-   "end": 1.846
+   "start": 1.846,
+   "end": 1.923
   },
   {
    "word": "federal",
-   "start": 1.923,
-   "end": 2.154
+   "start": 2.0,
+   "end": 2.231
   },
   {
    "word": "contractor",
-   "start": 2.231,
+   "start": 2.308,
    "end": 2.923
   },
   {
    "word": "gets",
-   "start": 3.038,
+   "start": 3.0,
    "end": 3.154
   },
   {
@@ -74,173 +74,173 @@
    "end": 5.538
   },
   {
-   "word": "seven",
+   "word": "eight",
    "start": 5.615,
-   "end": 5.846
+   "end": 5.692
   },
   {
    "word": "days",
-   "start": 5.923,
-   "end": 6.154
+   "start": 5.846,
+   "end": 6.077
   },
   {
    "word": "before",
    "start": 6.231,
-   "end": 6.462
+   "end": 6.385
   },
   {
    "word": "1.28",
-   "start": 6.615,
+   "start": 6.538,
    "end": 7.077
   },
   {
    "word": "million",
-   "start": 7.154,
-   "end": 7.923
+   "start": 7.115,
+   "end": 8.0
   },
   {
    "word": "dollars",
-   "start": 8.0,
-   "end": 8.308
+   "start": 8.077,
+   "end": 8.385
   },
   {
    "word": "in",
-   "start": 8.385,
+   "start": 8.423,
    "end": 8.462
   },
   {
    "word": "payments.",
    "start": 8.538,
-   "end": 9.269
+   "end": 9.308
   },
   {
    "word": "Policy",
-   "start": 9.538,
-   "end": 9.923
+   "start": 9.615,
+   "end": 10.0
   },
   {
    "word": "says",
-   "start": 10.077,
-   "end": 10.231
+   "start": 10.154,
+   "end": 10.308
   },
   {
    "word": "call",
-   "start": 10.462,
-   "end": 10.615
+   "start": 10.538,
+   "end": 10.692
   },
   {
    "word": "back",
-   "start": 10.692,
-   "end": 10.846
-  },
-  {
-   "word": "on",
-   "start": 10.885,
+   "start": 10.769,
    "end": 10.923
   },
   {
-   "word": "a",
+   "word": "on",
    "start": 11.0,
-   "end": 11.038
+   "end": 11.077
+  },
+  {
+   "word": "a",
+   "start": 11.115,
+   "end": 11.154
   },
   {
    "word": "number",
-   "start": 11.077,
-   "end": 11.385
+   "start": 11.231,
+   "end": 11.462
   },
   {
    "word": "that",
-   "start": 11.462,
-   "end": 11.538
+   "start": 11.538,
+   "end": 11.692
   },
   {
    "word": "did",
-   "start": 11.615,
-   "end": 11.769
+   "start": 11.808,
+   "end": 11.923
   },
   {
    "word": "not",
-   "start": 11.846,
-   "end": 12.077
+   "start": 12.038,
+   "end": 12.154
   },
   {
    "word": "come",
-   "start": 12.154,
-   "end": 12.308
+   "start": 12.231,
+   "end": 12.385
   },
   {
    "word": "from",
-   "start": 12.385,
-   "end": 12.462
-  },
-  {
-   "word": "the",
-   "start": 12.5,
+   "start": 12.462,
    "end": 12.538
   },
   {
+   "word": "the",
+   "start": 12.577,
+   "end": 12.615
+  },
+  {
    "word": "letter.",
-   "start": 12.615,
-   "end": 13.154
+   "start": 12.692,
+   "end": 13.462
   },
   {
    "word": "In",
-   "start": 13.385,
-   "end": 13.538
+   "start": 13.538,
+   "end": 13.615
   },
   {
    "word": "practice",
-   "start": 13.615,
+   "start": 13.885,
    "end": 14.154
   },
   {
    "word": "that",
-   "start": 14.308,
-   "end": 14.462
+   "start": 14.385,
+   "end": 14.538
   },
   {
    "word": "number",
-   "start": 14.538,
-   "end": 14.769
+   "start": 14.615,
+   "end": 14.846
   },
   {
    "word": "takes",
-   "start": 14.846,
-   "end": 15.077
+   "start": 14.923,
+   "end": 15.154
   },
   {
    "word": "four",
-   "start": 15.231,
-   "end": 15.385
+   "start": 15.308,
+   "end": 15.462
   },
   {
    "word": "systems",
-   "start": 15.462,
-   "end": 15.846
+   "start": 15.538,
+   "end": 15.923
   },
   {
    "word": "to",
-   "start": 15.923,
-   "end": 16.0
+   "start": 16.0,
+   "end": 16.077
   },
   {
    "word": "find,",
-   "start": 16.154,
-   "end": 16.615
+   "start": 16.231,
+   "end": 16.692
   },
   {
    "word": "so",
-   "start": 16.692,
+   "start": 16.769,
    "end": 16.923
   },
   {
    "word": "people",
    "start": 17.077,
-   "end": 17.308
+   "end": 17.385
   },
   {
    "word": "call",
-   "start": 17.385,
+   "start": 17.462,
    "end": 17.538
   },
   {
@@ -251,11 +251,11 @@
   {
    "word": "one",
    "start": 17.692,
-   "end": 17.769
+   "end": 17.846
   },
   {
    "word": "on",
-   "start": 17.846,
+   "start": 17.885,
    "end": 17.923
   },
   {
@@ -265,423 +265,398 @@
   },
   {
    "word": "letter.",
-   "start": 18.154,
-   "end": 18.577
+   "start": 18.077,
+   "end": 18.846
   },
   {
    "word": "Probity",
-   "start": 18.846,
-   "end": 19.308
+   "start": 18.923,
+   "end": 19.462
   },
   {
    "word": "reads",
-   "start": 19.385,
-   "end": 19.615
+   "start": 19.615,
+   "end": 19.769
   },
   {
    "word": "the",
-   "start": 19.692,
-   "end": 19.731
+   "start": 19.808,
+   "end": 19.846
   },
   {
    "word": "letter",
-   "start": 19.769,
-   "end": 20.0
-  },
-  {
-   "word": "with",
-   "start": 20.077,
+   "start": 19.923,
    "end": 20.154
   },
   {
-   "word": "Nvidia",
+   "word": "with",
    "start": 20.231,
-   "end": 20.615
+   "end": 20.385
+  },
+  {
+   "word": "Nvidia",
+   "start": 20.462,
+   "end": 20.846
   },
   {
    "word": "Nemmo-tron,",
-   "start": 20.692,
-   "end": 21.538
-  },
-  {
-   "word": "then",
-   "start": 21.654,
+   "start": 20.923,
    "end": 21.769
   },
   {
+   "word": "then",
+   "start": 21.846,
+   "end": 22.0
+  },
+  {
    "word": "discovers",
-   "start": 21.885,
-   "end": 22.231
+   "start": 22.115,
+   "end": 22.462
   },
   {
    "word": "the",
-   "start": 22.308,
-   "end": 22.346
+   "start": 22.538,
+   "end": 22.577
   },
   {
    "word": "vendor's",
-   "start": 22.385,
-   "end": 22.846
+   "start": 22.615,
+   "end": 23.077
   },
   {
    "word": "real",
-   "start": 23.0,
-   "end": 23.154
+   "start": 23.154,
+   "end": 23.385
   },
   {
    "word": "corporate",
-   "start": 23.231,
-   "end": 23.538
+   "start": 23.462,
+   "end": 23.769
   },
   {
    "word": "family",
-   "start": 23.615,
-   "end": 23.923
+   "start": 23.846,
+   "end": 24.231
   },
   {
    "word": "across",
-   "start": 24.0,
-   "end": 24.385
+   "start": 24.346,
+   "end": 24.692
   },
   {
    "word": "U.S.A.",
-   "start": 24.462,
-   "end": 24.846
+   "start": 24.769,
+   "end": 25.154
   },
   {
    "word": "spending,",
-   "start": 24.923,
-   "end": 25.615
+   "start": 25.231,
+   "end": 26.0
   },
   {
    "word": "SEC",
-   "start": 25.692,
-   "end": 26.077
-  },
-  {
-   "word": "Edgar",
-   "start": 26.154,
+   "start": 26.077,
    "end": 26.538
   },
   {
-   "word": "and",
-   "start": 26.692,
-   "end": 26.769
-  },
-  {
-   "word": "our",
-   "start": 26.885,
+   "word": "Edgar",
+   "start": 26.615,
    "end": 27.0
   },
   {
-   "word": "own",
-   "start": 27.077,
-   "end": 27.231
+   "word": "and",
+   "start": 27.231,
+   "end": 27.308
   },
   {
-   "word": "vendor",
-   "start": 27.308,
+   "word": "our",
+   "start": 27.385,
    "end": 27.538
   },
   {
-   "word": "master",
+   "word": "own",
    "start": 27.615,
-   "end": 27.923
+   "end": 27.769
+  },
+  {
+   "word": "vendor",
+   "start": 27.846,
+   "end": 28.077
+  },
+  {
+   "word": "master",
+   "start": 28.154,
+   "end": 28.462
   },
   {
    "word": "through",
-   "start": 28.0,
-   "end": 28.231
+   "start": 28.538,
+   "end": 28.692
   },
   {
    "word": "Zuh-tarris,",
-   "start": 28.308,
-   "end": 29.077
+   "start": 28.769,
+   "end": 29.538
   },
   {
    "word": "which",
-   "start": 29.192,
-   "end": 29.308
+   "start": 29.654,
+   "end": 29.769
   },
   {
    "word": "joins",
-   "start": 29.385,
-   "end": 29.615
-  },
-  {
-   "word": "them",
-   "start": 29.692,
-   "end": 29.846
-  },
-  {
-   "word": "in",
-   "start": 29.923,
+   "start": 29.846,
    "end": 30.077
   },
   {
-   "word": "one",
+   "word": "them",
    "start": 30.154,
-   "end": 30.308
+   "end": 30.385
   },
   {
-   "word": "semantic",
-   "start": 30.385,
+   "word": "in",
+   "start": 30.5,
+   "end": 30.615
+  },
+  {
+   "word": "one",
+   "start": 30.731,
    "end": 30.846
   },
   {
-   "word": "layer.",
+   "word": "semantic",
    "start": 30.923,
-   "end": 31.423
+   "end": 31.385
+  },
+  {
+   "word": "layer.",
+   "start": 31.538,
+   "end": 32.154
   },
   {
    "word": "The",
-   "start": 31.692,
-   "end": 31.731
+   "start": 32.192,
+   "end": 32.231
   },
   {
    "word": "new",
-   "start": 31.769,
-   "end": 31.923
+   "start": 32.308,
+   "end": 32.385
   },
   {
    "word": "address",
-   "start": 32.115,
-   "end": 32.308
+   "start": 32.462,
+   "end": 32.769
   },
   {
    "word": "is",
-   "start": 32.462,
-   "end": 32.615
+   "start": 32.846,
+   "end": 33.0
   },
   {
    "word": "real,",
-   "start": 32.692,
-   "end": 33.231
+   "start": 33.077,
+   "end": 33.692
   },
   {
    "word": "but",
-   "start": 33.269,
-   "end": 33.308
+   "start": 33.731,
+   "end": 33.769
   },
   {
    "word": "it",
-   "start": 33.385,
-   "end": 33.462
-  },
-  {
-   "word": "belongs",
-   "start": 33.654,
+   "start": 33.808,
    "end": 33.846
   },
   {
+   "word": "belongs",
+   "start": 33.923,
+   "end": 34.231
+  },
+  {
    "word": "to",
-   "start": 33.885,
-   "end": 33.923
+   "start": 34.308,
+   "end": 34.385
   },
   {
    "word": "a",
-   "start": 34.0,
-   "end": 34.077
+   "start": 34.462,
+   "end": 34.538
   },
   {
    "word": "different",
-   "start": 34.154,
-   "end": 34.462
+   "start": 34.615,
+   "end": 34.923
   },
   {
    "word": "Booz",
-   "start": 34.538,
-   "end": 34.769
+   "start": 35.0,
+   "end": 35.154
   },
   {
    "word": "Allen",
-   "start": 34.885,
-   "end": 35.0
-  },
-  {
-   "word": "company",
-   "start": 35.077,
+   "start": 35.231,
    "end": 35.462
   },
   {
+   "word": "company",
+   "start": 35.654,
+   "end": 35.846
+  },
+  {
    "word": "that",
-   "start": 35.538,
-   "end": 35.615
+   "start": 35.923,
+   "end": 36.0
   },
   {
    "word": "has",
-   "start": 35.692,
-   "end": 35.769
-  },
-  {
-   "word": "never",
-   "start": 35.923,
+   "start": 36.077,
    "end": 36.154
   },
   {
+   "word": "never",
+   "start": 36.308,
+   "end": 36.538
+  },
+  {
    "word": "billed",
-   "start": 36.231,
-   "end": 36.462
+   "start": 36.615,
+   "end": 36.846
   },
   {
    "word": "us.",
-   "start": 36.615,
-   "end": 37.038
+   "start": 36.962,
+   "end": 37.346
   },
   {
    "word": "Decision:",
-   "start": 37.308,
-   "end": 38.0
+   "start": 37.615,
+   "end": 38.308
   },
   {
    "word": "hold,",
-   "start": 38.231,
-   "end": 38.769
+   "start": 38.538,
+   "end": 39.154
   },
   {
    "word": "with",
-   "start": 38.923,
-   "end": 39.0
+   "start": 39.192,
+   "end": 39.231
   },
   {
    "word": "a",
-   "start": 39.038,
-   "end": 39.077
+   "start": 39.308,
+   "end": 39.385
   },
   {
    "word": "call-back",
-   "start": 39.154,
-   "end": 39.538
+   "start": 39.462,
+   "end": 39.769
   },
   {
    "word": "number",
-   "start": 39.615,
-   "end": 39.846
+   "start": 39.846,
+   "end": 40.077
   },
   {
    "word": "from",
-   "start": 39.923,
-   "end": 40.0
+   "start": 40.154,
+   "end": 40.308
   },
   {
    "word": "SEC",
-   "start": 40.077,
-   "end": 40.462
+   "start": 40.385,
+   "end": 40.769
   },
   {
    "word": "records.",
-   "start": 40.538,
-   "end": 41.077
+   "start": 40.846,
+   "end": 41.577
   },
   {
    "word": "Then,",
-   "start": 41.538,
-   "end": 42.0
+   "start": 41.846,
+   "end": 42.308
   },
   {
    "word": "unasked,",
-   "start": 42.077,
-   "end": 42.769
+   "start": 42.423,
+   "end": 43.077
   },
   {
    "word": "it",
-   "start": 42.846,
-   "end": 42.923
+   "start": 43.154,
+   "end": 43.231
   },
   {
    "word": "checks",
-   "start": 43.038,
-   "end": 43.154
+   "start": 43.308,
+   "end": 43.538
   },
   {
    "word": "the",
-   "start": 43.231,
-   "end": 43.308
-  },
-  {
-   "word": "rest",
-   "start": 43.385,
+   "start": 43.577,
    "end": 43.615
   },
   {
+   "word": "rest",
+   "start": 43.692,
+   "end": 43.923
+  },
+  {
    "word": "of",
-   "start": 43.654,
-   "end": 43.692
+   "start": 44.0,
+   "end": 44.077
   },
   {
    "word": "Friday's",
-   "start": 43.769,
-   "end": 44.154
-  },
-  {
-   "word": "run.",
-   "start": 44.269,
+   "start": 44.231,
    "end": 44.462
   },
   {
-   "word": "The",
-   "start": 44.923,
-   "end": 45.0
+   "word": "run.",
+   "start": 44.538,
+   "end": 45.077
   },
   {
-   "word": "letters",
-   "start": 45.192,
-   "end": 45.385
-  },
-  {
-   "word": "and",
-   "start": 45.423,
-   "end": 45.462
-  },
-  {
-   "word": "internal",
-   "start": 45.538,
-   "end": 45.923
-  },
-  {
-   "word": "records",
-   "start": 46.0,
-   "end": 46.308
-  },
-  {
-   "word": "are",
-   "start": 46.385,
-   "end": 46.462
-  },
-  {
-   "word": "synthetic;",
-   "start": 46.538,
-   "end": 47.538
-  },
-  {
-   "word": "every",
-   "start": 47.692,
-   "end": 47.846
+   "word": "Every",
+   "start": 45.385,
+   "end": 45.692
   },
   {
    "word": "registry",
-   "start": 48.0,
-   "end": 48.385
+   "start": 45.769,
+   "end": 46.231
   },
   {
    "word": "fact",
-   "start": 48.462,
-   "end": 48.769
+   "start": 46.308,
+   "end": 46.538
   },
   {
    "word": "is",
-   "start": 48.846,
-   "end": 49.0
+   "start": 46.692,
+   "end": 46.769
   },
   {
-   "word": "real.",
-   "start": 49.077,
-   "end": 49.692
+   "word": "live",
+   "start": 46.923,
+   "end": 47.231
+  },
+  {
+   "word": "public",
+   "start": 47.308,
+   "end": 47.615
+  },
+  {
+   "word": "data.",
+   "start": 47.692,
+   "end": 48.308
   }
  ],
- "seconds": 49.69,
+ "seconds": 48.31,
  "window_seconds": 53,
- "provisional": true,
+ "provisional": false,
  "voice": "v7li4BiiSMnJL2FCuD6D",
  "model": "eleven_v4",
  "seed": 4242,

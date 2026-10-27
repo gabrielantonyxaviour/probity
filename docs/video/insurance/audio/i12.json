@@ -1,0 +1,129 @@
+{
+ "id": "i12",
+ "text_original": "And when a change is genuine, Probity says so. For L3Harris it approves, with the call-back number from SEC EDGAR on record.",
+ "text_spoken": "And when a change is genuine, Probity says so. For L-three Harris it approves, with the call-back number from SEC Edgar on record.",
+ "words": [
+  {
+   "word": "And",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "when",
+   "start": 0.231,
+   "end": 0.308
+  },
+  {
+   "word": "a",
+   "start": 0.346,
+   "end": 0.385
+  },
+  {
+   "word": "change",
+   "start": 0.462,
+   "end": 0.769
+  },
+  {
+   "word": "is",
+   "start": 0.846,
+   "end": 0.923
+  },
+  {
+   "word": "genuine,",
+   "start": 1.077,
+   "end": 1.846
+  },
+  {
+   "word": "Probity",
+   "start": 1.962,
+   "end": 2.308
+  },
+  {
+   "word": "says",
+   "start": 2.385,
+   "end": 2.615
+  },
+  {
+   "word": "so.",
+   "start": 2.692,
+   "end": 3.154
+  },
+  {
+   "word": "For",
+   "start": 3.385,
+   "end": 3.462
+  },
+  {
+   "word": "L-three",
+   "start": 3.615,
+   "end": 3.923
+  },
+  {
+   "word": "Harris",
+   "start": 4.0,
+   "end": 4.385
+  },
+  {
+   "word": "it",
+   "start": 4.462,
+   "end": 4.538
+  },
+  {
+   "word": "approves,",
+   "start": 4.692,
+   "end": 5.462
+  },
+  {
+   "word": "with",
+   "start": 5.538,
+   "end": 5.615
+  },
+  {
+   "word": "the",
+   "start": 5.654,
+   "end": 5.692
+  },
+  {
+   "word": "call-back",
+   "start": 5.769,
+   "end": 6.154
+  },
+  {
+   "word": "number",
+   "start": 6.231,
+   "end": 6.462
+  },
+  {
+   "word": "from",
+   "start": 6.538,
+   "end": 6.769
+  },
+  {
+   "word": "SEC",
+   "start": 6.846,
+   "end": 7.308
+  },
+  {
+   "word": "Edgar",
+   "start": 7.462,
+   "end": 7.846
+  },
+  {
+   "word": "on",
+   "start": 7.923,
+   "end": 8.0
+  },
+  {
+   "word": "record.",
+   "start": 8.077,
+   "end": 8.769
+  }
+ ],
+ "seconds": 8.77,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

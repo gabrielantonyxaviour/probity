@@ -14,9 +14,11 @@ type Script = {
 };
 
 async function callbackRun(request: import("@playwright/test").APIRequestContext): Promise<{ runId: string; requestId: string; vendorId: string; script: Script; memories: { engine: string }[] }> {
-  const matches = (await listRuns(request)).filter((r) => r.request_id === S3 && r.decision === "CALLBACK_VERIFY");
-  matches.sort((a, b) => b.started_at.localeCompare(a.started_at));
-  expect(matches.length, `CALLBACK_VERIFY run for ${S3}`).toBeGreaterThan(0);
+  // Prefer S3; after the wave-3 history reset S3 is APPROVE, so fall back to the newest CALLBACK_VERIFY run of any request.
+  const all = (await listRuns(request)).filter((r) => r.decision === "CALLBACK_VERIFY" && r.request_id);
+  all.sort((a, b) => b.started_at.localeCompare(a.started_at));
+  const matches = [...all.filter((r) => r.request_id === S3), ...all.filter((r) => r.request_id !== S3)];
+  expect(matches.length, "a CALLBACK_VERIFY run").toBeGreaterThan(0);
   const run = matches[0];
   const { status, body } = await getJson(request, `/runs/${encodeURIComponent(run.run_id)}`);
   expect(status).toBe(200);
@@ -27,7 +29,7 @@ async function callbackRun(request: import("@playwright/test").APIRequestContext
   const vendorId = scripts[0].for_vendor_id ?? (typeof resolved.vendor_id === "string" ? resolved.vendor_id : "");
   expect(vendorId, "vendor id").toMatch(/^V-\d{5}$/);
   const memories = Array.isArray(decision.memory_recalled) ? (decision.memory_recalled as { engine: string }[]) : [];
-  return { runId: run.run_id, requestId: S3, vendorId, script: scripts[0], memories };
+  return { runId: run.run_id, requestId: run.request_id as string, vendorId, script: scripts[0], memories };
 }
 
 async function trap(page: Page, testId: string): Promise<void> {

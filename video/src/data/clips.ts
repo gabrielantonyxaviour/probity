@@ -8,6 +8,7 @@ export const ClipEntry = z.object({
   mode: z.enum(["live", "sample"]).nullable(),
   narrated_events: z.array(z.string()),
   trimmed_seconds: z.number().nonnegative().nullable().optional(),
+  caption: z.string().nullable().optional(), // shown in the clip corner, e.g. "run shown at 4x"; wins over trimmed_seconds
 });
 export type ClipEntry = z.infer<typeof ClipEntry>;
 export const clips: ClipEntry[] = z.array(ClipEntry).parse(raw);

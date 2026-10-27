@@ -14,6 +14,10 @@ export const Facts = z.discriminatedUnion("pending", [
     pending: z.literal(false), run_id: z.string(), source_file: z.string(), sha256: z.string(), mode: z.string(), decision: z.string(),
     vendor_amount_usd: z.number(), run_amount_usd: z.number(), days_before_payment: z.number().nullable(), sweep: z.array(Sweep),
     sweep_total_usd: z.number(), query_ids: z.array(z.string()), q8_seconds: z.number().nullable(), execution_time_seconds: z.number(), receipt: Receipt,
+    letter_reading: z.object({ status: z.string(), compared: z.number(), agreed: z.number() }).nullable().optional(),
+    rules_run: z.array(z.object({ rule: z.string(), total: z.number(), invalid: z.number(), vendor_ids: z.array(z.string()) })).optional(),
+    zetaris_queries: z.number().nullable().optional(),
+    injection: z.object({ run_id: z.string(), decision: z.string(), detected: z.boolean(), variant: z.string().nullable(), spans: z.number(), hidden: z.number(), review: z.string().nullable() }).nullable().optional(),
   }),
 ]);
 export type Facts = z.infer<typeof Facts>;
@@ -36,5 +40,10 @@ export const fx = {
     return n === null ? null : (WORDS[n] ?? String(n));
   },
   q8: (): string | null => (facts.pending || facts.q8_seconds === null ? null : String(Math.round(facts.q8_seconds))),
+  readings: (): string | null => {
+    const lr = facts.pending ? null : facts.letter_reading;
+    return lr && lr.compared > 0 ? `${lr.agreed} of ${lr.compared} fields agree` : null;
+  },
+  rules: (): string[] => (facts.pending ? [] : (facts.rules_run ?? []).map((x) => x.rule)),
   usd: (n: number) => `$${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
 };

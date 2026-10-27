@@ -5,7 +5,7 @@ import { dq1Violation } from "./history-ap";
 const PHONE_555 = /\(?\d{3}\)?[-. ]?555[-. ]?01\d\d/;
 const REAL_PHONE_VENDORS = new Set(["V-10027", "V-10442", "V-10587", "V-10311", "V-10198", "V-10112", "V-07734"]);
 export const BAH_RUN_CENTS = 128_455_000;
-export const RUN_1030_CENTS = 240_783_948;
+export const RUN_1030_CENTS = 242_647_948;
 
 export function assertInvariants(b: Built, phoneOpen: (id: string) => string): void {
   const errs: string[] = [];
@@ -37,7 +37,8 @@ export function assertInvariants(b: Built, phoneOpen: (id: string) => string): v
     t(`${i.itemId}: account active on the run date`, !!a && a.changed <= `${(runs.get(i.run) as { date: string }).date}T18:00:00Z`);
   }
   const in1030 = ap.items.filter((i) => i.run === "PR-2026-10-30");
-  t("PR-2026-10-30 has 14 items", in1030.length === 14);
+  t("PR-2026-10-30 has 15 items", in1030.length === 15);
+  t("V-10233 (shared account, DQ7) has one 30 Oct item", in1030.filter((i) => i.vendor === "V-10233" && i.account === "BA-40233").length === 1);
   t("PR-2026-11-03 has 8 items", ap.items.filter((i) => i.run === "PR-2026-11-03").length === 8);
   t("nine released runs", ap.runs.filter((r) => r.status === "released").length === 9);
   t("V-10027 run sum", in1030.filter((i) => i.vendor === "V-10027").reduce((s, i) => s + i.cents, 0) === BAH_RUN_CENTS);

@@ -1,0 +1,26 @@
+{
+  "input": {
+    "example_id": "02-saic-leidos-remit-change",
+    "request_id": "BCR-2026-0416",
+    "documents": [
+      {
+        "kind": "letter",
+        "file": "letter.pdf"
+      },
+      {
+        "kind": "eml_headers",
+        "file": "headers.eml"
+      }
+    ],
+    "received_at": "2026-10-23T13:47:00Z",
+    "channel": "email",
+    "payment_run_id": "PR-2026-10-30",
+    "meta": {
+      "title": "Remit-to change that could be SAIC or Leidos",
+      "scenario": "S2"
+    }
+  },
+  "options": {
+    "async": false
+  }
+}

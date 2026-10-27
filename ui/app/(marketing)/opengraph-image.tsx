@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { FIELD, computeFrame } from "@/components/landing/matrix/matrix-field";
 
-export const alt = "Probity: prove who is asking before the money moves";
+export const alt = "Probity: verify the payee, not the paperwork";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 // Rendered once at build. Fonts come from Google Fonts; with no network the image falls back to the default face.
@@ -63,8 +63,8 @@ export default async function OpengraphImage() {
             Probity
           </div>
           <div style={{ display: "flex", flexDirection: "column", marginTop: 56, fontFamily: "Newsreader", fontWeight: 300, fontSize: 92, lineHeight: 1, letterSpacing: "-0.03em" }}>
-            <span>Prove who is asking</span>
-            <span>before the money moves</span>
+            <span>Verify the payee,</span>
+            <span>not the paperwork.</span>
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", borderTop: `1px solid ${C.rule}`, marginBottom: 48, paddingTop: 8 }}>

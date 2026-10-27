@@ -1,7 +1,7 @@
 {
  "id": "a10",
- "text_original": "Not asked, but checked: two other payments in Friday's run fail controls. The controller gets a hold list in dollars and a script with independent numbers. Median decision time: 170 seconds. It never moves money. Clone it and run sample mode with no keys.",
- "text_spoken": "Not asked, but checked: two other payments in Friday's run fail controls. The controller gets a hold list in dollars and a script with independent numbers. Median decision time: 170 seconds. It never moves money. Clone it and run sample mode with no keys.",
+ "text_original": "Not asked, but checked: five Zetaris rules sweep Friday's run, down to two vendors sharing one bank account. In all, three other payments fail controls; the controller gets a hold list in dollars. Median time per check: 235 seconds.",
+ "text_spoken": "Not asked, but checked: five Zuh-tarris rules sweep Friday's run, down to two vendors sharing one bank account. In all, three other payments fail controls; the controller gets a hold list in dollars. Median time per check: 235 seconds.",
  "words": [
   {
    "word": "Not",
@@ -11,222 +11,197 @@
   {
    "word": "asked,",
    "start": 0.385,
-   "end": 1.0
+   "end": 1.077
   },
   {
    "word": "but",
-   "start": 1.077,
-   "end": 1.154
+   "start": 1.192,
+   "end": 1.308
   },
   {
    "word": "checked:",
-   "start": 1.231,
-   "end": 2.077
+   "start": 1.385,
+   "end": 2.231
   },
   {
-   "word": "two",
-   "start": 2.154,
-   "end": 2.308
-  },
-  {
-   "word": "other",
+   "word": "five",
    "start": 2.385,
-   "end": 2.462
+   "end": 2.538
   },
   {
-   "word": "payments",
-   "start": 2.538,
-   "end": 2.923
+   "word": "Zuh-tarris",
+   "start": 2.577,
+   "end": 3.077
   },
   {
-   "word": "in",
-   "start": 2.962,
-   "end": 3.0
-  },
-  {
-   "word": "Friday's",
-   "start": 3.077,
+   "word": "rules",
+   "start": 3.154,
    "end": 3.462
   },
   {
-   "word": "run",
+   "word": "sweep",
    "start": 3.538,
-   "end": 3.769
+   "end": 3.846
   },
   {
-   "word": "fail",
+   "word": "Friday's",
    "start": 3.923,
-   "end": 4.154
+   "end": 4.308
   },
   {
-   "word": "controls.",
-   "start": 4.462,
+   "word": "run,",
+   "start": 4.385,
    "end": 5.0
   },
   {
-   "word": "The",
-   "start": 5.231,
-   "end": 5.308
+   "word": "down",
+   "start": 5.115,
+   "end": 5.231
   },
   {
-   "word": "controller",
+   "word": "to",
+   "start": 5.346,
+   "end": 5.462
+  },
+  {
+   "word": "two",
    "start": 5.538,
-   "end": 5.769
+   "end": 5.615
   },
   {
-   "word": "gets",
-   "start": 5.885,
-   "end": 6.0
+   "word": "vendors",
+   "start": 5.692,
+   "end": 6.154
   },
   {
-   "word": "a",
-   "start": 6.038,
-   "end": 6.077
+   "word": "sharing",
+   "start": 6.346,
+   "end": 6.538
   },
   {
-   "word": "hold",
-   "start": 6.154,
-   "end": 6.385
+   "word": "one",
+   "start": 6.692,
+   "end": 6.846
   },
   {
-   "word": "list",
-   "start": 6.462,
-   "end": 6.692
-  },
-  {
-   "word": "in",
-   "start": 6.731,
-   "end": 6.769
-  },
-  {
-   "word": "dollars",
+   "word": "bank",
    "start": 6.923,
-   "end": 7.385
+   "end": 7.077
   },
   {
-   "word": "and",
-   "start": 7.462,
-   "end": 7.538
+   "word": "account.",
+   "start": 7.154,
+   "end": 7.769
   },
   {
-   "word": "a",
-   "start": 7.615,
-   "end": 7.654
-  },
-  {
-   "word": "script",
-   "start": 7.692,
+   "word": "In",
+   "start": 8.0,
    "end": 8.077
   },
   {
-   "word": "with",
-   "start": 8.192,
-   "end": 8.308
+   "word": "all,",
+   "start": 8.154,
+   "end": 8.769
   },
   {
-   "word": "independent",
-   "start": 8.385,
-   "end": 8.846
-  },
-  {
-   "word": "numbers.",
+   "word": "three",
    "start": 8.923,
-   "end": 9.462
+   "end": 9.077
+  },
+  {
+   "word": "other",
+   "start": 9.154,
+   "end": 9.308
+  },
+  {
+   "word": "payments",
+   "start": 9.385,
+   "end": 9.769
+  },
+  {
+   "word": "fail",
+   "start": 9.846,
+   "end": 10.077
+  },
+  {
+   "word": "controls;",
+   "start": 10.385,
+   "end": 11.0
+  },
+  {
+   "word": "the",
+   "start": 11.038,
+   "end": 11.077
+  },
+  {
+   "word": "controller",
+   "start": 11.154,
+   "end": 11.615
+  },
+  {
+   "word": "gets",
+   "start": 11.692,
+   "end": 11.846
+  },
+  {
+   "word": "a",
+   "start": 11.885,
+   "end": 11.923
+  },
+  {
+   "word": "hold",
+   "start": 12.0,
+   "end": 12.231
+  },
+  {
+   "word": "list",
+   "start": 12.308,
+   "end": 12.538
+  },
+  {
+   "word": "in",
+   "start": 12.615,
+   "end": 12.692
+  },
+  {
+   "word": "dollars.",
+   "start": 12.769,
+   "end": 13.5
   },
   {
    "word": "Median",
-   "start": 9.923,
-   "end": 10.231
+   "start": 13.769,
+   "end": 14.077
   },
   {
-   "word": "decision",
-   "start": 10.308,
-   "end": 10.615
+   "word": "time",
+   "start": 14.154,
+   "end": 14.308
   },
   {
-   "word": "time:",
-   "start": 10.692,
-   "end": 11.308
+   "word": "per",
+   "start": 14.385,
+   "end": 14.462
   },
   {
-   "word": "170",
-   "start": 11.385,
-   "end": 12.385
+   "word": "check:",
+   "start": 14.538,
+   "end": 15.231
+  },
+  {
+   "word": "235",
+   "start": 15.308,
+   "end": 16.231
   },
   {
    "word": "seconds.",
-   "start": 12.462,
-   "end": 13.0
-  },
-  {
-   "word": "It",
-   "start": 13.308,
-   "end": 13.462
-  },
-  {
-   "word": "never",
-   "start": 13.615,
-   "end": 13.846
-  },
-  {
-   "word": "moves",
-   "start": 13.923,
-   "end": 14.154
-  },
-  {
-   "word": "money.",
-   "start": 14.231,
-   "end": 14.538
-  },
-  {
-   "word": "Clone",
-   "start": 14.923,
-   "end": 15.154
-  },
-  {
-   "word": "it",
-   "start": 15.231,
-   "end": 15.385
-  },
-  {
-   "word": "and",
-   "start": 15.462,
-   "end": 15.538
-  },
-  {
-   "word": "run",
-   "start": 15.654,
-   "end": 15.769
-  },
-  {
-   "word": "sample",
-   "start": 15.846,
-   "end": 16.154
-  },
-  {
-   "word": "mode",
-   "start": 16.231,
-   "end": 16.385
-  },
-  {
-   "word": "with",
-   "start": 16.462,
-   "end": 16.615
-  },
-  {
-   "word": "no",
-   "start": 16.692,
-   "end": 16.846
-  },
-  {
-   "word": "keys.",
-   "start": 16.923,
-   "end": 17.538
+   "start": 16.385,
+   "end": 17.077
   }
  ],
- "seconds": 17.54,
+ "seconds": 17.08,
  "window_seconds": 18,
- "provisional": true,
+ "provisional": false,
  "voice": "v7li4BiiSMnJL2FCuD6D",
  "model": "eleven_v4",
  "seed": 4242,

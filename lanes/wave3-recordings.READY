@@ -1,0 +1,26 @@
+WAVE 3 RECORDINGS READY · operator lane · 2026-10-27 20:41Z (04:41 MYT)
+Directory: docs/video/raw/ (1920x1080 H.264, 30 fps, captured at deviceScaleFactor 2; each .mp4 has a .json sidecar)
+Production UI :3100 (build after the landing headline change), API :8787. Every slot recorded after the step-5 runs.
+
+Step-5 runs (live, from the :3100 inbox Verify button, Zetaris lock held per run):
+  S1  BCR-2026-0412  r-20261027T194659Z-c63a  HOLD R1,R3,R6,C1,C5,I5,I6  success, no limitations
+  S10 BCR-2026-0407  r-20261027T195257Z-61bc  HOLD R8,C1,C3              success (4 injection spans, readings 100%)
+  S3  BCR-2026-0398  r-20261027T195617Z-d013  APPROVE                   success
+  Sweep on PR-2026-10-30 (S1, S3): 3 items, $169,315.50: PRI-1030-0009 (DQ1+DQ2), PRI-1030-0010 (DQ1), PRI-1030-0015 Northgate V-10233 $18,640.00 (DQ2+DQ7)
+
+slot  file                     seconds  target  runs / notes (beat times are seconds into the clip)
+R01   v01-pitch-letter.mp4       11.9      8    S1 r-20261027T194659Z-c63a. Letter full screen; the in-letter watermark is the decision-8 exception
+R02   v01-pitch-hold.mp4          8.2      6    S1 r-20261027T194659Z-c63a. Hold banner, then the sweep banner
+R03   v02-agents-trace.mp4       12.0     10    S1 r-20261027T194659Z-c63a. Handoff ribbon, trace rail
+R04   v03-injection.mp4          27.5     12    S10 r-20261027T195257Z-61bc. 0-5 s HOLD banner (R8 block); the letter opens and expands about 6-8 s; hidden-instructions card, R8 chip and the quoted passages 9-16 s; "Show on the page" and the red bands on the page 17-22 s; two readings, 100% agreement 24-27 s
+R05   v04-s1-live.mp4           323.2     48    Live S1 run r-20261027T201601Z-d990 (HOLD, same codes as above) started from the queue (Decided tab, Open, Run again). Decision at 311.7 s; reveal to the end
+R06   v05-s2.mp4                227.2      8    Live S2 run r-20261027T203236Z-448c (HOLD R4 "we cannot tell which vendor", no C2). Decision at 220.2 s; reveal to the end
+R07   v06-memory.mp4             11.9     12    Session (c) run r-20261027T202904Z-43b6 (06d account reuse, HOLD R5,R6,C1,C4, 1 memory recalled). Three sessions run as separate processes, fresh World Model .demo/20261027T201050Z: (a) r-20261027T201051Z-8d31 S1 + fraud_confirmed, (b) r-20261027T202158Z-5b3e 06b, (c) above. Review page only: the demo:sessions terminal panes are not recorded. These three runs are archived in logs/archive-20261027T203754Z and their ERP rows deleted
+R09   v08-zetaris-rerun.mp4      55.9     10    S1 r-20261027T194659Z-c63a. Drawer opens about 5 s; lineage source system, USL table, query id/SQL, rows 6-14 s; Re-run in Zetaris clicked about 15 s; "matches the cited rows" at the end (the Zetaris re-run took about 40 s)
+R10   v08-zetaris-dq.mp4         51.2      6    Zetaris console under the lock, no run in progress: sign-in (password masked, username admin@zetaris.com visible), LIST DQ USL, RUN DQ account_single_vendor (result row at the end)
+R13   v10-sweep-panel.mp4        15.1      8    S1 r-20261027T194659Z-c63a. Exposure strip, the DQ7 hit on PRI-1030-0015 (2-5 s), the three findings, the five rule rows, the DQ7 row naming V-10233, V-10234
+R14   v11-asof.mp4               20.9      9    S1 r-20261027T194659Z-c63a. Scrubber set to "Request received" at about 3 s (15 nodes, 15 edges: no Tinton Falls entity); Replay steps through the facts learned 7-17 s; paused on "Decision" (28 nodes, 37 edges) from about 18 s to the end. Earlier ticks (13:54Z, 14:03Z) are World Model facts from earlier runs today
+
+Disabled (not recorded): R08, R11, R12.
+Frames sampled (ffmpeg, one every 2-3 s; R05, R06 every 12-15 s plus the last 24 s) and looked at: no blank frame, no error toast, no dev badge, no secret.
+Wording left on screen (data inside the letters, not product copy): the Booz Allen letter watermark "SYNTHETIC SAMPLE: not issued by Booz Allen" (R01, letter thumbnails in R05) is the decision-8 exception; the bank table printed in the generated letters reads "TEST ROUTING" / "TEST ACCOUNT" (R01, R04 page, R05/R06 thumbnails), and in R04 the claims column quotes it. Blur or crop in the edit if needed.

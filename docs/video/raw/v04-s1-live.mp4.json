@@ -1,0 +1,11 @@
+{
+  "slot": "R05",
+  "file": "v04-s1-live.mp4",
+  "started_at": "2026-10-27T20:15:49.073Z",
+  "seconds": 323.2,
+  "target_seconds": 48,
+  "frames": 1910,
+  "scale": 2,
+  "ui": "http://localhost:3100",
+  "runs": {}
+}

@@ -1,0 +1,114 @@
+{
+ "id": "i10",
+ "text_original": "Everything exports as a dossier: the decision, the reasons, the evidence and the queries behind them, ready for an auditor.",
+ "text_spoken": "Everything exports as a dossier: the decision, the reasons, the evidence and the queries behind them, ready for an auditor.",
+ "words": [
+  {
+   "word": "Everything",
+   "start": 0.0,
+   "end": 0.538
+  },
+  {
+   "word": "exports",
+   "start": 0.615,
+   "end": 1.077
+  },
+  {
+   "word": "as",
+   "start": 1.154,
+   "end": 1.231
+  },
+  {
+   "word": "a",
+   "start": 1.269,
+   "end": 1.308
+  },
+  {
+   "word": "dossier:",
+   "start": 1.385,
+   "end": 2.231
+  },
+  {
+   "word": "the",
+   "start": 2.269,
+   "end": 2.308
+  },
+  {
+   "word": "decision,",
+   "start": 2.385,
+   "end": 3.077
+  },
+  {
+   "word": "the",
+   "start": 3.115,
+   "end": 3.154
+  },
+  {
+   "word": "reasons,",
+   "start": 3.231,
+   "end": 3.923
+  },
+  {
+   "word": "the",
+   "start": 3.962,
+   "end": 4.0
+  },
+  {
+   "word": "evidence",
+   "start": 4.154,
+   "end": 4.615
+  },
+  {
+   "word": "and",
+   "start": 4.769,
+   "end": 4.923
+  },
+  {
+   "word": "the",
+   "start": 5.0,
+   "end": 5.077
+  },
+  {
+   "word": "queries",
+   "start": 5.154,
+   "end": 5.462
+  },
+  {
+   "word": "behind",
+   "start": 5.538,
+   "end": 5.846
+  },
+  {
+   "word": "them,",
+   "start": 5.923,
+   "end": 6.385
+  },
+  {
+   "word": "ready",
+   "start": 6.462,
+   "end": 6.692
+  },
+  {
+   "word": "for",
+   "start": 6.769,
+   "end": 6.846
+  },
+  {
+   "word": "an",
+   "start": 6.923,
+   "end": 7.0
+  },
+  {
+   "word": "auditor.",
+   "start": 7.077,
+   "end": 7.769
+  }
+ ],
+ "seconds": 7.77,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

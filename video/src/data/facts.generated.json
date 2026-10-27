@@ -1,5 +1,125 @@
 {
-  "pending": true,
-  "reason": "output_examples/MANIFEST.json is absent (no recorded run yet)",
-  "generated_by": "video/scripts/facts.ts"
+  "pending": false,
+  "run_id": "r-20261027T192533Z-0211",
+  "source_file": "output_examples/01-booz-allen-remit-change/response.json",
+  "sha256": "5edb82f61e3ea4ed6ecac8b9ad7c0d559b6d0788f369cd5fea624a21219977b8",
+  "mode": "live",
+  "decision": "HOLD",
+  "vendor_amount_usd": 1284550,
+  "run_amount_usd": 2426479.48,
+  "days_before_payment": 8,
+  "sweep": [
+    {
+      "item_id": "PRI-1030-0009",
+      "vendor_id": "V-10812",
+      "vendor_name": "Quillan Ridge Fleet Services LLC",
+      "rule": "DQ1",
+      "amount_usd": 87400,
+      "query_id": "466a6b1c-b332-43c8-afdc-e72f25e06211"
+    },
+    {
+      "item_id": "PRI-1030-0009",
+      "vendor_id": "V-10812",
+      "vendor_name": "Quillan Ridge Fleet Services LLC",
+      "rule": "DQ2",
+      "amount_usd": 87400,
+      "query_id": "ae8bbaca-711c-46b4-a7c5-20b59621f0b9"
+    },
+    {
+      "item_id": "PRI-1030-0010",
+      "vendor_id": "V-10763",
+      "vendor_name": "Tidewater Cable & Conduit LLC",
+      "rule": "DQ1",
+      "amount_usd": 63275.5,
+      "query_id": "466a6b1c-b332-43c8-afdc-e72f25e06211"
+    },
+    {
+      "item_id": "PRI-1030-0015",
+      "vendor_id": "V-10233",
+      "vendor_name": "Northgate Office Interiors LLC",
+      "rule": "DQ2",
+      "amount_usd": 18640,
+      "query_id": "ae8bbaca-711c-46b4-a7c5-20b59621f0b9"
+    },
+    {
+      "item_id": "PRI-1030-0015",
+      "vendor_id": "V-10233",
+      "vendor_name": "Northgate Office Interiors LLC",
+      "rule": "DQ7",
+      "amount_usd": 18640,
+      "query_id": "3c348228-06c0-42e2-9277-853cd9a37acc"
+    }
+  ],
+  "sweep_total_usd": 169315.5,
+  "query_ids": [
+    "c4e90524-0023-4ef6-9066-c926689b7c1a",
+    "ee272010-e2d8-4a90-851c-f3b387cbd431",
+    "18858b33-23d3-4b24-840e-ec1d34bf7d2b",
+    "f5a66072-c57e-46a8-9d02-f1b38973c633",
+    "f7f379bd-57f9-4026-aa68-865616eb163e",
+    "466a6b1c-b332-43c8-afdc-e72f25e06211",
+    "ae8bbaca-711c-46b4-a7c5-20b59621f0b9",
+    "3c348228-06c0-42e2-9277-853cd9a37acc"
+  ],
+  "q8_seconds": 235.1,
+  "q8_runs": 5,
+  "execution_time_seconds": 323.2,
+  "receipt": {
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "egress": "nvidia",
+    "routing_width": 1,
+    "hmem_injected": 0,
+    "agent": "letter_reader",
+    "all_calls_hmem_zero": true
+  },
+  "letter_reading": {
+    "status": "agree",
+    "compared": 8,
+    "agreed": 8
+  },
+  "rules_run": [
+    {
+      "rule": "DQ1",
+      "total": 154,
+      "invalid": 3,
+      "vendor_ids": []
+    },
+    {
+      "rule": "DQ2",
+      "total": 154,
+      "invalid": 4,
+      "vendor_ids": []
+    },
+    {
+      "rule": "DQ7",
+      "total": 52,
+      "invalid": 2,
+      "vendor_ids": [
+        "V-10233",
+        "V-10234"
+      ]
+    },
+    {
+      "rule": "DQ8",
+      "total": 154,
+      "invalid": 0,
+      "vendor_ids": []
+    },
+    {
+      "rule": "DQ9",
+      "total": 154,
+      "invalid": 0,
+      "vendor_ids": []
+    }
+  ],
+  "zetaris_queries": 34,
+  "injection": {
+    "run_id": "r-20261027T192243Z-3cfa",
+    "decision": "HOLD",
+    "detected": true,
+    "variant": "hidden",
+    "spans": 4,
+    "hidden": 3,
+    "review": "confirmed"
+  }
 }

@@ -1,0 +1,322 @@
+[
+  {
+    "file": "01-booz-allen-remit-change/request.json",
+    "sha256": "4b22b78e8e76e35e7d4191a302f15a61133e3ec0fc1f6ab830b2ed90457dd250",
+    "run_id": "r-20261027T192533Z-0211",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:30:58.512Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "01-booz-allen-remit-change/response.json",
+    "sha256": "5edb82f61e3ea4ed6ecac8b9ad7c0d559b6d0788f369cd5fea624a21219977b8",
+    "run_id": "r-20261027T192533Z-0211",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:30:58.512Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "01-booz-allen-remit-change/stdout.txt",
+    "sha256": "be345814c2a2037984826bd63cbef988d9501209fd403d7aa8862235a805ac47",
+    "run_id": "r-20261027T192533Z-0211",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:30:58.512Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "01-booz-allen-remit-change/RECORDED.md",
+    "sha256": "25e19be042b60378f5aa313d55df4a205ca179f05e4ba842ab8c64f66105d23f",
+    "run_id": "r-20261027T192533Z-0211",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:30:58.512Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "01-booz-allen-remit-change/warmup-20261027T190243Z.json",
+    "sha256": "d5ff7950b15cfba28245fd961f8892a835a142c13ad42843394345e01b8281fd",
+    "run_id": "r-20261027T192533Z-0211",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:30:58.512Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "02-saic-leidos-remit-change/request.json",
+    "sha256": "4f09415bc21ba54038cc8325695ef723085f5f1639ca6995c53be88779639338",
+    "run_id": "r-20261027T191044Z-3e73",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:15:18.943Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "02-saic-leidos-remit-change/response.json",
+    "sha256": "253ae7f43926685fa16debb573d081939db6dd56effbbe9491e0421d7fc34a8a",
+    "run_id": "r-20261027T191044Z-3e73",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:15:18.943Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "02-saic-leidos-remit-change/stdout.txt",
+    "sha256": "7a18f82c5d4a2c96429eaae3876e03ad9fe0bb5e152b0a0f7f152ed8fa40ded5",
+    "run_id": "r-20261027T191044Z-3e73",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:15:18.943Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "02-saic-leidos-remit-change/trace-r-20261027T191044Z-3e73.jsonl",
+    "sha256": "1c45edd4941be7fbecb2621833a8d42fb8b40128747ec1380c38712d6348ec16",
+    "run_id": "r-20261027T191044Z-3e73",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:15:18.943Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "02-saic-leidos-remit-change/receipts-r-20261027T191044Z-3e73.jsonl",
+    "sha256": "1c9917d9e7269cdd5b6625f6ae15f8c5c249c8edcb5958da1b488d5cb13ff60e",
+    "run_id": "r-20261027T191044Z-3e73",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:15:18.943Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "02-saic-leidos-remit-change/RECORDED.md",
+    "sha256": "5fd0c97a6fe4ad10d0c21c159338e1439966d81c94b8401c47a3dd808023c88c",
+    "run_id": "r-20261027T191044Z-3e73",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:15:18.943Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "02-saic-leidos-remit-change/queries-r-20261027T191044Z-3e73.jsonl",
+    "sha256": "ecda4cf08e2b3262d7b085b057e6a60650a91a5357b9ecc1c2af5743820249c6",
+    "run_id": "r-20261027T191044Z-3e73",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:15:18.943Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "02-saic-leidos-remit-change/warmup-20261027T190243Z.json",
+    "sha256": "d5ff7950b15cfba28245fd961f8892a835a142c13ad42843394345e01b8281fd",
+    "run_id": "r-20261027T191044Z-3e73",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:15:18.943Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "03-l3harris-bank-change/request.json",
+    "sha256": "dc99359bb202520933d27ad8c6512dcff3f8d537065a4702d27f73710f25213e",
+    "run_id": "r-20261027T191522Z-0b05",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:19:19.983Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "03-l3harris-bank-change/response.json",
+    "sha256": "58b15757af6c5b53c4eb847173c40cb307115ad5e17bd2d1b797792206088e51",
+    "run_id": "r-20261027T191522Z-0b05",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:19:19.983Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "03-l3harris-bank-change/stdout.txt",
+    "sha256": "ec698bbfcdcda460d5d4bc381eb2ac8ea99a730e0706431d8f44d1a414211be1",
+    "run_id": "r-20261027T191522Z-0b05",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:19:19.983Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "03-l3harris-bank-change/trace-r-20261027T191522Z-0b05.jsonl",
+    "sha256": "f23736e2341c8c97e5c60f531cf104aadf7d28f8596e265709b9ba83c482610a",
+    "run_id": "r-20261027T191522Z-0b05",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:19:19.983Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "03-l3harris-bank-change/receipts-r-20261027T191522Z-0b05.jsonl",
+    "sha256": "abe4c244ccf3732cdfb3a937a05506e310463285017c8b1426f6d629fdaba972",
+    "run_id": "r-20261027T191522Z-0b05",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:19:19.983Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "03-l3harris-bank-change/RECORDED.md",
+    "sha256": "f6deeec73b7bbaeb2eb84e6ab472ece75fa8bea19c030423ad4e51d5d829a499",
+    "run_id": "r-20261027T191522Z-0b05",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:19:19.983Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "03-l3harris-bank-change/queries-r-20261027T191522Z-0b05.jsonl",
+    "sha256": "c90b46c062b9e6348e0ebf23246ef177f7fbcb81689a4fcfa5a282cdb71ff2fa",
+    "run_id": "r-20261027T191522Z-0b05",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:19:19.983Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "03-l3harris-bank-change/warmup-20261027T190243Z.json",
+    "sha256": "d5ff7950b15cfba28245fd961f8892a835a142c13ad42843394345e01b8281fd",
+    "run_id": "r-20261027T191522Z-0b05",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:19:19.983Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "04-v2x-remit-change/request.json",
+    "sha256": "4c6204b8d402293c6d7d09efa5fa8bc5f24a1131a18e1b75751c91271e07846b",
+    "run_id": "r-20261027T191924Z-438f",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:22:38.784Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "04-v2x-remit-change/response.json",
+    "sha256": "679c1b32faf7e98823d7f10a6a9d0477403faf61bd0faf6c421cf72cba771088",
+    "run_id": "r-20261027T191924Z-438f",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:22:38.784Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "04-v2x-remit-change/stdout.txt",
+    "sha256": "43be482dfd432273ea0fa22c479d9075f1fc98d06dec1c71e9ccc068d572b1a0",
+    "run_id": "r-20261027T191924Z-438f",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:22:38.784Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "04-v2x-remit-change/trace-r-20261027T191924Z-438f.jsonl",
+    "sha256": "cefbc29c7727f8939352f13427a3b395756d6d2cf4c27cee36216c4a0dd385ba",
+    "run_id": "r-20261027T191924Z-438f",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:22:38.784Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "04-v2x-remit-change/receipts-r-20261027T191924Z-438f.jsonl",
+    "sha256": "56c968837e5f413f9f1c1ed8f37e0b704101e2690af8bb3307be2b79f1528a48",
+    "run_id": "r-20261027T191924Z-438f",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:22:38.784Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "04-v2x-remit-change/RECORDED.md",
+    "sha256": "983abcd953a38c8954cefc7d92a9c530a9ff8c1857f7526850a509903f236dc2",
+    "run_id": "r-20261027T191924Z-438f",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:22:38.784Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "04-v2x-remit-change/queries-r-20261027T191924Z-438f.jsonl",
+    "sha256": "802f5c6836bfa8fc308ba59e986cef317cff26baf599e1499c741846b2e86a97",
+    "run_id": "r-20261027T191924Z-438f",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:22:38.784Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "04-v2x-remit-change/warmup-20261027T190243Z.json",
+    "sha256": "d5ff7950b15cfba28245fd961f8892a835a142c13ad42843394345e01b8281fd",
+    "run_id": "r-20261027T191924Z-438f",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:22:38.784Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "10-sable-harbor-injection/request.json",
+    "sha256": "3b84b3b612fc490a335646c35b6479761bd5d5b1041c85abf8205674076ff249",
+    "run_id": "r-20261027T192243Z-3cfa",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:25:27.791Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "10-sable-harbor-injection/response.json",
+    "sha256": "a9d968519e16f29042dce7686d828210fa5656799ec78a37701ddf8ae8b8db99",
+    "run_id": "r-20261027T192243Z-3cfa",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:25:27.791Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "10-sable-harbor-injection/stdout.txt",
+    "sha256": "de2ab580477e18670777d418175c27f232f2a81088f4ee711b44192d946558ce",
+    "run_id": "r-20261027T192243Z-3cfa",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:25:27.791Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "10-sable-harbor-injection/trace-r-20261027T192243Z-3cfa.jsonl",
+    "sha256": "3adc88aa106af5adfe1b64b08f77067d0ddb6a332c1bd399c9db4daa3c152c23",
+    "run_id": "r-20261027T192243Z-3cfa",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:25:27.791Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "10-sable-harbor-injection/receipts-r-20261027T192243Z-3cfa.jsonl",
+    "sha256": "a0e5fadbd4d62d442200c57b50084afd0121ea079350dd80333df2535dc3ea7e",
+    "run_id": "r-20261027T192243Z-3cfa",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:25:27.791Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "10-sable-harbor-injection/RECORDED.md",
+    "sha256": "9d524e4dca07eeec2aec831e700134f460c575403cc7d45e15e286936ddee319",
+    "run_id": "r-20261027T192243Z-3cfa",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:25:27.791Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "10-sable-harbor-injection/queries-r-20261027T192243Z-3cfa.jsonl",
+    "sha256": "d2d24f76fc13a43985579ab3ecc5f043bf7723e2dd2497937a75bddd4cf5a875",
+    "run_id": "r-20261027T192243Z-3cfa",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:25:27.791Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "10-sable-harbor-injection/warmup-20261027T190243Z.json",
+    "sha256": "d5ff7950b15cfba28245fd961f8892a835a142c13ad42843394345e01b8281fd",
+    "run_id": "r-20261027T192243Z-3cfa",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:25:27.791Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "01-booz-allen-remit-change/trace-r-20261027T192533Z-0211.jsonl",
+    "sha256": "9a14df2ed676743aef66cec1af51b0ea5e5631926511c14e269f6307f0ad3a70",
+    "run_id": "r-20261027T192533Z-0211",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:30:58.512Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "01-booz-allen-remit-change/receipts-r-20261027T192533Z-0211.jsonl",
+    "sha256": "4b16563ec87ff5481566ec074d5306ee9e6f1b5a6ed204a6a7a9f80b6d0badfa",
+    "run_id": "r-20261027T192533Z-0211",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:30:58.512Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  },
+  {
+    "file": "01-booz-allen-remit-change/queries-r-20261027T192533Z-0211.jsonl",
+    "sha256": "fc13884909d5f4064a52db279d05d3dd80e033e045c16495cddceee9b340fedb",
+    "run_id": "r-20261027T192533Z-0211",
+    "mode": "live",
+    "captured_at": "2026-10-27T19:30:58.512Z",
+    "git_sha": "4b7f82c4ab9f5f3a026e74c37b781d7dca66cf2c"
+  }
+]

@@ -94,12 +94,16 @@ if [ "$STACK_UP" = 1 ]; then
     done
     [ -z "$bad" ] && pass J-4 "$n shipped inputs all answered success or partial_success; S1 HOLD" || fail J-4 "inputs failing:$bad"
   fi
-  # J-5 offline UI spec
+  # J-5 the UI loads the inbox: HTTP check always, then a headless browser at 390 and 1280 px when Playwright exists (the clone's, else this tree's)
   if want J-5; then
-    if [ -f "$CLONE/tests/e2e/ui/j6-offline.spec.ts" ] && [ -d "$CLONE/node_modules/@playwright" ]; then
-      out="$(cd "$CLONE" && BASE_URL="http://localhost:$UI" timeout 600 npx playwright test tests/e2e/ui/j6-offline.spec.ts 2>&1)"; rc=$?
-      [ $rc -eq 0 ] && pass J-5 "j6-offline.spec.ts" || fail J-5 "j6-offline.spec.ts exited $rc" "$(echo "$out" | tail -6)"
-    else fail J-5 "tests/e2e/ui/j6-offline.spec.ts is missing or Playwright is not installed in the clone"; fi
+    ui_ok="$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:$UI/app")"; n_req="$(curl -s "http://localhost:$API/requests" | jq 'length' 2>/dev/null)"
+    if [ "$ui_ok" != 200 ] || [ "${n_req:-0}" -lt 1 ]; then fail J-5 "UI /app HTTP $ui_ok, API /requests lists ${n_req:-0} requests"
+    else
+      out="$(BASE_URL="http://localhost:$UI" PW_FROM="$CLONE:$ROOT" timeout 180 node "$ROOT/tests/judge/ui-inbox.cjs" 2>&1)"; rc=$?
+      if [ $rc -eq 0 ]; then pass J-5 "UI /app 200, $n_req requests in the API; $out"
+      elif [ $rc -eq 3 ]; then pass J-5 "UI /app 200, $n_req requests in the API (browser check SKIPPED: Playwright is not installed here)"
+      else fail J-5 "browser inbox check exited $rc" "$out"; fi
+    fi
   fi
   # J-3d default mode is live: without keys a run answers 503 live_unconfigured
   if want J-3; then

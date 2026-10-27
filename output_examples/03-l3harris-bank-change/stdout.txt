@@ -1,0 +1,90 @@
+[INFO] run=r-20261027T191522Z-0b05 agent=orchestrator action=run_start target=letter_reader | mode=live budget=480s
+[INFO] run=r-20261027T191522Z-0b05 agent=letter_reader action=extract_claims note=injection:detect | no text addressed to an automated reviewer
+[INFO] run=r-20261027T191522Z-0b05 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=889/15 ms=921 | 889/15 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=889/15 ms=921 note=injection:review | review: 0/0 candidates addressed to a reviewer; 0 more quoted
+[INFO] run=r-20261027T191522Z-0b05 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1704/787 ms=22453 | 1704/787 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1704/787 ms=22453 note=dual_read:A; text+deep; transcribe | claimed=L3Harris Technologies, Inc.; acct ••••0198; routing 110000000; 1 phone(s); 0 pressure phrase(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1864/1962 ms=39517 | 1864/1962 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=letter_reader action=extract_claims lane=deep model=nvidia/nemotron-3-ultra-550b-a55b tokens=1864/1962 ms=39517 note=dual_read:B; ocr+deep; visual | claimed=L3Harris Technologies, Inc.; acct ••••0198; routing 110000000; 1 phone(s); 0 pressure phrase(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=letter_reader action=extract_claims note=dual_read:reconcile 6/6 | agreement 6/6; every material field agrees
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T04b qid=c66b4783 rows=1 mode=live ms=1311 | rows=1 vendor_id=V-10198 legal_name=L3Harris Technologies, Inc. name_norm=L3HARRIS TECHNOLOGIES INC
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T04 qid=43f5ef60 rows=1 mode=live ms=1463 | rows=1 vendor_id=V-10198 legal_name=L3Harris Technologies, Inc. email_domains_on_file=harris.example,l3harris.example
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T06c qid=a819f464 rows=1 mode=live ms=12016 | rows=1 via=registrant key=0000202058 name=L3HARRIS TECHNOLOGIES, INC. /DE/
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T06b qid=cf07bd1b rows=2 mode=live ms=22301 | rows=2 via=entity key=SJULQDJ8NZU7-P name=L3HARRIS TECHNOLOGIES, INC
+[WARN] run=r-20261027T191522Z-0b05 agent=evidence_runner action=retry template=T06a status=retrying retry=1 | T06a timed out; retrying once, narrower
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T06a qid=3ca95d21 rows=4 mode=live ms=44218 retry=1 | rows=4 via=alias key=QM4EZDV15JL8-C name=L3HARRIS TECHNOLOGIES  INC.
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T09 qid=91b940d7 rows=15 mode=live ms=3700 | run items=15 15 rows
+[INFO] run=r-20261027T191522Z-0b05 agent=orchestrator action=intake_request target=memory_gate | BCR-2026-0398 inserted (pending); candidates=[V-10198 hard 0.70]
+[INFO] run=r-20261027T191522Z-0b05 agent=orchestrator action=handoff target=memory_gate | claims -> memory_gate
+[INFO] run=r-20261027T191522Z-0b05 agent=memory_gate action=memory_recall target=registry_scout | 0 hits
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T02 qid=60678c3d rows=2 mode=live ms=1092 | rows=2 email treasury@l3harris.example 2019-07-01->open; phone 3217279100 2019-07-01->open
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T01 qid=29615059 rows=1 mode=live ms=1505 | rows=1 vendor_id=V-10198 legal_name=L3Harris Technologies, Inc. name_norm=L3HARRIS TECHNOLOGIES INC
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T08 qid=a64e7bc1 rows=1 mode=live ms=547 | rows=1 CL-20398 confirmed edgar_registrant
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T07 qid=2a78f0ea rows=1 mode=live ms=1328 | rows=1 bank_change_request V-10198
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T05 qid=b4ee392f rows=1 mode=live ms=20747 | rows=1 QM4EZDV15JL8-C PALM BAY FL; parent SJULQDJ8NZU7; cik 0000202058 phone 3217279100
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T05b qid=a5a46407 rows=1 mode=live ms=9902 note=parent location for I1 | rows=1 p_entity_key=SJULQDJ8NZU7-P p_legal_name=L3HARRIS TECHNOLOGIES, INC p_address_line1=1025 W NASA BLVD
+[INFO] run=r-20261027T191522Z-0b05 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3551/79 ms=1519 | 3551/79 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3670/84 ms=6727 | 3670/84 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3794/85 ms=2548 | 3794/85 tokens, finish tool_calls, 1 tool call(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=registry_scout action=plan_coverage lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=3794/85 ms=41467 note=model reviewed floor | r0: floor 6 steps + 0 extra step(s) (reviewed the floor and added none)
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_linker action=memory_write | entities 0, edges 0, facts 0 written; 41 unchanged
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_linker action=propose_link target=identity_examiner | candidate_vendor domain_on_file+name_exact+alias_exact score 0.7: req:BCR-2026-0398 -> vendor:V-10198 hard
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_linker action=propose_link target=identity_examiner | same_as via vendor.uei: vendor:V-10198 -> uei:QM4EZDV15JL8-C hard
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_linker action=propose_link target=identity_examiner | registered_as via vendor.registrant_cik: uei:SJULQDJ8NZU7-P -> cik:0000202058 hard
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:L3HARRIS TECHNOLOGIES INC -> uei:QM4EZDV15JL8-C hard
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_linker action=propose_link target=identity_examiner | name_match via alias: party:L3HARRIS TECHNOLOGIES INC -> uei:SJULQDJ8NZU7-P soft
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_linker action=handoff target=identity_examiner | links -> identity_examiner
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_examiner action=requery template=T05 qid=b4ee392f mode=live | T05 row_hash match 4a20c439c9752380
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_examiner action=requery template=T08 qid=a64e7bc1 mode=live | T08 row_hash match bd9d07976ca65744
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_examiner action=approve_link | hard: attribution exact key
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_examiner action=approve_link | hard: vendor_entity exact key
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_examiner action=approve_link | hard: registrant exact key
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_examiner action=approve_link | hard: alias exact key
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_examiner action=reject_link rule=B1 | B1: name similarity only
+[INFO] run=r-20261027T191522Z-0b05 agent=identity_examiner action=handoff target=gate_officer | verdicts -> gate_officer
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T08b qid=cc9e08af rows=1 mode=live ms=475 | rows=1 request_id=BCR-2026-0398 new_routing=110000000 routing_check=valid
+[INFO] run=r-20261027T191522Z-0b05 agent=gate_officer action=decide | APPROVE codes= coverage=3/3
+[INFO] run=r-20261027T191522Z-0b05 agent=gate_officer action=select_callback | +13217279100 edgar_registrant; do_not_use (321) 555-0144 appears only on the request
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=T20 qid=7f0b302e rows=1 mode=live ms=7586 | rows=1 name=unverified_recent_bank_change table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=T20 qid=ff130635 rows=1 mode=live ms=7753 | rows=1 name=account_single_vendor table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=T21 qid=6584c1ce rows=3 mode=live ms=4097 | rows=3 item_id=PRI-1009-0016 payment_run_id=PR-2026-10-09 scheduled_date=2026-10-09
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=T21 qid=4f058e6d rows=4 mode=live ms=4097 | rows=4 item_id=PRI-1002-0014 payment_run_id=PR-2026-10-02 scheduled_date=2026-10-02
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=dq_run rule=DQ1 template=T20 qid=7f0b302e rows=2 | DQ1 table-wide total=154 valid=151 invalid=3; in PR-2026-10-30: 2
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=dq_run rule=DQ2 template=T20 qid=ff130635 rows=2 | DQ2 table-wide total=154 valid=150 invalid=4; in PR-2026-10-30: 2
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=DQ7c qid=4970fb43 rows=1 mode=live ms=1373 | rows=1 total_rows=52 invalid_rows=2
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=DQ7 qid=d6883e27 rows=1 mode=live ms=2146 | rows=1 account_hash=35b3f6fe36f7fbd4de8d547f66f5712c070586a5 vendor_count=2 vendor_ids=V-10233,V-10234
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=dq_run rule=DQ7 template=DQ7 qid=4970fb43 rows=1 | DQ7 total=52 valid=50 invalid=2; in PR-2026-10-30: 1
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=T20 qid=5e7adb4b rows=1 mode=live ms=5283 | rows=1 name=bank_change_before_large_payment table=payment_run_item type=Custom Data Quality
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=T21 qid=34bff63f rows=0 mode=live ms=3044 | rows=0
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=dq_run rule=DQ8 template=T20 qid=5e7adb4b rows=0 | DQ8 total=154 valid=154 invalid=0; in PR-2026-10-30: 0
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=DQ9c qid=8d645b18 rows=1 mode=live ms=3913 | rows=1 total=154 valid=154 invalid=0
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=run_template template=DQ9 qid=e198ea1e rows=0 mode=live ms=3914 | rows=0
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=dq_run rule=DQ9 template=DQ9 qid=8d645b18 rows=0 | DQ9 total=154 valid=154 invalid=0; in PR-2026-10-30: 0
+[INFO] run=r-20261027T191522Z-0b05 agent=evidence_runner action=run_template template=T23 qid=33682d53 rows=1 mode=live ms=24061 note=One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_ | One Zetaris query across ERP, USAspending and SEC EDGAR tables registered in Zetaris. ERP legs (payee_erp.vendor, payee_erp.payment_run_item) are JDBC read at query time. USAspending and EDGAR legs are USL tables in the statement, not direct REST. Pushdown was not shown.
+[INFO] run=r-20261027T191522Z-0b05 agent=sweep_runner action=unsolicited_sweep qid=6584c1ce rows=3 | Not asked, but checked: 3 other item(s) in PR-2026-10-30 ($169,315.50) fail payment controls.
+[INFO] run=r-20261027T191522Z-0b05 agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1092/57 ms=1772 | 1092/57 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1092/57 ms=1772 | 3 sentences
+[WARN] run=r-20261027T191522Z-0b05 agent=gate_officer action=number_check status=needs_revision note=failed | sentence count 2; sweep count 1 is not 3
+[INFO] run=r-20261027T191522Z-0b05 agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1204/58 ms=996 | 1204/58 tokens, finish stop, 0 tool call(s)
+[INFO] run=r-20261027T191522Z-0b05 agent=gate_officer action=write_rationale lane=fast model=nvidia/nemotron-3.5-lightning-30b-a3b tokens=1204/58 ms=996 | 3 sentences
+[WARN] run=r-20261027T191522Z-0b05 agent=gate_officer action=number_check status=needs_revision note=failed | sentence count 2
+[WARN] run=r-20261027T191522Z-0b05 agent=gate_officer action=fallback status=partial_success note=template_rationale | model rationale unavailable or failed the checks; plain template used
+[INFO] run=r-20261027T191522Z-0b05 agent=gate_officer action=number_check note=fallback | fallback
+[WARN] run=r-20261027T191522Z-0b05 agent=orchestrator action=run_end status=partial_success note=envelope=partial_success | APPROVE in 235.1s; trace logs/trace-r-20261027T191522Z-0b05.jsonl
+[INFO] run=r-20261027T191522Z-0b05 DECISION=APPROVE codes=none coverage=3/3 exposure=$274,915.25 (1 items, PR-2026-10-30)
+[INFO] run=r-20261027T191522Z-0b05 callback=(321) 727-9100 (SEC EDGAR submissions, CIK 0000202058, fetched 2026-10-27T19:17:58.001Z) do_not_use=(321) 555-0144
+[INFO] run=r-20261027T191522Z-0b05 sweep=5 item(s) $275,355.50 | models: fast=nvidia/nemotron-3.5-lightning-30b-a3b deep=nvidia/nemotron-3-ultra-550b-a55b | 235.1s | trace=logs/trace-r-20261027T191522Z-0b05.jsonl
+
+Probity · BCR-2026-0398 · L3Harris Technologies, Inc. (V-10198)
+Decision: APPROVE   policy pp-2026-10-27.1   mode live   235.1 s   status partial_success
+Blocks:   none
+Limits:   none
+Noted:    none
+Exposure: PR-2026-10-30 · 1 items · $274,915.25 (cut-off 14:00 ET)
+Call back: (321) 727-9100 · SEC EDGAR submissions, CIK 0000202058, fetched 2026-10-27T19:17:58.001Z
+Readings: agree · 6/6 fields agree · A text_layer ok, B ocr ok
+Do not use: (321) 555-0144 (appears only on the request)
+Sweep:    5 other item(s) in PR-2026-10-30 fail payment controls: PRI-1030-0009 Quillan Ridge Fleet Services LLC $87,400.00 DQ1; PRI-1030-0009 Quillan Ridge Fleet Services LLC $87,400.00 DQ2; PRI-1030-0010 Tidewater Cable & Conduit LLC $63,275.50 DQ1; PRI-1030-0015 Northgate Office Interiors LLC $18,640.00 DQ2; PRI-1030-0015 Northgate Office Interiors LLC $18,640.00 DQ7
+Models:   letter_reader deep nvidia/nemotron-3-ultra-550b-a55b ×3; registry_scout fast nvidia/nemotron-3.5-lightning-30b-a3b ×3; identity_examiner deep none (no model call) ×0; gate_officer fast nvidia/nemotron-3.5-lightning-30b-a3b ×2
+Trace:    logs/trace-r-20261027T191522Z-0b05.jsonl
+Review:   http://localhost:3100/review/r-20261027T191522Z-0b05

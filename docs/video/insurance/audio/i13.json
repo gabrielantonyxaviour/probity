@@ -1,0 +1,154 @@
+{
+ "id": "i13",
+ "text_original": "Probity: verify the bank change before the money moves. Grok built the Zetaris data layer and the independent test suite. Claude Code built the agents and the interface.",
+ "text_spoken": "Probity: verify the bank change before the money moves. Grok built the Zuh-tarris data layer and the independent test suite. Claude Code built the agents and the interface.",
+ "words": [
+  {
+   "word": "Probity:",
+   "start": 0.0,
+   "end": 0.923
+  },
+  {
+   "word": "verify",
+   "start": 1.077,
+   "end": 1.462
+  },
+  {
+   "word": "the",
+   "start": 1.5,
+   "end": 1.538
+  },
+  {
+   "word": "bank",
+   "start": 1.692,
+   "end": 1.923
+  },
+  {
+   "word": "change",
+   "start": 2.0,
+   "end": 2.308
+  },
+  {
+   "word": "before",
+   "start": 2.385,
+   "end": 2.769
+  },
+  {
+   "word": "the",
+   "start": 2.808,
+   "end": 2.846
+  },
+  {
+   "word": "money",
+   "start": 2.923,
+   "end": 3.077
+  },
+  {
+   "word": "moves.",
+   "start": 3.154,
+   "end": 3.846
+  },
+  {
+   "word": "Grok",
+   "start": 4.154,
+   "end": 4.462
+  },
+  {
+   "word": "built",
+   "start": 4.538,
+   "end": 4.769
+  },
+  {
+   "word": "the",
+   "start": 4.808,
+   "end": 4.846
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 4.923,
+   "end": 5.462
+  },
+  {
+   "word": "data",
+   "start": 5.538,
+   "end": 5.769
+  },
+  {
+   "word": "layer",
+   "start": 5.846,
+   "end": 6.154
+  },
+  {
+   "word": "and",
+   "start": 6.231,
+   "end": 6.385
+  },
+  {
+   "word": "the",
+   "start": 6.462,
+   "end": 6.538
+  },
+  {
+   "word": "independent",
+   "start": 6.615,
+   "end": 7.077
+  },
+  {
+   "word": "test",
+   "start": 7.154,
+   "end": 7.385
+  },
+  {
+   "word": "suite.",
+   "start": 7.577,
+   "end": 8.038
+  },
+  {
+   "word": "Claude",
+   "start": 8.308,
+   "end": 8.615
+  },
+  {
+   "word": "Code",
+   "start": 8.769,
+   "end": 8.923
+  },
+  {
+   "word": "built",
+   "start": 9.0,
+   "end": 9.231
+  },
+  {
+   "word": "the",
+   "start": 9.308,
+   "end": 9.385
+  },
+  {
+   "word": "agents",
+   "start": 9.462,
+   "end": 9.923
+  },
+  {
+   "word": "and",
+   "start": 10.0,
+   "end": 10.077
+  },
+  {
+   "word": "the",
+   "start": 10.115,
+   "end": 10.154
+  },
+  {
+   "word": "interface.",
+   "start": 10.231,
+   "end": 11.077
+  }
+ ],
+ "seconds": 11.08,
+ "window_seconds": null,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

@@ -1,0 +1,911 @@
+{
+  "run_id": "r-20261027T191522Z-0b05",
+  "status": "partial_success",
+  "output": {
+    "summary": "Approve: L3Harris Technologies, Inc. (V-10198). Every checked fact agrees and an independent call-back confirmed the change.",
+    "recommendations": [
+      "Apply the bank change for V-10198 in the ERP (call-back confirmed 2026-10-21)."
+    ],
+    "artifacts": [
+      {
+        "type": "gate_decision",
+        "data": {
+          "decision_id": "dec-r-20261027T191522Z-0b05",
+          "policy_version": "pp-2026-10-27.1",
+          "request_id": "BCR-2026-0398",
+          "decision": "APPROVE",
+          "banner_text": "Approve: every checked fact agrees, and an independent call-back confirmed the change on 2026-10-21.",
+          "banner_variant": "standard",
+          "decided_at": "2026-10-27T19:18:39.788Z",
+          "reason_codes": [],
+          "exposure": {
+            "payment_run_id": "PR-2026-10-30",
+            "scheduled_date": "2026-10-30",
+            "cutoff_local": "14:00 ET",
+            "scope": "vendor",
+            "vendor_item_count": 1,
+            "vendor_amount_usd": 274915.25,
+            "run_item_count": 15,
+            "run_amount_usd": 2426479.48,
+            "by_vendor": [
+              {
+                "vendor_id": "V-10198",
+                "vendor_name": "L3Harris Technologies, Inc.",
+                "item_count": 1,
+                "amount_usd": 274915.25
+              }
+            ]
+          },
+          "resolved": {
+            "vendor_id": "V-10198",
+            "vendor_name": "L3Harris Technologies, Inc.",
+            "candidate_vendor_ids": [
+              "V-10198"
+            ],
+            "uei": "QM4EZDV15JL8",
+            "parent_uei": "SJULQDJ8NZU7",
+            "registrant_cik": "0000202058",
+            "family_size": null
+          },
+          "evidence_coverage": {
+            "decisive_fields": 3,
+            "with_live_evidence": 3,
+            "degraded_sources": []
+          },
+          "fact_sheet": [
+            {
+              "field": "legal_name",
+              "label": "Legal name",
+              "claimed": "L3Harris Technologies, Inc.",
+              "observations": [
+                {
+                  "evidence_id": "ev-c66b4783-0-ln",
+                  "field": "legal_name",
+                  "source": "vendor_master",
+                  "value": "L3Harris Technologies, Inc.",
+                  "row_key": "V-10198",
+                  "template_id": "T04b",
+                  "query_id": "c66b4783-3e78-4dc8-8bda-c2a8ea4e3330",
+                  "sql_hash": "014b8de7efb2443e",
+                  "row_hash": "53462daaf81eefec",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:16:05.572Z",
+                  "latency_ms": 1311,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-a819f464-0-ln",
+                  "field": "legal_name",
+                  "source": "edgar",
+                  "value": "L3HARRIS TECHNOLOGIES, INC. /DE/",
+                  "row_key": "0000202058",
+                  "template_id": "T06c",
+                  "query_id": "a819f464-b4fb-4658-b981-3822ea69a394",
+                  "sql_hash": "7f1d1c16d2374c24",
+                  "row_hash": "037fe854126c4a15",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:16:17.739Z",
+                  "latency_ms": 12016,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-cf07bd1b-0-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "L3HARRIS TECHNOLOGIES, INC",
+                  "row_key": "SJULQDJ8NZU7-P",
+                  "template_id": "T06b",
+                  "query_id": "cf07bd1b-8860-4417-b5f8-900d06d148dd",
+                  "sql_hash": "e6724e28abb791ac",
+                  "row_hash": "586766dce2b5f050",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:16:27.873Z",
+                  "latency_ms": 22301,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-cf07bd1b-1-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "L3HARRIS TECHNOLOGIES, INC.",
+                  "row_key": "QM4EZDV15JL8-C",
+                  "template_id": "T06b",
+                  "query_id": "cf07bd1b-8860-4417-b5f8-900d06d148dd",
+                  "sql_hash": "e6724e28abb791ac",
+                  "row_hash": "586766dce2b5f050",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:16:27.873Z",
+                  "latency_ms": 22301,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-3ca95d21-0-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "L3HARRIS TECHNOLOGIES  INC.",
+                  "row_key": "QM4EZDV15JL8-C",
+                  "template_id": "T06a",
+                  "query_id": "3ca95d21-db1c-485a-a722-2c4396e44125",
+                  "sql_hash": "03cb09ed3b01384c",
+                  "row_hash": "6e044e676b2bf039",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:33.515Z",
+                  "latency_ms": 44218,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-3ca95d21-1-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "L3HARRIS TECHNOLOGIES  INC",
+                  "row_key": "SJULQDJ8NZU7-P",
+                  "template_id": "T06a",
+                  "query_id": "3ca95d21-db1c-485a-a722-2c4396e44125",
+                  "sql_hash": "03cb09ed3b01384c",
+                  "row_hash": "6e044e676b2bf039",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:33.515Z",
+                  "latency_ms": 44218,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-3ca95d21-2-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "L3HARRIS TECHNOLOGIES  INC.",
+                  "row_key": "SJULQDJ8NZU7-P",
+                  "template_id": "T06a",
+                  "query_id": "3ca95d21-db1c-485a-a722-2c4396e44125",
+                  "sql_hash": "03cb09ed3b01384c",
+                  "row_hash": "6e044e676b2bf039",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:33.515Z",
+                  "latency_ms": 44218,
+                  "row_indexes": [
+                    2
+                  ]
+                },
+                {
+                  "evidence_id": "ev-3ca95d21-3-ln",
+                  "field": "legal_name",
+                  "source": "usaspending",
+                  "value": "L3HARRIS TECHNOLOGIES, INC.",
+                  "row_key": "SJULQDJ8NZU7-P",
+                  "template_id": "T06a",
+                  "query_id": "3ca95d21-db1c-485a-a722-2c4396e44125",
+                  "sql_hash": "03cb09ed3b01384c",
+                  "row_hash": "6e044e676b2bf039",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:33.515Z",
+                  "latency_ms": 44218,
+                  "row_indexes": [
+                    3
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "Vendor master lists L3Harris Technologies, Inc.; the request says L3Harris Technologies, Inc."
+            },
+            {
+              "field": "remit_address",
+              "label": "Remit-to address",
+              "claimed": null,
+              "observations": [
+                {
+                  "evidence_id": "ev-29615059-0-ra",
+                  "field": "remit_address",
+                  "source": "vendor_master",
+                  "value": "1395 Troutman Blvd NE, Palm Bay, FL, 32905",
+                  "row_key": "V-10198",
+                  "template_id": "T01",
+                  "query_id": "29615059-8330-4790-8844-9c1e8407804f",
+                  "sql_hash": "f852dda7e4f1b0cc",
+                  "row_hash": "00e39008bc43025d",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:38.759Z",
+                  "latency_ms": 1505,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b4ee392f-0-ra",
+                  "field": "remit_address",
+                  "source": "vendor_master",
+                  "value": "1395 Troutman Blvd NE, Palm Bay, FL",
+                  "row_key": "V-10198",
+                  "template_id": "T05",
+                  "query_id": "b4ee392f-7bbe-4ad7-827f-33bbd4298cda",
+                  "sql_hash": "37fdc577e7da8bee",
+                  "row_hash": "4a20c439c9752380",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:58.001Z",
+                  "latency_ms": 20747,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b4ee392f-1-ra",
+                  "field": "remit_address",
+                  "source": "usaspending",
+                  "value": "1395 TROUTMAN BLVD NE, PALM BAY, FL",
+                  "row_key": "QM4EZDV15JL8-C",
+                  "template_id": "T05",
+                  "query_id": "b4ee392f-7bbe-4ad7-827f-33bbd4298cda",
+                  "sql_hash": "37fdc577e7da8bee",
+                  "row_hash": "4a20c439c9752380",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:58.001Z",
+                  "latency_ms": 20747,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b4ee392f-2-ra",
+                  "field": "remit_address",
+                  "source": "edgar",
+                  "value": "1025 W NASA BLVD, MELBOURNE, FL",
+                  "row_key": "0000202058",
+                  "template_id": "T05",
+                  "query_id": "b4ee392f-7bbe-4ad7-827f-33bbd4298cda",
+                  "sql_hash": "37fdc577e7da8bee",
+                  "row_hash": "4a20c439c9752380",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:58.001Z",
+                  "latency_ms": 20747,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-a5a46407-0-ra",
+                  "field": "remit_address",
+                  "source": "usaspending",
+                  "value": "1025 W NASA BLVD, MELBOURNE, FL, 32919",
+                  "row_key": "SJULQDJ8NZU7-P",
+                  "template_id": "T05b",
+                  "query_id": "a5a46407-4c73-4075-b937-47439e489dc0",
+                  "sql_hash": "a54720b55704dfd6",
+                  "row_hash": "880a756449f0f03b",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:18:07.907Z",
+                  "latency_ms": 9902,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "gap",
+              "why": "The request does not state a remit-to address."
+            },
+            {
+              "field": "bank_account",
+              "label": "Bank account",
+              "claimed": "routing 110000000, account ending 0198",
+              "observations": [
+                {
+                  "evidence_id": "ev-2a78f0ea-0-ba",
+                  "field": "bank_account",
+                  "source": "vendor_master",
+                  "value": "bank_change_request, V-10198, pending, 2026-10-20 14:05:00",
+                  "row_key": "",
+                  "template_id": "T07",
+                  "query_id": "2a78f0ea-651b-45de-8dfc-39aca4efd33d",
+                  "sql_hash": "f0ea2d325b13c3d6",
+                  "row_hash": "383947ad3766da3d",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:40.087Z",
+                  "latency_ms": 1328,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-cc9e08af-0-ba",
+                  "field": "bank_account",
+                  "source": "request",
+                  "value": "110000000, valid",
+                  "row_key": "BCR-2026-0398",
+                  "template_id": "T08b",
+                  "query_id": "cc9e08af-680b-4cdb-a58f-ba6545c27d79",
+                  "sql_hash": "cb2ada777b98ee31",
+                  "row_hash": "bc6f0cb3d8fc9729",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:18:39.787Z",
+                  "latency_ms": 475,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "gap",
+              "why": "New account; not on any other vendor. Ownership is not verified."
+            },
+            {
+              "field": "sender_domain",
+              "label": "Sender domain",
+              "claimed": "l3harris.example",
+              "observations": [
+                {
+                  "evidence_id": "ev-43f5ef60-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "harris.example,l3harris.example",
+                  "row_key": "V-10198",
+                  "template_id": "T04",
+                  "query_id": "43f5ef60-a2de-4703-8f0a-d840f468f60a",
+                  "sql_hash": "5929a16dc1e9d2c4",
+                  "row_hash": "5c7e7c9f13a2e53d",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:16:05.723Z",
+                  "latency_ms": 1463,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-60678c3d-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "l3harris.example",
+                  "row_key": "VC-00019",
+                  "template_id": "T02",
+                  "query_id": "60678c3d-0208-424e-8897-ac60484cc416",
+                  "sql_hash": "bd7136992db96ff8",
+                  "row_hash": "fa474f0fd1719e97",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:38.347Z",
+                  "latency_ms": 1092,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-29615059-0-sd",
+                  "field": "sender_domain",
+                  "source": "vendor_master",
+                  "value": "harris.example,l3harris.example",
+                  "row_key": "V-10198",
+                  "template_id": "T01",
+                  "query_id": "29615059-8330-4790-8844-9c1e8407804f",
+                  "sql_hash": "f852dda7e4f1b0cc",
+                  "row_hash": "00e39008bc43025d",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:38.759Z",
+                  "latency_ms": 1505,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "l3harris.example is on file for L3Harris Technologies, Inc."
+            },
+            {
+              "field": "callback_phone",
+              "label": "Call-back phone",
+              "claimed": "(321) 555-0144",
+              "observations": [
+                {
+                  "evidence_id": "ev-60678c3d-0-cp",
+                  "field": "callback_phone",
+                  "source": "vendor_master",
+                  "value": "3217279100 (2019-07-01 15:00:00 → null)",
+                  "row_key": "VC-00020",
+                  "template_id": "T02",
+                  "query_id": "60678c3d-0208-424e-8897-ac60484cc416",
+                  "sql_hash": "bd7136992db96ff8",
+                  "row_hash": "fa474f0fd1719e97",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:38.347Z",
+                  "latency_ms": 1092,
+                  "row_indexes": [
+                    1
+                  ]
+                },
+                {
+                  "evidence_id": "ev-a64e7bc1-0-cp",
+                  "field": "callback_phone",
+                  "source": "vendor_master",
+                  "value": "+13217279100, edgar_registrant, confirmed, 2026-10-21 14:30:00, M. Okonkwo",
+                  "row_key": "CL-20398",
+                  "template_id": "T08",
+                  "query_id": "a64e7bc1-ce78-4794-9f26-ea6e14bde876",
+                  "sql_hash": "a7f315f870d1662a",
+                  "row_hash": "bd9d07976ca65744",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:38.894Z",
+                  "latency_ms": 547,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b4ee392f-0-cp",
+                  "field": "callback_phone",
+                  "source": "edgar",
+                  "value": "3217279100",
+                  "row_key": "0000202058",
+                  "template_id": "T05",
+                  "query_id": "b4ee392f-7bbe-4ad7-827f-33bbd4298cda",
+                  "sql_hash": "37fdc577e7da8bee",
+                  "row_hash": "4a20c439c9752380",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:58.001Z",
+                  "latency_ms": 20747,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "mismatch",
+              "why": "(321) 555-0144 appears only on the request."
+            },
+            {
+              "field": "invoice_refs",
+              "label": "Invoice references",
+              "claimed": null,
+              "observations": [],
+              "status": "gap",
+              "why": "No invoice references were claimed."
+            },
+            {
+              "field": "parent",
+              "label": "Parent company (federal award ID, UEI)",
+              "claimed": null,
+              "observations": [
+                {
+                  "evidence_id": "ev-b4ee392f-0-pa",
+                  "field": "parent",
+                  "source": "usaspending",
+                  "value": "SJULQDJ8NZU7",
+                  "row_key": "QM4EZDV15JL8-C",
+                  "template_id": "T05",
+                  "query_id": "b4ee392f-7bbe-4ad7-827f-33bbd4298cda",
+                  "sql_hash": "37fdc577e7da8bee",
+                  "row_hash": "4a20c439c9752380",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:58.001Z",
+                  "latency_ms": 20747,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-a5a46407-0-pa",
+                  "field": "parent",
+                  "source": "usaspending",
+                  "value": "SJULQDJ8NZU7-P, L3HARRIS TECHNOLOGIES, INC",
+                  "row_key": "SJULQDJ8NZU7-P",
+                  "template_id": "T05b",
+                  "query_id": "a5a46407-4c73-4075-b937-47439e489dc0",
+                  "sql_hash": "a54720b55704dfd6",
+                  "row_hash": "880a756449f0f03b",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:18:07.907Z",
+                  "latency_ms": 9902,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "USAspending lists L3HARRIS TECHNOLOGIES, INC (SJULQDJ8NZU7) as the parent."
+            },
+            {
+              "field": "registrant",
+              "label": "SEC registrant (company ID, CIK)",
+              "claimed": null,
+              "observations": [
+                {
+                  "evidence_id": "ev-29615059-0-rg",
+                  "field": "registrant",
+                  "source": "vendor_master",
+                  "value": "0000202058",
+                  "row_key": "V-10198",
+                  "template_id": "T01",
+                  "query_id": "29615059-8330-4790-8844-9c1e8407804f",
+                  "sql_hash": "f852dda7e4f1b0cc",
+                  "row_hash": "00e39008bc43025d",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:38.759Z",
+                  "latency_ms": 1505,
+                  "row_indexes": [
+                    0
+                  ]
+                },
+                {
+                  "evidence_id": "ev-b4ee392f-0-rg",
+                  "field": "registrant",
+                  "source": "edgar",
+                  "value": "0000202058 L3HARRIS TECHNOLOGIES, INC. /DE/",
+                  "row_key": "0000202058",
+                  "template_id": "T05",
+                  "query_id": "b4ee392f-7bbe-4ad7-827f-33bbd4298cda",
+                  "sql_hash": "37fdc577e7da8bee",
+                  "row_hash": "4a20c439c9752380",
+                  "mode": "live",
+                  "fetched_at": "2026-10-27T19:17:58.001Z",
+                  "latency_ms": 20747,
+                  "row_indexes": [
+                    0
+                  ]
+                }
+              ],
+              "status": "match",
+              "why": "SEC EDGAR registrant 0000202058 L3HARRIS TECHNOLOGIES, INC. /DE/."
+            }
+          ],
+          "conflicts": [],
+          "callback_evidence": [
+            {
+              "log_id": "CL-20398",
+              "vendor_id": "V-10198",
+              "phone_e164": "+13217279100",
+              "phone_display": "(321) 727-9100",
+              "phone_source": "edgar_registrant",
+              "outcome": "confirmed",
+              "called_at": "2026-10-21 14:30:00",
+              "called_by": "M. Okonkwo",
+              "query_id": "a64e7bc1-ce78-4794-9f26-ea6e14bde876",
+              "evidence_id": "ev-a64e7bc1-0-cp"
+            }
+          ],
+          "callback_scripts": [
+            {
+              "for_vendor_id": "V-10198",
+              "vendor_name": "L3Harris Technologies, Inc.",
+              "number_e164": "+13217279100",
+              "number_display": "(321) 727-9100",
+              "number_source": "edgar_registrant",
+              "source_ref": "CIK 0000202058",
+              "source_label": "SEC EDGAR submissions, CIK 0000202058, fetched 2026-10-27T19:17:58.001Z",
+              "valid_since": null,
+              "do_not_use": [
+                {
+                  "number_display": "(321) 555-0144",
+                  "reason": "appears only on the request"
+                }
+              ],
+              "lines": [
+                "Call (321) 727-9100 (SEC EDGAR submissions, CIK 0000202058, fetched 2026-10-27T19:17:58.001Z). Do not use (321) 555-0144.",
+                "Ask for accounts receivable or treasury. Do not read out the new details first.",
+                "Ask them to state the bank name and the last four digits of the account they expect us to pay.",
+                "Record the outcome in Probity: confirmed, denied or no answer."
+              ]
+            }
+          ],
+          "sweep": {
+            "payment_run_id": "PR-2026-10-30",
+            "amount_usd": 169315.5,
+            "rules_run": [
+              {
+                "rule": "DQ1",
+                "total": 154,
+                "valid": 151,
+                "invalid": 3,
+                "query_id": "7f0b302e-9b40-4236-96e3-7f9b2ef65b8d"
+              },
+              {
+                "rule": "DQ2",
+                "total": 154,
+                "valid": 150,
+                "invalid": 4,
+                "query_id": "ff130635-d8e0-4027-a0eb-a71d42052c2d"
+              },
+              {
+                "rule": "DQ7",
+                "total": 52,
+                "valid": 50,
+                "invalid": 2,
+                "query_id": "4970fb43-00c5-448b-8eca-5880e3d34a2f",
+                "groups": [
+                  {
+                    "account_hash": "35b3f6fe36f7fbd4de8d547f66f5712c070586a5175353215a1cf5f83b7cf1f5",
+                    "vendor_ids": [
+                      "V-10233",
+                      "V-10234"
+                    ]
+                  }
+                ]
+              },
+              {
+                "rule": "DQ8",
+                "total": 154,
+                "valid": 154,
+                "invalid": 0,
+                "query_id": "5e7adb4b-3937-4802-9a0d-a90e899c4b0b"
+              },
+              {
+                "rule": "DQ9",
+                "total": 154,
+                "valid": 154,
+                "invalid": 0,
+                "query_id": "8d645b18-97b7-4a7f-a597-5e7731124f6e"
+              }
+            ],
+            "findings": [
+              {
+                "item_id": "PRI-1030-0009",
+                "vendor_id": "V-10812",
+                "vendor_name": "Quillan Ridge Fleet Services LLC",
+                "rule": "DQ1",
+                "amount_usd": 87400,
+                "detail": "Bank details changed 12 days before payment with no call-back on an independent number.",
+                "recommendation": "callback_before_release",
+                "query_id": "6584c1ce-669d-428b-9d08-affae0931011"
+              },
+              {
+                "item_id": "PRI-1030-0009",
+                "vendor_id": "V-10812",
+                "vendor_name": "Quillan Ridge Fleet Services LLC",
+                "rule": "DQ2",
+                "amount_usd": 87400,
+                "detail": "The account in this request is already on Quillan Ridge Fleet Services LLC (V-10812), created 2 days before the request, scheduled for $87,400.00.",
+                "recommendation": "hold_item",
+                "query_id": "4f058e6d-f3ac-40ea-91d7-2302f8fa76ef"
+              },
+              {
+                "item_id": "PRI-1030-0010",
+                "vendor_id": "V-10763",
+                "vendor_name": "Tidewater Cable & Conduit LLC",
+                "rule": "DQ1",
+                "amount_usd": 63275.5,
+                "detail": "Bank details changed 14 days before payment with no call-back on an independent number.",
+                "recommendation": "callback_before_release",
+                "query_id": "6584c1ce-669d-428b-9d08-affae0931011"
+              },
+              {
+                "item_id": "PRI-1030-0015",
+                "vendor_id": "V-10233",
+                "vendor_name": "Northgate Office Interiors LLC",
+                "rule": "DQ2",
+                "amount_usd": 18640,
+                "detail": "The account in this request is already on Northgate Office Interiors LLC (V-10233), created 2549 days before the request, scheduled for $18,640.00.",
+                "recommendation": "hold_item",
+                "query_id": "4f058e6d-f3ac-40ea-91d7-2302f8fa76ef"
+              },
+              {
+                "item_id": "PRI-1030-0015",
+                "vendor_id": "V-10233",
+                "vendor_name": "Northgate Office Interiors LLC",
+                "rule": "DQ7",
+                "amount_usd": 18640,
+                "detail": "This account hash is on file for more than one vendor. account_hash 35b3f6fe36f7fbd4de8d547f66f5712c070586a5175353215a1cf5f83b7cf1f5. vendor_ids V-10233,V-10234.",
+                "recommendation": "hold_item",
+                "query_id": "d6883e27-732c-42d3-b7c7-5ec718fd2707"
+              }
+            ]
+          },
+          "suggested_edits": [],
+          "memory_recalled": [],
+          "models_used": [
+            {
+              "agent": "letter_reader",
+              "lane": "deep",
+              "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "calls": 3,
+              "tokens_in": 4457,
+              "tokens_out": 2764,
+              "latency_ms_p50": 22453,
+              "nemotron": true
+            },
+            {
+              "agent": "registry_scout",
+              "lane": "fast",
+              "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "calls": 3,
+              "tokens_in": 11015,
+              "tokens_out": 248,
+              "latency_ms_p50": 2548,
+              "nemotron": true
+            },
+            {
+              "agent": "identity_examiner",
+              "lane": "deep",
+              "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model": "none (no model call)",
+              "calls": 0,
+              "tokens_in": null,
+              "tokens_out": null,
+              "latency_ms_p50": 0,
+              "nemotron": false
+            },
+            {
+              "agent": "gate_officer",
+              "lane": "fast",
+              "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+              "calls": 2,
+              "tokens_in": 2296,
+              "tokens_out": 115,
+              "latency_ms_p50": 1772,
+              "nemotron": true
+            }
+          ],
+          "cost": {
+            "vision_calls": 0,
+            "deep_calls": 3,
+            "fast_calls": 5,
+            "tokens_total": 20895
+          },
+          "rationale": {
+            "text": "APPROVE: the bank-detail change for L3Harris Technologies, Inc. can go ahead in PR-2026-10-30. Every checked fact agrees with our records. An independent call-back to (321) 727-9100 confirmed the change on 2026-10-21. Separately, 3 other items totalling $169,315.50 in PR-2026-10-30 fail payment controls.",
+            "source": "template",
+            "number_check": "fallback"
+          },
+          "rounds": 0,
+          "mode": "live",
+          "limitations": [],
+          "labels": {
+            "mode_banner": null
+          },
+          "letter_reading": {
+            "status": "agree",
+            "readings": [
+              {
+                "reading": "A",
+                "input": "text_layer",
+                "instructions": "transcribe",
+                "path": "text+deep",
+                "status": "ok",
+                "error_code": null,
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "model_call_id": "mc-r-20261027T191522Z-0b05-1",
+                "receipt_id": "rcpt_req_we1kwr0i",
+                "egress_destination": "nvidia",
+                "latency_ms": 22453,
+                "tokens_in": 1704,
+                "tokens_out": 787,
+                "values": {
+                  "account_number": "[REDACTED]",
+                  "routing": "110000000",
+                  "payee": "L3Harris Technologies, Inc.",
+                  "remit_address": null,
+                  "phones": "(321) 555-0144",
+                  "bank_name": "Old Quarry National Bank",
+                  "effective_date": "2 November 2026",
+                  "invoice_refs": null
+                }
+              },
+              {
+                "reading": "B",
+                "input": "ocr",
+                "instructions": "visual",
+                "path": "ocr+deep",
+                "status": "ok",
+                "error_code": null,
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "model_call_id": "mc-r-20261027T191522Z-0b05-3",
+                "receipt_id": "rcpt_req_aqshuw5c",
+                "egress_destination": "nvidia",
+                "latency_ms": 39517,
+                "tokens_in": 1864,
+                "tokens_out": 1962,
+                "values": {
+                  "account_number": "[REDACTED]",
+                  "routing": "110000000",
+                  "payee": "L3Harris Technologies, Inc.",
+                  "remit_address": null,
+                  "phones": "(321) 555-0144",
+                  "bank_name": "Old Quarry National Bank",
+                  "effective_date": "2 November 2026",
+                  "invoice_refs": null
+                }
+              }
+            ],
+            "fields": [
+              {
+                "field": "account_number",
+                "material": true,
+                "a": "••••0198",
+                "b": "••••0198",
+                "agree": true
+              },
+              {
+                "field": "routing",
+                "material": true,
+                "a": "110000000",
+                "b": "110000000",
+                "agree": true
+              },
+              {
+                "field": "payee",
+                "material": true,
+                "a": "L3Harris Technologies, Inc.",
+                "b": "L3Harris Technologies, Inc.",
+                "agree": true
+              },
+              {
+                "field": "phones",
+                "material": true,
+                "a": "(321) 555-0144",
+                "b": "(321) 555-0144",
+                "agree": true
+              },
+              {
+                "field": "bank_name",
+                "material": false,
+                "a": "Old Quarry National Bank",
+                "b": "Old Quarry National Bank",
+                "agree": true
+              },
+              {
+                "field": "effective_date",
+                "material": false,
+                "a": "2 November 2026",
+                "b": "2 November 2026",
+                "agree": true
+              }
+            ],
+            "compared": 6,
+            "agreed": 6,
+            "agreement": 1,
+            "material_disagreements": [],
+            "primary": "A"
+          },
+          "injection": {
+            "detected": false,
+            "variant": null,
+            "spans": [],
+            "review": {
+              "status": "confirmed",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "model_call_id": "mc-r-20261027T191522Z-0b05-2",
+              "receipt_id": "rcpt_req_xu3ugot4",
+              "egress_destination": "nvidia",
+              "latency_ms": 921,
+              "confirmed": 0,
+              "added": 0
+            },
+            "limitation": null
+          }
+        }
+      },
+      {
+        "type": "trace",
+        "path": "logs/trace-r-20261027T191522Z-0b05.jsonl"
+      }
+    ],
+    "needs_human": null
+  },
+  "agents": [
+    {
+      "name": "letter_reader",
+      "role": "Reads the request letter and email headers into quoted claims (Nemotron 3 Ultra over the PDF text layer or OCR text)"
+    },
+    {
+      "name": "registry_scout",
+      "role": "Plans and gathers evidence through Zetaris query templates; discovers related entities on request (Nemotron 3.5 Lightning)"
+    },
+    {
+      "name": "identity_examiner",
+      "role": "Critic with block authority: re-queries Zetaris, approves or rejects identity links, demands missing evidence (rules + Nemotron 3 Ultra) · lane unavailable, deterministic fallback used"
+    },
+    {
+      "name": "gate_officer",
+      "role": "Applies the deterministic payment policy, selects an independent call-back number, sweeps the payment run, writes the rationale (code + Nemotron 3.5 Lightning)"
+    }
+  ],
+  "trace_id": "t-e1bb730f",
+  "log_file": "logs/trace-r-20261027T191522Z-0b05.jsonl",
+  "execution_time_seconds": 235.1
+}

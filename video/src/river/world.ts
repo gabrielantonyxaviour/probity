@@ -38,9 +38,10 @@ export const riverParams = (frame: number) => riverSchedule(sched(), frame);
 
 export function planesParams(frame: number): { act: number; mix: number } {
   const s = (frame - seg("M05").start) / FPS;
-  const mix = prog(s, 1.6, 0.6) * (1 - prog(s, 11.0, 0.7));
+  const end = seg("M05").len / FPS;
+  const mix = prog(s, 1.6, 0.6) * (1 - prog(s, end - 3.0, 0.7));
   const step = (a: number) => prog(s, a, 0.5);
-  return { act: s < 1.5 ? -1 : step(4.0) + step(6.7) + step(9.3), mix };
+  return { act: s < 1.5 ? -1 : step(5.5) + step(8.2) + step(10.4), mix };
 }
 
 export function holdParams(frame: number): { active: boolean; peels: number[]; target: HoldTarget } {
