@@ -6,15 +6,13 @@ export * from "./copy-review";
 export * from "./copy-detail";
 
 export const FIXED = {
-  syntheticNotice:
-    "Internal records and letters are synthetic, made for this demo. Registry facts are real public data from USAspending and SEC EDGAR.",
+  sourcesNotice: "Registry facts are read live from USAspending and SEC EDGAR through Zetaris.",
   sampleBanner:
     "SAMPLE MODE: offline data captured 2026-10-27; no live Zetaris or Nemotron calls. Decisions are computed by the same policy code.",
   mirrorLabel: (capturedAt: string) => `Registry mirror, captured ${capturedAt}. Live source unavailable.`,
   simulatedOutage: (source: string) => `Simulated outage of ${source} (test hook).`,
   sweepHeader: (k: number, run: string, amount: string) =>
     `Not asked, but checked: ${k} other item(s) in ${run} (${amount}) fail payment controls.`,
-  doNotCall: "Demo scenario: do not call.",
   policy: `Policy ${POLICY_VERSION}`,
   traceIds: "Trace and query ids are shown on every result.",
 } as const;
@@ -56,17 +54,31 @@ export const QUEUE = {
   verifyAgain: "Verify again",
   open: "Open",
   starting: "Starting…",
-  demoChip: "Demo · synthetic",
   emptyReview: { title: "Nothing waiting.", body: "Upload a letter or type a company's details to check it." },
   emptyDecided: { title: "No decisions yet.", body: "Verify a request to see it here." },
   loadFailed: "Couldn't load requests.",
   zetarisDownConfirm: "Zetaris is down. This check will use offline captures and cannot approve.",
+  zetarisDownPage: "Checks started now use offline captures and cannot approve.",
   zetarisDownBlocked: (host: string) =>
     `Zetaris is not reachable at ${host}. Live checks are unavailable. Start Zetaris, or restart Probity with SAMPLE_MODE=true.`,
   startFailed: (msg: string) => `Couldn't start the check: ${msg}`,
   uploadExpired: "Upload expired; upload again",
   checking: (step: string) => `Checking… ${step}`,
   rowLabel: (name: string) => `${name}`,
+} as const;
+
+export const CLOSED = {
+  view: "View",
+  close: "Close",
+  unknown: "Closed",
+  unknownRequester: "Unknown requester",
+  lead: (status: string) => `${status}. This request was closed in the ERP before Probity checked it, so there is no Probity decision to open.`,
+  fields: { request: "Request", status: "ERP status", received: "Received", channel: "Channel", change: "Change", run: "Payment run", check: "Probity check" },
+  noRun: "No released payment run on file for this date",
+  runUnreported: "Not reported for closed requests",
+  noCheck: "None. Closed before Probity",
+  readOnly: "Read-only. The ERP owns this record; Probity does not change closed requests.",
+  runClosed: "—",
 } as const;
 
 export const ERRORS = {
@@ -96,7 +108,7 @@ export const NEW = {
   emlLabel: "Email headers (.eml, optional)",
   emlHelp: "Lets Probity check the sender and reply-to domains.",
   paymentRun: "Payment run",
-  paymentRunAuto: "Automatic (earliest run with this vendor's items)",
+  paymentRunAuto: "Automatic (vendor's next run)",
   receivedAt: "Received at (UTC)",
   nameLabel: "Company legal name",
   ueiLabel: "or Federal award ID (UEI)",
@@ -114,16 +126,18 @@ export const NEW = {
   senderEmail: "Sender email",
   phone: "Phone on the request",
   typedNotice: "Typed details are not a document, so the decision is at most Call back first.",
-  demoNotice:
-    "Demo only. Use the synthetic letters in input_examples/ or your own test documents. Use public company names only. Do not upload real vendor letters, real bank details or personal data. Letter text is sent to NVIDIA's hosted Nemotron API through Meterless Nightshift.",
+  privacyNotice:
+    "Letter text is read by NVIDIA Nemotron through Meterless Nightshift. Account numbers are masked on every screen and in every log.",
   advanced: "Advanced",
   outageLabel: "Simulate a USAspending outage (test hook)",
   outageHelp: "Every result from this check is labelled as a simulated outage.",
   verify: "Verify",
   cancel: "Cancel",
   starting: "Starting…",
-  examplesTitle: "Demo inputs",
-  examplesBody: "Synthetic requests shipped with Probity. Typed examples fill the form; documents are checked from the inbox.",
+  examplesTitle: "Example requests",
+  typedExample: (name: string) => `Typed details: ${name}, name only`,
+  typedTag: "Typed",
+  examplesBody: "Requests on file. Typed examples fill the form; documents are checked from the inbox.",
   helpTitle: "What Probity reads",
   helpBody: "The letter's quoted claims, the sender's email headers and the payment run. Every claim is then checked against independent sources.",
   errorSummary: "Fix the highlighted fields to continue.",

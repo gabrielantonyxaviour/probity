@@ -6,13 +6,11 @@ import { Alert, Skeleton } from "@/components/ui/misc";
 import { DECISION } from "@/lib/copy";
 import { DECISION_SUBLABEL, DECISION_UI, SAMPLE_C2_LINE } from "@/lib/labels";
 import { dayDate, hash8 } from "@/lib/format";
-import { hasRealPhone } from "@/lib/phone";
 import { modelShort, isNemotron } from "@/lib/labels-trace";
 import { CallbackCards } from "./CallbackCard";
 import { MemoryChips } from "./MemoryChips";
 import { WhyList } from "./WhyList";
 import { useReview } from "./review-context";
-import { HonestyTag } from "@/components/ui/chip";
 
 /** Two-tone banner: first sentence in --fg, the rest in --fg-muted. textContent equals banner_text exactly (AC-REV-1). */
 export function splitBanner(text: string): [string, string] {
@@ -30,7 +28,6 @@ function CallbackRow({ decision }: { decision: GateDecision }) {
     <div className="dec-callrow" data-testid="callback-evidence">
       <p className="t-ui-sm text-fg-2">
         {text} · <button type="button" className="t-mono-label p-link" onClick={() => openQuery(e.query_id)}>query {hash8(e.query_id)}</button>
-        {hasRealPhone(e.phone_display) ? <> <HonestyTag>{decision.labels.callback_notice}</HonestyTag></> : null}
       </p>
     </div>
   );
@@ -100,7 +97,7 @@ export function DecisionCard({ decision, reveal }: { decision: GateDecision; rev
         <div className="dec-col"><WhyList /></div>
         {decision.decision !== "APPROVE" || decision.callback_scripts.length > 0 ? (
           <div className="dec-col">
-            <span className="t-eyebrow">{DECISION.doThisNow}</span>
+            <span className="t-eyebrow">{decision.decision === "APPROVE" && decision.callback_evidence.length > 0 ? DECISION.scriptUsed : DECISION.doThisNow}</span>
             <CallbackCards decision={decision} />
           </div>
         ) : null}

@@ -7,7 +7,7 @@ import { Chip } from "@/components/ui/chip";
 import { Button } from "@/components/ui/button";
 import { notify } from "@/components/ui/toast";
 import { apiPost, errorMessage } from "@/lib/api";
-import { DECISION } from "@/lib/copy";
+import { DECISION, DIALOGS } from "@/lib/copy";
 import { useReview } from "./review-context";
 
 type Memory = GateDecision["memory_recalled"][number];
@@ -21,7 +21,7 @@ function Feedback({ m }: { m: Memory }) {
   const [done, setDone] = useState<string | null>(null);
   async function send(kind: (typeof KINDS)[number][0]) {
     try {
-      await apiPost(`/notes/${encodeURIComponent(m.memory_id)}/feedback`, { kind, by: "Tomás Okafor (fictional)" }, FeedbackResponse as z.ZodType);
+      await apiPost(`/notes/${encodeURIComponent(m.memory_id)}/feedback`, { kind, by: DIALOGS.callback.calledByDefault }, FeedbackResponse as z.ZodType);
       setDone(kind);
     } catch (e) {
       notify(errorMessage(e), "conflict");

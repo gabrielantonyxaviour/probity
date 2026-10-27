@@ -32,7 +32,7 @@ export const LEAVES = {
 } as const;
 
 export const CASES = {
-  heading: "Modelled on real payment diversions",
+  heading: "Real payment diversions",
   link: "ALL SOURCES →",
   lede: "Business email compromise caused $3,046,598,558 in reported losses in 2025, by the FBI’s count.",
   ledeMuted: "63% of organisations that reported email-based payment attacks saw third parties request a change of bank account or payment instructions (AFP, 2025).",
@@ -53,7 +53,7 @@ export const CASES = {
       cites: [CITATIONS.arlington],
     },
   ],
-  note: "Demo requests and internal records are synthetic, modelled on these public cases. Registry facts are real public data. Nacha’s monitoring rule (phase 1 from 20 Mar 2026) names vendor impersonation under ‘False Pretenses’.",
+  note: "Nacha’s monitoring rule (phase 1 from 20 Mar 2026) names vendor impersonation under ‘False Pretenses’.",
 } as const;
 
 export const RUN = {
@@ -75,9 +75,9 @@ export const CHECK = {
   heading: "Check our work",
   lede: "Everything a judge or an auditor needs is one click away.",
   cards: [
-    { key: "demo", title: "Live demo", body: "The queue of demo change requests.", icon: "ArrowUpRight" },
+    { key: "demo", title: "Open the app", body: "The queue of vendor change requests.", icon: "ArrowUpRight" },
     { key: "code", title: "Source code", body: "The policy, the query templates and the tests.", icon: "ArrowUpRight" },
-    { key: "dossier", title: "Sample dossier", body: "A decision record you can print and sign.", icon: "ArrowRight" },
+    { key: "dossier", title: "Latest dossier", body: "A decision record you can print and sign.", icon: "ArrowRight" },
     { key: "limits", title: "Sources and limits", body: "What Probity reads, what it never does, and how fresh each source is.", icon: "ArrowRight" },
   ],
 } as const;
@@ -86,8 +86,7 @@ export const CTA = { heading: "Call the number on file, not the number in the le
 
 export const FOOTER = {
   legal: "Probity is a project for the Open Agent Hackathon 2026, Track 01, by team Zen.",
-  synthetic: "Demo requests and internal records are synthetic. Registry facts are real public data.",
   policy: "POLICY PP-2026-10-27.1",
   left: "© 2026 team Zen",
-  right: "Requests and internal records are synthetic. Registry facts are real public data from USAspending and SEC EDGAR.",
+  right: "Registry facts are read live from USAspending and SEC EDGAR through Zetaris.",
 } as const;

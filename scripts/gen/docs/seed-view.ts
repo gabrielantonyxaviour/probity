@@ -18,6 +18,7 @@ export class SeedView {
   private domains = load("vendor_domain");
   private items = load("payment_run_item");
   private runs = load("payment_run");
+  private accounts = load("vendor_bank_account");
   readonly allPhones: Set<string>;
   constructor() {
     this.allPhones = new Set(this.contacts.filter((c) => c.kind === "phone").map((c) => String(c.value).replace(/\D/g, "").slice(-10)));
@@ -34,6 +35,12 @@ export class SeedView {
       domain: String(doms[doms.length - 1]?.domain ?? ""), email: open("email"), phone: `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`, phoneE164: `+1${digits}`,
       remit: { line1: String(v.remit_line1), unit: v.remit_unit === null ? null : String(v.remit_unit), city: String(v.remit_city), state: String(v.remit_state), zip: String(v.remit_zip) },
     };
+  }
+  /** The vendor's active account number: seed accounts are "00099900" + last4 (hash-checked in the data tests). */
+  onFileAccount(vendor: string): string {
+    const a = this.accounts.find((r) => r.vendor_id === vendor && r.status === "active");
+    if (!a) throw new Error(`seed has no active bank account for ${vendor}`);
+    return `00099900${String(a.account_last4)}`;
   }
   /** The vendor's item in a run that is still open (30 Oct, else 3 Nov), if any. */
   openItem(vendor: string): ItemView | null {

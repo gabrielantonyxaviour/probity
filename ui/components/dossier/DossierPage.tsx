@@ -9,7 +9,7 @@ import { Alert, TwoTone } from "@/components/ui/misc";
 import { notify } from "@/components/ui/toast";
 import { copyText } from "@/components/ui/copy-button";
 import { scriptText } from "@/components/review/CallbackCard";
-import { DOSSIER, ERRORS, FIXED, TOASTS } from "@/lib/copy";
+import { DOSSIER, ERRORS, TOASTS } from "@/lib/copy";
 import { downloadText, prettyJson } from "@/lib/download";
 import { stamp } from "@/lib/format";
 import { useRequests } from "@/lib/requests-store";
@@ -36,7 +36,6 @@ function Body() {
       </div>
       <article className="ds" data-testid="dossier">
         {d?.mode === "sample" && d.labels.mode_banner ? <NoticeAlert text={d.labels.mode_banner} /> : null}
-        <NoticeAlert text={d?.labels.synthetic_notice ?? FIXED.syntheticNotice} />
         {partial ? <NoticeAlert tone="gap" text={DOSSIER.partial(d?.limitations.join(" ") || "see the model ledger and banners on the review page")} /> : null}
         <header className="ds-head">
           <Badge>{DOSSIER.badge}</Badge>

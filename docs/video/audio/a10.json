@@ -1,0 +1,234 @@
+{
+ "id": "a10",
+ "text_original": "Not asked, but checked: two other payments in Friday's run fail controls. The controller gets a hold list in dollars and a script with independent numbers. Median decision time: 170 seconds. It never moves money. Clone it and run sample mode with no keys.",
+ "text_spoken": "Not asked, but checked: two other payments in Friday's run fail controls. The controller gets a hold list in dollars and a script with independent numbers. Median decision time: 170 seconds. It never moves money. Clone it and run sample mode with no keys.",
+ "words": [
+  {
+   "word": "Not",
+   "start": 0.0,
+   "end": 0.231
+  },
+  {
+   "word": "asked,",
+   "start": 0.385,
+   "end": 1.0
+  },
+  {
+   "word": "but",
+   "start": 1.077,
+   "end": 1.154
+  },
+  {
+   "word": "checked:",
+   "start": 1.231,
+   "end": 2.077
+  },
+  {
+   "word": "two",
+   "start": 2.154,
+   "end": 2.308
+  },
+  {
+   "word": "other",
+   "start": 2.385,
+   "end": 2.462
+  },
+  {
+   "word": "payments",
+   "start": 2.538,
+   "end": 2.923
+  },
+  {
+   "word": "in",
+   "start": 2.962,
+   "end": 3.0
+  },
+  {
+   "word": "Friday's",
+   "start": 3.077,
+   "end": 3.462
+  },
+  {
+   "word": "run",
+   "start": 3.538,
+   "end": 3.769
+  },
+  {
+   "word": "fail",
+   "start": 3.923,
+   "end": 4.154
+  },
+  {
+   "word": "controls.",
+   "start": 4.462,
+   "end": 5.0
+  },
+  {
+   "word": "The",
+   "start": 5.231,
+   "end": 5.308
+  },
+  {
+   "word": "controller",
+   "start": 5.538,
+   "end": 5.769
+  },
+  {
+   "word": "gets",
+   "start": 5.885,
+   "end": 6.0
+  },
+  {
+   "word": "a",
+   "start": 6.038,
+   "end": 6.077
+  },
+  {
+   "word": "hold",
+   "start": 6.154,
+   "end": 6.385
+  },
+  {
+   "word": "list",
+   "start": 6.462,
+   "end": 6.692
+  },
+  {
+   "word": "in",
+   "start": 6.731,
+   "end": 6.769
+  },
+  {
+   "word": "dollars",
+   "start": 6.923,
+   "end": 7.385
+  },
+  {
+   "word": "and",
+   "start": 7.462,
+   "end": 7.538
+  },
+  {
+   "word": "a",
+   "start": 7.615,
+   "end": 7.654
+  },
+  {
+   "word": "script",
+   "start": 7.692,
+   "end": 8.077
+  },
+  {
+   "word": "with",
+   "start": 8.192,
+   "end": 8.308
+  },
+  {
+   "word": "independent",
+   "start": 8.385,
+   "end": 8.846
+  },
+  {
+   "word": "numbers.",
+   "start": 8.923,
+   "end": 9.462
+  },
+  {
+   "word": "Median",
+   "start": 9.923,
+   "end": 10.231
+  },
+  {
+   "word": "decision",
+   "start": 10.308,
+   "end": 10.615
+  },
+  {
+   "word": "time:",
+   "start": 10.692,
+   "end": 11.308
+  },
+  {
+   "word": "170",
+   "start": 11.385,
+   "end": 12.385
+  },
+  {
+   "word": "seconds.",
+   "start": 12.462,
+   "end": 13.0
+  },
+  {
+   "word": "It",
+   "start": 13.308,
+   "end": 13.462
+  },
+  {
+   "word": "never",
+   "start": 13.615,
+   "end": 13.846
+  },
+  {
+   "word": "moves",
+   "start": 13.923,
+   "end": 14.154
+  },
+  {
+   "word": "money.",
+   "start": 14.231,
+   "end": 14.538
+  },
+  {
+   "word": "Clone",
+   "start": 14.923,
+   "end": 15.154
+  },
+  {
+   "word": "it",
+   "start": 15.231,
+   "end": 15.385
+  },
+  {
+   "word": "and",
+   "start": 15.462,
+   "end": 15.538
+  },
+  {
+   "word": "run",
+   "start": 15.654,
+   "end": 15.769
+  },
+  {
+   "word": "sample",
+   "start": 15.846,
+   "end": 16.154
+  },
+  {
+   "word": "mode",
+   "start": 16.231,
+   "end": 16.385
+  },
+  {
+   "word": "with",
+   "start": 16.462,
+   "end": 16.615
+  },
+  {
+   "word": "no",
+   "start": 16.692,
+   "end": 16.846
+  },
+  {
+   "word": "keys.",
+   "start": 16.923,
+   "end": 17.538
+  }
+ ],
+ "seconds": 17.54,
+ "window_seconds": 18,
+ "provisional": true,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

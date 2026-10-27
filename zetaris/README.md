@@ -36,13 +36,14 @@ DQ1 `153/150/3`. On `PR-2026-10-30` the invalid ids are `PRI-1030-0009` and `PRI
 
 COMPILE rejected the spec DDL until a semicolon was placed between `CREATE TABLE` statements. `timestamp`, `date`, `decimal` and `FOREIGN KEY` were accepted.
 
+`sec_ticker_v` is registered from `source_gateway.sec_tickers` (gateway `{data:[...]}` list). The direct SEC file inferred 10430 columns, and the documented `struct(*)` map decode timed out at 60s. Template `t16` then returned BAH CIK `0001443646`, L3Harris CIK `0000202058`, and Parsons CIK `0000275880`. Details are in `zetaris/results/k1h.json` and `zetaris/results/t16.json`. `zetaris/.state/cache.json` `cached_at` is `2026-10-27T15:01:03.873Z`, the start of a fresh `SHOW LIGHTNING` read. That read's `COUNT probity.sec_registrant_v` timed out; an earlier read in the same pass counted 6 in 10278 ms.
+
 ## Not done
 
 - K7 grants. One API key fills both keys. No second Zetaris user was created, and this lane does not invent one.
-- K3d `payee_app` insert/delete. T22 re-activated `payment_run_item` instead.
-- `sec_ticker_v` / T16. The view is not registered. The live query returned `TABLE_OR_VIEW_NOT_FOUND`.
+- K3d passed live (`scripts/zetaris/k3d.ts`, `zetaris/results/k3d.json`): DQ2 invalid 3 -> 4 -> 3 with no USL re-activation, rows removed, counts restored. Details in `kill_verdicts.json`. `payee_app` has no DELETE, so the script deletes as postgres; ids are BCR-9026-xxxx / CL-99xxx because `ZTEST-` fails the request_id check.
 - JDBC compile fallback. REST compile succeeded. `scripts/zetaris/jdbc-compile.sh` does not log in.
-- Query history. `scripts/zetaris/capture-history.ts` found no `queryId` in the api/driver logs or an `audit` database. `zetaris/results/query_history.json` has `source: null`. Those ids are not Zetaris history.
+- Query history from Zetaris itself. `SHOW QUERY HISTORY` and `SHOW QUERIES` both returned HTTP 400, `no viable alternative at input`. The commands guide has no query-history statement. `zetaris/results/query_history.json` is the hero run `r-20261027T140116Z-e306`: 25 queries, source `probity_queries_file:r-20261027T140116Z-e306`, captured 2026-10-27T15:02:18.935Z.
 - `stage-registry` was not loaded. `db/init/05-registry-stage.sql` is unused.
 
 `SHOW NAMESPACES OR TABLES IN lightning.metastore.probity` returned one row, `vendor360`, with `count` 12 and `activated` null.

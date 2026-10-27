@@ -192,7 +192,8 @@ export class NightshiftClient implements ModelClient {
       const ra = Number(res.headers.get("retry-after"));
       fail("rate_limited", { retry_after_ms: Math.min(Number.isFinite(ra) && ra > 0 ? ra * 1000 : 3000, 10_000) });
     }
-    if (res.status >= 500) fail("server_error");
+    // Nightshift answers 502 with a response_truncated body when the model hit max_tokens: that is a truncation, so the retry raises max_tokens.
+    if (res.status >= 500) fail(/response_truncated/i.test(res.text) ? "truncated" : "server_error");
     if (res.status !== 200) fail("bad_request");
     let parsed: ParsedResponse;
     try {

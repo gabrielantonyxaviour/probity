@@ -40,7 +40,7 @@
     "dev:gateway": "tsx watch services/source-gateway/server.ts",
     "dev:ui": "PAYEE_API_URL=http://localhost:8787 npm --prefix ui run dev -- -p 3100",
     "cli": "node --import tsx app/cli/main.ts",
-    "sample": "SAMPLE_MODE=true node --import tsx app/cli/main.ts run",
+    "sample": "SAMPLE_MODE=true LOG_DIR=${LOG_DIR:-.sample/logs} node --import tsx app/cli/main.ts run --local",
     "warmup": "node --import tsx app/cli/main.ts warmup",
     "smoke": "tsx scripts/smoke.ts",
     "record:examples": "ZETARIS_DOWN_POLICY=error tsx scripts/record_examples.ts",
@@ -71,7 +71,10 @@
     "inbox:prime": "tsx scripts/gen/prime-inbox.ts",
     "gateway:probe": "tsx scripts/gen/probe-gateway-zetaris.ts",
     "test:platform": "vitest run tests/unit/nightshift tests/unit/api tests/unit/cli tests/unit/trace",
-    "zetaris:test": "node --env-file-if-exists=.env.local ./node_modules/vitest/vitest.mjs run --config scripts/zetaris/vitest.config.ts"
+    "zetaris:test": "node --env-file-if-exists=.env.local ./node_modules/vitest/vitest.mjs run --config scripts/zetaris/vitest.config.ts",
+    "eval:nemotron:run": "tsx tests/eval/nemotron/run.ts",
+    "eval:report": "tsx tests/eval/report.ts",
+    "kill:one": "tsx scripts/kill/kill-tests.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

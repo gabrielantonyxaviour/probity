@@ -1,0 +1,248 @@
+{
+  "example_id": "adv-06-near-duplicate-legit",
+  "letter_id": "adv-06-near-duplicate-legit",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Larkfield Translation Services LLC",
+    "letterhead_name": "Larkfield Translation Services LLC",
+    "remit_address": null,
+    "bank": {
+      "bank_name": "Harborline Test Savings (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000781"
+    },
+    "phones": [
+      "(301) 555-0198"
+    ],
+    "effective_date": "2026-11-08",
+    "signer_name": "N. Okafor-Brandt (fictional)",
+    "signer_title": "Office Manager",
+    "sender_email": null,
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "letterhead_name",
+      "text": "Larkfield Translation Services LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 581,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "6073 Tamarack Dr, Silver Spring, MD 20902",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 358,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(301) 555-0198",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 193,
+          "w": 133,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_email",
+      "text": "ar@larkfieldtranslation.example",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 293,
+          "y": 193,
+          "w": 263,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 21, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Change of bank account (replaces our letter of October 14)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 701,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "8 November 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 708,
+          "y": 583,
+          "w": 181,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Larkfield Translation Services LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 329,
+          "y": 614,
+          "w": 335,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Harborline Test Savings (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 769,
+          "w": 337,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 814,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000781  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 858,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Larkfield Translation Services LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 902,
+          "w": 335,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "N. Okafor-Brandt (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1026,
+          "w": 294,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Office Manager",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 1058,
+          "w": 151,
+          "h": 28
+        }
+      ]
+    }
+  ],
+  "adversarial": {
+    "hazard": "near_duplicate_legitimate",
+    "vendor_id": "V-10388",
+    "expect": [
+      "no pressure phrase and no injection: the 'call the number in your vendor file' sentence is the opposite of avoiding verification",
+      "same account and name as original.pdf, only the effective date differs (2026-11-01 vs 2026-11-08)"
+    ],
+    "pressure_kinds": [],
+    "must_not_flag": [
+      "embedded_instruction",
+      "avoid_verification",
+      "urgency",
+      "secrecy",
+      "new_contact"
+    ],
+    "differs_from_original": [
+      "date",
+      "effective_date",
+      "subject",
+      "first paragraph"
+    ]
+  },
+  "injection_spans": [],
+  "account_number": "000999000781"
+}

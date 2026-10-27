@@ -1,7 +1,8 @@
 .git
 node_modules
-ui/node_modules
+**/node_modules
 ui/.next
+ui/.next-*
 .env*
 !.env.example
 logs
@@ -9,4 +10,10 @@ logs
 .demo
 uploads
 tests/**/results
-video
+docs/deck
+**/*.pptx
+**/*.mp4
+# video is a workspace: the lockfile needs its manifest, nothing else
+video/**
+!video/package.json
+zetaris/.state

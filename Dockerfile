@@ -17,6 +17,8 @@ COPY tsconfig.json ./
 COPY bin ./bin
 COPY app ./app
 COPY services ./services
+# The World Model and H-MEM engines are vendored byte-for-byte under vendor/meterless (app/engines/* are one-line facades over them).
+COPY vendor ./vendor
 COPY scripts/fetch-tessdata.ts scripts/smoke.ts ./scripts/
 COPY data ./data
 COPY input_examples ./input_examples

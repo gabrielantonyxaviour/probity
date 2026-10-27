@@ -379,3 +379,21 @@ CREATE LIGHTNING REST TABLE sec_s_0000016058 FROM sec_edgar REQUEST (
 -- @@
 
 CACHE TABLE sec_edgar.sec_s_0000016058
+
+-- @@
+
+DROP LIGHTNING DATABASE TABLE sec_edgar.sec_tickers
+
+-- @@
+
+CREATE LIGHTNING REST TABLE sec_tickers FROM source_gateway REQUEST (
+  endpoint "http://host.docker.internal:8790/sec/tickers",
+  method "GET",
+  http_encoding "URLENCODED",
+  response_type "JSON",
+  insecure_ssl "false"
+) HEADER () BODY ()
+
+-- @@
+
+CACHE TABLE source_gateway.sec_tickers

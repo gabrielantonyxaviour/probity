@@ -1,0 +1,89 @@
+{
+ "id": "a03",
+ "text_original": "A letter that talks to the AI is quoted as a warning sign, never obeyed.",
+ "text_spoken": "A letter that talks to the AI is quoted as a warning sign, never obeyed.",
+ "words": [
+  {
+   "word": "A",
+   "start": 0.0,
+   "end": 0.077
+  },
+  {
+   "word": "letter",
+   "start": 0.154,
+   "end": 0.462
+  },
+  {
+   "word": "that",
+   "start": 0.577,
+   "end": 0.692
+  },
+  {
+   "word": "talks",
+   "start": 0.808,
+   "end": 1.0
+  },
+  {
+   "word": "to",
+   "start": 1.038,
+   "end": 1.077
+  },
+  {
+   "word": "the",
+   "start": 1.154,
+   "end": 1.231
+  },
+  {
+   "word": "AI",
+   "start": 1.308,
+   "end": 1.769
+  },
+  {
+   "word": "is",
+   "start": 1.846,
+   "end": 2.0
+  },
+  {
+   "word": "quoted",
+   "start": 2.077,
+   "end": 2.462
+  },
+  {
+   "word": "as",
+   "start": 2.538,
+   "end": 2.615
+  },
+  {
+   "word": "a",
+   "start": 2.654,
+   "end": 2.692
+  },
+  {
+   "word": "warning",
+   "start": 2.769,
+   "end": 3.154
+  },
+  {
+   "word": "sign,",
+   "start": 3.231,
+   "end": 3.923
+  },
+  {
+   "word": "never",
+   "start": 4.077,
+   "end": 4.385
+  },
+  {
+   "word": "obeyed.",
+   "start": 4.462,
+   "end": 5.077
+  }
+ ],
+ "seconds": 5.08,
+ "window_seconds": 8,
+ "provisional": true,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

@@ -20,12 +20,22 @@ export function appIdFor(prefix: string, runId: string, n: number): string {
   return `${head}${suffix}`;
 }
 
-export function headersFor(token: string, appId: string, scope: "user" | "app" = "app"): Record<string, string> {
+/**
+ * The `meterless-scope` value for one call. Nightshift's H-MEM retrieval walls records off by scope only; `meterless-app`
+ * only weights the score (engine/hmem.js `retrieve`). A shared `app` scope therefore still pulled answers mined from earlier
+ * runs into new prompts (live 2026-10-27: 1 to 3 injected per run). In `app` mode each call gets its own app-scoped
+ * partition, `app:<per-call app id>`, which holds no earlier records; `user` keeps Nightshift's shared default.
+ */
+export function scopeFor(mode: "user" | "app", appId: string): string {
+  return mode === "user" ? "user" : `app:${appId}`;
+}
+
+export function headersFor(token: string, appId: string, mode: "user" | "app" = "app"): Record<string, string> {
   return {
     authorization: `Bearer ${token}`,
     "content-type": "application/json",
     "meterless-app": appId,
-    "meterless-scope": scope,
+    "meterless-scope": scopeFor(mode, appId),
     "meterless-trace": "1",
   };
 }

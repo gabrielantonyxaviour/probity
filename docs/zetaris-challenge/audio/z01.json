@@ -1,0 +1,224 @@
+{
+ "id": "z01",
+ "text_original": "Business email compromise cost victims more than three billion dollars in 2025, according to the FBI. A vendor emails new bank details. Probity checks the request before the money moves, and every fact behind its decision is a query running in Zetaris.",
+ "text_spoken": "Business email compromise cost victims more than three billion dollars in 2025, according to the FBI. A vendor emails new bank details. Probity checks the request before the money moves, and every fact behind its decision is a query running in Zuh-tarris.",
+ "words": [
+  {
+   "word": "Business",
+   "start": 0.0,
+   "end": 0.385
+  },
+  {
+   "word": "email",
+   "start": 0.538,
+   "end": 0.769
+  },
+  {
+   "word": "compromise",
+   "start": 0.846,
+   "end": 1.385
+  },
+  {
+   "word": "cost",
+   "start": 1.462,
+   "end": 1.692
+  },
+  {
+   "word": "victims",
+   "start": 1.769,
+   "end": 2.154
+  },
+  {
+   "word": "more",
+   "start": 2.231,
+   "end": 2.385
+  },
+  {
+   "word": "than",
+   "start": 2.5,
+   "end": 2.615
+  },
+  {
+   "word": "three",
+   "start": 2.692,
+   "end": 2.923
+  },
+  {
+   "word": "billion",
+   "start": 3.154,
+   "end": 3.538
+  },
+  {
+   "word": "dollars",
+   "start": 3.615,
+   "end": 4.0
+  },
+  {
+   "word": "in",
+   "start": 4.077,
+   "end": 4.154
+  },
+  {
+   "word": "2025,",
+   "start": 4.231,
+   "end": 5.308
+  },
+  {
+   "word": "according",
+   "start": 5.5,
+   "end": 5.692
+  },
+  {
+   "word": "to",
+   "start": 5.731,
+   "end": 5.769
+  },
+  {
+   "word": "the",
+   "start": 5.846,
+   "end": 5.923
+  },
+  {
+   "word": "FBI.",
+   "start": 6.0,
+   "end": 6.769
+  },
+  {
+   "word": "A",
+   "start": 7.077,
+   "end": 7.154
+  },
+  {
+   "word": "vendor",
+   "start": 7.231,
+   "end": 7.538
+  },
+  {
+   "word": "emails",
+   "start": 7.615,
+   "end": 8.0
+  },
+  {
+   "word": "new",
+   "start": 8.077,
+   "end": 8.231
+  },
+  {
+   "word": "bank",
+   "start": 8.308,
+   "end": 8.462
+  },
+  {
+   "word": "details.",
+   "start": 8.538,
+   "end": 9.269
+  },
+  {
+   "word": "Probity",
+   "start": 9.462,
+   "end": 9.923
+  },
+  {
+   "word": "checks",
+   "start": 10.0,
+   "end": 10.231
+  },
+  {
+   "word": "the",
+   "start": 10.308,
+   "end": 10.346
+  },
+  {
+   "word": "request",
+   "start": 10.385,
+   "end": 10.769
+  },
+  {
+   "word": "before",
+   "start": 10.846,
+   "end": 11.231
+  },
+  {
+   "word": "the",
+   "start": 11.308,
+   "end": 11.346
+  },
+  {
+   "word": "money",
+   "start": 11.385,
+   "end": 11.615
+  },
+  {
+   "word": "moves,",
+   "start": 11.692,
+   "end": 12.308
+  },
+  {
+   "word": "and",
+   "start": 12.462,
+   "end": 12.615
+  },
+  {
+   "word": "every",
+   "start": 12.808,
+   "end": 13.0
+  },
+  {
+   "word": "fact",
+   "start": 13.154,
+   "end": 13.462
+  },
+  {
+   "word": "behind",
+   "start": 13.538,
+   "end": 13.769
+  },
+  {
+   "word": "its",
+   "start": 13.846,
+   "end": 13.923
+  },
+  {
+   "word": "decision",
+   "start": 14.0,
+   "end": 14.462
+  },
+  {
+   "word": "is",
+   "start": 14.692,
+   "end": 14.769
+  },
+  {
+   "word": "a",
+   "start": 14.846,
+   "end": 14.923
+  },
+  {
+   "word": "query",
+   "start": 15.0,
+   "end": 15.308
+  },
+  {
+   "word": "running",
+   "start": 15.462,
+   "end": 15.692
+  },
+  {
+   "word": "in",
+   "start": 15.769,
+   "end": 15.846
+  },
+  {
+   "word": "Zuh-tarris.",
+   "start": 15.923,
+   "end": 16.846
+  }
+ ],
+ "seconds": 16.85,
+ "window_seconds": 14,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

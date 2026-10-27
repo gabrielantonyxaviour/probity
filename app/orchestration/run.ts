@@ -111,7 +111,7 @@ class Run {
       await deps.ports.world.open();
       this.go("E_START", { inputValid: true });
       const r = await this.intakeStage();
-      if (!r) return this.finishNeedsHuman();
+      if (!r) return this.checkCancel(), this.finishNeedsHuman(); // a Stop during the reader is a cancel, not an unreadable letter
       this.go("E_CLAIMS_OK");
       await recall(ctx);
       this.checkCancel();
@@ -285,7 +285,7 @@ export async function runAgent(input: RunInput, opts: RunAgentOptions): Promise<
   if (opts.zetaris_down) {
     s.extras.zetaris_down = { captured_at: opts.zetaris_down.captured_at ?? "unknown" };
     addPartial(s, opts.zetaris_down.reason);
-    addLimitation(s, `Zetaris unreachable: evidence from offline captures dated ${opts.zetaris_down.captured_at ?? "unknown"}.`);
+    addLimitation(s, `Zetaris unreachable: evidence from offline captures dated ${opts.zetaris_down.captured_at ? opts.zetaris_down.captured_at.slice(0, 10) : "unknown"}.`);
     for (const h of Object.values(s.source_health)) { h.status = "down"; h.mode = "sample"; }
   }
   const run = new Run(s, d, options);

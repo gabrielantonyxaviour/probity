@@ -2,13 +2,14 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { GateDecision } from "@/lib/contracts";
-import { Badge, Chip, StatusGlyph } from "@/components/ui/chip";
+import { Chip, StatusGlyph } from "@/components/ui/chip";
 import { Alert } from "@/components/ui/misc";
 import { DOSSIER, FIXED, MORE, SCRIPT, SWEEP, EXPO, DECISION } from "@/lib/copy";
 import { FACT_STATUS, DECISION_UI, CLASS_WORDS, reasonTitle } from "@/lib/labels";
 import { MODE_LABELS } from "@/lib/labels-trace";
-import { money, plural, runDate, stamp } from "@/lib/format";
+import { isoText, money, plural, runDate, stamp } from "@/lib/format";
 import { maskAccounts } from "@/lib/mask";
+import { factValue } from "@/lib/fact-value";
 import { groupReasons, hasLookalike } from "@/lib/model/reasons";
 import { NemotronJobs } from "@/components/review/NemotronJobs";
 import { ModelLedger } from "@/components/review/ModelLedger";
@@ -74,10 +75,9 @@ export function ScriptSection({ d }: { d: GateDecision }) {
         <div key={i} className="grid gap-2" data-testid="callback-script" data-vendor={s.for_vendor_id ?? ""}>
           {d.callback_scripts.length > 1 ? <p className="t-ui text-fg">{SCRIPT.forVendor(s.vendor_name ?? "", s.for_vendor_id)}</p> : null}
           <p className="t-figure" style={{ fontSize: 28 }} data-testid="callback-number">{s.number_display}</p>
-          <p className="t-ui-sm text-fg-muted">{s.source_label}</p>
-          <div><Badge small>{d.labels.callback_notice}</Badge></div>
+          <p className="t-ui-sm text-fg-muted">{isoText(s.source_label)}</p>
           {s.do_not_use.length ? <div data-testid="do-not-use"><span className="t-eyebrow">{SCRIPT.doNotUse}</span>{s.do_not_use.map((x) => <p key={x.number_display} className="t-ui-sm"><span className="p-struck t-mono-data">{x.number_display}</span> {x.reason}</p>)}</div> : null}
-          <ol className="grid gap-1">{s.lines.map((l, j) => <li key={j} className="t-ui-sm text-fg">{String(j + 1).padStart(2, "0")}  {l}</li>)}</ol>
+          <ol className="grid gap-1">{s.lines.map((l, j) => <li key={j} className="t-ui-sm text-fg">{String(j + 1).padStart(2, "0")}  {isoText(l)}</li>)}</ol>
         </div>
       ))}
       <p className="t-mono-label text-fg-2 mt-2">{DOSSIER.outcomeBlock}</p>
@@ -89,7 +89,7 @@ export function SweepSection({ d }: { d: GateDecision }) {
   const s = d.sweep;
   return (
     <Card n="05" title={DOSSIER.sections.sweep}>
-      <p className="t-ui text-fg">{s.findings.length ? FIXED.sweepHeader(s.findings.length, d.exposure.payment_run_id, money(s.amount_usd)) : SWEEP.none(d.exposure.payment_run_id, d.exposure.run_item_count)}</p>
+      <p className="t-ui text-fg">{s.findings.length ? FIXED.sweepHeader(new Set(s.findings.map((f) => f.item_id)).size, d.exposure.payment_run_id, money(s.amount_usd)) : SWEEP.none(d.exposure.payment_run_id, d.exposure.run_item_count)}</p>
       {s.findings.length ? (
         <Table head={DOSSIER.sweepCols}>
           {s.findings.map((f) => (
@@ -122,7 +122,7 @@ export function EvidenceSection({ d, runId }: { d: GateDecision; runId: string }
             ...f.observations.map((o) => (
               <tr key={`${o.evidence_id}${o.source}`} data-testid="evidence-row">
                 <td className="text-fg-muted">{f.label}</td>
-                <td className="t-wrap-any">{maskAccounts(o.value ?? "—")}</td>
+                <td className="t-wrap-any" title={o.value ?? undefined}>{maskAccounts(factValue(o.value))}</td>
                 <td>{o.source === "request" ? DOSSIER.requestSource : ({ vendor_master: "Our vendor master", usaspending: "USAspending", edgar: "SEC EDGAR" } as Record<string, string>)[o.source]}</td>
                 <td>{MODE_LABELS[o.mode]}</td>
                 <td className="t-mono-data">{stamp(o.fetched_at)}</td>

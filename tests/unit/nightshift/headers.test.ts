@@ -5,7 +5,8 @@ describe("Nightshift headers (05 §4.3, REV-57)", () => {
   it("chat calls carry a per-call lower-case app id <= 48 chars, an app-scoped memory and trace 1", () => {
     const h = headersFor("tok-123456789", appIdFor("probity", "r-20261027T140211Z-9f2c", 3));
     expect(h["meterless-app"]).toBe("probity-r-20261027t140211z-9f2c-3");
-    expect(h["meterless-scope"]).toBe("app"); // live finding: scope user injects earlier answers across app ids
+    // H-MEM walls records off by scope only, so each call gets its own app-scoped partition (live finding 2026-10-27)
+    expect(h["meterless-scope"]).toBe("app:probity-r-20261027t140211z-9f2c-3");
     expect(headersFor("tok-123456789", "probity-x-1", "user")["meterless-scope"]).toBe("user");
     expect(h["meterless-trace"]).toBe("1");
     expect(h["content-type"]).toBe("application/json");
@@ -21,6 +22,10 @@ describe("Nightshift headers (05 §4.3, REV-57)", () => {
       expect(id.endsWith("-17")).toBe(true);
       expect(id).not.toMatch(/--/);
     }
+  });
+  it("different calls never share an app id or an H-MEM scope", () => {
+    const scopes = new Set(Array.from({ length: 30 }, (_v, n) => headersFor("tok-123456789", appIdFor("probity", "r-1-aaaa", n + 1))["meterless-scope"]));
+    expect(scopes.size).toBe(30);
   });
   it("different calls never share an app id (Nightshift injects memory per app id)", () => {
     const ids = new Set(Array.from({ length: 30 }, (_v, n) => appIdFor("probity", "r-1-aaaa", n + 1)));

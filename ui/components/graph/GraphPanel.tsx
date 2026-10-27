@@ -8,6 +8,7 @@ import { Switch } from "@/components/ui/field";
 import { apiGet } from "@/lib/api";
 import { QueryDetail } from "@/lib/contracts";
 import { GRAPH } from "@/lib/copy";
+import { ASOF } from "@/lib/copy-depth";
 import { COLUMNS, LEGEND } from "@/lib/labels-graph";
 import { useBreakpoint } from "@/lib/hooks/use-breakpoint";
 import { useReview } from "@/components/review/review-context";
@@ -16,6 +17,8 @@ import { GraphCanvas } from "./GraphCanvas";
 import { GraphPopover, type PopTarget } from "./GraphPopover";
 import { GraphTable } from "./GraphTable";
 import { layoutGraph } from "./layout";
+import { AsOfScrubber } from "./AsOfScrubber";
+import { asOfTicks, useAsOfGraph } from "@/lib/graph-asof";
 
 function useT10() {
   const { state, runId } = useReview();
@@ -39,8 +42,17 @@ function useT10() {
 export function GraphPanel() {
   const r = useReview();
   const bp = useBreakpoint();
-  const { payload, error, loading, unavailable, retry } = r.graph;
+  const { payload: latest, error, loading, unavailable, retry } = r.graph;
   const decided = r.decided;
+  // D5 time travel: idx null = latest; any other stop asks the server for the graph as of that instant.
+  const [nowIso] = useState(() => new Date().toISOString());
+  const [idx, setIdx] = useState<number | null>(null);
+  const ticks = useMemo(() => (decided && !r.running ? asOfTicks(latest, r.decision?.decided_at ?? null, nowIso) : []), [decided, r.running, latest, r.decision, nowIso]);
+  const tick = idx === null ? null : ticks[idx] ?? null;
+  const at = tick && tick.kind !== "now" ? tick.at : null;
+  const asof = useAsOfGraph(r.runId, at, idx === null ? [] : ticks.filter((t) => t.kind !== "now").map((t) => t.at));
+  const payload = at ? asof.payload ?? latest : latest;
+  const beforeDecision = !!at && !!r.decision && at < r.decision.decided_at;
   const [viewSel, setViewSel] = useState<"path" | "all" | null>(null);
   const [display, setDisplay] = useState<"diagram" | "table" | null>(null);
   const [history, setHistory] = useState(false);
@@ -53,7 +65,7 @@ export function GraphPanel() {
   const t10 = useT10();
   const full = r.param("graph") === "full";
 
-  const view = viewSel ?? (decided ? "path" : "all");
+  const view = beforeDecision ? "all" : viewSel ?? (decided ? "path" : "all");
   const show = display ?? (bp === "narrow" ? "table" : "diagram");
   const holdOrCb = r.decision?.decision !== "APPROVE";
   const hl = highlight ?? (decided && holdOrCb);
@@ -111,7 +123,7 @@ export function GraphPanel() {
 
   const total = payload ? allLayout?.nodes.filter((n) => !n.group).length ?? 0 : 0;
   const panel = (
-    <div className="gr" data-testid="entity-graph" data-full={full || undefined}>
+    <div className="gr" data-testid="entity-graph" data-full={full || undefined} data-asof={at ? "true" : undefined}>
       <div className="gr__bar">
         {show === "diagram" ? (
           <span className="flex items-center gap-2">
@@ -131,6 +143,8 @@ export function GraphPanel() {
           {full ? <Button variant="ghost" onClick={() => r.setParams({ graph: null })} icon={<X />}>Close</Button> : <IconButton label={GRAPH.expand} small onClick={() => r.setParams({ graph: "full" }, "push")}><Maximize2 /></IconButton>}
         </span>
       </div>
+      {ticks.length > 1 ? <AsOfScrubber ticks={ticks} index={idx ?? ticks.length - 1} onIndex={setIdx} loading={!!at && asof.loading} counts={payload ? { nodes: payload.nodes.length, edges: payload.edges.length } : null} /> : null}
+      {at && asof.error ? <div className="p-3"><Alert tone="gap">{ASOF.error}</Alert></div> : null}
       {legend ? <ul className="gr-legend t-ui-xs text-fg-2">{LEGEND.map((l) => <li key={l}>{l}</li>)}</ul> : null}
       {body}
       {payload?.truncated ? <p className="t-ui-xs text-fg-muted p-3">{GRAPH.truncated}</p> : null}

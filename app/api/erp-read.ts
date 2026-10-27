@@ -30,7 +30,9 @@ let cached: { at: number; snap: ErpSnapshot } | null = null;
 const TTL_MS = 3000;
 
 const iso = (v: unknown): string => (v instanceof Date ? v.toISOString() : String(v));
-const dateOnly = (v: unknown): string => (v instanceof Date ? v.toISOString().slice(0, 10) : String(v).slice(0, 10));
+const pad = (n: number) => String(n).padStart(2, "0");
+const dateOnly = (v: unknown): string =>
+  v instanceof Date ? `${v.getFullYear()}-${pad(v.getMonth() + 1)}-${pad(v.getDate())}` : String(v).slice(0, 10);
 
 function readSample(cfg: Config): ErpSnapshot {
   const read = <T>(t: string): T[] => {
@@ -49,7 +51,8 @@ async function readLive(cfg: Config): Promise<ErpSnapshot> {
   pool ??= new pg.Pool({ connectionString: cfg.ERP_DATABASE_URL, max: 3, statement_timeout: 10_000, connectionTimeoutMillis: 5000 });
   const [r, p, i] = await Promise.all([
     pool.query("SELECT request_id, vendor_id, candidate_vendor_ids, claimed_name, claimed_remit_line1, new_routing, new_account_hash, sender_domain, received_at, channel, status, data_origin FROM bank_change_request"),
-    pool.query("SELECT payment_run_id, scheduled_date, cutoff_local, status FROM payment_run"),
+    // DATE as text: node-postgres turns a DATE into local midnight, which toISOString() shifts a day back east of UTC.
+    pool.query("SELECT payment_run_id, scheduled_date::text AS scheduled_date, cutoff_local, status FROM payment_run"),
     pool.query("SELECT payment_run_id, vendor_id FROM payment_run_item"),
   ]);
   return {

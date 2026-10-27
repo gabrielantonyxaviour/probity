@@ -64,7 +64,12 @@ export function allowedFrom(input: unknown): Set<string> {
 }
 
 /** The model sometimes joins sentences as ".; " or leaves no space after a full stop: put them back as plain sentences. */
-export const cleanRationale = (t: string): string => t.replace(/([.!?]);\s*/g, "$1 ").replace(/([a-z0-9)])\.([A-Z])/g, "$1. $2").replace(/\s+/g, " ").trim();
+// A full stop after these is part of a name ("L3Harris Technologies, Inc. in PR-2026-10-30"), not a sentence end.
+const ABBREV = new Set(["Inc", "Corp", "Co", "Ltd", "Jr", "Sr", "St", "No", "Mr", "Ms", "Dr", "vs", "S"]);
+export const cleanRationale = (t: string): string =>
+  t.replace(/([.!?]);\s*/g, "$1 ").replace(/([a-z0-9)])\.([A-Z])/g, "$1. $2").replace(/\s+/g, " ").trim()
+    // "... 2026-10-30. every" -> "Every", but "Inc. in" stays as written
+    .replace(/(\S+)([.!?]) ([a-z])/g, (m: string, w: string, p: string, c: string) => (p === "." && ABBREV.has(w.replace(/^\W+/, "")) ? m : `${w}${p} ${c.toUpperCase()}`));
 
 export function checkRationale(text: string, input: { decision: string; do_not_use?: string[] } & Record<string, unknown>): CheckResult {
   const failures: string[] = [];
@@ -79,7 +84,8 @@ export function checkRationale(text: string, input: { decision: string; do_not_u
   const split = (t: string): string[] => t.split(/(?<=[.!?])\s+(?=[A-Z0-9$"(])/).filter((x) => x.trim().length > 0);
   const high = split(text).length;
   const low = split(text.replace(/\b(Inc|Corp|Co|Ltd|LLC|St|Dr|Rd|Mr|Ms|No|U\.S)\./g, "$1\u0000")).length;
-  if (high < 4 || low > 6) failures.push(`sentence count ${low === high ? high : `${low}-${high}`}`);
+  // 3 to 7 sentences: an APPROVE or a single-reason CALLBACK_VERIFY has less to say than a HOLD with every reason.
+  if (high < 3 || low > 7) failures.push(`sentence count ${low === high ? high : `${low}-${high}`}`);
   const sentences = split(text);
   const dnu = (input.do_not_use ?? []).map((n) => n.replace(/\D/g, ""));
   for (const sentence of sentences) {

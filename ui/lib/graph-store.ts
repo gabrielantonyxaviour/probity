@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { apiGet, ApiClientError } from "./api";
 import { GraphPayload } from "./contracts";
+import { cleanGraph } from "./graph-asof";
 import type { z } from "zod";
 
 export type GraphState = { payload: z.infer<typeof GraphPayload> | null; error: ApiClientError | null; loading: boolean; unavailable: boolean };
@@ -17,7 +18,7 @@ export function useGraph(runId: string, graphSeq: number, settleKey: string): Gr
     timer.current = setTimeout(async () => {
       try {
         const payload = await apiGet(`/runs/${encodeURIComponent(runId)}/graph`, GraphPayload, { signal: ctrl.signal });
-        setSt({ payload, error: null, loading: false, unavailable: false });
+        setSt({ payload: cleanGraph(payload), error: null, loading: false, unavailable: false });
       } catch (e) {
         if (e instanceof DOMException && e.name === "AbortError") return;
         const err = e instanceof ApiClientError ? e : new ApiClientError("network", String(e));

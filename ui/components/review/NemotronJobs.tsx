@@ -7,16 +7,16 @@ import { useReview } from "./review-context";
 
 /** "What Nemotron did in this check" (01 section 17.7): job rows built from trace events; click filters the trace. */
 export function NemotronJobs({ onFilter }: { onFilter?: (seqs: number[]) => void }) {
-  const { state, claims, decision, sample } = useReview();
-  const jobs = useMemo(() => buildJobs({ trace: state.trace, claims, decision, sample }), [state.trace, claims, decision, sample]);
+  const { state, claims, decision, sample, running } = useReview();
+  const jobs = useMemo(() => buildJobs({ trace: state.trace, claims, decision, sample, running }), [state.trace, claims, decision, sample, running]);
   return (
     <div className="nj" data-testid="nemotron-jobs">
       <h3 className="t-eyebrow mb-2">{MODELS.heading}</h3>
       {jobs.map((j) => (
         <button key={j.id} type="button" className="nj__row hp hp--cell" data-testid="nemotron-job" data-job={j.id} onClick={() => onFilter?.(j.events)} disabled={!j.ran}>
-          <span className="t-ui" style={{ color: j.ran ? "var(--agree)" : "var(--gap)" }} aria-hidden>{j.ran ? "✓" : "○"}</span>
+          <span className={`t-ui${j.pending ? " nj__pending" : ""}`} style={{ color: j.ran ? "var(--agree)" : j.pending ? "var(--fg-muted)" : "var(--gap)" }} aria-hidden>{j.ran ? "✓" : j.pending ? "◌" : "○"}</span>
           <span className="min-w-0 grid">
-            <span className="t-ui text-fg">{j.line}</span>
+            <span className={`t-ui ${j.pending ? "text-fg-muted" : "text-fg"}`}>{j.line}</span>
             {j.note ? <span className="t-ui-sm text-fg-muted">{j.note}</span> : null}
             {j.ran && j.model ? (
               <span className="nj__chips">

@@ -1,128 +1,181 @@
-# Probity status: end of wave 1 (integration)
+# Probity status: end of wave 2A (integration)
 
-Written 2026-10-27, about 14:20Z, by the integrator. Deadline 23:45Z.
-Repository `gabrielantonyxaviour/probity` (private), branch `main`. The integration commit is `168f6a3`.
+Written 2026-10-27, about 16:40Z, by the wave 2A integrator. Deadline 23:45Z.
+Repository `gabrielantonyxaviour/probity` (PUBLIC since 14:44Z), branch `main`. Wave 1 was `168f6a3` and `18b1b7b`; wave 2A is the commit
+that carries this file (message "Probity wave 2A: live quality, sample mode, UI polish, proofs, recording tooling").
+Lane reports: `lanes/{live,sample,ui,zetaris,proofs,record,e2e}.md` (wave 2A) and `lanes/{ui-depth,injection-data,readme-submission}.md`
+(depth lanes that finished in the same window and are in this commit). `lanes/depth-zetaris/` (Grok D3, still running until 16:55Z) is NOT committed.
 
-## 1. What works live
+## 1. What is live now (verified on the running stack)
 
-The live stack ran on this Mac as the README describes. Zetaris was on :8888, registered by the Zetaris lane (`zetaris/.state/registration.json`, phases P0 to P9). Nightshift was on :8088. The ERP Postgres ran in `payee-erp-db` on 55432. The source gateway, the API and the UI ran on the host on :8790, :8787 and :3100.
-`/readyz` returned `ready: true, mode: live`. Both lanes were `confirmed_nemotron`: fast `nvidia/nemotron-3.5-lightning-30b-a3b` and deep `nvidia/nemotron-3-ultra-550b-a55b`. Every receipt shows egress `nvidia`.
+Stack on this Mac: Zetaris :8888 (UI :3000), Nightshift :8088, ERP Postgres `payee-erp-db` :55432, source gateway :8790,
+API :8787 (PID in `lanes/live.md` section 7), **production UI on :3100** (`next start` from `ui/.next-prod`, no dev badge), Remotion Studio :3011.
+`/readyz`: `ready: true, mode: live`; both lanes `confirmed_nemotron` (fast `nvidia/nemotron-3.5-lightning-30b-a3b`, deep `nvidia/nemotron-3-ultra-550b-a55b`).
 
-| Scenario | Run id | Path | Result |
-|---|---|---|---|
-| S1 Booz Allen (first pass) | `r-20261027T135403Z-3a0d` | API | HOLD R1,R4,R6,C1,C5,I5,I6 in 218 s. It exposed the T11 and T20 bugs below: no sibling-address code (R3) and no sweep. |
-| **S1 Booz Allen (hero)** | `r-20261027T140116Z-e306` | **UI**: inbox, Open, Run again, live stream, decision | **HOLD R1,R3,R6,C1,C5,I5,I6** in 197 s. There was one revision round (G1 found the Tinton Falls sibling UEI `KHK6E1JW9C15` through a session table that the run registered). The call-back is the EDGAR number (703) 902-5000, with (703) 555-0147 and (703) 555-0182 marked do-not-use. The sweep found PRI-1030-0009 and PRI-1030-0010 ($150,675.50). Exposure was 3 items, $1,284,550.00. It made 12 Nemotron calls and 25 Zetaris queries. The graph Decision path, the dossier, and the 390 px and 1440 px layouts were checked. |
-| **S3 L3Harris** | `r-20261027T140038Z-af62` | API (the UI showed the decided card) | **APPROVE** in 143 s with zero rounds. It cited call-back CL-20398 on (321) 727-9100 (EDGAR). The sweep ran as in S1. The ERP status was written as `approved`. |
-| Inbox priming (real runs) | see section 6 | API, through `scripts/gen/prime-inbox.ts` | Five everyday requests ran through real agent runs, so the inbox now has decided history. |
-| S8 SAMPLE_MODE | none kept | CLI `--local` | **Broken.** See F16. |
+**Hero S1, run by the integrator through the production UI at 16:10Z** (inbox, All, Open BCR-2026-0412, Run again, live stream, decision):
 
-Re-run in Zetaris (F18): `POST /zetaris/rerun` on the stored S1 queries T03, T11 and T20 returned `match: true` (new Zetaris query ids, same `row_hash`).
-Persistence: the run history, decisions and graph survived an API restart. The ERP holds the real dispositions (`BCR-2026-0412 held`, `BCR-2026-0398 approved`).
+| | `r-20261027T161052Z-29f3` |
+|---|---|
+| Status | **`success`** (no "Partial result"), `limitations: []`, mode `live` |
+| Decision | **HOLD R1, R3, R6, C1, C5, I5, I6**, one revision round (G1 found the Tinton Falls sibling UEI `KHK6E1JW9C15`) |
+| Time | decision at about 313 s, run end 335 s (sweep after the decision) |
+| Models | 11 Nemotron calls, 3 Ultra and 8 Lightning, every receipt egress `nvidia`, **H-MEM injected 0 on all 11** |
+| Rationale | **model text, number check `passed` on the first attempt**: "HOLD for Booz Allen Hamilton Inc in PR-2026-10-30. Sender domain boozallen-payments.example is not on file ... it imitates boozallen. The claimed remit address belongs to BOOZ ALLEN HAMILTON INC (UEI KHK6E1JW9C15), a different entity that is not our vendor of record ... Call (703) 902-5000 (SEC EDGAR submissions, CIK 0001443646, fetched 2026-10-27), and do not use (703) 555-0147, (703) 555-0182. 2 other items totalling $150,675.50 in PR-2026-10-30 also fail payment controls." |
+| HOLD beat on screen | call-back (703) 902-5000 (EDGAR) with both do-not-use numbers struck, exposure PR-2026-10-30 **Fri 30 Oct 2026** 3 items $1,284,550.00, on hold 3 items, sweep **2 items $150,675.50** (PRI-1030-0009, PRI-1030-0010), 22 Zetaris queries, evidence coverage 4 of 4 live |
 
-## 2. Integration fixes made in wave 1
+**S3 L3Harris, also through the UI at 16:17Z** (Open BCR-2026-0398, Run again): `r-20261027T161748Z-5614`, **APPROVE, status `success`**, 238.5 s,
+no reason codes, call-back evidence CL-20398 on (321) 727-9100 (EDGAR), 5 Nemotron calls (1 Ultra, 4 Lightning), egress `nvidia`, H-MEM 0, model rationale
+`passed`. Its stored text reads "L3Harris Technologies, Inc. In PR-2026-10-30" (a capital after "Inc."); the clean-up is fixed for later runs (16:23Z restart).
+On an APPROVE the model text still says "Call (321) 727-9100 ... and do not use (321) 555-0144", which the guard allows.
 
-| Fix | File | Effect |
+Earlier wave 2A live runs (live lane, all with override ids; their ERP rows were deleted at 15:59Z, the run records stay in `logs/`):
+
+| Beat | Run id | Outcome |
 |---|---|---|
-| T11 unions only `pp_usa_r_*` recipient session tables | `app/templates/registry.ts` | The children and EDGAR session tables have no `location` struct, so every S1 T11 query failed with `zetaris_bad_request`. That removed R3, the hero catch. |
-| T20 declares the real `RUN DQ` header (`name, table, type, total_record, valid_record, invalid_record`) | `app/templates/dq.ts` | Every sweep failed with `zetaris_shape_mismatch` and the run showed "sweep unavailable". |
-| Run records own their `live` state | `app/runtime/run-record.ts` (+ `tests/unit/api/run-record-isolation.test.ts`) | zod 4 shallow-clones literal defaults, so concurrent runs shared one `observations` array. The L3Harris rows appeared in the Booz Allen fact sheet. The two affected records were cleaned to their own query ids. |
-| `GET /runs/:id/graph` passes the run's decision | `app/api/routes/runs.ts`, `app/schemas/engines.ts` (additive) | The Decision path showed only the request node. It now shows the conflict, the do-not-use numbers, the call-back number and "not our vendor". |
-| Inbox `erp_status` (additive) plus a chip and a Decided tab | `app/api/inbox.ts`, `app/schemas/api-routes.ts`, `ui/components/inbox/*`, `ui/lib/labels.ts` | Ten closed ERP requests read "Not checked" with a dead action. They now read "Applied in ERP", "Rejected in ERP" or "Withdrawn". |
-| The stored-query re-run accepts the returned header | `app/runtime/zetaris-port.ts` | `POST /zetaris/rerun` always answered `zetaris_shape_mismatch` (stored records carry no columns). |
-| NEEDS.md applied | `package.json` scripts, `tsconfig`, `eslint`, `.prettierignore`, `.gitignore`, `scripts/check-lines.ts`, `ui/package.json` (pino, lint, test), gateway `pg`, `.env.example` `METERLESS_SCOPE` | Typecheck, tests and lint are green (see section 7). |
-| Lint and test hygiene | Zetaris lane files (unused vars, escapes); `tests/unit/data/ddl-live.test.ts` | Root and UI eslint are clean. The live database tests now tolerate runtime requests. |
+| **S3 call-back flow, fully live** | `r-20261027T154253Z-7f4f` -> CL-40003 -> **`r-20261027T155604Z-4bed`** | CALLBACK_VERIFY, then `POST /callbacks`, then **APPROVE, status `success`**, 169 s, H-MEM 0, model rationale passed first attempt |
+| S2 two candidates | `r-20261027T150827Z-d7a6` | HOLD R4,C1,C2,I2, `multi_candidate`, two call-back scripts (SAIC (703) 676-4300, Leidos (571) 526-6000) |
+| S4 V2X call-back | `r-20261027T153455Z-c1f0` -> CL-40002 -> `r-20261027T153636Z-9051` | C1 cleared by the logged call-back; C2 (captures) kept it at CALLBACK_VERIFY |
+| S6 three sessions | `371e` -> `5027` -> `e243` (`r-20261027T1506..1510`) | session B and C HOLD with **R5** memory recall (phone (703) 555-0147 from session A) |
+| S7 simulated EDGAR outage | `r-20261027T153446Z-c3c9` | CALLBACK_VERIFY C1,C2 "SEC EDGAR was not reachable during this check (simulated outage)" |
+| S7 real degrade (offline captures) | `r-20261027T145304Z-2e9d` | HOLD R1,R3,R6,C1,C2,C5 in 117 s, labelled banner, G1 catch still made |
+| S9 invalid routing | `r-20261027T151308Z-b5e0` | HOLD **R7** (DQ3) |
+| Everyday request through the UI (e2e live verify) | `r-20261027T150100Z-bf7a` | BCR-2026-0401 HOLD R4,C1,C3 (483 s, Zetaris saturated) |
+
+Other live proofs: Nemotron eval (Ultra 12/12 letters, 72/72 decisive fields; Lightning 3/12, `docs/evidence/nemotron-eval.md`), registry facts
+9/9 (`npm run verify:registry`), kill tests 11 pass / 2 not testable, K3d DQ2 3->4->3 without re-activation (`zetaris/results/k3d.json`),
+T16 `sec_ticker_v` registered (gateway-backed), sample mode (S1 to S4 parity, Docker image built from a clean clone, J-6 with `--network none`).
+
+## 2. What changed in wave 2A
+
+- **H-MEM "Partial result" fixed at the source** (live lane): each Nightshift call sends `meterless-scope: app:<per-call app id>`, a partition with
+  no earlier records. Every receipt since 14:30Z has `hmem.injected 0`.
+- **Rationale writer (F12)**: grounding guard (`app/policy/rationale-guard.ts`), plain prompt, plain-sentence template. S1, S2, S3, S4 and S9 stored
+  decisions pass on the first or second attempt. APPROVE text no longer invents a limit.
+- **Policy honesty**: a failed read is "unknown", not "none"; C2 names the failed reads; Stop during the reader ends `cancelled`;
+  `simulate_outage` really drops the source; a run that falls back to captures mid-way is capped by C2.
+- **SAMPLE_MODE (F16)**: real per-template doubles in `app/adapters/sample/*`, fail closed (`sample_data_missing`), parity tests, Docker fixed (F24).
+- **UI**: decision 8 applied (no synthetic/demo labels anywhere in the product or landing), closed ERP rows open a read-only detail, column
+  clipping fixed, pending jobs read "Pending", lineage trace in the evidence drawer, graph as-of scrubber, V-10812 on the Decision path.
+- **Proofs**: Nemotron eval, `verify-registry-facts`, `bench/direct-fetch`, kill tests, `regress.sh`, `judge-sim.sh`, `docs/eval.md`.
+- **Recording tooling**: `scripts/record_examples.ts`, `scripts/record/{screen,zetaris,terminal}.ts`, `video/scripts/tts.py` (narration is provisional).
+- **Data**: S10 injection letter (BCR-2026-0407, inbox now 16 manifest items) and 6 adversarial eval letters.
+- **Integrator fixes (this commit)**:
+  - Payment-run dates were a day early on this UTC+8 Mac (`PR-2026-10-30` read `2026-10-29`; the hero said 7 days to payment instead of 8).
+    `app/api/erp-read.ts` now reads `scheduled_date::text`. Runs before 16:10Z carry the old date in their stored exposure.
+  - `GET /requests` no longer fails the whole inbox (400) on one malformed row; it skips and logs it. Additive `history_run` for closed ERP
+    rows (released run within 14 days of the request, else null).
+  - Nightshift 502 `response_truncated` is now retried as a truncation with a larger `max_tokens` (was a blind `server_error` retry). Test added.
+  - `/readyz` reports one slow Zetaris probe as `degraded` and only a second miss in a row as `offline`; the UI shows "Zetaris unreachable" only
+    for `offline`. Before, every live run flashed "Zetaris unreachable" in the header while it loaded the driver.
+  - Sweep counts count payments, not rule hits (S1: "2 other items", not 3) in the UI and in `video/src/data/facts.ts`.
+  - The model banner says "Nemotron answered, but its wording did not pass Probity's check" when that is what happened.
+  - The system popover shows the full pinned model ids. Muted text inside alerts uses `--fg-2` (axe 4.32:1 -> pass).
+  - The rationale clean-up no longer capitalises the word after "Inc." or "Corp." (test added).
+  - Degrade banner shows the capture day, not a full ISO stamp. Lint fixes in `scripts/zetaris/{capture-history,k3d}.ts`.
+  - NEEDS: `sample` script runs `--local` with `LOG_DIR=.sample/logs` (`.sample/` ignored), `eval:nemotron:run`, `eval:report`, `kill:one`,
+    root `.gitleaks.toml`; the three Grok session logs are force-added so README section 16 links resolve.
 
 ## 3. Feature status
 
-Key: **live** = verified on the running product today. **built** = unit-tested only. **stub/missing** = not usable yet.
-
 | F | Feature | Status |
 |---|---|---|
-| F1 | Letter Reader | **live**: text+deep on S1 and S3 (about 26 to 36 s, Ultra). The OCR path (S4 scan) was not run live this wave. |
-| F2 | Intake and request row | **live**: hashing, `payee_app` insert, candidate attribution; identical re-runs reuse the row. |
-| F3 | Registry Scout | **live**: tier-1 floor plus Lightning tool turns, then the G1 family walk narrowed to NJ. G2 name discovery (S5) was not run live. |
-| F4 | Evidence Runner and templates | **live** for T01 to T11, T20 and T21. T16 is missing because the Zetaris lane did not register `sec_ticker_v`. The T11 split fallback failed silently once; the full T11 now works. |
-| F5 | Registrar | **live**: `register_source` reused `session.pp_usa_r_khk6e1jw9c15`. |
-| F6 | Identity Linker and World Model | **live**: writes with provenance, link proposals and the graph. |
-| F7 | Identity Examiner | **live**: B1, G1 and the Ultra critique ran. The T30 re-query and the R4 to R3 transition were seen in S1. |
-| F8 | Gate policy | **live**: S1 HOLD and S3 APPROVE match the spine. |
-| F9 | Call-back selector | **live**: EDGAR numbers with do-not-use strikes. |
-| F10 | Sweep | **live** after the T20 fix: DQ1 and DQ2 found PRI-1030-0009 and -0010 ($150,675.50). |
-| F11 | Suggested vendor-master edits | built; the UI shows "proposed, not applied". |
-| F12 | Rationale writer | **live but weak.** On S1 the model wording failed the number check twice and fell back to the template. On S3 the model text says the amount "exceeds the limit" on an APPROVE, which is wrong. |
-| F13 | Nightshift adapter | **live**: pins, receipts and the warm-up. Every run is `partial_success` because Nightshift H-MEM injects earlier answers (`hmem_injected` 1 to 3 per run) even with `meterless-scope: app`. |
-| F14 | Tracer | **live**: JSONL, receipts and queries files; masked. |
-| F15 | API and CLI | **live**: run (sync and async), SSE, runs, trace, graph, queries, rerun, requests, readyz. `POST /callbacks`, `POST /outcomes` and cancel were not exercised live this wave. |
-| F16 | SAMPLE_MODE | **broken.** `app/adapters/sample/{zetaris-sample,registrar-sample,search-sample}.ts` do not exist (no lane owned them). A sample S1 returns CALLBACK_VERIFY, "no vendor of record", $0 exposure with status `success`, which is wrong and misleading. `Template.sample()` returns the unfiltered store. The S8 parity claims cannot be met. |
-| F17 | Review UI | **live** for the S1 and S3 flows: inbox, live stepper over SSE, decision card, fact sheet, exposure strip, sweep, trace rail, Nemotron panel and ledger, dossier, mobile. The letter-pane bbox alignment was not inspected (it collapses to a rail after the decision). |
-| F18 | Evidence drawer and Zetaris re-run | API **live** after the fix (`match: true` on T03, T11 and T20). The drawer was not clicked through in the browser. |
-| F19 | Entity graph | **live** after the decision fix. The Decision path omits the V-10812 vendor that already holds the account. |
-| F20 | Outcomes and call-backs (R5, re-evaluation) | built and tested by the agents lane on S4 and S6. Not run live this wave. |
-| F21 | H-MEM notes (COULD) | disabled (`ENABLE_HMEM` off). |
-| F22 | Outage handling and `simulate_outage` | built (`features.simulate_outage: true`). Not run live. Degrade needs the sample ports (F16). |
-| F23 | Model ledger | **live** (calls, tokens, p50 per agent, `nemotron: true`). |
-| F24 | Docker | **broken**: the `Dockerfile` copies `scripts/fetch-tessdata.ts` and `scripts/smoke.ts`, which do not exist. Neither image was built this wave. The judge command in README §7A fails. |
-| F25 | Zetaris deliverables | present (`zetaris/register`, `usl.ddl`, `activate`, `dq_rules.sql`, `explore`, `results`). K7 grants and query history are open. |
-| F26 | Document generator | built (data lane). |
-| F27 | Cheque check | cut. |
-| F28 | Controller view | not built (COULD). |
-| F29 | CIK discovery (T16) | missing: no `sec_ticker_v` view. |
-| F30 | Packaging | README has 101 `{{TBD}}` fills. `output_examples/` is empty and `scripts/record_examples.ts` is missing. |
-| F31 | Nemotron eval | missing: no runner and no `docs/evidence/`. |
-| F32 | Judge proofs | missing: `scripts/verify-registry-facts.ts` and `bench/direct-fetch.ts`. |
+| F1 | Letter Reader | **live** (Ultra). Lightning is unreliable on the A1 schema (eval 3/12). The S1-instruction letter (R04) ended NEEDS_HUMAN (`r-20261027T145351Z-f121`). |
+| F2 to F11 | Intake, Scout, Evidence Runner, Registrar, World Model, Examiner, Gate, Call-back, Sweep, edits | **live** |
+| F12 | Rationale writer | **live**, grounded; a six-code HOLD on captures can still fall back to the template |
+| F13 | Nightshift adapter | **live**, H-MEM injection 0 |
+| F15 | API and CLI | **live**, including `POST /callbacks` and re-evaluation (S3, S4), Stop, Run again, `simulate_outage` |
+| F16 | SAMPLE_MODE | **built and verified** (CLI `--local`, Docker, parity) |
+| F17 to F19 | Review UI, evidence drawer and lineage, graph | **live** on the production build |
+| F20 | Outcomes and call-backs | **live** (S4, S6) |
+| F22 | Outage handling | **live** (S7 real and simulated) |
+| F24 | Docker | **builds** from a clean clone (sample profile); `judge-sim` past J-3a not re-run |
+| F29 | T16 CIK discovery | registered (`sec_ticker_v`, gateway-backed); S5 not run live |
+| F30 | Packaging | README has 0 `{{` tokens; `output_examples/` still empty (wave 2B step 2) |
+| F31, F32 | Eval and judge proofs | **built**, evidence in `docs/evidence/`, `bench/results.json` |
 
-Also missing, though `package.json` names them: `scripts/setup.ts`, `scripts/smoke.ts`, `tests/eval/run.ts`, `tests/judge/judge-sim.sh`, `scripts/kill/run-all.sh`, `scripts/regress.sh`, and the parity and integration suites.
-Video and deck: the Remotion project and the draft render exist (`video/out/probity-motion-draft.mp4`). `facts.generated.json` is pending a recorded run. No screen recordings exist yet. The deck `.pptx` (38 MB) is git-ignored and stays local.
+## 4. Still broken or open (ordered by demo impact)
 
-## 4. Where it still feels mocked (seen from the user's seat)
+1. **Zetaris latency under concurrent load.** Today's S1 reached its decision at about 313 s (the wave-1 hero took 197 s); with other lanes on
+   the driver, runs hit the 480 s budget and come out capped (C2, `partial_success`). Record only on a quiet driver (runbook preamble).
+   Two idle wave-1 `tests/unit/_live-run.ts 04-v2x-remit-change` processes (PIDs 54232, 63261, since 13:37Z) are still alive; not this lane's to kill.
+2. **Stale run history in the inbox.** `db:reset` does not touch `logs/`. Runs whose ERP rows were deleted (override ids BCR-2026-06xx) stay in
+   the inbox as run-only rows (a second "Booz Allen Hamilton Inc." row, BCR-2026-0601), and their stored exposure carries the old
+   `2026-10-29` date, so the inbox head reads "Next run PR-2026-10-30 · Thu 29 Oct". Runbook step 1 archives them.
+3. **"(fictional)" is part of the ERP seed names** ("Quillan Ridge Fleet Services LLC (fictional)", most history vendors, contact names). It shows in
+   the inbox, the fact sheet and even the model rationale. Decision 8 bans on-screen labels; this one comes from the data. Needs Gabriel's call:
+   change `scripts/seed` names (then `npm run gen:all`, captures and row hashes follow) before the 2B reset, or accept it.
+4. **Decision JSON still carries labels** `labels.synthetic_notice` and `labels.callback_notice: "Demo scenario: do not call."` (frozen schema literal in
+   `app/schemas/decision.ts:276`), the CLI prints them, and the letter reader adds the limitation "Document lacks the synthetic watermark." for
+   letters without it (BCR-2026-0434). The UI renders none of them; the README `jq` output and `output_examples/*/response.json` will show them.
+5. **R04 injection letter** (`tests/eval/nemotron/letters/s1-instruction/letter.pdf`) uploaded through `/app/new` ended NEEDS_HUMAN
+   (`r-20261027T145351Z-f121`: the fast path failed, Ultra quoted 0 claims). The new S10 letter (BCR-2026-0407) has not been run live. The 502
+   `response_truncated` fix may help the fast path; not re-run.
+6. **Not run live yet:** S5 (name only, T16), the Stop check after its fix (unit-tested), S10, the e2e live verify after the fixes.
+7. **Narration is provisional** (`docs/video/audio/*.m4a`, `docs/zetaris-challenge/audio/*.m4a`, not committed: 7 MB of the cloned voice, regenerated in
+   2B). a01's last sentence and the R02 lower third say "synthetic", which decision 8 keeps out of the product (it allows the video description).
+8. **Submission docs**: `docs/SPONSOR_TECH.md` has 8 `{{...}}` tokens and `docs/zetaris-challenge.md` 4 (and stale dates; the new dates are in
+   `docs/zetaris-challenge/script.md`). README has 0. Video and deck URLs are "to be added".
+9. **Docker judge path**: the sample image builds and passes smoke and J-6 from a clean clone; `judge-sim.sh` past J-3a was not re-run.
+   `ui/Dockerfile` installs unpinned (no UI lockfile). K7 (second Zetaris key) not done.
+10. **Small UI items**: the graph draws the KHK6E1JW9C15 `located_at` edge behind the phone card; trace rail rows show raw
+    "5768/1213 tokens, finish stop" summaries; the rationale joins caps with "; " so a sentence reads "...; The vendor's phone...".
+11. **Depth lane D3** (`lanes/depth-zetaris/`: DQ7 to DQ9 and the T23 federated query, Grok) finished its report at 16:15Z but is not in this
+    commit and not wired into the sweep. `app/templates/*` still hold the dead unfiltered `sample:` entries.
 
-1. Every decided row and card reads **"Partial result"**. That comes from Nightshift H-MEM injection, not from anything the user did, so it reads as a broken product. Fix it at the source (see action 1).
-2. **"Demo · synthetic" on every inbox row**, plus a header badge and the footer line. The honesty label is needed once, not 25 times. Repeated, it makes the inbox look like a demo.
-3. **The rationale contradicts the decision** (S3 APPROVE: "exceeds the limit ... exceeds the maximum allowed"). On S1 it is a template fallback that reads like a code dump ("HOLD for Booz Allen Hamilton Inc in PR-2026-10-30. Sender domain ...").
-4. **SAMPLE_MODE answers confidently and wrongly.** It reports `success` and "no vendor of record" while every query failed.
-5. Closed ERP history rows have no detail: the action is "—" and clicking does nothing. The rows also show the next payment run (PR-2026-10-30) for requests applied months ago.
-6. The queue's **action column clips** at 1440 px: the OPEN button runs past the table edge.
-7. **"What Nemotron did" reads "Not needed in this check"** for steps that are still pending during a live run.
-8. **The Next dev indicator** (the "N" badge) is on screen in dev. Record from `next build && next start`.
-9. "DEMO SCENARIO: DO NOT CALL." appears four times on one card next to the same real EDGAR number.
-10. Before this session the inbox had **zero checks**: every request read "Not checked". Priming now gives it five real decided items (section 6). Before recording, run reset, then record the examples, then reset again, then prime.
+E2E: `npx playwright test --grep-invert @live --workers=3` at 16:24Z on the production build: **72 passed, 0 failed, 0 skipped** (was 46/23/3 at 15:48Z).
+The S3 APPROVE, APPROVE chip, labels, popover ids and contrast failures are fixed; the evidence Re-run test ran (Zetaris up). The review axe failure that remained
+was a mid-fade read of the decision card, so `tests/e2e/ui/a11y.spec.ts` now waits for running animations before axe. The `@live` verify was not re-run.
 
-Fixed in this wave (previously mocked or broken): the empty Decision-path graph, the dead "Not checked" history rows, cross-run fact-sheet contamination, the missing sweep, the missing sibling-address catch, and the Zetaris re-run that always failed.
+## 5. Wave 2B runbook (exact order)
 
-## 5. Running state left for Gabriel
+Run from `probity/`. Before step 1: nothing else may load Zetaris (no bench, parity, eval, kill or Grok probes; check `docker stats zetaris-driver-1`
+is near 0% and `curl -s localhost:8787/readyz` shows `zetaris_query ok` under 1 s). Kill the two idle wave-1 `tests/unit/_live-run.ts` processes
+(PIDs 54232 and 63261) only with Gabriel's or their owner's say-so.
 
-- API: `node --import tsx app/server.ts` on :8787 (host, `LOG_FORMAT=json`), restarted after the last fix. `POST /zetaris/rerun` on the S1 T03, T11 and T20 queries returns `match: true`.
-- Gateway on :8790 (host). UI dev server on :3100 (`NEXT_DIST_DIR=.next-ui3100`). The motion lane's Remotion Studio is on :3011.
-- ERP rows written by live runs: BCR-2026-0412 (`held`), BCR-2026-0398 (`approved`) and the primed requests. `npm run db:reset` returns the ERP to the seed.
+1. **Reset the ERP and archive the dev run history.** `npm run db:reset` returns the ERP to the seed. Then move today's dev runs out of the
+   history the API serves (it reads only top-level `logs/run-*.json`), keeping the warm-up files:
+   `mkdir -p logs/archive-2a && find logs -maxdepth 1 -type f \( -name 'run-*' -o -name 'state-*' -o -name 'trace-*' -o -name 'queries-*' -o -name 'receipts-r-*' \) -exec mv {} logs/archive-2a/ \;`
+   then restart the API (`kill <pid on :8787>`, then `LOG_FORMAT=json nohup node --import tsx app/server.ts >> <log> 2>&1 &` from `probity/`, and note it in
+   `lanes/live.md`). The hero ids in this file stay readable in `logs/archive-2a/`. Delete `tests/e2e/live-verify-result.json` if the e2e live verify will be re-run.
+2. **Record the examples** (real runs, about 8 to 25 min):
+   `npm run record:examples -- --plan`, then `npm run record:examples -- --only 01,02,03,04,05,05b,06b,06d`.
+   Check `output_examples/MANIFEST.json` and that 01 is HOLD R1,R3,R6,C1,C5 and 03 is APPROVE; re-run one example with `--only NN` if Zetaris timed out (C2 in the codes).
+3. **Reset again**: `npm run db:reset` (record_examples wrote ERP rows).
+4. **Prime the inbox** with live runs: `npm run inbox:prime`. Then open :3100/app and confirm the decided tab shows HOLD, APPROVE and CALLBACK_VERIFY rows
+   and no SAMPLE runs on the landing cards.
+5. **Screen recordings** from the production UI on :3100 (already `next start`; after any UI change rebuild with
+   `cd ui && NEXT_DIST_DIR=.next-prod PAYEE_API_URL=http://localhost:8787 npx next build`, then restart `next start -p 3100` with the same env):
+   `npx tsx scripts/record/screen.ts --list`;
+   read slots `npx tsx scripts/record/screen.ts --slot R01,R02,R03,R09,R13 --out docs/video/raw` (pin runs with `--run S1=<run_id>`);
+   run slots `npx tsx scripts/record/screen.ts --slot R05,R06 --out docs/video/raw` (these start real runs);
+   Zetaris console `npx tsx scripts/record/zetaris.ts --scene dq --out docs/video/raw` (R10; never while a run is in progress).
+6. **Facts and narration**: `npx tsx video/scripts/facts.ts && npx tsx video/scripts/check.ts`; then regenerate the narration segments whose fills changed:
+   `python3 video/scripts/tts.py --plan`, `python3 video/scripts/tts.py a01 a10` (and any other segment `--plan` flags). Decide first whether a01's last
+   sentence and the R02 lower third ("synthetic ...") stay: decision 8 puts disclosure only in the README, HackOS text and video description.
+7. **Render film and deck**: `bash video/scripts/render_all.sh` (writes `video/out/probity-motion-draft.mp4` and `deck-silent.mp4`), then
+   `python3 video/scripts/build_pptx.py`; check Keynote autoplay. Upload the film unlisted to YouTube (decision 10).
+8. **Zetaris challenge cut**: `npx tsx scripts/record/zetaris.ts --scene usl --out docs/zetaris-challenge/raw`,
+   `npx tsx scripts/record/terminal.ts --scene grok --out docs/zetaris-challenge/raw`,
+   `python3 video/scripts/tts.py --script docs/zetaris-challenge/vo.json --out docs/zetaris-challenge/audio`, then assemble per
+   `docs/zetaris-challenge/script.md` section 6 (`ZEN_DDMMYY.mp4`; entry window opens 29 Oct, closes 2 Nov 23:45Z, decision 12).
+9. **README fills**: re-run `npx tsx tests/eval/report.ts` (docs/eval.md), update README run ids, timings and section 13 counts from
+   `output_examples/MANIFEST.json`, add the video and deck URLs (README line 17 and `docs/submission/hackos-form.md`), fill the 8 `{{...}}` in
+   `docs/SPONSOR_TECH.md` and the 4 in `docs/zetaris-challenge.md` (branches in hackos-form section 5), then commit by explicit paths and submit.
 
-## 6. Inbox priming (real runs, `scripts/gen/prime-inbox.ts`)
+## 6. Verification at hand-off
 
-| Request | Vendor (fictional) | Run id | Decision | Time |
-|---|---|---|---|---|
-| BCR-2026-0414 | Chesterfield Ridge Staffing Group | `r-20261027T141136Z-dd16` | CALLBACK_VERIFY C1,C3 | 106 s |
-| BCR-2026-0420 | Corbin Hollow HVAC Services | `r-20261027T141322Z-f728` | HOLD R1,C1,C3,I6 | 89 s |
-| BCR-2026-0425 | Granite Shoals Engineering | `r-20261027T141452Z-c7ff` | CALLBACK_VERIFY C1,C3 | 89 s |
-| BCR-2026-0429 | Ostrander Test & Calibration | `r-20261027T141622Z-c580` | CALLBACK_VERIFY C1,C3 | 79 s |
-| BCR-2026-0434 | Bellhaven Print & Mail | `r-20261027T141742Z-868e` | CALLBACK_VERIFY C1,C3 | 109 s |
+After the last edit (16:25Z), on this tree:
 
-All five are live (real Zetaris queries, real Nemotron) and `partial_success`, for the H-MEM reason. BCR-2026-0434 also carries the limitation "Document lacks the synthetic watermark". The mail letter's watermark is not found by the reader; this is a data-lane or A1 item.
-The inbox now shows 7 checked requests (HOLD, APPROVE and CALLBACK_VERIFY), 8 unchecked and 10 closed ERP rows.
+- `tsc --noEmit` root and `ui`: clean. `eslint .` root and `ui`: clean. `check:lines`: ok.
+- `vitest run tests/unit tests/engines`: 60 files, **544 tests passed**. UI: 33 passed, 1 skipped (live fixture). Zetaris co-located: 19 passed.
+  `test:conformance`: World Model 8/8, H-MEM 13/13. `vitest run tests/parity` (sample half): 20 passed, 3 skipped (`LIVE=1` half).
+- E2E as above (72/72). Live S1 and S3 through the UI as in section 1.
+- Secret scan of every committed path against all `.env.local`, `.env.db.local` and Zetaris console values: 0 hits. `gitleaks dir` with the new
+  `.gitleaks.toml`: every hit is in git-ignored paths (`logs/`, `ui/.next*`, `.env*`).
+- Not committed on purpose: `lanes/depth-zetaris/` (separate depth lane), `docs/video/audio/*.m4a` and `docs/zetaris-challenge/audio/*.m4a`
+  (provisional narration in the cloned voice; their `.json` sidecars are committed), `logs/`, `.env*`, the deck `.pptx`, `video/out/`.
 
-## 7. Verification at hand-off
-
-- `npm run typecheck` (root and ui): clean.
-- `vitest run tests/unit tests/engines`: 55 files, 511 tests passed. The UI suite has 22 tests and the Zetaris co-located suite 19; both pass. `test:conformance`: World Model 8/8 and H-MEM 13/13.
-- `eslint .` (root) and `ui` eslint: clean. `check:lines`: ok. A secret scan of every committed file against `.env.local` and `.env.db.local` values found 0 hits.
-
-## 8. Top 10 next actions for wave 2 (ordered by demo impact)
-
-1. **Stop "Partial result" on every live run.** In the Nightshift app settings, turn off H-MEM knowledge (`hmemKnowledge`). This is Gabriel's setting. The product must not call `/v1/policy` itself. Or decide that an H-MEM injection is an informational limitation rather than partial. Then re-run S1 and S3 and confirm `status: success`.
-2. **Fix the rationale writer (F12).** Add a code guard that rejects claims not grounded in the decision's codes (limits, thresholds, "exceeds"). Make the template read as plain sentences. Tighten `gate_officer.md`. Re-check on S1 to S4 until the model text passes without a fallback.
-3. **Record the real runs that feed everything downstream.** Build `scripts/record_examples.ts` (output_examples, plus MANIFEST, through `--save-example`). Run it live for 01 to 04, 05, 05b, 06b and 06d. Then run `video/scripts/facts.ts`, fill the README `{{TBD-from-run}}` fills, and rebuild the deck and the draft film.
-4. **Run the remaining demo beats live through the UI and fix what breaks.** These are S2 (two candidates), S4 (V2X call-back, then Log outcome, then re-evaluation, J3), S6 (outcome in session A, then R5 in session B, `demo:sessions`), S5 (name only, which needs T16 `sec_ticker_v` registered) and S7 (outage, `simulate_outage`). Exercise the evidence drawer, the call-back dialog, the outcome dialog, Stop check and Run again in the browser.
-5. **SAMPLE_MODE (F16, J6, S8).** Write `app/adapters/sample/{zetaris-sample,registrar-sample,search-sample}.ts` with real per-template TS implementations over `data/sample/`, filtered by params; `wiring.ts` already looks for them. Fail closed, never `success`, when a template has no sample. Keep sample CLI runs out of the live `logs/` history. Then run S8 parity.
-6. **Make the Docker judge path work (F24).** Add `scripts/fetch-tessdata.ts` and `scripts/smoke.ts`, build both images, and run README §7A and §7B from a clean clone.
-7. **UI polish found on live data.** Fix the action-column clipping. Show one page-level synthetic label instead of one per row. Put the account-holding vendor (V-10812) on the Decision path. Show "pending", not "Not needed", while steps run. Give closed ERP rows their own payment run and a read-only detail. Show the "Demo scenario: do not call" label once per card.
-8. **Judge proofs and evals (F31, F32).** Build `scripts/verify-registry-facts.ts`, `bench/direct-fetch.ts` (USL reflection 2a), `eval:nemotron` with `docs/evidence/nemotron-eval.md`, `test:parity`, `judge-sim`, `setup`, `smoke` and `regress`. The package scripts already point at them.
-9. **Video and deck.** After action 3, record the screen slots (`docs/video/slots.json`) from the production UI build, run `render_all.sh` and `build_pptx.py`, and verify Keynote autoplay.
-10. **Zetaris open items.** Register `sec_ticker_v` (T16). Write `cached_at` so call-back labels show the registry fetch time. Close K7 (second key and grants) and the query-history source for the Zetaris challenge doc. Trace why the T11 split fallback fails silently.
+Running state left for Gabriel: API on :8787 (PID in `lanes/live.md` section 7, log in the integrator scratchpad `integ/api.log`), production UI on
+:3100 (`next start` from `ui/.next-prod`), gateway :8790, Zetaris :8888, Nightshift :8088, ERP :55432, Remotion Studio :3011. The ui-depth lane's
+dev server on :3200 and its as-of proxy are still running (not the integrator's to stop). The ERP holds BCR-2026-0412 `held`, BCR-2026-0398 `approved`,
+BCR-2026-0401 `held` (e2e live verify) and the primed requests; wave 2B step 1 resets it.

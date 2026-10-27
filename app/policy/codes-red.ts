@@ -5,7 +5,10 @@ import { claimedAddress, listCapped, matchesFor, t11Matches } from "./address";
 import { isValidAba } from "./aba";
 import { mk } from "./code-util";
 import { lookalikeOf, registrable, formatAddress, nameNorm } from "./normalise";
-import { evidenceIds, onFileDomains, queriesOf, rowsOf, str, type Row } from "./rows";
+import { evidenceIds, failedReads, onFileDomains, queriesOf, rowsOf, str, type Row } from "./rows";
+
+/** Plain words for a link type in reason text (an AP clerk reads it; no snake_case field names). */
+const linkWords = (type: string): string => (type === "remit_owner" ? "remit-address owner" : type.replace(/_/g, " "));
 
 export type RedOpts = { atDecide: boolean; sampleMode: boolean };
 const names = (s: PolicyState): string => s.candidates.map((c) => c.legal_name).join(" or ") || "the vendor";
@@ -13,6 +16,8 @@ const names = (s: PolicyState): string => s.candidates.map((c) => c.legal_name).
 export function r1(s: PolicyState): ReasonCode | null {
   if (!s.eml || s.candidates.length === 0) return null;
   const ids = s.candidates.map((c) => c.vendor_id);
+  // The on-file domains come from T01. If that read failed, they are unknown, not "none" (C2 reports the failed read).
+  if (failedReads(s).some((f) => f.template_id === "T01")) return null;
   const onFile = onFileDomains(s, ids);
   const reg = onFile.map(registrable);
   const senders = [s.eml.from_domain, s.eml.reply_to_domain].filter((d): d is string => !!d);
@@ -38,6 +43,7 @@ export function r2(s: PolicyState): ReasonCode | null {
   const claimed = claimedAddress(s);
   if (!claimed || s.candidates.length === 0) return null;
   if (tier2Failed(s)) return null; // reported as R4 link_pending: the claim "matches nothing" would be unsupported
+  if (failedReads(s).some((f) => ["T01", "T05", "T05b", "T07"].includes(f.template_id))) return null; // addresses unknown: C2
   const hasRegistry = s.candidates.some((c) => c.uei || c.registrant_cik);
   if (!hasRegistry) return null;
   const approvedSoft = (to: string) => Object.values(s.links).some((l) => l.type === "remit_owner" && l.status === "approved" && l.to === to);
@@ -81,18 +87,18 @@ export function r4(s: PolicyState, o: RedOpts): ReasonCode | null {
   if (rej) {
     const vendor = linkVendorId(s, rej);
     const reason = rej.verdicts.at(-1)?.rationale || rej.rule_hits.join(", ") || "evidence did not support it";
-    return mk("R4", `Identity Examiner rejected the ${rej.type} link for ${vendor}: ${reason}.`, rej.evidence_ids, { variant: "link_rejected" });
+    return mk("R4", `Identity Examiner rejected the ${linkWords(rej.type)} link for ${vendor}: ${reason}.`, rej.evidence_ids, { variant: "link_rejected" });
   }
   if (o.atDecide && s.candidates.length === 1 && claimedAddress(s) && tier2Failed(s) && !matchesFor(s).some((m) => m.kind === "hard")) {
     const suffix = o.sampleMode ? " Sample mode does not run the Examiner's model step." : "";
-    return mk("R4", `The remit_owner link for ${s.candidates[0]!.vendor_id} was not examined, so it stays held.${suffix}`, [], { variant: "link_pending" });
+    return mk("R4", `The ${linkWords("remit_owner")} link for ${s.candidates[0]!.vendor_id} was not examined, so it stays held.${suffix}`, [], { variant: "link_pending" });
   }
   if (o.atDecide) {
     const pend = links.find((l) => l.status === "pending" || l.status === "proposed");
     if (pend) {
       const vendor = linkVendorId(s, pend);
       const suffix = o.sampleMode ? " Sample mode does not run the Examiner's model step." : "";
-      return mk("R4", `The ${pend.type} link for ${vendor} was not examined, so it stays held.${suffix}`, pend.evidence_ids, { variant: "link_pending" });
+      return mk("R4", `The ${linkWords(pend.type)} link for ${vendor} was not examined, so it stays held.${suffix}`, pend.evidence_ids, { variant: "link_pending" });
     }
   }
   return null;

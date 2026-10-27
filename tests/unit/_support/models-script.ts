@@ -43,12 +43,16 @@ export type ScriptOpts = {
 };
 
 export const sentence = (t: string): string => (/[.!?]$/.test(t) ? t : `${t}.`);
-export type RationaleInput = { decision: string; vendor_name: string; vendor_id: string; payment_run_id: string; codes: Array<{ detail: string }>; callback: { number_display: string; number_source_label: string } | null; do_not_use: string[]; sweep: { k: number; amount_display: string } };
+export type RationaleInput = { decision: string; vendor_name: string; vendor_id: string; payment_run_id: string; codes: Array<{ class?: string; detail: string }>; callback: { number_display: string; number_source_label: string } | null; do_not_use: string[]; sweep: { k: number; amount_display: string } | null };
+/** A faithful rationale in the gate_officer.md shape: lead, red reasons, caps, call-back, sweep. */
 export function defaultRationale(i: RationaleInput): string {
-  const reds = (i.codes as Array<{ detail: string }>).slice(0, 2).map((c) => sentence(c.detail));
-  const cb = i.callback ? `Call ${i.callback.number_display} (${i.callback.number_source_label}); do not use ${(i.do_not_use as string[]).join(" or ") || "the numbers on the request"}.` : "No independent number was found.";
-  const sweep = i.sweep.k > 0 ? `Not asked, but checked: ${i.sweep.k} other item(s) in ${i.payment_run_id} (${i.sweep.amount_display}) fail payment controls.` : "No other items failed.";
-  return [`${i.decision}: ${i.vendor_name} (${i.vendor_id}) in ${i.payment_run_id}.`, ...reds, cb, sweep, "The vendor's items need review before release."].join(" ");
+  const join = (cls: string) => i.codes.filter((c) => (c.class ?? "red") === cls).map((c) => c.detail.replace(/[.\s]+$/, "")).join("; ");
+  const reds = join("red");
+  const caps = join("cap");
+  const dnu = i.do_not_use as string[];
+  const cb = i.callback ? `Call ${i.callback.number_display} (${i.callback.number_source_label})${dnu.length ? `, and do not use ${dnu.join(" or ")}` : ""}.` : null;
+  const sweep = i.sweep && i.sweep.k > 0 ? `${i.sweep.k} other items totalling ${i.sweep.amount_display} in ${i.payment_run_id} also fail payment controls.` : null;
+  return [`${i.decision} for ${i.vendor_name} in ${i.payment_run_id}.`, reds ? sentence(reds) : null, caps ? sentence(caps) : null, cb, sweep].filter(Boolean).join(" ");
 }
 
 export function scriptFor(o: ScriptOpts = {}): ModelScript {

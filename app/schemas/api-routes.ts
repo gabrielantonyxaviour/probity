@@ -21,6 +21,8 @@ export const InboxItem = z.object({
   synthetic: z.boolean(),
   /** Additive (integration wave 1): the ERP's own disposition of the request, so closed history reads as closed. */
   erp_status: z.enum(["pending", "callback_pending", "approved", "held", "applied", "rejected", "withdrawn"]).nullable().optional(),
+  /** Additive (wave 2A): for a closed ERP row, the released run on or after the request day (null when the ERP has none). */
+  history_run: z.object({ payment_run_id: z.string(), scheduled_date: z.string() }).nullable().optional(),
   latest_run: z
     .object({
       run_id: z.string(),

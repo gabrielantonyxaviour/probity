@@ -23,11 +23,14 @@ describe("graph (05 2.7)", () => {
       source_label: "Vendor master",
     });
     expect(now.find((e) => e.to.endsWith("+17035550182"))).toMatchObject({ state: "open", valid_to: null });
-    const then = w.graphFor("BCR-2026-0412", { at: "2026-09-22T15:12:00Z" });
-    expect(then.as_of).toBe("2026-09-22T15:12:00.000Z");
+    // Bitemporal (wm-read graphFor): before the request was received nothing about it was known.
+    const before = w.graphFor("BCR-2026-0412", { at: "2026-09-22T15:12:00Z" });
+    expect(before.as_of).toBe("2026-09-22T15:12:00.000Z");
+    expect(before.edges).toEqual([]);
+    const then = w.graphFor("BCR-2026-0412", { at: "2026-10-22T15:12:00Z" });
     const old = then.edges.filter((e) => e.type === "reachable_at" && e.from === "vendor_record:erp:V-10027");
-    expect(old.find((e) => e.to.endsWith("+17039025000"))!.state).toBe("open");
-    expect(old.find((e) => e.to.endsWith("+17035550182"))!.state).not.toBe("open");
+    expect(old.find((e) => e.to.endsWith("+17039025000"))!.state).not.toBe("open");
+    expect(old.find((e) => e.to.endsWith("+17035550182"))!.state).toBe("open");
     expect(() => w.graphFor("BCR-2026-0412", { at: "not a date" })).toThrow(/valid timestamp/);
     expect(w.graphFor("BCR-2026-9999").nodes).toEqual([]);
   });
@@ -62,7 +65,7 @@ describe("graph (05 2.7)", () => {
     );
     expect(g.nodes.find((n) => n.id.endsWith("+17039025000"))).toMatchObject({
       source_lane: "edgar",
-      sublabel: "Demo scenario: do not call.",
+      sublabel: null, // decision 8: no scenario label in the product (wm-read graphFor)
       flags: ["real_registry"],
     });
   });

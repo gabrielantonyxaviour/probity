@@ -11,7 +11,7 @@ function sides(i: number): string {
   return `src-6-${pick(c6, 6)} src-4-${pick(c4, 4)} src-2-${pick(c2, 2)}`;
 }
 
-/** Section 2: the source legend. Olive dot = synthetic record, teal dot = live registry. Popovers open on hover and focus. */
+/** Section 2: the source legend. Olive dot = internal record, teal dot = live registry. Popovers open on hover and focus. */
 export function SourcesGrid() {
   return (
     <section className="l-sources" aria-label="Sources">
@@ -42,7 +42,7 @@ function Cell({ cell, i }: { cell: (typeof SOURCE_CELLS)[number]; i: number }) {
         {cell.dot ? <span className={`l-dot l-dot--${cell.dot}`} aria-hidden="true" /> : null}
         {cell.label}
         {cell.dot ? (
-          <span className="l-sr-only">{cell.dot === "real" ? " (live registry)" : " (synthetic records)"}</span>
+          <span className="l-sr-only">{cell.dot === "real" ? " (live registry)" : " (your records)"}</span>
         ) : null}
       </button>
       <span id={id} role="tooltip" className="l-pop">

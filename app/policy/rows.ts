@@ -81,3 +81,19 @@ export function evaluatedVendors(s: PolicyState): string[] {
 export function primaryVendorId(s: PolicyState): string | null {
   return s.candidates.length === 1 ? s.candidates[0]!.vendor_id : null;
 }
+
+/** Source of each evidence template, for "this read failed, so the fact is unknown" (never "the fact is absent"). */
+const READ_SOURCE: Record<string, "vendor_master" | "usaspending" | "edgar"> = {
+  T01: "vendor_master", T02: "vendor_master", T03: "vendor_master", T04: "vendor_master", T07: "vendor_master", T08: "vendor_master",
+  T05: "usaspending", T05b: "usaspending", T06a: "usaspending", T06b: "usaspending", T10: "usaspending", T11: "usaspending",
+  T06c: "edgar", T14: "edgar", T16: "edgar",
+};
+
+/** Templates whose every attempt in this run failed with an error, with no successful read of the same template. */
+export function failedReads(s: PolicyState): Array<{ template_id: string; source: "vendor_master" | "usaspending" | "edgar" }> {
+  const qs = Object.values(s.queries);
+  const ids = [...new Set(qs.filter((q) => q.status === "error").map((q) => q.template_id))];
+  return ids
+    .filter((t) => READ_SOURCE[t] && !qs.some((q) => q.template_id === t && (q.status === "ok" || q.status === "empty")))
+    .map((t) => ({ template_id: t, source: READ_SOURCE[t]! }));
+}

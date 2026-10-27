@@ -12,6 +12,7 @@ export interface EmlSpec {
   auth: { spf: "pass" | "softfail"; dkim: "pass" | "none"; dmarc: "pass" | "fail" };
   body: string[];
   company: string;
+  unmarked?: boolean; // fictional vendor: no X-Synthetic-Notice header, no marker line (decision 8)
 }
 export const domainOf = (addr: string): string => addr.slice(addr.indexOf("@") + 1).toLowerCase();
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -47,9 +48,9 @@ export function buildEml(e: EmlSpec): string {
     `To: ${COMPANY.ap_mailbox}`, `Subject: ${e.subject}`, `Date: ${rfcDateEt(e.utc)}`,
     `Message-ID: <${idTag.slice(10, 24)}.${idTag.slice(24, 30).toUpperCase()}@${host === "" ? d : host}>`,
     "MIME-Version: 1.0", "Content-Type: text/plain; charset=utf-8", "Content-Transfer-Encoding: 7bit",
-    `X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by ${e.company}`,
+    ...(e.unmarked ? [] : [`X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by ${e.company}`]),
   ];
-  return `${[...headers, "", "[SYNTHETIC SAMPLE - not a real email]", ...e.body, ""].join("\r\n")}`;
+  return `${[...headers, "", ...(e.unmarked ? [] : ["[SYNTHETIC SAMPLE - not a real email]"]), ...e.body, ""].join("\r\n")}`;
 }
 
 export interface ParsedEml { from: string | null; replyTo: string | null; date: string | null }

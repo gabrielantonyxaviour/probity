@@ -7,6 +7,7 @@ import { DECISION } from "@/lib/copy";
 import { groupReasons, hasLookalike } from "@/lib/model/reasons";
 import { StatusGlyph } from "@/components/ui/chip";
 import { useReview } from "./review-context";
+import { CheckedFacts } from "./CheckedFacts";
 
 function ReasonRow({ r, sessionId, lookalike }: { r: ReasonCode; sessionId: string | null; lookalike: boolean }) {
   const { openEvidence, sample } = useReview();
@@ -56,6 +57,7 @@ export function WhyList() {
     <div className="grid gap-4" data-testid="why-list">
       <Group cls="red" rows={groups.red} sessionId={sessionId} lookalike={lookalike} />
       <Group cls="cap" rows={groups.cap} sessionId={sessionId} lookalike={lookalike} />
+      {groups.red.length === 0 && groups.cap.length === 0 ? <CheckedFacts decision={decision} /> : null}
       {groups.info.length > 0 ? (
         <div>
           <button type="button" className="why-toggle t-ui-sm w-full" aria-expanded={open} onClick={() => setOpen((o) => !o)}>

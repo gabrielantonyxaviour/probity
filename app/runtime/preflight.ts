@@ -27,7 +27,10 @@ export async function preflightZetaris(cfg: Config, ports: Ports): Promise<Prefl
   if (cache && Date.now() - cache.at < 10_000) return cache.value;
   let value: PreflightResult = { ok: true };
   try {
-    const r = await ports.zetaris.ping({ timeoutMs: 5000 });
+    // A busy Zetaris answers SELECT 1 in 5 s or more (seen 14:50Z under load): slow is not unreachable, so a failed first
+    // ping gets one longer second chance before the run is switched to offline captures.
+    let r = await ports.zetaris.ping({ timeoutMs: 5000 });
+    if (!r.ok && r.code !== "zetaris_auth" && r.code !== "zetaris_forbidden") r = await ports.zetaris.ping({ timeoutMs: 20_000 });
     if (!r.ok) {
       const unauth = r.code === "zetaris_auth" || r.code === "zetaris_forbidden";
       value = { ok: false, reason: unauth ? "zetaris_unauthorized" : "zetaris_unreachable", captured_at: capturedAt(cfg) };

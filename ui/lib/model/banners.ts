@@ -44,7 +44,9 @@ export function buildBanners(a: { trace: TraceEvent[]; decision: GateDecision | 
     const fb = FALLBACK_TEXT[e.agent_name];
     if (e.action === "fallback" && fb && !seenAgents.has(e.agent_name) && !/zetaris/i.test(e.note ?? "")) {
       seenAgents.add(e.agent_name);
-      out.push({ key: `model-${e.agent_name}`, tag: BANNERS.tags.model, text: BANNERS.nightshiftFallback(fb.lane, fb.text) });
+      // The gate officer falls back both when the model did not answer and when its text failed the number check.
+      const answered = e.agent_name === "gate_officer" && a.trace.some((x) => x.agent_name === "gate_officer" && x.action === "write_rationale" && x.model != null);
+      out.push({ key: `model-${e.agent_name}`, tag: BANNERS.tags.model, text: answered ? BANNERS.rationaleRejected : BANNERS.nightshiftFallback(fb.lane, fb.text) });
     }
   }
   const nonNem = a.trace.find((e) => e.lane != null && e.model != null && !(e.nemotron ?? isNemotron(e.model)));

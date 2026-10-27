@@ -22,6 +22,7 @@ export const RUN_OPTIONS = {
   "claim-email": { type: "string" },
   "payment-run": { type: "string" },
   "received-at": { type: "string" },
+  "request-id": { type: "string" },
   "simulate-outage": { type: "string" },
   sample: { type: "boolean" },
   json: { type: "boolean" },
@@ -62,8 +63,10 @@ export async function runCommand(argv: string[]): Promise<number> {
   let failure: { status: number; code?: string; error?: string } | null = null;
   const base = apiBase(cfg, values.api);
   const alive = values.local ? { ok: false, mode: null } : await apiAlive(base);
+  // A SAMPLE_MODE CLI never forwards to a live API: it would start a live run (seen 14:25Z). It runs in-process instead.
+  const forward = alive.ok && !(cfg.SAMPLE_MODE && alive.mode !== "sample");
 
-  if (alive.ok) {
+  if (forward) {
     const r = await followRun(base, body, emitLine).catch((e: unknown) => {
       failure = { status: 502, error: e instanceof Error ? "The API stopped answering." : "The API request failed." };
       return null;

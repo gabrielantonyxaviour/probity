@@ -28,8 +28,25 @@ function runsSince(logs: string, sinceMs: number) {
     .sort((a, b) => a.started_at.localeCompare(b.started_at));
 }
 
+function requestIdOf(file: string): string | null {
+  try {
+    return (JSON.parse(readFileSync(file, "utf8")) as { input?: { request_id?: string } }).input?.request_id ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export async function main(argv: string[]): Promise<number> {
-  const { values } = parseArgs({ args: argv, options: { fresh: { type: "boolean" }, sample: { type: "boolean" } } });
+  const { values } = parseArgs({ args: argv, options: { fresh: { type: "boolean" }, sample: { type: "boolean" }, ids: { type: "string" } } });
+  // --ids a,b,c: override request ids for sessions a, b and c, so a live rehearsal never rewrites the seeded requests
+  // (BCR-2026-0412 would otherwise be marked rejected by the fraud_confirmed outcome). Rows under these ids are the caller's to delete.
+  const ids = (values.ids ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+  if (ids.length && (ids.length !== 3 || ids.some((x) => !/^BCR-\d{4}-\d{4}$/.test(x)))) {
+    process.stderr.write("[ERROR] --ids takes three request ids, e.g. BCR-2026-0612,BCR-2026-0631,BCR-2026-0646\n");
+    return 2;
+  }
+  const idArgs = (i: number): string[] => (ids[i] ? ["--request-id", ids[i]!] : []);
+  const s1Request = ids[0] ?? "BCR-2026-0412";
   const cfg = loadConfig(values.sample ? { ...process.env, SAMPLE_MODE: "true" } : process.env);
   const fresh = !!values.fresh || !!values.sample; // --sample implies --fresh
   const stamp = utcCompact(new Date());
@@ -44,11 +61,11 @@ export async function main(argv: string[]): Promise<number> {
   const hmem = cfg.ENABLE_HMEM;
   const ex = (id: string) => path.join(cfg.dirs.examples, id);
   const plan: Array<{ label: string; steps: string[][]; demoEnv: boolean }> = [
-    { label: "a", demoEnv: false, steps: [["run", "--local", "--input", path.join(ex("01-booz-allen-remit-change"), "request.json")], ["outcome", "--local", "--request", "BCR-2026-0412", "--outcome", "fraud_confirmed", "--by", BY]] },
+    { label: "a", demoEnv: false, steps: [["run", "--local", "--input", path.join(ex("01-booz-allen-remit-change"), "request.json"), ...idArgs(0)], ["outcome", "--local", "--request", s1Request, "--outcome", "fraud_confirmed", "--by", BY]] },
     hmem
-      ? { label: "b", demoEnv: true, steps: [["run", "--local", "--input", path.join(ex("06b-caci-lookalike"), "request.json")], ["note", "--local", "--vendor", "V-10112", "--by", BY, "--text", "CACI remits from Chantilly (UEI N3PBJAVNKF61). EDGAR's Reston address is the parent HQ. The address difference is expected."]] }
-      : { label: "b", demoEnv: true, steps: [["run", "--local", "--input", path.join(ex("06b-caci-lookalike"), "request.json")]] },
-    { label: "c", demoEnv: true, steps: [["run", "--local", "--input", hmem ? path.join(ex("06c-caci-clean"), "request.json") : path.join(cfg.dirs.examples, "06d-account-reuse.json")]] },
+      ? { label: "b", demoEnv: true, steps: [["run", "--local", "--input", path.join(ex("06b-caci-lookalike"), "request.json"), ...idArgs(1)], ["note", "--local", "--vendor", "V-10112", "--by", BY, "--text", "CACI remits from Chantilly (UEI N3PBJAVNKF61). EDGAR's Reston address is the parent HQ. The address difference is expected."]] }
+      : { label: "b", demoEnv: true, steps: [["run", "--local", "--input", path.join(ex("06b-caci-lookalike"), "request.json"), ...idArgs(1)]] },
+    { label: "c", demoEnv: true, steps: [["run", "--local", "--input", hmem ? path.join(ex("06c-caci-clean"), "request.json") : path.join(cfg.dirs.examples, "06d-account-reuse.json"), ...idArgs(2)]] },
   ];
 
   const sessions: Session[] = [];
@@ -71,7 +88,11 @@ export async function main(argv: string[]): Promise<number> {
         break;
       }
     }
-    const runs = runsSince(cfg.dirs.logs, started);
+    // Only this session's own runs: other processes (the API, another lane) may start runs in the same logs/ meanwhile.
+    const first = p.steps[0]!;
+    const flag = (name: string): string | null => (first.includes(name) ? first[first.indexOf(name) + 1] ?? null : null);
+    const req = flag("--request-id") ?? requestIdOf(flag("--input") ?? "");
+    const runs = runsSince(cfg.dirs.logs, started).filter((r) => !req || r.request_id === req);
     const last = runs.at(-1);
     sessions.push({
       session_id: last?.session_id ?? null,

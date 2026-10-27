@@ -145,7 +145,9 @@ export async function getLandingState(): Promise<LandingState> {
     await Promise.all(
       DECISIONS.map(async (decision) => {
         const loaded = await Promise.all(candidates(inbox.data, decision).map((c) => loadRun(c, deadline)));
-        const first = loaded.find((r): r is LandingRun => r !== null);
+        // A live API shows its live runs first; offline (sample) runs only when nothing live reached this answer.
+        const ok = loaded.filter((r): r is LandingRun => r !== null);
+        const first = ok.find((r) => state.ready?.mode === "sample" || r.mode !== "sample") ?? ok[0];
         if (first) state.byDecision[decision] = first;
       }),
     );

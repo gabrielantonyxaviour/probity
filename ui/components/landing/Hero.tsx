@@ -27,7 +27,7 @@ export function Hero() {
                   {HERO.secondary}
                 </PillLink>
               </div>
-              <p className="t-mono-label l-hero-note">{HERO.synthetic}</p>
+              <p className="t-mono-label l-hero-note">{HERO.sources}</p>
             </div>
             <a className="l-announce" href="#cases">
               {HERO.announcement}

@@ -1,0 +1,224 @@
+{
+  "at": "2026-10-27T15:57:08.078Z",
+  "id_decision": "bank_change_request.request_id must match ^BCR-[0-9]{4}-[0-9]{4}$ and vendor_contact_log.log_id must match ^CL-[0-9]{5}$. A ZTEST- prefix is rejected, so the rows use BCR-9026-0001 and CL-99001 and are labelled ZTEST synthetic K3d.",
+  "delete_decision": "payee_app is granted INSERT and SELECT only. DELETE is attempted as payee_app, then issued as postgres so the synthetic rows cannot remain. Grants are not changed.",
+  "before": {
+    "bank_change_request": 20,
+    "vendor_contact_log": 29
+  },
+  "steps": [
+    {
+      "name": "ztest_prefix",
+      "ok": true,
+      "detail": "ERROR:  new row for relation \"bank_change_request\" violates check constraint \"bank_change_request_request_id_check\" DETAIL:  Failing row contains (ZTEST-K3D-0001, null, , null, null, null, null, null, null, null, null, null, null, null, null, , , 2026-10-27 14:45:00+00, null, typed, typed, null, pending, SYNTHETIC)."
+    },
+    {
+      "name": "dq2_follow",
+      "ok": true,
+      "detail": "invalid 3 -> 4; gained PRI-0929-0003"
+    },
+    {
+      "name": "dq2",
+      "ok": true,
+      "detail": "invalid 3 -> 3; gained none; PRI-1030-0009 before=true after=true"
+    }
+  ],
+  "n0": {
+    "total": 153,
+    "valid": 150,
+    "invalid": 3,
+    "query_id": "9fc05935-45d2-4687-b4cf-a15a6b9bede5",
+    "latency_ms": 12020
+  },
+  "show0": {
+    "ids": [
+      "PRI-1002-0014",
+      "PRI-1016-0016",
+      "PRI-1030-0009"
+    ],
+    "on_run": [
+      "PRI-1030-0009"
+    ],
+    "query_id": "a71d8c69-3004-4166-98d3-941ebea29e6a",
+    "latency_ms": 2097
+  },
+  "insert_sql": [
+    "INSERT INTO bank_change_request (request_id, vendor_id, candidate_vendor_ids, claimed_name, letterhead_name, new_account_last4, new_account_hash, letter_phones, invoice_refs, received_at, channel, extraction_path, status, data_origin) VALUES ('BCR-9026-0001', NULL, '', 'ZTEST synthetic K3d', 'ZTEST synthetic K3d', '0141', '175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6', '', '', '2026-10-27 14:45:00+00', 'typed', 'typed', 'pending', 'SYNTHETIC')",
+    "INSERT INTO vendor_contact_log (log_id, vendor_id, request_id, purpose, phone_e164, phone_source, outcome, called_at, called_by, data_origin) VALUES ('CL-99001', 'V-10812', 'BCR-9026-0001', 'bank_change_callback', '+17575550163', 'other', 'no_answer', '2026-10-27 14:45:00+00', 'ZTEST synthetic K3d', 'SYNTHETIC')"
+  ],
+  "n1": {
+    "total": 153,
+    "valid": 150,
+    "invalid": 3,
+    "query_id": "626b9b8b-06ba-46b4-ad69-5420306eeb5a",
+    "latency_ms": 5198
+  },
+  "show1": {
+    "ids": [
+      "PRI-1002-0014",
+      "PRI-1016-0016",
+      "PRI-1030-0009"
+    ],
+    "on_run": [
+      "PRI-1030-0009"
+    ],
+    "query_id": "aa74f178-e513-4885-b2ec-3df4ab1abe06",
+    "latency_ms": 2500
+  },
+  "usl_bank": {
+    "sql": "SELECT * FROM lightning.metastore.probity.vendor360.bank_change_request WHERE request_id = 'BCR-9026-0001' LIMIT 5",
+    "query_id": "4ecd6b2e-de67-4161-b81e-99af98e71b1c",
+    "latency_ms": 913,
+    "columns": [
+      "request_id",
+      "vendor_id",
+      "candidate_vendor_ids",
+      "claimed_name",
+      "claimed_name_norm",
+      "letterhead_name",
+      "claimed_remit_line1",
+      "claimed_remit_unit",
+      "claimed_remit_city",
+      "claimed_remit_state",
+      "claimed_remit_zip",
+      "new_routing",
+      "new_account_last4",
+      "new_account_hash",
+      "sender_domain",
+      "reply_to_domain",
+      "letter_phones",
+      "invoice_refs",
+      "received_at",
+      "requested_effective",
+      "channel",
+      "extraction_path",
+      "extraction_model",
+      "status",
+      "data_origin"
+    ],
+    "rows": [
+      [
+        "BCR-9026-0001",
+        null,
+        "",
+        "ZTEST synthetic K3d",
+        "ZTEST SYNTHETIC K3D",
+        "ZTEST synthetic K3d",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "0141",
+        "175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6",
+        null,
+        null,
+        "",
+        "",
+        "2026-10-27 14:45:00.0",
+        null,
+        "typed",
+        "typed",
+        null,
+        "pending",
+        "SYNTHETIC"
+      ]
+    ]
+  },
+  "usl_log": {
+    "sql": "SELECT * FROM lightning.metastore.probity.vendor360.vendor_contact_log WHERE log_id = 'CL-99001' LIMIT 5",
+    "query_id": "7c20b00a-9603-438a-968a-086589f06f1d",
+    "latency_ms": 2068,
+    "columns": [
+      "log_id",
+      "vendor_id",
+      "request_id",
+      "purpose",
+      "phone_e164",
+      "phone_source",
+      "outcome",
+      "called_at",
+      "called_by",
+      "data_origin"
+    ],
+    "rows": [
+      [
+        "CL-99001",
+        "V-10812",
+        "BCR-9026-0001",
+        "bank_change_callback",
+        "+17575550163",
+        "other",
+        "no_answer",
+        "2026-10-27 14:45:00.0",
+        "ZTEST synthetic K3d",
+        "SYNTHETIC"
+      ]
+    ]
+  },
+  "gained_ids": [],
+  "pri_1030_0009_before": true,
+  "pri_1030_0009_after": true,
+  "follow_up": {
+    "item_id": "PRI-0929-0003",
+    "vendor_id": "V-10604",
+    "reason": "V-10812 account was already shared, so DQ2 invalid count did not move",
+    "sql": [
+      "INSERT INTO bank_change_request (request_id, vendor_id, candidate_vendor_ids, claimed_name, letterhead_name, new_account_last4, new_account_hash, letter_phones, invoice_refs, received_at, channel, extraction_path, status, data_origin) VALUES ('BCR-9026-0002', NULL, '', 'ZTEST synthetic K3d', 'ZTEST synthetic K3d', '0733', '3feda1d3f9daf2547ea62603fb7d3bfb38c376b4ee0986ca7b9aeb00e1bfd1ec', '', '', '2026-10-27 14:45:00+00', 'typed', 'typed', 'pending', 'SYNTHETIC')",
+      "INSERT INTO vendor_contact_log (log_id, vendor_id, request_id, purpose, phone_e164, phone_source, outcome, called_at, called_by, data_origin) VALUES ('CL-99002', 'V-10604', 'BCR-9026-0002', 'bank_change_callback', '+17575550163', 'other', 'no_answer', '2026-10-27 14:45:00+00', 'ZTEST synthetic K3d', 'SYNTHETIC')"
+    ]
+  },
+  "n_follow": {
+    "total": 153,
+    "valid": 149,
+    "invalid": 4,
+    "query_id": "ac745e39-0d32-464a-bc41-64eead6e2c44",
+    "latency_ms": 3990
+  },
+  "show_follow": {
+    "ids": [
+      "PRI-1002-0014",
+      "PRI-1016-0016",
+      "PRI-0929-0003",
+      "PRI-1030-0009"
+    ],
+    "on_run": [
+      "PRI-1030-0009"
+    ],
+    "query_id": "c9ce6052-66fe-4876-85b0-1d560c47cb46",
+    "latency_ms": 2224
+  },
+  "gained_ids_follow": [
+    "PRI-0929-0003"
+  ],
+  "remove": {
+    "as_payee_app": "ERROR:  permission denied for table vendor_contact_log",
+    "as_postgres": "deleted"
+  },
+  "leftover": 0,
+  "after": {
+    "bank_change_request": 20,
+    "vendor_contact_log": 29
+  },
+  "n2": {
+    "total": 153,
+    "valid": 150,
+    "invalid": 3,
+    "query_id": "87144796-71b3-4fce-850c-73f6d373b779",
+    "latency_ms": 5734
+  },
+  "show2": {
+    "ids": [
+      "PRI-1002-0014",
+      "PRI-1016-0016",
+      "PRI-1030-0009"
+    ],
+    "on_run": [
+      "PRI-1030-0009"
+    ],
+    "query_id": "b5057302-1536-43a5-bf62-5c732d1bfab4",
+    "latency_ms": 2374
+  },
+  "restored": true
+}

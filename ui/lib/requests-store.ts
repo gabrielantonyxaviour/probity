@@ -4,7 +4,10 @@
 import { useCallback, useEffect, useSyncExternalStore } from "react";
 import { z } from "zod";
 import { apiGet, ApiClientError } from "./api";
-import { InboxResponse, type InboxItem } from "./contracts";
+import { InboxItem as InboxItemSchema, type InboxItem } from "./contracts";
+
+// Loose rows keep additive fields the frozen schema does not name yet (history_run for closed ERP rows).
+const InboxResponseUI = z.array(InboxItemSchema.loose());
 
 type Snap = { items: InboxItem[] | null; error: ApiClientError | null; loading: boolean };
 let snap: Snap = { items: null, error: null, loading: false };
@@ -19,7 +22,7 @@ function set(next: Partial<Snap>) {
 export async function reloadRequests(): Promise<void> {
   if (inflight) return inflight;
   set({ loading: true });
-  inflight = apiGet("/requests", InboxResponse as z.ZodType<InboxItem[]>)
+  inflight = apiGet("/requests", InboxResponseUI as unknown as z.ZodType<InboxItem[]>)
     .then((items) => set({ items, error: null, loading: false }))
     .catch((e: unknown) => set({ error: e instanceof ApiClientError ? e : new ApiClientError("network", String(e)), loading: false }))
     .finally(() => {

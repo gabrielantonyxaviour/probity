@@ -441,3 +441,10 @@ SELECT s.cik AS cik, CAST(f.name AS STRING) AS former_name,
 FROM probity.sec_registrant_v s
 LATERAL VIEW explode(from_json(s.former_names_json, 'array<struct<name:string,`from`:string,`to`:string>>')) AS f
 WHERE upper(trim(CAST(f.name AS STRING))) <> upper(trim(s.legal_name))
+
+-- @@
+
+CREATE OR REPLACE SCHEMASTORE VIEW sec_ticker_v WITH CONTAINER probity AS
+SELECT lpad(CAST(t.cik_str AS STRING), 10, '0') AS cik, CAST(t.ticker AS STRING) AS ticker, CAST(t.title AS STRING) AS title
+FROM source_gateway.sec_tickers
+LATERAL VIEW explode(data) AS t

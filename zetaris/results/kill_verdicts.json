@@ -85,10 +85,10 @@
   },
   {
     "id": "K3d",
-    "pass": null,
-    "evidence": "payee_app insert/delete was not run. T22 re-activated payment_run_item live (514ms on the S1 pass).",
-    "branch": "T22",
-    "at": "2026-10-27T13:26:40Z"
+    "pass": true,
+    "evidence": "Clean run 2026-10-27T15:57:08Z (the first attempt 15:48Z is zetaris/results/k3d_attempt1.json). DQ2 invalid n0=3 (153/150/3, query 9fc05935-45d2-4687-b4cf-a15a6b9bede5, 12020 ms; ids PRI-1002-0014, PRI-1016-0016, PRI-1030-0009). Inserted as payee_app, with no re-activation: BCR-9026-0001 (reuses V-10812's account, which is already shared, so PRI-1030-0009 was invalid before and after; DQ2 stayed 3, query 626b9b8b-06ba-46b4-ad69-5420306eeb5a) and CL-99001, both read back through the vendor360 USL (913 ms and 2068 ms). A second synthetic request BCR-9026-0002 on the single-owner account of V-10604 (one payment item, PRI-0929-0003) moved DQ2 from 3 to 4 (query ac745e39-0d32-464a-bc41-64eead6e2c44, 3990 ms; PRI-0929-0003 gained). After the delete DQ2 was 3 again (query 87144796-71b3-4fce-850c-73f6d373b779). Row counts before and after: bank_change_request 20/20, vendor_contact_log 29/29; labelled leftovers 0. Deviation: payee_app has INSERT and SELECT only, so DELETE ran as postgres. ZTEST- ids are rejected by the request_id check, so ids are BCR-9026-xxxx and CL-99xxx.",
+    "branch": "activation_live",
+    "at": "2026-10-27T15:57:08.078Z"
   },
   {
     "id": "K3e",

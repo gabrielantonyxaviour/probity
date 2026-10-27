@@ -126,5 +126,11 @@ FROM probity.sec_registrant_v s
 LATERAL VIEW explode(from_json(s.former_names_json, 'array<struct<name:string,${bt("from")}:string,${bt("to")}:string>>')) AS f
 WHERE upper(trim(CAST(f.name AS STRING))) <> upper(trim(s.legal_name))`,
     ),
+    view(
+      "sec_ticker_v",
+      `SELECT lpad(CAST(t.cik_str AS STRING), 10, '0') AS cik, CAST(t.ticker AS STRING) AS ticker, CAST(t.title AS STRING) AS title
+FROM source_gateway.sec_tickers
+LATERAL VIEW explode(data) AS t`,
+    ),
   ];
 }

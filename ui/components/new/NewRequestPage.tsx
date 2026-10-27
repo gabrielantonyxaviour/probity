@@ -109,7 +109,7 @@ export function NewRequestPage() {
           {count > 0 ? <Alert tone="conflict" role="alert" testId="error-summary"><span tabIndex={-1}>{NEW.errorSummary}</span></Alert> : null}
           {banner ? <Alert tone="conflict" role="alert" testId="error-banner">{banner}</Alert> : null}
           {tab === "upload" ? <UploadTab s={up} set={(u) => setUp((s) => ({ ...s, ...u }))} errors={errors} runs={runs} /> : <TypedTab f={typed} set={(u) => setTyped((s) => ({ ...s, ...u }))} errors={errors} tries={tries} onTry={(name) => setTyped((s) => ({ ...s, name }))} />}
-          <Alert tone="info" testId="demo-notice">{NEW.demoNotice}</Alert>
+          <p className="t-ui-xs text-fg-muted" data-testid="privacy-notice">{NEW.privacyNotice}</p>
           {features?.simulate_outage ? (
             <details><summary className="t-mono-ui text-fg-2 cursor-pointer">{NEW.advanced}</summary>
               <label className="flex items-center gap-3 mt-3 t-ui-sm"><Switch checked={outage} onCheckedChange={setOutage} label={NEW.outageLabel} />{NEW.outageLabel}</label>

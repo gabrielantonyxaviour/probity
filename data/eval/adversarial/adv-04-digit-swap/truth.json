@@ -1,0 +1,241 @@
+{
+  "example_id": "adv-04-digit-swap",
+  "letter_id": "adv-04-digit-swap",
+  "synthetic": true,
+  "raster_px": [
+    1236,
+    1600
+  ],
+  "values": {
+    "claimed_name": "Fallow Creek Catering LLC",
+    "letterhead_name": "Fallow Creek Catering LLC",
+    "remit_address": null,
+    "bank": {
+      "bank_name": "Harborline Test Savings (fictional)",
+      "routing": "110000000",
+      "account_number": "000999000634"
+    },
+    "phones": [
+      "(703) 555-0105"
+    ],
+    "effective_date": "2026-11-03",
+    "signer_name": "R. Montoya-Faulk (fictional)",
+    "signer_title": "Owner",
+    "sender_email": null,
+    "reply_to": null
+  },
+  "fields": [
+    {
+      "field": "letterhead_name",
+      "text": "Fallow Creek Catering LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 120,
+          "w": 449,
+          "h": 45
+        }
+      ]
+    },
+    {
+      "field": "letterhead_address",
+      "text": "2611 Sedgewick Trl, Alexandria, VA 22304",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 169,
+          "w": 349,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_phone",
+      "text": "(703) 555-0105",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 193,
+          "w": 133,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "letterhead_email",
+      "text": "ap@fallowcreek.example",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 293,
+          "y": 193,
+          "w": 207,
+          "h": 23
+        }
+      ]
+    },
+    {
+      "field": "date",
+      "text": "October 22, 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 274,
+          "w": 177,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "recipient",
+      "text": "Accounts Payable / Halvorsen Mission Systems (fictional) / 1200 Linden Cross Way / Herndon, VA 20170",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 333,
+          "w": 505,
+          "h": 113
+        }
+      ]
+    },
+    {
+      "field": "subject",
+      "text": "Subject: Confirmation of banking details",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 464,
+          "w": 421,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "effective_date",
+      "text": "3 November 2026",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 667,
+          "y": 553,
+          "w": 181,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "claimed_name",
+      "text": "Fallow Creek Catering LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 365,
+          "y": 583,
+          "w": 259,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_name",
+      "text": "Harborline Test Savings (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 662,
+          "w": 337,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_routing",
+      "text": "110000000  TEST ROUTING",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 707,
+          "w": 285,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "bank_account",
+      "text": "000999000634  TEST ACCOUNT",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 751,
+          "w": 328,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "account_name",
+      "text": "Fallow Creek Catering LLC",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 448,
+          "y": 795,
+          "w": 259,
+          "h": 28
+        }
+      ]
+    },
+    {
+      "field": "signer_name",
+      "text": "R. Montoya-Faulk (fictional)",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 919,
+          "w": 299,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "field": "signer_title",
+      "text": "Owner",
+      "boxes": [
+        {
+          "page": 1,
+          "x": 145,
+          "y": 951,
+          "w": 66,
+          "h": 28
+        }
+      ]
+    }
+  ],
+  "adversarial": {
+    "hazard": "digit_swap_account",
+    "vendor_id": "V-10483",
+    "expect": [
+      "account_number is printed exactly (do not correct it to the account on file)",
+      "the account hash differs from the vendor's on-file account, so downstream it is a bank change despite the 'no change' wording"
+    ],
+    "pressure_kinds": [],
+    "must_not_flag": [
+      "embedded_instruction"
+    ],
+    "on_file_account": "000999000643",
+    "printed_account": "000999000634",
+    "difference": "adjacent transposition of the last two digits"
+  },
+  "injection_spans": [],
+  "account_number": "000999000634"
+}

@@ -100,7 +100,6 @@ export function LetterBody({ zoomable = true, wideImage, split }: { zoomable?: b
       ) : <Skeleton w="100%" h={24} />}
       {claims ? <ExtractionChip /> : null}
       {claims && !split ? <ClaimsList claims={claims} /> : null}
-      {claims && claims.watermark_text == null ? <Alert tone="info">{LETTER.noWatermark}</Alert> : null}
       {claims && split ? <div style={{ gridColumn: 2, gridRow: "2 / span 3" }}><ClaimsList claims={claims} /></div> : null}
       <p className="t-ui-xs text-fg-muted" style={split ? { gridColumn: 1 } : undefined}>{LETTER.notInspected}</p>
     </div>

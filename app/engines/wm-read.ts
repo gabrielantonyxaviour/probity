@@ -5,8 +5,9 @@ import type { KnownBadHit, LinkStatusRow, PhoneWindowRow } from "../schemas/engi
 import type { LinkType } from "../schemas/messages";
 import { toIso, sha16 } from "./wm-norm";
 import type { Writer } from "./wm-writer";
-
-export { graphFor } from "./wm-graph";
+import type { GraphPayload } from "../schemas/graph";
+import { AppError } from "../schemas/errors";
+import { graphFor as graphAll, type GraphOpts } from "./wm-graph";
 
 export const linkId = (type: string, from: string, to: string): string => `lnk-${sha16(type + from + to)}`;
 
@@ -83,10 +84,15 @@ export function vendorPhonesAt(w: Writer, vendorId: string, atIso: string): Phon
 
 export const vendorPhoneHistory = (w: Writer, vendorId: string): PhoneWindowRow[] => phoneWindows(w, vendorId, null);
 
-export function linkFacts(w: Writer, requestId: string): Array<{ predicate: string; fact: Fact }> {
+export function linkFacts(
+  w: Writer,
+  requestId: string,
+  at: string | null = null,
+): Array<{ predicate: string; fact: Fact }> {
   const best = new Map<string, Fact>();
   for (const f of w.world.view("facts").about(externalId("request", "req", requestId))) {
     if (!f.predicate.startsWith("link:")) continue;
+    if (at && f.assertedAt > at) continue;
     const cur = best.get(f.predicate);
     if (
       !cur ||
@@ -129,4 +135,125 @@ export function linkStatus(w: Writer, requestId: string): LinkStatusRow[] {
       };
     })
     .sort((a, b) => a.link_id.localeCompare(b.link_id));
+}
+
+// ---- bitemporal graph (D5) ---------------------------------------------------------------------------------------
+// GET /runs/:id/graph?at= answers "what did Probity know at that instant". An edge is shown iff it was valid by then
+// (validFrom <= at; edges that closed before `at` stay visible as closed or superseded history) AND known by then.
+// Known-at: a source of record stamps its own rows (vendor master `src:erp*`, the letter `src:request*`), so its
+// validFrom is when the record existed (the ERP's change request names its vendor, so `cand:` counts too);
+// everything Probity derived (registry reads, family walks, links) is known
+// from its observation time (createdAt). Decision flags appear only once the decision was made, link verdicts only
+// once asserted, fraud and DQ flags only once their facts were asserted. Without `at` the payload is unchanged.
+const RECORD_CONTEXT = /^(src:(erp|request)|cand:)/;
+
+/** When Probity could first have known this edge (see the note above). */
+export function knownAt(r: Relationship): string {
+  return RECORD_CONTEXT.test(r.context ?? "") ? (r.validFrom ?? r.createdAt) : r.createdAt;
+}
+
+/** Decision 8: no scenario labels in the product. wm-graph-nodes still writes one as a phone sublabel. */
+const unlabel = (g: GraphPayload): GraphPayload => ({
+  ...g,
+  nodes: g.nodes.map((n) => (n.sublabel && /demo scenario/i.test(n.sublabel) ? { ...n, sublabel: null } : n)),
+});
+
+export function graphFor(w: Writer, requestId: string, opts: GraphOpts = {}): GraphPayload {
+  return unlabel(graphAsOf(w, requestId, opts));
+}
+
+function graphAsOf(w: Writer, requestId: string, opts: GraphOpts): GraphPayload {
+  if (!opts.at) return graphAll(w, requestId, opts);
+  const at = toIso(opts.at);
+  if (!at) throw new AppError("invalid_input", "The as-of time is not a valid timestamp.", { httpStatus: 400 });
+  const decided = !!opts.decision && toIso(opts.decision.decided_at)! <= at;
+  const g = graphAll(w, requestId, { ...opts, at, decision: decided ? opts.decision : null });
+  if (!g.nodes.length) return g;
+  const rels = new Map(allRelationships(w).map((r) => [r.id, r]));
+  const kept = g.edges.filter((e) => {
+    const r = rels.get(e.id);
+    return !!r && knownAt(r) <= at && (!r.validFrom || r.validFrom <= at);
+  });
+  // Links as of `at`: the latest verdict asserted by then.
+  const links = linkStatusRows(w, requestId, at, g.link_verdicts);
+  const touch = (e: { from: string; to: string }) => (l: { from: string; to: string }) =>
+    (l.from === e.from && l.to === e.to) || (l.from === e.to && l.to === e.from);
+  const edges = kept.map((e) => {
+    const ls = links.filter(touch(e));
+    return { ...e, verdict: ls[0]?.status ?? null, evidence_ids: ls.flatMap((l) => l.evidence_ids) };
+  });
+  // Nodes: the request plus everything reachable from it over the kept edges.
+  const root = g.nodes[0]!.id;
+  const adj = new Map<string, string[]>();
+  for (const e of edges)
+    for (const [a, b] of [
+      [e.from, e.to],
+      [e.to, e.from],
+    ] as const)
+      (adj.get(a) ?? adj.set(a, []).get(a)!).push(b);
+  const seen = new Set([root]);
+  for (const q = [root]; q.length;)
+    for (const n of adj.get(q.pop()!) ?? [])
+      if (!seen.has(n)) {
+        seen.add(n);
+        q.push(n);
+      }
+  // A phone or address counts as registry data only once a registry edge to it was known.
+  const registryEdge = new Set(
+    edges.filter((e) => /^(legal_entity|sec_registrant):/.test(e.from) && seen.has(e.from)).map((e) => e.to),
+  );
+  const factFlag = (id: string, ok: (f: Fact) => boolean) =>
+    w.world
+      .view("facts")
+      .about(id)
+      .some((f) => f.assertedAt <= at && ok(f));
+  const nodes = g.nodes
+    .filter((n) => seen.has(n.id))
+    .map((n) => ({
+      ...n,
+      flags: n.flags.filter((f) =>
+        f === "fraud_confirmed" || f === "legitimate"
+          ? factFlag(n.id, (x) => x.predicate === "fraud_flag")
+          : f === "dq_invalid"
+            ? factFlag(n.id, (x) => x.predicate.startsWith("dq_invalid:"))
+            : f === "real_registry" && (n.type === "phone" || n.type === "address")
+              ? registryEdge.has(n.id)
+              : true,
+      ),
+    }));
+  const ids = new Set(edges.map((e) => e.id));
+  return {
+    ...g,
+    nodes,
+    edges: edges.filter((e) => seen.has(e.from) && seen.has(e.to)),
+    link_verdicts: links,
+    conflict_groups: g.conflict_groups
+      .map((c) => ({ ...c, edge_ids: c.edge_ids.filter((x) => ids.has(x)) }))
+      .filter((c) => c.edge_ids.length >= 2),
+    merge_queue: g.merge_queue.filter((m) => seen.has(m.left) || seen.has(m.right)),
+  };
+}
+
+function linkStatusRows(
+  w: Writer,
+  requestId: string,
+  at: string,
+  all: GraphPayload["link_verdicts"],
+): GraphPayload["link_verdicts"] {
+  const out: GraphPayload["link_verdicts"] = [];
+  for (const { predicate, fact } of linkFacts(w, requestId, at)) {
+    const v = fact.value as LinkValue;
+    const id = v.link_id ?? linkId(predicate.split(":")[1]!, v.from, v.to);
+    const base = all.find((l) => l.link_id === id);
+    if (base)
+      out.push({
+        ...base,
+        status: v.status,
+        by: v.by,
+        rule_hits: v.rule_hits ?? [],
+        evidence_ids: v.evidence_ids ?? [],
+        confidence: v.confidence,
+      });
+  }
+  return out;
 }

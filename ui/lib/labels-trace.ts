@@ -170,7 +170,7 @@ export const DDL_TEMPLATES = new Set(["T12", "T13", "T14", "T22"]);
 export const CHALLENGE_ACTIONS = new Set<TraceAction>(["gap_request", "reject_link", "block_fact"]);
 
 export const FILTERS = [
-  { id: "agents", label: "Agents and challenges" },
+  { id: "agents", label: "Key steps" },
   { id: "all", label: "All" },
   { id: "zetaris", label: "Zetaris" },
   { id: "models", label: "Models" },

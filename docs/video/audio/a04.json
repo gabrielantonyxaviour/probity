@@ -1,0 +1,624 @@
+{
+ "id": "a04",
+ "text_original": "Here is the real run. The reader quotes the letter, including the line asking us not to use the old number. The Scout checks the vendor master and the registries through Zetaris. The address matches nothing we know, so the Examiner sends the Scout back. A coverage rule walks Booz Allen's family, forty-one entities, and keeps the one in New Jersey. A naive check would pass this: it is a real Booz Allen address. It belongs to a different Booz Allen company that has never billed us. The Examiner re-runs that query before it counts. Decision: hold. The call-back number comes from SEC filings; the letter's number and the master number changed by email three days earlier are on the do-not-use list.",
+ "text_spoken": "Here is the real run. The reader quotes the letter, including the line asking us not to use the old number. The Scout checks the vendor master and the registries through Zuh-tarris. The address matches nothing we know, so the Examiner sends the Scout back. A coverage rule walks Booz Allen's family, forty-one entities, and keeps the one in New Jersey. A naive check would pass this: it is a real Booz Allen address. It belongs to a different Booz Allen company that has never billed us. The Examiner re-runs that query before it counts. Decision: hold. The call-back number comes from SEC filings; the letter's number and the master number changed by email three days earlier are on the do-not-use list.",
+ "words": [
+  {
+   "word": "Here",
+   "start": 0.0,
+   "end": 0.231
+  },
+  {
+   "word": "is",
+   "start": 0.308,
+   "end": 0.462
+  },
+  {
+   "word": "the",
+   "start": 0.538,
+   "end": 0.615
+  },
+  {
+   "word": "real",
+   "start": 0.692,
+   "end": 0.923
+  },
+  {
+   "word": "run.",
+   "start": 1.0,
+   "end": 1.308
+  },
+  {
+   "word": "The",
+   "start": 1.769,
+   "end": 1.808
+  },
+  {
+   "word": "reader",
+   "start": 1.846,
+   "end": 2.154
+  },
+  {
+   "word": "quotes",
+   "start": 2.231,
+   "end": 2.538
+  },
+  {
+   "word": "the",
+   "start": 2.577,
+   "end": 2.615
+  },
+  {
+   "word": "letter,",
+   "start": 2.692,
+   "end": 3.231
+  },
+  {
+   "word": "including",
+   "start": 3.462,
+   "end": 3.692
+  },
+  {
+   "word": "the",
+   "start": 3.731,
+   "end": 3.769
+  },
+  {
+   "word": "line",
+   "start": 3.846,
+   "end": 4.077
+  },
+  {
+   "word": "asking",
+   "start": 4.154,
+   "end": 4.462
+  },
+  {
+   "word": "us",
+   "start": 4.538,
+   "end": 4.692
+  },
+  {
+   "word": "not",
+   "start": 4.846,
+   "end": 5.077
+  },
+  {
+   "word": "to",
+   "start": 5.115,
+   "end": 5.154
+  },
+  {
+   "word": "use",
+   "start": 5.231,
+   "end": 5.385
+  },
+  {
+   "word": "the",
+   "start": 5.462,
+   "end": 5.538
+  },
+  {
+   "word": "old",
+   "start": 5.615,
+   "end": 5.769
+  },
+  {
+   "word": "number.",
+   "start": 5.846,
+   "end": 6.231
+  },
+  {
+   "word": "The",
+   "start": 6.615,
+   "end": 6.692
+  },
+  {
+   "word": "Scout",
+   "start": 6.769,
+   "end": 7.077
+  },
+  {
+   "word": "checks",
+   "start": 7.192,
+   "end": 7.308
+  },
+  {
+   "word": "the",
+   "start": 7.346,
+   "end": 7.385
+  },
+  {
+   "word": "vendor",
+   "start": 7.462,
+   "end": 7.769
+  },
+  {
+   "word": "master",
+   "start": 7.846,
+   "end": 8.231
+  },
+  {
+   "word": "and",
+   "start": 8.308,
+   "end": 8.385
+  },
+  {
+   "word": "the",
+   "start": 8.462,
+   "end": 8.5
+  },
+  {
+   "word": "registries",
+   "start": 8.538,
+   "end": 9.154
+  },
+  {
+   "word": "through",
+   "start": 9.231,
+   "end": 9.385
+  },
+  {
+   "word": "Zuh-tarris.",
+   "start": 9.462,
+   "end": 10.231
+  },
+  {
+   "word": "The",
+   "start": 10.615,
+   "end": 10.692
+  },
+  {
+   "word": "address",
+   "start": 10.769,
+   "end": 11.154
+  },
+  {
+   "word": "matches",
+   "start": 11.231,
+   "end": 11.538
+  },
+  {
+   "word": "nothing",
+   "start": 11.692,
+   "end": 12.0
+  },
+  {
+   "word": "we",
+   "start": 12.077,
+   "end": 12.154
+  },
+  {
+   "word": "know,",
+   "start": 12.231,
+   "end": 12.692
+  },
+  {
+   "word": "so",
+   "start": 12.769,
+   "end": 12.846
+  },
+  {
+   "word": "the",
+   "start": 12.885,
+   "end": 12.923
+  },
+  {
+   "word": "Examiner",
+   "start": 13.0,
+   "end": 13.462
+  },
+  {
+   "word": "sends",
+   "start": 13.538,
+   "end": 13.769
+  },
+  {
+   "word": "the",
+   "start": 13.808,
+   "end": 13.846
+  },
+  {
+   "word": "Scout",
+   "start": 13.923,
+   "end": 14.231
+  },
+  {
+   "word": "back.",
+   "start": 14.308,
+   "end": 14.808
+  },
+  {
+   "word": "A",
+   "start": 15.0,
+   "end": 15.077
+  },
+  {
+   "word": "coverage",
+   "start": 15.154,
+   "end": 15.538
+  },
+  {
+   "word": "rule",
+   "start": 15.615,
+   "end": 15.769
+  },
+  {
+   "word": "walks",
+   "start": 15.846,
+   "end": 16.115
+  },
+  {
+   "word": "Booz",
+   "start": 16.154,
+   "end": 16.385
+  },
+  {
+   "word": "Allen's",
+   "start": 16.462,
+   "end": 16.769
+  },
+  {
+   "word": "family,",
+   "start": 16.846,
+   "end": 17.462
+  },
+  {
+   "word": "forty-one",
+   "start": 17.538,
+   "end": 18.077
+  },
+  {
+   "word": "entities,",
+   "start": 18.231,
+   "end": 18.923
+  },
+  {
+   "word": "and",
+   "start": 18.962,
+   "end": 19.0
+  },
+  {
+   "word": "keeps",
+   "start": 19.077,
+   "end": 19.308
+  },
+  {
+   "word": "the",
+   "start": 19.385,
+   "end": 19.462
+  },
+  {
+   "word": "one",
+   "start": 19.538,
+   "end": 19.692
+  },
+  {
+   "word": "in",
+   "start": 19.769,
+   "end": 19.846
+  },
+  {
+   "word": "New",
+   "start": 19.923,
+   "end": 20.0
+  },
+  {
+   "word": "Jersey.",
+   "start": 20.154,
+   "end": 20.538
+  },
+  {
+   "word": "A",
+   "start": 20.923,
+   "end": 21.0
+  },
+  {
+   "word": "naive",
+   "start": 21.077,
+   "end": 21.385
+  },
+  {
+   "word": "check",
+   "start": 21.462,
+   "end": 21.692
+  },
+  {
+   "word": "would",
+   "start": 21.808,
+   "end": 21.923
+  },
+  {
+   "word": "pass",
+   "start": 22.077,
+   "end": 22.231
+  },
+  {
+   "word": "this:",
+   "start": 22.385,
+   "end": 22.923
+  },
+  {
+   "word": "it",
+   "start": 23.0,
+   "end": 23.077
+  },
+  {
+   "word": "is",
+   "start": 23.154,
+   "end": 23.385
+  },
+  {
+   "word": "a",
+   "start": 23.462,
+   "end": 23.538
+  },
+  {
+   "word": "real",
+   "start": 23.615,
+   "end": 23.846
+  },
+  {
+   "word": "Booz",
+   "start": 23.923,
+   "end": 24.077
+  },
+  {
+   "word": "Allen",
+   "start": 24.154,
+   "end": 24.385
+  },
+  {
+   "word": "address.",
+   "start": 24.462,
+   "end": 25.0
+  },
+  {
+   "word": "It",
+   "start": 25.308,
+   "end": 25.385
+  },
+  {
+   "word": "belongs",
+   "start": 25.462,
+   "end": 25.769
+  },
+  {
+   "word": "to",
+   "start": 25.846,
+   "end": 25.885
+  },
+  {
+   "word": "a",
+   "start": 25.923,
+   "end": 26.077
+  },
+  {
+   "word": "different",
+   "start": 26.269,
+   "end": 26.462
+  },
+  {
+   "word": "Booz",
+   "start": 26.538,
+   "end": 26.692
+  },
+  {
+   "word": "Allen",
+   "start": 26.769,
+   "end": 27.0
+  },
+  {
+   "word": "company",
+   "start": 27.077,
+   "end": 27.385
+  },
+  {
+   "word": "that",
+   "start": 27.462,
+   "end": 27.538
+  },
+  {
+   "word": "has",
+   "start": 27.615,
+   "end": 27.769
+  },
+  {
+   "word": "never",
+   "start": 27.923,
+   "end": 28.154
+  },
+  {
+   "word": "billed",
+   "start": 28.231,
+   "end": 28.462
+  },
+  {
+   "word": "us.",
+   "start": 28.615,
+   "end": 28.962
+  },
+  {
+   "word": "The",
+   "start": 29.154,
+   "end": 29.231
+  },
+  {
+   "word": "Examiner",
+   "start": 29.346,
+   "end": 29.769
+  },
+  {
+   "word": "re-runs",
+   "start": 29.923,
+   "end": 30.308
+  },
+  {
+   "word": "that",
+   "start": 30.385,
+   "end": 30.538
+  },
+  {
+   "word": "query",
+   "start": 30.692,
+   "end": 30.846
+  },
+  {
+   "word": "before",
+   "start": 30.923,
+   "end": 31.231
+  },
+  {
+   "word": "it",
+   "start": 31.269,
+   "end": 31.308
+  },
+  {
+   "word": "counts.",
+   "start": 31.385,
+   "end": 32.077
+  },
+  {
+   "word": "Decision:",
+   "start": 32.308,
+   "end": 33.0
+  },
+  {
+   "word": "hold.",
+   "start": 33.231,
+   "end": 33.846
+  },
+  {
+   "word": "The",
+   "start": 34.077,
+   "end": 34.154
+  },
+  {
+   "word": "call-back",
+   "start": 34.269,
+   "end": 34.615
+  },
+  {
+   "word": "number",
+   "start": 34.769,
+   "end": 34.923
+  },
+  {
+   "word": "comes",
+   "start": 35.0,
+   "end": 35.231
+  },
+  {
+   "word": "from",
+   "start": 35.308,
+   "end": 35.385
+  },
+  {
+   "word": "SEC",
+   "start": 35.538,
+   "end": 36.0
+  },
+  {
+   "word": "filings;",
+   "start": 36.077,
+   "end": 36.923
+  },
+  {
+   "word": "the",
+   "start": 36.962,
+   "end": 37.0
+  },
+  {
+   "word": "letter's",
+   "start": 37.077,
+   "end": 37.385
+  },
+  {
+   "word": "number",
+   "start": 37.462,
+   "end": 37.769
+  },
+  {
+   "word": "and",
+   "start": 37.846,
+   "end": 37.923
+  },
+  {
+   "word": "the",
+   "start": 37.962,
+   "end": 38.0
+  },
+  {
+   "word": "master",
+   "start": 38.077,
+   "end": 38.385
+  },
+  {
+   "word": "number",
+   "start": 38.462,
+   "end": 38.769
+  },
+  {
+   "word": "changed",
+   "start": 38.846,
+   "end": 39.154
+  },
+  {
+   "word": "by",
+   "start": 39.231,
+   "end": 39.308
+  },
+  {
+   "word": "email",
+   "start": 39.462,
+   "end": 39.769
+  },
+  {
+   "word": "three",
+   "start": 39.923,
+   "end": 40.077
+  },
+  {
+   "word": "days",
+   "start": 40.154,
+   "end": 40.385
+  },
+  {
+   "word": "earlier",
+   "start": 40.462,
+   "end": 40.846
+  },
+  {
+   "word": "are",
+   "start": 41.0,
+   "end": 41.077
+  },
+  {
+   "word": "on",
+   "start": 41.154,
+   "end": 41.231
+  },
+  {
+   "word": "the",
+   "start": 41.269,
+   "end": 41.308
+  },
+  {
+   "word": "do-not-use",
+   "start": 41.462,
+   "end": 42.154
+  },
+  {
+   "word": "list.",
+   "start": 42.231,
+   "end": 42.769
+  }
+ ],
+ "seconds": 42.77,
+ "window_seconds": 60,
+ "provisional": true,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

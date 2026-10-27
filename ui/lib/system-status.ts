@@ -31,7 +31,8 @@ export function systemView(ready: ReadyResponse | null, error: ApiClientError | 
   if (ready.mode === "sample") {
     return { tone: "info", pulseOff: true, long: SHELL.systemSample, mid: SHELL.systemSample, short: "SAMPLE", mode: "sample", ...base };
   }
-  const zetarisOk = ready.checks.zetaris_query.status === "ok";
+  // "degraded" is one slow probe under load (the API says offline after a second miss), so it is not shown as down.
+  const zetarisOk = ready.checks.zetaris_query.status === "ok" || ready.checks.zetaris_query.status === "degraded";
   if (!zetarisOk) {
     return { tone: "gap", pulseOff: true, long: SHELL.zetarisDown, mid: SHELL.zetarisDown, short: "ZETARIS DOWN", mode: "live", ...base };
   }

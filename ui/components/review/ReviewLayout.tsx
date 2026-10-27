@@ -77,7 +77,10 @@ function Medium({ traceFull }: { traceFull: boolean }) {
   const [tab, setTab] = useState<Tab>("facts");
   const [letterOpen, setLetterOpen] = useState(true);
   const count = summarize(r.state.trace);
+  const graphFull = r.param("graph") === "full";
   useEffect(() => { if (traceFull) setTab("trace"); }, [traceFull]);
+  // A ?graph=full deep link (landing page, dossier) must land on the graph, not on the Facts tab.
+  useEffect(() => { if (graphFull) setTab("graph"); }, [graphFull]);
   return (
     <>
       <DecisionSlot />
@@ -120,6 +123,8 @@ function Medium({ traceFull }: { traceFull: boolean }) {
 function Narrow() {
   const r = useReview();
   const [tab, setTab] = useState<NarrowTab>("facts");
+  const graphFull = r.param("graph") === "full";
+  useEffect(() => { if (graphFull) setTab("graph"); }, [graphFull]);
   return (
     <>
       <DecisionSlot />

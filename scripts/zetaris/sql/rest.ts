@@ -143,6 +143,56 @@ export function restJobs(cfg: ZetarisConfig, userAgent: string): Job[] {
       }),
     );
   }
+  // D5 / K1h. The direct company_tickers.json table inferred 10430 struct columns and the
+  // map decode did not return within 60s (see zetaris/results/k1h.json). The gateway
+  // serves the same file as {data:[...]}. userAgent stays on the per-CIK EDGAR tables.
+  const gatewayDbAlready = gateway || cfg.erpPath === "gateway" || cfg.childrenShape === "wrapped";
+  if (!gatewayDbAlready) {
+    jobs.push(
+      job({
+        phase: "P2",
+        label: "db-sec_tickers-source-gateway",
+        file: "10_databases.sql",
+        key: "admin",
+        kind: "ddl",
+        limit: 1000,
+        sql: `CREATE LIGHTNING DATABASE source_gateway DESCRIBE BY "${GW_DESC}"`,
+      }),
+    );
+  }
+  jobs.push(
+    job({
+      phase: "P2",
+      label: "drop-sec_tickers-wide",
+      key: "admin",
+      kind: "ddl",
+      limit: 1000,
+      sql: "DROP LIGHTNING DATABASE TABLE sec_edgar.sec_tickers",
+    }),
+    job({
+      phase: "P2",
+      label: "create-source_gateway.sec_tickers",
+      key: "admin",
+      kind: "ddl",
+      limit: 1000,
+      gapBeforeMs: 500,
+      sql: `CREATE LIGHTNING REST TABLE sec_tickers FROM source_gateway REQUEST (
+  endpoint "${origin}/sec/tickers",
+  method "GET",
+  http_encoding "URLENCODED",
+  response_type "JSON",
+  insecure_ssl "false"
+) HEADER () BODY ()`,
+    }),
+    job({
+      phase: "P2",
+      label: "cache-source_gateway.sec_tickers",
+      key: "admin",
+      kind: "ddl",
+      limit: 1000,
+      sql: "CACHE TABLE source_gateway.sec_tickers",
+    }),
+  );
   return jobs;
 }
 

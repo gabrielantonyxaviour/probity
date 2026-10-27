@@ -1,0 +1,8 @@
+{
+  "id": "K9",
+  "title": "Registry facts X1 to X9 unchanged (live re-fetch)",
+  "pass": true,
+  "evidence": "exit 0: All 9 facts match what we recorded.",
+  "elapsed_ms": 3760,
+  "at": "2026-10-27T15:20:38.982Z"
+}

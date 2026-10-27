@@ -1,11 +1,11 @@
 "use client";
 import { useMemo } from "react";
-import { Chip, HonestyTag, StatusGlyph } from "@/components/ui/chip";
+import { Chip, StatusGlyph } from "@/components/ui/chip";
 import { Eyebrow } from "@/components/ui/misc";
-import { FACTS, FIXED } from "@/lib/copy";
+import { FACTS } from "@/lib/copy";
 import { FACT_COLUMNS, FACT_STATUS, SOURCE_LABELS } from "@/lib/labels";
 import { MODE_LABELS } from "@/lib/labels-trace";
-import { hasRealPhone } from "@/lib/phone";
+import { factValue } from "@/lib/fact-value";
 import { buildFactRows, SOURCE_COLS, type FactRow, type SourceCell, type SourceCol } from "@/lib/model/facts";
 import { useBreakpoint } from "@/lib/hooks/use-breakpoint";
 import { useReview } from "./review-context";
@@ -27,7 +27,6 @@ function Claimed({ row }: { row: FactRow }) {
       ) : (
         <span className="t-ui-sm text-fg-muted">{claims ? "—" : <span className="p-skel" style={{ width: "60%", height: 12 }} aria-hidden />}</span>
       )}
-      {value && hasRealPhone(value) ? <HonestyTag className="mt-1">{FIXED.doNotCall}</HonestyTag> : null}
     </span>
   );
 }
@@ -42,15 +41,15 @@ function SourceCellView({ row, cell, loading }: { row: FactRow; cell: SourceCell
       </span>
     );
   }
-  const val = o.value ?? "—";
+  const raw = o.value ?? "—";
+  const val = factValue(o.value);
   const mode = o.mode !== "live" ? MODE_LABELS[o.mode] : null;
   const inner = (
     <>
-      <span className={`t-ui-sm text-fg t-clamp-2 t-wrap-any ${cell.blocked ? "p-struck" : ""}`} title={val}>{val}</span>
+      <span className={`t-ui-sm text-fg t-clamp-2 t-wrap-any ${cell.blocked ? "p-struck" : ""}`} title={raw}>{val}</span>
       <span className="flex flex-wrap gap-1 mt-1">
         {mode ? <Chip tone="gap" glyph="○">{mode}</Chip> : null}
         {cell.extra > 0 ? <span className="t-mono-label text-fg-muted">{FACTS.moreN(cell.extra)}</span> : null}
-        {hasRealPhone(val) ? <HonestyTag>{FIXED.doNotCall}</HonestyTag> : null}
       </span>
       {cell.blocked ? <span className="t-ui-xs text-conflict-text block mt-1">{FACTS.blocked}</span> : null}
     </>
@@ -92,7 +91,7 @@ function Table({ rows, loading }: { rows: FactRow[]; loading: boolean }) {
   return (
     <div className="fs-wrap" tabIndex={0} role="region" aria-label="Fact sheet table">
       <table className="fs" data-testid="fact-sheet">
-        <colgroup><col style={{ width: 148 }} /><col style={{ width: 160 }} /><col style={{ width: 160 }} /><col style={{ width: 160 }} /><col style={{ width: 160 }} /><col style={{ width: 168 }} /></colgroup>
+        <colgroup><col style={{ width: "14%" }} /><col style={{ width: "17%" }} /><col style={{ width: "17%" }} /><col style={{ width: "17%" }} /><col style={{ width: "15%" }} /><col style={{ width: "20%" }} /></colgroup>
         <thead>
           <tr>
             <th scope="col" className="sticky-l">{FACT_COLUMNS.fact}</th>

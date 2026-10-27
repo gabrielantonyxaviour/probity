@@ -20,20 +20,20 @@ export const HERO = {
   ledeMuted: "Every fact links to the query that produced it.",
   primary: CTA_LABEL,
   secondary: "VIEW ON GITHUB",
-  announcement: "MODELLED ON A $23.5M PAYMENT DIVERSION →",
-  synthetic: "DEMO REQUESTS AND INTERNAL RECORDS ARE SYNTHETIC · REGISTRY FACTS ARE REAL PUBLIC DATA",
+  announcement: "WHY: A $23.5M PAYMENT DIVERSION →",
+  sources: "REGISTRY FACTS ARE READ LIVE FROM USASPENDING AND SEC EDGAR",
   matrixCaption: "Animation: a stream of payments flows right; one diverted payment is stopped at a gate.",
   gateLabel: "HELD BEFORE RELEASE",
 } as const;
 
-export type SourceCell = { label: string; dot?: "synthetic" | "real"; pop: string; tag: "read" | "does" };
+export type SourceCell = { label: string; dot?: "internal" | "real"; pop: string; tag: "read" | "does" };
 
 export const SOURCES_HEADING = { lead: "CHECKED AGAINST", count: "4", tail: "SOURCES" } as const;
 
-/** Row 1 order (heading sits between the two synthetic and the two live cells), then row 2. */
+/** Row 1 order (heading sits between the two internal and the two live cells), then row 2. */
 export const SOURCE_CELLS: readonly SourceCell[] = [
-  { label: "VENDOR MASTER", dot: "synthetic", tag: "read", pop: "Our synthetic vendor records: names, addresses, bank details and contacts, with change dates." },
-  { label: "PAYMENT HISTORY", dot: "synthetic", tag: "read", pop: "The synthetic AP ledger: this vendor’s items in the next payment run." },
+  { label: "VENDOR MASTER", dot: "internal", tag: "read", pop: "Your vendor records: names, addresses, bank details and contacts, with change dates." },
+  { label: "PAYMENT HISTORY", dot: "internal", tag: "read", pop: "The AP ledger: this vendor’s items in the next payment run." },
   { label: "USASPENDING", dot: "real", tag: "read", pop: "Real federal award recipients and their parent companies, by UEI." },
   { label: "SEC EDGAR", dot: "real", tag: "read", pop: "Real filings: registered addresses, former names, and the phone number a call-back should use." },
   { label: "ZETARIS", tag: "does", pop: "Joins our records, USAspending and SEC EDGAR in one semantic layer. Agents pick a query template; they never write SQL." },
@@ -81,7 +81,7 @@ export const STEPS: readonly Step[] = [
 
 export const PLATES = [
   { id: "letter", name: "THE LETTER", note: "CLAIMS · PRESSURE PHRASE" },
-  { id: "records", name: "OUR RECORDS", note: "VENDOR MASTER · SYNTHETIC" },
+  { id: "records", name: "OUR RECORDS", note: "VENDOR MASTER · CHANGE DATES" },
   { id: "awards", name: "USASPENDING", note: "FAMILY → 1 AT THIS ADDRESS" },
   { id: "filings", name: "SEC EDGAR", note: "CALL-BACK NUMBER ON FILE" },
 ] as const;
@@ -108,5 +108,4 @@ export const ANSWERS = {
   empty: "No check has reached this answer yet.",
   down: "The Probity API is not reachable from this page.",
   openQueue: "OPEN THE QUEUE →",
-  synthetic: (name: string) => `Synthetic request, not issued by ${name}. Registry facts are real.`,
 } as const;

@@ -1,6 +1,6 @@
 // Letter -> positioned runs (pt, origin top-left) and recorded field boxes (px). Text is measured with opentype.js on the bundled TTFs.
 import { ascent, width } from "./fonts";
-import { NOTICE_FOOTER, PAGE_H, PAGE_W, SCALE, watermarkText, type Box, type FieldHit, type FieldName, type Laid, type Letter, type Mark, type Page, type Run } from "./model";
+import { NOTICE_FOOTER, PAGE_H, PAGE_W, SCALE, watermarkText, type Box, type FieldHit, type FieldName, type HiddenHit, type HiddenSpan, type Laid, type Letter, type Mark, type Page, type Run } from "./model";
 
 const M = 72; // 1 in margins
 const CONTENT_W = PAGE_W - 2 * M;
@@ -35,6 +35,7 @@ class Builder {
   page: Page = { runs: [], rules: [] };
   pages: Page[] = [this.page];
   fields: FieldHit[] = [];
+  hidden: HiddenHit[] = [];
   y = 0;
   text(text: string, x: number, baseline: number, o: { size: number; font: Run["font"]; color?: string; field?: FieldName; align?: "left" | "center" | "right" }): number {
     const w = width(o.font, text, o.size);
@@ -48,6 +49,15 @@ class Builder {
     return { page: this.pages.length, x: Math.round(x * SCALE), y: Math.round(top * SCALE), w: Math.round(w * SCALE), h: Math.round(size * 1.25 * SCALE) };
   }
   record(field: FieldName, text: string, boxes: Box[], kind?: Mark["kind"]): void { this.fields.push({ field, text, boxes, ...(kind ? { kind } : {}) }); }
+  /** White 1 pt text: invisible on the page, present in the text layer. It never advances the cursor. */
+  hide(s: HiddenSpan, baseline: number): void {
+    const size = 1;
+    const w = width("sans", s.text, size);
+    this.page.runs.push({ text: s.text, x: M, y: baseline, size, font: "sans", color: "#ffffff", hidden: true });
+    const box = this.box(M, baseline, w, size, "sans");
+    this.hidden.push({ id: s.id, goal: s.goal, text: s.text, page: this.pages.length, after: s.after, size, color: "#ffffff", bbox_pt: [M, baseline - ascent("sans", size), M + w, baseline + 0.25], box });
+    this.record("pressure_phrase", s.text, [box], "embedded_instruction");
+  }
   rule(x1: number, y: number, x2: number, widthPt = 0.6, color = "#999999"): void { this.page.rules.push({ x1, y1: y, x2, y2: y, width: widthPt, color }); }
 }
 
@@ -55,8 +65,9 @@ export function layoutLetter(L: Letter): Laid {
   const b = new Builder();
   const body = L.face.body;
   const H = L.head;
-  // header notice (real text in the PDF so the text layer carries the synthetic label)
-  b.text(watermarkText(L.company), M, 30, { size: 8, font: "sans", color: "#777777", field: "watermark" });
+  const hideAfter = (point: HiddenSpan["after"], baseline: number): void => { (L.hidden ?? []).filter((h) => h.after === point).forEach((h, i) => b.hide(h, baseline + i * 1.4)); };
+  // header notice (real text in the PDF so the text layer carries the synthetic label); fictional vendors carry none
+  if (!L.unmarked) b.text(watermarkText(L.company), M, 30, { size: 8, font: "sans", color: "#777777", field: "watermark" });
   let y = 78;
   const nameSize = H.size ?? 18;
   b.text(H.name, M, y, { size: nameSize, font: L.face.headBold, field: "letterhead_name", align: H.align });
@@ -77,6 +88,7 @@ export function layoutLetter(L: Letter): Laid {
     y += 12;
   }
   if (H.rule) { b.rule(M, y + 2, PAGE_W - M, 0.9, "#333333"); }
+  hideAfter("letterhead", y + 16);
   y += 30;
   b.text(L.date, M, y, { size: 11, font: body, field: "date" });
   y += 26;
@@ -96,7 +108,7 @@ export function layoutLetter(L: Letter): Laid {
     const marks = p.marks ?? [];
     const lines = wrap(p.text, marks, font, size, CONTENT_W);
     for (const ln of lines) {
-      b.text(ln.text, M, y, { size, font });
+      b.text(ln.text, M, y, { size, font, ...(p.color ? { color: p.color } : {}) });
       for (const m of marks) {
         const at = p.text.indexOf(m.text);
         if (at < 0) throw new Error(`${L.id}: mark "${m.text}" is not in its paragraph`);
@@ -138,12 +150,14 @@ export function layoutLetter(L: Letter): Laid {
     }
     y += 8;
   }
+  hideAfter("bank", y - 10);
   y += 4;
   b.text(L.closing, M, y, { size: 11, font: body });
   y += 30;
   b.text(L.signer, M, y, { size: 12, font: L.face.sign, field: "signer_name" });
   if (L.signerTitle !== "") { y += 15; b.text(L.signerTitle, M, y, { size: 11, font: body, field: "signer_title" }); }
   if (y > PAGE_H - 70) throw new Error(`${L.id}: letter does not fit on one page (y=${Math.round(y)})`);
-  b.text(NOTICE_FOOTER, M, PAGE_H - 28.8, { size: 8, font: "sans", color: "#777777" });
-  return { pages: b.pages, fields: b.fields };
+  hideAfter("signer", y + 14);
+  if (!L.unmarked) b.text(NOTICE_FOOTER, M, PAGE_H - 28.8, { size: 8, font: "sans", color: "#777777" });
+  return { pages: b.pages, fields: b.fields, ...(b.hidden.length ? { hidden: b.hidden } : {}) };
 }

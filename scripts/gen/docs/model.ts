@@ -9,7 +9,10 @@ export type PressureKind = "urgency" | "avoid_verification" | "secrecy" | "new_c
 
 /** A substring of a paragraph that gets its own recorded box (and, for pressure phrases, a kind). */
 export interface Mark { text: string; field: FieldName; kind?: PressureKind; nobreak?: boolean }
-export interface Para { text: string; marks?: Mark[]; font?: FontKey; size?: number; after?: number }
+export interface Para { text: string; marks?: Mark[]; font?: FontKey; size?: number; after?: number; color?: string }
+
+/** Text a human cannot see (white, 1 pt) that pdftotext still extracts: a prompt-injection attack in the PDF text layer (D6). */
+export interface HiddenSpan { id: string; text: string; after: "letterhead" | "bank" | "signer"; goal: string }
 
 export interface Letter {
   id: string;
@@ -29,14 +32,18 @@ export interface Letter {
   closing: string;
   signer: string;
   signerTitle: string;
+  /** Fictional vendor: no diagonal watermark, no synthetic footer line (decision 8). Only allowed when `company` ends with "(fictional)". */
+  unmarked?: boolean;
+  hidden?: HiddenSpan[];
 }
 
 export interface Box { page: number; x: number; y: number; w: number; h: number } // px on the 1236x1600 raster
 export interface FieldHit { field: FieldName; text: string; boxes: Box[]; kind?: PressureKind }
-export interface Run { text: string; x: number; y: number; size: number; font: FontKey; color: string }
+export interface Run { text: string; x: number; y: number; size: number; font: FontKey; color: string; hidden?: boolean }
 export interface Rule { x1: number; y1: number; x2: number; y2: number; width: number; color: string }
 export interface Page { runs: Run[]; rules: Rule[] }
-export interface Laid { pages: Page[]; fields: FieldHit[] }
+export interface HiddenHit { id: string; goal: string; text: string; page: number; after: HiddenSpan["after"]; size: number; color: string; bbox_pt: [number, number, number, number]; box: Box }
+export interface Laid { pages: Page[]; fields: FieldHit[]; hidden?: HiddenHit[] }
 
 export const PAGE_W = 612;
 export const PAGE_H = 792;

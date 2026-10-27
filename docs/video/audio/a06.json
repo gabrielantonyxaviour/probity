@@ -1,0 +1,144 @@
+{
+ "id": "a06",
+ "text_original": "Three processes. A CACI request reuses the phone from the impersonation we confirmed, and another reuses its account. The World Model remembers both; both are held.",
+ "text_spoken": "Three processes. A Kay-sigh request reuses the phone from the impersonation we confirmed, and another reuses its account. The World Model remembers both; both are held.",
+ "words": [
+  {
+   "word": "Three",
+   "start": 0.0,
+   "end": 0.208
+  },
+  {
+   "word": "processes.",
+   "start": 0.231,
+   "end": 1.077
+  },
+  {
+   "word": "A",
+   "start": 1.538,
+   "end": 1.615
+  },
+  {
+   "word": "Kay-sigh",
+   "start": 1.692,
+   "end": 2.077
+  },
+  {
+   "word": "request",
+   "start": 2.346,
+   "end": 2.615
+  },
+  {
+   "word": "reuses",
+   "start": 2.769,
+   "end": 3.308
+  },
+  {
+   "word": "the",
+   "start": 3.346,
+   "end": 3.385
+  },
+  {
+   "word": "phone",
+   "start": 3.462,
+   "end": 3.692
+  },
+  {
+   "word": "from",
+   "start": 3.769,
+   "end": 3.846
+  },
+  {
+   "word": "the",
+   "start": 3.923,
+   "end": 4.0
+  },
+  {
+   "word": "impersonation",
+   "start": 4.115,
+   "end": 4.769
+  },
+  {
+   "word": "we",
+   "start": 4.846,
+   "end": 4.923
+  },
+  {
+   "word": "confirmed,",
+   "start": 5.231,
+   "end": 5.846
+  },
+  {
+   "word": "and",
+   "start": 5.962,
+   "end": 6.077
+  },
+  {
+   "word": "another",
+   "start": 6.308,
+   "end": 6.538
+  },
+  {
+   "word": "reuses",
+   "start": 6.692,
+   "end": 7.154
+  },
+  {
+   "word": "its",
+   "start": 7.231,
+   "end": 7.308
+  },
+  {
+   "word": "account.",
+   "start": 7.385,
+   "end": 8.115
+  },
+  {
+   "word": "The",
+   "start": 8.385,
+   "end": 8.462
+  },
+  {
+   "word": "World",
+   "start": 8.538,
+   "end": 8.769
+  },
+  {
+   "word": "Model",
+   "start": 8.846,
+   "end": 9.077
+  },
+  {
+   "word": "remembers",
+   "start": 9.154,
+   "end": 9.615
+  },
+  {
+   "word": "both;",
+   "start": 9.692,
+   "end": 10.462
+  },
+  {
+   "word": "both",
+   "start": 10.538,
+   "end": 10.846
+  },
+  {
+   "word": "are",
+   "start": 10.923,
+   "end": 11.077
+  },
+  {
+   "word": "held.",
+   "start": 11.269,
+   "end": 11.692
+  }
+ ],
+ "seconds": 11.69,
+ "window_seconds": 12,
+ "provisional": true,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

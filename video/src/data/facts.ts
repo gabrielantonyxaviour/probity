@@ -30,7 +30,7 @@ export const fx = {
     const d = fx.days();
     return d === null ? null : (WORDS[d] ?? String(d));
   },
-  sweepCount: (): number | null => (facts.pending ? null : facts.sweep.length),
+  sweepCount: (): number | null => (facts.pending ? null : new Set(facts.sweep.map((x) => x.item_id)).size),
   sweepWords: (): string | null => {
     const n = fx.sweepCount();
     return n === null ? null : (WORDS[n] ?? String(n));

@@ -1,0 +1,44 @@
+[
+ {
+  "id": "z01",
+  "window_seconds": 17,
+  "note": "Cold open: problem and what Zetaris does here",
+  "text": "Business email compromise cost victims more than three billion dollars in 2025, according to the FBI. A vendor emails new bank details. Probity checks the request before the money moves, and every fact behind its decision is a query running in Zetaris."
+ },
+ {
+  "id": "z02",
+  "window_seconds": 18,
+  "note": "The semantic layer",
+  "text": "Our vendor master lives in Postgres. USAspending and the SEC's EDGAR are live public APIs. Zetaris registers all three as tables, and one compile turns them into a single semantic layer, vendor 360, twelve tables that the agents query."
+ },
+ {
+  "id": "z03",
+  "window_seconds": 27,
+  "note": "Live run and re-run in Zetaris",
+  "text": "This is a real run, not a replay. The agents read the letter, and the Registry Scout asks Zetaris for the vendor's corporate family. The Examiner does not accept a new link until it has re-run the query and checked the rows. Every citation carries a query id. In the evidence drawer, Re-run in Zetaris executes that same statement again and compares the row hash. Same hash, same rows."
+ },
+ {
+  "id": "z04",
+  "window_seconds": 15,
+  "note": "Console: LIST DQ / RUN DQ",
+  "text": "The sweep is a data-quality rule. In the Zetaris console, LIST DQ shows the rules registered on the semantic layer, and RUN DQ account single vendor flags payments whose bank account already belongs to another vendor."
+ },
+ {
+  "id": "z05",
+  "window_seconds": 23,
+  "note": "Grok session",
+  "text": "Grok built this layer. It worked under a written contract, in bounded slices, each logged with a UTC time. It read Zetaris's own agent rules first, then registered the sources, defined the semantic layer and its data-quality rules, and checked every step against the live local API. Where it could not verify something, the verdict file says so."
+ },
+ {
+  "id": "z06",
+  "window_seconds": 58,
+  "note": "Why it was amazing (the 40-60 s segment)",
+  "text": "I needed the SEC's company filings inside a query. I wrote one statement, a REST table with the SEC's required header, and a real filing came back as a row in about five seconds. The second read took under two. I had written no connector. We estimate that saved an hour or more. Not everything was that easy. USAspending's API returned valid JSON, and Zetaris read it as a single corrupt record, because the server sends a browser page unless you ask for application JSON. One header fixed it, but we lost time there. Then the moment it clicked. Other agents on our team filed new requests into the payment database while we worked. I re-ran one data-quality rule, and the invalid rows went from two to three. No re-registration, no refresh, no pipeline. Zetaris had read the new Postgres rows in place. That rule is now the sweep Probity runs on every payment run."
+ },
+ {
+  "id": "z07",
+  "window_seconds": 8,
+  "note": "Close",
+  "text": "Probity, from team Zen. Real runs, real Zetaris queries, and a row hash you can check yourself."
+ }
+]

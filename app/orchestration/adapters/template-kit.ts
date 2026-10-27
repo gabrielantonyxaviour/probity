@@ -48,10 +48,13 @@ export function t11SplitQueries(p: { parent_uei: string; addr_key: string }, ses
   const city = q(a.city, /^[A-Z .-]{1,60}$/);
   const like = q(`${a.number} %`, /^\d{1,6} %$/);
   const cols = ["row_key", "matched_uei", "matched_level", "matched_name", "address_line1", "city_name", "state_code", "zip", "via", "vendor_id_on_file"];
+  // A session table has no vendor column (vendor_id_on_file is filled by code from vendorByUei), so its header is the first 9.
+  // Declaring 10 made every session read fail the header check (zetaris_shape_mismatch) and the split fail silently.
+  const sessionCols = cols.slice(0, 9);
   const params = { ...p } as Record<string, unknown>;
   const usl = compiledOf("T11", params, `SELECT f.entity_key AS row_key, f.uei AS matched_uei, f.recipient_level AS matched_level, f.legal_name AS matched_name, f.address_line1, f.city_name, f.state_code, f.zip, 'usl' AS via, v.vendor_id AS vendor_id_on_file FROM ${U}.registry_entity f LEFT JOIN ${U}.vendor v ON v.uei = f.uei WHERE (f.parent_uei = ${uei} OR f.uei = ${uei}) AND f.state_code = ${st} AND upper(f.city_name) = ${city} AND f.address_line1 LIKE ${like} LIMIT 50`, cols, "usaspending", "zetaris_table", 50);
   const sessions = sessionTables.filter((t) => SESSION_RECIPIENT.test(t)).slice(0, 4).map((t) =>
-    compiledOf("T11", params, `SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)) AS row_key, CAST(uei AS STRING) AS matched_uei, CAST(recipient_level AS STRING) AS matched_level, CAST(name AS STRING) AS matched_name, CAST(location.address_line1 AS STRING) AS address_line1, CAST(location.city_name AS STRING) AS city_name, CAST(location.state_code AS STRING) AS state_code, CAST(location.zip AS STRING) AS zip, '${t}' AS via FROM ${t} WHERE CAST(location.state_code AS STRING) = ${st} AND upper(CAST(location.city_name AS STRING)) = ${city} AND CAST(location.address_line1 AS STRING) LIKE ${like} LIMIT 50`, cols, "usaspending", "session_table", 50),
+    compiledOf("T11", params, `SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)) AS row_key, CAST(uei AS STRING) AS matched_uei, CAST(recipient_level AS STRING) AS matched_level, CAST(name AS STRING) AS matched_name, CAST(location.address_line1 AS STRING) AS address_line1, CAST(location.city_name AS STRING) AS city_name, CAST(location.state_code AS STRING) AS state_code, CAST(location.zip AS STRING) AS zip, '${t}' AS via FROM ${t} WHERE CAST(location.state_code AS STRING) = ${st} AND upper(CAST(location.city_name AS STRING)) = ${city} AND CAST(location.address_line1 AS STRING) LIKE ${like} LIMIT 50`, sessionCols, "usaspending", "session_table", 50),
   );
   const vendorByUei = (ueis: string[]) =>
     compiledOf("T11", params, `SELECT vendor_id, uei FROM ${U}.vendor WHERE uei IN (${ueis.slice(0, 10).map((u) => q(u, /^[A-Z0-9]{12}$/)).join(", ")}) LIMIT 20`, ["vendor_id", "uei"], "vendor_master", "zetaris_table", 20);

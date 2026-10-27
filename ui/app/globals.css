@@ -13,6 +13,7 @@
 @import "./styles/trace.css";
 @import "./styles/graph.css";
 @import "./styles/dossier.css";
+@import "./styles/depth.css";
 @import "./styles/motion.css";
 
 html { -webkit-text-size-adjust: 100%; }

@@ -1,0 +1,8 @@
+{
+  "id": "K1d",
+  "title": "Run-time session table readable (Tinton Falls record)",
+  "pass": null,
+  "evidence": "no session table present (it is created by a live S1 run): HTTP 400 {\"msg\":\"Unknown session table: pp_usa_r_khk6e1jw9c15\"}",
+  "elapsed_ms": 2275,
+  "at": "2026-10-27T15:19:04.633Z"
+}

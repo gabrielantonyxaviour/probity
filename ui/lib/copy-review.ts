@@ -45,11 +45,12 @@ export const EXPO = {
 
 export const BANNERS = {
   zetarisDegraded: (capturedAt: string) => `Zetaris unreachable: evidence from offline captures dated ${capturedAt}.`,
+  rationaleRejected: "Nemotron answered, but its wording did not pass Probity's check against the decision, so the summary is written from the decision itself.",
   nightshiftFallback: (lane: string, fallback: string) =>
     `Nightshift did not answer on the ${lane} lane. Probity used its fallback: ${fallback}.`,
   nonNemotron: (model: string) =>
     `A step was answered by a model that is not Nemotron (${model}). See the model ledger.`,
-  timeLimit: "Time limit reached at 8:00. Decided on the evidence gathered so far; links not yet examined stay held.",
+  timeLimit: "Probity stopped gathering evidence so it can decide within the 8:00 time limit. Links not yet examined stay held.",
   sourceMissing: (source: string) =>
     `${source} could not be reached and no captured copy exists for this company. Facts from ${source} are missing.`,
   tags: { mirror: "Mirror", outage: "Outage", zetaris: "Zetaris", model: "Model", time: "Time limit", partial: "Partial" },
@@ -76,6 +77,8 @@ export const PANELS = {
 export const DECISION = {
   why: "Why",
   doThisNow: "Do this now",
+  scriptUsed: "Call-back on record",
+  checkedFacts: "What was checked",
   alsoNoted: (n: number) => `Also noted (${n})`,
   evidence: (n: number) => `Evidence (${n})`,
   more: "More",
@@ -143,7 +146,6 @@ export const LETTER = {
   claims: "Claims",
   noBoxes: "Positions not available; quotes listed below.",
   imageError: (n: number) => `Couldn't load page ${n}.`,
-  noWatermark: "No synthetic watermark found on this document. Probity is a demo: don't upload real vendor letters or personal data.",
   notInspected:
     "Probity does not inspect images for edits. It checks every claim against independent sources, so an edited letter fails on the facts.",
   replyToDiffers: "Reply-To differs from From",

@@ -1,0 +1,8 @@
+{
+  "id": "K4",
+  "title": "Warm-up: both lanes answer, both Nemotron, egress nvidia",
+  "pass": true,
+  "evidence": "exit 0; warm-up: ping fast | warm-up: ping deep | fast    env               nvidia/nemotron-3.5-lightning-30b-a3b    nvidia/nemotron-3.5-lightning-30b-a3b    confirmed_nemotron   457 ms | deep    env               nvidia/nemotron-3-ultra-550b-a55b        nvidia/nemotron-3-ultra-550b-a55b        confirmed_nemotron   5408 ms",
+  "elapsed_ms": 22509,
+  "at": "2026-10-27T15:20:29.338Z"
+}

@@ -1,0 +1,76 @@
+{
+  "at": "2026-10-27T15:01:03Z",
+  "direct_create": {
+    "sql": "CREATE LIGHTNING REST TABLE sec_tickers FROM sec_edgar endpoint https://www.sec.gov/files/company_tickers.json response_type JSON header user-agent",
+    "query_id": "191c45c2-f5fa-4504-91cb-5d44b64b741c",
+    "latency_ms": 32730,
+    "under_60s": true,
+    "inferred_columns": 10430,
+    "column_type": "struct cik_str long, ticker string, title string"
+  },
+  "map_decode": {
+    "sql": "SELECT lpad(CAST(t.cik_str AS STRING), 10, '0') AS cik, CAST(t.ticker AS STRING) AS ticker, CAST(t.title AS STRING) AS title FROM sec_edgar.sec_tickers LATERAL VIEW explode(from_json(to_json(struct(*)), 'map<string,struct<cik_str:bigint,ticker:string,title:string>>')) AS k, t WHERE CAST(t.ticker AS STRING) = 'BAH' LIMIT 1",
+    "query_id": "1e6a0c04-b8c9-4660-97e5-6f23772adb85",
+    "result": "client aborted at 60000 ms with zetaris_timeout. No Zetaris error body came back.",
+    "decision": "Fall back to source_gateway.sec_tickers. The gateway GET /sec/tickers returned HTTP 200 and {data:[...]} with 10429 rows. BAH in that payload is cik_str 1443646, title Booz Allen Hamilton Holding Corp. The driver container reached http://host.docker.internal:8790/sec/tickers with HTTP 200."
+  },
+  "fallback": {
+    "database_create_timeout_query_id": "e7494401-3c8c-4052-af25-6690622c6bfc",
+    "database_exists_query_id": "3214e3cf-43a7-480a-9455-8eb6d6626023",
+    "drop_wide_query_id": "ec2a246d-f4af-4797-9089-01b36d8a20c4",
+    "drop_wide_latency_ms": 31626,
+    "create_timeout_query_id": "18a22d94-f5c1-4d57-8d42-76ab8014a596",
+    "create_timeout_result": "API logged TTransportException Read timed out. The client classified it zetaris_upstream_rest and retried.",
+    "create_ok_query_id": "0618f5b7-463c-4940-be7c-cf51504d9759",
+    "create_ok_latency_ms": 45171,
+    "cache_query_id": "5812c130-7074-4e36-8d2b-ae12ee00cb21",
+    "cache_latency_ms": 30735,
+    "column": "DATA array<struct<cik_str:long,ticker:string,title:string>>",
+    "view_query_id": "410df3f1-7683-4c32-92d3-827794062633",
+    "view_latency_ms": 684,
+    "view_sql": "CREATE OR REPLACE SCHEMASTORE VIEW sec_ticker_v WITH CONTAINER probity AS SELECT lpad(CAST(t.cik_str AS STRING), 10, '0') AS cik, CAST(t.ticker AS STRING) AS ticker, CAST(t.title AS STRING) AS title FROM source_gateway.sec_tickers LATERAL VIEW explode(data) AS t",
+    "idempotent_p4_query_id": "2397b341-2fc0-41ef-9fed-11d75186fb7f",
+    "idempotent_p4_latency_ms": 1138,
+    "idempotent_p2": {
+      "database": "exists",
+      "database_query_id": "d411ce32-85cc-464f-81af-b17a72df0649",
+      "drop": "absent",
+      "drop_query_id": "cb5103ab-045a-4277-954d-6e3ae7e4c0b7",
+      "create": "exists",
+      "create_query_id": "ecf1ae18-3e02-4a28-a4e3-31fc7ecd435a",
+      "cache": "ok",
+      "cache_query_id": "fd95b610-d845-42b5-9597-c05f853c689c",
+      "cache_latency_ms": 2337
+    }
+  },
+  "t16": {
+    "columns": ["cik", "ticker", "title"],
+    "registry_change": "none. probity.sec_ticker_v resolved, so registry.ts was not edited.",
+    "rows": [
+      {
+        "name_norm": "BOOZ ALLEN HAMILTON HOLDING CORP",
+        "cik": "0001443646",
+        "ticker": "BAH",
+        "title": "Booz Allen Hamilton Holding Corp",
+        "query_id": "750424c7-87a9-49cb-b197-89f224cf7c4e",
+        "latency_ms": 15246
+      },
+      {
+        "name_norm": "L3HARRIS TECHNOLOGIES INC",
+        "cik": "0000202058",
+        "ticker": "LHX",
+        "title": "L3HARRIS TECHNOLOGIES, INC. /DE/",
+        "query_id": "bbf2516e-77eb-447b-b0c9-0c74126aaf1b",
+        "latency_ms": 1702
+      },
+      {
+        "name_norm": "PARSONS CORP",
+        "cik": "0000275880",
+        "ticker": "PSN",
+        "title": "PARSONS CORP",
+        "query_id": "a104a195-018d-4e22-ac21-80c4f9731232",
+        "latency_ms": 2268
+      }
+    ]
+  }
+}

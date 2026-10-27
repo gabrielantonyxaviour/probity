@@ -73,7 +73,7 @@ describe("red codes", () => {
     const q = seed(s, "T11", { parent_uei: "MBPHTU7Y9S65", addr_key: "k" }, []);
     (q as { status: string }).status = "error";
     expect(ids(s)).not.toContain("R2");
-    expect(detail(s, "R4")).toBe("The remit_owner link for V-10027 was not examined, so it stays held.");
+    expect(detail(s, "R4")).toBe("The remit-address owner link for V-10027 was not examined, so it stays held.");
     expect(ids(s, false)).not.toContain("R4");
   });
   it("R4 variants: multi_candidate, link_rejected, link_pending (only at DECIDE, with the sample suffix)", () => {

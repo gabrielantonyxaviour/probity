@@ -2,13 +2,12 @@
 import { X } from "lucide-react";
 import type { GraphPayload } from "@schemas/graph";
 import { Button, IconButton } from "@/components/ui/button";
-import { Chip, HonestyTag } from "@/components/ui/chip";
-import { GRAPH, FIXED } from "@/lib/copy";
+import { Chip } from "@/components/ui/chip";
+import { GRAPH } from "@/lib/copy";
 import { ID_LABELS, FLAG_KEY_WORDS } from "@/lib/labels";
 import { FLAG_TAGS, NODE_TYPE_WORDS } from "@/lib/labels-graph";
 import { maskAccounts } from "@/lib/mask";
 import { stamp } from "@/lib/format";
-import { hasRealPhone } from "@/lib/phone";
 
 type PNode = GraphPayload["nodes"][number];
 export type PopTarget = { x: number; y: number } & ({ kind: "node"; node: PNode; evidenceId: string | null; field: string | null } | { kind: "group"; label: string; body: string; queryId: string | null });
@@ -47,7 +46,6 @@ export function GraphPopover({ t, onClose, onEvidence, onFact, onQuery }: { t: P
               {f.session_id ? ` · session ${f.session_id}` : ""} · recorded by {t.node.provenance.by}, {stamp(t.node.provenance.at)}
             </p>
           ))}
-          {t.node.type === "phone" && (t.node.flags.includes("real_registry") || hasRealPhone(t.node.label)) ? <HonestyTag>{FIXED.doNotCall}</HonestyTag> : null}
           <div className="flex flex-wrap gap-2">
             {t.evidenceId ? <Button variant="ghost" onClick={() => onEvidence(t.evidenceId!)}>{GRAPH.showEvidence}</Button> : null}
             {t.field ? <Button variant="ghost" onClick={() => onFact(t.field!)}>{GRAPH.showInFacts}</Button> : null}

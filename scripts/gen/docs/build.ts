@@ -6,6 +6,8 @@ import { buildEml, parseEml, type EmlSpec } from "./eml";
 import { degrade } from "./degrade";
 import type { ExampleDoc } from "./example";
 import { A02_LINE, EVAL_KINDS, EVAL_VENDORS, evalLetter, type EvalKind } from "./eval-variants";
+import { addAdversarial } from "./adversarial-build";
+import { injectionSpans } from "./injection-truth";
 import { layoutLetter } from "./layout";
 import type { Laid, Letter } from "./model";
 import { letterPdf, scanPdf } from "./render-pdf";
@@ -17,6 +19,7 @@ import { buildInbox } from "./content/inbox-build";
 import { INBOX_1 } from "./content/inbox-1";
 import { INBOX_2 } from "./content/inbox-2";
 import { scenarioExamples, TYPED_EXAMPLES } from "./content/examples";
+import { exampleS10 } from "./content/injection";
 import { letter03, withInstruction } from "./content/scenario";
 
 export type Files = Map<string, Buffer | string>;
@@ -24,18 +27,18 @@ const json = (v: unknown): string => `${JSON.stringify(v, null, 2)}\n`;
 const MEDIA: Record<string, string> = { "letter.png": "image/png", "letter.pdf": "application/pdf", "headers.eml": "message/rfc822" };
 
 export interface Rendered { laid: Laid; png: Buffer; pdf: Buffer; emlText: string | null }
-export async function render(l: Letter, opts: { scan?: boolean; eml?: EmlSpec | undefined }): Promise<Rendered> {
+export async function render(l: Letter, opts: { scan?: boolean; eml?: EmlSpec | undefined } = {}): Promise<Rendered> {
   const laid = layoutLetter(l);
   const errs = checkLetter(l, laid);
   const emlText = opts.eml ? buildEml(opts.eml) : null;
-  if (emlText) errs.push(...checkEml(emlText, l.company, l.id));
+  if (emlText) errs.push(...checkEml(emlText, l.company, l.id, opts.eml?.unmarked === true));
   failOnErrors(errs);
-  const base = await pageToPng(laid.pages[0] as never, l.company);
+  const base = await pageToPng(laid.pages[0] as never, l.company, !l.unmarked);
   if (opts.scan) {
     const scan = await degrade(base);
     return { laid, png: scan.png, pdf: await scanPdf(scan.jpg, l.company), emlText };
   }
-  return { laid, png: base, pdf: await letterPdf(laid.pages, l.company), emlText };
+  return { laid, png: base, pdf: await letterPdf(laid.pages, l.company, l.unmarked ? { title: l.subject ?? l.id, author: l.head.name } : undefined), emlText };
 }
 
 function requestJson(d: ExampleDoc): string {
@@ -49,7 +52,7 @@ export async function buildDocuments(opts: BuildOptions = {}): Promise<Files> {
   const files: Files = new Map();
   const seed = new SeedView();
   const inbox = [...INBOX_1, ...INBOX_2].map((s, i) => buildInbox(s, seed, i));
-  const examples = [...scenarioExamples(), ...inbox];
+  const examples = [...scenarioExamples(), exampleS10(seed), ...inbox];
   const items: unknown[] = [];
   const selected = (d: ExampleDoc): boolean => !opts.only || opts.only.some((o) => d.exampleId.startsWith(o) || d.requestId.endsWith(o));
   for (const d of examples.filter(selected)) {
@@ -61,8 +64,15 @@ export async function buildDocuments(opts: BuildOptions = {}): Promise<Files> {
     out("request.json", requestJson(d));
     const attachments = ["letter.png", "letter.pdf", ...(r.emlText ? ["headers.eml"] : [])].map((f) => ({ kind: f === "headers.eml" ? "eml_headers" : "letter", file: f, media_type: MEDIA[f], sha256: sha256Hex(f === "letter.png" ? r.png : f === "letter.pdf" ? r.pdf : (r.emlText as string)) }));
     const eml = r.emlText ? parseEml(r.emlText) : null;
-    files.set(`data/sample/claims/${d.exampleId}.claims.json`, json(buildClaims(d.letter, r.laid, eml, attachments.map((a) => a.sha256), d.exampleId)));
-    files.set(`tests/fixtures/docs/${d.exampleId}.truth.json`, json(buildTruth(d.letter, r.laid, d.exampleId, eml)));
+    const claims = buildClaims(d.letter, r.laid, eml, attachments.map((a) => a.sha256), d.exampleId);
+    for (const e of d.emailInjections ?? []) { // attack text in the email body: the reader sees it in the headers block, so the fixture quotes it too
+      claims.pressure_phrases.push({ quote: e.text, kind: "embedded_instruction" });
+      claims.fields.push({ field: "pressure_phrase", fact_field: null, quote: e.text, page: 1, bbox_hint: null, highlight_source: "none" });
+    }
+    files.set(`data/sample/claims/${d.exampleId}.claims.json`, json(claims));
+    const spans = injectionSpans(d.letter, r.laid, { ...(d.emailInjections ? { email: d.emailInjections } : {}) });
+    const truth = { ...buildTruth(d.letter, r.laid, d.exampleId, eml), ...(spans.length ? { injection_spans: spans } : {}), ...(d.unmarked ? { unmarked: true } : {}) };
+    files.set(d.truthPath ?? `tests/fixtures/docs/${d.exampleId}.truth.json`, json(truth));
     items.push({
       inbox_id: `IN-${d.requestId.slice(-4)}`, request_id: d.requestId, example_id: d.exampleId, claimed_name: d.manifestName, change_kinds: d.kinds, payment_run_id: d.paymentRunId,
       received_at: d.receivedAt, channel: d.channel, from: d.from, subject: d.subject, scenario: d.scenario, dir: d.folder, attachments,
@@ -73,6 +83,7 @@ export async function buildDocuments(opts: BuildOptions = {}): Promise<Files> {
     (items as { received_at: string; request_id: string }[]).sort((a, b) => a.received_at.localeCompare(b.received_at) || a.request_id.localeCompare(b.request_id));
     files.set("data/inbox/manifest.json", json({ synthetic: true, generated_by: "scripts/make_documents.ts", seed: PAYEE_SEED, items }));
     await addFixtures(files);
+    await addAdversarial(files, seed, (l) => render(l, {}));
   }
   if (opts.evalVariants) await addEvalVariants(files);
   return files;

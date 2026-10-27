@@ -21,7 +21,7 @@ export function Footer({ hold }: { hold: LandingRun | undefined }) {
   const demoVideo = process.env.DEMO_VIDEO_URL;
   const columns: { head: string; id?: string; links: L[] }[] = [
     { head: "PRODUCT", links: [
-      { label: "Live demo", href: APP_HOME }, { label: "Change requests", href: APP_HOME },
+      { label: "Open the app", href: APP_HOME }, { label: "Change requests", href: APP_HOME },
       { label: hold?.mode === "sample" ? "Sample dossier" : "Latest dossier", href: dossier }, { label: "Sources", href: LIMITS_URL },
     ] },
     { head: "EVIDENCE", links: [
@@ -34,7 +34,7 @@ export function Footer({ hold }: { hold: LandingRun | undefined }) {
     ] },
     { head: "PROJECT", links: [
       { label: "GitHub", href: REPO_URL }, { label: "README", href: README_URL },
-      ...(demoVideo ? [{ label: "Demo video", href: demoVideo }] : []),
+      ...(demoVideo ? [{ label: "Video", href: demoVideo }] : []),
       { label: "Team Zen", href: "" },
     ] },
   ];
@@ -44,7 +44,6 @@ export function Footer({ hold }: { hold: LandingRun | undefined }) {
       <div className="l-frame l-foot-grid">
         <div className="l-foot-legal">
           <p>{FOOTER.legal}</p>
-          <p>{FOOTER.synthetic}</p>
           <p className="t-mono-label">{FOOTER.policy}</p>
         </div>
         {columns.map((c) => (

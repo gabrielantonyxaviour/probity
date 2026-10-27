@@ -108,6 +108,8 @@ textarea.p-field { height: auto; min-height: 96px; padding: 10px 12px; resize: v
 }
 .p-alert__g { color: var(--tone); flex: none; }
 .p-alert__body { min-width: 0; flex: 1; }
+/* Muted text on a tinted alert falls under 4.5:1 (axe: 4.32 on --gap-bg-raised), so context text there uses --fg-2. */
+.p-alert__body .text-fg-muted { color: var(--fg-2); }
 .p-alert[data-tone="gap"] { --tone: var(--gap); --tone-bg: var(--gap-bg-raised); --tone-border: var(--gap-border); }
 .p-alert[data-tone="conflict"] { --tone: var(--conflict-text); --tone-bg: var(--conflict-bg-raised); --tone-border: var(--conflict-border); }
 .p-alert[data-tone="agree"] { --tone: var(--agree); --tone-bg: var(--agree-bg-raised); --tone-border: var(--agree-border); }

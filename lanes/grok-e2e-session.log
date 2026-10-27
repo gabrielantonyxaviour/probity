@@ -1,0 +1,256 @@
+I'll build the Playwright E2E suite against the live Probity stack and only touch `tests/e2e/**` and `playwright.config.ts`. First I'll read the spec, existing testids, and the current Playwright setup.Instruction check is clean. Next I’ll read the live status, the testid contract, and the selectors that actually exist in the UI.The testid contract and live stack are clear. I’ll inspect the API payloads and the UI pieces the assertions depend on before writing tests.=== fresh e2e session 2026-10-27T14:44:28Z cwd tests/e2e ===
+I'll start the e2e lane by reading the live contract and existing testids, then write the helpers and the first inbox and decision specs before anything else.The UI testids are in place. Next I’ll read the Playwright config and live API shapes, then write the helpers and the first specs.The live inbox has a decided S1 HOLD and an unchecked Kettle Point request. I’m writing the helpers and the first specs now, then I’ll run them.=== slice 2 2026-10-27T14:54:11Z ===
+The last slice stopped after the helpers. I’ll check what’s on disk, finish the specs, and run the acceptance checks.Helpers are in place and the specs never landed. I’ll add the Playwright config and every spec, then run the suite.=== slice 3 2026-10-27T15:03:50Z ===
+The wide suite already has a baseline. I’ll confirm nothing started the live verify, re-run wide while skipping `@live`, then do the viewport projects and the single live check.The Kettle Point run is already in flight (`r-20261027T150100Z-bf7a`), so the live test will attach to it and will not start another. I’ll tighten two slow test waits, then run wide.The wide suite, the narrow and medium scroll checks, and one live verify are done. `tsc` and eslint on `tests/e2e` and `playwright.config.ts` are clean. Product code was not changed.
+
+## 1. Files
+
+Created or updated, all under `tests/e2e/**` except the config:
+
+- `playwright.config.ts` — 60s default timeout, `live` project at 6 minutes, `@live` excluded from narrow, medium, and wide
+- `tests/e2e/helpers/` — `api.ts`, `runs.ts`, `layout.ts`, `nav.ts`, `watch.ts`, `labels.ts`, `erp.ts`
+- `tests/e2e/ui/` — `inbox.spec.ts`, `decision.spec.ts`, `evidence.spec.ts`, `graph.spec.ts`, `dossier.spec.ts`, `system.spec.ts`, `landing.spec.ts`, `mobile.spec.ts`, `api-down.spec.ts`, `contract.spec.ts`, `labels.spec.ts`, `a11y.spec.ts`, `live-verify.spec.ts`
+- `tests/e2e/PROGRESS.md`, `tests/e2e/live-verify-result.json`
+
+## 2. How to run
+
+From the repo root, with Node 24 on `PATH` (this shell’s fnm `node` shim is a JSON file, so the runs used `~/.local/share/fnm/node-versions/v24.14.0/installation/bin`):
+
+```bash
+cd /Users/gabrielantonyxaviour/Documents/hackathons/open-agent-2026/probity
+npx playwright test --project=wide --grep-invert @live
+npx playwright test --project=narrow tests/e2e/ui/mobile.spec.ts
+npx playwright test --project=medium tests/e2e/ui/mobile.spec.ts
+npx playwright test --project=live
+npx tsc --noEmit
+npx eslint tests/e2e playwright.config.ts
+```
+
+Do not run `@live` again. The marker file makes a later `@live` run attach to `r-20261027T150100Z-bf7a` instead of clicking Verify.
+
+## 3. Pass/fail
+
+| Project | Test | Result |
+|---|---|---|
+| wide | GET `/requests` shape | pass |
+| wide | Unknown run returns `{error, code}` | pass |
+| wide | API-down banner, Try again recovers | pass |
+| wide | S1 HOLD review matches the API | pass |
+| wide | Dossier, decision, JSON download | pass |
+| wide | Graph decision path, conflict, `?graph=full` | pass |
+| wide | Evidence drawer, SQL, query id, Escape | pass |
+| wide | Evidence re-run result | fail |
+| wide | Inbox mixed states, no horizontal scroll, clean console | fail |
+| wide | No synthetic/demo labels on `/app` | fail |
+| wide | No synthetic/demo labels on the review | fail |
+| wide | No synthetic/demo labels on `/` | fail |
+| wide | Axe on `/app` | fail |
+| wide | Axe on the review | pass |
+| wide | Landing hero, CTA to `/app`, no horizontal scroll | pass |
+| wide | System chip shows live Nemotron lanes | fail |
+| wide | `/readyz` live, both lanes `confirmed_nemotron` | pass |
+| wide | No horizontal scroll at 390×844 | pass |
+| wide | No horizontal scroll at 1440×900 | pass |
+| narrow | No horizontal scroll at 390×844 | pass |
+| narrow | No horizontal scroll at the 390 project viewport | pass |
+| medium | No horizontal scroll at 390×844 | pass |
+| medium | No horizontal scroll at the 834 project viewport | pass |
+| live | Kettle Point verify | pass |
+
+S1 was the latest HOLD for BCR-2026-0412, resolved from `GET /runs` (not a hard-coded id). The review showed HOLD, R1, R3, R6, call-back `(703) 902-5000`, do-not-use `(703) 555-0147` and `(703) 555-0182`, sweep items PRI-1030-0009 and PRI-1030-0010, and exposure `$1,284,550.00`, matching `GET /runs/:id`.
+
+## 4. Product bugs
+
+| Severity | File | Selector | Observed | Expected |
+|---|---|---|---|---|
+| High | `ui/components/shell/Footer.tsx` | `[data-testid="synthetic-notice"]` | “Internal records and letters are synthetic…” on `/app` and the review | No `synthetic-notice`, and no visible text matching demo scenario / synthetic / do not call |
+| High | `ui/components/inbox/QueuePage.tsx` | `[data-testid="page-synthetic-notice"]` | “Requests, letters and vendor records on this page are synthetic test data…” | That notice gone |
+| High | `ui/components/review/CallbackCard.tsx` | `[data-testid="callback-script"]` badge | “Demo scenario: do not call.” | No demo/do-not-call label |
+| High | `ui/components/review/FactSheet.tsx` | `[data-testid="fact-sheet-region"]` `HonestyTag` | “Demo scenario: do not call.” | No demo/do-not-call label |
+| High | `ui/components/landing/Hero.tsx` | `.l-hero-note` | “DEMO REQUESTS AND INTERNAL RECORDS ARE SYNTHETIC…” | No synthetic/demo line |
+| High | `ui/components/landing/SourcesGrid.tsx`, `OutcomeCard.tsx`, landing footer | source cells and notes | “(synthetic records)”, “VENDOR MASTER · SYNTHETIC”, “Synthetic request…”, “Demo requests and internal records are synthetic…” | Those phrases gone. Letter pane text was excluded |
+| High | `ui/lib/system-status.ts`, `ui/components/shell/SystemChip.tsx` | `[data-testid="system-chip"]` | aria-label `Services: Zetaris unreachable`. `GET /readyz` had `zetaris_query.status` `offline` and `features.rerun` false, with `ready: true` | Chip shows the live state. For this demo that is “Zetaris live” with both lanes up |
+| Medium | `ui/lib/labels-trace.ts` `modelShort`, `SystemChip.tsx` | `.p-popover` | While the chip was live, lanes showed `nemotron-3.5-lightning-30b-a3b` and `nemotron-3-ultra-550b-a55b` | Exact pinned ids `nvidia/nemotron-3.5-lightning-30b-a3b` and `nvidia/nemotron-3-ultra-550b-a55b` |
+| Medium | `ui/components/inbox/StatusChip.tsx` | `[data-testid="status-chip"][data-status="APPROVE"]` | No Approve chip on the All tab. Latest runs are HOLD and CALLBACK_VERIFY. APPROVE run `r-20261027T140038Z-af62` is no longer the latest for BCR-2026-0398 | An Approve chip is present with HOLD, Call back first, Not checked, and closed ERP chips |
+| Medium | `ui/components/ui/tabs.tsx`, `QueuePage.tsx` | `.p-tab__n`, `.p-alert__body .text-fg-muted` | Axe `color-contrast` serious on the Decided tab count and on the muted line of the Zetaris-down alert (“Checks started now use offline captures…”) | No serious or critical violations on `/app` |
+| Medium | `ui/components/evidence/RerunPanel.tsx` | `[data-testid="rerun-button"]`, `[data-testid="rerun-result-text"]` | Button was visible; 45s after click there was no result text. An earlier pass in this lane did get a match/drift result while Zetaris was up | Result text with `data-match` `true` or `false` |
+
+## 5. Live verify
+
+- Run `r-20261027T150100Z-bf7a`, BCR-2026-0401 Kettle Point remit change.
+- Started 15:01:00Z, decided 15:08:26Z, API `execution_time_seconds` 483.2. Status `partial_success`.
+- Decision HOLD. Reason codes R4, C1, C3. Ledger rows for the real calls are `nvidia/nemotron-3.5-lightning-30b-a3b` and `nvidia/nemotron-3-ultra-550b-a55b`, both `nemotron: true`. The decision survived reload and the inbox chip is `data-status="HOLD"`.
+- ERP, read-only: before, no `bank_change_request` row. After, status `held`, one `bank_change_document`, `vendor_contact_log` still 0.
+- The `@live` test attached to that run and passed in 3.1s. Verify was clicked once.
+
+## 6. Open items
+
+- Zetaris query and admin were `offline` on `localhost:8888` during the confirmation run. The live decision still completed. Re-run is the check most exposed to that outage.
+- The inbox no longer has a latest APPROVE. The historical APPROVE run is still in `GET /runs`.
+- Synthetic and demo labels are still the known fail until the UI lane removes them.
+- This session’s `node` shim at `~/.local/state/fnm_multishells/1478_1793112855728/bin/node` is a JSON file. Tests ran with the v24.14.0 binary. The shim was left as it was.
+=== slice 4 2026-10-27T15:13:22Z ===
+The coordinator’s rerun matches the seven failures. I’ll split the environment checks from the real UI bugs, then re-run wide, narrow, and medium without touching `@live`.Auto-compacting conversation (80% full)...
+Conversation compacted.
+The coordinator refinements are still unwritten. I'll read the specs and the UI selectors they depend on, then implement the five test changes before re-running wide, narrow, and medium.The chip, inbox, decision, landing, and evidence specs still hard-code the old expectations. I'll align them with readyz and the S3 regression, then re-run the width projects.Typecheck and lint are clean. Next I’ll run the wide project, then narrow and medium, without the live verify.=== slice 5 2026-10-27T15:23:04Z ===
+The wide run tripped on `GET /requests` returning 400, which hid several checks. I’ll confirm the spec edits, see whether that 400 is still there, then re-run wide, narrow, and medium.Refinements (1)–(5) are in place. Wide is 11 passed, 12 failed, 1 skipped. Narrow and medium mobile passed. `tsc` and eslint are clean. `@live` was not run again.
+
+## 1. Files changed
+
+- `tests/e2e/helpers/api.ts` — chip label derived from GET `/readyz`, same rules as `systemView`
+- `tests/e2e/helpers/runs.ts` — `callback_evidence` on the decision type
+- `tests/e2e/ui/system.spec.ts` — chip matches readyz; hard full `nvidia/` ids; Zetaris reachability disagrees only when inverted
+- `tests/e2e/ui/inbox.spec.ts` — mixed states kept; APPROVE is its own test
+- `tests/e2e/ui/decision.spec.ts` — `S3 L3Harris latest run for BCR-2026-0398 is APPROVE with call-back CL-20398 on (321) 727-9100`
+- `tests/e2e/ui/landing.spec.ts` — hero CTAs go to `/app`; `/app/new` shows `new-form`
+- `tests/e2e/ui/evidence.spec.ts` — `test.skip` only when `zetaris_query.status !== "ok"`
+- `tests/e2e/PROGRESS.md`
+
+## 2. How to run
+
+From the repo root, with Node 24 on `PATH`:
+
+```bash
+npx playwright test --project=wide --grep-invert @live --workers=2
+npx playwright test --project=narrow --project=medium tests/e2e/ui/mobile.spec.ts --workers=2
+npx tsc --noEmit
+npx eslint tests/e2e playwright.config.ts
+```
+
+Do not pass `--project=live`.
+
+## 3. Pass/fail
+
+| Project | Test | Result |
+|---|---|---|
+| wide | contract: GET `/requests` shape | fail (400) |
+| wide | contract: unknown run `{error, code}` | pass |
+| wide | api-down: banner, then Try again | fail |
+| wide | decision: S1 HOLD matches API | fail |
+| wide | decision: S3 L3Harris APPROVE CL-20398 | fail |
+| wide | dossier: sections, decision, JSON download | pass |
+| wide | graph: decision path, conflict, `?graph=full` | pass |
+| wide | evidence drawer | pass |
+| wide | evidence re-run | skip |
+| wide | inbox mixed states | fail |
+| wide | inbox APPROVE chip | fail |
+| wide | labels inbox / review / landing | fail |
+| wide | a11y `/app` | fail |
+| wide | a11y review | pass |
+| wide | landing hero CTA and clean console | fail |
+| wide | hero CTAs to `/app`, `/app/new` `new-form` | pass |
+| wide | chip matches `/readyz` | pass |
+| wide | popover full `nvidia/` ids | fail |
+| wide | Zetaris reachability agrees with readyz | pass |
+| wide | `/readyz` both lanes `confirmed_nemotron` | pass |
+| wide | mobile 390×844 and 1440×900 | pass |
+| narrow | mobile 390×844 and 390 viewport | pass |
+| medium | mobile 390×844 and 834 viewport | pass |
+
+Wide: 11 passed, 12 failed, 1 skipped (1.5m). Narrow and medium mobile: 4 passed (10.5s).
+
+## 4. Bugs
+
+1. **High.** `app/api/routes/requests.ts` (`InboxResponse.parse`) and `app/schemas/api-routes.ts` (`request_id` `/^BCR-2026-\d{4}$/`). Selector `[data-testid="error-banner"]` in `ui/components/inbox/QueuePage.tsx`. Observed: GET `/requests` is 400 `{error: "0.request_id: Invalid string: must match pattern /^BCR-2026-\\d{4}$/", code: "invalid_input"}`. ERP rows `BCR-9026-0001` and `BCR-9026-0002` (received 14:45Z) sort first and reject the whole list. The queue shows the error banner, so `inbox`, the S1 row, Try again recovery, the landing `/api/requests` check, and the `/app` axe setup all fail. Expected: 200 and `[data-testid="inbox"]`.
+
+2. **High.** Latest run for BCR-2026-0398 is `r-20261027T152222Z-7cdc` with decision `CALLBACK_VERIFY`. Expected: `APPROVE` and call-back `CL-20398` on `(321) 727-9100` (`[data-testid="decision-card"][data-decision="APPROVE"]`, `[data-testid="callback-evidence"]`). The API assertion fails before the review opens. This is the S3 regression. A newer run replaced `r-20261027T143041Z-2e7c`; it is still `CALLBACK_VERIFY`.
+
+3. **High.** Synthetic and demo copy is still visible. `ui/components/shell/Footer.tsx` `[data-testid="synthetic-notice"]`. `ui/components/inbox/QueuePage.tsx` `[data-testid="page-synthetic-notice"]`. `ui/components/review/CallbackCard.tsx` inside `[data-testid="callback-script"]` (“Demo scenario: do not call.”). `ui/components/review/FactSheet.tsx` `[data-testid="fact-sheet-region"]`. Landing: `ui/components/landing/Hero.tsx`, `SourcesGrid.tsx`, `OutcomeCard.tsx`, and the landing footer (“DEMO REQUESTS…”, “synthetic records”, “VENDOR MASTER · SYNTHETIC”).
+
+4. **Low.** `ui/lib/labels-trace.ts` `modelShort` and `ui/components/shell/SystemChip.tsx` `.p-popover`. Observed: `nemotron-3.5-lightning-30b-a3b` and `nemotron-3-ultra-550b-a55b`. Expected: `nvidia/nemotron-3.5-lightning-30b-a3b` and `nvidia/nemotron-3-ultra-550b-a55b`. The chip itself matches readyz (`Services: Zetaris unreachable` while `zetaris_query.status` is `offline`).
+
+The APPROVE-chip failure is the same inbox 400: the All tab never renders a status chip. It is not a separate clean observation this run.
+
+## 5. Live verify
+
+Not run again. Run `r-20261027T150100Z-bf7a`. Started 15:01:00Z, decided 15:08:26Z, `execution_time_seconds` 483.2, status `partial_success`, decision HOLD, codes R4, C1, C3. Marker duration 540138 ms. ERP BCR-2026-0401: absent → `held`, documents 0 → 1, contact logs 0 → 0. Verify was clicked once.
+
+## 6. Open items
+
+- Evidence re-run stays skipped until `zetaris_query.status` is `ok`. The skip does not click Re-run.
+- `/app` axe did not run this pass because `[data-testid="inbox"]` never appears. Review axe passed.
+- Inbox horizontal scroll and the mixed HOLD / CALLBACK_VERIFY / Not checked / ERP chips were not reached.
+- Node shim `1478_1793112855728` is still a JSON file. Commands used the fnm v24.14.0 bin. It was not repaired.
+- No commit and no push.
+
+Acceptance: wide, narrow, and medium ran without `@live`. `tsc` and eslint are clean. Genuine failures were left in place.
+=== slice 6 2026-10-27T15:32:29Z ===
+The coordinator’s narrow and medium failures need a viewport check before I change any assertion. I’ll open the landing, graph, a11y, popover, and inbox specs against the product, and confirm whether `GET /requests` is healthy again.`GET /requests` is 200 again, and the `BCR-9026` rows are gone. Next I’ll open the landing, graph, and review at narrow and medium to separate product bugs from test assumptions.The hero pill is on screen at narrow and medium. The failure is the centre-nav link, which is hidden until 1120px, and the graph sits behind a tab below wide. I’ll confirm those test fixes, then run the full suite.=== slice 7 2026-10-27T15:42:05Z ===
+The landing and graph fixes are already in. I’ll confirm those files, then run the full non-live suite plus typecheck and lint.Landing and graph were test assumptions and now pass at every width. The remaining failures are product bugs. The full non-live run is 45 passed, 24 failed, 3 skipped. `tsc` and eslint are clean. `@live` was not run.
+
+## Classification
+
+| Failure | Verdict |
+|---|---|
+| Landing hero CTA at narrow/medium | Test assumption. The hero pill `.l-hero-pills a[href='/app']` is visible (180×32). The check that failed was `header a[href='/app']` first match: the centre-nav pill is `display: none` below 1120px, and below 640px the header-right pill is hidden too (`.l-hide-sm` in `ui/components/landing/css/header.css`). The test now opens the menu (`Open menu`, `.l-sheet[open] a[href='/app']`) under 640px and checks `.l-header-right a[href='/app']` from 640px up. |
+| Graph 60s timeout at narrow/medium | Test assumption. Below wide, `ui/components/review/ReviewLayout.tsx` does not mount `GraphPanel` until the Graph tab, so `scrollIntoViewIfNeeded` waited out the 60s test timeout. Narrow then defaults to the table, which has no `graph-edge`. The test opens the tab, clicks Diagram when no edge is attached, and caps each step at 15s. After that, nodes, edges, and conflict nodes are present. |
+| A11y review at narrow/medium | Product bug. Same serious `color-contrast` on the decision lede and reason text. Wide fails it too. |
+| A11y inbox at medium | Product bug. Serious `color-contrast` on `.p-tab__n`. Wide fails the same node, plus the Zetaris-down alert. Narrow inbox passed this run. |
+| System popover ids, all widths | Product bug. `modelShort` strips `nvidia/`. |
+| Inbox APPROVE chip, all widths | Product bug. No APPROVE chip. Latest S3 run is `CALLBACK_VERIFY`. |
+
+## 1. Files changed
+
+- `tests/e2e/ui/landing.spec.ts` — menu CTA below 640px, header-right CTA otherwise
+- `tests/e2e/ui/graph.spec.ts` — open the Graph tab below wide, Diagram when the table is showing, 15s per step
+- `tests/e2e/PROGRESS.md`
+
+## 2. How to run
+
+From the repo root, Node 24 on `PATH`:
+
+```bash
+npx playwright test --grep-invert @live --workers=3
+npx tsc --noEmit
+npx eslint tests/e2e playwright.config.ts
+```
+
+Do not pass `--project=live`.
+
+## 3. Pass/fail
+
+72 tests, 1.8 minutes. Evidence re-run skipped on all three projects because `zetaris_query.status` is `offline`.
+
+| Test | narrow | medium | wide |
+|---|---|---|---|
+| contract `/requests` and unknown run | pass | pass | pass |
+| api-down recovery | pass | pass | pass |
+| S1 HOLD | pass | pass | pass |
+| S3 APPROVE CL-20398 | fail | fail | fail |
+| dossier, graph, evidence drawer | pass | pass | pass |
+| evidence re-run | skip | skip | skip |
+| inbox mixed states | pass | pass | pass |
+| inbox APPROVE chip | fail | fail | fail |
+| labels inbox, review, landing | fail | fail | fail |
+| a11y `/app` | pass | fail | fail |
+| a11y review | fail | fail | fail |
+| landing hero and `/app/new` | pass | pass | pass |
+| chip matches `/readyz`, Zetaris reachability | pass | pass | pass |
+| popover full `nvidia/` ids | fail | fail | fail |
+| `/readyz` both lanes | pass | pass | fail once |
+| mobile 390×844 and project viewport | pass | pass | pass |
+
+The wide `/readyz` failure was one response with `nightshift.lanes` missing. A direct GET shows `fast` and `deep`, and an immediate rerun of that test passed.
+
+## 4. Bugs
+
+1. **High.** Latest BCR-2026-0398 run `r-20261027T152222Z-7cdc` is `CALLBACK_VERIFY`. Selector `[data-testid="status-chip"][data-status="APPROVE"]` is absent on All (`ui/components/inbox/StatusChip.tsx`). Expected `APPROVE` and `[data-testid="callback-evidence"]` reading `Call-back CL-20398 on (321) 727-9100`.
+
+2. **Low.** `ui/lib/labels-trace.ts` `modelShort`, rendered in `ui/components/shell/SystemChip.tsx` `.p-popover`. Observed `nemotron-3.5-lightning-30b-a3b` and `nemotron-3-ultra-550b-a55b`. Expected both ids with the `nvidia/` prefix.
+
+3. **High.** Synthetic and demo copy at every width. `[data-testid="synthetic-notice"]` in `ui/components/shell/Footer.tsx`. `[data-testid="page-synthetic-notice"]` in `ui/components/inbox/QueuePage.tsx`. “Demo scenario: do not call.” in `[data-testid="callback-script"]` (`ui/components/review/CallbackCard.tsx`) and `[data-testid="fact-sheet-region"]` (`ui/components/review/FactSheet.tsx`). Landing copy in `ui/components/landing/Hero.tsx`, `SourcesGrid.tsx`, and the landing footer.
+
+4. **Medium.** Serious color-contrast. Inbox medium and wide: `ui/components/ui/tabs.tsx` `.p-tab[role="tab"]:nth-child(2) > .p-tab__n.tabular` (`--fg-muted` in `ui/app/styles/overlays.css`). Wide also: `.p-alert__body > span > .text-fg-muted` in `ui/components/inbox/QueuePage.tsx`. Review, all widths: `.t-lede > .text-fg-muted` and `li[data-code="R3"] .t-clamp-2` in `ui/components/review/WhyList.tsx` and the decision banner. Medium review also flagged `.dec-word > span:nth-child(2)` and `.t-lede > .text-fg`.
+
+GET `/requests` is healthy again (200, 36 items). The earlier 400 was both things: the Zetaris lane’s k3d script (`scripts/zetaris/k3d.ts`) inserts `BCR-9026-0001` and `BCR-9026-0002` because the ERP allows `^BCR-[0-9]{4}-[0-9]{4}$`, and `app/api/routes/requests.ts` parses the whole inbox with `/^BCR-2026-\d{4}$/`, so one bad row 400s the list. Those rows are gone from `bank_change_request`.
+
+## 5. Live verify
+
+Not run again. Run `r-20261027T150100Z-bf7a`. Started 15:01:00Z, decided 15:08:26Z, 483.2s, status `partial_success`, decision HOLD, codes R4, C1, C3. Marker duration 540138 ms. ERP BCR-2026-0401: absent → `held`, documents 0 → 1, contact logs 0 → 0. Verify was clicked once.
+
+## 6. Open items
+
+- Evidence re-run stays skipped until Zetaris query is `ok`.
+- Narrow inbox axe passed this run. Medium and wide did not.
+- The wide `/readyz` miss did not repeat.
+- No commit and no push.

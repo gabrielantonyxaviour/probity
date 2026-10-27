@@ -10,7 +10,7 @@ import { useReview } from "./review-context";
 
 /** Model ledger (01 section 7.1.6): from trace events while streaming, from models_used[] after the decision. */
 export function ModelLedger({ defaultOpen = false }: { defaultOpen?: boolean }) {
-  const { state, decision, sample } = useReview();
+  const { state, decision, sample, running } = useReview();
   const [open, setOpen] = useState(defaultOpen);
   const rows = useMemo(() => buildLedger({ decision, trace: state.trace }), [decision, state.trace]);
   const cost = decision?.cost;
@@ -26,7 +26,7 @@ export function ModelLedger({ defaultOpen = false }: { defaultOpen?: boolean }) 
             <table className="ledger" data-testid="model-ledger">
               <thead><tr>{MODELS.ledgerCols.map((c, i) => <th key={c} scope="col" className={i >= 4 && i <= 7 ? "num" : undefined}>{c}</th>)}</tr></thead>
               <tbody>
-                {rows.length === 0 ? <tr><td colSpan={9} className="text-fg-muted">{sample ? MODELS.sampleNotRun : MODELS.notNeeded}</td></tr> : null}
+                {rows.length === 0 ? <tr><td colSpan={9} className="text-fg-muted">{sample ? MODELS.sampleNotRun : running ? MODELS.noCallsYet : MODELS.notNeeded}</td></tr> : null}
                 {rows.map((m) => (
                   <tr key={`${m.agent}${m.lane}${m.model}`} data-testid="model-row" data-lane={m.lane} data-nemotron={String(m.nemotron)}>
                     <td>{agentName(m.agent)}</td>

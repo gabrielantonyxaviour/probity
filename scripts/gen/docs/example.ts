@@ -19,4 +19,7 @@ export interface ExampleDoc {
   manifestName: string; // claimed_name in the inbox manifest
   from: string;
   subject: string;
+  unmarked?: boolean; // fictional vendor: letter and email carry no synthetic label (decision 8)
+  emailInjections?: { id: string; text: string; goal: string }[]; // attack text placed in the email body (D6)
+  truthPath?: string; // override of tests/fixtures/docs/<id>.truth.json
 }

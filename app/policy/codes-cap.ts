@@ -5,7 +5,7 @@ import type { PolicyState } from "../orchestration/state";
 import { mk, SOURCE_LABEL } from "./code-util";
 import { recentEmailChange } from "./contacts";
 import { daysBetween, isoDate, toMs } from "./normalise";
-import { acceptedEvidence, evidenceIds, queriesOf, rowsOf, str } from "./rows";
+import { acceptedEvidence, evidenceIds, failedReads, queriesOf, rowsOf, str } from "./rows";
 
 const DAY = 86_400_000;
 const INDEPENDENT = new Set(["edgar_registrant", "vendor_master_pre_window"]);
@@ -56,6 +56,19 @@ export function bestObservation(s: PolicyState, field: FactField) {
 
 /** C2 over the given decisive fields: per source, the best observation of the field must be live enough (04 §8.2). */
 export function c2(s: PolicyState, decisive: FactField[], nowMs: number): ReasonCode | null {
+  // F22: a source taken down by options.simulate_outage always caps the decision. Its own reads were not run; joined views
+  // (T05 carries EDGAR columns) may still show cached values, which is not the same as the source answering.
+  const down = s.options?.simulate_outage?.[0];
+  if (down) {
+    const src = down === "erp" ? "vendor_master" : down;
+    return mk("C2", `${SOURCE_LABEL[src]} was not reachable during this check (simulated outage), so its evidence is unknown.`, []);
+  }
+  // A decisive read that failed outright: its facts are unknown, so the decision can at most ask for a call-back.
+  const failed = failedReads(s);
+  if (failed.length) {
+    const src = failed[0]!.source;
+    return mk("C2", `${SOURCE_LABEL[src]} could not be read during this check (${failed.map((f) => f.template_id).join(", ")}), so its evidence is unknown.`, []);
+  }
   const bad: Observation[] = [];
   for (const f of decisive) {
     const bySource = new Map<string, Observation>();
@@ -65,7 +78,12 @@ export function c2(s: PolicyState, decisive: FactField[], nowMs: number): Reason
     }
     for (const best of bySource.values()) if (!isLiveEnough(best, nowMs)) bad.push(best);
   }
-  if (bad.length === 0) return null;
+  if (bad.length === 0) {
+    // Mirror of the APPROVE invariant (gate.ts): a run that fell back to captures or a mirror mid-way caps here, so it ends
+    // as CALLBACK_VERIFY with a reason instead of a policy_invariant error (live S3 re-evaluation, 15:54Z).
+    const degraded = s.partial_reasons.some((r) => r !== "rationale_fallback" && /degraded|fallback|unreachable|mirror|sample/.test(r));
+    return degraded ? mk("C2", "Some evidence in this check came from offline captures because Zetaris did not answer in time, so not every fact is live.", []) : null;
+  }
   const o = bad[0]!;
   const stale = o.mode === "zetaris_cache";
   return mk("C2", `${SOURCE_LABEL[o.source]} evidence is from ${modeLabel(o.mode, stale)}, not a live source.`, bad.map((b) => b.evidence_id));
@@ -107,6 +125,7 @@ export function c5(s: PolicyState, phonesAt: PhonesAt): ReasonCode | null {
 }
 
 export function c6(s: PolicyState): ReasonCode | null {
+  if (s.options?.simulate_outage?.includes("erp")) return null; // the vendor master was down, not empty: C2 says so instead
   return s.candidates.length === 0 ? mk("C6", "No vendor of record matches this request.") : null;
 }
 

@@ -41,6 +41,7 @@ export const EDGE_LABELS: Record<string, string> = {
 
 export function edgeLabel(type: string, context: string): string {
   if (type === "reachable_at" && context.startsWith("src:edgar")) return "registered phone";
+  if (type === "sent_from" && context.endsWith(":reply_to")) return "replies go to";
   return EDGE_LABELS[type] ?? type.replace(/_/g, " ");
 }
 

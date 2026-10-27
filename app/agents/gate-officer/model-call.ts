@@ -12,7 +12,7 @@ export function rationaleCall(ctx: RunContext, input: unknown, failures: string[
   ];
   if (failures && previous) {
     messages.push({ role: "assistant", content: JSON.stringify({ text: previous }) });
-    messages.push({ role: "user", content: `That rationale failed these checks: ${failures.join("; ")}. Write it again as exactly 5 sentences, using only values from the input.` });
+    messages.push({ role: "user", content: `That rationale failed these checks: ${failures.join("; ")}. Write it again in 3 to 5 plain sentences that state only what the input says, copying values exactly.` });
   }
   return callJson(ctx, "write_rationale", {
     agent: "gate_officer", action: "write_rationale", lane: "fast", reasoning: "off", temperature: 0.3, max_tokens: 1000, messages,

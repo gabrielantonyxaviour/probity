@@ -25,7 +25,7 @@ export function SweepAlert() {
     <section id="sweep" data-testid="sweep-banner">
       <Alert tone="info">
         <p className="t-ui text-fg">
-          {none ? SWEEP.none(run, decision.exposure.run_item_count) : FIXED.sweepHeader(s.findings.length, run, money(s.amount_usd))}
+          {none ? SWEEP.none(run, decision.exposure.run_item_count) : FIXED.sweepHeader(new Set(s.findings.map((f) => f.item_id)).size, run, money(s.amount_usd))}
         </p>
         {!none ? (
           <ul className="sw-rows">

@@ -1,6 +1,260 @@
 {
-  "source": null,
-  "captured_at": "2026-10-27T13:10:48.636Z",
-  "how": "no queryId in api/driver logs or an audit.query_id column",
-  "rows": []
+  "source": "probity_queries_file:r-20261027T140116Z-e306",
+  "captured_at": "2026-10-27T15:02:18.935Z",
+  "how": "zetaris-ref commands guide has no query-history statement. OFFSITE CACHE HISTORY lists cache and uncache events, not SQL query ids. A queryId pattern appeared in the last 20 minutes of api or driver logs. SHOW QUERY HISTORY: HTTP 400 {\"msg\":\"org.apache.hive.service.cli.HiveSQLException: com.zetaris.lightning.sql.parser.ddl.LightningDdlParseException: \\nno viable alternative at input 'show query history'(line 1, SHOW QUERIES: HTTP 400 {\"msg\":\"org.apache.hive.service.cli.HiveSQLException: com.zetaris.lightning.sql.parser.ddl.LightningDdlParseException: \\nno viable alternative at input 'show QUERIES'(line 1, pos 5 Rows are logs/queries-r-20261027T140116Z-e306.jsonl joined to logs/trace-r-20261027T140116Z-e306.jsonl. Latency is taken from the queries file when present, otherwise from a trace event that names that single query id. SQL is stored as written, including fields already masked.",
+  "query_count": 25,
+  "total_latency_ms": 177571,
+  "median_latency_ms": 6312,
+  "rows": [
+    {
+      "at": "2026-10-27T14:01:54.014Z",
+      "query_id": "3218e606-e2f1-4d3f-bdea-ac29fd14a8ad",
+      "template_id": "T03",
+      "sql": "SELECT invoice_no, vendor_id, amount_usd, CAST(invoice_date AS STRING) AS invoice_date, status FROM lightning.metastore.probity.vendor360.ap_invoice WHERE invoice_no IN ('INV-BAH-20931', 'INV-BAH-20944', 'INV-BAH-20967') LIMIT 20",
+      "sql_hash": "09fb37ef65027c12",
+      "row_count": 3,
+      "latency_ms": 793,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:01:54.430Z",
+      "query_id": "a1a04b3b-22a2-48b9-8148-09d15ceee7e7",
+      "template_id": "T04",
+      "sql": "SELECT vendor_id, legal_name, email_domains_on_file FROM lightning.metastore.probity.vendor360.vendor WHERE array_contains(split(email_domains_on_file, ','), 'boozallen-payments.example') LIMIT 10",
+      "sql_hash": "fa8eef8323bc18de",
+      "row_count": 0,
+      "latency_ms": 944,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:01:54.690Z",
+      "query_id": "a589d66d-66e9-4605-984b-9f742c580166",
+      "template_id": "T04b",
+      "sql": "SELECT vendor_id, legal_name, name_norm, uei, registrant_cik, status FROM lightning.metastore.probity.vendor360.vendor WHERE status = 'active' AND upper(legal_name) LIKE concat('%', 'BOOZ', '%') LIMIT 20",
+      "sql_hash": "74ce97fe60f9d93d",
+      "row_count": 1,
+      "latency_ms": 676,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:05.177Z",
+      "query_id": "bc63e4c9-2e11-4aa0-9af7-db8308a48aa5",
+      "template_id": "T06b",
+      "sql": "SELECT 'entity' AS via, entity_key AS key, legal_name AS name, name_norm AS name_norm FROM lightning.metastore.probity.vendor360.registry_entity WHERE name_norm = 'BOOZ ALLEN HAMILTON INC' LIMIT 50",
+      "sql_hash": "33fa29b22f41914b",
+      "row_count": 1,
+      "latency_ms": 10484,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:07.832Z",
+      "query_id": "38ab62f7-415d-479e-b1f1-9f54aa6948ac",
+      "template_id": "T06c",
+      "sql": "SELECT 'registrant' AS via, cik AS key, legal_name AS name, name_norm AS name_norm FROM lightning.metastore.probity.vendor360.sec_registrant WHERE name_norm = 'BOOZ ALLEN HAMILTON INC' LIMIT 50",
+      "sql_hash": "fa0c73f8af1ae53d",
+      "row_count": 0,
+      "latency_ms": 7936,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:20.539Z",
+      "query_id": "a286d97f-d07d-4d96-9053-faf9ea310af6",
+      "template_id": "T06a",
+      "sql": "SELECT 'alias' AS via, entity_or_cik AS key, alias_name AS name, alias_name_norm AS name_norm, alias_source FROM lightning.metastore.probity.vendor360.registry_alias WHERE alias_name_norm = 'BOOZ ALLEN HAMILTON INC' LIMIT 50",
+      "sql_hash": "c1fea7b3cfe399ac",
+      "row_count": 4,
+      "latency_ms": 26109,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:24.935Z",
+      "query_id": "2a1271b9-2542-465f-8951-4cc8d8b83f14",
+      "template_id": "T09",
+      "sql": "SELECT item_id, vendor_id, vendor_name, invoice_no, amount_usd, CAST(scheduled_date AS STRING) AS scheduled_date, cutoff_local, SUM(amount_usd) OVER () AS run_amount_usd, COUNT(*) OVER () AS run_item_count FROM lightning.metastore.probity.vendor360.payment_run_item WHERE payment_run_id = 'PR-2026-10-30' LIMIT 500",
+      "sql_hash": "8d327c6553ba3127",
+      "row_count": 14,
+      "latency_ms": 4374,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:25.918Z",
+      "query_id": "94f6ba63-298f-4133-acd7-8e9b99e547c5",
+      "template_id": "T02",
+      "sql": "SELECT contact_id, kind, value, CAST(valid_from AS STRING) AS valid_from, CAST(valid_to AS STRING) AS valid_to, changed_via FROM lightning.metastore.probity.vendor360.vendor_contact WHERE vendor_id = 'V-10027' ORDER BY valid_from LIMIT 50",
+      "sql_hash": "bea73f94366636f5",
+      "row_count": 3,
+      "latency_ms": 646,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:26.319Z",
+      "query_id": "8247d372-93b5-4fa5-9ed4-183e12301b75",
+      "template_id": "T01",
+      "sql": "SELECT vendor_id, legal_name, name_norm, uei, registrant_cik, remit_line1, remit_unit, remit_city, remit_state, remit_zip, status, CAST(created_at AS STRING) AS created_at, email_domains_on_file FROM lightning.metastore.probity.vendor360.vendor WHERE vendor_id = 'V-10027' LIMIT 1",
+      "sql_hash": "4fc0766872520081",
+      "row_count": 1,
+      "latency_ms": 1374,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:28.374Z",
+      "query_id": "98bb695d-339d-450b-be43-fb9416942aee",
+      "template_id": "T08",
+      "sql": "SELECT log_id, vendor_id, request_id, purpose, phone_e164, phone_source, outcome, CAST(called_at AS STRING) AS called_at, called_by FROM lightning.metastore.probity.vendor360.vendor_contact_log WHERE request_id = 'BCR-2026-0412' OR vendor_id = 'V-10027' ORDER BY called_at LIMIT 50",
+      "sql_hash": "300c121b97eabde3",
+      "row_count": 0,
+      "latency_ms": 2055,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:34.834Z",
+      "query_id": "c335a830-6478-426d-a076-a73e1d9a489f",
+      "template_id": "T07",
+      "sql": "SELECT via, owner_vendor_id, request_id, bank_account_id, status, at_ts, vendor_name FROM (\n  SELECT 'vendor_bank_account' AS via, b.vendor_id AS owner_vendor_id, CAST(NULL AS STRING) AS request_id,\n         b.bank_account_id AS bank_account_id, b.status AS status, CAST(b.changed_at AS STRING) AS at_ts, v.legal_name AS vendor_name\n  FROM lightning.metastore.probity.vendor360.vendor_bank_account b\n  JOIN lightning.metastore.probity.vendor360.vendor v ON v.vendor_id = b.vendor_id\n  WHERE b.account_hash = '175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6'\n  UNION ALL\n  SELECT 'bank_change_request', r.vendor_id, r.request_id, CAST(NULL AS STRING), r.status, CAST(r.received_at AS STRING), CAST(NULL AS STRING)\n  FROM lightning.metastore.probity.vendor360.bank_change_request r\n  WHERE r.new_account_hash = '175dbd7da76270843def1d6ba77e9bf08cc9f0bcac9a452456da437e4893abe6'\n) x\nLIMIT 50",
+      "sql_hash": "a7ae9eda047597c4",
+      "row_count": 2,
+      "latency_ms": 6460,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:39.700Z",
+      "query_id": "96a4a579-5b75-416f-bc9e-7ec15197b309",
+      "template_id": "T05",
+      "sql": "SELECT v.vendor_id, v.legal_name AS vm_name, v.uei, v.registrant_cik, v.remit_line1, v.remit_city, v.remit_state,\n       v.email_domains_on_file, e.entity_key, e.legal_name AS usa_name, e.parent_uei, e.address_line1 AS usa_line1,\n       e.city_name AS usa_city, e.state_code AS usa_state, s.cik, s.legal_name AS sec_name, s.phone AS sec_phone,\n       s.ein AS sec_ein, s.biz_street1, s.biz_city, s.biz_state\nFROM lightning.metastore.probity.vendor360.vendor v\nLEFT JOIN lightning.metastore.probity.vendor360.registry_entity e ON e.uei = v.uei\nLEFT JOIN lightning.metastore.probity.vendor360.sec_registrant s ON s.cik = v.registrant_cik\nWHERE v.vendor_id = 'V-10027'\nLIMIT 10",
+      "sql_hash": "86bacdb5a84aa0b3",
+      "row_count": 1,
+      "latency_ms": 13781,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:02:48.984Z",
+      "query_id": "842cca17-111b-4db9-980a-bafe08630c76",
+      "template_id": "T05b",
+      "sql": "SELECT entity_key AS p_entity_key, legal_name AS p_legal_name, address_line1 AS p_address_line1, city_name AS p_city_name,\n       state_code AS p_state_code, zip AS p_zip\nFROM lightning.metastore.probity.vendor360.registry_entity\nWHERE uei = 'MBPHTU7Y9S65' AND recipient_level = 'P'\nLIMIT 1",
+      "sql_hash": "2aaccd2488472976",
+      "row_count": 1,
+      "latency_ms": 9281,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:03:01.094Z",
+      "query_id": "e03040c1-858f-4e21-8869-46c4546ca222",
+      "template_id": "T06c",
+      "sql": "SELECT 'registrant' AS via, cik AS key, legal_name AS name, name_norm AS name_norm FROM lightning.metastore.probity.vendor360.sec_registrant WHERE name_norm = 'BOOZ ALLEN HAMILTON HOLDING CORP' LIMIT 50",
+      "sql_hash": "ed658a56b1a8d3bc",
+      "row_count": 1,
+      "latency_ms": 6312,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:03:05.344Z",
+      "query_id": "e6792380-927e-4c24-bf04-fb7cbeb365b9",
+      "template_id": "T06b",
+      "sql": "SELECT 'entity' AS via, entity_key AS key, legal_name AS name, name_norm AS name_norm FROM lightning.metastore.probity.vendor360.registry_entity WHERE name_norm = 'BOOZ ALLEN HAMILTON HOLDING CORP' LIMIT 50",
+      "sql_hash": "108ba8b1b8d3145f",
+      "row_count": 1,
+      "latency_ms": 10607,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:03:19.066Z",
+      "query_id": "fabc99d2-86fa-4dc3-94e5-790e811d767d",
+      "template_id": "T06a",
+      "sql": "SELECT 'alias' AS via, entity_or_cik AS key, alias_name AS name, alias_name_norm AS name_norm, alias_source FROM lightning.metastore.probity.vendor360.registry_alias WHERE alias_name_norm = 'BOOZ ALLEN HAMILTON HOLDING CORP' LIMIT 50",
+      "sql_hash": "ba5399cb537e199c",
+      "row_count": 0,
+      "latency_ms": 26413,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:03:40.872Z",
+      "query_id": "bb89aca4-412e-4b9b-8726-7a3ea16f48e8",
+      "template_id": "T10",
+      "sql": "SELECT child_uei, child_recipient_id, child_name, state_province, amount, list_size FROM lightning.metastore.probity.vendor360.registry_child WHERE parent_uei = 'MBPHTU7Y9S65' AND state_province = 'NJ' ORDER BY amount DESC LIMIT 250",
+      "sql_hash": "09494d4a45d07afa",
+      "row_count": 1,
+      "latency_ms": 2137,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:03:47.632Z",
+      "query_id": "6662996a-6a26-4337-ad3e-7291dfdf7fc5",
+      "template_id": "T11",
+      "sql": "SELECT f.row_key, f.uei AS matched_uei, f.recipient_level AS matched_level, f.legal_name AS matched_name,\n       f.address_line1, f.city_name, f.state_code, f.zip, f.via, v.vendor_id AS vendor_id_on_file FROM (\n  SELECT entity_key AS row_key, uei, recipient_level, legal_name, address_line1, city_name, state_code, zip, 'usl' AS via\n  FROM lightning.metastore.probity.vendor360.registry_entity\n  WHERE (parent_uei = 'MBPHTU7Y9S65' OR uei = 'MBPHTU7Y9S65') AND state_code = 'NJ'\n  UNION ALL\n  SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)), CAST(uei AS STRING), CAST(recipient_level AS STRING),\n         CAST(name AS STRING), CAST(location.address_line1 AS STRING), CAST(location.city_name AS STRING),\n         CAST(location.state_code AS STRING), CAST(location.zip AS STRING), 'session.pp_usa_r_khk6e1jw9c15'\n  FROM session.pp_usa_r_khk6e1jw9c15\n  WHERE CAST(location.state_code AS STRING) = 'NJ'\n  UNION ALL\n  SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)), CAST(uei AS STRING), CAST(recipient_level AS STRING),\n         CAST(name AS STRING), CAST(location.address_line1 AS STRING), CAST(location.city_name AS STRING),\n         CAST(location.state_code AS STRING), CAST(location.zip AS STRING), 'session.pp_usa_r_h6gglsfcl9g5'\n  FROM session.pp_usa_r_h6gglsfcl9g5\n  WHERE CAST(location.state_code AS STRING) = 'NJ'\n  UNION ALL\n  SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)), CAST(uei AS STRING), CAST(recipient_level AS STRING),\n         CAST(name AS STRING), CAST(location.address_line1 AS STRING), CAST(location.city_name AS STRING),\n         CAST(location.state_code AS STRING), CAST(location.zip AS STRING), 'session.pp_usa_r_mjlvu5wmx9m9'\n  FROM session.pp_usa_r_mjlvu5wmx9m9\n  WHERE CAST(location.state_code AS STRING) = 'NJ'\n) f\nLEFT JOIN lightning.metastore.probity.vendor360.vendor v ON v.uei = f.uei\nWHERE upper(f.city_name) = 'TINTON FALLS' AND f.address_line1 LIKE '1 %'\nLIMIT 50",
+      "sql_hash": "a7f84ad9a2baaa7d",
+      "row_count": 1,
+      "latency_ms": 6574,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:03:55.851Z",
+      "query_id": "ee9e9a47-c6f1-44c3-bd2c-e30457e51a7f",
+      "template_id": "T10",
+      "sql": "SELECT child_uei, child_recipient_id, child_name, state_province, amount, list_size FROM lightning.metastore.probity.vendor360.registry_child WHERE parent_uei = 'MBPHTU7Y9S65' ORDER BY amount DESC LIMIT 250",
+      "sql_hash": "4a513576f21440ea",
+      "row_count": 41,
+      "latency_ms": 2004,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:04:05.984Z",
+      "query_id": "6a253e0a-13c8-4631-bdd4-9ee439ea4eff",
+      "template_id": "T30",
+      "sql": "SELECT f.row_key, f.uei AS matched_uei, f.recipient_level AS matched_level, f.legal_name AS matched_name,\n       f.address_line1, f.city_name, f.state_code, f.zip, f.via, v.vendor_id AS vendor_id_on_file FROM (\n  SELECT entity_key AS row_key, uei, recipient_level, legal_name, address_line1, city_name, state_code, zip, 'usl' AS via\n  FROM lightning.metastore.probity.vendor360.registry_entity\n  WHERE (parent_uei = 'MBPHTU7Y9S65' OR uei = 'MBPHTU7Y9S65') AND state_code = 'NJ'\n  UNION ALL\n  SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)), CAST(uei AS STRING), CAST(recipient_level AS STRING),\n         CAST(name AS STRING), CAST(location.address_line1 AS STRING), CAST(location.city_name AS STRING),\n         CAST(location.state_code AS STRING), CAST(location.zip AS STRING), 'session.pp_usa_r_khk6e1jw9c15'\n  FROM session.pp_usa_r_khk6e1jw9c15\n  WHERE CAST(location.state_code AS STRING) = 'NJ'\n  UNION ALL\n  SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)), CAST(uei AS STRING), CAST(recipient_level AS STRING),\n         CAST(name AS STRING), CAST(location.address_line1 AS STRING), CAST(location.city_name AS STRING),\n         CAST(location.state_code AS STRING), CAST(location.zip AS STRING), 'session.pp_usa_r_h6gglsfcl9g5'\n  FROM session.pp_usa_r_h6gglsfcl9g5\n  WHERE CAST(location.state_code AS STRING) = 'NJ'\n  UNION ALL\n  SELECT concat(CAST(uei AS STRING), '-', CAST(recipient_level AS STRING)), CAST(uei AS STRING), CAST(recipient_level AS STRING),\n         CAST(name AS STRING), CAST(location.address_line1 AS STRING), CAST(location.city_name AS STRING),\n         CAST(location.state_code AS STRING), CAST(location.zip AS STRING), 'session.pp_usa_r_mjlvu5wmx9m9'\n  FROM session.pp_usa_r_mjlvu5wmx9m9\n  WHERE CAST(location.state_code AS STRING) = 'NJ'\n) f\nLEFT JOIN lightning.metastore.probity.vendor360.vendor v ON v.uei = f.uei\nWHERE upper(f.city_name) = 'TINTON FALLS' AND f.address_line1 LIKE '1 %'\nLIMIT 50",
+      "sql_hash": "a7f84ad9a2baaa7d",
+      "row_count": 1,
+      "latency_ms": 6694,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:04:13.350Z",
+      "query_id": "826c42ae-4503-46d2-9697-834c4d5d9292",
+      "template_id": "T08b",
+      "sql": "SELECT request_id, new_routing, CASE WHEN COALESCE((new_routing IS NULL OR (new_routing RLIKE '^[0-9]{9}$' AND pmod(3 * ((ascii(substr(new_routing, 1, 1)) - 48) + (ascii(substr(new_routing, 4, 1)) - 48) + (ascii(substr(new_routing, 7, 1)) - 48)) + 7 * ((ascii(substr(new_routing, 2, 1)) - 48) + (ascii(substr(new_routing, 5, 1)) - 48) + (ascii(substr(new_routing, 8, 1)) - 48)) + ((ascii(substr(new_routing, 3, 1)) - 48) + (ascii(substr(new_routing, 6, 1)) - 48) + (ascii(substr(new_routing, 9, 1)) - 48)), 10) = 0)), false) THEN 'valid' ELSE 'invalid' END AS routing_check FROM lightning.metastore.probity.vendor360.bank_change_request WHERE request_id = 'BCR-2026-0412' LIMIT 1",
+      "sql_hash": "07693b270637fd0d",
+      "row_count": 1,
+      "latency_ms": 1042,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:04:24.691Z",
+      "query_id": "9e0b2310-551f-4011-99a3-a012d0b7ee12",
+      "template_id": "T20",
+      "sql": "RUN DQ unverified_recent_bank_change TABLE lightning.metastore.probity.vendor360.payment_run_item",
+      "sql_hash": "084736cef01d56b0",
+      "row_count": 1,
+      "latency_ms": 11333,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:04:24.710Z",
+      "query_id": "b5e4854d-6953-4cec-a065-b8ebacf0830d",
+      "template_id": "T20",
+      "sql": "RUN DQ account_single_vendor TABLE lightning.metastore.probity.vendor360.payment_run_item",
+      "sql_hash": "4dc975b8c0a06351",
+      "row_count": 1,
+      "latency_ms": 11353,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:04:28.786Z",
+      "query_id": "c5acb345-b8d5-4f10-b540-dd74da926bef",
+      "template_id": "T21",
+      "sql": "SHOW DQ INVALID RECORD unverified_recent_bank_change TABLE lightning.metastore.probity.vendor360.payment_run_item",
+      "sql_hash": "c10e0633f4054f64",
+      "row_count": 3,
+      "latency_ms": 4075,
+      "timing_from": "queries_file"
+    },
+    {
+      "at": "2026-10-27T14:04:28.825Z",
+      "query_id": "ffb9e464-7182-42ff-afd7-5b36d0917cfb",
+      "template_id": "T21",
+      "sql": "SHOW DQ INVALID RECORD account_single_vendor TABLE lightning.metastore.probity.vendor360.payment_run_item",
+      "sql_hash": "c800bc1163a47ddf",
+      "row_count": 3,
+      "latency_ms": 4114,
+      "timing_from": "queries_file"
+    }
+  ]
 }

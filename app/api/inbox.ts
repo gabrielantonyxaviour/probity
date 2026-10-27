@@ -39,6 +39,19 @@ const ERP_STATUSES = ["pending", "callback_pending", "approved", "held", "applie
 const erpStatusOf = (s: string | undefined): InboxItem["erp_status"] =>
   (ERP_STATUSES as readonly string[]).includes(s ?? "") ? (s as NonNullable<InboxItem["erp_status"]>) : null;
 
+const CLOSED = new Set(["applied", "rejected", "withdrawn"]);
+/** The released run a closed request belonged to: the earliest released run within 14 days on or after the request day,
+ *  else null (the seed's released runs start 2026-09-29, so older history has no run on record). */
+function historyRun(snap: ErpSnapshot, r: BcrRow): InboxItem["history_run"] {
+  if (!CLOSED.has(r.status)) return undefined;
+  const day = String(r.received_at).slice(0, 10);
+  const until = new Date(Date.parse(`${day}T00:00:00Z`) + 14 * 86_400_000).toISOString().slice(0, 10);
+  const hit = snap.runs
+    .filter((x) => x.status === "released" && x.scheduled_date >= day && x.scheduled_date <= until)
+    .sort((a, b) => a.scheduled_date.localeCompare(b.scheduled_date))[0];
+  return hit ? { payment_run_id: hit.payment_run_id, scheduled_date: hit.scheduled_date } : null;
+}
+
 function latestRun(rec: RunRecord | undefined): InboxItem["latest_run"] {
   if (!rec) return null;
   return { run_id: rec.run_id, decision: rec.decision, status: rec.needs_human ? "needs_human" : rec.status };
@@ -64,6 +77,7 @@ export async function buildInbox(cfg: Config, latest: Map<string, RunRecord>): P
       ...run(vendors, r.received_at),
       synthetic: r.data_origin === "SYNTHETIC",
       erp_status: erpStatusOf(r.status),
+      ...(CLOSED.has(r.status) ? { history_run: historyRun(snap, r) } : {}),
       latest_run: latestRun(latest.get(r.request_id)),
     });
   }

@@ -1,0 +1,99 @@
+{
+ "id": "z07",
+ "text_original": "Probity, from team Zen. Real runs, real Zetaris queries, and a row hash you can check yourself.",
+ "text_spoken": "Probity, from team Zen. Real runs, real Zuh-tarris queries, and a row hash you can check yourself.",
+ "words": [
+  {
+   "word": "Probity,",
+   "start": 0.0,
+   "end": 0.692
+  },
+  {
+   "word": "from",
+   "start": 0.769,
+   "end": 0.846
+  },
+  {
+   "word": "team",
+   "start": 1.0,
+   "end": 1.231
+  },
+  {
+   "word": "Zen.",
+   "start": 1.308,
+   "end": 2.077
+  },
+  {
+   "word": "Real",
+   "start": 2.154,
+   "end": 2.385
+  },
+  {
+   "word": "runs,",
+   "start": 2.462,
+   "end": 3.077
+  },
+  {
+   "word": "real",
+   "start": 3.154,
+   "end": 3.385
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 3.462,
+   "end": 3.923
+  },
+  {
+   "word": "queries,",
+   "start": 4.0,
+   "end": 4.615
+  },
+  {
+   "word": "and",
+   "start": 4.654,
+   "end": 4.692
+  },
+  {
+   "word": "a",
+   "start": 4.769,
+   "end": 4.846
+  },
+  {
+   "word": "row",
+   "start": 4.923,
+   "end": 5.154
+  },
+  {
+   "word": "hash",
+   "start": 5.308,
+   "end": 5.462
+  },
+  {
+   "word": "you",
+   "start": 5.5,
+   "end": 5.538
+  },
+  {
+   "word": "can",
+   "start": 5.615,
+   "end": 5.769
+  },
+  {
+   "word": "check",
+   "start": 5.846,
+   "end": 5.923
+  },
+  {
+   "word": "yourself.",
+   "start": 6.0,
+   "end": 6.769
+  }
+ ],
+ "seconds": 6.77,
+ "window_seconds": 9,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

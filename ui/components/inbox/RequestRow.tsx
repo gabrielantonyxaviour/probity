@@ -4,16 +4,23 @@ import { useRef, useState } from "react";
 import { ArrowRight, MoreHorizontal } from "lucide-react";
 import type { InboxItem } from "@/lib/contracts";
 import { Button, IconButton } from "@/components/ui/button";
-import { HonestyTag } from "@/components/ui/chip";
 import { Menu } from "@/components/ui/overlay";
 import { notify } from "@/components/ui/toast";
 import { errorMessage, ApiClientError } from "@/lib/api";
 import { CHANGE_LABELS } from "@/lib/labels";
-import { QUEUE } from "@/lib/copy";
+import { CLOSED, QUEUE } from "@/lib/copy";
 import { stamp } from "@/lib/format";
 import { startExample, startReevaluate } from "@/lib/start-run";
 import { StatusChip, statusKeyOf } from "./StatusChip";
 import { useRunStep } from "./useRunStage";
+import { ClosedDetail } from "./ClosedDetail";
+import { historyRunOf, isClosedHistory } from "./history-run";
+
+/** The payment run column: the next run for open requests, the historical run (or a dash) for closed ERP history. */
+function runCell(item: InboxItem): string {
+  if (!isClosedHistory(item)) return item.payment_run_id;
+  return historyRunOf(item)?.payment_run_id ?? CLOSED.runClosed;
+}
 
 export function changeLabel(i: InboxItem): string {
   if (i.channel === "typed") return CHANGE_LABELS.typed;
@@ -53,8 +60,10 @@ export function useRowActions(item: InboxItem, blocked: boolean) {
       setBusy(false);
     }
   }
-  const open = () => run && router.push(`/app/review/${run.run_id}`);
-  return { busy, verify, open, run, key, canStart, step, ref };
+  const closed = isClosedHistory(item);
+  const [detail, setDetail] = useState(false);
+  const open = () => (run ? router.push(`/app/review/${run.run_id}`) : closed ? setDetail(true) : undefined);
+  return { busy, verify, open, run, key, canStart, step, ref, closed, detail, setDetail };
 }
 
 function ActionCell({ blocked, a }: { blocked: boolean; a: ReturnType<typeof useRowActions> }) {
@@ -74,6 +83,7 @@ function ActionCell({ blocked, a }: { blocked: boolean; a: ReturnType<typeof use
       </span>
     );
   }
+  if (a.closed) return <Button ref={a.ref} onClick={a.open} data-testid="view-closed" trailing={<ArrowRight className="q-arrow" />}>{CLOSED.view}</Button>;
   if (!a.canStart) return <span className="t-ui-xs text-fg-muted">—</span>;
   return (
     <Button ref={a.ref} variant="accent" busy={a.busy} busyLabel={QUEUE.starting} disabled={blocked} onClick={() => void a.verify()} data-testid="verify-button" trailing={<ArrowRight />}>
@@ -82,51 +92,51 @@ function ActionCell({ blocked, a }: { blocked: boolean; a: ReturnType<typeof use
   );
 }
 
-export function RequestTableRow({ item, newDay, blocked, confirmDown, wide }: { item: InboxItem; newDay: boolean; blocked: boolean; confirmDown: boolean; wide: boolean }) {
+export function RequestTableRow({ item, newDay, blocked, wide }: { item: InboxItem; newDay: boolean; blocked: boolean; wide: boolean }) {
   const a = useRowActions(item, blocked);
   const label = item.claimed_name ?? "Unknown requester";
   const onKey = (e: React.KeyboardEvent) => {
     if (e.target !== e.currentTarget || e.key !== "Enter") return;
-    if (a.run) a.open();
+    if (a.run || a.closed) a.open();
     else a.ref.current?.focus();
   };
   return (
     <tr
       className="q-row"
       data-newday={newDay ? "true" : undefined}
-      data-open={a.run ? "true" : undefined}
+      data-open={a.run || a.closed ? "true" : undefined}
       data-testid={`inbox-item-${item.request_id ?? item.example_id ?? "row"}`}
       tabIndex={0}
       onKeyDown={onKey}
       onClick={(e) => {
-        if ((e.target as HTMLElement).closest("button, a")) return;
-        if (a.run) a.open();
+        // Portalled dialogs bubble React events through the row: ignore clicks that did not land inside the row itself.
+        if (!e.currentTarget.contains(e.target as Node) || (e.target as HTMLElement).closest("button, a")) return;
+        if (a.run || a.closed) a.open();
         else a.ref.current?.focus();
       }}
     >
       <td>
         <span className="t-mono-data text-fg block">{stamp(item.received_at)}</span>
-        {!wide ? <span className="t-mono-data q-run-under">{item.payment_run_id}</span> : null}
+        {!wide ? <span className="t-mono-data q-run-under">{runCell(item)}</span> : null}
       </td>
       <td>
         <div className="q-from">
           <span className="t-ui text-fg">{label}</span>
           {item.sender_email ? <span className="t-ui-sm text-fg-muted">{item.sender_email}</span> : null}
-          {item.synthetic ? <span><HonestyTag>{QUEUE.demoChip}</HonestyTag></span> : null}
         </div>
       </td>
       <td className="t-ui">{changeLabel(item)}</td>
-      {wide ? <td className="t-mono-data">{item.payment_run_id}</td> : null}
+      {wide ? <td className={`t-mono-data${a.closed ? " text-fg-muted" : ""}`}>{runCell(item)}</td> : null}
       <td><StatusChip run={item.latest_run} step={a.step} testId="status-chip" erp={item.erp_status} /></td>
       <td className="q-cell-action">
         <ActionCell blocked={blocked} a={a} />
-        {confirmDown && a.key === "none" ? <p className="q-confirm t-ui-xs">{QUEUE.zetarisDownConfirm}</p> : null}
+        {a.closed ? <ClosedDetail item={item} open={a.detail} onOpenChange={a.setDetail} /> : null}
       </td>
     </tr>
   );
 }
 
-export function RequestCard({ item, blocked, confirmDown }: { item: InboxItem; blocked: boolean; confirmDown: boolean }) {
+export function RequestCard({ item, blocked }: { item: InboxItem; blocked: boolean }) {
   const a = useRowActions(item, blocked);
   const decided = a.run && a.key !== "none" && a.key !== "running";
   return (
@@ -140,14 +150,15 @@ export function RequestCard({ item, blocked, confirmDown }: { item: InboxItem; b
       {item.sender_email ? <p className="t-ui-sm text-fg-muted t-wrap-any">{item.sender_email}</p> : null}
       <div className="q-card__row"><span className="t-mono-label text-fg-muted">Change</span><span className="t-ui-sm">{changeLabel(item)}</span></div>
       <div className="q-card__row"><span className="t-mono-label text-fg-muted">Received</span><span className="t-mono-data">{stamp(item.received_at)}</span></div>
-      <div className="q-card__row"><span className="t-mono-label text-fg-muted">Run</span><span className="t-mono-data">{item.payment_run_id}</span></div>
-      {item.synthetic ? <span><HonestyTag>{QUEUE.demoChip}</HonestyTag></span> : null}
+      <div className="q-card__row"><span className="t-mono-label text-fg-muted">Run</span><span className="t-mono-data">{runCell(item)}</span></div>
       {a.key === "running" || decided ? (
         <Button block large onClick={a.open} data-testid="open-button" trailing={<ArrowRight />}>{QUEUE.open}</Button>
+      ) : a.closed ? (
+        <Button block large onClick={a.open} data-testid="view-closed" trailing={<ArrowRight />}>{CLOSED.view}</Button>
       ) : a.canStart ? (
         <Button block large variant="accent" busy={a.busy} busyLabel={QUEUE.starting} disabled={blocked} onClick={() => void a.verify()} data-testid="verify-button" trailing={<ArrowRight />}>{QUEUE.verify}</Button>
       ) : null}
-      {confirmDown && a.key === "none" ? <p className="q-confirm t-ui-xs">{QUEUE.zetarisDownConfirm}</p> : null}
+      {a.closed ? <ClosedDetail item={item} open={a.detail} onOpenChange={a.setDetail} /> : null}
     </article>
   );
 }

@@ -170,7 +170,7 @@ export class RunRegistry {
           if (this.cfg.ZETARIS_DOWN_POLICY === "error" || !this.samplePorts) return fail("zetaris_unavailable", pre.reason);
           ports = { ...this.ports, ...this.samplePorts };
           down = { reason: pre.reason, captured_at: pre.captured_at };
-          this.writer.emit({ run_id: rec.run_id, agent_name: "orchestrator", action: "fallback", status: "partial_success", source_mode: "sample", note: pre.reason, output_summary: `Zetaris unreachable: evidence from offline captures dated ${pre.captured_at ?? "unknown"}.` });
+          this.writer.emit({ run_id: rec.run_id, agent_name: "orchestrator", action: "fallback", status: "partial_success", source_mode: "sample", note: pre.reason, output_summary: `Zetaris unreachable: evidence from offline captures dated ${pre.captured_at ? pre.captured_at.slice(0, 10) : "unknown"}.` });
         }
       } else if (this.samplePorts) ports = { ...this.ports, ...this.samplePorts, mode: "sample" };
       const orch = await loadOrchestrator();

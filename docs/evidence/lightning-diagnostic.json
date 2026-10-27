@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-10-27T14:55:23.424Z",
+  "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+  "note": "Same request as the A1 Letter Reader on the fast lane, sent raw. Thinking off, temperature 0, strict json_schema. Diagnostic only; not part of the eval numbers. Rows rebuilt from the run's own log lines (the first write of this file went to a wrong path because of an argument-parsing bug, since fixed).",
+  "rows": [
+    {
+      "letter": "s1-clean",
+      "max_tokens": 3000,
+      "http": 502,
+      "ms": 39499,
+      "finish_reason": null,
+      "completion_tokens": null,
+      "prompt_tokens": null,
+      "content_chars": 0,
+      "reasoning_chars": 0,
+      "hmem_injected": null,
+      "error_code": "response_truncated",
+      "error_message": "nvidia/nemotron-3.5-lightning-30b-a3b: the model stopped at its output-token limit (finish_reason: length) before the JSON was complete; raise max_tokens (reasoning tokens count against it on thinking"
+    },
+    {
+      "letter": "s1-clean",
+      "max_tokens": 8000,
+      "http": 502,
+      "ms": 104662,
+      "finish_reason": null,
+      "completion_tokens": null,
+      "prompt_tokens": null,
+      "content_chars": 0,
+      "reasoning_chars": 0,
+      "hmem_injected": null,
+      "error_code": "response_truncated",
+      "error_message": "nvidia/nemotron-3.5-lightning-30b-a3b: the model stopped at its output-token limit (finish_reason: length) before the JSON was complete; raise max_tokens (reasoning tokens count against it on thinking"
+    },
+    {
+      "letter": "s3-clean",
+      "max_tokens": 3000,
+      "http": 502,
+      "ms": 32318,
+      "finish_reason": null,
+      "completion_tokens": null,
+      "prompt_tokens": null,
+      "content_chars": 0,
+      "reasoning_chars": 0,
+      "hmem_injected": null,
+      "error_code": "response_truncated",
+      "error_message": "nvidia/nemotron-3.5-lightning-30b-a3b: the model stopped at its output-token limit (finish_reason: length) before the JSON was complete; raise max_tokens (reasoning tokens count against it on thinking"
+    },
+    {
+      "letter": "s3-clean",
+      "max_tokens": 8000,
+      "http": 200,
+      "ms": 1386,
+      "finish_reason": "stop",
+      "completion_tokens": 37,
+      "prompt_tokens": 1251,
+      "content_chars": 104,
+      "reasoning_chars": 0,
+      "hmem_injected": null,
+      "error_code": null,
+      "error_message": null
+    },
+    {
+      "letter": "s4-clean",
+      "max_tokens": 3000,
+      "http": 200,
+      "ms": 5183,
+      "finish_reason": "stop",
+      "completion_tokens": 425,
+      "prompt_tokens": 1245,
+      "content_chars": 1279,
+      "reasoning_chars": 0,
+      "hmem_injected": null,
+      "error_code": null,
+      "error_message": null
+    },
+    {
+      "letter": "s4-clean",
+      "max_tokens": 8000,
+      "http": 200,
+      "ms": 4466,
+      "finish_reason": "stop",
+      "completion_tokens": 459,
+      "prompt_tokens": 1245,
+      "content_chars": 1406,
+      "reasoning_chars": 0,
+      "hmem_injected": null,
+      "error_code": null,
+      "error_message": null
+    }
+  ]
+}

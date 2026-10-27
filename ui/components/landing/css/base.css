@@ -82,7 +82,7 @@
 }
 .l-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--fg-muted); flex: none; }
 .l-dot--real { background: var(--source-real); }
-.l-dot--synthetic { background: var(--source-synthetic); }
+.l-dot--internal { background: var(--source-synthetic); }
 
 /* backgrounds */
 .l-dotgrid { background: var(--dot-grid); }

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { loadExamples } from "@/lib/start-run";
 import { NEW } from "@/lib/copy";
-import { Badge } from "@/components/ui/chip";
 
 type Ex = Awaited<ReturnType<typeof loadExamples>>;
 
@@ -26,7 +25,10 @@ export function ExamplesPanel({ onTyped }: { onTyped: (name: string) => void }) 
           <ul className="tiles">
             {ex.map((e) => {
               const name = (e.request.input as { vendor?: { legal_name?: string } }).vendor?.legal_name;
-              const inner = <><span className="t-ui-sm text-fg block">{e.title}</span><span className="t-mono-label text-fg-muted block mt-1">{e.scenario ?? e.example_id}</span></>;
+              // Some typed examples ship without a human title (title == id): name them from their own typed input.
+              const title = e.title && e.title !== e.example_id ? e.title : name ? NEW.typedExample(name) : e.example_id;
+              const tag = e.scenario ?? (e.kind === "typed" ? NEW.typedTag : e.example_id);
+              const inner = <><span className="t-ui-sm text-fg block">{title}</span><span className="t-mono-label text-fg-muted block mt-1">{tag}</span></>;
               return (
                 <li key={e.example_id}>
                   {e.kind === "typed" && name ? <button type="button" className="p-tile" onClick={() => onTyped(name)}>{inner}</button> : <Link href="/app" className="p-tile">{inner}</Link>}
@@ -34,7 +36,6 @@ export function ExamplesPanel({ onTyped }: { onTyped: (name: string) => void }) 
               );
             })}
           </ul>
-          <Badge>Synthetic</Badge>
         </div>
       ) : null}
     </>

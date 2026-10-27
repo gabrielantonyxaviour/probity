@@ -1,0 +1,214 @@
+{
+ "id": "z02",
+ "text_original": "Our vendor master lives in Postgres. USAspending and the SEC's EDGAR are live public APIs. Zetaris registers all three as tables, and one compile turns them into a single semantic layer, vendor 360, twelve tables that the agents query.",
+ "text_spoken": "Our vendor master lives in Postgres. U.S.A. spending and the SEC's Edgar are live public APIs. Zuh-tarris registers all three as tables, and one compile turns them into a single semantic layer, vendor 360, twelve tables that the agents query.",
+ "words": [
+  {
+   "word": "Our",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "vendor",
+   "start": 0.231,
+   "end": 0.462
+  },
+  {
+   "word": "master",
+   "start": 0.538,
+   "end": 1.0
+  },
+  {
+   "word": "lives",
+   "start": 1.0,
+   "end": 1.154
+  },
+  {
+   "word": "in",
+   "start": 1.231,
+   "end": 1.308
+  },
+  {
+   "word": "Postgres.",
+   "start": 1.385,
+   "end": 2.231
+  },
+  {
+   "word": "U.S.A.",
+   "start": 2.462,
+   "end": 2.846
+  },
+  {
+   "word": "spending",
+   "start": 2.923,
+   "end": 3.385
+  },
+  {
+   "word": "and",
+   "start": 3.462,
+   "end": 3.538
+  },
+  {
+   "word": "the",
+   "start": 3.577,
+   "end": 3.615
+  },
+  {
+   "word": "SEC's",
+   "start": 3.769,
+   "end": 4.231
+  },
+  {
+   "word": "Edgar",
+   "start": 4.385,
+   "end": 4.769
+  },
+  {
+   "word": "are",
+   "start": 4.846,
+   "end": 5.0
+  },
+  {
+   "word": "live",
+   "start": 5.077,
+   "end": 5.385
+  },
+  {
+   "word": "public",
+   "start": 5.462,
+   "end": 5.769
+  },
+  {
+   "word": "APIs.",
+   "start": 5.846,
+   "end": 6.692
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 6.923,
+   "end": 7.462
+  },
+  {
+   "word": "registers",
+   "start": 7.731,
+   "end": 8.0
+  },
+  {
+   "word": "all",
+   "start": 8.154,
+   "end": 8.385
+  },
+  {
+   "word": "three",
+   "start": 8.462,
+   "end": 8.692
+  },
+  {
+   "word": "as",
+   "start": 8.769,
+   "end": 8.923
+  },
+  {
+   "word": "tables,",
+   "start": 9.0,
+   "end": 9.769
+  },
+  {
+   "word": "and",
+   "start": 9.846,
+   "end": 9.923
+  },
+  {
+   "word": "one",
+   "start": 10.0,
+   "end": 10.154
+  },
+  {
+   "word": "compile",
+   "start": 10.231,
+   "end": 10.692
+  },
+  {
+   "word": "turns",
+   "start": 10.769,
+   "end": 11.038
+  },
+  {
+   "word": "them",
+   "start": 11.077,
+   "end": 11.154
+  },
+  {
+   "word": "into",
+   "start": 11.231,
+   "end": 11.462
+  },
+  {
+   "word": "a",
+   "start": 11.5,
+   "end": 11.538
+  },
+  {
+   "word": "single",
+   "start": 11.692,
+   "end": 12.0
+  },
+  {
+   "word": "semantic",
+   "start": 12.077,
+   "end": 12.615
+  },
+  {
+   "word": "layer,",
+   "start": 12.769,
+   "end": 13.231
+  },
+  {
+   "word": "vendor",
+   "start": 13.308,
+   "end": 13.615
+  },
+  {
+   "word": "360,",
+   "start": 13.692,
+   "end": 14.769
+  },
+  {
+   "word": "twelve",
+   "start": 14.846,
+   "end": 15.077
+  },
+  {
+   "word": "tables",
+   "start": 15.154,
+   "end": 15.615
+  },
+  {
+   "word": "that",
+   "start": 15.692,
+   "end": 15.769
+  },
+  {
+   "word": "the",
+   "start": 15.808,
+   "end": 15.846
+  },
+  {
+   "word": "agents",
+   "start": 15.923,
+   "end": 16.308
+  },
+  {
+   "word": "query.",
+   "start": 16.385,
+   "end": 17.0
+  }
+ ],
+ "seconds": 17.0,
+ "window_seconds": 16,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

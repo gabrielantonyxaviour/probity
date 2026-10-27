@@ -44,7 +44,7 @@ describe("copy and formatting", () => {
     expect(bad).toEqual([]);
   });
   it("uses the spine fixed strings verbatim", () => {
-    expect(FIXED.syntheticNotice).toBe("Internal records and letters are synthetic, made for this demo. Registry facts are real public data from USAspending and SEC EDGAR.");
+    expect(FIXED.sourcesNotice).not.toMatch(/synthetic|demo|sample|do not call/i);
     expect(FIXED.sweepHeader(2, "PR-2026-10-30", "$159,220.00")).toBe("Not asked, but checked: 2 other item(s) in PR-2026-10-30 ($159,220.00) fail payment controls.");
     expect(DOSSIER.sections.models).toContain("Nemotron");
     expect(SHELL.systemSample).toBe("Sample data · no live calls");

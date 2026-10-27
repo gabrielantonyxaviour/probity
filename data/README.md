@@ -106,6 +106,16 @@ branches on it). Facts in each letter (name, address, phone, domain, run item) a
 tab holds real history. It never posts an outcome or a call-back, and it stops if the API answers with a different company's claims.
 Before a recording: `npm run db:reset`, `npm run record:examples`, `npm run db:reset`, `npm run inbox:prime`, record.
 
+## Prompt-injection and adversarial letters (D6, D1/D2)
+
+`input_examples/10-sable-harbor-injection/` (request BCR-2026-0407, scenario S10) is a bank-change letter from a fictional seed vendor
+(Sable Harbor Marine Logistics LLC, V-10561) whose PDF text layer carries three lines of white 1 pt text addressed to an AI reviewer, and whose
+email body carries a fourth. A person sees an ordinary letter (the PNG shows none of it). Its ground truth is
+`data/truth/10-sable-harbor-injection.truth.json` (`injection_spans`: channel, position, drawing attributes, bbox, goal).
+`data/eval/adversarial/` holds six more letters for the Nemotron evaluation (three injection variants, a transposed account number, a
+conflicting second address, a near-duplicate legitimate letter), each with a `truth.json`; `index.json` lists them. Letters from fictional
+vendors carry no watermark and no synthetic footer; letters that use a real company's name keep both. Details: `lanes/injection-data.md`.
+
 ## How it is registered in Zetaris
 
 - `payee_erp` (Postgres 16 in the `payee-erp-db` container) is registered with `CREATE DATASOURCE payee_erp` over JDBC as the read-only user
@@ -133,7 +143,7 @@ with `X-Captured-At`.
 | Command | Network | Time | Writes |
 |---|---|---|---|
 | `npm run gen:seed` | no | under 2 s | `db/seed/`, `db/init/02-seed.sql`, `data/sample/erp/`, `data/generated-manifest.json` |
-| `npm run gen:docs` | no | about 25 s | `input_examples/`, `data/inbox/`, `data/sample/claims/`, `tests/fixtures/docs/`, `tests/eval/fixtures/{a02,a03}/`; `--eval-variants` adds `tests/eval/nemotron/letters/` |
+| `npm run gen:docs` | no | about 25 s | `input_examples/`, `data/inbox/`, `data/sample/claims/`, `data/truth/`, `data/eval/adversarial/`, `tests/fixtures/docs/`, `tests/eval/fixtures/{a02,a03}/`; `--eval-variants` adds `tests/eval/nemotron/letters/` |
 | `npm run gen:check` | no | about 40 s | nothing; fails on drift |
 | `SEC_USER_AGENT="Probity <contact>" npm run capture:registry` | yes | about 65 s | `data/sample/registry/`, `data/sample/captures.json` |
 | `npm run capture:check` | yes | about 90 s | nothing; fails if a documented registry disagreement changed |

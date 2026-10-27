@@ -1,0 +1,8 @@
+{
+  "id": "K3",
+  "title": "USL answers: T05 join, LIST DQ, RUN DQ unverified_recent_bank_change",
+  "pass": true,
+  "evidence": "T05 [\"V-10027\",\"JCBMLGPE6Z71-C\",\"0001443646\"] 50547 ms; LIST DQ 26 rows; RUN DQ [\"unverified_recent_bank_change\",\"payment_run_item\",\"Custom Data Quality\",\"153\",\"150\",\"3\"]",
+  "elapsed_ms": 58850,
+  "at": "2026-10-27T15:20:06.823Z"
+}

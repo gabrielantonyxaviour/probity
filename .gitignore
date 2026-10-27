@@ -27,3 +27,4 @@ video/node_modules/
 zetaris/grok-session.log
 docs/deck/*.pptx
 *.tsbuildinfo
+.sample/

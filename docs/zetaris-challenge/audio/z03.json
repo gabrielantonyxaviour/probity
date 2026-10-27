@@ -1,0 +1,359 @@
+{
+ "id": "z03",
+ "text_original": "This is a real run, not a replay. The agents read the letter, and the Registry Scout asks Zetaris for the vendor's corporate family. The Examiner does not accept a new link until it has re-run the query and checked the rows. Every citation carries a query id. In the evidence drawer, Re-run in Zetaris executes that same statement again and compares the row hash. Same hash, same rows.",
+ "text_spoken": "This is a real run, not a replay. The agents read the letter, and the Registry Scout asks Zuh-tarris for the vendor's corporate family. The Examiner does not accept a new link until it has re-run the query and checked the rows. Every citation carries a query id. In the evidence drawer, Re-run in Zuh-tarris executes that same statement again and compares the row hash. Same hash, same rows.",
+ "words": [
+  {
+   "word": "This",
+   "start": 0.0,
+   "end": 0.202
+  },
+  {
+   "word": "is",
+   "start": 0.231,
+   "end": 0.346
+  },
+  {
+   "word": "a",
+   "start": 0.385,
+   "end": 0.462
+  },
+  {
+   "word": "real",
+   "start": 0.538,
+   "end": 0.865
+  },
+  {
+   "word": "run,",
+   "start": 0.923,
+   "end": 1.308
+  },
+  {
+   "word": "not",
+   "start": 1.615,
+   "end": 1.795
+  },
+  {
+   "word": "a",
+   "start": 1.846,
+   "end": 1.885
+  },
+  {
+   "word": "replay.",
+   "start": 1.923,
+   "end": 2.385
+  },
+  {
+   "word": "The",
+   "start": 2.462,
+   "end": 3.051
+  },
+  {
+   "word": "agents",
+   "start": 3.077,
+   "end": 3.538
+  },
+  {
+   "word": "read",
+   "start": 3.615,
+   "end": 3.769
+  },
+  {
+   "word": "the",
+   "start": 3.808,
+   "end": 3.846
+  },
+  {
+   "word": "letter,",
+   "start": 3.923,
+   "end": 4.385
+  },
+  {
+   "word": "and",
+   "start": 4.462,
+   "end": 4.538
+  },
+  {
+   "word": "the",
+   "start": 4.577,
+   "end": 4.615
+  },
+  {
+   "word": "Registry",
+   "start": 4.692,
+   "end": 5.077
+  },
+  {
+   "word": "Scout",
+   "start": 5.154,
+   "end": 5.538
+  },
+  {
+   "word": "asks",
+   "start": 5.731,
+   "end": 5.923
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 6.0,
+   "end": 6.615
+  },
+  {
+   "word": "for",
+   "start": 6.654,
+   "end": 6.692
+  },
+  {
+   "word": "the",
+   "start": 6.769,
+   "end": 6.808
+  },
+  {
+   "word": "vendor's",
+   "start": 6.846,
+   "end": 7.308
+  },
+  {
+   "word": "corporate",
+   "start": 7.385,
+   "end": 7.615
+  },
+  {
+   "word": "family.",
+   "start": 7.692,
+   "end": 8.154
+  },
+  {
+   "word": "The",
+   "start": 8.615,
+   "end": 8.692
+  },
+  {
+   "word": "Examiner",
+   "start": 8.769,
+   "end": 9.231
+  },
+  {
+   "word": "does",
+   "start": 9.308,
+   "end": 9.462
+  },
+  {
+   "word": "not",
+   "start": 9.538,
+   "end": 9.692
+  },
+  {
+   "word": "accept",
+   "start": 9.769,
+   "end": 10.077
+  },
+  {
+   "word": "a",
+   "start": 10.154,
+   "end": 10.231
+  },
+  {
+   "word": "new",
+   "start": 10.308,
+   "end": 10.462
+  },
+  {
+   "word": "link",
+   "start": 10.538,
+   "end": 10.769
+  },
+  {
+   "word": "until",
+   "start": 10.846,
+   "end": 11.077
+  },
+  {
+   "word": "it",
+   "start": 11.154,
+   "end": 11.231
+  },
+  {
+   "word": "has",
+   "start": 11.308,
+   "end": 11.385
+  },
+  {
+   "word": "re-run",
+   "start": 11.538,
+   "end": 11.923
+  },
+  {
+   "word": "the",
+   "start": 11.962,
+   "end": 12.0
+  },
+  {
+   "word": "query",
+   "start": 12.077,
+   "end": 12.462
+  },
+  {
+   "word": "and",
+   "start": 12.538,
+   "end": 12.615
+  },
+  {
+   "word": "checked",
+   "start": 12.769,
+   "end": 13.0
+  },
+  {
+   "word": "the",
+   "start": 13.038,
+   "end": 13.077
+  },
+  {
+   "word": "rows.",
+   "start": 13.154,
+   "end": 13.808
+  },
+  {
+   "word": "Every",
+   "start": 14.077,
+   "end": 14.385
+  },
+  {
+   "word": "citation",
+   "start": 14.462,
+   "end": 15.0
+  },
+  {
+   "word": "carries",
+   "start": 15.077,
+   "end": 15.385
+  },
+  {
+   "word": "a",
+   "start": 15.462,
+   "end": 15.538
+  },
+  {
+   "word": "query",
+   "start": 15.615,
+   "end": 15.923
+  },
+  {
+   "word": "id.",
+   "start": 16.0,
+   "end": 16.385
+  },
+  {
+   "word": "In",
+   "start": 16.846,
+   "end": 16.923
+  },
+  {
+   "word": "the",
+   "start": 17.0,
+   "end": 17.077
+  },
+  {
+   "word": "evidence",
+   "start": 17.154,
+   "end": 17.462
+  },
+  {
+   "word": "drawer,",
+   "start": 17.538,
+   "end": 18.154
+  },
+  {
+   "word": "Re-run",
+   "start": 18.308,
+   "end": 18.769
+  },
+  {
+   "word": "in",
+   "start": 18.846,
+   "end": 18.923
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 19.0,
+   "end": 19.615
+  },
+  {
+   "word": "executes",
+   "start": 19.769,
+   "end": 20.231
+  },
+  {
+   "word": "that",
+   "start": 20.308,
+   "end": 20.462
+  },
+  {
+   "word": "same",
+   "start": 20.615,
+   "end": 20.846
+  },
+  {
+   "word": "statement",
+   "start": 20.923,
+   "end": 21.308
+  },
+  {
+   "word": "again",
+   "start": 21.385,
+   "end": 21.846
+  },
+  {
+   "word": "and",
+   "start": 22.0,
+   "end": 22.077
+  },
+  {
+   "word": "compares",
+   "start": 22.154,
+   "end": 22.615
+  },
+  {
+   "word": "the",
+   "start": 22.654,
+   "end": 22.692
+  },
+  {
+   "word": "row",
+   "start": 22.769,
+   "end": 22.923
+  },
+  {
+   "word": "hash.",
+   "start": 23.0,
+   "end": 23.385
+  },
+  {
+   "word": "Same",
+   "start": 23.923,
+   "end": 24.154
+  },
+  {
+   "word": "hash,",
+   "start": 24.346,
+   "end": 24.923
+  },
+  {
+   "word": "same",
+   "start": 25.0,
+   "end": 25.231
+  },
+  {
+   "word": "rows.",
+   "start": 25.308,
+   "end": 25.923
+  }
+ ],
+ "seconds": 25.92,
+ "window_seconds": 30,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

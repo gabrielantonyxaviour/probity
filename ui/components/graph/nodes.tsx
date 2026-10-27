@@ -3,6 +3,7 @@ import { Handle, Position, type NodeProps, type Node } from "@xyflow/react";
 import { AtSign, Banknote, BookUser, Building2, FileText, Landmark, Layers, MapPin, Phone, UserRound } from "lucide-react";
 import type { GraphPayload } from "@schemas/graph";
 import { Chip } from "@/components/ui/chip";
+import { nodeSub } from "./layout";
 import { FLAG_TAGS } from "@/lib/labels-graph";
 import { GRAPH } from "@/lib/copy";
 import { FLAG_KEY_WORDS } from "@/lib/labels";
@@ -39,7 +40,7 @@ export function ProbityNode({ id, data }: NodeProps<GNode>) {
   const pill = !!n && ["bank_account", "address", "phone", "domain"].includes(n.type);
   const struck = flags.includes("do_not_use");
   const title = g ? (g.size ? GRAPH.groupLabel(g.label) : "") : n!.label;
-  const sub = g ? g.sub : n!.type === "request" && data.docCount ? `${n!.sublabel ?? ""} · ${GRAPH.documents(data.docCount)}`.replace(/^ · /, "") : n!.sublabel;
+  const sub = g ? g.sub : nodeSub(n!, data.docCount);
   return (
     <div
       role="button"

@@ -1,0 +1,10 @@
+# Gitleaks config for this repository: the default rules plus two false-positive classes.
+# UEI entity keys such as JCBMLGPE6Z71-C read as generic API keys, and the unit and engine
+# test fixtures hold fake credentials by design.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "UEI entity keys and test fixtures"
+paths = ['''tests/unit/''', '''tests/engines/fixtures/''']
+regexes = ['''[A-Z0-9]{12}-[CP]''']

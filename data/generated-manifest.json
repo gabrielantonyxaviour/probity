@@ -122,6 +122,116 @@
     ],
     "documents": [
       {
+        "path": "data/eval/adversarial/adv-01-inject-visible-json/letter.pdf",
+        "sha256": "2515dfcc76c4d56eeaa05c37bdef62ebfa8f087934df7b8371550df9a231623c",
+        "bytes": 24447
+      },
+      {
+        "path": "data/eval/adversarial/adv-01-inject-visible-json/letter.png",
+        "sha256": "a1bb15657eaa4a3334907b77cb0b73583ba011fb4ced836d814979a1d242d42a",
+        "bytes": 112998
+      },
+      {
+        "path": "data/eval/adversarial/adv-01-inject-visible-json/truth.json",
+        "sha256": "15b7cf9631ef16df1f1b97cda714a3554cb695de58f938d9519c24bc28a4dc0b",
+        "bytes": 5669
+      },
+      {
+        "path": "data/eval/adversarial/adv-02-inject-hidden-extraction/letter.pdf",
+        "sha256": "9e3f2db82a5d76cdb78465656e7e21ea033e9baaa7ed2239461748bf4558a9d8",
+        "bytes": 24127
+      },
+      {
+        "path": "data/eval/adversarial/adv-02-inject-hidden-extraction/letter.png",
+        "sha256": "d3939969d8ff202029cd6533bc3f464e74bf43d15afb13f7b12693e6c5ec00dc",
+        "bytes": 101026
+      },
+      {
+        "path": "data/eval/adversarial/adv-02-inject-hidden-extraction/truth.json",
+        "sha256": "4b75e2083866541eb090e0b826c046445002ac8407a757cef2b5b683b078ec3b",
+        "bytes": 7064
+      },
+      {
+        "path": "data/eval/adversarial/adv-03-inject-business-voice/letter.pdf",
+        "sha256": "a20099d80e15a6e0f569fa3dd6ec24b6c3b594f2054a97ba9b7de51a70d69a3c",
+        "bytes": 29408
+      },
+      {
+        "path": "data/eval/adversarial/adv-03-inject-business-voice/letter.png",
+        "sha256": "bfce47080b18d481959b04ae385ea339e75e3f32cba680f1ab197353580cd963",
+        "bytes": 129987
+      },
+      {
+        "path": "data/eval/adversarial/adv-03-inject-business-voice/truth.json",
+        "sha256": "bd7963d4d2deb6a715659ea1994c6a012318ba6c7beffd4b2c4047a9acb9eaac",
+        "bytes": 6432
+      },
+      {
+        "path": "data/eval/adversarial/adv-04-digit-swap/letter.pdf",
+        "sha256": "c8f7a91ece9ece2654c1ab59983182e80d0c14688b7964f08495f4dcb0bd47cd",
+        "bytes": 23018
+      },
+      {
+        "path": "data/eval/adversarial/adv-04-digit-swap/letter.png",
+        "sha256": "933746b7a114f4c6f84b50231d43718a4fa2b59387e38c068bd37c1d7b4b80fb",
+        "bytes": 100149
+      },
+      {
+        "path": "data/eval/adversarial/adv-04-digit-swap/truth.json",
+        "sha256": "98c055c2302333e268f351f5bfa648410691abf872da0aa26d67387fec64b910",
+        "bytes": 4809
+      },
+      {
+        "path": "data/eval/adversarial/adv-05-conflicting-address/letter.pdf",
+        "sha256": "9be30dfe97ecbb847dc6af4f614413fa451b642951a43dfaf4305288095678aa",
+        "bytes": 23480
+      },
+      {
+        "path": "data/eval/adversarial/adv-05-conflicting-address/letter.png",
+        "sha256": "96b63bbc7a85c499679632417f1fdf4f74cbd7a0f20be93716b314c71742ccda",
+        "bytes": 124041
+      },
+      {
+        "path": "data/eval/adversarial/adv-05-conflicting-address/truth.json",
+        "sha256": "536246da92ec2382a968fa775880a9aced72b04284a3674d29808d67b8773640",
+        "bytes": 5272
+      },
+      {
+        "path": "data/eval/adversarial/adv-06-near-duplicate-legit/letter.pdf",
+        "sha256": "925c2dcafbf06e943aa643f6495b53a2b30ffd1dcbd1ffbd9885a27cad612eb5",
+        "bytes": 23807
+      },
+      {
+        "path": "data/eval/adversarial/adv-06-near-duplicate-legit/letter.png",
+        "sha256": "39c52ab3fb10ed1bf3718dd94eb3715041f97cb0a088e208909c4a6966d843a5",
+        "bytes": 124058
+      },
+      {
+        "path": "data/eval/adversarial/adv-06-near-duplicate-legit/original.pdf",
+        "sha256": "5db778c6ef1422d73141f9abdd5f5ddc603ab5f8652970a0569853d8cd832059",
+        "bytes": 23003
+      },
+      {
+        "path": "data/eval/adversarial/adv-06-near-duplicate-legit/original.png",
+        "sha256": "1dc7ea588db6eebd9e2a424c6bc88aded19f753f1da5a8532378125c95fe7710",
+        "bytes": 97521
+      },
+      {
+        "path": "data/eval/adversarial/adv-06-near-duplicate-legit/truth.json",
+        "sha256": "793e4a971a392526d1bba1b8d5cfe157a2f380870aa2abaffe0e878d71ad36a5",
+        "bytes": 5018
+      },
+      {
+        "path": "data/eval/adversarial/index.json",
+        "sha256": "f0b3797b97b64273dcd4d9b146f348e3ebee5da0f75eb85f4d9838f6ae4be519",
+        "bytes": 2284
+      },
+      {
+        "path": "data/eval/adversarial/README.md",
+        "sha256": "19c11c6e6ece9eaef9fa33ea41d0ef94d012f178610cd55db5a6b6f5fcced661",
+        "bytes": 1227
+      },
+      {
         "path": "data/inbox/items/BCR-2026-0401/letter.pdf",
         "sha256": "dfb4b6b6bcd832b44426087df7501b0a0ef6acc4994dd1962dd933c8ae01226e",
         "bytes": 104176
@@ -303,8 +413,8 @@
       },
       {
         "path": "data/inbox/manifest.json",
-        "sha256": "d6f4beea0832388914ac26ed3e46cbc6690338909f9b944292535b60c50e40fb",
-        "bytes": 17707
+        "sha256": "78f2015bf71fa6f620e63be76bd6095fcc88d4be884212a620ec6f3749c781b3",
+        "bytes": 18956
       },
       {
         "path": "data/sample/claims/01-booz-allen-remit-change.claims.json",
@@ -330,6 +440,11 @@
         "path": "data/sample/claims/06b-caci-lookalike.claims.json",
         "sha256": "3e510ba5113c964f96c6a3e7f7baa2875fc694819c88113a855be7fad52d8e88",
         "bytes": 4156
+      },
+      {
+        "path": "data/sample/claims/10-sable-harbor-injection.claims.json",
+        "sha256": "b55fc5215f5e983063f1d623b2015a26baa8c6ffd583527696a5adaf6fbd005e",
+        "bytes": 5657
       },
       {
         "path": "data/sample/claims/11-kettle-point-remit-change.claims.json",
@@ -380,6 +495,11 @@
         "path": "data/sample/claims/20-harrow-vale-remit-change.claims.json",
         "sha256": "7485f1f81f6da4e7f25a5084effa958f692b69eb44d3b22b4ccf1611f593908a",
         "bytes": 2902
+      },
+      {
+        "path": "data/truth/10-sable-harbor-injection.truth.json",
+        "sha256": "684ea6ac0f2d482a56cebfb64a29c0af92e1b8ee51d971389f85dfc5d1e133d1",
+        "bytes": 8648
       },
       {
         "path": "input_examples/01-booz-allen-remit-change/headers.eml",
@@ -497,6 +617,26 @@
         "bytes": 588
       },
       {
+        "path": "input_examples/10-sable-harbor-injection/headers.eml",
+        "sha256": "07ece15bfeb7b0d6e60e00adecb56780b20c31a46d26c90a9b3bac9f0c78acf6",
+        "bytes": 1269
+      },
+      {
+        "path": "input_examples/10-sable-harbor-injection/letter.pdf",
+        "sha256": "65c802d1869dc3d51b7b607bbec7ef1a779f2204e07f9d4b0fe8aced010cecb3",
+        "bytes": 23297
+      },
+      {
+        "path": "input_examples/10-sable-harbor-injection/letter.png",
+        "sha256": "2b8d5f83f6ae86a5ebae3f8ada0b1a810c9cfbcf46cc92b15b457136e362e534",
+        "bytes": 126244
+      },
+      {
+        "path": "input_examples/10-sable-harbor-injection/request.json",
+        "sha256": "9d4df422c7f876c58c8f112c17583c1181fd36a525b4b1033aaab2dafd31e8f2",
+        "bytes": 530
+      },
+      {
         "path": "tests/eval/fixtures/a02/a02.claims.json",
         "sha256": "41c63f65d4a5bad903d4dd505933b5680a5615613b1977a709b44428e5b4d985",
         "bytes": 3645
@@ -545,186 +685,6 @@
         "path": "tests/eval/fixtures/a03/request.json",
         "sha256": "b0f60df2a0bc0f21af3edbd21b3c8757170367f90dbac01e8a8e0be0c71c36b3",
         "bytes": 49180
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-clean/letter.pdf",
-        "sha256": "37ba4b75564e0b7d54fe7db79591b55c361f9be460e1e5a757a47a6b3cbef709",
-        "bytes": 34476
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-clean/letter.png",
-        "sha256": "dbbf38195127dbb630c91428253d4f9128cf6a7f65d469dba32cbad7e02cdac3",
-        "bytes": 242128
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-clean/truth.json",
-        "sha256": "739be599587f339c501131dc9b78ed4da0113c57318e0cc4a661cc13e54bc91a",
-        "bytes": 5450
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-instruction/letter.pdf",
-        "sha256": "4ce3cac8a017336c19f81be9f315d08a976f176d5430f76790d53c522aadaaaf",
-        "bytes": 34597
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-instruction/letter.png",
-        "sha256": "ed32d435a1e3380af889a09a4388da44111cff64d7cd22692356c39459080310",
-        "bytes": 252316
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-instruction/truth.json",
-        "sha256": "a2e754d940ed0be2a7675ae50393681e6fe43874e68e0424b241fe09b960f613",
-        "bytes": 5801
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-noise/letter.pdf",
-        "sha256": "9b278ce5c5bf1df73ccba1485dce0c97ce368664296e57838e0e07384ee6b532",
-        "bytes": 34470
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-noise/letter.png",
-        "sha256": "ed31f6ab4ef7d3af9bd45be8801c3bc24cf140ac96b13d3c4c96ae16d56f9889",
-        "bytes": 241911
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-noise/truth.json",
-        "sha256": "09fef31c31fcbcaa00addd8eacca498e2300427dad71e5302a23b488aafdf042",
-        "bytes": 5456
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-scan/letter.pdf",
-        "sha256": "c8c4246c08eec961cf95e5bca038e927f32e7fb5b2d341cdcdd748adc1434bd7",
-        "bytes": 153234
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-scan/letter.png",
-        "sha256": "4b58d9a2565616480724bd593c8c8767321bb9a927a160e607140ab02082e401",
-        "bytes": 681665
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s1-scan/truth.json",
-        "sha256": "20f4ec94a6c520964066b444fa23b6218c1a404cc778166bdb4f35f531c28e4e",
-        "bytes": 5448
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-clean/letter.pdf",
-        "sha256": "b5fcea2a2d566657ec8bcca6ac592ff7f24ceb14e58f1a9dcf1ca312507a1cb8",
-        "bytes": 35390
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-clean/letter.png",
-        "sha256": "310fb2aa6b24bcd1e7bb732e4338882003e3ddf7e9ec38c3f40bd8d001db5edd",
-        "bytes": 191292
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-clean/truth.json",
-        "sha256": "446e6a57c4635c623ced1a7ec3ab5cc2bbd82e69513a61f8a221c19b2a8a3528",
-        "bytes": 4224
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-instruction/letter.pdf",
-        "sha256": "463d49753f93f699970e6780a7032a15f93f1550c82e76a9eb06a165613719d9",
-        "bytes": 35526
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-instruction/letter.png",
-        "sha256": "2f32b02a2fe7d0837c2f7a722e00e7a7902e2403c5aedd7422923e2f3ef975ac",
-        "bytes": 200935
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-instruction/truth.json",
-        "sha256": "8f698af393180b8aacfbdaa891cb3bad4a84c93f01b15870c5213307c232dc38",
-        "bytes": 4574
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-noise/letter.pdf",
-        "sha256": "9aaec0e05c389a8e870c6388586a9842b94211181f1b3cb3c30a3f2778b24ac8",
-        "bytes": 35390
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-noise/letter.png",
-        "sha256": "619e6d9028dd8f34da67b919ebe90e8854ae6bf2fc3d9c1833918cddcd6895e1",
-        "bytes": 191292
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-noise/truth.json",
-        "sha256": "431f152e3c9b77b4cece45880b8a6689254441168da25568d570ef2f554c6bad",
-        "bytes": 4230
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-scan/letter.pdf",
-        "sha256": "eb77e428d7b583e74400a9e4cabace45d84abd5845f04ef7b92e9548206d067f",
-        "bytes": 139144
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-scan/letter.png",
-        "sha256": "5540985500512bc131b3bd45e46855fc59914c334acf7182e500a97715c3f9cb",
-        "bytes": 610456
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s3-scan/truth.json",
-        "sha256": "35b75de99c2c0d248a0bca4e610175e5c743a6a647d173bae2cec0da5cccb56b",
-        "bytes": 4222
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-clean/letter.pdf",
-        "sha256": "598e15f9609bf00ac23cce20ce2b4b69d7f934e672831729c504b2277a61416d",
-        "bytes": 39571
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-clean/letter.png",
-        "sha256": "061d5b23e6bb57b028e9731a99f015dc41507d16c36f897c4c72469afce695c2",
-        "bytes": 184470
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-clean/truth.json",
-        "sha256": "c3948e901a426af55166291007acdaa6b1aab3833672e4b36572ff08f7cdda10",
-        "bytes": 3522
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-instruction/letter.pdf",
-        "sha256": "85076c1bce4d2895cb89b69b82fbbb47fa9509f046523e16fec9b9d1f498c8f4",
-        "bytes": 39878
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-instruction/letter.png",
-        "sha256": "096019351367b61d22b1abd9caf5c2a9ba33cab2734f54312840a0e9b58f375e",
-        "bytes": 193407
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-instruction/truth.json",
-        "sha256": "b32225218734e606274cafa05832e5f7a5eb07b48029fa3026aab0e0a10dae08",
-        "bytes": 3872
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-noise/letter.pdf",
-        "sha256": "256d79100b60ddeb42f9e9848180e2751690cc972c159f28373dd877f669db4f",
-        "bytes": 39411
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-noise/letter.png",
-        "sha256": "42943e74abfcc6709cb4d2502576727d8a08f5ee695163556d5ec33525e3b216",
-        "bytes": 184211
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-noise/truth.json",
-        "sha256": "c45da8aea8dd2e04282580c7b8fea13ff451cba856b14969ff60d8c111fb9eb4",
-        "bytes": 3518
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-scan/letter.pdf",
-        "sha256": "e320ab8829fe93132e4995c98bad8b97fd986ae18e21318b8e363372116f3f4e",
-        "bytes": 134176
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-scan/letter.png",
-        "sha256": "819885dbb0a63ceecacbd760dc84563c1a80b8c6ef7ce412384c9c48640ac542",
-        "bytes": 583079
-      },
-      {
-        "path": "tests/eval/nemotron/letters/s4-scan/truth.json",
-        "sha256": "7434c75a488f0253cf985d74becb13dac104c1025dbe23c517e0dd75d50d3a30",
-        "bytes": 3520
       },
       {
         "path": "tests/fixtures/docs/01-booz-allen-remit-change.truth.json",

@@ -84,3 +84,7 @@ export function seconds(n: number): number {
 export function titleCaseKey(k: string): string {
   return k.replace(/_/g, " ");
 }
+/** Rewrites ISO timestamps inside API prose ("fetched 2026-10-27T14:02:39.700Z") as "27 Oct 2026, 14:02 UTC". */
+export function isoText(s: string): string {
+  return s.replace(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?Z/g, (m) => stamp(m));
+}

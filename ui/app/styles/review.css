@@ -61,12 +61,12 @@
 /* Fact sheet */
 .fs-wrap { border: var(--line); border-radius: var(--radius-card); overflow-x: auto; background: var(--bg-canvas); }
 .fs { width: 100%; min-width: 796px; table-layout: fixed; }
-.fs th { height: 36px; padding: 0 12px; text-align: left; font-family: var(--font-mono); font-size: var(--text-mono-label); font-weight: 500; text-transform: uppercase; letter-spacing: var(--tracking-mono); color: var(--fg-muted); border-bottom: var(--line); background: var(--bg-canvas); white-space: nowrap; }
+.fs th { height: 36px; padding: 0 12px; text-align: left; font-family: var(--font-mono); font-size: var(--text-mono-label); font-weight: 500; text-transform: uppercase; letter-spacing: var(--tracking-mono); color: var(--fg-muted); border-bottom: var(--line); background: var(--bg-canvas); line-height: 1.35; padding-block: 8px; vertical-align: bottom; white-space: normal; }
 .fs th + th, .fs td + td { border-left: 1px dashed var(--rule); }
 .fs td { vertical-align: top; padding: 0; border-top: var(--line); min-height: var(--row-compact); }
 .fs tr:first-child td { border-top: 0; }
 .fs .sticky-l { position: sticky; left: 0; z-index: 2; background: var(--bg-canvas); }
-.fs .sticky-r { position: sticky; right: 0; z-index: 2; background: var(--bg-canvas); }
+.fs .sticky-r { position: sticky; right: 0; z-index: 2; background: var(--bg-canvas); box-shadow: -10px 0 10px -10px rgba(0, 0, 0, .55); }
 .fs-cell { display: block; width: 100%; padding: 8px 12px; text-align: left; min-height: var(--row-compact); }
 button.fs-cell { position: relative; isolation: isolate; cursor: pointer; }
 button.fs-cell::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--overlay-hover); opacity: 0; scale: var(--hover-scale-from); transition: opacity var(--dur-3) var(--ease-quick-out), scale var(--dur-3) var(--ease-quick-out); }

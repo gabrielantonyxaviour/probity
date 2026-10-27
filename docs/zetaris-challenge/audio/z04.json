@@ -1,0 +1,194 @@
+{
+ "id": "z04",
+ "text_original": "The sweep is a data-quality rule. In the Zetaris console, LIST DQ shows the rules registered on the semantic layer, and RUN DQ account single vendor flags payments whose bank account already belongs to another vendor.",
+ "text_spoken": "The sweep is a data-quality rule. In the Zuh-tarris console, LIST D-Q shows the rules registered on the semantic layer, and RUN D-Q account single vendor flags payments whose bank account already belongs to another vendor.",
+ "words": [
+  {
+   "word": "The",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "sweep",
+   "start": 0.231,
+   "end": 0.615
+  },
+  {
+   "word": "is",
+   "start": 0.692,
+   "end": 0.769
+  },
+  {
+   "word": "a",
+   "start": 0.846,
+   "end": 0.923
+  },
+  {
+   "word": "data-quality",
+   "start": 1.0,
+   "end": 1.692
+  },
+  {
+   "word": "rule.",
+   "start": 1.769,
+   "end": 2.462
+  },
+  {
+   "word": "In",
+   "start": 2.5,
+   "end": 2.538
+  },
+  {
+   "word": "the",
+   "start": 2.615,
+   "end": 2.654
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 2.692,
+   "end": 3.231
+  },
+  {
+   "word": "console,",
+   "start": 3.462,
+   "end": 4.077
+  },
+  {
+   "word": "LIST",
+   "start": 4.154,
+   "end": 4.462
+  },
+  {
+   "word": "D-Q",
+   "start": 4.615,
+   "end": 5.231
+  },
+  {
+   "word": "shows",
+   "start": 5.308,
+   "end": 5.538
+  },
+  {
+   "word": "the",
+   "start": 5.615,
+   "end": 5.692
+  },
+  {
+   "word": "rules",
+   "start": 5.846,
+   "end": 6.0
+  },
+  {
+   "word": "registered",
+   "start": 6.077,
+   "end": 6.538
+  },
+  {
+   "word": "on",
+   "start": 6.615,
+   "end": 6.692
+  },
+  {
+   "word": "the",
+   "start": 6.731,
+   "end": 6.769
+  },
+  {
+   "word": "semantic",
+   "start": 6.846,
+   "end": 7.308
+  },
+  {
+   "word": "layer,",
+   "start": 7.385,
+   "end": 8.0
+  },
+  {
+   "word": "and",
+   "start": 8.115,
+   "end": 8.231
+  },
+  {
+   "word": "RUN",
+   "start": 8.385,
+   "end": 8.615
+  },
+  {
+   "word": "D-Q",
+   "start": 8.692,
+   "end": 9.154
+  },
+  {
+   "word": "account",
+   "start": 9.231,
+   "end": 9.615
+  },
+  {
+   "word": "single",
+   "start": 9.692,
+   "end": 10.0
+  },
+  {
+   "word": "vendor",
+   "start": 10.077,
+   "end": 10.308
+  },
+  {
+   "word": "flags",
+   "start": 10.385,
+   "end": 10.692
+  },
+  {
+   "word": "payments",
+   "start": 10.769,
+   "end": 11.231
+  },
+  {
+   "word": "whose",
+   "start": 11.346,
+   "end": 11.462
+  },
+  {
+   "word": "bank",
+   "start": 11.538,
+   "end": 11.769
+  },
+  {
+   "word": "account",
+   "start": 11.962,
+   "end": 12.154
+  },
+  {
+   "word": "already",
+   "start": 12.231,
+   "end": 12.692
+  },
+  {
+   "word": "belongs",
+   "start": 12.769,
+   "end": 13.077
+  },
+  {
+   "word": "to",
+   "start": 13.154,
+   "end": 13.231
+  },
+  {
+   "word": "another",
+   "start": 13.385,
+   "end": 13.538
+  },
+  {
+   "word": "vendor.",
+   "start": 13.615,
+   "end": 14.231
+  }
+ ],
+ "seconds": 14.23,
+ "window_seconds": 16,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

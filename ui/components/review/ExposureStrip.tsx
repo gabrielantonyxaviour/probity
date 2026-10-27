@@ -40,7 +40,8 @@ export function ExposureStrip() {
   const items = plural(e.vendor_item_count, "item");
   const [vLabel, vValue] =
     e.scope === "none" ? EXPO.noVendor : e.scope === "candidates" ? [EXPO.candidates[0], EXPO.candidates[1](items, money(e.vendor_amount_usd))] : [EXPO.vendor[0], EXPO.vendor[1](items, money(e.vendor_amount_usd))];
-  const findings = decision?.sweep.findings.length ?? 0;
+  // Count payments, not rule hits: one item can fail DQ1 and DQ2 and must count once.
+  const findings = new Set(decision?.sweep.findings.map((f) => f.item_id) ?? []).size;
   return (
     <div className="rv-expo" data-testid="exposure-strip">
       <Cell grow={1.5} value={EXPO.run(e.payment_run_id, runDate(e.scheduled_date), e.cutoff_local)} />

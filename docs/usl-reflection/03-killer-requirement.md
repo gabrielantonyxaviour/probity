@@ -13,8 +13,8 @@ An agent developer whose agent discovers entities at run time (a UEI, a CIK, a t
 
 ## 3. Problem, with evidence from this build
 
-- To cover 6 corporate families we registered {{TBD-from-run:zetaris/results/registration.json}} REST tables, one per URL. A REST table binds one endpoint; it has no key parameter.
-- Every new entity the agent finds at run time costs one admin DDL statement and one query. *Measured* from the traces of the recorded Booz Allen run: {{TBD-from-run:output_examples/01-booz-allen-remit-change/trace-*.jsonl}} `register_source` events, median latency {{TBD-from-run:output_examples/01-booz-allen-remit-change/trace-*.jsonl}} ms.
+- To cover 6 corporate families we registered 25 REST tables, one per URL (`CREATE LIGHTNING REST TABLE` statements in `zetaris/register/20_rest.sql`; the benchmark counted 24 at the time). A REST table binds one endpoint; it has no key parameter.
+- Every new entity the agent finds at run time costs one admin DDL statement and one query. *Measured* from the traces of the Booz Allen runs: the hero run (`r-20261027T140116Z-e306`) has one `register_source` event, for the Tinton Falls entity `KHK6E1JW9C15`, and it reused the session table `session.pp_usa_r_khk6e1jw9c15` (182 ms), which already existed from the earlier K1d test; the first read of that table took 487 ms (`zetaris/results/kill_verdicts.json`). For an entity with no session table yet, the Registrar issues the admin DDL first, and two later runs in the trace logged that creation (`created`).
 - Those session tables sit outside `vendor360`, so USL keys, foreign keys and DQ rules do not apply to exactly the entities the agent has just discovered. These are the entities where a data-quality rule matters most.
 - The agent therefore needs an admin key in order to discover. Our product splits the keys in code so that only the registrar can issue DDL; the platform offers no way to fetch one more known-shaped record without DDL.
 
@@ -36,7 +36,7 @@ Arbitrary URLs at query time; write-back; POST bodies (phase 2).
 
 ### Success metric
 
-DDL statements needed for this product drop from 24 at setup plus up to 3 per run to 3 at design time. Median discovery latency equals one cached REST fetch.
+DDL statements needed for this product drop from 25 at setup plus one per entity discovered at run time to 3 at design time. Median discovery latency equals one cached REST fetch.
 
 ## 5. Second requirement and runner-up
 
@@ -45,7 +45,7 @@ DDL statements needed for this product drop from 24 at setup plus up to 3 per ru
 
 ## 6. Bonus: a mock of the feature, and the resulting USL
 
-`zetaris/mock/keyed-rest/proposal.sql` is a mock of the proposed syntax. Its first line is `-- PROPOSED SYNTAX: does not run on Zetaris 2.4.3-v2.4.3.1-hackathon. A mock of the requirement above.` We did not build `expand.ts`, the rewriter that would translate this proposal into today's Lightning SQL; the file is a specification, not a working shim.
+[`proposal-keyed-rest.sql`](proposal-keyed-rest.sql) in this folder is a mock of the proposed syntax. Its first line is `-- PROPOSED SYNTAX: does not run on Zetaris 2.4.3-v2.4.3.1-hackathon. A mock of the requirement above.` We did not build `expand.ts`, the rewriter that would translate this proposal into today's Lightning SQL; the file is a specification, not a working shim.
 
 ```sql
 -- PROPOSED SYNTAX: does not run on Zetaris 2.4.3-v2.4.3.1-hackathon. A mock of the requirement above.
@@ -80,8 +80,8 @@ FROM usaspending.recipient_by_uei;
 
 | | Before (today, *measured*) | After (proposal, *projected*) |
 |---|---|---|
-| DDL statements for the entity found at run time | {{TBD-from-run:output_examples/01-booz-allen-remit-change/trace-*.jsonl}} | 0 at run time (3 at design time) |
-| Admin-key calls in the run | {{TBD-from-run:output_examples/01-booz-allen-remit-change/trace-*.jsonl}} | 0 |
+| DDL statements for the entity found at run time | 1 per new entity (the hero run reused one already created) | 0 at run time (3 at design time) |
+| Admin-key calls in the run | 1 for a new entity, 0 when reused (`register_source` events in the traces) | 0 |
 | Keys used | query and admin | query only |
 | Rows under USL constraints and DQ rules | no (session table, outside `vendor360`) | yes |
-| Latency to read the new entity | {{TBD-from-run:output_examples/01-booz-allen-remit-change/trace-*.jsonl}} ms (DDL plus query) | one cached REST fetch |
+| Latency to read the new entity | 182 to 221 ms for the reuse check in three recorded runs, plus the first read of 487 ms (K1d); the creation DDL time was not captured | one cached REST fetch |

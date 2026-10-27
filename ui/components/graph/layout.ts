@@ -25,15 +25,29 @@ export type LayoutOptions = { visible?: Set<string> | null; showHistory?: boolea
 
 const CARD = { w: 200, h: 56 };
 const PILL = { w: 200, h: 36 };
-const GAP = 16;
+const GAP = 28; // room for the conflict badge that sits 8 px above a card's top edge
+const ISO = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?Z/g;
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** Node sublabel as shown: ISO timestamps read as "22 Oct 2026, 15:12 UTC"; the request card adds its document count. */
+export function nodeSub(n: PNode, docCount = 0): string | null {
+  const s = n.sublabel?.replace(ISO, (m) => {
+    const d = new Date(m);
+    return Number.isNaN(d.getTime()) ? m : `${d.getUTCDate()} ${MON[d.getUTCMonth()]} ${d.getUTCFullYear()}, ${String(d.getUTCHours()).padStart(2, "0")}:${String(d.getUTCMinutes()).padStart(2, "0")} UTC`;
+  }) ?? null;
+  if (n.type !== "request" || !docCount) return s;
+  const docs = `${docCount} document${docCount === 1 ? "" : "s"}`;
+  return s ? `${s} · ${docs}` : docs;
+}
 const NO_TAG = new Set(["conflict", "ambiguous", "resolved", "real_registry"]);
 
 /** Deterministic height estimate from label lengths and tag count, so rows never overlap (text wraps at 200 px). */
-export function estimateHeight(n: PNode, pill: boolean): number {
-  const titleLines = Math.min(2, Math.max(1, Math.ceil(n.label.length / 21)));
-  const subLines = n.sublabel ? Math.min(4, Math.ceil(n.sublabel.length / 21)) : 0;
+export function estimateHeight(n: PNode, pill: boolean, docCount = 0): number {
+  const sub = nodeSub(n, docCount);
+  const titleLines = Math.min(2, Math.max(1, Math.ceil(n.label.length / 20)));
+  const subLines = sub ? Math.min(4, Math.ceil(sub.length / 20)) : 0;
   const tags = n.flags.filter((f) => !NO_TAG.has(f)).length;
-  const h = 18 + 16 * titleLines + 14 * subLines + (tags ? 8 + 24 * tags : 0);
+  const h = 20 + 18 * titleLines + 15 * subLines + (tags ? 8 + 29 * tags : 0);
   return Math.max(pill ? PILL.h : CARD.h, h);
 }
 const COL_X: Record<ColumnId, number> = { request: 0, erp: 300, usaspending: 600, edgar: 900 };
@@ -78,6 +92,7 @@ export function layoutGraph(payload: GraphPayload, o: LayoutOptions = {}): Layou
   const nodes = payload.nodes.filter((n) => !docIds.has(n.id) && (!visible || visible.has(n.id)));
   const nodeIds = new Set(nodes.map((n) => n.id));
   const parents = new Set(edgesAll.filter((e) => e.type === "child_of").map((e) => e.to));
+  const docTotal = docIds.size;
 
   const byCol = new Map<ColumnId, PNode[]>();
   for (const n of nodes) {
@@ -99,7 +114,7 @@ export function layoutGraph(payload: GraphPayload, o: LayoutOptions = {}): Layou
     let y = 48;
     for (const n of list) {
       const pill = isPill(n.type);
-      const h = estimateHeight(n, pill);
+      const h = estimateHeight(n, pill, n.type === "request" ? docTotal : 0);
       placed.push({ id: n.id, node: n, group: null, col: col.id, x: COL_X[col.id], y, w: CARD.w, h, pill, claimed: col.id === "request" && n.type !== "request" ? true : n.type === "request" });
       y += h + GAP;
     }

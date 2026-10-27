@@ -56,7 +56,6 @@ export function OutcomeCard({ decision, run, api, view }: Props) {
         </span>
         <span className="l-card-badges">
           <span className="p-badge">{MODE_BADGE[run.mode]}</span>
-          <span className="p-badge">DEMO {"·"} SYNTHETIC</span>
         </span>
       </header>
       <div className="l-card-body">
@@ -87,7 +86,6 @@ export function OutcomeCard({ decision, run, api, view }: Props) {
             </div>
           ) : null}
         </dl>
-        <p className="l-card-note">{ANSWERS.synthetic(run.claimed_name)}</p>
       </div>
     </article>
   );

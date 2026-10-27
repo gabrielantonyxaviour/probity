@@ -17,11 +17,14 @@ export type Handlers = Partial<Record<string, (p: Record<string, unknown>, ctx: 
 const readQ = (template_id: "T12" | "T14", table: string): CompiledQuery =>
   ({ template_id, params: { table }, sql: `-- read ${table}`, columns: [], source: template_id === "T12" ? "usaspending" : "edgar", backing: "session_table", limit: 1 }) as unknown as CompiledQuery;
 
+/** Same template -> source map as the live kit (app/orchestration/adapters/template-kit.ts), so source-level hooks are testable. */
+const sourceOf = (id: string): string => (["T06c", "T16"].includes(id) ? "edgar" : ["T05", "T05b", "T06a", "T06b", "T10", "T11"].includes(id) ? "usaspending" : ["T20", "T21"].includes(id) ? "dq" : "vendor_master");
+
 export const makeKit = (): TemplateKit => ({
   readRecipient: (table) => readQ("T12", table),
   readRegistrant: (table) => readQ("T14", table),
   compile: (params) =>
-    ({ template_id: params.template_id, params, sql: `-- ${params.template_id} ${canonicalJson(params)}`, columns: [], source: "vendor_master", backing: "zetaris_table", limit: 250 }) as unknown as CompiledQuery,
+    ({ template_id: params.template_id, params, sql: `-- ${params.template_id} ${canonicalJson(params)}`, columns: [], source: sourceOf(String(params.template_id)), backing: "zetaris_table", limit: 250 }) as unknown as CompiledQuery,
   info: (id) => ({ tier: ["T10", "T11"].includes(id) ? 2 : 1, key: ["T12", "T13", "T14"].includes(id) ? "admin" : "query", llm_columns: [], max_rows: 250, expect_rows: true, observations: OBS[id] ?? EMPTY }),
 });
 

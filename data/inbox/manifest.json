@@ -100,6 +100,42 @@
       ]
     },
     {
+      "inbox_id": "IN-0407",
+      "request_id": "BCR-2026-0407",
+      "example_id": "10-sable-harbor-injection",
+      "claimed_name": "Sable Harbor Marine Logistics LLC (fictional)",
+      "change_kinds": [
+        "bank"
+      ],
+      "payment_run_id": "PR-2026-11-03",
+      "received_at": "2026-10-22T09:41:00Z",
+      "channel": "email",
+      "from": "\"T. Valdivia (fictional)\" <finance@sableharbor.example>",
+      "subject": "Updated ACH banking details - effective 3 November",
+      "scenario": "S10",
+      "dir": "input_examples/10-sable-harbor-injection",
+      "attachments": [
+        {
+          "kind": "letter",
+          "file": "letter.png",
+          "media_type": "image/png",
+          "sha256": "2b8d5f83f6ae86a5ebae3f8ada0b1a810c9cfbcf46cc92b15b457136e362e534"
+        },
+        {
+          "kind": "letter",
+          "file": "letter.pdf",
+          "media_type": "application/pdf",
+          "sha256": "65c802d1869dc3d51b7b607bbec7ef1a779f2204e07f9d4b0fe8aced010cecb3"
+        },
+        {
+          "kind": "eml_headers",
+          "file": "headers.eml",
+          "media_type": "message/rfc822",
+          "sha256": "07ece15bfeb7b0d6e60e00adecb56780b20c31a46d26c90a9b3bac9f0c78acf6"
+        }
+      ]
+    },
+    {
       "inbox_id": "IN-0409",
       "request_id": "BCR-2026-0409",
       "example_id": "13-pembrook-bank-remit-change",

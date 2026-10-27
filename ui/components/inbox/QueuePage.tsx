@@ -51,7 +51,6 @@ function Head({ tab, setTab, counts, run }: { tab: Tab; setTab: (t: Tab) => void
         ) : (
           <PillTabs label="Request filter" value={tab} onChange={setTab} items={items} />
         )}
-        <Badge>{QUEUE.demoChip}</Badge>
         {run ? (
           <p className="t-mono-ui text-fg-muted" data-testid="next-run">
             {QUEUE.nextRun} {run.payment_run_id} · {runDate(run.scheduled_date)}
@@ -96,7 +95,8 @@ export function QueuePage() {
   const counts = { review: sorted.filter(toReview).length, decided: sorted.filter(decided).length, all: sorted.length };
   const shown = tab === "review" ? sorted.filter(toReview) : tab === "decided" ? sorted.filter(decided) : sorted;
 
-  const zetarisDown = ready?.mode === "live" && ready.checks.zetaris_query.status !== "ok";
+  const zq = ready?.checks.zetaris_query.status;
+  const zetarisDown = ready?.mode === "live" && zq !== "ok" && zq !== "degraded";
   const blocked = !!zetarisDown && ready?.ready === false;
   const host = (ready?.checks.zetaris_query as { host?: string } | undefined)?.host ?? "the configured host";
 
@@ -122,7 +122,7 @@ export function QueuePage() {
   } else if (bp === "narrow") {
     body = (
       <div className="q-cards" data-testid="inbox">
-        {shown.map((i) => <RequestCard key={`${i.request_id}${i.example_id}`} item={i} blocked={blocked} confirmDown={!!zetarisDown && !blocked} />)}
+        {shown.map((i) => <RequestCard key={`${i.request_id}${i.example_id}`} item={i} blocked={blocked} />)}
       </div>
     );
   } else {
@@ -131,7 +131,7 @@ export function QueuePage() {
       <div className="q-table-wrap">
         <table className="q-table" data-testid="inbox">
           <colgroup>
-            <col style={{ width: wide ? 208 : 188 }} /><col /><col style={{ width: wide ? 240 : 196 }} />{wide ? <col style={{ width: 152 }} /> : null}<col style={{ width: wide ? 232 : 200 }} /><col style={{ width: wide ? 128 : 148 }} />
+            <col style={{ width: wide ? 214 : 192 }} /><col /><col style={{ width: wide ? 196 : 172 }} />{wide ? <col style={{ width: 156 }} /> : null}<col style={{ width: wide ? 236 : 208 }} /><col style={{ width: wide ? 172 : 164 }} />
           </colgroup>
           <thead>
             <tr>
@@ -142,7 +142,7 @@ export function QueuePage() {
           </thead>
           <tbody>
             {shown.map((i, n) => (
-              <RequestTableRow key={`${i.request_id}${i.example_id}`} item={i} wide={wide} blocked={blocked} confirmDown={!!zetarisDown && !blocked} newDay={n > 0 && dayDate(shown[n - 1].received_at) !== dayDate(i.received_at)} />
+              <RequestTableRow key={`${i.request_id}${i.example_id}`} item={i} wide={wide} blocked={blocked} newDay={n > 0 && dayDate(shown[n - 1].received_at) !== dayDate(i.received_at)} />
             ))}
           </tbody>
         </table>
@@ -156,7 +156,7 @@ export function QueuePage() {
       {zetarisDown ? (
         <div style={{ padding: "12px var(--app-P) 0" }}>
           <Alert tone="gap" role="status">
-            {blocked ? QUEUE.zetarisDownBlocked(host) : <TwoTone fact="Zetaris unreachable" context="Checks use offline captures." />}
+            {blocked ? QUEUE.zetarisDownBlocked(host) : <TwoTone fact="Zetaris unreachable." context={QUEUE.zetarisDownPage} />}
           </Alert>
         </div>
       ) : null}

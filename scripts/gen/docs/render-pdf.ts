@@ -7,9 +7,9 @@ import { WORLD_NOW } from "../contracts";
 
 const KEYS: FontKey[] = ["sans", "sansBold", "sansItalic", "serif", "serifBold"];
 
-function open(title: string): PDFKit.PDFDocument {
+function open(title: string, author = "Synthetic sample, Open Agent Hackathon 2026 team Zen"): PDFKit.PDFDocument {
   const when = new Date(WORLD_NOW);
-  const doc = new PDFDocument({ size: [PAGE_W, PAGE_H], margin: 0, autoFirstPage: false, compress: true, info: { Title: title, Author: "Synthetic sample, Open Agent Hackathon 2026 team Zen", Creator: "Probity document generator", Producer: "pdfkit", CreationDate: when, ModDate: when } });
+  const doc = new PDFDocument({ size: [PAGE_W, PAGE_H], margin: 0, autoFirstPage: false, compress: true, info: { Title: title, Author: author, Creator: "Probity document generator", Producer: "pdfkit", CreationDate: when, ModDate: when } });
   for (const k of KEYS) doc.registerFont(k, fontPath(k));
   return doc;
 }
@@ -23,12 +23,14 @@ function collect(doc: PDFKit.PDFDocument): Promise<Buffer> {
   });
 }
 
-export function letterPdf(pages: Page[], company: string): Promise<Buffer> {
-  const doc = open(watermarkText(company));
+/** `meta` set: a fictional vendor's letter carries no watermark (decision 8); the PDF title and author are the letter's own. */
+export function letterPdf(pages: Page[], company: string, meta?: { title: string; author: string }): Promise<Buffer> {
+  const doc = meta ? open(meta.title, meta.author) : open(watermarkText(company));
   for (const page of pages) {
     doc.addPage();
     for (const r of page.rules) doc.save().lineWidth(r.width).strokeColor(r.color).moveTo(r.x1, r.y1).lineTo(r.x2, r.y2).stroke().restore();
     for (const run of page.runs) doc.font(run.font).fontSize(run.size).fillColor(run.color).text(run.text, run.x, run.y - ascent(run.font, run.size), { lineBreak: false });
+    if (meta) continue;
     doc.save().fillColor(WM.color).fillOpacity(WM.opacity);
     for (const t of watermarkTiles(company)) doc.save().translate(t.x, t.y).rotate(WM.angle).path(t.d).fill().restore();
     doc.restore();

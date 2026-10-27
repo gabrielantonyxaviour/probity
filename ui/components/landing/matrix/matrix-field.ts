@@ -12,7 +12,8 @@ export const FIELD = {
   xdFrac: 0.58,
   gateFrac: 0.8,
   gateCols: 3,
-  T_STATIC: 12.0,
+  // 23.5 s: the film's last frame and the landing hero are the same frame (wave1-decisions item 4; video/src/system T_STATIC_SECONDS).
+  T_STATIC: 23.5,
 } as const;
 
 /** 0 empty, 1 bed, 2 water, 3 payment, 4 crest, 5 diverted branch, 6 caught at the gate. */

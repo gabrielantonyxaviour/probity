@@ -13,6 +13,8 @@ type Check = { status: "ok" | "degraded" | "unauthorized" | "offline" | "disable
 const CHECK_MS = 5000;
 const CACHE_MS = 10_000;
 let cache: { at: number; value: { ready: boolean; body: ReadyResponse } } | null = null;
+/** Consecutive Zetaris probe misses. One slow SELECT 1 under a live run's load reads "degraded"; two in a row read "offline". */
+let zetarisMisses = 0;
 
 /** Run a check with a 5 s timeout. A port that throws (even synchronously, e.g. an unwired lane) yields the fallback. */
 async function timed<T>(fn: () => Promise<T>, fallback: T): Promise<T> {
@@ -43,6 +45,10 @@ async function build(c: Container): Promise<{ ready: boolean; body: ReadyRespons
         },
         { status: "offline", host: new URL(cfg.ZETARIS_API_ORIGIN).host },
       );
+  if (!sample) {
+    zetarisMisses = zetaris.status === "offline" ? zetarisMisses + 1 : 0;
+    if (zetarisMisses === 1) Object.assign(zetaris, { status: "degraded", note: "SELECT 1 took longer than 5 s; offline only after a second miss" });
+  }
   const admin: Check = sample
     ? { status: "disabled" }
     : !cfg.ZETARIS_ADMIN_API_KEY
@@ -70,7 +76,7 @@ async function build(c: Container): Promise<{ ready: boolean; body: ReadyRespons
   }
   const sec: Check = cfg.secUserAgentLive ? { status: "ok" } : { status: "unconfigured" };
   const gaps = await orchestratorGaps();
-  const zetarisFine = sample || zetaris.status === "ok";
+  const zetarisFine = sample || zetaris.status === "ok" || zetaris.status === "degraded";
   const ready =
     missing.length === 0 &&
     (sample ? sampleData.status === "ok" : erp.status === "ok" && (zetarisFine || cfg.ZETARIS_DOWN_POLICY !== "error"));

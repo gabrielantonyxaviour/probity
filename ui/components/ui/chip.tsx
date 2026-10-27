@@ -48,7 +48,7 @@ export function Badge({ children, small, className, testId }: { children: ReactN
   );
 }
 
-/** HonestyTag = Badge (UX-R18): "Demo · synthetic", "Demo scenario: do not call.", "TEST ROUTING". Never coloured. */
+/** HonestyTag = Badge (UX-R18), e.g. "TEST ROUTING". Never coloured. */
 export function HonestyTag({ children, className }: { children: ReactNode; className?: string }) {
   return <Badge small className={className}>{children}</Badge>;
 }

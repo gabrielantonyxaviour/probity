@@ -9,7 +9,7 @@ import { Field, Input, RadioTiles } from "@/components/ui/field";
 import { Alert } from "@/components/ui/misc";
 import { notify } from "@/components/ui/toast";
 import { DIALOGS, TOASTS } from "@/lib/copy";
-import { localInput, stamp } from "@/lib/format";
+import { isoText, localInput, stamp } from "@/lib/format";
 import { useRequests } from "@/lib/requests-store";
 import { useReview } from "@/components/review/review-context";
 
@@ -85,7 +85,7 @@ export function CallbackDialog() {
           <div>
             <span className="p-label t-eyebrow">{DIALOGS.callback.number}</span>
             <div className="p-field-ro"><span className="t-mono-data" style={{ fontSize: 20 }}>{script.number_display}</span></div>
-            <p className="p-help t-ui-xs">{script.source_label}</p>
+            <p className="p-help t-ui-xs">{isoText(script.source_label)}</p>
           </div>
           <div>
             <span className="p-label t-eyebrow">{DIALOGS.callback.outcome}</span>

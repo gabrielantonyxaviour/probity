@@ -15,6 +15,7 @@ import { Semaphore, abortable } from "../orchestration/parallel";
 import { addrKey, canonicalJson, sha16 } from "../policy/normalise";
 import { buildObservations, inputSummary, summariseRows } from "./evidence-obs";
 import { zetarisDownLabel } from "../policy/banners";
+import { OUTAGE_LABEL, outageOf, outageResult } from "./outage";
 
 export type Step = {
   params: TemplateParams;
@@ -79,6 +80,16 @@ export class EvidenceRunner implements EvidenceRunnerLike {
     let note: string | undefined;
     let res: QueryResult;
     let port: ZetarisQueryPort = deps.ports.zetaris;
+    // F22 test hook: a source named in options.simulate_outage is really not queried. Offline captures stand in when this
+    // server has them (labelled mode "sample", so C2 caps the decision); otherwise the read fails and C2 says the source was down.
+    const down = outageOf(s.options.simulate_outage, compiled.source);
+    if (down) {
+      if (!deps.offlineZetaris) return outageResult(this.ctx, step, down);
+      port = deps.offlineZetaris;
+      note = "simulated_outage";
+      addPartial(s, `simulated_outage_${down}`);
+      addLimitation(s, `Simulated outage (test hook): ${OUTAGE_LABEL[down] ?? down} was not reachable; its evidence comes from offline captures.`);
+    }
     for (;;) {
       try {
         res = await this.exec(port, compiled, info.key === "admin" || info.tier === "sweep" ? 120_000 : 45_000);
@@ -100,7 +111,11 @@ export class EvidenceRunner implements EvidenceRunnerLike {
             compiled = { ...compiled, sql: sp.sql_text } as CompiledQuery;
             note = "t11_split";
             break;
-          } catch { /* the split failed too: report the original failure */ }
+          } catch (splitErr) {
+            // Never silent: the split failing too is traced with its own code, then the original failure is reported.
+            const sc = splitErr instanceof AppError ? splitErr.code : "zetaris_server";
+            emit(this.ctx, { agent_name: "evidence_runner", action: "fallback", status: "error", template_id: "T11", note: "t11_split_failed", input_summary: inputSummary("T11", step.params as never), output_summary: `T11 failed (${code}); the split fallback failed too (${sc}: ${splitErr instanceof Error ? splitErr.message.slice(0, 120) : "unknown"})` });
+          }
         }
         if ((code === "zetaris_unreachable" || code === "zetaris_upstream_rest" || code === "zetaris_timeout") && port === deps.ports.zetaris) {
           const fb = this.degrade(code);
@@ -274,3 +289,4 @@ export class EvidenceRunner implements EvidenceRunnerLike {
 }
 
 const strOrNull = (v: unknown): string | null => (v === null || v === undefined || String(v).trim() === "" ? null : String(v));
+

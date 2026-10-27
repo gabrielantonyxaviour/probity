@@ -19,9 +19,9 @@ const sha = (rel: string): string => createHash("sha256").update(readFileSync(pa
 const sha256Of = (b: Buffer): string => createHash("sha256").update(b).digest("hex");
 
 describe("inbox manifest", () => {
-  it("lists 5 scenario items and 10 everyday requests with dir and scenario", () => {
-    expect(manifest.items).toHaveLength(15);
-    expect(manifest.items.filter((i) => i.scenario !== null).map((i) => i.scenario).sort()).toEqual(["S1", "S2", "S3", "S4", "S6b"]);
+  it("lists 6 scenario items and 10 everyday requests with dir and scenario", () => {
+    expect(manifest.items).toHaveLength(16);
+    expect(manifest.items.filter((i) => i.scenario !== null).map((i) => i.scenario).sort()).toEqual(["S1", "S10", "S2", "S3", "S4", "S6b"]);
     for (const i of manifest.items) {
       expect(existsSync(path.join(ROOT, i.dir, "letter.pdf"))).toBe(true);
       expect(i.request_id).toMatch(/^BCR-2026-\d{4}$/);
@@ -54,7 +54,7 @@ describe("inbox manifest", () => {
 });
 
 describe("letters", () => {
-  const letters = manifest.items.filter((i) => i.scenario !== "S4");
+  const letters = manifest.items.filter((i) => i.scenario !== "S4" && i.scenario !== "S10"); // S10 is a fictional vendor: no watermark (injection.test.ts)
   it("carry the watermark, the footer and the test banking data in the PDF text layer", () => {
     for (const i of letters) {
       const t = text(path.join(i.dir, "letter.pdf"));
@@ -87,7 +87,7 @@ describe("letters", () => {
   });
 
   it("headers.eml is CRLF, labelled and on .example domains", () => {
-    for (const i of manifest.items.filter((m) => m.attachments.some((a) => a.file === "headers.eml"))) {
+    for (const i of manifest.items.filter((m) => m.scenario !== "S10" && m.attachments.some((a) => a.file === "headers.eml"))) {
       const eml = readFileSync(path.join(ROOT, i.dir, "headers.eml"), "utf8");
       expect(checkEml(eml, "x", i.request_id).filter((e) => !e.includes("X-Synthetic-Notice"))).toEqual([]);
       expect(eml).toContain("X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by ");

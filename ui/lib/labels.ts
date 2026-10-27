@@ -21,11 +21,12 @@ export const FACT_LABELS: Record<FactField, string> = {
   legal_name: "Legal name",
   remit_address: "Remit-to address",
   bank_account: "Bank account",
-  sender_domain: "Email domain",
+  sender_domain: "Sender domain",
   callback_phone: "Call-back phone",
-  parent: "Parent company",
-  registrant: "SEC filer",
-  invoice_refs: "Invoices cited",
+  // Same words as the API's fact_sheet labels (app/policy/facts.ts), so a row keeps its name when the decision lands.
+  parent: "Parent company (federal award ID, UEI)",
+  registrant: "SEC registrant (company ID, CIK)",
+  invoice_refs: "Invoice references",
 };
 
 export const SOURCE_LABELS = {

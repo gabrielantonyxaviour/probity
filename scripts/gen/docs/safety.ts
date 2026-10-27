@@ -12,8 +12,8 @@ export function checkLetter(L: Letter, laid: Laid, label = L.id): string[] {
   const errs: string[] = [];
   laid.pages.forEach((page, i) => {
     const texts = page.runs.map((r) => r.text);
-    if (!texts.includes(watermarkText(L.company))) errs.push(`${label} page ${i + 1}: watermark run missing`);
-    if (!texts.includes(NOTICE_FOOTER)) errs.push(`${label} page ${i + 1}: footer run missing`);
+    if (!L.unmarked && !texts.includes(watermarkText(L.company))) errs.push(`${label} page ${i + 1}: watermark run missing`);
+    if (!L.unmarked && !texts.includes(NOTICE_FOOTER)) errs.push(`${label} page ${i + 1}: footer run missing`);
     for (const t of texts) {
       for (const m of t.match(PHONE) ?? []) {
         const digits = m.replace(/\D/g, "");
@@ -33,16 +33,21 @@ export function checkLetter(L: Letter, laid: Laid, label = L.id): string[] {
       if (FRAUD.test(t)) errs.push(`${label}: forbidden word in "${t}"`);
     }
   });
+  if (L.unmarked && !L.company.endsWith("(fictional)")) errs.push(`${label}: only a fictional vendor's letter may omit the watermark`);
   if (!L.signer.endsWith("(fictional)") && L.signer !== "Accounts Department") errs.push(`${label}: signer "${L.signer}" must end with (fictional)`);
   return errs;
 }
 
-export function checkEml(text: string, company: string, label: string): string[] {
+export function checkEml(text: string, company: string, label: string, unmarked = false): string[] {
   const errs: string[] = [];
   if (!text.includes("\r\n") || /(^|[^\r])\n/.test(text)) errs.push(`${label}: .eml must use CRLF line ends`);
-  if (!text.includes(`X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by ${company}`)) errs.push(`${label}: X-Synthetic-Notice missing`);
   const body = text.split("\r\n\r\n").slice(1).join("\r\n\r\n");
-  if (!body.startsWith("[SYNTHETIC SAMPLE - not a real email]")) errs.push(`${label}: first body line must be the synthetic marker`);
+  if (unmarked) {
+    if (!company.endsWith("(fictional)")) errs.push(`${label}: only a fictional vendor's email may omit the synthetic marker`);
+  } else {
+    if (!text.includes(`X-Synthetic-Notice: SYNTHETIC SAMPLE: not sent by ${company}`)) errs.push(`${label}: X-Synthetic-Notice missing`);
+    if (!body.startsWith("[SYNTHETIC SAMPLE - not a real email]")) errs.push(`${label}: first body line must be the synthetic marker`);
+  }
   for (const m of text.matchAll(EMAIL)) if (!(m[1] as string).endsWith(".example")) errs.push(`${label}: email domain ${m[1]} is not .example`);
   if (REAL_MAIL.test(text)) errs.push(`${label}: real mail domain`);
   return errs;

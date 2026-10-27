@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 import { GateDecisionSchema } from "../../../app/schemas/decision";
 import { rationaleInput, templateRationale } from "../../../app/agents/gate-officer/rationale";
 import { rig } from "../_support/harness";
-import type { RationaleInput } from "../_support/models-script";
+import { defaultRationale, type RationaleInput } from "../_support/models-script";
+import { checkGrounded } from "../../../app/policy/rationale-guard";
 import { FACT_ORDER } from "../../../app/policy/facts";
 
 async function s1Decision(script = {}) {
@@ -25,14 +26,16 @@ describe("rationale (04 §6.4, §7.10)", () => {
     expect(r.models.calls.filter((c) => c.agent === "gate_officer")).toHaveLength(2);
     expect(tracer.events.filter((e) => e.action === "number_check").map((e) => e.status)).toEqual(["needs_revision", "needs_revision", "success"]);
     expect(d.rationale.text).toBe(templateRationale(d));
-    expect(d.rationale.text).toMatch(/^Hold: the new address belongs to a different company/);
-    expect(d.rationale.text).toContain("Reasons: ");
+    expect(d.rationale.text).toMatch(/^HOLD: do not change the bank details for Booz Allen Hamilton Inc before PR-2026-10-30\. /);
+    expect(d.rationale.text).not.toMatch(/Reasons: |_[a-z]|\d{2}:\d{2}:\d{2}/);
     expect(d.rationale.text).toContain("Call (703) 902-5000 (SEC EDGAR submissions");
-    expect(d.rationale.text).toContain("Not asked, but checked: 2 other item(s)");
+    expect(d.rationale.text).toContain("Separately, 2 other items totalling $139,700.00 in PR-2026-10-30 fail payment controls.");
+    // the plain template carries every red and cap reason it shows, and states nothing the decision does not
+    expect(checkGrounded(d.rationale.text, rationaleInput(d) as never).failures.filter((f) => !/sentence count|left out/.test(f))).toEqual([]);
   });
   it("a first failure followed by a good answer is marked regenerated", async () => {
     let n = 0;
-    const { d } = await s1Decision({ rationale: (i: RationaleInput) => (n++ === 0 ? `HOLD for ${i.vendor_name} in ${i.payment_run_id}. The total is $1.00 across all payments here. The new address does not match our records here. Call the vendor on a known number. Review all items.` : `${i.decision} for ${i.vendor_name} (${i.vendor_id}) in ${i.payment_run_id}. The claimed address belongs to another entity. Call ${i.callback?.number_display}, and do not use ${i.do_not_use[0]}. The sweep found ${i.sweep.k} other items. Review before release.`) });
+    const { d } = await s1Decision({ rationale: (i: RationaleInput) => (n++ === 0 ? `HOLD for ${i.vendor_name} in ${i.payment_run_id}. The total is $1.00 across all payments here. The new address does not match our records here. Call the vendor on a known number. Review all items.` : defaultRationale(i)) });
     expect(d.rationale.number_check).toBe("regenerated");
     expect(d.rationale.source).toBe("model");
   });

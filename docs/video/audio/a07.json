@@ -1,0 +1,64 @@
+{
+ "id": "a07",
+ "text_original": "If Zetaris is down, it says so and never approves.",
+ "text_spoken": "If Zuh-tarris is down, it says so and never approves.",
+ "words": [
+  {
+   "word": "If",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 0.192,
+   "end": 0.692
+  },
+  {
+   "word": "is",
+   "start": 0.769,
+   "end": 0.846
+  },
+  {
+   "word": "down,",
+   "start": 0.923,
+   "end": 1.538
+  },
+  {
+   "word": "it",
+   "start": 1.615,
+   "end": 1.769
+  },
+  {
+   "word": "says",
+   "start": 1.846,
+   "end": 2.077
+  },
+  {
+   "word": "so",
+   "start": 2.154,
+   "end": 2.385
+  },
+  {
+   "word": "and",
+   "start": 2.538,
+   "end": 2.692
+  },
+  {
+   "word": "never",
+   "start": 2.846,
+   "end": 3.077
+  },
+  {
+   "word": "approves.",
+   "start": 3.154,
+   "end": 3.923
+  }
+ ],
+ "seconds": 3.92,
+ "window_seconds": 0,
+ "provisional": true,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

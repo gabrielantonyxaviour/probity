@@ -1,0 +1,114 @@
+{
+ "id": "a09",
+ "text_original": "For a company we have never paid, Ultra approves the SEC link from cited rows, unlocking a number to call.",
+ "text_spoken": "For a company we have never paid, Ultra approves the SEC link from cited rows, unlocking a number to call.",
+ "words": [
+  {
+   "word": "For",
+   "start": 0.0,
+   "end": 0.154
+  },
+  {
+   "word": "a",
+   "start": 0.192,
+   "end": 0.231
+  },
+  {
+   "word": "company",
+   "start": 0.308,
+   "end": 0.692
+  },
+  {
+   "word": "we",
+   "start": 0.769,
+   "end": 0.846
+  },
+  {
+   "word": "have",
+   "start": 0.923,
+   "end": 1.0
+  },
+  {
+   "word": "never",
+   "start": 1.154,
+   "end": 1.385
+  },
+  {
+   "word": "paid,",
+   "start": 1.538,
+   "end": 2.231
+  },
+  {
+   "word": "Ultra",
+   "start": 2.308,
+   "end": 2.615
+  },
+  {
+   "word": "approves",
+   "start": 2.692,
+   "end": 3.154
+  },
+  {
+   "word": "the",
+   "start": 3.231,
+   "end": 3.308
+  },
+  {
+   "word": "SEC",
+   "start": 3.385,
+   "end": 3.769
+  },
+  {
+   "word": "link",
+   "start": 3.846,
+   "end": 4.0
+  },
+  {
+   "word": "from",
+   "start": 4.077,
+   "end": 4.231
+  },
+  {
+   "word": "cited",
+   "start": 4.308,
+   "end": 4.692
+  },
+  {
+   "word": "rows,",
+   "start": 4.769,
+   "end": 5.462
+  },
+  {
+   "word": "unlocking",
+   "start": 5.654,
+   "end": 6.0
+  },
+  {
+   "word": "a",
+   "start": 6.077,
+   "end": 6.154
+  },
+  {
+   "word": "number",
+   "start": 6.231,
+   "end": 6.462
+  },
+  {
+   "word": "to",
+   "start": 6.538,
+   "end": 6.615
+  },
+  {
+   "word": "call.",
+   "start": 6.692,
+   "end": 7.231
+  }
+ ],
+ "seconds": 7.23,
+ "window_seconds": 0,
+ "provisional": true,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

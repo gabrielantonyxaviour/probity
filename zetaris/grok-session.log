@@ -1,0 +1,61 @@
+=== SLICE 1 2026-10-27T12:07:59Z ===
+I'll start by reading the live facts, Zetaris rules, and the current lane state so the first slice builds only what can be verified against localhost:8888.The USAspending probe row is an HTML error page, not pretty-printed JSON. I'll compare a direct fetch with the Zetaris table before deciding the registration path.The USAspending failure is an HTML page: Zetaris is sent the browsable API unless the table sets `Accept: application/json`. With that header, detail and the 41-child list both parse. I'll build the adapter around that and register the direct REST tables.=== SLICE 2 2026-10-27T12:17:39Z ===
+The last slice stopped mid-write. I'll check which Zetaris files landed and continue from the adapter through live registration.=== SLICE 3 2026-10-27T12:27:18Z ===
+The lane was interrupted again during the registration scripts. I'll see which files are on disk and continue from there.Postgres and the source gateway are up now. I'll check whether the data lane landed, then finish registration and run it live.Auto-compacting conversation (80% full)...
+Conversation compacted.
+The data lane is up and the generator dry-run passed. I'll start live registration and keep writing USL, DQ, and templates while it runs.Zetaris answered, but Postgres did not. I'll confirm both before starting registration.=== SLICE 4 2026-10-27T12:36:54Z ===
+Registration was still running when the last slice stopped. I'll check how far it got, then keep going on USL, DQ, and the remaining acceptance checks.P2 verified live and JDBC registration succeeded. The run stopped during view creation, so I’m adding USL, activation, and DQ, then resuming from the views.Views are landing. I’ll add the query templates and the registrar while registration continues.=== SLICE 5 2026-10-27T12:46:32Z ===
+The live registration was still running. I’ll check how far it got, then finish the remaining templates and acceptance checks.Auto-compacting conversation (80% full)...
+Conversation compacted.
+The live resume is the critical path. I will confirm the entity-key fix is saved and that no register process is running, then continue from phase P4.P4 counts match and the toy USL compiled. `RUN DQ` on the toy timed out once and is retrying. I am writing the remaining lane scripts while that finishes.=== SLICE 6 2026-10-27T12:56:09Z ===
+The toy `RUN DQ` exceeded the 45-second SQL timeout and stopped registration before the vendor360 compile. I am checking the engine, then giving data-quality statements the longer DDL timeout and resuming.The 12-table compile was rejected. The toy compile, which has a semicolon between tables, succeeded, so I am comparing that payload with the vendor360 DDL.=== SLICE 7 2026-10-27T13:05:46Z ===
+The registration process was killed during the USL count checks. I am checking how far that run got, then resuming from the next unfinished phase.P8 finished, including the three USL queries. I am checking those captures, then running the S1 templates live.=== SLICE 8 2026-10-27T13:15:24Z ===
+The second full registration was killed mid-run. I am checking how far it got, then finishing the idempotent pass and the remaining acceptance checks.=== SLICE 9 2026-10-27T13:25:03Z ===
+The second registration already finished. I am confirming that log, then closing the remaining acceptance artifacts without starting another pass unless the log shows it died early.The Zetaris lane is live and the second registration finished with exit 0. Status is amber: the three-source USL, DQ1–DQ6, and the S1 queries ran on the engine. K7 grants, the K3d seed insert, T16, and the JDBC fallback were not done.
+
+No registration process is running. The idempotent pass is in `/tmp/zetaris-register-idem2.log` (`register done`, `EXIT:0`). I did not start another one.
+
+## Milestones
+
+| Milestone | Status |
+|---|---|
+| M1 Adapter | DONE-LIVE. `SELECT 1` twice, `row_hash` `d011371b255b86e4` |
+| M2 Guard | DONE-LIVE. 19 co-located tests passed |
+| M3 Registration | DONE-LIVE. Second pass: creates `exists`, compile skipped, same counts |
+| M4 REST | DONE-LIVE. Direct USAspending with `Accept: application/json`; EDGAR with user-agent |
+| M5 ERP JDBC | DONE-LIVE. `payee-erp-db:5432` |
+| M6 Views | DONE-LIVE. Entity 12, child 543, SEC 6, former 6 |
+| M7 USL | DONE-LIVE. 12 tables, `activation_form=view` |
+| M8 DQ | DONE-LIVE. DQ1–DQ6 registered and executed |
+| M9 Captures | DONE-LIVE. 9 explore queries, USL-1/2/3, K1d, toy DQ |
+| M10 Templates | DONE-LIVE except T16 |
+| M11 Registrar | DONE-LIVE. Three session tables probed; `reused=true` |
+
+## Checks that passed
+
+USL counts, both passes: registry_entity 12, registry_child 543, sec_registrant 6, vendor 40, payment_run_item 153, bank_change_request 10.
+
+USL-1 for V-10027: `JCBMLGPE6Z71-C`, CIK `0001443646`, phone `703-902-5000`.
+
+USL-2, one statement: `KHK6E1JW9C15-C`, `1 COMMVAULT WAY STE 205`, TINTON FALLS, `vendor_id_on_file` null.
+
+K1d query key: BOOZ ALLEN HAMILTON INC, TINTON FALLS, 487 ms then 1563 ms.
+
+DQ1 is 153/150/3. On `PR-2026-10-30` the invalid ids are `PRI-1030-0009` and `PRI-1030-0010`. DQ2 is 153/151/2, and neither invalid row is on that run. The seed was not changed.
+
+DQ4 invalid row is `CG8SV4246V29-P`. Cache gate on the idempotent pass was 1942 ms. An earlier pass was 3075 ms. The path stayed `cache_mode=sql`.
+
+Branches: `ERP_PATH=jdbc`, `REGISTRY_PATH=direct`, `REGISTRY_USL_PATH=rest`, `CHILDREN_SHAPE=rows`, `activation_form=view`, `compile_channel=rest`, `t11_mode=one_statement`.
+
+`PROBE_SEC.booz_sub` and `PROBE_USA.booz_nj` were dropped. Owned TypeScript files are under 300 lines. No `console.log`. Lane `tsc` is clean. Two errors remain in `tests/unit/_live-phones.ts`, which this lane does not own.
+
+## Still open
+
+- K7: one API key fills both keys. No second Zetaris user exists, so grants were not issued.
+- K3d: the `payee_app` insert/delete was not run. T22 re-activated `payment_run_item` instead.
+- T16 / `sec_ticker_v`: the view is not registered. The live query returned `TABLE_OR_VIEW_NOT_FOUND`.
+- JDBC fallback: REST compile succeeded. `jdbc-compile.sh` did not log in and did not run `SELECT 1`.
+- Query history: api logs and the audit database had no Zetaris `queryId`. `query_history.json` has `source: null`.
+- `stage-registry` was not loaded. View activation already matched the counts.
+
+The second pass was one killed process through the last EDGAR cache (every create was `exists`, every cache `ok`) and a resume from P3 that exited 0. `zetaris/.state/registration.json` records phases P3–P9 for that resume.

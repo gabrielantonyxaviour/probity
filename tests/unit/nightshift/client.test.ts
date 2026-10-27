@@ -66,7 +66,7 @@ describe("NightshiftClient headers and body (05 §4.3, §4.6)", () => {
     expect(b!.headers["meterless-app"]).toBe("probity-r-20261027t140211z-9f2c-2");
     for (const s of [a!, b!]) {
       expect(String(s.headers["meterless-app"])).toMatch(/^[a-z0-9-]{1,48}$/);
-      expect(s.headers["meterless-scope"]).toBe("app");
+      expect(s.headers["meterless-scope"]).toBe(`app:${String(s.headers["meterless-app"])}`);
       expect(s.headers["meterless-trace"]).toBe("1");
       expect(s.headers.authorization).toBe(`Bearer ${mock.token}`);
       expect(s.body).toMatchObject({ model: FAST, stream: false, chat_template_kwargs: { enable_thinking: false } });
@@ -122,6 +122,12 @@ describe("retries, errors, breaker, budget (05 §4.8, §4.9)", () => {
     expect(r.retry_count).toBe(1);
     expect(chats()).toHaveLength(2);
     expect(events.map((e) => e.status)).toEqual(["retrying", "success"]);
+  });
+  it("a 502 response_truncated retries as a truncation with a larger max_tokens", async () => {
+    mock = await startMock((_r, n) => (n === 1 ? { status: 502, json: { error: { code: "response_truncated" } } } : { json: receiptBody() }));
+    const r = await client().chat(req({ max_tokens: 800 }));
+    expect(r.retry_count).toBe(1);
+    expect(chats().map((c) => (c.body as { max_tokens?: number } | undefined)?.max_tokens)).toEqual([800, 1200]);
   });
   it("401 is not retried and marks the call unauthorized", async () => {
     mock = await startMock(() => ({ status: 401, json: { error: "no" } }));

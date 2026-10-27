@@ -3,7 +3,6 @@ import { systemView } from "@/lib/system-status";
 import { SHELL } from "@/lib/copy";
 import { Chip } from "@/components/ui/chip";
 import { Popover } from "@/components/ui/overlay";
-import { modelShort } from "@/lib/labels-trace";
 import { useReady } from "./ReadyProvider";
 import { useShellState } from "./shell-state";
 
@@ -36,10 +35,10 @@ export function SystemChip() {
                 <span className="t-mono-label text-fg-muted">{l.label}</span>
                 <span className="text-fg-2 t-wrap-any">
                   <span className="text-fg-muted">asked </span>
-                  {l.requested ? modelShort(l.requested) : "—"}
+                  {l.requested ?? "—"}
                   <br />
                   <span className="text-fg-muted">answered </span>
-                  {l.answered ? modelShort(l.answered) : "not yet"}
+                  {l.answered ?? "not yet"}
                 </span>
                 <Chip tone={l.ok ? "agree" : "gap"} glyph={l.glyph}>{l.ok ? "Nemotron" : "Unconfirmed"}</Chip>
               </div>

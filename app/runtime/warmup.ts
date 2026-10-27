@@ -160,7 +160,8 @@ export async function runWarmup(
 /**
  * Does Nightshift's H-MEM inject an earlier answer? (REV-57) The same READY prompt the lane ping uses (so an earlier answer
  * exists) is sent with the same app id twice and with two fresh ids, under both `meterless-scope` values. Live finding
- * 2026-10-27: scope `user` injects across app ids; scope `app` does not.
+ * 2026-10-27: scope `user` injects across app ids. A shared `app` scope later injected too, once runs had mined answers into
+ * it, so `app` mode now sends a per-call partition (`scopeFor` in the Nightshift adapter).
  */
 async function hmemProbe(cfg: Config, stamp: string): Promise<WarmupRecord["hmem"]> {
   const token = cfg.METERLESS_RUNTIME_TOKEN;

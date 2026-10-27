@@ -1,0 +1,211 @@
+{
+  "generated_at": "2026-10-27T15:52:55.359Z",
+  "vendor_id": "V-10027",
+  "task": "T05 fact sheet: vendor x USAspending recipient x SEC registrant, one vendor",
+  "runs_per_path": 4,
+  "timing_ms": {
+    "note": "first = the first call of this script (new connections, uncached); repeat = median of the later calls. Zetaris times are the adapter's latencyMs per query; direct times are wall clock for the three reads.",
+    "direct": {
+      "first": 1367,
+      "repeat": 350,
+      "runs": [
+        {
+          "run": 1,
+          "ms": 1367,
+          "rows": 1,
+          "row_hash": "2964ba60af7e014e",
+          "error": null
+        },
+        {
+          "run": 2,
+          "ms": 355,
+          "rows": 1,
+          "row_hash": "2964ba60af7e014e",
+          "error": null
+        },
+        {
+          "run": 3,
+          "ms": 350,
+          "rows": 1,
+          "row_hash": "2964ba60af7e014e",
+          "error": null
+        },
+        {
+          "run": 4,
+          "ms": 337,
+          "rows": 1,
+          "row_hash": "2964ba60af7e014e",
+          "error": null
+        }
+      ]
+    },
+    "zetaris": {
+      "first": null,
+      "repeat": null,
+      "runs": [
+        {
+          "run": 1,
+          "ms": 60016,
+          "rows": 0,
+          "row_hash": null,
+          "error": "zetaris_timeout: The operation was aborted due to timeout"
+        },
+        {
+          "run": 2,
+          "ms": 60006,
+          "rows": 0,
+          "row_hash": null,
+          "error": "zetaris_timeout: The operation was aborted due to timeout"
+        },
+        {
+          "run": 3,
+          "ms": 60017,
+          "rows": 0,
+          "row_hash": null,
+          "error": "zetaris_timeout: The operation was aborted due to timeout"
+        },
+        {
+          "run": 4,
+          "ms": 60019,
+          "rows": 0,
+          "row_hash": null,
+          "error": "zetaris_timeout: The operation was aborted due to timeout"
+        }
+      ],
+      "query_ids": []
+    },
+    "zetaris_in_recorded_runs": {
+      "source": "logs/run-*.json, T05 observations of live runs for this vendor; a latency under 100 ms is a re-used query record and is left out of the median",
+      "runs": [
+        {
+          "run_id": "r-20261027T135403Z-3a0d",
+          "query_id": "a563b6ea-2c1e-4926-b38f-9902c2521d35",
+          "row_hash": "2964ba60af7e014e",
+          "latency_ms": 11531
+        },
+        {
+          "run_id": "r-20261027T140116Z-e306",
+          "query_id": "96a4a579-5b75-416f-bc9e-7ec15197b309",
+          "row_hash": "2964ba60af7e014e",
+          "latency_ms": 13781
+        },
+        {
+          "run_id": "r-20261027T142535Z-747c",
+          "query_id": "e0d1d236-4d0f-4ddd-af44-5e3b879e176e",
+          "row_hash": "2964ba60af7e014e",
+          "latency_ms": 16011
+        },
+        {
+          "run_id": "r-20261027T143041Z-6a72",
+          "query_id": "46abc626-089f-4455-804b-3fb003959e20",
+          "row_hash": "2964ba60af7e014e",
+          "latency_ms": 28104
+        },
+        {
+          "run_id": "r-20261027T145304Z-2e9d",
+          "query_id": "cfbedf86-2427-450c-b286-013be698a63e",
+          "row_hash": "2964ba60af7e014e",
+          "latency_ms": 1
+        },
+        {
+          "run_id": "r-20261027T145956Z-dc52",
+          "query_id": "8a16eb80-a371-4514-9e8c-94bd4c8bf1cb",
+          "row_hash": "2964ba60af7e014e",
+          "latency_ms": 12
+        },
+        {
+          "run_id": "r-20261027T150625Z-371e",
+          "query_id": "3839e928-7f8f-4129-b1f2-d448f709d0dc",
+          "row_hash": "2964ba60af7e014e",
+          "latency_ms": 1
+        },
+        {
+          "run_id": "r-20261027T154258Z-fca5",
+          "query_id": "2aa41b30-2f53-4637-960e-365ed7a29992",
+          "row_hash": "2964ba60af7e014e",
+          "latency_ms": 3
+        }
+      ],
+      "median_ms": 14896,
+      "min_ms": 11531,
+      "max_ms": 28104
+    }
+  },
+  "correctness": {
+    "direct_row_hash": "2964ba60af7e014e",
+    "zetaris_row_hash": null,
+    "same_rows": null,
+    "column_diffs": null,
+    "same_row_hash_as_recorded_zetaris_runs": true,
+    "recorded_zetaris_row_hashes": [
+      "2964ba60af7e014e"
+    ],
+    "direct_rows": 1,
+    "zetaris_rows": 0
+  },
+  "lines_of_code": {
+    "method": "non-blank, non-comment lines (bench/measure.ts codeLines)",
+    "direct_path": {
+      "file": "bench/direct-path.ts",
+      "lines": 37
+    },
+    "usl_path": {
+      "registration_rest": 249,
+      "flatten_views": 429,
+      "erp_datasource": 9,
+      "usl_ddl": 172,
+      "activation": 165,
+      "dq_rules": 12,
+      "total": 1036,
+      "t05_sql": 9,
+      "scope_note": "the USL artefacts cover 6 company families (24 REST tables), every template and 6 DQ rules, not only T05"
+    },
+    "dq2_account_reuse": {
+      "usl": 2,
+      "direct": "estimate, not implemented: about 6 lines (one pg query grouping bank accounts by account_hash)"
+    }
+  },
+  "joins": {
+    "usl_in_t05_sql": 2,
+    "direct_in_code": 2,
+    "direct_note": "vendor.uei to the USAspending record and vendor.registrant_cik to the SEC record, each a hand-written key lookup; the domain list is a third pg query"
+  },
+  "integration_concerns": [
+    {
+      "concern": "HTTP retry and backoff, rate limits",
+      "direct": "not handled (one attempt, 20 s timeout)",
+      "usl": "adapter semaphore, timeouts, retry classes"
+    },
+    {
+      "concern": "JSON flattening and type coercion",
+      "direct": "inline property reads, strings by hand",
+      "usl": "flatten views and CAST in SQL, written once for 24 REST tables"
+    },
+    {
+      "concern": "Cross-source join",
+      "direct": "two key lookups in TypeScript",
+      "usl": "two LEFT JOINs in SQL"
+    },
+    {
+      "concern": "Provenance and re-run",
+      "direct": "none",
+      "usl": "a query id per query, stored row_hash, POST /zetaris/rerun"
+    },
+    {
+      "concern": "Caching",
+      "direct": "none",
+      "usl": "CACHE TABLE on registry tables"
+    },
+    {
+      "concern": "A vendor whose UEI was never registered",
+      "direct": "works (the recipient id is derived from the UEI)",
+      "usl": "needs a CREATE REST SESSION TABLE at run time (admin key)"
+    },
+    {
+      "concern": "Governed access",
+      "direct": "app holds the ERP password and calls public APIs directly",
+      "usl": "query key can SELECT, admin key registers; the ERP is reached through one datasource"
+    }
+  ],
+  "honest_summary": "For one vendor the hand-coded path is 37 lines against 1036 lines of USL artefacts (amortised over every template, family and DQ rule). Direct: 1367 ms first / 350 ms repeat. Zetaris T05: no live Zetaris answer in this run (timeout); in 4 recorded live queries the agent's own T05 took a median 14896 ms (11531 ms to 28104 ms). The direct path has none of provenance, re-run, caching, retries or governed keys."
+}

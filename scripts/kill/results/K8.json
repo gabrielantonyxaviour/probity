@@ -1,0 +1,8 @@
+{
+  "id": "K8",
+  "title": "Recorded live S1 runs finish inside the 480 s budget (target 300 s)",
+  "pass": true,
+  "evidence": "3 live S1 runs on disk: 187.8, 196.6, 218.1 s; median 196.6",
+  "elapsed_ms": 32,
+  "at": "2026-10-27T15:20:35.221Z"
+}

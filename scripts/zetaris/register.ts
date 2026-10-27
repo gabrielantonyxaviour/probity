@@ -11,6 +11,7 @@ import { fail, runJob } from "./run-job.ts";
 import { JDBC_HOSTS } from "./sql/erp.ts";
 import type { Job, Phase } from "./sql/types.ts";
 import { ddlSha16 } from "./sql/usl.ts";
+import { writeRegistryCache } from "./registry-cache.ts";
 import { verifyRest } from "./verify-rest.ts";
 import { verifyPhase } from "./verify-live.ts";
 
@@ -21,6 +22,7 @@ const dry = args.includes("--dry-run");
 const rebuild = args.includes("--rebuild-usl");
 const only = args.includes("--only") ? (args[args.indexOf("--only") + 1] as Phase) : undefined;
 const from = args.includes("--from") ? (args[args.indexOf("--from") + 1] as Phase) : undefined;
+const labelFilter = args.includes("--label") ? args[args.indexOf("--label") + 1] : undefined;
 let activationForm = "view";
 
 function chosenPhases(): Phase[] {
@@ -104,6 +106,11 @@ async function execute(job: Job): Promise<void> {
       process.stdout.write(`P8 usl-2 ${code} t11_mode=split\n`);
       return;
     }
+    const typed = err instanceof ZetarisError ? err : new ZetarisError("zetaris_sql_error", "phase failed");
+    if (job.label === "drop-sec_tickers-wide" && /not exist|doesn.t exist|not found|cannot find|TABLE_OR_VIEW_NOT_FOUND|no such/i.test(typed.message)) {
+      process.stdout.write(`${job.phase} ${job.label} absent\n`);
+      return;
+    }
     const retry = job.sql.includes("FROM probity.") ? asInline(job) : null;
     if (retry) {
       activationForm = "inline";
@@ -124,7 +131,9 @@ async function main(): Promise<void> {
   const { jobs } = generate(host || "payee-erp-db:5432");
   const phases = chosenPhases();
   if (dry) {
-    for (const job of jobs.filter((j) => phases.includes(j.phase))) process.stdout.write(`${job.phase} ${job.label} ${job.key}\n`);
+    for (const job of jobs.filter((j) => phases.includes(j.phase) && (!labelFilter || j.label.includes(labelFilter)))) {
+      process.stdout.write(`${job.phase} ${job.label} ${job.key}\n`);
+    }
     process.stdout.write(`dry-run ${jobs.length} statements\n`);
     return;
   }
@@ -143,14 +152,14 @@ async function main(): Promise<void> {
       continue;
     }
     if (phase === "P9") continue;
-    const slice = jobs.filter((j) => j.phase === phase);
+    const slice = jobs.filter((j) => j.phase === phase && (!labelFilter || j.label.includes(labelFilter)));
     if (slice.length === 0) {
       process.stdout.write(`${phase} no statements\n`);
       continue;
     }
     for (const job of slice) await execute(job);
-    if (phase === "P4" || phase === "P6") await verifyPhase(phase);
-    if (phase === "P2") {
+    if ((phase === "P4" || phase === "P6") && !labelFilter) await verifyPhase(phase);
+    if (phase === "P2" && !labelFilter) {
       const checked = await verifyRest(requireSecUserAgent(loadZetarisConfig()));
       mkdirSync("zetaris/results", { recursive: true });
       writeFileSync("zetaris/results/rest_counts.json", `${JSON.stringify({ at: new Date().toISOString(), ok: checked.ok, counts: checked.counts, notes: checked.notes }, null, 2)}\n`);
@@ -160,21 +169,27 @@ async function main(): Promise<void> {
       }
     }
   }
-  const cfg = loadZetarisConfig();
-  const state = {
-    at: new Date().toISOString(),
-    erp_table_ref: "payee_erp",
-    jdbc_host: host || null,
-    registry_path: cfg.registryPath,
-    registry_usl_path: cfg.registryUslPath,
-    children_shape: cfg.childrenShape,
-    activation_form: activationForm,
-    ddl_sha: ddlSha16(),
-    phases,
-  };
-  mkdirSync("zetaris/.state", { recursive: true });
-  writeFileSync("zetaris/.state/registration.json", `${JSON.stringify(state, null, 2)}\n`);
-  writeFileSync("zetaris/results/registration.json", `${JSON.stringify(state, null, 2)}\n`);
+  const partial = Boolean(only || from || labelFilter);
+  if (!partial) {
+    const cfg = loadZetarisConfig();
+    const state = {
+      at: new Date().toISOString(),
+      erp_table_ref: "payee_erp",
+      jdbc_host: host || null,
+      registry_path: cfg.registryPath,
+      registry_usl_path: cfg.registryUslPath,
+      children_shape: cfg.childrenShape,
+      activation_form: activationForm,
+      ddl_sha: ddlSha16(),
+      phases,
+    };
+    mkdirSync("zetaris/.state", { recursive: true });
+    writeFileSync("zetaris/.state/registration.json", `${JSON.stringify(state, null, 2)}\n`);
+    writeFileSync("zetaris/results/registration.json", `${JSON.stringify(state, null, 2)}\n`);
+  }
+  if (!labelFilter || labelFilter.includes("sec_") || phases.includes("P2") || phases.includes("P4")) {
+    await writeRegistryCache();
+  }
   process.stdout.write("register done\n");
 }
 

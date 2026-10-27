@@ -51,7 +51,7 @@ export function buildClaims(L: Letter, laid: Laid, eml: ParsedEml | null, sha: s
     bank: L.bank ? { bank_name: L.bank.bank_name, routing: L.bank.routing.replace(/\D/g, ""), account_last4: L.bank.account.replace(/\D/g, "").slice(-4) } : null,
     sender_email: eml?.from ?? null, sender_domain: eml?.from ? domainOf(eml.from) : null, reply_to_domain: eml?.replyTo ? domainOf(eml.replyTo) : null,
     phones, effective_date: L.effectiveIso, invoice_refs: (laid.fields.find((f) => f.field === "invoice_refs")?.text.match(/INV-[A-Z]{3}-\d{5}/g)) ?? [],
-    signer_name: L.signer, pressure_phrases: pressure, watermark_text: watermarkText(L.company), fields, extraction_path: "sidecar",
+    signer_name: L.signer, pressure_phrases: pressure, watermark_text: L.unmarked ? null : watermarkText(L.company), fields, extraction_path: "sidecar",
   });
   const account = L.bank ? L.bank.account.replace(/\D/g, "") : null;
   return { example_id: exampleId, extracted_by: EXTRACTED_BY, source_sha256: sha, account_number: account, ...core };

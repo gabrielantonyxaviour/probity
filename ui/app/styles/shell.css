@@ -39,5 +39,5 @@
 .sheet-menu__nav a { display: flex; align-items: center; height: 44px; padding: 0 12px; border-radius: var(--radius-pill); text-decoration: none; }
 .sheet-menu__nav a[aria-current="page"] { background: var(--bg-active); }
 .sys-rows { display: grid; gap: 0; }
-.sys-rows > div { display: grid; grid-template-columns: 56px 1fr auto; gap: 8px; align-items: baseline; padding: 8px 0; }
+.sys-rows > div { display: grid; grid-template-columns: 80px 1fr auto; gap: 8px; align-items: baseline; padding: 8px 0; }
 .sys-rows > div + div { border-top: 1px dashed var(--rule); }

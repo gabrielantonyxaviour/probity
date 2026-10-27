@@ -28,6 +28,13 @@ export function decisionPath(p: GraphPayload, decision: GateDecision | null): Se
     if (e.type === "child_of" && keep.has(e.from) && byId.get(e.from)?.flags.includes("not_vendor_of_record")) keep.add(e.to);
     if (e.type === "reachable_at" && keep.has(e.from) && (byId.get(e.to)?.flags.some((f) => f === "callback_number" || f === "do_not_use"))) keep.add(e.to);
   }
+  // The vendor that already holds the requested account (R6): a conflict-flagged bank account plus every vendor record
+  // that currently pays to it. Without it the path shows "account already on another vendor" with no other vendor.
+  for (const e of p.edges) {
+    if (e.type !== "pays_to" || e.state !== "open") continue;
+    const acct = byId.get(e.to);
+    if (acct?.type === "bank_account" && acct.flags.includes("conflict") && keep.has(e.to) && byId.get(e.from)?.type === "vendor_record") keep.add(e.from);
+  }
   for (const id of [...keep]) if (!byId.has(id)) keep.delete(id);
   return keep;
 }

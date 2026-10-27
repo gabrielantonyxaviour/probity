@@ -11,6 +11,8 @@ export type Job = {
   line: string;
   ran: boolean;
   note: string | null;
+  /** The check is still running and this job has not happened yet: never shown as "not needed". */
+  pending: boolean;
   model: string | null;
   nemotron: boolean | null;
   calls: number;
@@ -35,7 +37,7 @@ function chipOf(evs: TraceEvent[]) {
   };
 }
 
-export function buildJobs(a: { trace: TraceEvent[]; claims: ClaimSet | null; decision: GateDecision | null; sample: boolean }): Job[] {
+export function buildJobs(a: { trace: TraceEvent[]; claims: ClaimSet | null; decision: GateDecision | null; sample: boolean; running?: boolean }): Job[] {
   const t = a.trace;
   const read = t.filter((e) => e.agent_name === "letter_reader" && e.action === "extract_claims");
   const planEvs = t.filter((e) => e.agent_name === "registry_scout" && (e.action === "plan_coverage" || e.action === "run_template"));
@@ -55,11 +57,13 @@ export function buildJobs(a: { trace: TraceEvent[]; claims: ClaimSet | null; dec
   const mk = (id: JobId, evs: TraceEvent[], line: string, ranOverride?: boolean): Job => {
     const c = chipOf(evs);
     const ran = ranOverride ?? (evs.length > 0 && (c.calls > 0 || a.sample));
+    const pending = !ran && !!a.running && !a.sample;
     return {
       id,
-      line,
+      line: pending ? MODELS.jobs[id] : line,
       ran,
-      note: ran ? null : a.sample ? MODELS.sampleNotRun : MODELS.notNeeded,
+      pending,
+      note: ran ? null : pending ? MODELS.pending : a.sample ? MODELS.sampleNotRun : MODELS.notNeeded,
       model: c.model,
       nemotron: c.nemotron,
       calls: c.calls,

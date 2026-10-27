@@ -1,0 +1,71 @@
+{
+  "at": "2026-10-27T14:59:26.925Z",
+  "template": "t16",
+  "observation_columns": [
+    "cik",
+    "ticker",
+    "title"
+  ],
+  "queries": [
+    {
+      "at": "2026-10-27T14:59:07.695Z",
+      "raw": "Booz Allen Hamilton Holding Corp",
+      "name_norm": "BOOZ ALLEN HAMILTON HOLDING CORP",
+      "sql": "SELECT cik, ticker, title FROM probity.sec_ticker_v WHERE trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(title)), ' (FICTIONAL)', ''), '[.,''\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) = 'BOOZ ALLEN HAMILTON HOLDING CORP' LIMIT 5",
+      "query_id": "750424c7-87a9-49cb-b197-89f224cf7c4e",
+      "latency_ms": 15246,
+      "columns": [
+        "cik",
+        "ticker",
+        "title"
+      ],
+      "rows": [
+        [
+          "0001443646",
+          "BAH",
+          "Booz Allen Hamilton Holding Corp"
+        ]
+      ]
+    },
+    {
+      "at": "2026-10-27T14:59:22.953Z",
+      "raw": "L3HARRIS TECHNOLOGIES, INC. /DE/",
+      "name_norm": "L3HARRIS TECHNOLOGIES INC",
+      "sql": "SELECT cik, ticker, title FROM probity.sec_ticker_v WHERE trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(title)), ' (FICTIONAL)', ''), '[.,''\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) = 'L3HARRIS TECHNOLOGIES INC' LIMIT 5",
+      "query_id": "bbf2516e-77eb-447b-b0c9-0c74126aaf1b",
+      "latency_ms": 1702,
+      "columns": [
+        "cik",
+        "ticker",
+        "title"
+      ],
+      "rows": [
+        [
+          "0000202058",
+          "LHX",
+          "L3HARRIS TECHNOLOGIES, INC. /DE/"
+        ]
+      ]
+    },
+    {
+      "at": "2026-10-27T14:59:24.656Z",
+      "raw": "PARSONS CORP",
+      "name_norm": "PARSONS CORP",
+      "sql": "SELECT cik, ticker, title FROM probity.sec_ticker_v WHERE trim(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(regexp_replace(replace(upper(trim(title)), ' (FICTIONAL)', ''), '[.,''\"()]', ''), ' +', ' '), ' ?/[A-Z]{2}/$', ''), '(^| )INCORPORATED( |$)', '$1INC$2'), '(^| )CORPORATION( |$)', '$1CORP$2'), '(^| )COMPANY( |$)', '$1CO$2'), '(^| )LIMITED( |$)', '$1LTD$2')) = 'PARSONS CORP' LIMIT 5",
+      "query_id": "a104a195-018d-4e22-ac21-80c4f9731232",
+      "latency_ms": 2268,
+      "columns": [
+        "cik",
+        "ticker",
+        "title"
+      ],
+      "rows": [
+        [
+          "0000275880",
+          "PSN",
+          "PARSONS CORP"
+        ]
+      ]
+    }
+  ]
+}

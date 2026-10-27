@@ -25,6 +25,7 @@ export type RunFlags = {
   "claim-email"?: string | undefined;
   "payment-run"?: string | undefined;
   "received-at"?: string | undefined;
+  "request-id"?: string | undefined;
   "simulate-outage"?: string | undefined;
   budget?: string | undefined;
   sample?: boolean | undefined;
@@ -115,6 +116,7 @@ export function buildRunBody(f: RunFlags, cfg: ExamplesCfg): { body: z.infer<typ
   const input = { ...(raw.input as Record<string, unknown>) };
   if (f["payment-run"]) input.payment_run_id = f["payment-run"];
   if (f["received-at"]) input.received_at = f["received-at"];
+  if (f["request-id"]) input.request_id = f["request-id"]; // override ticket id, so a live test never touches a seeded request
   const options = { ...((raw.options as Record<string, unknown> | undefined) ?? {}) };
   if (f["simulate-outage"]) options.simulate_outage = f["simulate-outage"].split(",").map((s) => s.trim());
   if (f.budget) options.budget_seconds = Number(f.budget);

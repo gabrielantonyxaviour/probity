@@ -1,0 +1,279 @@
+{
+ "id": "a02",
+ "text_original": "Four agents, each with its own authority. The Letter Reader, on Nemotron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a floor of Zetaris checks; Nemotron Lightning adds what it misses. Before a link counts, the Examiner re-runs its Zetaris query and checks the rows. Code decides the verdict.",
+ "text_spoken": "Four agents, each with its own authority. The Letter Reader, on Nemmo-tron 3 Ultra, turns the letter into quoted claims. The Registry Scout runs a floor of Zuh-tarris checks; Nemmo-tron Lightning adds what it misses. Before a link counts, the Examiner re-runs its Zuh-tarris query and checks the rows. Code decides the verdict.",
+ "words": [
+  {
+   "word": "Four",
+   "start": 0.0,
+   "end": 0.308
+  },
+  {
+   "word": "agents,",
+   "start": 0.385,
+   "end": 1.231
+  },
+  {
+   "word": "each",
+   "start": 1.308,
+   "end": 1.538
+  },
+  {
+   "word": "with",
+   "start": 1.615,
+   "end": 1.769
+  },
+  {
+   "word": "its",
+   "start": 1.885,
+   "end": 2.0
+  },
+  {
+   "word": "own",
+   "start": 2.077,
+   "end": 2.231
+  },
+  {
+   "word": "authority.",
+   "start": 2.538,
+   "end": 2.923
+  },
+  {
+   "word": "The",
+   "start": 3.385,
+   "end": 3.462
+  },
+  {
+   "word": "Letter",
+   "start": 3.615,
+   "end": 3.769
+  },
+  {
+   "word": "Reader,",
+   "start": 3.962,
+   "end": 4.385
+  },
+  {
+   "word": "on",
+   "start": 4.462,
+   "end": 4.538
+  },
+  {
+   "word": "Nemmo-tron",
+   "start": 4.577,
+   "end": 5.077
+  },
+  {
+   "word": "3",
+   "start": 5.154,
+   "end": 5.308
+  },
+  {
+   "word": "Ultra,",
+   "start": 5.462,
+   "end": 6.154
+  },
+  {
+   "word": "turns",
+   "start": 6.269,
+   "end": 6.462
+  },
+  {
+   "word": "the",
+   "start": 6.5,
+   "end": 6.538
+  },
+  {
+   "word": "letter",
+   "start": 6.615,
+   "end": 6.923
+  },
+  {
+   "word": "into",
+   "start": 7.0,
+   "end": 7.154
+  },
+  {
+   "word": "quoted",
+   "start": 7.231,
+   "end": 7.615
+  },
+  {
+   "word": "claims.",
+   "start": 7.692,
+   "end": 8.385
+  },
+  {
+   "word": "The",
+   "start": 8.615,
+   "end": 8.692
+  },
+  {
+   "word": "Registry",
+   "start": 8.923,
+   "end": 9.154
+  },
+  {
+   "word": "Scout",
+   "start": 9.231,
+   "end": 9.538
+  },
+  {
+   "word": "runs",
+   "start": 9.615,
+   "end": 9.769
+  },
+  {
+   "word": "a",
+   "start": 9.846,
+   "end": 9.923
+  },
+  {
+   "word": "floor",
+   "start": 10.0,
+   "end": 10.308
+  },
+  {
+   "word": "of",
+   "start": 10.385,
+   "end": 10.462
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 10.538,
+   "end": 11.077
+  },
+  {
+   "word": "checks;",
+   "start": 11.154,
+   "end": 11.923
+  },
+  {
+   "word": "Nemmo-tron",
+   "start": 12.0,
+   "end": 12.462
+  },
+  {
+   "word": "Lightning",
+   "start": 12.538,
+   "end": 13.0
+  },
+  {
+   "word": "adds",
+   "start": 13.077,
+   "end": 13.308
+  },
+  {
+   "word": "what",
+   "start": 13.385,
+   "end": 13.462
+  },
+  {
+   "word": "it",
+   "start": 13.5,
+   "end": 13.538
+  },
+  {
+   "word": "misses.",
+   "start": 13.615,
+   "end": 14.308
+  },
+  {
+   "word": "Before",
+   "start": 14.538,
+   "end": 14.846
+  },
+  {
+   "word": "a",
+   "start": 14.885,
+   "end": 14.923
+  },
+  {
+   "word": "link",
+   "start": 15.0,
+   "end": 15.231
+  },
+  {
+   "word": "counts,",
+   "start": 15.462,
+   "end": 15.846
+  },
+  {
+   "word": "the",
+   "start": 15.923,
+   "end": 15.962
+  },
+  {
+   "word": "Examiner",
+   "start": 16.0,
+   "end": 16.615
+  },
+  {
+   "word": "re-runs",
+   "start": 16.769,
+   "end": 17.231
+  },
+  {
+   "word": "its",
+   "start": 17.308,
+   "end": 17.385
+  },
+  {
+   "word": "Zuh-tarris",
+   "start": 17.423,
+   "end": 17.923
+  },
+  {
+   "word": "query",
+   "start": 18.0,
+   "end": 18.385
+  },
+  {
+   "word": "and",
+   "start": 18.462,
+   "end": 18.538
+  },
+  {
+   "word": "checks",
+   "start": 18.615,
+   "end": 18.846
+  },
+  {
+   "word": "the",
+   "start": 18.923,
+   "end": 19.0
+  },
+  {
+   "word": "rows.",
+   "start": 19.192,
+   "end": 19.462
+  },
+  {
+   "word": "Code",
+   "start": 19.923,
+   "end": 20.231
+  },
+  {
+   "word": "decides",
+   "start": 20.385,
+   "end": 20.769
+  },
+  {
+   "word": "the",
+   "start": 20.846,
+   "end": 20.885
+  },
+  {
+   "word": "verdict.",
+   "start": 20.923,
+   "end": 21.615
+  }
+ ],
+ "seconds": 21.62,
+ "window_seconds": 22,
+ "provisional": true,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}

@@ -1,0 +1,304 @@
+{
+ "id": "z05",
+ "text_original": "Grok built this layer. It worked under a written contract, in bounded slices, each logged with a UTC time. It read Zetaris's own agent rules first, then registered the sources, defined the semantic layer and its data-quality rules, and checked every step against the live local API. Where it could not verify something, the verdict file says so.",
+ "text_spoken": "Grok built this layer. It worked under a written contract, in bounded slices, each logged with a UTC time. It read Zuh-tarris's own agent rules first, then registered the sources, defined the semantic layer and its data-quality rules, and checked every step against the live local API. Where it could not verify something, the verdict file says so.",
+ "words": [
+  {
+   "word": "Grok",
+   "start": 0.0,
+   "end": 0.308
+  },
+  {
+   "word": "built",
+   "start": 0.385,
+   "end": 0.723
+  },
+  {
+   "word": "this",
+   "start": 0.769,
+   "end": 0.962
+  },
+  {
+   "word": "layer.",
+   "start": 1.0,
+   "end": 1.615
+  },
+  {
+   "word": "It",
+   "start": 1.846,
+   "end": 1.923
+  },
+  {
+   "word": "worked",
+   "start": 2.0,
+   "end": 2.231
+  },
+  {
+   "word": "under",
+   "start": 2.308,
+   "end": 2.538
+  },
+  {
+   "word": "a",
+   "start": 2.577,
+   "end": 2.615
+  },
+  {
+   "word": "written",
+   "start": 2.692,
+   "end": 3.0
+  },
+  {
+   "word": "contract,",
+   "start": 3.077,
+   "end": 3.846
+  },
+  {
+   "word": "in",
+   "start": 3.923,
+   "end": 4.0
+  },
+  {
+   "word": "bounded",
+   "start": 4.077,
+   "end": 4.385
+  },
+  {
+   "word": "slices,",
+   "start": 4.462,
+   "end": 5.308
+  },
+  {
+   "word": "each",
+   "start": 5.385,
+   "end": 5.615
+  },
+  {
+   "word": "logged",
+   "start": 5.692,
+   "end": 5.923
+  },
+  {
+   "word": "with",
+   "start": 6.0,
+   "end": 6.077
+  },
+  {
+   "word": "a",
+   "start": 6.154,
+   "end": 6.192
+  },
+  {
+   "word": "UTC",
+   "start": 6.231,
+   "end": 6.692
+  },
+  {
+   "word": "time.",
+   "start": 6.769,
+   "end": 7.308
+  },
+  {
+   "word": "It",
+   "start": 7.538,
+   "end": 7.615
+  },
+  {
+   "word": "read",
+   "start": 7.692,
+   "end": 7.846
+  },
+  {
+   "word": "Zuh-tarris's",
+   "start": 7.885,
+   "end": 8.615
+  },
+  {
+   "word": "own",
+   "start": 8.731,
+   "end": 8.846
+  },
+  {
+   "word": "agent",
+   "start": 8.923,
+   "end": 9.231
+  },
+  {
+   "word": "rules",
+   "start": 9.385,
+   "end": 9.538
+  },
+  {
+   "word": "first,",
+   "start": 9.615,
+   "end": 10.308
+  },
+  {
+   "word": "then",
+   "start": 10.423,
+   "end": 10.538
+  },
+  {
+   "word": "registered",
+   "start": 10.769,
+   "end": 11.0
+  },
+  {
+   "word": "the",
+   "start": 11.038,
+   "end": 11.077
+  },
+  {
+   "word": "sources,",
+   "start": 11.154,
+   "end": 12.0
+  },
+  {
+   "word": "defined",
+   "start": 12.192,
+   "end": 12.385
+  },
+  {
+   "word": "the",
+   "start": 12.423,
+   "end": 12.462
+  },
+  {
+   "word": "semantic",
+   "start": 12.538,
+   "end": 13.0
+  },
+  {
+   "word": "layer",
+   "start": 13.077,
+   "end": 13.308
+  },
+  {
+   "word": "and",
+   "start": 13.385,
+   "end": 13.462
+  },
+  {
+   "word": "its",
+   "start": 13.538,
+   "end": 13.615
+  },
+  {
+   "word": "data-quality",
+   "start": 13.692,
+   "end": 14.308
+  },
+  {
+   "word": "rules,",
+   "start": 14.385,
+   "end": 15.0
+  },
+  {
+   "word": "and",
+   "start": 15.077,
+   "end": 15.154
+  },
+  {
+   "word": "checked",
+   "start": 15.231,
+   "end": 15.615
+  },
+  {
+   "word": "every",
+   "start": 15.769,
+   "end": 15.923
+  },
+  {
+   "word": "step",
+   "start": 16.077,
+   "end": 16.385
+  },
+  {
+   "word": "against",
+   "start": 16.462,
+   "end": 16.692
+  },
+  {
+   "word": "the",
+   "start": 16.769,
+   "end": 16.846
+  },
+  {
+   "word": "live",
+   "start": 16.923,
+   "end": 17.231
+  },
+  {
+   "word": "local",
+   "start": 17.308,
+   "end": 17.538
+  },
+  {
+   "word": "API.",
+   "start": 17.615,
+   "end": 18.385
+  },
+  {
+   "word": "Where",
+   "start": 18.615,
+   "end": 18.692
+  },
+  {
+   "word": "it",
+   "start": 18.769,
+   "end": 18.808
+  },
+  {
+   "word": "could",
+   "start": 18.846,
+   "end": 19.0
+  },
+  {
+   "word": "not",
+   "start": 19.077,
+   "end": 19.231
+  },
+  {
+   "word": "verify",
+   "start": 19.308,
+   "end": 19.692
+  },
+  {
+   "word": "something,",
+   "start": 19.923,
+   "end": 20.385
+  },
+  {
+   "word": "the",
+   "start": 20.423,
+   "end": 20.462
+  },
+  {
+   "word": "verdict",
+   "start": 20.538,
+   "end": 20.846
+  },
+  {
+   "word": "file",
+   "start": 20.923,
+   "end": 21.154
+  },
+  {
+   "word": "says",
+   "start": 21.231,
+   "end": 21.385
+  },
+  {
+   "word": "so.",
+   "start": 21.462,
+   "end": 22.0
+  }
+ ],
+ "seconds": 22.0,
+ "window_seconds": 22,
+ "provisional": false,
+ "voice": "v7li4BiiSMnJL2FCuD6D",
+ "model": "eleven_v4",
+ "seed": 4242,
+ "tempo": 1.04
+}
