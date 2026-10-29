@@ -18,6 +18,55 @@ Video: <https://youtu.be/V6pycZpYor0> (3:32; an earlier walkthrough of the live 
 
 An accounts-payable controls lead at a federal contractor gets an email: new bank details, eight days before $1.28 million in payments. Policy says call back on a number that did not come from the letter. In practice that number takes four systems to find, so people call the one on the letter. Probity reads the letter with NVIDIA Nemotron, then discovers the vendor's real corporate family across USAspending, SEC EDGAR and our own vendor master through Zetaris, which joins them in one semantic layer. The new address is real, but it belongs to a different Booz Allen company that has never billed us. Decision: hold, with a call-back number from SEC records. Then, unasked, it checks the rest of Friday's run. The letters and internal records are synthetic; every registry fact is real.
 
+## Nebius × NVIDIA
+
+This branch (`nebius`) is Probity's entry to the Nebius × NVIDIA hackathon, track **Best Apps and Agents**. Probity checks a vendor's bank-change request with four agents. On this branch every model call goes to **NVIDIA Nemotron on [Nebius Token Factory](https://tokenfactory.nebius.com/)** (OpenAI-compatible, `https://api.tokenfactory.nebius.com/v1/`, `Authorization: Bearer $NEBIUS_API_KEY`). The `main` branch is frozen as the HackOS submission and still uses the Meterless gateway.
+
+### Which Nemotron model each agent uses on Token Factory
+
+One table, `app/config/providers.ts`. Ids are exact and case-sensitive, taken from the public Token Factory catalog on 2026-10-29. Pinning is NVIDIA-only: any non-`nvidia/` id is refused at startup and again in the request builder.
+
+| Agent | Job | Lane | Token Factory model | HackOS pin it replaces |
+|---|---|---|---|---|
+| Letter Reader | Extract claims; review the letter for injected instructions | deep | `nvidia/Nemotron-3-Ultra-550b-a55b` | `nvidia/nemotron-3-ultra-550b-a55b` (same model) |
+| Registry Scout | Plan the registry and ERP queries by tool call | fast | `nvidia/Nemotron-3_5-Lightning` | `nvidia/nemotron-3.5-lightning-30b-a3b` (closest equivalent) |
+| Identity Examiner | Approve links, raise conflicts (thinking on) | deep | `nvidia/Nemotron-3-Ultra-550b-a55b` | same as Letter Reader |
+| Gate Officer | Write the rationale; the decision itself is code | fast | `nvidia/Nemotron-3_5-Lightning` | same as Registry Scout |
+
+Override per lane with `LANE_FAST_MODEL` / `LANE_DEEP_MODEL`. If a pin is not in `GET /v1/models`, the lane falls back to the catalog's Lightning or Ultra model. Where Token Factory has no JSON mode for a model, the client retries once as a forced `submit_*` tool call, and every agent output is still validated with zod.
+
+Licence: [MIT](LICENSE). Vendored Meterless engines keep their Apache-2.0 notices (see `THIRD_PARTY_NOTICES.md`).
+
+### Run it with `NEBIUS_API_KEY`
+
+    cp .env.example .env.local        # MODEL_PROVIDER=nebius is the default
+    # put the key in .env.local as NEBIUS_API_KEY=...  (never commit it)
+    npm ci && npm run dev:api
+    npm run smoke:nebius              # one catalog read and one tiny call per lane; prints model ids, never the key
+
+Without the key the API still starts, `/readyz` reports `nightshift.status: "unconfigured"` and `unconfigured: ["NEBIUS_API_KEY"]`, and `POST /run` answers `503 live_unconfigured` naming the missing setting. `MODEL_PROVIDER=meterless` selects the original Nightshift path.
+
+### Hosted-demo mode
+
+A hosted copy cannot reach the local Zetaris instance or the Postgres ERP. `HOSTED_DEMO=true` therefore replays **Zetaris results from the recorded captures in `data/sample/`** (made on 2026-10-27 from the real instance) and keeps the ERP in memory, while **the four agents' model calls stay live on Token Factory**. It is labelled in the UI (a "Hosted demo" banner and chip), in every run's limitations, and in the gate decision's banner. Evidence from recordings is treated like the existing offline fallback: a hosted-demo run cannot return APPROVE. The live Zetaris path is unchanged and is what the film shows.
+
+    HOSTED_DEMO=true NEBIUS_API_KEY=... npm run dev:api
+
+### What changed since 26 Aug 2026
+
+Probity's first commit is 2026-10-27; the repository holds no work from before 26 Aug 2026. It was built over 27 and 28 October for the HackOS hackathon (frozen at commit `9005682`). That earlier build is the pre-existing part:
+
+- Four agents (Letter Reader, Registry Scout, Identity Examiner, Gate Officer), the policy gate, the World Model, Zetaris integration and the review UI.
+- Recorded runs, the film and the deck.
+
+New on the `nebius` branch, for this entry:
+
+- Nebius Token Factory as the default model provider, the single Nemotron model table above, and zod-validated provider settings.
+- Bare OpenAI-style requests for Token Factory (no Meterless headers), and a `response_format` rejection retry.
+- Hosted-demo mode with honest labelling, so the product can run on a host with no Zetaris or database.
+- A missing-key state that is reported in `/readyz`, the logs, the UI chip and the `POST /run` error.
+- `npm run smoke:nebius`, an MIT `LICENSE`, and tests for provider choice, the model table, env validation and hosted-demo labelling.
+
 ## Data
 
 - **Synthetic:** the vendor master, AP ledger, payment runs, bank-change requests, request letters and `.eml` headers. They are generated by our code from a seed (`scripts/make_seed.ts`, `scripts/make_documents.ts`, manifest in `data/generated-manifest.json`) and loaded into a Postgres database that stands in for the ERP.
