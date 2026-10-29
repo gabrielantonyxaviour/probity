@@ -4,8 +4,8 @@
 import os from "node:os";
 import path from "node:path";
 import { z } from "zod";
-import { PINNED_MODELS } from "../schemas/models";
 import { normaliseRuntimeUrl } from "./runtime-url";
+import { DEFAULT_PROVIDER, DEFAULT_TOKEN_FACTORY_URL, MODEL_PROVIDERS, endpointFor, modelFor } from "./providers";
 
 export const isPlaceholder = (v: unknown): boolean => typeof v === "string" && (v.trim() === "" || /<[^>]+>/.test(v));
 const clean = (v: unknown) => (isPlaceholder(v) ? undefined : v);
@@ -60,6 +60,12 @@ const Env = z.object({
   REGISTRY_PATH: z.enum(["direct", "gateway"]).default("direct"),
   CHILDREN_SHAPE: z.enum(["rows", "wrapped"]).default("rows"),
   PREREGISTER_DISCOVERY: bool(false),
+  // Model provider: Nebius Token Factory by default; `meterless` keeps the HackOS gateway path selectable.
+  MODEL_PROVIDER: z.preprocess(clean, z.enum(MODEL_PROVIDERS).default(DEFAULT_PROVIDER)),
+  NEBIUS_API_KEY: opt(z.string().min(8)),
+  TOKEN_FACTORY_BASE_URL: withDefault(z.string(), DEFAULT_TOKEN_FACTORY_URL),
+  // Hosted demo: Zetaris results replay from the recorded captures (and the ERP is in-memory) while model calls stay live.
+  HOSTED_DEMO: bool(false),
   METERLESS_BASE_URL: withDefault(z.string(), "http://127.0.0.1:8088/v1"),
   METERLESS_RUNTIME_TOKEN: opt(
     z
@@ -74,8 +80,8 @@ const Env = z.object({
     .string()
     .regex(/^[a-z0-9-]{3,40}$/)
     .default("probity"),
-  LANE_FAST_MODEL: withDefault(nvidiaOnly, PINNED_MODELS.fast),
-  LANE_DEEP_MODEL: withDefault(nvidiaOnly, PINNED_MODELS.deep),
+  LANE_FAST_MODEL: opt(nvidiaOnly), // default comes from the provider's table in providers.ts
+  LANE_DEEP_MODEL: opt(nvidiaOnly),
   LANE_VISION_MODEL: opt(nvidiaOnly),
   LANE_JUDGE_MODEL: opt(nvidiaOnly),
   L1_TOOL_MODE: z.enum(["native", "json"]).default("native"),
@@ -92,7 +98,7 @@ const Env = z.object({
   PAYEE_DEMO_SESSIONS: bool(false), // keep the sample World Model between processes (spine §9.3)
 });
 
-/** Live mode needs these. The Zetaris origin and the Nightshift URL have local defaults, so only keys and the ERP URL can be missing. */
+/** Live mode needs these. The Zetaris origin and both model base URLs have defaults, so only keys and the ERP URL can be missing. */
 export const LIVE_REQUIRED = [
   "ZETARIS_API_ORIGIN",
   "ZETARIS_QUERY_API_KEY",
@@ -101,8 +107,19 @@ export const LIVE_REQUIRED = [
   "ERP_DATABASE_URL",
 ] as const;
 type Parsed = z.infer<typeof Env>;
-export const liveMissing = (c: Pick<Parsed, "SAMPLE_MODE" | (typeof LIVE_REQUIRED)[number]>) =>
-  c.SAMPLE_MODE ? [] : LIVE_REQUIRED.filter((k) => !c[k]);
+type MissingInput = Pick<Parsed, "SAMPLE_MODE" | "MODEL_PROVIDER" | "HOSTED_DEMO" | "ZETARIS_API_ORIGIN" | "NEBIUS_API_KEY"> &
+  Partial<Pick<Parsed, "ZETARIS_QUERY_API_KEY" | "METERLESS_BASE_URL" | "METERLESS_RUNTIME_TOKEN" | "ERP_DATABASE_URL">>;
+/**
+ * Names of the settings a live run still needs. The model key follows MODEL_PROVIDER. HOSTED_DEMO needs only the model key:
+ * Zetaris and the ERP are served from recordings there.
+ */
+export const liveMissing = (c: MissingInput): string[] => {
+  if (c.SAMPLE_MODE) return [];
+  const model = c.MODEL_PROVIDER === "nebius" ? (c.NEBIUS_API_KEY ? [] : ["NEBIUS_API_KEY"]) : (["METERLESS_BASE_URL", "METERLESS_RUNTIME_TOKEN"] as const).filter((k) => !c[k]);
+  if (c.HOSTED_DEMO) return [...model];
+  const rest = (["ZETARIS_API_ORIGIN", "ZETARIS_QUERY_API_KEY", "ERP_DATABASE_URL"] as const).filter((k) => !c[k]);
+  return [...rest, ...model];
+};
 
 export class ConfigError extends Error {
   readonly code = "config_invalid";
@@ -142,15 +159,21 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env) {
     throw new ConfigError(`Configuration invalid: ${names}. Set SAMPLE_MODE=true to run offline with no keys.`);
   }
   const e = r.data;
+  const endpoint = endpointFor(e);
   const abs = (p: string) => path.resolve(process.cwd(), p);
   return {
     ...e,
     ZETARIS_API_ORIGIN: e.ZETARIS_API_ORIGIN.replace(/\/+$/, "").replace(/\/api\/v1\.0$/, ""), // origin only (SCR-03-6)
     METERLESS_BASE_URL: normaliseRuntimeUrl(e.METERLESS_BASE_URL),
+    TOKEN_FACTORY_BASE_URL: normaliseRuntimeUrl(e.TOKEN_FACTORY_BASE_URL),
+    LANE_FAST_MODEL: e.LANE_FAST_MODEL ?? modelFor(e.MODEL_PROVIDER, "fast"),
+    LANE_DEEP_MODEL: e.LANE_DEEP_MODEL ?? modelFor(e.MODEL_PROVIDER, "deep"),
+    /** The selected provider's resolved base URL and credential (the key itself is also in `secrets`). */
+    model_endpoint: endpoint,
     secUserAgentLive: e.SEC_USER_AGENT && !/@[^\s@]+\.example$/i.test(e.SEC_USER_AGENT) ? e.SEC_USER_AGENT : undefined,
     dirs: {
       logs: abs(e.LOG_DIR),
-      world: e.WORLD_DIR ? abs(e.WORLD_DIR) : e.SAMPLE_MODE ? path.join(os.tmpdir(), "probity-sample") : abs("."),
+      world: e.WORLD_DIR ? abs(e.WORLD_DIR) : e.SAMPLE_MODE || e.HOSTED_DEMO ? path.join(os.tmpdir(), "probity-sample") : abs("."),
       hmem: abs(e.HMEM_DIR),
       sample: abs(e.SAMPLE_DATA_DIR),
       uploads: abs(e.UPLOAD_DIR),
@@ -163,6 +186,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env) {
       e.ZETARIS_ADMIN_API_KEY,
       e.ZETARIS_API_KEY,
       e.METERLESS_RUNTIME_TOKEN,
+      e.NEBIUS_API_KEY,
       e.ERP_DATABASE_URL?.match(/:\/\/[^:]+:([^@]+)@/)?.[1],
       raw.POSTGRES_PASSWORD,
       raw.PAYEE_APP_PASSWORD,

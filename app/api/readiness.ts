@@ -35,9 +35,11 @@ function lockState(dir: string, sessionId: string): string {
 async function build(c: Container): Promise<{ ready: boolean; body: ReadyResponse }> {
   const cfg = c.config;
   const sample = cfg.SAMPLE_MODE;
+  const hosted = cfg.HOSTED_DEMO && !sample;
+  const keyMissing = !sample && !cfg.model_endpoint.token;
   const missing = liveMissing(cfg);
-  const zetaris = sample
-    ? ({ status: "disabled", note: "SAMPLE_MODE: offline captures" } as Check)
+  const zetaris = sample || hosted
+    ? ({ status: "disabled", note: sample ? "SAMPLE_MODE: offline captures" : "HOSTED_DEMO: Zetaris results replay from recordings" } as Check)
     : await timed<Check>(
         async () => {
           const r = await c.ports.zetaris.ping({ timeoutMs: CHECK_MS });
@@ -45,20 +47,22 @@ async function build(c: Container): Promise<{ ready: boolean; body: ReadyRespons
         },
         { status: "offline", host: new URL(cfg.ZETARIS_API_ORIGIN).host },
       );
-  if (!sample) {
+  if (!sample && !hosted) {
     zetarisMisses = zetaris.status === "offline" ? zetarisMisses + 1 : 0;
     if (zetarisMisses === 1) Object.assign(zetaris, { status: "degraded", note: "SELECT 1 took longer than 5 s; offline only after a second miss" });
   }
-  const admin: Check = sample
+  const admin: Check = sample || hosted
     ? { status: "disabled" }
     : !cfg.ZETARIS_ADMIN_API_KEY
       ? { status: "unconfigured" }
       : { status: zetaris.status === "ok" ? "ok" : zetaris.status };
   const ns = sample
     ? ({ status: "disabled", note: "SAMPLE_MODE: no model is called" } as Check)
-    : await timed<unknown>(() => c.models.status(), { status: "offline", base_url_host: hostOf(cfg.METERLESS_BASE_URL) });
-  const erp: Check = sample
-    ? { status: "disabled", note: "in-memory store (SAMPLE_MODE)" }
+    : keyMissing
+      ? ({ status: "unconfigured", provider: cfg.MODEL_PROVIDER, note: `${cfg.model_endpoint.keyName} is not set; model calls are unavailable until it is.` } as Check)
+      : await timed<unknown>(() => c.models.status(), { status: "offline", base_url_host: hostOf(cfg.model_endpoint.baseUrl) });
+  const erp: Check = sample || hosted
+    ? { status: "disabled", note: sample ? "in-memory store (SAMPLE_MODE)" : "in-memory store (HOSTED_DEMO)" }
     : await timed<Check>(async () => ({ status: (await c.ports.erp.ping({ timeoutMs: CHECK_MS })) ? "ok" : "offline" }), { status: "offline" });
   let world: Check;
   try {
@@ -79,10 +83,12 @@ async function build(c: Container): Promise<{ ready: boolean; body: ReadyRespons
   const zetarisFine = sample || zetaris.status === "ok" || zetaris.status === "degraded";
   const ready =
     missing.length === 0 &&
-    (sample ? sampleData.status === "ok" : erp.status === "ok" && (zetarisFine || cfg.ZETARIS_DOWN_POLICY !== "error"));
+    (sample ? sampleData.status === "ok" : hosted ? sampleData.status === "ok" : erp.status === "ok" && (zetarisFine || cfg.ZETARIS_DOWN_POLICY !== "error"));
   const body = {
     ready,
     mode: sample ? "sample" : "live",
+    ...(hosted ? { hosted_demo: true } : {}),
+    model_provider: cfg.MODEL_PROVIDER,
     checks: {
       zetaris_query: zetaris,
       zetaris_admin: admin,

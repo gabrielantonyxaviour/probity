@@ -22,8 +22,10 @@ async function main(): Promise<void> {
   const app = await buildServer(container);
   await app.listen({ host: config.HOST, port: config.PORT });
   const missing = liveMissing(config);
+  if (!config.SAMPLE_MODE && !config.model_endpoint.token)
+    logger.warn(`${config.model_endpoint.keyName} is not set: the API starts, /readyz reports it, and POST /run answers 503 live_unconfigured until it is set (provider=${config.MODEL_PROVIDER}).`);
   logger.info(
-    `probity api listening on ${config.HOST}:${config.PORT} mode=${config.SAMPLE_MODE ? "sample" : "live"} session=${container.sessionId}` +
+    `probity api listening on ${config.HOST}:${config.PORT} mode=${config.SAMPLE_MODE ? "sample" : config.HOSTED_DEMO ? "hosted-demo" : "live"} provider=${config.MODEL_PROVIDER} session=${container.sessionId}` +
       (missing.length ? ` unconfigured=${missing.join(",")}` : ""),
   );
 
@@ -33,7 +35,7 @@ async function main(): Promise<void> {
   const sweeper = setInterval(() => sweepUploads(config.dirs.uploads), 3600_000);
   sweeper.unref();
 
-  if (!config.SAMPLE_MODE && container.models instanceof NightshiftClient && config.METERLESS_RUNTIME_TOKEN) {
+  if (!config.SAMPLE_MODE && config.MODEL_PROVIDER === "meterless" && container.models instanceof NightshiftClient && config.METERLESS_RUNTIME_TOKEN) {
     runWarmup(config, container.models)
       .then((w) => logger.info(`nightshift warm-up finished exit=${w.exit_code} fast=${String(w.lanes.fast?.state)} deep=${String(w.lanes.deep?.state)}`))
       .catch((err: unknown) => logger.warn({ err }, "nightshift warm-up failed"));

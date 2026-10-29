@@ -212,6 +212,8 @@ const Check = z.object({ status: CheckStatus }).passthrough();
 export const ReadyResponse = z.object({
   ready: z.boolean(),
   mode: z.enum(["live", "sample"]),
+  hosted_demo: z.boolean().optional(), // live models, Zetaris and ERP replayed from recordings
+  model_provider: z.enum(["nebius", "meterless"]).optional(),
   checks: z.object({
     zetaris_query: Check,
     zetaris_admin: Check,

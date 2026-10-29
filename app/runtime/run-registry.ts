@@ -1,6 +1,7 @@
 // Run registry: starts runs, enforces concurrency, keeps every run's record (memory, then logs/ on disk), feeds `live` from
 // the bus, cancels, and marks runs a restart interrupted. Results persist across sessions. Nothing is canned: the record
 // changes only when the orchestrator publishes an event or returns.
+import { hostedDemoLabel } from "../policy/banners";
 import { inspect } from "node:util";
 import type { Config } from "../config/env";
 import { newRunId, newTraceId } from "../lib/ids";
@@ -15,7 +16,7 @@ import { errorEnvelope, finalizeEnvelope, isRunErrorCode } from "../api/envelope
 import { loadOrchestrator, type DegradedInfo } from "./contract";
 import { applyEvent, finishRecord, newRecord, type RunRecord } from "./run-record";
 import { RunStore } from "./run-store";
-import { preflightZetaris } from "./preflight";
+import { capturedAt, preflightZetaris } from "./preflight";
 import { masker } from "../trace/mask";
 import { loadErp } from "../api/erp-read";
 
@@ -164,7 +165,14 @@ export class RunRegistry {
     try {
       let ports = this.ports;
       let down: DegradedInfo | undefined;
-      if (mode === "live") {
+      if (mode === "live" && this.cfg.HOSTED_DEMO) {
+        // Hosted demo: evidence replays from the recorded captures by design; the model calls stay live.
+        if (!this.samplePorts) return fail("zetaris_unavailable", "hosted_demo_captures_missing");
+        const captured_at = capturedAt(this.cfg);
+        ports = { ...this.ports, ...this.samplePorts };
+        down = { reason: "hosted_demo", captured_at };
+        this.writer.emit({ run_id: rec.run_id, agent_name: "orchestrator", action: "fallback", status: "partial_success", source_mode: "sample", note: "hosted_demo", output_summary: hostedDemoLabel(captured_at ? captured_at.slice(0, 10) : "unknown") });
+      } else if (mode === "live") {
         const pre = await preflightZetaris(this.cfg, this.ports);
         if (!pre.ok) {
           if (this.cfg.ZETARIS_DOWN_POLICY === "error" || !this.samplePorts) return fail("zetaris_unavailable", pre.reason);

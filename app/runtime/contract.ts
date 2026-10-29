@@ -8,7 +8,7 @@ import type { Ports } from "../schemas/ports";
 import type { SseEventName } from "../schemas/events";
 import type { TraceEvent, TraceEventInput } from "../schemas/trace";
 
-export type DegradedInfo = { reason: "zetaris_unreachable" | "zetaris_unauthorized"; captured_at: string | null };
+export type DegradedInfo = { reason: "zetaris_unreachable" | "zetaris_unauthorized" | "hosted_demo"; captured_at: string | null };
 
 /** The tracer the orchestrator writes through for ONE run. `run` is a no-op: the run registry owns logs/run-<id>.json. */
 export type RunTracer = {

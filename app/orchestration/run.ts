@@ -27,6 +27,7 @@ import { makeRunId } from "./run-ids";
 import { loadState, persistedFrom, saveFullState, saveState } from "./persist";
 import { buildEnvelope, buildErrorEnvelope, isPartial } from "./report";
 import { addLimitation, addPartial, newRunState, type PolicyState } from "./state";
+import { hostedDemoLabel, zetarisDownLabel } from "../policy/banners";
 import { STAGE_NAMES, type StageName } from "../schemas/run-state";
 
 /** Flat options, the shape the platform's run registry passes (app/runtime/contract.ts OrchestratorOpts), plus optional seams. */
@@ -283,9 +284,10 @@ export async function runAgent(input: RunInput, opts: RunAgentOptions): Promise<
     budget_seconds: Math.min(opts.budget_seconds ?? options.budget_seconds ?? d.config.RUN_BUDGET_SECONDS, d.config.RUN_BUDGET_SECONDS),
   });
   if (opts.zetaris_down) {
-    s.extras.zetaris_down = { captured_at: opts.zetaris_down.captured_at ?? "unknown" };
-    addPartial(s, opts.zetaris_down.reason);
-    addLimitation(s, `Zetaris unreachable: evidence from offline captures dated ${opts.zetaris_down.captured_at ? opts.zetaris_down.captured_at.slice(0, 10) : "unknown"}.`);
+    const hosted = opts.zetaris_down.reason === "hosted_demo", dated = (opts.zetaris_down.captured_at ?? "unknown").slice(0, 10);
+    s.extras.zetaris_down = { captured_at: opts.zetaris_down.captured_at ?? "unknown", ...(hosted ? { hosted_demo: true as const } : {}) };
+    addPartial(s, hosted ? "hosted_demo_sample_fallback" : opts.zetaris_down.reason); // the policy caps on /fallback|sample/
+    addLimitation(s, hosted ? hostedDemoLabel(dated) : zetarisDownLabel(dated));
     for (const h of Object.values(s.source_health)) { h.status = "down"; h.mode = "sample"; }
   }
   const run = new Run(s, d, options);

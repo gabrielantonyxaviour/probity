@@ -12,6 +12,7 @@ export function ModeBanner() {
   const { ready } = useReady();
   const ref = useRef<HTMLDivElement>(null);
   const sample = ready?.mode === "sample";
+  const hosted = ready?.hosted_demo === true;
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -23,13 +24,18 @@ export function ModeBanner() {
       ro.disconnect();
       document.documentElement.style.removeProperty("--banner-live");
     };
-  }, [sample]);
-  if (!sample && !FIXTURES) return null;
+  }, [sample, hosted]);
+  if (!sample && !hosted && !FIXTURES) return null;
   return (
     <div ref={ref} className="app-banners">
       {sample ? (
         <Banner tone="info" tag={SHELL.sampleTag} testId="mode-banner">
           {FIXED.sampleBanner}
+        </Banner>
+      ) : null}
+      {hosted ? (
+        <Banner tone="info" tag={SHELL.hostedTag} testId="hosted-banner">
+          {SHELL.hostedBanner}
         </Banner>
       ) : null}
       {process.env.NEXT_PUBLIC_UI_FIXTURES === "1" ? (

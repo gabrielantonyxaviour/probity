@@ -14,7 +14,7 @@ const TOKEN = "rtok_0123456789abcdef";
 
 describe("loadConfig (06 §7.2 + platform additions)", () => {
   it("defaults to the two pinned nvidia/* ids and the local Nightshift URL", () => {
-    const c = loadConfig({});
+    const c = loadConfig({ MODEL_PROVIDER: "meterless" });
     expect(c.LANE_FAST_MODEL).toBe(PINNED_MODELS.fast);
     expect(c.LANE_DEEP_MODEL).toBe(PINNED_MODELS.deep);
     expect(c.METERLESS_BASE_URL).toBe("http://127.0.0.1:8088/v1");
@@ -43,7 +43,8 @@ describe("loadConfig (06 §7.2 + platform additions)", () => {
     expect(c.ZETARIS_QUERY_API_KEY).toBeUndefined();
     expect(c.METERLESS_RUNTIME_TOKEN).toBeUndefined();
     expect(c.secUserAgentLive).toBeUndefined();
-    expect(liveMissing(c)).toEqual(["ZETARIS_QUERY_API_KEY", "METERLESS_RUNTIME_TOKEN", "ERP_DATABASE_URL"]);
+    expect(liveMissing(c)).toEqual(["ZETARIS_QUERY_API_KEY", "ERP_DATABASE_URL", "NEBIUS_API_KEY"]);
+    expect(liveMissing({ ...c, MODEL_PROVIDER: "meterless" })).toEqual(["ZETARIS_QUERY_API_KEY", "ERP_DATABASE_URL", "METERLESS_RUNTIME_TOKEN"]);
     expect(liveMissing(loadConfig({ SAMPLE_MODE: "true" }))).toEqual([]);
   });
   it("ZETARIS_API_KEY fills the admin and query keys when they are unset or placeholders, and joins secrets", () => {

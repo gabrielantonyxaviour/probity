@@ -70,6 +70,7 @@
     "check:secrets": "bash scripts/check-secrets.sh",
     "inbox:prime": "tsx scripts/gen/prime-inbox.ts",
     "gateway:probe": "tsx scripts/gen/probe-gateway-zetaris.ts",
+    "smoke:nebius": "node --env-file-if-exists=.env.local --import tsx scripts/smoke-nebius.ts",
     "test:platform": "vitest run tests/unit/nightshift tests/unit/api tests/unit/cli tests/unit/trace",
     "zetaris:test": "node --env-file-if-exists=.env.local ./node_modules/vitest/vitest.mjs run --config scripts/zetaris/vitest.config.ts",
     "eval:nemotron:run": "tsx tests/eval/nemotron/run.ts",

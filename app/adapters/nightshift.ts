@@ -31,9 +31,15 @@ export class NullModelClient implements ModelClient {
   }
 }
 
-type FactoryConfig = ClientConfig & Pick<Config, "SAMPLE_MODE" | "dirs">;
+type FactoryConfig = ClientConfig & Pick<Config, "SAMPLE_MODE" | "dirs"> & { model_endpoint?: Config["model_endpoint"] };
+/** Point the client at the selected provider: Token Factory's URL and key replace the Nightshift fields. */
+export function clientConfigFor(cfg: FactoryConfig): ClientConfig {
+  const ep = cfg.model_endpoint;
+  if (!ep || ep.provider !== "nebius") return cfg;
+  return { ...cfg, MODEL_PROVIDER: "nebius", METERLESS_BASE_URL: ep.baseUrl, METERLESS_RUNTIME_TOKEN: ep.token };
+}
 export function createModelClient(cfg: FactoryConfig, deps: Partial<ClientDeps> = {}): ModelClient & { currentToolMode?(): "native" | "json" } {
   if (cfg.SAMPLE_MODE) return new NullModelClient();
   getTraceWriter(); // the logs directory exists before the first receipt
-  return new NightshiftClient(cfg, { receipts: new ReceiptStore(cfg.dirs.logs, masker), emit, ...deps });
+  return new NightshiftClient(clientConfigFor(cfg), { receipts: new ReceiptStore(cfg.dirs.logs, masker), emit, ...deps });
 }

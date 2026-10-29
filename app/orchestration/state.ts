@@ -43,7 +43,7 @@ export type Extras = {
   graph_seq: number;
   observations_published: string[]; // evidence ids already sent on the bus
   fallbacks: string[]; // labelled degradation notes
-  zetaris_down: { captured_at: string } | null;
+  zetaris_down: { captured_at: string; hosted_demo?: true } | null;
   l2_conflict_call_done: boolean;
   j5_families: Array<{ key: string; label: string; uei: string | null }>; // exact-name registry candidates grouped by family (G2)
   j5_soft_candidate: boolean;

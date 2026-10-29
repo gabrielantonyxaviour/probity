@@ -30,6 +30,11 @@ export const SHELL = {
   sampleTag: "Sample mode",
   systemSample: "Sample data · no live calls",
   systemLive: "Zetaris live",
+  systemHosted: "Hosted demo · Zetaris replayed · Nemotron live",
+  hostedTag: "Hosted demo",
+  hostedBanner:
+    "HOSTED DEMO: Zetaris results and the ERP are replayed from recordings made on 2026-10-27, because the hosted app cannot reach the Zetaris instance. The four agents' Nemotron model calls are live on Nebius Token Factory.",
+  modelKeyMissing: "Model API key not set",
   zetarisDown: "Zetaris unreachable",
   zetarisDownLong: "Zetaris unreachable · checks use offline captures",
   nightshiftDown: "Nightshift unreachable",

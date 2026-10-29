@@ -6,7 +6,7 @@ import type { ApiClientError } from "./api";
 
 export type LaneKey = "fast" | "deep";
 export type LaneView = { key: LaneKey; label: string; requested: string | null; answered: string | null; state: string; glyph: string; ok: boolean };
-export type SystemView = { tone: Tone; pulseOff: boolean; long: string; mid: string; short: string; lanes: LaneView[]; mode: "live" | "sample" | "unknown"; entities: number | null; hmem: boolean };
+export type SystemView = { tone: Tone; pulseOff: boolean; long: string; mid: string; short: string; lanes: LaneView[]; mode: "live" | "sample" | "hosted" | "unknown"; entities: number | null; hmem: boolean };
 
 const GLYPH: Record<string, string> = { confirmed_nemotron: "✓", routed_unconfirmed: "?", non_nemotron: "✕", unavailable: "✕", untested: "○" };
 
@@ -30,6 +30,12 @@ export function systemView(ready: ReadyResponse | null, error: ApiClientError | 
   const base = { lanes, entities: typeof wm.entities === "number" ? wm.entities : null, hmem: hm.status === "ok" };
   if (ready.mode === "sample") {
     return { tone: "info", pulseOff: true, long: SHELL.systemSample, mid: SHELL.systemSample, short: "SAMPLE", mode: "sample", ...base };
+  }
+  if (ns.status === "unconfigured") return { tone: "gap", pulseOff: true, long: SHELL.modelKeyMissing, mid: SHELL.modelKeyMissing, short: "NO KEY", mode: ready.hosted_demo ? "hosted" : "live", ...base };
+  if (ready.hosted_demo) {
+    const part = lanes.map((l) => `${l.label} ${l.glyph}`).join(" ");
+    const allOk = lanes.every((l) => l.ok);
+    return { tone: allOk ? "agree" : "gap", pulseOff: true, long: `${SHELL.systemHosted} · ${part}`, mid: SHELL.systemHosted, short: "HOSTED DEMO", mode: "hosted", ...base };
   }
   // "degraded" is one slow probe under load (the API says offline after a second miss), so it is not shown as down.
   const zetarisOk = ready.checks.zetaris_query.status === "ok" || ready.checks.zetaris_query.status === "degraded";

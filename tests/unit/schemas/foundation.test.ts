@@ -143,7 +143,7 @@ describe("config loader", () => {
   it("treats <placeholders> as unset and never fails on missing live keys", () => {
     const cfg = loadConfig({ ZETARIS_QUERY_API_KEY: "<zetaris-query-key>", SAMPLE_MODE: "false" } as NodeJS.ProcessEnv);
     expect(liveMissing(cfg)).toContain("ZETARIS_QUERY_API_KEY");
-    expect(liveMissing(cfg)).toContain("METERLESS_RUNTIME_TOKEN");
+    expect(liveMissing(cfg)).toContain("NEBIUS_API_KEY");
   });
 
   it("ZETARIS_API_KEY fills both Zetaris keys", () => {
@@ -154,7 +154,7 @@ describe("config loader", () => {
   });
 
   it("pins the NVIDIA lane models by default and refuses meterless/* ids", () => {
-    expect(loadConfig({} as NodeJS.ProcessEnv).LANE_FAST_MODEL).toBe(PINNED_MODELS.fast);
+    expect(loadConfig({ MODEL_PROVIDER: "meterless" } as NodeJS.ProcessEnv).LANE_FAST_MODEL).toBe(PINNED_MODELS.fast);
     expect(() => loadConfig({ LANE_DEEP_MODEL: "meterless/auto" } as NodeJS.ProcessEnv)).toThrow(ConfigError);
   });
 

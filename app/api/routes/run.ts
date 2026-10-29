@@ -31,7 +31,7 @@ export function registerRun(app: FastifyInstance): void {
       throw fail("live_unavailable", "This server is running in SAMPLE_MODE; live runs are not available.");
     if (body.options.simulate_outage?.length && !cfg.ENABLE_TEST_HOOKS)
       throw fail("invalid_input", "options.simulate_outage: test hooks are disabled on this server.");
-    if (!cfg.SAMPLE_MODE && !wantsSample && liveMissing(cfg).length) throw fail("live_unconfigured", ERROR_TEXT.live_unconfigured);
+    if (!cfg.SAMPLE_MODE && !wantsSample && liveMissing(cfg).length) throw fail("live_unconfigured", `${ERROR_TEXT.live_unconfigured} Missing: ${liveMissing(cfg).join(", ")}.`);
 
     const { input, input_ref } = resolveInput(cfg, app.ctx.registry, body.input);
     const started = await app.ctx.registry.start({ input, options: body.options, run_id: body.run_id, input_ref });

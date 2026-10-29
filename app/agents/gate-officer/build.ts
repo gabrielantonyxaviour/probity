@@ -3,7 +3,7 @@ import { POLICY_VERSION } from "../../schemas/patterns";
 import type { Exposure, GateDecision, ReasonCode } from "../../schemas/decision";
 import type { PhonesAt } from "../../schemas/tools";
 import type { Candidate, PolicyState } from "../../orchestration/state";
-import { bannerText, mirrorLabel, SAMPLE_BANNER, simulatedOutageLabel, zetarisDownLabel } from "../../policy/banners";
+import { bannerText, hostedDemoLabel, mirrorLabel, SAMPLE_BANNER, simulatedOutageLabel, zetarisDownLabel } from "../../policy/banners";
 import { callbackEvidence, selectCallback, type CallbackScript, type EdgarRegistrant } from "../../policy/callback";
 import { decide } from "../../policy/gate";
 import type { Coverage } from "../../policy/coverage";
@@ -53,7 +53,8 @@ export function refreshLedger(s: PolicyState, d: GateDecision, cfg: { fast: stri
 
 export function modeBanner(s: PolicyState): string | null {
   if (s.mode === "sample") return SAMPLE_BANNER;
-  if (s.extras.zetaris_down) return zetarisDownLabel(s.extras.zetaris_down.captured_at);
+  if (s.extras.zetaris_down)
+    return s.extras.zetaris_down.hosted_demo ? hostedDemoLabel(s.extras.zetaris_down.captured_at.slice(0, 10)) : zetarisDownLabel(s.extras.zetaris_down.captured_at);
   const hs = Object.entries(s.source_health).find(([, h]) => h.mode === "mirror" && h.status !== "ok");
   if (hs) return mirrorLabel(s.extras.started_at.slice(0, 10));
   if (s.options.simulate_outage?.length) return simulatedOutageLabel(s.options.simulate_outage.join(", "));

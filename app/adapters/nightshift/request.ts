@@ -40,6 +40,11 @@ export function headersFor(token: string, appId: string, mode: "user" | "app" = 
   };
 }
 
+/** Token Factory (and any plain OpenAI-compatible endpoint): bearer auth only, no Meterless routing headers. */
+export function plainHeaders(token: string): Record<string, string> {
+  return { authorization: `Bearer ${token}`, "content-type": "application/json" };
+}
+
 function withThinkingMarker(messages: ChatMessage[], on: boolean): ChatMessage[] {
   const marker = on ? "/think" : "/no_think";
   const first = messages[0];

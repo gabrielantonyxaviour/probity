@@ -12,7 +12,7 @@ import { Discovery } from "./discovery";
 import { ModelBudgetExceeded, ModelCallFailed, ModelUnavailable, isModelFailure, type ModelErrorDetail, type ModelFailure } from "./errors";
 import { applyPins, classifyModel, emptyLane, pinLanes, toStatusLanes, type LaneRecord } from "./lanes";
 import { Limits } from "./limits";
-import { ALL_EXTRAS, NO_EXTRAS, appIdFor, buildBody, extrasNamedIn, headersFor, type ReasoningControl } from "./request";
+import { ALL_EXTRAS, NO_EXTRAS, appIdFor, buildBody, extrasNamedIn, headersFor, plainHeaders, type ReasoningControl } from "./request";
 import { parseResponse, type ParsedResponse } from "./response";
 import { buildReceiptLine, type ReceiptStore } from "./receipts";
 import { failureEvent, successEvent, type CallInfo } from "./call-trace";
@@ -20,6 +20,8 @@ import { failureEvent, successEvent, type CallInfo } from "./call-trace";
 /** ChatRequest plus an opt-out for the per-call trace event (agents that write their own event for the same step pass false). */
 export type ChatRequestX = ChatRequest & { trace?: boolean };
 export type ClientConfig = {
+  /** `nebius` sends a bare OpenAI-style request (no meterless-* headers); absent or `meterless` is the Nightshift path. For `nebius` the two fields below carry the Token Factory base URL and key. */
+  MODEL_PROVIDER?: "nebius" | "meterless" | undefined;
   METERLESS_BASE_URL: string;
   METERLESS_RUNTIME_TOKEN?: string | undefined;
   METERLESS_APP_ID: string;
@@ -54,7 +56,7 @@ export class NightshiftClient implements ModelClient {
   ) {
     const token = cfg.METERLESS_RUNTIME_TOKEN;
     this.unauthorized = !token || REJECTED_TOKENS.has(token);
-    this.discovery = new Discovery(cfg.METERLESS_BASE_URL, this.unauthorized ? undefined : token);
+    this.discovery = new Discovery(cfg.METERLESS_BASE_URL, this.unauthorized ? undefined : token, Date.now, cfg.MODEL_PROVIDER === "nebius");
     this.toolMode = cfg.L1_TOOL_MODE;
   }
 
@@ -145,6 +147,12 @@ export class NightshiftClient implements ModelClient {
     };
     const first = await send();
     let res = first.res;
+    // Token Factory JSON mode is unverified per model: a 400 naming response_format retries once as a forced submit_* tool call.
+    if (res.status === 400 && !forceSubmit && req.response_schema && /response_format|json_schema|guided/i.test(res.text)) {
+      forceSubmit = true;
+      res = (await send()).res;
+      info = { ...info, note: "response_format_rejected:forced_submit_tool" };
+    }
     if (res.status === 400) {
       const named = extrasNamedIn(res.text);
       if ((named.length || rec.calls_made === 0) && extras !== NO_EXTRAS) {
@@ -166,7 +174,7 @@ export class NightshiftClient implements ModelClient {
       return await this.sem.run(() =>
         fetchText(`${this.cfg.METERLESS_BASE_URL}/chat/completions`, {
           method: "POST",
-          headers: headersFor(token, info.app, this.cfg.METERLESS_SCOPE ?? "app"),
+          headers: this.cfg.MODEL_PROVIDER === "nebius" ? plainHeaders(token) : headersFor(token, info.app, this.cfg.METERLESS_SCOPE ?? "app"),
           body: JSON.stringify(body),
           timeoutMs,
           ...(req.run.signal ? { signal: req.run.signal } : {}),

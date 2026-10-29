@@ -90,5 +90,9 @@ describe("copy and formatting", () => {
     expect(systemView(ready(), null).long).toBe("Zetaris live · Nemotron: Lightning ✓ Ultra ✓");
     expect(systemView(ready({ zetaris_query: { status: "offline" } }), null).long).toBe("Zetaris unreachable");
     expect(systemView(ready({}, "sample"), null).long).toBe("Sample data · no live calls");
+    const hosted = systemView({ ...ready({ zetaris_query: { status: "disabled" } }), hosted_demo: true } as never, null);
+    expect(hosted).toMatchObject({ mode: "hosted", short: "HOSTED DEMO", tone: "agree" });
+    expect(hosted.long).toContain("Hosted demo · Zetaris replayed · Nemotron live");
+    expect(systemView({ ...ready({ nightshift: { status: "unconfigured" } }), hosted_demo: true } as never, null).short).toBe("NO KEY");
   });
 });

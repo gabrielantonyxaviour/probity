@@ -105,6 +105,8 @@ export const SAMPLE_BANNER =
   "SAMPLE MODE: offline data captured 2026-10-27; no live Zetaris or Nemotron calls. Decisions are computed by the same policy code.";
 export const mirrorLabel = (captured_at: string): string => `Registry mirror, captured ${captured_at}. Live source unavailable.`;
 export const zetarisDownLabel = (captured_at: string): string => `Zetaris unreachable: evidence from offline captures dated ${captured_at}.`;
+export const hostedDemoLabel = (captured_at: string): string =>
+  `Hosted demo: Zetaris results are replayed from recordings dated ${captured_at}; the Nemotron model calls are live on Nebius Token Factory.`;
 export const simulatedOutageLabel = (source: string): string => `Simulated outage of ${source} (test hook).`;
 
 export type RecInput = {

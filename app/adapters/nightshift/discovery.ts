@@ -16,6 +16,7 @@ export class Discovery {
     private readonly baseUrl: string,
     private readonly token: string | undefined,
     private readonly now: () => number = Date.now,
+    private readonly plain = false,
   ) {}
 
   async get(force = false): Promise<Catalog> {
@@ -33,7 +34,7 @@ export class Discovery {
     try {
       const res = await fetchText(`${this.baseUrl}/models`, {
         timeoutMs: DISCOVERY_TIMEOUT_MS,
-        headers: { authorization: `Bearer ${this.token}`, "meterless-app": "probity" },
+        headers: this.plain ? { authorization: `Bearer ${this.token}` } : { authorization: `Bearer ${this.token}`, "meterless-app": "probity" },
       });
       if (res.status === 401 || res.status === 403) return { status: "unauthorized", ids: [], rows: [], fetched_at: at };
       const parsed = ModelsBody.safeParse(safeJson(res.text));

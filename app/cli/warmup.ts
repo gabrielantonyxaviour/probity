@@ -27,6 +27,10 @@ export async function warmupCommand(argv: string[]): Promise<number> {
   configureTracer(cfg);
   const client = createModelClient(cfg);
   if (!(client instanceof NightshiftClient)) return EXIT.error;
+  if (cfg.MODEL_PROVIDER === "nebius" && !list) {
+    out("The Nightshift warm-up does not apply to Nebius Token Factory. Run: npm run smoke:nebius");
+    return EXIT.ok;
+  }
   if (list) {
     const cat = await client.refresh(true);
     out(`catalog (${cat.status}): ${cat.ids.length} models`);

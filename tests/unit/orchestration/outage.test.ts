@@ -45,5 +45,16 @@ describe("simulate_outage (F22)", () => {
     expect(d.decision).toBe("CALLBACK_VERIFY");
     expect(d.reason_codes.map((c) => c.code)).toContain("C2");
   });
+  it("a hosted-demo run is labelled as replayed recordings, never as a Zetaris outage, and still cannot approve", async () => {
+    const docs = await s1Docs(S3_LETTER, S3_EML, "03-l3harris-bank-change");
+    const r = await rig({ docs, script: { claims: S3_CLAIMS_MODEL } });
+    const { env } = await r.run(S3_INPUT, { zetaris_down: { reason: "hosted_demo", captured_at: "2026-10-27" } });
+    const e = env as Env;
+    const d = GateDecisionSchema.parse(e.output.artifacts.find((a) => a.type === "gate_decision")!.data);
+    const text = JSON.stringify(e);
+    expect(text).toContain("Hosted demo: Zetaris results are replayed from recordings dated 2026-10-27");
+    expect(text).not.toContain("Zetaris unreachable");
+    expect(d.decision).not.toBe("APPROVE");
+  });
 });
 

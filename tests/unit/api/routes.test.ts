@@ -33,11 +33,11 @@ describe("health", () => {
     expect((body.checks as Record<string, { status: string }>).sec_user_agent.status).toBe("unconfigured");
   });
   it("a keyless live server is not ready, and POST /run answers 503 live_unconfigured with the fixed text", async () => {
-    h = await makeHarness({ env: { SAMPLE_MODE: "false", ZETARIS_QUERY_API_KEY: "", METERLESS_RUNTIME_TOKEN: "", ERP_DATABASE_URL: "" } });
+    h = await makeHarness({ env: { SAMPLE_MODE: "false", ZETARIS_QUERY_API_KEY: "", NEBIUS_API_KEY: "", ERP_DATABASE_URL: "" } });
     expect((await h.app.inject({ method: "GET", url: "/readyz" })).statusCode).toBe(503);
     const r = await post(h, "/run", typed);
     expect(r.statusCode).toBe(503);
-    expect(json(r)).toEqual({ error: "Live keys are not configured. Start with SAMPLE_MODE=true to run offline.", code: "live_unconfigured" });
+    expect(json(r)).toEqual({ error: "Live keys are not configured. Start with SAMPLE_MODE=true to run offline. Missing: ZETARIS_QUERY_API_KEY, ERP_DATABASE_URL, NEBIUS_API_KEY.", code: "live_unconfigured" });
   });
 });
 
@@ -101,7 +101,7 @@ describe("POST /run", () => {
   it("429 busy with Retry-After 30 when the concurrency limit is reached; frees up afterwards", async () => {
     let release: () => void = () => undefined;
     const gate = new Promise<void>((r) => (release = r));
-    h = await makeHarness({ env: { SAMPLE_MODE: "false", MAX_CONCURRENT_RUNS: "1", ZETARIS_QUERY_API_KEY: "key-for-tests-1", METERLESS_RUNTIME_TOKEN: "token-for-tests-1", ERP_DATABASE_URL: "postgres://u:p@localhost:1/db" }, script: () => gate });
+    h = await makeHarness({ env: { SAMPLE_MODE: "false", MAX_CONCURRENT_RUNS: "1", ZETARIS_QUERY_API_KEY: "key-for-tests-1", NEBIUS_API_KEY: "token-for-tests-1", ERP_DATABASE_URL: "postgres://u:p@localhost:1/db" }, script: () => gate });
     const first = await post(h, "/run", { ...typed, options: { async: true } });
     expect(first.statusCode).toBe(202);
     const second = await post(h, "/run", { ...typed, options: { async: true } });

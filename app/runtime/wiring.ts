@@ -81,7 +81,7 @@ export async function wirePorts(cfg: Config, models: Ports["models"], meta: Wire
   const pick = async (name: string, sample: boolean, deps?: unknown): Promise<unknown> => {
     const spec = SOURCES[name]!;
     const sources = sample ? spec.sample ?? [] : spec.live;
-    const engine = { ...meta, SAMPLE_MODE: cfg.SAMPLE_MODE, WORLD_DIR: cfg.WORLD_DIR, PAYEE_DEMO_SESSIONS: cfg.PAYEE_DEMO_SESSIONS, ENABLE_HMEM: cfg.ENABLE_HMEM, HMEM_DIR: cfg.HMEM_DIR };
+    const engine = { ...meta, SAMPLE_MODE: cfg.SAMPLE_MODE || cfg.HOSTED_DEMO, WORLD_DIR: cfg.WORLD_DIR, PAYEE_DEMO_SESSIONS: cfg.PAYEE_DEMO_SESSIONS, ENABLE_HMEM: cfg.ENABLE_HMEM, HMEM_DIR: cfg.HMEM_DIR };
     const hit = await tryLoad(sources, name === "world" || name === "memory" ? engine : cfg, deps);
     report[`${name}${sample ? ":sample" : ""}`] = hit ? (hit.source as string) : "NOT WIRED";
     if (!hit) logger.warn(`port_not_wired port=${name}${sample ? " (sample)" : ""}`);
@@ -89,9 +89,10 @@ export async function wirePorts(cfg: Config, models: Ports["models"], meta: Wire
   };
   const sampleMode = cfg.SAMPLE_MODE;
   const dual = async (name: string) => (sampleMode ? pick(name, true) : pick(name, false));
-  let erp = (await dual("erp")) as Ports["erp"];
+  // HOSTED_DEMO has no Postgres: the ERP is the in-memory writer, while the models stay live.
+  let erp = (cfg.HOSTED_DEMO && !sampleMode ? await pick("erp", true) : await dual("erp")) as Ports["erp"];
   // Live: remember this process's ERP writes so the offline fallback (Zetaris down, degrade policy) sees the run's own request.
-  if (!sampleMode && (erp as { kind?: string }).kind !== "unwired") erp = recordErpWrites(erp);
+  if (!sampleMode && !cfg.HOSTED_DEMO && (erp as { kind?: string }).kind !== "unwired") erp = recordErpWrites(erp);
   const sampleDeps = { erp };
   const dualSample = async (name: string) => (sampleMode ? pick(name, true, sampleDeps) : pick(name, false));
   const ports: Ports = {

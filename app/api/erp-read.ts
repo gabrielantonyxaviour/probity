@@ -66,7 +66,7 @@ async function readLive(cfg: Config): Promise<ErpSnapshot> {
 export async function loadErp(cfg: Config): Promise<ErpSnapshot> {
   if (cached && Date.now() - cached.at < TTL_MS) return cached.snap;
   let snap: ErpSnapshot;
-  if (cfg.SAMPLE_MODE || !cfg.ERP_DATABASE_URL) snap = readSample(cfg);
+  if (cfg.SAMPLE_MODE || cfg.HOSTED_DEMO || !cfg.ERP_DATABASE_URL) snap = readSample(cfg);
   else {
     try {
       snap = await readLive(cfg);
@@ -101,7 +101,7 @@ export function selectPaymentRun(snap: ErpSnapshot, vendorIds: string[], receive
 export type VendorLite = { vendor_id: string; legal_name: string; uei: string | null; registrant_cik: string | null };
 /** One vendor of record (for analyst notes). Live reads Postgres; SAMPLE_MODE reads the seed copy. */
 export async function loadVendor(cfg: Config, vendorId: string): Promise<VendorLite | null> {
-  if (!cfg.SAMPLE_MODE && cfg.ERP_DATABASE_URL) {
+  if (!cfg.SAMPLE_MODE && !cfg.HOSTED_DEMO && cfg.ERP_DATABASE_URL) {
     try {
       pool ??= new pg.Pool({ connectionString: cfg.ERP_DATABASE_URL, max: 3, statement_timeout: 10_000, connectionTimeoutMillis: 5000 });
       const r = await pool.query("SELECT vendor_id, legal_name, uei, registrant_cik FROM vendor WHERE vendor_id = $1", [vendorId]);
